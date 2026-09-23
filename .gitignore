@@ -1,0 +1,30 @@
+.venv/
+.venv-*/
+.research/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# Local configuration and downloaded model weights.
+.env
+.env.*
+!.env.example
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+
+# Profiler traces can contain local paths and are not benchmark summaries.
+*.trace.json
+*.nsys-rep
+*.ncu-rep
+*.log
+.DS_Store

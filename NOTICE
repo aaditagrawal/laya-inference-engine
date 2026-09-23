@@ -1,0 +1,23 @@
+Original code and modifications in Laya Blackwell are licensed under MIT;
+see LICENSE. Upstream-derived portions retain their Apache-2.0 terms and
+attribution. The MIT license does not replace those upstream terms.
+
+Laya Blackwell includes inference computations and request semantics adapted
+from Laya, developed by Convai Innovations and distributed under Apache-2.0.
+
+Upstream model: https://huggingface.co/convaiinnovations/laya
+Upstream SDK: https://github.com/NandhaKishorM/laya
+SDK version used: 0.3.9
+
+The model execution in src/laya_blackwell/model.py and response preparation
+in src/laya_blackwell/protocol.py have been modified for this engine. Changes
+include resident BF16 linear weights, precomputed rotary values, a fused
+rotary kernel, selective final-head outputs, bounded request preparation,
+and NumPy response formatting.
+
+The ModernBERT execution follows the Transformers implementation, distributed
+under Apache-2.0, with changes to layout, precision handling and execution.
+https://github.com/huggingface/transformers/blob/v5.17.0/src/transformers/models/modernbert/modeling_modernbert.py
+
+A copy of the Apache-2.0 terms is in licenses/Apache-2.0.txt.
+Model weights are downloaded separately and are not included in this package.

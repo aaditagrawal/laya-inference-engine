@@ -1,0 +1,23 @@
+{
+  "state": "The customer received a damaged order yesterday and is asking for a replacement. Their payment was processed successfully.",
+  "questions": {
+    "route": {
+      "type": "choice",
+      "instructions": "Choose the team that should handle this customer request.",
+      "criteria": {
+        "support": "Help with an existing order or damaged item",
+        "sales": "Help choosing a product or placing a new order",
+        "billing": "Resolve a payment or invoice problem"
+      }
+    },
+    "urgency": {
+      "type": "score",
+      "instructions": "Rate how urgently this request needs a response.",
+      "criteria": ["Low priority", "Normal priority", "High priority"]
+    },
+    "needs_replacement": {
+      "type": "noul",
+      "instructions": "Is the customer asking for a replacement?"
+    }
+  }
+}

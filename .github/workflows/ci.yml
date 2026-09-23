@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  cpu-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.12", "3.13"]
+    env:
+      CUDA_VISIBLE_DEVICES: ""
+      HF_HUB_OFFLINE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.11.32"
+          python-version: ${{ matrix.python }}
+          enable-cache: true
+      - name: Check the committed CUDA dependency lock
+        run: uv lock --check
+      - name: Build source and wheel distributions
+        if: matrix.python == '3.12'
+        run: uv build
+      - name: Install a CPU-only test environment
+        # This resolves a temporary CPU variant of the lock in the CI checkout.
+        # The shipped lock and local inference runtime continue to use CUDA 13.2.
+        run: >-
+          uv sync --extra dev --no-sources
+          --index https://download.pytorch.org/whl/cpu
+          --index-strategy unsafe-best-match
+      - name: Run tests without a GPU or checkpoint download
+        run: uv run --no-sync pytest -m "not gpu" -q

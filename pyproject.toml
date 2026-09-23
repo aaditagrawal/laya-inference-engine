@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "laya-blackwell"
+version = "0.1.0"
+description = "Blackwell-focused Laya decision inference with fused kernels and CUDA graphs"
+readme = "README.md"
+license = "MIT AND Apache-2.0"
+license-files = ["LICENSE", "NOTICE", "licenses/*.txt"]
+requires-python = ">=3.12,<3.14"
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "torch==2.14.0", "triton==3.8.0", "transformers==5.17.0",
+  "laya==0.3.9", "huggingface-hub==1.32.0", "safetensors>=0.8,<0.9",
+  "numpy>=2.0,<3", "fastapi>=0.115", "uvicorn>=0.34",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx>=0.28"]
+hub-kernels = ["kernels==0.16.2"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu132" }
+
+[[tool.uv.index]]
+name = "pytorch-cu132"
+url = "https://download.pytorch.org/whl/cu132"
+explicit = true
+
+[project.scripts]
+laya-blackwell = "laya_blackwell.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["laya_blackwell*"]
+namespaces = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["gpu: requires Blackwell and the downloaded model"]
+addopts = "--strict-markers"

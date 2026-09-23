@@ -1,0 +1,70 @@
+{
+  "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+  "packages": {
+    "torch": "2.14.0",
+    "transformers": "5.17.0",
+    "laya": "0.3.9",
+    "tilelang": "0.1.14"
+  },
+  "scope": "Default SDK versus optional fast SDK, full predict responses on the seven benchmark workloads plus a single-option request. Response probabilities are rounded by the SDK. Not task accuracy or a complete numerical validation.",
+  "rows": [
+    {
+      "questions": 1,
+      "state_length": "short",
+      "max_probability_error": 0.0,
+      "matching_top_options": 1,
+      "decisions": 1
+    },
+    {
+      "questions": 4,
+      "state_length": "short",
+      "max_probability_error": 0.005600000000000049,
+      "matching_top_options": 4,
+      "decisions": 4
+    },
+    {
+      "questions": 16,
+      "state_length": "short",
+      "max_probability_error": 0.004699999999999996,
+      "matching_top_options": 16,
+      "decisions": 16
+    },
+    {
+      "questions": 1,
+      "state_length": "medium",
+      "max_probability_error": 0.0005999999999999339,
+      "matching_top_options": 1,
+      "decisions": 1
+    },
+    {
+      "questions": 4,
+      "state_length": "medium",
+      "max_probability_error": 0.005400000000000071,
+      "matching_top_options": 4,
+      "decisions": 4
+    },
+    {
+      "questions": 1,
+      "state_length": "long",
+      "max_probability_error": 0.0009000000000000119,
+      "matching_top_options": 1,
+      "decisions": 1
+    },
+    {
+      "questions": 16,
+      "state_length": "long",
+      "max_probability_error": 0.005300000000000027,
+      "matching_top_options": 16,
+      "decisions": 16
+    },
+    {
+      "questions": 1,
+      "state_length": "single-option",
+      "error": "RuntimeError: selected index k out of range"
+    }
+  ],
+  "decisions": 43,
+  "matching_top_options": 43,
+  "max_probability_error": 0.005600000000000049,
+  "failed_requests": 1
+}
