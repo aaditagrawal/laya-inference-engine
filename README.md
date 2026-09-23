@@ -67,6 +67,8 @@ Upstream `compile=True` measured 8.24 ms for one short question, slower than its
 
 All paths include tokenization, transfers, inference, and formatting. **All exclude startup and HTTP overhead.** These are serial in-process measurements, with five warmups and 100 timed requests per case for the default comparison and 50 for upstream fast mode.
 
+First-use setup is a separate tradeoff. In a matched test on **p8's RTX A6000**, this engine's first short request took **0.40 seconds after model loading**, versus **36.7 seconds** for p8's optimized FP16 GPU implementation with `torch.compile` and CUDA Graphs. Warm requests favored that compiled implementation: 2.57 ms versus 3.57 ms here. These first-call figures include shape setup and graph capture, plus compilation where enabled; they exclude model loading and download and are not clean-machine cold starts. This engine ran on Ampere through a benchmark-only hardware-check override. These are A6000 results, not Blackwell startup measurements. [This engine's raw run](results/p8-comparison/blackwell.json), [compiled GPU raw run](results/p8-comparison/gpu-compiled.json)
+
 A separate [localhost HTTP comparison](results/benchmark-http.json) uses the same server wrapper and client for each backend. One short question took 3.99 ms here, 5.05 ms with upstream fast mode, and 22.52 ms with default upstream. All three exclude model and server startup equally.
 
 This comparison measures software improvements on Blackwell. It does not measure Blackwell's advantage over an older GPU. CUDA Graphs, resident BF16 weights, and most default kernels are not Blackwell-exclusive. The [performance documentation](docs/performance.md) explains the kernel evidence, measurement boundaries, and reproduction commands.
