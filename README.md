@@ -1,8 +1,10 @@
-# Laya Blackwell
+# Laya Inference Engine
 
 A GPU inference engine for [Laya](https://huggingface.co/convaiinnovations/laya), tested on the NVIDIA RTX 5070 Ti. It keeps weights on the GPU and uses BF16, CUDA Graphs, and a fused RoPE kernel to reduce request latency. CPU code handles tokenization and response formatting.
 
 Laya returns typed decisions in one forward pass. Useful metrics are completed-request latency, decisions per second, and input tokens per second. It does not generate or stream text.
+
+Contributor model to this effort and testing: GPT-6 Astra.
 
 ## Quickstart
 
