@@ -1,0 +1,743 @@
+{
+  "calibration_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "heldout_indices": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65
+  ],
+  "scope": "Synthetic teacher numerical parity, not labeled model quality. Heldout cases were not used to determine channel scales, but were reused to assess all three preselected alphas.",
+  "conclusion": "All three channel-balanced FP8 MLP variants fail parity; no quantized candidate accepted.",
+  "rows": [
+    {
+      "alpha": 0.25,
+      "status": "complete",
+      "p50_ms": {
+        "1-short": 2.9385724919848144,
+        "16-long": 82.78839651029557
+      },
+      "full_decisions": 208,
+      "full_agreement": 197,
+      "full_max_probability_error": 0.14659979939460754,
+      "calibration": {
+        "requests": 10,
+        "decisions": 40,
+        "agreement": 39,
+        "sdk_agreement": 39,
+        "unbucketed_sdk_agreement": 39,
+        "max_probability_error": 0.0866561233997345,
+        "passed_current_engine": false,
+        "failed_case_indices": [
+          1
+        ],
+        "indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "heldout": {
+        "requests": 32,
+        "decisions": 128,
+        "agreement": 121,
+        "sdk_agreement": 121,
+        "unbucketed_sdk_agreement": 121,
+        "max_probability_error": 0.12019526958465576,
+        "passed_current_engine": false,
+        "failed_case_indices": [
+          47,
+          49,
+          51,
+          54,
+          55,
+          65
+        ],
+        "indices": [
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ]
+      },
+      "quantizer_probe": null
+    },
+    {
+      "alpha": 0.5,
+      "status": "complete",
+      "p50_ms": {
+        "1-short": 2.9218419804237783,
+        "16-long": 83.14388908911496
+      },
+      "full_decisions": 208,
+      "full_agreement": 204,
+      "full_max_probability_error": 0.19905906915664673,
+      "calibration": {
+        "requests": 10,
+        "decisions": 40,
+        "agreement": 40,
+        "sdk_agreement": 40,
+        "unbucketed_sdk_agreement": 40,
+        "max_probability_error": 0.07644474506378174,
+        "passed_current_engine": false,
+        "failed_case_indices": [],
+        "indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "heldout": {
+        "requests": 32,
+        "decisions": 128,
+        "agreement": 124,
+        "sdk_agreement": 124,
+        "unbucketed_sdk_agreement": 124,
+        "max_probability_error": 0.19905906915664673,
+        "passed_current_engine": false,
+        "failed_case_indices": [
+          49,
+          54,
+          65
+        ],
+        "indices": [
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ]
+      },
+      "quantizer_probe": null
+    },
+    {
+      "alpha": 0.75,
+      "status": "complete",
+      "p50_ms": {
+        "1-short": 2.9465274419635534,
+        "16-long": 83.09853996615857
+      },
+      "full_decisions": 208,
+      "full_agreement": 203,
+      "full_max_probability_error": 0.24221988022327423,
+      "calibration": {
+        "requests": 10,
+        "decisions": 40,
+        "agreement": 40,
+        "sdk_agreement": 40,
+        "unbucketed_sdk_agreement": 40,
+        "max_probability_error": 0.07305467128753662,
+        "passed_current_engine": false,
+        "failed_case_indices": [],
+        "indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "heldout": {
+        "requests": 32,
+        "decisions": 128,
+        "agreement": 124,
+        "sdk_agreement": 124,
+        "unbucketed_sdk_agreement": 124,
+        "max_probability_error": 0.24221988022327423,
+        "passed_current_engine": false,
+        "failed_case_indices": [
+          37,
+          38,
+          49,
+          64
+        ],
+        "indices": [
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ]
+      },
+      "quantizer_probe": null
+    }
+  ],
+  "calibration": {
+    "metadata": {
+      "created_utc": "2026-09-23T20:13:33.677851+00:00",
+      "hardware": {
+        "name": "NVIDIA GeForce RTX 5070 Ti",
+        "compute_capability": "12.0",
+        "sm_count": 70,
+        "vram_bytes": 16608788480,
+        "torch": "2.14.0+cu132",
+        "cuda_runtime": "13.2",
+        "cuda_architecture": "sm_120"
+      },
+      "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+      "torch_threads": 4,
+      "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+      "validation_scope": "Synthetic implementation parity, not labeled model quality."
+    },
+    "calibration_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "source": "Unmodified BF16 baseline activations, before each encoder MLP Wi and Wo linear",
+    "scope": "Synthetic teacher calibration only. Indices 34..65 are not used for calibration.",
+    "requests": [
+      {
+        "index": 0,
+        "shape": [
+          4,
+          64,
+          4
+        ],
+        "input_tokens": 199,
+        "sha256": "7bc7819174eedd7f2b03d2f28fbd96b6d0086cf94c9a529f3fad05a250150e68"
+      },
+      {
+        "index": 1,
+        "shape": [
+          4,
+          64,
+          4
+        ],
+        "input_tokens": 191,
+        "sha256": "94eb485e189ab88c6e35696ab7454df19be1a2062217eecc4d6ff539bc8157f0"
+      },
+      {
+        "index": 2,
+        "shape": [
+          4,
+          64,
+          4
+        ],
+        "input_tokens": 191,
+        "sha256": "5908a99979994cf555e236c5b771296216a9278caf6ea6c1c61648379d7f58dd"
+      },
+      {
+        "index": 3,
+        "shape": [
+          4,
+          64,
+          4
+        ],
+        "input_tokens": 187,
+        "sha256": "873185e7ae9d1b53c4e819d4e576eea8ed60e07c532ce52e104bba5dce9c9887"
+      },
+      {
+        "index": 4,
+        "shape": [
+          4,
+          128,
+          4
+        ],
+        "input_tokens": 223,
+        "sha256": "45a9a663549e95c5bc79e8e4d1a2080a1263c43ca5d945a59addf1d7c1f51275"
+      },
+      {
+        "index": 5,
+        "shape": [
+          4,
+          128,
+          4
+        ],
+        "input_tokens": 219,
+        "sha256": "ea58b0eef1adafdc17d1af8cac6d77c1b40c4c223d4f7dc15141897ea3850875"
+      },
+      {
+        "index": 6,
+        "shape": [
+          4,
+          64,
+          4
+        ],
+        "input_tokens": 191,
+        "sha256": "7808782749d30bb39d13abbc00d594e2e05545b9d2eb83ea2743d6e0a8c484a4"
+      },
+      {
+        "index": 7,
+        "shape": [
+          4,
+          64,
+          4
+        ],
+        "input_tokens": 127,
+        "sha256": "8c4cb3db4f0893e5b804b82c7aba7b03ca7afb15e5a607daad7c5fc3781ca4a7"
+      },
+      {
+        "index": 8,
+        "shape": [
+          4,
+          256,
+          4
+        ],
+        "input_tokens": 851,
+        "sha256": "9f28bfe60b6c9cd807c96ec714ade35b4f8b3dc92f44915d3181468699ffbcca"
+      },
+      {
+        "index": 9,
+        "shape": [
+          4,
+          512,
+          4
+        ],
+        "input_tokens": 2048,
+        "sha256": "afdbf3da263e26f2cb640ac526d782cf7731362387ce6bbec6519b70afde85fa"
+      }
+    ],
+    "modules": {
+      "0.Wi": {
+        "channels": 1024,
+        "minimum": 0.1875,
+        "maximum": 5.40625
+      },
+      "0.Wo": {
+        "channels": 2624,
+        "minimum": 0.0859375,
+        "maximum": 7.21875
+      },
+      "1.Wi": {
+        "channels": 1024,
+        "minimum": 0.0301513671875,
+        "maximum": 1.3359375
+      },
+      "1.Wo": {
+        "channels": 2624,
+        "minimum": 0.107421875,
+        "maximum": 18.125
+      },
+      "2.Wi": {
+        "channels": 1024,
+        "minimum": 0.0289306640625,
+        "maximum": 1.3359375
+      },
+      "2.Wo": {
+        "channels": 2624,
+        "minimum": 0.11328125,
+        "maximum": 6.75
+      },
+      "3.Wi": {
+        "channels": 1024,
+        "minimum": 0.0238037109375,
+        "maximum": 1.5390625
+      },
+      "3.Wo": {
+        "channels": 2624,
+        "minimum": 0.1279296875,
+        "maximum": 14.0
+      },
+      "4.Wi": {
+        "channels": 1024,
+        "minimum": 0.0184326171875,
+        "maximum": 1.6484375
+      },
+      "4.Wo": {
+        "channels": 2624,
+        "minimum": 0.15234375,
+        "maximum": 25.0
+      },
+      "5.Wi": {
+        "channels": 1024,
+        "minimum": 0.016845703125,
+        "maximum": 2.140625
+      },
+      "5.Wo": {
+        "channels": 2624,
+        "minimum": 0.1796875,
+        "maximum": 394.0
+      },
+      "6.Wi": {
+        "channels": 1024,
+        "minimum": 0.443359375,
+        "maximum": 4.0625
+      },
+      "6.Wo": {
+        "channels": 2624,
+        "minimum": 0.205078125,
+        "maximum": 476.0
+      },
+      "7.Wi": {
+        "channels": 1024,
+        "minimum": 0.50390625,
+        "maximum": 3.71875
+      },
+      "7.Wo": {
+        "channels": 2624,
+        "minimum": 0.24609375,
+        "maximum": 876.0
+      },
+      "8.Wi": {
+        "channels": 1024,
+        "minimum": 0.447265625,
+        "maximum": 4.0
+      },
+      "8.Wo": {
+        "channels": 2624,
+        "minimum": 0.2216796875,
+        "maximum": 40.0
+      },
+      "9.Wi": {
+        "channels": 1024,
+        "minimum": 0.50390625,
+        "maximum": 4.21875
+      },
+      "9.Wo": {
+        "channels": 2624,
+        "minimum": 0.2080078125,
+        "maximum": 35.75
+      },
+      "10.Wi": {
+        "channels": 1024,
+        "minimum": 0.49609375,
+        "maximum": 3.609375
+      },
+      "10.Wo": {
+        "channels": 2624,
+        "minimum": 0.181640625,
+        "maximum": 20.625
+      },
+      "11.Wi": {
+        "channels": 1024,
+        "minimum": 0.5625,
+        "maximum": 3.546875
+      },
+      "11.Wo": {
+        "channels": 2624,
+        "minimum": 0.2470703125,
+        "maximum": 11.1875
+      },
+      "12.Wi": {
+        "channels": 1024,
+        "minimum": 0.5234375,
+        "maximum": 4.625
+      },
+      "12.Wo": {
+        "channels": 2624,
+        "minimum": 0.267578125,
+        "maximum": 572.0
+      },
+      "13.Wi": {
+        "channels": 1024,
+        "minimum": 0.59375,
+        "maximum": 9.5
+      },
+      "13.Wo": {
+        "channels": 2624,
+        "minimum": 0.283203125,
+        "maximum": 57.75
+      },
+      "14.Wi": {
+        "channels": 1024,
+        "minimum": 0.5703125,
+        "maximum": 11.5625
+      },
+      "14.Wo": {
+        "channels": 2624,
+        "minimum": 0.328125,
+        "maximum": 1904.0
+      },
+      "15.Wi": {
+        "channels": 1024,
+        "minimum": 0.60546875,
+        "maximum": 12.0625
+      },
+      "15.Wo": {
+        "channels": 2624,
+        "minimum": 0.275390625,
+        "maximum": 20.75
+      },
+      "16.Wi": {
+        "channels": 1024,
+        "minimum": 0.6484375,
+        "maximum": 12.9375
+      },
+      "16.Wo": {
+        "channels": 2624,
+        "minimum": 0.3125,
+        "maximum": 32.25
+      },
+      "17.Wi": {
+        "channels": 1024,
+        "minimum": 0.6328125,
+        "maximum": 13.5
+      },
+      "17.Wo": {
+        "channels": 2624,
+        "minimum": 0.32421875,
+        "maximum": 29.375
+      },
+      "18.Wi": {
+        "channels": 1024,
+        "minimum": 0.6796875,
+        "maximum": 15.375
+      },
+      "18.Wo": {
+        "channels": 2624,
+        "minimum": 0.330078125,
+        "maximum": 498.0
+      },
+      "19.Wi": {
+        "channels": 1024,
+        "minimum": 0.66015625,
+        "maximum": 16.625
+      },
+      "19.Wo": {
+        "channels": 2624,
+        "minimum": 0.291015625,
+        "maximum": 3440.0
+      },
+      "20.Wi": {
+        "channels": 1024,
+        "minimum": 0.75,
+        "maximum": 19.5
+      },
+      "20.Wo": {
+        "channels": 2624,
+        "minimum": 0.310546875,
+        "maximum": 40.25
+      },
+      "21.Wi": {
+        "channels": 1024,
+        "minimum": 0.80078125,
+        "maximum": 19.75
+      },
+      "21.Wo": {
+        "channels": 2624,
+        "minimum": 0.376953125,
+        "maximum": 52.25
+      },
+      "22.Wi": {
+        "channels": 1024,
+        "minimum": 0.82421875,
+        "maximum": 20.0
+      },
+      "22.Wo": {
+        "channels": 2624,
+        "minimum": 0.44140625,
+        "maximum": 31.625
+      },
+      "23.Wi": {
+        "channels": 1024,
+        "minimum": 0.79296875,
+        "maximum": 20.25
+      },
+      "23.Wo": {
+        "channels": 2624,
+        "minimum": 0.48828125,
+        "maximum": 43.0
+      },
+      "24.Wi": {
+        "channels": 1024,
+        "minimum": 0.75390625,
+        "maximum": 20.75
+      },
+      "24.Wo": {
+        "channels": 2624,
+        "minimum": 0.46484375,
+        "maximum": 71.0
+      },
+      "25.Wi": {
+        "channels": 1024,
+        "minimum": 0.77734375,
+        "maximum": 23.0
+      },
+      "25.Wo": {
+        "channels": 2624,
+        "minimum": 0.36328125,
+        "maximum": 78.5
+      },
+      "26.Wi": {
+        "channels": 1024,
+        "minimum": 0.73046875,
+        "maximum": 21.125
+      },
+      "26.Wo": {
+        "channels": 2624,
+        "minimum": 0.419921875,
+        "maximum": 72.0
+      },
+      "27.Wi": {
+        "channels": 1024,
+        "minimum": 0.6171875,
+        "maximum": 19.5
+      },
+      "27.Wo": {
+        "channels": 2624,
+        "minimum": 0.3828125,
+        "maximum": 31.375
+      }
+    },
+    "calibration_ms": 648.7728980137035,
+    "status": "passed"
+  },
+  "quantizer_probe": {
+    "status": "passed",
+    "alpha": 0.75,
+    "checks": [
+      {
+        "module": "Wi",
+        "elements": 65536,
+        "fp8_byte_mismatches": 0,
+        "max_scale_error": 0.0,
+        "reference": "Existing row quantizer applied to an explicit FP32 X/S intermediate; no BF16 rescale rounding"
+      },
+      {
+        "module": "Wo",
+        "elements": 167936,
+        "fp8_byte_mismatches": 0,
+        "max_scale_error": 0.0,
+        "reference": "Existing row quantizer applied to an explicit FP32 X/S intermediate; no BF16 rescale rounding"
+      }
+    ]
+  },
+  "algorithm_source": "https://github.com/mit-han-lab/smoothquant/blob/main/smoothquant/smooth.py"
+}

@@ -1,0 +1,24 @@
+Device / round,Mode,Timer boundary,Seconds,Processes,Cache conditions,Source
+RTX 5070 Ti original,upstream,First predict after loading; CUDA already initialized,0.844,1,Existing caches may be reused,benchmark.json
+RTX 5070 Ti original,fused,First predict after loading; CUDA already initialized,0.065,1,Existing caches may be reused,benchmark.json
+RTX 5070 Ti original,upstream-fast,First predict after loading; CUDA already initialized,13.720,1,Existing caches may be reused,upstream-fast.json
+RTX 5070 Ti original,upstream-compile,First predict after loading; CUDA already initialized,19.497,1,Existing caches may be reused,upstream-compile.json
+RTX 5070 Ti round 1,native-window,First predict after setup,0.619,1,reused,native-optimizations/compiler/clean-startup-native-window.json
+RTX 5070 Ti round 1,native-window,Python entry to first complete response,5.294,1,reused,native-optimizations/compiler/clean-startup-native-window.json
+RTX 5070 Ti round 1,compiled,First predict after setup,12.698,1,fresh-isolated-compiler-caches,native-optimizations/compiler/clean-startup-cold.json
+RTX 5070 Ti round 1,compiled,Python entry to first complete response,18.238,1,fresh-isolated-compiler-caches,native-optimizations/compiler/clean-startup-cold.json
+RTX 5070 Ti round 1,compiled,First predict after setup,2.761,1,reused-compiler-caches-new-process,native-optimizations/compiler/clean-startup-warm.json
+RTX 5070 Ti round 1,compiled,Python entry to first complete response,7.761,1,reused-compiler-caches-new-process,native-optimizations/compiler/clean-startup-warm.json
+RTX 5070 Ti round 2,"aot-fast, fresh caches",Module entry to first complete response,3.730,3,Observed range 3.690 to 3.847 s,latency-optimizations/aot/final-offline/matrix-summary.json
+RTX 5070 Ti round 2,"native, fresh caches",Module entry to first complete response,6.326,3,Observed range 6.323 to 6.376 s,latency-optimizations/aot/final-offline/matrix-summary.json
+RTX 5070 Ti round 2,"compile, fresh caches",Module entry to first complete response,20.638,3,Observed range 20.600 to 20.794 s,latency-optimizations/aot/final-offline/matrix-summary.json
+RTX 5070 Ti round 2,"compile, reused caches",Module entry to first complete response,8.668,3,Observed range 8.662 to 8.731 s,latency-optimizations/aot/final-offline/matrix-summary.json
+RTX A6000,blackwell,First predict after loading,0.395,1,Existing model and compiler caches; not clean install,rtx-a6000/blackwell.json
+RTX A6000,cpu-pool,First predict after loading,0.115,1,Existing model and compiler caches; not clean install,rtx-a6000/cpu-pool.json
+RTX A6000,cpu,First predict after loading,0.079,1,Existing model and compiler caches; not clean install,rtx-a6000/cpu.json
+RTX A6000,gpu-compiled-mixed-bf16,First predict after loading,35.751,1,Existing model and compiler caches; not clean install,rtx-a6000/gpu-compiled-mixed-bf16.json
+RTX A6000,gpu-compiled,First predict after loading,36.731,1,Existing model and compiler caches; not clean install,rtx-a6000/gpu-compiled.json
+RTX A6000,gpu-mixed-bf16,First predict after loading,0.608,1,Existing model and compiler caches; not clean install,rtx-a6000/gpu-mixed-bf16.json
+RTX A6000,gpu,First predict after loading,0.690,1,Existing model and compiler caches; not clean install,rtx-a6000/gpu.json
+RTX A6000,hybrid-compiled,First predict after loading,28.920,1,Existing model and compiler caches; not clean install,rtx-a6000/hybrid-compiled.json
+RTX A6000,hybrid,First predict after loading,0.564,1,Existing model and compiler caches; not clean install,rtx-a6000/hybrid.json

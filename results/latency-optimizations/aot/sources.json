@@ -1,0 +1,24 @@
+{
+  "official": [
+    {
+      "title": "torch.export AOTInductor Python runtime tutorial",
+      "url": "https://docs.pytorch.org/tutorials/recipes/torch_export_aoti_python.html"
+    },
+    {
+      "title": "AOTInductor deployment documentation",
+      "url": "https://docs.pytorch.org/docs/main/user_guide/torch_compiler/torch.compiler_aot_inductor.html"
+    },
+    {
+      "title": "PT2 archive specification",
+      "url": "https://docs.pytorch.org/docs/main/user_guide/torch_compiler/export/pt2_archive.html"
+    }
+  ],
+  "local_evidence": {
+    "high_level_loader_probe": ".venv/lib/python3.12/site-packages/torch/export/pt2_archive/_package.py:_load_aoti calls get_device_information after package construction",
+    "device_information": ".venv/lib/python3.12/site-packages/torch/_inductor/codecache.py:get_device_information invokes cpu_vec_isa.pick_vec_isa",
+    "cpu_feature_probe": ".venv/lib/python3.12/site-packages/torch/_inductor/cpu_vec_isa.py:VecISA.check_build",
+    "unquoted_source_output_paths": ".venv/lib/python3.12/site-packages/torch/_inductor/cpp_builder.py:CppBuilder._sources_args and _output are joined into a command string",
+    "triton_export_blocker": "build-one-short.json retains the non-strict export rejection; strict export succeeds"
+  },
+  "scope": "Private Torch APIs are explicitly pinned to the installed 2.14 build."
+}

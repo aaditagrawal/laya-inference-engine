@@ -1,0 +1,171 @@
+{
+  "method": "Median of all full-predict samples per engine/case, three randomized blocks. Final best uses 90 samples; no startup or HTTP.",
+  "comparisons": [
+    {
+      "report": "combined.json",
+      "case": "1-short",
+      "samples_per_variant": 60,
+      "baseline_p50_ms": 2.205468947067857,
+      "fusion_p50_ms": 2.2095899912528694,
+      "speedup": 0.9981349281082342,
+      "latency_reduction_pct": -0.1868556884689454
+    },
+    {
+      "report": "combined.json",
+      "case": "16-short",
+      "samples_per_variant": 60,
+      "baseline_p50_ms": 10.755265539046377,
+      "fusion_p50_ms": 10.559329530224204,
+      "speedup": 1.01855572441994,
+      "latency_reduction_pct": 1.8217682130751478
+    },
+    {
+      "report": "combined.json",
+      "case": "1-long",
+      "samples_per_variant": 60,
+      "baseline_p50_ms": 7.695787993725389,
+      "fusion_p50_ms": 7.6337819918990135,
+      "speedup": 1.0081225795932052,
+      "latency_reduction_pct": 0.8057134873898697
+    },
+    {
+      "report": "combined.json",
+      "case": "16-long",
+      "samples_per_variant": 60,
+      "baseline_p50_ms": 88.47225154750049,
+      "fusion_p50_ms": 82.11643906543031,
+      "speedup": 1.07740000119837,
+      "latency_reduction_pct": 7.183961491765311
+    },
+    {
+      "report": "combined-confirmation.json",
+      "case": "1-short",
+      "samples_per_variant": 90,
+      "baseline_p50_ms": 2.2498500184156,
+      "fusion_p50_ms": 2.222864015493542,
+      "speedup": 1.0121401951419267,
+      "latency_reduction_pct": 1.1994578616872587
+    },
+    {
+      "report": "combined-confirmation.json",
+      "case": "16-short",
+      "samples_per_variant": 90,
+      "baseline_p50_ms": 10.742236452642828,
+      "fusion_p50_ms": 10.547490965109318,
+      "speedup": 1.0184636790093227,
+      "latency_reduction_pct": 1.812895186137875
+    },
+    {
+      "report": "combined-confirmation.json",
+      "case": "1-long",
+      "samples_per_variant": 90,
+      "baseline_p50_ms": 7.548432506155223,
+      "fusion_p50_ms": 7.619228505063802,
+      "speedup": 0.990708245741478,
+      "latency_reduction_pct": -0.9378900699032577
+    },
+    {
+      "report": "combined-confirmation.json",
+      "case": "16-long",
+      "samples_per_variant": 90,
+      "baseline_p50_ms": 88.04861200042069,
+      "fusion_p50_ms": 81.4832835458219,
+      "speedup": 1.0805727036135797,
+      "latency_reduction_pct": 7.4564814883934964
+    },
+    {
+      "report": "best.json",
+      "case": "1-short",
+      "samples_per_variant": 90,
+      "baseline_p50_ms": 2.2144545218907297,
+      "fusion_p50_ms": 2.219144953414798,
+      "speedup": 0.9978863789330884,
+      "latency_reduction_pct": -0.21180979233041963
+    },
+    {
+      "report": "best.json",
+      "case": "16-short",
+      "samples_per_variant": 90,
+      "baseline_p50_ms": 10.790683038067073,
+      "fusion_p50_ms": 10.49825648078695,
+      "speedup": 1.0278547735821941,
+      "latency_reduction_pct": 2.709991167829773
+    },
+    {
+      "report": "best.json",
+      "case": "1-long",
+      "samples_per_variant": 90,
+      "baseline_p50_ms": 7.698799017816782,
+      "fusion_p50_ms": 7.624958525411785,
+      "speedup": 1.009684051678302,
+      "latency_reduction_pct": 0.9591170289562467
+    },
+    {
+      "report": "best.json",
+      "case": "16-long",
+      "samples_per_variant": 90,
+      "baseline_p50_ms": 88.14349595922977,
+      "fusion_p50_ms": 81.23145549325272,
+      "speedup": 1.0850906883793456,
+      "latency_reduction_pct": 7.841804310977373
+    }
+  ],
+  "best_configuration": {
+    "wi": {
+      "packed": true,
+      "lut": true,
+      "tiles": {
+        "512": null,
+        "2048": [
+          64,
+          32,
+          32,
+          4,
+          3
+        ],
+        "8192": [
+          64,
+          64,
+          32,
+          4,
+          3
+        ]
+      }
+    },
+    "qkv": {
+      "packed": false,
+      "tiles": {
+        "2048": null,
+        "8192": [
+          64,
+          64,
+          32,
+          4,
+          3
+        ]
+      }
+    }
+  },
+  "validation": {
+    "requests": 66,
+    "decisions": 208,
+    "agreement": 208,
+    "sdk_agreement": 208,
+    "unbucketed_sdk_agreement": 208,
+    "max_probability_error": 0.0,
+    "max_sdk_probability_error": 0.003152787685394287,
+    "exact_logits_all": true,
+    "exact_actions_all": true,
+    "action_argmax_agreement": 208,
+    "max_action_probability_error": 0.0,
+    "max_action_logit_error": 0.0,
+    "passed_actions": true,
+    "passed_current_engine": true,
+    "passed_sdk": true
+  },
+  "benchmark_probe_decisions": 102,
+  "benchmark_probes_exact": true,
+  "baseline_probe_exact": true,
+  "extra_packed_weight_bytes": 300941312,
+  "conclusion": "Useful for larger batches. Small-shape microkernel wins did not give stable full-request wins, so best.json retains the existing projections at <=512 rows and QKV at <=2048 rows."
+}

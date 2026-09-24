@@ -1,0 +1,164 @@
+{
+  "variant": "compile-native-precise-opaque-pinned",
+  "metadata": {
+    "created_utc": "2026-09-23T20:14:34.269729+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "case": "1-short",
+  "compiler_cache_environment": {
+    "TORCHINDUCTOR_CACHE_DIR": ".research/native-20260924/compiler/cache-pinned",
+    "TRITON_CACHE_DIR": ".research/native-20260924/compiler/triton-pinned"
+  },
+  "model_load_ms": 3613.710911013186,
+  "native_kind": "cuda_norm_triton_geglu_corrected",
+  "gelu_corrections": [
+    [
+      49288,
+      49292,
+      49294,
+      49309
+    ],
+    [
+      47166,
+      47070,
+      47017,
+      46611
+    ]
+  ],
+  "libdevice": {
+    "path": ".venv/lib/python3.12/site-packages/triton/backends/nvidia/lib/libdevice.10.bc",
+    "sha256": "5c2fae37c86e68c3a38605a95f512d7d12d5f3db986310be47f57304aa72a5ee"
+  },
+  "rows": [
+    {
+      "case": "1-short",
+      "questions": 1,
+      "length": "short",
+      "input_tokens": 64,
+      "first_ms": 12819.956218940206,
+      "request_sha256": "9bbbee88c1c845ca420576a51e33718185b6a5cdcddf2463bb6c4e22fff55183",
+      "mean_ms": 2.4239877751097083,
+      "p50_ms": 2.4015549570322037,
+      "p95_ms": 2.556813473347574,
+      "samples_ms": [
+        2.399310003966093,
+        2.407439984381199,
+        2.3888798896223307,
+        2.4354190099984407,
+        2.4684499949216843,
+        2.470721025019884,
+        2.624700078740716,
+        2.6368009857833385,
+        2.473121043294668,
+        2.4671199498698115,
+        2.7220910415053368,
+        2.452600048854947,
+        2.424480044282973,
+        2.4290300207212567,
+        2.399910008534789,
+        2.414099988527596,
+        2.4035399546846747,
+        2.391149988397956,
+        2.4109999649226665,
+        2.395738963969052,
+        2.4084500037133694,
+        2.408880041912198,
+        2.3931299801915884,
+        2.4083899334073067,
+        2.3933700285851955,
+        2.3997999960556626,
+        2.404349041171372,
+        2.395629999227822,
+        2.39639007486403,
+        2.389809931628406,
+        2.3990299087017775,
+        2.3958799429237843,
+        2.403649967163801,
+        2.402000012807548,
+        2.3838289780542254,
+        2.3866299306973815,
+        2.4011099012568593,
+        2.388769993558526,
+        2.4067400954663754,
+        2.377459080889821,
+        2.39393999800086,
+        2.399829914793372,
+        2.3872200399637222,
+        2.3930700263008475,
+        2.387879998423159,
+        2.37763999029994,
+        2.4108990328386426,
+        2.3893900215625763,
+        2.4267799453809857,
+        2.473840955644846
+      ],
+      "decisions_per_second": 412.54333469348484
+    }
+  ],
+  "device_rows": [
+    {
+      "case": "1-short",
+      "graph_device_ms": 1.8430073547363282
+    }
+  ],
+  "validation": {
+    "requests": 3,
+    "decisions": 9,
+    "agreement": 9,
+    "sdk_agreement": 9,
+    "unbucketed_sdk_agreement": 9,
+    "max_probability_error": 0.0,
+    "max_sdk_probability_error": 0.0015571117401123047,
+    "exact_logits_all": true,
+    "passed_current_engine": true,
+    "passed_sdk": true,
+    "cases": [
+      {
+        "case": 16,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0015571117401123047,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 33,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0002467036247253418,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 49,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.00022089481353759766,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "exact_logits": true
+      }
+    ]
+  },
+  "status": "complete"
+}

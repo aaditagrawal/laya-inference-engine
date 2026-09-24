@@ -1,0 +1,1658 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T02:44:28.100451+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "policy": "dense-32",
+  "status": "complete",
+  "benchmark_checks": [
+    {
+      "case": "1-short",
+      "request_sha256": "9bbbee88c1c845ca420576a51e33718185b6a5cdcddf2463bb6c4e22fff55183",
+      "input_tokens": 64,
+      "baseline_shape": [
+        1,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        1,
+        64,
+        4
+      ],
+      "exact_logits_and_actions": true,
+      "max_probability_error": 0.0,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 0.0,
+      "passed": true
+    },
+    {
+      "case": "5-short",
+      "request_sha256": "919a995fd4ac83eb30dc0a2eeb906d86b404e16def3ececf5e046f41898aba74",
+      "input_tokens": 283,
+      "baseline_shape": [
+        8,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        64,
+        4
+      ],
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.003959640860557556,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 32.0,
+      "passed": true
+    },
+    {
+      "case": "17-short",
+      "request_sha256": "3a3746ce086574f3829dfd7acbcc9a118d335d6b0452cd62049f4ff78b48a82a",
+      "input_tokens": 951,
+      "baseline_shape": [
+        32,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        64,
+        4
+      ],
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0031142830848693848,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true
+    },
+    {
+      "case": "33-short",
+      "request_sha256": "d91d9d6f5e4748a88d9f481431ce1b5760ff274f7ecd2be01517accb1c0ab8b9",
+      "input_tokens": 1837,
+      "baseline_shape": [
+        64,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        33,
+        64,
+        4
+      ],
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0005809664726257324,
+      "agreement": 33,
+      "decisions": 33,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 33,
+      "max_action_logit_error": 0.0,
+      "passed": true
+    },
+    {
+      "case": "1-medium",
+      "request_sha256": "dc9901008514e63299b491548e3fb2f93cc0ff9c5de2df70560ec246611575e9",
+      "input_tokens": 227,
+      "baseline_shape": [
+        1,
+        256,
+        4
+      ],
+      "candidate_shape": [
+        1,
+        256,
+        4
+      ],
+      "exact_logits_and_actions": true,
+      "max_probability_error": 0.0,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 0.0,
+      "passed": true
+    },
+    {
+      "case": "5-medium",
+      "request_sha256": "3c453b1837373d9298b611cf9c47969d9de231a4a223cbece43deaf7b035403c",
+      "input_tokens": 1098,
+      "baseline_shape": [
+        8,
+        256,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        256,
+        4
+      ],
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0030275583267211914,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 32.0,
+      "passed": true
+    },
+    {
+      "case": "17-medium",
+      "request_sha256": "defcea6211ee4ec58e936f0e8986bf77e346f49d632e2e27ba7dd28801695c36",
+      "input_tokens": 3722,
+      "baseline_shape": [
+        32,
+        256,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        256,
+        4
+      ],
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.006528258323669434,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true
+    },
+    {
+      "case": "5-long",
+      "request_sha256": "1dc06cf2d65f3313e872ee448bb80e5df87ee746bb7be60ee6ce3254f1bc2abf",
+      "input_tokens": 2560,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ],
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0034404993057250977,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true
+    },
+    {
+      "case": "17-long",
+      "request_sha256": "3a460c3d3d347245d32748d91d5d65e9e77ffc200ed5058fe4f6f7fc6cbf2b0c",
+      "input_tokens": 8704,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ],
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.003309965133666992,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true
+    },
+    {
+      "case": "16-long",
+      "request_sha256": "588330ab789d2a8791e551a93e80fd536898efe9f8907db7c1a881a55eac773f",
+      "input_tokens": 8192,
+      "baseline_shape": [
+        16,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        16,
+        512,
+        4
+      ],
+      "exact_logits_and_actions": true,
+      "max_probability_error": 0.0,
+      "agreement": 16,
+      "decisions": 16,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 16,
+      "max_action_logit_error": 0.0,
+      "passed": true
+    }
+  ],
+  "timings": {
+    "rows": [
+      {
+        "variant": "candidate",
+        "case": "1-short",
+        "round": 0,
+        "questions": 1,
+        "input_tokens": 64,
+        "mean_ms": 2.1789115970022976,
+        "p50_ms": 2.179566537961364,
+        "p95_ms": 2.18324800953269,
+        "samples_ms": [
+          2.1802859846502542,
+          2.1807668963447213,
+          2.1788470912724733,
+          2.178695984184742,
+          2.1821369882673025,
+          2.1841570269316435,
+          2.1767360158264637,
+          2.1727969869971275,
+          2.1743159741163254,
+          2.180377021431923
+        ]
+      },
+      {
+        "variant": "baseline",
+        "case": "1-short",
+        "round": 0,
+        "questions": 1,
+        "input_tokens": 64,
+        "mean_ms": 2.18556058825925,
+        "p50_ms": 2.1855569793842733,
+        "p95_ms": 2.1933360141701996,
+        "samples_ms": [
+          2.188776037655771,
+          2.184476936236024,
+          2.1866370225325227,
+          2.1878560073673725,
+          2.1970669040456414,
+          2.187366015277803,
+          2.180467010475695,
+          2.181667019613087,
+          2.1833459613844752,
+          2.1779469680041075
+        ]
+      },
+      {
+        "variant": "baseline",
+        "case": "5-short",
+        "round": 0,
+        "questions": 5,
+        "input_tokens": 283,
+        "mean_ms": 6.021733279339969,
+        "p50_ms": 6.019858410581946,
+        "p95_ms": 6.0301914869342,
+        "samples_ms": [
+          6.0312580317258835,
+          6.0274379793554544,
+          6.0286890948191285,
+          6.018057931214571,
+          6.013437989167869,
+          6.028887932188809,
+          6.020078901201487,
+          6.017597974278033,
+          6.012249039486051,
+          6.019637919962406
+        ]
+      },
+      {
+        "variant": "candidate",
+        "case": "5-short",
+        "round": 0,
+        "questions": 5,
+        "input_tokens": 283,
+        "mean_ms": 4.597644088789821,
+        "p50_ms": 4.597513994667679,
+        "p95_ms": 4.6122950268909335,
+        "samples_ms": [
+          4.595455015078187,
+          4.580412991344929,
+          4.606734029948711,
+          4.60243399720639,
+          4.616844933480024,
+          4.599572974257171,
+          4.59260493516922,
+          4.593143006786704,
+          4.585955059155822,
+          4.603283945471048
+        ]
+      },
+      {
+        "variant": "candidate",
+        "case": "17-short",
+        "round": 0,
+        "questions": 17,
+        "input_tokens": 951,
+        "mean_ms": 11.182080104481429,
+        "p50_ms": 11.171064048539847,
+        "p95_ms": 11.238128930563107,
+        "samples_ms": [
+          11.175254010595381,
+          11.165873962454498,
+          11.166804004460573,
+          11.158414068631828,
+          11.172984028235078,
+          11.175833991728723,
+          11.169144068844616,
+          11.16645394358784,
+          11.203925008885562,
+          11.26611395739019
+        ]
+      },
+      {
+        "variant": "baseline",
+        "case": "17-short",
+        "round": 0,
+        "questions": 17,
+        "input_tokens": 951,
+        "mean_ms": 21.06658909469843,
+        "p50_ms": 21.04106399929151,
+        "p95_ms": 21.148454025387764,
+        "samples_ms": [
+          21.026124013587832,
+          21.031233947724104,
+          21.024524001404643,
+          21.03056397754699,
+          21.081414073705673,
+          21.15857496391982,
+          21.136083989404142,
+          21.09524398110807,
+          21.03744400665164,
+          21.04468399193138
+        ]
+      },
+      {
+        "variant": "candidate",
+        "case": "33-short",
+        "round": 0,
+        "questions": 33,
+        "input_tokens": 1837,
+        "mean_ms": 21.840073610655963,
+        "p50_ms": 21.837966982275248,
+        "p95_ms": 21.862800512462854,
+        "samples_ms": [
+          21.83730702381581,
+          21.86418604105711,
+          21.835107007063925,
+          21.85293601360172,
+          21.83968701865524,
+          21.86110708862543,
+          21.826575975865126,
+          21.838626940734684,
+          21.81362605188042,
+          21.831576945260167
+        ]
+      },
+      {
+        "variant": "baseline",
+        "case": "33-short",
+        "round": 0,
+        "questions": 33,
+        "input_tokens": 1837,
+        "mean_ms": 41.40917519107461,
+        "p50_ms": 41.40025097876787,
+        "p95_ms": 41.51467937626876,
+        "samples_ms": [
+          41.36246594134718,
+          41.30641603842378,
+          41.337486007250845,
+          41.361516108736396,
+          41.346345911733806,
+          41.43803601618856,
+          41.46853706333786,
+          41.44365596584976,
+          41.50331695564091,
+          41.523975902237
+        ]
+      },
+      {
+        "variant": "baseline",
+        "case": "1-medium",
+        "round": 0,
+        "questions": 1,
+        "input_tokens": 227,
+        "mean_ms": 3.913446015212685,
+        "p50_ms": 3.911692008841783,
+        "p95_ms": 3.9302629709709436,
+        "samples_ms": [
+          3.9403520058840513,
+          3.9116920670494437,
+          3.9132420206442475,
+          3.911492065526545,
+          3.8998720701783895,
+          3.902822034433484,
+          3.909852006472647,
+          3.911691950634122,
+          3.9179319282993674,
+          3.915512003004551
+        ]
+      },
+      {
+        "variant": "candidate",
+        "case": "1-medium",
+        "round": 0,
+        "questions": 1,
+        "input_tokens": 227,
+        "mean_ms": 3.9024498895742,
+        "p50_ms": 3.901601943653077,
+        "p95_ms": 3.9136230014264584,
+        "samples_ms": [
+          3.904622048139572,
+          3.8997119991108775,
+          3.911411971785128,
+          3.896182053722441,
+          3.8895109901204705,
+          3.9007519371807575,
+          3.9024519501253963,
+          3.915432025678456,
+          3.911171923391521,
+          3.893251996487379
+        ]
+      },
+      {
+        "variant": "baseline",
+        "case": "5-medium",
+        "round": 0,
+        "questions": 5,
+        "input_tokens": 1098,
+        "mean_ms": 22.087728383485228,
+        "p50_ms": 22.109957004431635,
+        "p95_ms": 22.15455396217294,
+        "samples_ms": [
+          21.98895695619285,
+          22.008748026564717,
+          22.001586970873177,
+          22.084536962211132,
+          22.139637963846326,
+          22.092527011409402,
+          22.133938036859035,
+          22.12738699745387,
+          22.166757960803807,
+          22.133206948637962
+        ]
+      },
+      {
+        "variant": "candidate",
+        "case": "5-medium",
+        "round": 0,
+        "questions": 5,
+        "input_tokens": 1098,
+        "mean_ms": 14.460534229874611,
+        "p50_ms": 14.462349005043507,
+        "p95_ms": 14.477773528778926,
+        "samples_ms": [
+          14.47717403061688,
+          14.452264062128961,
+          14.453425072133541,
+          14.450654038228095,
+          14.478264027275145,
+          14.463564031757414,
+          14.463323983363807,
+          14.466834021732211,
+          14.461374026723206,
+          14.438465004786849
+        ]
+      },
+      {
+        "variant": "baseline",
+        "case": "17-medium",
+        "round": 0,
+        "questions": 17,
+        "input_tokens": 3722,
+        "mean_ms": 86.70218520564958,
+        "p50_ms": 86.69450000161305,
+        "p95_ms": 86.77845348720439,
+        "samples_ms": [
+          86.66059502866119,
+          86.65399497840554,
+          86.6629850352183,
+          86.64858504198492,
+          86.7114249849692,
+          86.72303496859968,
+          86.6775750182569,
+          86.76263596862555,
+          86.79139509331435,
+          86.72962593846023
+        ]
+      },
+      {
+        "variant": "candidate",
+        "case": "17-medium",
+        "round": 0,
+        "questions": 17,
+        "input_tokens": 3722,
+        "mean_ms": 45.02860279753804,
+        "p50_ms": 45.01748748589307,
+        "p95_ms": 45.189519476844,
+        "samples_ms": [
+          45.1470980187878,
+          45.07638805080205,
+          45.01615802291781,
+          45.018816948868334,
+          44.973877957090735,
+          45.22422794252634,
+          45.10786908213049,
+          44.9593469966203,
+          44.876857893541455,
+          44.885387062095106
+        ]
+      },
+      {
+        "variant": "baseline",
+        "case": "5-long",
+        "round": 0,
+        "questions": 5,
+        "input_tokens": 2560,
+        "mean_ms": 45.44697517994791,
+        "p50_ms": 45.42055947240442,
+        "p95_ms": 45.738204021472484,
+        "samples_ms": [
+          45.231347903609276,
+          45.22274900227785,
+          45.2519980026409,
+          45.42023001704365,
+          45.65886000636965,
+          45.70482997223735,
+          45.765510061755776,
+          45.42088892776519,
+          45.428229961544275,
+          45.365107944235206
+        ]
+      },
+      {
+        "variant": "candidate",
+        "case": "5-long",
+        "round": 0,
+        "questions": 5,
+        "input_tokens": 2560,
+        "mean_ms": 28.08885300764814,
+        "p50_ms": 28.082655975595117,
+        "p95_ms": 28.25943107600324,
+        "samples_ms": [
+          28.02831504959613,
+          28.082925942726433,
+          28.09213602449745,
+          28.024205937981606,
+          27.875385945662856,
+          28.0823860084638,
+          28.272247058339417,
+          28.19117601029575,
+          28.243767097592354,
+          27.995985001325607
+        ]
+      },
+      {
+        "variant": "baseline",
+        "case": "17-long",
+        "round": 0,
+        "questions": 17,
+        "input_tokens": 8704,
+        "mean_ms": 179.18653200613335,
+        "p50_ms": 178.80632443120703,
+        "p95_ms": 180.01999597763643,
+        "samples_ms": [
+          179.96043304447085,
+          180.02992297988385,
+          180.00786297488958,
+          179.7513230703771,
+          178.7970899604261,
+          178.81555890198797,
+          178.66989003960043,
+          178.5567890619859,
+          178.59289003536105,
+          178.68355999235064
+        ]
+      },
+      {
+        "variant": "candidate",
+        "case": "17-long",
+        "round": 0,
+        "questions": 17,
+        "input_tokens": 8704,
+        "mean_ms": 93.09027579147369,
+        "p50_ms": 93.15740200690925,
+        "p95_ms": 93.27787960064597,
+        "samples_ms": [
+          92.86270593293011,
+          92.96372695825994,
+          92.83825499005616,
+          92.94258698355407,
+          93.16353697795421,
+          93.24672701768577,
+          93.1512670358643,
+          93.19457702804357,
+          93.23600691277534,
+          93.30336807761341
+        ]
+      },
+      {
+        "variant": "baseline",
+        "case": "16-long",
+        "round": 0,
+        "questions": 16,
+        "input_tokens": 8192,
+        "mean_ms": 88.1454071146436,
+        "p50_ms": 88.02606206154451,
+        "p95_ms": 88.576741021825,
+        "samples_ms": [
+          87.82674092799425,
+          87.99694199115038,
+          88.3211320033297,
+          88.59903400298208,
+          88.25901208911091,
+          88.00989203155041,
+          87.94200094416738,
+          87.90759101975709,
+          88.04223209153861,
+          88.54949404485524
+        ]
+      },
+      {
+        "variant": "candidate",
+        "case": "16-long",
+        "round": 0,
+        "questions": 16,
+        "input_tokens": 8192,
+        "mean_ms": 87.9753060056828,
+        "p50_ms": 88.02417205879465,
+        "p95_ms": 88.13790353597142,
+        "samples_ms": [
+          88.18174293264747,
+          88.08432205114514,
+          88.04531197529286,
+          88.01664202474058,
+          88.03170209284872,
+          87.91099197696894,
+          87.83780201338232,
+          88.061801972799,
+          87.86275098100305,
+          87.7199920359999
+        ]
+      }
+    ],
+    "order": [
+      {
+        "case": "1-short",
+        "round": 0,
+        "names": [
+          "candidate",
+          "baseline"
+        ]
+      },
+      {
+        "case": "5-short",
+        "round": 0,
+        "names": [
+          "baseline",
+          "candidate"
+        ]
+      },
+      {
+        "case": "17-short",
+        "round": 0,
+        "names": [
+          "candidate",
+          "baseline"
+        ]
+      },
+      {
+        "case": "33-short",
+        "round": 0,
+        "names": [
+          "candidate",
+          "baseline"
+        ]
+      },
+      {
+        "case": "1-medium",
+        "round": 0,
+        "names": [
+          "baseline",
+          "candidate"
+        ]
+      },
+      {
+        "case": "5-medium",
+        "round": 0,
+        "names": [
+          "baseline",
+          "candidate"
+        ]
+      },
+      {
+        "case": "17-medium",
+        "round": 0,
+        "names": [
+          "baseline",
+          "candidate"
+        ]
+      },
+      {
+        "case": "5-long",
+        "round": 0,
+        "names": [
+          "baseline",
+          "candidate"
+        ]
+      },
+      {
+        "case": "17-long",
+        "round": 0,
+        "names": [
+          "baseline",
+          "candidate"
+        ]
+      },
+      {
+        "case": "16-long",
+        "round": 0,
+        "names": [
+          "baseline",
+          "candidate"
+        ]
+      }
+    ],
+    "rounds": 1,
+    "repeats_per_round": 10
+  },
+  "validation": {
+    "requests": 66,
+    "decisions": 208,
+    "agreement": 208,
+    "sdk_agreement": 208,
+    "unbucketed_sdk_agreement": 208,
+    "max_probability_error": 0.013701677322387695,
+    "max_sdk_probability_error": 0.013701677322387695,
+    "exact_logits_all": false,
+    "exact_actions_all": false,
+    "action_argmax_agreement": 208,
+    "max_action_probability_error": 0.0,
+    "max_action_logit_error": 32.0,
+    "passed_actions": true,
+    "passed_current_engine": false,
+    "passed_sdk": true,
+    "cases": [
+      {
+        "case": 0,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 9.710714221000671e-05,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 1,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.000558316707611084,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 2,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0015292763710021973,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 3,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0012135505676269531,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 4,
+        "decisions": 4,
+        "max_probability_error": 0.003995001316070557,
+        "max_sdk_probability_error": 0.003995001316070557,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 5,
+        "decisions": 4,
+        "max_probability_error": 0.013701677322387695,
+        "max_sdk_probability_error": 0.013701677322387695,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 32.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 6,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 2.4467473849654198e-05,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 7,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0027614235877990723,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 8,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 5.501508712768555e-05,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 9,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.00027939677238464355,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 10,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 11,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 12,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 13,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 14,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 15,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 16,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0015571117401123047,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 17,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 16.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 18,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 6.777048110961914e-05,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 19,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 20,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 21,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 22,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 23,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 24,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 25,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 26,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 27,
+        "decisions": 1,
+        "max_probability_error": 0.0008587241172790527,
+        "max_sdk_probability_error": 0.0008504390716552734,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 16.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 28,
+        "decisions": 1,
+        "max_probability_error": 0.00016731023788452148,
+        "max_sdk_probability_error": 0.00019443035125732422,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 32.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 29,
+        "decisions": 1,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 6.82193785905838e-05,
+        "agreement": 1,
+        "sdk_agreement": 1,
+        "unbucketed_sdk_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 30,
+        "decisions": 3,
+        "max_probability_error": 0.0001629553735256195,
+        "max_sdk_probability_error": 0.0001629553735256195,
+        "agreement": 3,
+        "sdk_agreement": 3,
+        "unbucketed_sdk_agreement": 3,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 3,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 31,
+        "decisions": 5,
+        "max_probability_error": 0.0030275583267211914,
+        "max_sdk_probability_error": 0.003073751926422119,
+        "agreement": 5,
+        "sdk_agreement": 5,
+        "unbucketed_sdk_agreement": 5,
+        "max_action_logit_error": 32.0,
+        "action_argmax_agreement": 5,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 32,
+        "decisions": 8,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.00017295405268669128,
+        "agreement": 8,
+        "sdk_agreement": 8,
+        "unbucketed_sdk_agreement": 8,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 8,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 33,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0002467036247253418,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 34,
+        "decisions": 4,
+        "max_probability_error": 0.0055900514125823975,
+        "max_sdk_probability_error": 0.006285607814788818,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 35,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0003679990768432617,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 36,
+        "decisions": 4,
+        "max_probability_error": 0.0032146871089935303,
+        "max_sdk_probability_error": 0.006007283926010132,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 32.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 37,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 7.149949669837952e-05,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 38,
+        "decisions": 4,
+        "max_probability_error": 0.0029151737689971924,
+        "max_sdk_probability_error": 0.0029151737689971924,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 32.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 39,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.00011205673217773438,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 40,
+        "decisions": 4,
+        "max_probability_error": 0.0037748217582702637,
+        "max_sdk_probability_error": 0.0037748217582702637,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 32.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 41,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.00013181567192077637,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 42,
+        "decisions": 4,
+        "max_probability_error": 0.0027019381523132324,
+        "max_sdk_probability_error": 0.0027019381523132324,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 32.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 43,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0004597604274749756,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 44,
+        "decisions": 4,
+        "max_probability_error": 0.0027289539575576782,
+        "max_sdk_probability_error": 0.0027289539575576782,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 45,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0011143982410430908,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 46,
+        "decisions": 4,
+        "max_probability_error": 0.007654428482055664,
+        "max_sdk_probability_error": 0.007584869861602783,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 47,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 5.1081180572509766e-05,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 48,
+        "decisions": 4,
+        "max_probability_error": 0.0092087984085083,
+        "max_sdk_probability_error": 0.009295880794525146,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 49,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.00022089481353759766,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 50,
+        "decisions": 4,
+        "max_probability_error": 0.0039148032665252686,
+        "max_sdk_probability_error": 0.0039148032665252686,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 51,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 3.0517578125e-05,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 52,
+        "decisions": 4,
+        "max_probability_error": 0.0014954209327697754,
+        "max_sdk_probability_error": 0.0017409026622772217,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 53,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 6.0498714447021484e-05,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 54,
+        "decisions": 4,
+        "max_probability_error": 0.0024359822273254395,
+        "max_sdk_probability_error": 0.0024359822273254395,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 55,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 2.5793910026550293e-05,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 56,
+        "decisions": 4,
+        "max_probability_error": 0.0023113489151000977,
+        "max_sdk_probability_error": 0.0023113489151000977,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 57,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0014877617359161377,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 58,
+        "decisions": 4,
+        "max_probability_error": 0.007596850395202637,
+        "max_sdk_probability_error": 0.007596850395202637,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 32.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 59,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 4.316866397857666e-05,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 60,
+        "decisions": 4,
+        "max_probability_error": 0.007417798042297363,
+        "max_sdk_probability_error": 0.007417798042297363,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 61,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0003565549850463867,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 62,
+        "decisions": 4,
+        "max_probability_error": 0.0024924278259277344,
+        "max_sdk_probability_error": 0.0034696459770202637,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 32.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 63,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.003114074468612671,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      },
+      {
+        "case": 64,
+        "decisions": 4,
+        "max_probability_error": 0.00399431586265564,
+        "max_sdk_probability_error": 0.003933697938919067,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": false
+      },
+      {
+        "case": 65,
+        "decisions": 4,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.0005173981189727783,
+        "agreement": 4,
+        "sdk_agreement": 4,
+        "unbucketed_sdk_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_probability_error": 0.0,
+        "exact_logits": true
+      }
+    ]
+  },
+  "validation_ms": 2944.2016480024904
+}

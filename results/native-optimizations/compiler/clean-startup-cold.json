@@ -1,0 +1,114 @@
+{
+  "cache_state": "fresh-isolated-compiler-caches",
+  "scope": "Fresh Python process; existing model files and prebuilt native extensions. Compilation cache directories are either empty or reused as labeled. No model download, HTTP or SSH.",
+  "imports_ms": 1307.5331540312618,
+  "model_and_adapter_setup_ms": 4231.715705944225,
+  "first_predict_ms": 12698.164182016626,
+  "python_entry_to_first_response_ms": 18238.132715108804,
+  "warm_p50_ms": 2.1285489783622324,
+  "samples_ms": [
+    2.126349019818008,
+    2.1181689808145165,
+    2.118499018251896,
+    2.113868948072195,
+    2.128498977981508,
+    2.1219990449026227,
+    2.137628966011107,
+    2.1200389601290226,
+    2.132558962330222,
+    2.131829969584942,
+    2.119078068062663,
+    2.1188699174672365,
+    2.125979051925242,
+    2.118388074450195,
+    2.1389989415183663,
+    2.122759004123509,
+    2.1248890552669764,
+    2.1266589174047112,
+    2.130698994733393,
+    2.1218190668150783,
+    2.1255589090287685,
+    2.1417890675365925,
+    2.151838969439268,
+    2.1368489833548665,
+    2.1338900551199913,
+    2.1317790960893035,
+    2.137988922186196,
+    2.1413390059024096,
+    2.1313789766281843,
+    2.1467090118676424,
+    2.1358788944780827,
+    2.1281890803948045,
+    2.132099005393684,
+    2.1306189009919763,
+    2.137799048796296,
+    2.1421390119940042,
+    2.1925000473856926,
+    2.199448994360864,
+    2.128598978742957,
+    2.1201689960435033,
+    2.120138960890472,
+    2.117748954333365,
+    2.121848985552788,
+    2.129659056663513,
+    2.132329042069614,
+    2.1260089706629515,
+    2.126069972291589,
+    2.1165889920666814,
+    2.123018028214574,
+    2.137809991836548
+  ],
+  "response": {
+    "model": "laya-rl-agent",
+    "answers": {
+      "q0": {
+        "type": "choice",
+        "choice": "billing",
+        "probabilities": {
+          "billing": 0.9656,
+          "technical": 0.0134,
+          "sales": 0.0099,
+          "other": 0.0111
+        },
+        "confidence": 0.865,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 64,
+      "output_tokens": 0
+    },
+    "engine": {
+      "graph_miss": true,
+      "graph_build_ms": 12695.395239978097,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 12698.154092067853
+    }
+  },
+  "libdevice": {
+    "path": ".venv/lib/python3.12/site-packages/triton/backends/nvidia/lib/libdevice.10.bc",
+    "sha256": "5c2fae37c86e68c3a38605a95f512d7d12d5f3db986310be47f57304aa72a5ee"
+  },
+  "cache_environment": {
+    "TORCHINDUCTOR_CACHE_DIR": ".research/native-20260924/compiler/clean-startup-inductor",
+    "TRITON_CACHE_DIR": ".research/native-20260924/compiler/clean-startup-triton"
+  },
+  "kernel": "cuda_norm_triton_geglu_corrected",
+  "mode": "compiled",
+  "hardware": {
+    "name": "NVIDIA GeForce RTX 5070 Ti",
+    "compute_capability": "12.0",
+    "sm_count": 70,
+    "vram_bytes": 16608788480,
+    "torch": "2.14.0+cu132",
+    "cuda_runtime": "13.2",
+    "cuda_architecture": "sm_120"
+  }
+}

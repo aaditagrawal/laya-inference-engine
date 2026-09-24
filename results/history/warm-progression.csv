@@ -1,0 +1,15 @@
+Stage,Implementation,"1 short, ms","16 short, ms","1 long, ms","16 long, ms",Status,Source
+Baseline,Upstream default,20.524,25.491,22.187,159.697,Default SDK,benchmark.json
+Baseline,Upstream fast=True,3.991,16.209,8.825,116.790,Separate upstream option,upstream-fast.json
+Baseline,Upstream compile=True,8.236,17.820,11.462,129.283,Separate upstream option,upstream-compile.json
+Ablation,"Our optimized model, graph replay disabled",11.386,12.952,Not measured,101.648,Isolated diagnostic,ablation.json
+First engine,Resident BF16 + graph replay + fused RoPE + selective head,2.812,12.509,8.653,101.693,Original validated engine,benchmark.json
+Round 1 host,C++ request packing and graph I/O,2.709,12.148,8.526,101.669,Exact fixture outputs; host changes only,native-optimizations/host/summary.json
+Round 1 host,C++ I/O + direct Rust tokenizer calls,2.541,11.663,8.345,100.597,Exact fixture outputs; host changes only,native-optimizations/host/summary.json
+Round 1,Native CUDA normalization + GEGLU + native host,2.207,10.782,7.905,93.069,Exact outputs on 66-request fixture,native-optimizations/combined-native.json
+Round 1,Add exact window attention,2.221,10.802,7.474,88.457,Exact outputs on 66-request fixture,native-optimizations/combined-window.json
+Round 1 final,Vectorized normalization + exact windows + native host,2.188,10.700,7.367,88.261,Exact outputs on 66-request fixture,native-optimizations/final-native.json
+Round 1 branch,Full-model compiled engine + native host,2.106,10.574,7.511,91.545,Exact outputs on 66-request fixture,native-optimizations/final-compiled.json
+Round 1 branch,Matrix autotuning + native host,2.097,10.660,7.246,84.699,"Opt-in; 208/208 choices, nonexact logits",native-optimizations/final-autotuned.json
+Round 2,Projection fusion: Wi + GEGLU and QKV + RoPE,2.219,10.498,7.625,81.231,Exact fixture outputs; adds 301 MB weights,latency-optimizations/fusion/best.json
+Round 2 branch,AOT package + checked loader + lightweight tokenizer,2.116,Not supported,See single-run smoke,Not supported,Two fixed batch-one shapes,latency-optimizations/aot/index.json

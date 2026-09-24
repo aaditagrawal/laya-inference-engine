@@ -1,0 +1,309 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T02:53:53.370438+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "input": {
+    "batch": 16,
+    "length": 512,
+    "shortlist": true,
+    "operation": "both"
+  },
+  "rows": [
+    {
+      "operation": "qkv",
+      "variant": "normal",
+      "config": [
+        32,
+        128,
+        32,
+        4,
+        3
+      ],
+      "compile_and_first_ms": 370.7249549916014,
+      "mismatches": 0,
+      "values": 27262976,
+      "max_abs": 0.0,
+      "median_us": 641.5628814697266,
+      "samples_us": [
+        639.5891189575195,
+        640.9568023681641,
+        641.5628814697266,
+        642.3737335205078,
+        642.6854705810547
+      ]
+    },
+    {
+      "operation": "wi",
+      "variant": "packed",
+      "config": [
+        32,
+        32,
+        32,
+        4,
+        3
+      ],
+      "compile_and_first_ms": 227.18451509717852,
+      "mismatches": 0,
+      "values": 21495808,
+      "max_abs": 0.0,
+      "median_us": 1311.4527893066406,
+      "samples_us": [
+        1309.0374755859375,
+        1311.4527893066406,
+        1311.3043212890625,
+        1311.5936279296875,
+        1311.6915893554688
+      ]
+    },
+    {
+      "operation": "wi",
+      "variant": "packed",
+      "config": [
+        64,
+        32,
+        32,
+        4,
+        3
+      ],
+      "compile_and_first_ms": 263.2453239057213,
+      "mismatches": 0,
+      "values": 21495808,
+      "max_abs": 0.0,
+      "median_us": 928.3411407470703,
+      "samples_us": [
+        917.0649719238281,
+        925.8573150634766,
+        928.5446166992188,
+        928.5881805419922,
+        928.3411407470703
+      ]
+    },
+    {
+      "operation": "qkv",
+      "variant": "baseline",
+      "config": null,
+      "compile_and_first_ms": 0.9794239886105061,
+      "mismatches": 0,
+      "values": 27262976,
+      "max_abs": 0.0,
+      "median_us": 677.5263977050781,
+      "samples_us": [
+        680.8525085449219,
+        677.1110534667969,
+        677.2147369384766,
+        677.6582336425781,
+        677.5263977050781
+      ]
+    },
+    {
+      "operation": "wi",
+      "variant": "packed",
+      "config": [
+        64,
+        64,
+        32,
+        4,
+        3
+      ],
+      "compile_and_first_ms": 383.4733880357817,
+      "mismatches": 0,
+      "values": 21495808,
+      "max_abs": 0.0,
+      "median_us": 913.0982208251953,
+      "samples_us": [
+        905.0796508789062,
+        910.7698822021484,
+        913.0982208251953,
+        916.6515350341797,
+        916.8819427490234
+      ]
+    },
+    {
+      "operation": "qkv",
+      "variant": "normal",
+      "config": [
+        32,
+        64,
+        32,
+        4,
+        3
+      ],
+      "compile_and_first_ms": 249.57604811061174,
+      "mismatches": 0,
+      "values": 27262976,
+      "max_abs": 0.0,
+      "median_us": 822.5567626953125,
+      "samples_us": [
+        821.2422180175781,
+        822.7021026611328,
+        822.5478363037109,
+        822.5567626953125,
+        822.7283477783203
+      ]
+    },
+    {
+      "operation": "wi",
+      "variant": "packed",
+      "config": [
+        128,
+        64,
+        32,
+        8,
+        3
+      ],
+      "compile_and_first_ms": 388.46527005080134,
+      "mismatches": 0,
+      "values": 21495808,
+      "max_abs": 0.0,
+      "median_us": 943.7017822265625,
+      "samples_us": [
+        934.769287109375,
+        937.8009796142578,
+        945.2710723876953,
+        943.7017822265625,
+        947.7651214599609
+      ]
+    },
+    {
+      "operation": "qkv",
+      "variant": "normal",
+      "config": [
+        64,
+        64,
+        32,
+        4,
+        3
+      ],
+      "compile_and_first_ms": 332.71901099942625,
+      "mismatches": 0,
+      "values": 27262976,
+      "max_abs": 0.0,
+      "median_us": 599.7504043579102,
+      "samples_us": [
+        593.9193725585938,
+        595.9596633911133,
+        599.7504043579102,
+        600.6451034545898,
+        600.6988906860352
+      ]
+    },
+    {
+      "operation": "wi",
+      "variant": "baseline",
+      "config": null,
+      "compile_and_first_ms": 1.4799759956076741,
+      "mismatches": 0,
+      "values": 21495808,
+      "max_abs": 0.0,
+      "median_us": 1095.7990264892578,
+      "samples_us": [
+        1097.0553588867188,
+        1095.3587341308594,
+        1095.7990264892578,
+        1095.646743774414,
+        1096.1254119873047
+      ]
+    }
+  ],
+  "method": "Actual checkpoint layer-zero weights, random BF16 normalized input, CUDA Graph replay events, serial candidates with seeded shuffle. Weights can be warm in L2; full-model measurements required.",
+  "kernel_provenance": {
+    "torch": "2.14.0+cu132",
+    "torch_cuda": "13.2",
+    "target_architecture": "sm_120",
+    "libdevice_path": ".venv/lib/python3.12/site-packages/triton/backends/nvidia/lib/libdevice.10.bc",
+    "libdevice_sha256": "5c2fae37c86e68c3a38605a95f512d7d12d5f3db986310be47f57304aa72a5ee",
+    "bf16_gelu_corrections": [
+      [
+        49288,
+        47166
+      ],
+      [
+        49292,
+        47070
+      ],
+      [
+        49294,
+        47017
+      ],
+      [
+        49309,
+        46611
+      ]
+    ],
+    "source_sha256": {
+      "native.cu": "e5dcfa5256b0331128f6271b23fe696d3a63893a8d47aaed885461b4f323f702",
+      "native_vector.cu": "520165903360075dcad2ffc97e265a55a7915edb4552b7fdc8f4a421c86bc3a3"
+    }
+  },
+  "compiled_kernels": {
+    "('qkv', 8192, False, 64, (32, 128, 32, 4, 3))": {
+      "registers": 188,
+      "spills": 0,
+      "shared_bytes": 20480,
+      "mma_instructions": 16,
+      "ldmatrix_instructions": 24,
+      "cp_async_instructions": 23
+    },
+    "('wi', 8192, True, False, (32, 32, 32, 4, 3))": {
+      "registers": 51,
+      "spills": 0,
+      "shared_bytes": 12288,
+      "mma_instructions": 8,
+      "ldmatrix_instructions": 7,
+      "cp_async_instructions": 17
+    },
+    "('wi', 8192, True, False, (64, 32, 32, 4, 3))": {
+      "registers": 80,
+      "spills": 2,
+      "shared_bytes": 16384,
+      "mma_instructions": 16,
+      "ldmatrix_instructions": 10,
+      "cp_async_instructions": 20
+    },
+    "('wi', 8192, True, False, (64, 64, 32, 4, 3))": {
+      "registers": 128,
+      "spills": 0,
+      "shared_bytes": 24576,
+      "mma_instructions": 32,
+      "ldmatrix_instructions": 12,
+      "cp_async_instructions": 26
+    },
+    "('qkv', 8192, False, 64, (32, 64, 32, 4, 3))": {
+      "registers": 90,
+      "spills": 0,
+      "shared_bytes": 12288,
+      "mma_instructions": 8,
+      "ldmatrix_instructions": 14,
+      "cp_async_instructions": 17
+    },
+    "('wi', 8192, True, False, (128, 64, 32, 8, 3))": {
+      "registers": 120,
+      "spills": 0,
+      "shared_bytes": 32768,
+      "mma_instructions": 32,
+      "ldmatrix_instructions": 12,
+      "cp_async_instructions": 20
+    },
+    "('qkv', 8192, False, 64, (64, 64, 32, 4, 3))": {
+      "registers": 182,
+      "spills": 0,
+      "shared_bytes": 16384,
+      "mma_instructions": 16,
+      "ldmatrix_instructions": 24,
+      "cp_async_instructions": 20
+    }
+  }
+}

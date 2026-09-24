@@ -1,0 +1,40 @@
+Family,Candidate,"1 short, ms","16 short, ms","1 long, ms","16 long, ms",Numerical check,Source
+kernels,baseline,2.811,12.485,8.638,101.591,208/208 choices; exact choice logits,native-optimizations/kernels/baseline-all.json
+kernels,cuda_geglu,2.724,12.214,8.530,97.277,206/208 choices; probability drift 0.02737,native-optimizations/kernels/cuda_geglu-all.json
+kernels,cuda_geglu_lut,2.759,12.256,8.582,97.930,208/208 choices; exact choice logits,native-optimizations/kernels/cuda_geglu_lut-all.json
+kernels,cuda_norm,2.552,11.924,8.325,97.859,208/208 choices; exact choice logits,native-optimizations/kernels/cuda_norm-all.json
+kernels,cuda_norm_adaptive_geglu,2.488,11.680,8.137,94.033,208/208 choices; exact choice logits,native-optimizations/kernels/cuda_norm_adaptive_geglu-all.json
+kernels,cuda_norm_geglu_lut,2.501,11.892,8.212,93.766,208/208 choices; exact choice logits,native-optimizations/kernels/cuda_norm_geglu_lut-all.json
+kernels,cuda_norm_triton_geglu_corrected,2.486,11.825,8.151,93.732,208/208 choices; exact choice logits,native-optimizations/kernels/cuda_norm_triton_geglu_corrected-all.json
+kernels,cuda_norm_triton_geglu_lut,2.502,11.618,8.121,93.627,208/208 choices; exact choice logits,native-optimizations/kernels/cuda_norm_triton_geglu_lut-all.json
+kernels,cuda_static_norm,2.540,11.897,8.367,98.157,208/208 choices; exact choice logits,native-optimizations/kernels/cuda_static_norm-all.json
+kernels,cuda_static_norm_adaptive_geglu,2.462,11.643,8.213,93.602,208/208 choices; exact choice logits,native-optimizations/kernels/cuda_static_norm_adaptive_geglu-all.json
+kernels,cuda_vector_norm,2.530,11.860,8.290,97.736,208/208 choices; exact choice logits,native-optimizations/kernels/cuda_vector_norm-all.json
+kernels,cuda_vector_norm_adaptive_geglu,2.447,11.693,8.089,93.457,208/208 choices; exact choice logits,native-optimizations/kernels/cuda_vector_norm_adaptive_geglu-all.json
+kernels,cuda_vector_norm_triton_geglu_corrected,2.463,11.518,8.066,93.336,208/208 choices; exact choice logits,native-optimizations/kernels/cuda_vector_norm_triton_geglu_corrected-all.json
+kernels,ptx_norm,2.626,11.982,8.322,98.164,208/208 choices; exact choice logits,native-optimizations/kernels/ptx_norm-all.json
+kernels,triton_geglu_lut,2.752,12.160,8.524,97.638,208/208 choices; exact choice logits,native-optimizations/kernels/triton_geglu_lut-all.json
+kernels,triton_twopass,2.538,11.899,8.295,98.073,208/208 choices; probability drift 0.03355,native-optimizations/kernels/triton_twopass-all.json
+kernels,triton_welford,2.553,11.927,8.288,97.785,207/208 choices; probability drift 0.04777,native-optimizations/kernels/triton_welford-all.json
+compiler,compile,2.363,Not measured,Not measured,Not measured,Screen only,native-optimizations/compiler/compile-1-short.json
+compiler,compile-native-padded-window-precise-opaque-pinned,2.463,11.477,7.957,93.046,208/208 choices; exact choice logits,native-optimizations/compiler/compile-native-padded-window-precise-opaque-pinned.json
+compiler,compile-native-precise-opaque-pinned,2.402,Not measured,Not measured,Not measured,9/9 choices; exact choice logits,native-optimizations/compiler/compile-native-precise-opaque-pinned-screen.json
+compiler,compile-native-precise-opaque,2.404,Not measured,Not measured,Not measured,7/9 choices; probability drift 0.01560,native-optimizations/compiler/compile-native-precise-opaque-screen.json
+compiler,compile-native-precise-stablemath,2.410,Not measured,Not measured,Not measured,8/9 choices; probability drift 0.02291,native-optimizations/compiler/compile-native-precise-stablemath-screen.json
+compiler,compile-native-precise,2.412,11.878,8.225,93.533,206/208 choices; probability drift 0.02737,native-optimizations/compiler/compile-native-precise.json
+compiler,compile,2.430,11.641,8.183,92.042,Screen only,native-optimizations/compiler/compile.json
+compiler,cudnn,2.674,12.198,8.647,100.294,206/208 choices; probability drift 0.03223,native-optimizations/compiler/cudnn.json
+compiler,gemm-native-padded-window-tma,Not measured,Not measured,Not measured,85.771,9/9 choices; exact choice logits,native-optimizations/compiler/gemm-native-padded-window-tma-near.json
+compiler,gemm-native-padded-window-tma,Not measured,Not measured,Not measured,86.506,Screen only,native-optimizations/compiler/gemm-native-padded-window-tma.json
+compiler,head,2.922,12.456,8.611,101.086,208/208 choices; probability drift 0.00199,native-optimizations/compiler/head.json
+compiler,native-padded-window,2.480,11.740,8.258,89.923,208/208 choices; exact choice logits,native-optimizations/compiler/native-padded-window.json
+compiler,native-window,2.817,12.505,8.476,99.698,208/208 choices; exact choice logits,native-optimizations/compiler/native-window.json
+compiler,window,2.827,12.518,7.938,94.671,206/208 choices; probability drift 0.02737,native-optimizations/compiler/window.json
+precision,baseline,2.828,12.484,8.672,101.787,208/208 choices; exact choice logits,native-optimizations/precision/baseline.json
+precision,fp8-early-mlp,2.850,11.442,8.234,92.388,205/208 choices; probability drift 0.12453,native-optimizations/precision/fp8-early-mlp.json
+precision,fp8-late-mlp,2.849,11.447,8.210,92.062,206/208 choices; probability drift 0.03522,native-optimizations/precision/fp8-late-mlp.json
+precision,fp8-mlp,2.914,10.398,7.786,82.865,207/208 choices; probability drift 0.11610,native-optimizations/precision/fp8-mlp.json
+precision,fp8-wi,2.642,11.120,8.075,88.610,204/208 choices; probability drift 0.21400,native-optimizations/precision/fp8-wi.json
+precision,"Channel-balanced FP8, alpha 0.25",2.939,Not measured,Not measured,82.788,Heldout 121/128 choices; rejected,native-optimizations/precision/smooth/summary.json
+precision,"Channel-balanced FP8, alpha 0.5",2.922,Not measured,Not measured,83.144,Heldout 124/128 choices; rejected,native-optimizations/precision/smooth/summary.json
+precision,"Channel-balanced FP8, alpha 0.75",2.947,Not measured,Not measured,83.099,Heldout 124/128 choices; rejected,native-optimizations/precision/smooth/summary.json

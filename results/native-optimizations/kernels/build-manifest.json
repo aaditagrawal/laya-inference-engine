@@ -1,0 +1,23 @@
+{
+  "source_sha256": {
+    "native.cu": "11f71948f671d620220ca90a09a16cdb736f94c4b653f9a7894e0e206b90e213",
+    "candidates.py": "6a643c40835a1c14a49c15856528b050eb3ed6aa505923844ad175419d6e370a",
+    "microbench.py": "12f3b9711da04ea38ac6caadcb555db30fa4c022fc4e3b90a465913fc8ff0089",
+    "run_variant.py": "d5808691c7a248f136d9af2e223650ddf98b2d87b529ea85dc45f1909aa2a53e",
+    "confirm_micro.py": "00168644165461556bf3b51dcccd1262cbb1732682db69bb03d02a5c201ecc1d",
+    "tune_geglu.py": "4dd2655a9dbfd73f07bd51a42f81a0438c6b55a769d852be1c86fc63524da7df",
+    "pytorch-LICENSE": "bd018feef8825e88181c84eb7e3aa4eafb8f08a20d9fd6ef948569610c4a3e43",
+    "build/laya_native_exp.so": "98a0d7caf5194f3eb6941d452312723445ba94a792b8e07b2e6adeab71f42b9e"
+  },
+  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Fri_Nov__7_07:23:37_PM_PST_2025\nCuda compilation tools, release 13.1, V13.1.80\nBuild cuda_13.1.r13.1/compiler.36836380_0\n",
+  "pytorch_welford_source": "https://github.com/pytorch/pytorch/blob/08187d9e0fba026dc8217405802ab5381dc88d90/aten/src/ATen/native/cuda/layer_norm_kernel.cu",
+  "target": "sm_120",
+  "precision": "FP32 residual and Welford statistics; RN-even BF16 normalized output; BF16 GEGLU intermediate rounding preserved",
+  "build_flags": [
+    "-O3",
+    "-lineinfo",
+    "-std=c++20",
+    "-gencode=arch=compute_120,code=sm_120"
+  ],
+  "github_writes": false
+}

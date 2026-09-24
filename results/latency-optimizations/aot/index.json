@@ -1,0 +1,157 @@
+{
+  "created_utc": "2026-09-24T03:21:11.648214+00:00",
+  "status": "complete",
+  "canonical_startup_results": "final-offline/matrix-summary.json",
+  "startup_rows": [
+    {
+      "mode": "aot-fast",
+      "cache_state": "fresh",
+      "processes": 3,
+      "startup_median_ms": 3729.9833230208606,
+      "startup_min_ms": 3689.6217899629846,
+      "startup_max_ms": 3847.483271965757,
+      "warm_predict_median_ms": 2.116323506925255,
+      "all_exact": true
+    },
+    {
+      "mode": "native",
+      "cache_state": "fresh",
+      "processes": 3,
+      "startup_median_ms": 6325.848790933378,
+      "startup_min_ms": 6323.415088001639,
+      "startup_max_ms": 6376.44670298323,
+      "warm_predict_median_ms": 2.2233949857763946,
+      "all_exact": true
+    },
+    {
+      "mode": "compile",
+      "cache_state": "fresh",
+      "processes": 3,
+      "startup_median_ms": 20638.39774101507,
+      "startup_min_ms": 20600.17626301851,
+      "startup_max_ms": 20794.09059905447,
+      "warm_predict_median_ms": 2.1097484859637916,
+      "all_exact": true
+    },
+    {
+      "mode": "compile",
+      "cache_state": "reused",
+      "processes": 3,
+      "startup_median_ms": 8667.918296996504,
+      "startup_min_ms": 8661.597101949155,
+      "startup_max_ms": 8730.599342030473,
+      "warm_predict_median_ms": 2.1386330481618643,
+      "all_exact": true
+    }
+  ],
+  "method": "Three fresh Python processes per mode; complete one-short predict includes tokenizer, graph setup, copies, inference and formatting. Existing local weights/native extensions and warm OS file cache. Fresh compiler caches are new empty directories. Hub networking disabled. StableHostAdapter applied to every mode. No serving HTTP.",
+  "artifact_builds": [
+    {
+      "case": "1-short",
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "unmasked": true,
+      "export_ms": 5187.249923939817,
+      "compile_package_ms": 23760.778642026708,
+      "package_bytes": 957847364,
+      "package_sha256": "e1475a3325e6af72adcc897fa6c5ef88368e75a82e19032fd56c0486a805aee9",
+      "same_process_exact": [
+        true,
+        true
+      ]
+    },
+    {
+      "case": "1-long",
+      "shape": [
+        1,
+        512,
+        4
+      ],
+      "unmasked": true,
+      "export_ms": 5939.802975044586,
+      "compile_package_ms": 26414.153322926722,
+      "package_bytes": 957838963,
+      "package_sha256": "afbcf705ca9428a6c9769084939ce0fc7271f59e19476794493e01572b8148f2",
+      "same_process_exact": [
+        true,
+        true
+      ]
+    }
+  ],
+  "build_scope": "Observed one-time exports/builds with existing development caches; separate from deployment startup. Each artifact embeds a separate copy of the model weights.",
+  "validation": {
+    "tokenizer_requests": 66,
+    "tokenizer_decisions": 208,
+    "all_prepared_requests_exact": true,
+    "tensor_cases": 48,
+    "all_choice_logits_exact": true,
+    "all_action_logits_exact": true,
+    "scope": "Tokenizer preparation checked across the complete reference suite. AOT model math checked on 24 deterministic tensor-value variants at each of two fixed shapes, not all 66 full inference requests."
+  },
+  "supported_graph_keys": [
+    [
+      1,
+      64,
+      4,
+      true
+    ],
+    [
+      1,
+      512,
+      4,
+      true
+    ]
+  ],
+  "dependencies": {
+    "torch": "2.14.0+cu132",
+    "laya": "0.3.9",
+    "transformers_control_only": "5.17.0",
+    "tokenizers": "0.23.2",
+    "gpu": "RTX 5070 Ti, SM120",
+    "runtime": "Python Torch with registered exact LayerNorm/GELU custom ops; prebuilt native norm and host extensions. The model artifact is loaded by the C++ package loader, but this is not a Python-free executable."
+  },
+  "findings": [
+    "Strict torch.export captures the raw Triton kernels; the non-strict export failure is retained.",
+    "Export uses the actual packed host input layout, avoiding an automatic marker-mask alignment copy.",
+    "The high-level package loader performs a CPU compiler feature probe. The checked C++ loader verifies the recorded platform, Torch version, CPU instructions, GPU architecture and math-library identity without invoking that probe.",
+    "All final AOT runs left both compiler cache directories empty.",
+    "Direct serialized Rust tokenizer loading exactly matches AutoTokenizer preparation on all 66 reference requests.",
+    "AOT reduces deployment setup; its steady-state request latency is approximately the same as the compiled model."
+  ],
+  "limitations": [
+    "Only the two listed shape and mask specializations are built. Other requests are explicitly rejected; this is not a general dynamic-shape replacement.",
+    "The package uses version-pinned private PyTorch APIs and external custom-op registrations.",
+    "Each shape artifact is approximately 958 MB because model weights are currently duplicated.",
+    "Synthetic parity checks are not a labeled model-quality evaluation."
+  ],
+  "cleanup_checks": {
+    "constructor_failure_cleanup": true,
+    "idempotent_close": true,
+    "use_after_close_rejected": true,
+    "base_cleanup_after_adapter_failure": true
+  },
+  "diagnostic_directories": {
+    "request-matrix": "Preliminary AutoTokenizer and high-level-loader measurements. Controls did not force Hub offline; do not use for final startup comparisons.",
+    "request-fast-matrix": "Preliminary checked-loader measurements before lightweight tokenizer and stable-adapter finalization.",
+    "final-request-matrix": "Interrupted after initial runs to enforce fully offline controls.",
+    "offline-request-matrix": "Failed local snapshot lookup because unrelated repository files were not cached; final controls restrict the required checkpoint files."
+  },
+  "sources": "sources.json",
+  "long_request_smoke": {
+    "status": "complete",
+    "entry_to_first_response_ms": 3813.9691720716655,
+    "warm_predict_p50_ms": 7.869230001233518,
+    "exact_outputs": [
+      true,
+      true
+    ],
+    "prepared_inputs_exact": true,
+    "cache_files_after": {
+      "TORCHINDUCTOR_CACHE_DIR": 0,
+      "TRITON_CACHE_DIR": 0
+    }
+  }
+}

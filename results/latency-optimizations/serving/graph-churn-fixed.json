@@ -1,0 +1,3629 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T03:01:58.137985+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 1,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "unique_capture_streams": true,
+  "cycles": 12,
+  "rows": [
+    {
+      "cycle": 0,
+      "engine": "churning",
+      "index": 0,
+      "ms": 43.91979495994747,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 41.514544980600476,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "churning",
+      "index": 1,
+      "ms": 46.55415704473853,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.67797402665019,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "churning",
+      "index": 2,
+      "ms": 47.60921106208116,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 44.13361696060747,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "churning",
+      "index": 3,
+      "ms": 48.54257602710277,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 44.82926905620843,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "churning",
+      "index": 4,
+      "ms": 49.117587972432375,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 44.52557803597301,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "churning",
+      "index": 5,
+      "ms": 48.626855947077274,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.32125291693956,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "churning",
+      "index": 6,
+      "ms": 51.034506992436945,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 45.256930985488,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "churning",
+      "index": 7,
+      "ms": 50.087281968444586,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.92982600256801,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "churning",
+      "index": 8,
+      "ms": 52.481033955700696,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 45.48618302214891,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "churning",
+      "index": 9,
+      "ms": 52.15199198573828,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 44.52695790678263,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "retained",
+      "index": 0,
+      "ms": 2.0777599420398474,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "retained",
+      "index": 1,
+      "ms": 2.4858409306034446,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "retained",
+      "index": 2,
+      "ms": 3.3073649974539876,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "retained",
+      "index": 3,
+      "ms": 3.375175059773028,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "retained",
+      "index": 4,
+      "ms": 5.70855604019016,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "retained",
+      "index": 5,
+      "ms": 5.609694984741509,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "retained",
+      "index": 6,
+      "ms": 5.577314062975347,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "retained",
+      "index": 7,
+      "ms": 5.599803989753127,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "retained",
+      "index": 8,
+      "ms": 10.002555092796683,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 0,
+      "engine": "retained",
+      "index": 9,
+      "ms": 9.978845017030835,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "churning",
+      "index": 0,
+      "ms": 45.95417494419962,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.330062995664775,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "churning",
+      "index": 1,
+      "ms": 58.205779059790075,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 55.031453957781196,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "churning",
+      "index": 2,
+      "ms": 51.86887097079307,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 48.3001449611038,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "churning",
+      "index": 3,
+      "ms": 55.37485599052161,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 51.51504895184189,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "churning",
+      "index": 4,
+      "ms": 53.919530007988214,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 49.19766902457923,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "churning",
+      "index": 5,
+      "ms": 52.582814008928835,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 47.153090010397136,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "churning",
+      "index": 6,
+      "ms": 53.75221895519644,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 47.856073011644185,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "churning",
+      "index": 7,
+      "ms": 54.687772993929684,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 48.35190495941788,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "churning",
+      "index": 8,
+      "ms": 53.12404700089246,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 45.97909399308264,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "churning",
+      "index": 9,
+      "ms": 54.0501510258764,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 46.33398598525673,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "retained",
+      "index": 0,
+      "ms": 2.063638996332884,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "retained",
+      "index": 1,
+      "ms": 2.4380709510296583,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "retained",
+      "index": 2,
+      "ms": 3.2653450034558773,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "retained",
+      "index": 3,
+      "ms": 3.274064976722002,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "retained",
+      "index": 4,
+      "ms": 5.625354941003025,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "retained",
+      "index": 5,
+      "ms": 5.604645004495978,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "retained",
+      "index": 6,
+      "ms": 5.593564943410456,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "retained",
+      "index": 7,
+      "ms": 5.585303995758295,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "retained",
+      "index": 8,
+      "ms": 9.911535074934363,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 1,
+      "engine": "retained",
+      "index": 9,
+      "ms": 9.914933936670423,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "churning",
+      "index": 0,
+      "ms": 48.18731499835849,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 45.54804298095405,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "churning",
+      "index": 1,
+      "ms": 47.894802992232144,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 44.767349027097225,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "churning",
+      "index": 2,
+      "ms": 46.30956600885838,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 42.77802899014205,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "churning",
+      "index": 3,
+      "ms": 47.26251005195081,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.513464042916894,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "churning",
+      "index": 4,
+      "ms": 49.54625095706433,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 44.917449937202036,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "churning",
+      "index": 5,
+      "ms": 51.25576804857701,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 45.90005404315889,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "churning",
+      "index": 6,
+      "ms": 49.20867900364101,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.49396307952702,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "churning",
+      "index": 7,
+      "ms": 48.87232696637511,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 42.789721046574414,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "churning",
+      "index": 8,
+      "ms": 50.408704089932144,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.427083059214056,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "churning",
+      "index": 9,
+      "ms": 51.2664980487898,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.679223977960646,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "retained",
+      "index": 0,
+      "ms": 2.0678190048784018,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "retained",
+      "index": 1,
+      "ms": 2.4270910071209073,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "retained",
+      "index": 2,
+      "ms": 3.2411239808425307,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "retained",
+      "index": 3,
+      "ms": 3.224643995054066,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "retained",
+      "index": 4,
+      "ms": 5.597025039605796,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "retained",
+      "index": 5,
+      "ms": 5.6081750662997365,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "retained",
+      "index": 6,
+      "ms": 5.57989499066025,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "retained",
+      "index": 7,
+      "ms": 5.584685015492141,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "retained",
+      "index": 8,
+      "ms": 9.908503969199955,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 2,
+      "engine": "retained",
+      "index": 9,
+      "ms": 9.908603969961405,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "churning",
+      "index": 0,
+      "ms": 46.25989601481706,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.673884007148445,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "churning",
+      "index": 1,
+      "ms": 47.71145200356841,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 44.79532898403704,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "churning",
+      "index": 2,
+      "ms": 46.03994498029351,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 42.563169030472636,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "churning",
+      "index": 3,
+      "ms": 48.011702951043844,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 44.241025927476585,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "churning",
+      "index": 4,
+      "ms": 52.79518396127969,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 48.01944294013083,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "churning",
+      "index": 5,
+      "ms": 51.018727011978626,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 45.64673302229494,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "churning",
+      "index": 6,
+      "ms": 49.33978908229619,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.682524003088474,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "churning",
+      "index": 7,
+      "ms": 51.30087898578495,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 45.13852100353688,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "churning",
+      "index": 8,
+      "ms": 52.26948298513889,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 45.302291051484644,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "churning",
+      "index": 9,
+      "ms": 51.90648103598505,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 44.36532699037343,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "retained",
+      "index": 0,
+      "ms": 2.049699076451361,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "retained",
+      "index": 1,
+      "ms": 2.419961034320295,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "retained",
+      "index": 2,
+      "ms": 3.23938496876508,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "retained",
+      "index": 3,
+      "ms": 3.228444023989141,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "retained",
+      "index": 4,
+      "ms": 5.644974997267127,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "retained",
+      "index": 5,
+      "ms": 5.648644990287721,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "retained",
+      "index": 6,
+      "ms": 5.64043503254652,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "retained",
+      "index": 7,
+      "ms": 5.6077149929478765,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "retained",
+      "index": 8,
+      "ms": 9.923874982632697,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 3,
+      "engine": "retained",
+      "index": 9,
+      "ms": 9.920183918438852,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "churning",
+      "index": 0,
+      "ms": 44.3706369260326,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 41.85823700390756,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "churning",
+      "index": 1,
+      "ms": 46.30140506196767,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.43497194349766,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "churning",
+      "index": 2,
+      "ms": 46.77595803514123,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.27540204394609,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "churning",
+      "index": 3,
+      "ms": 46.74109804909676,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.014751048758626,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "churning",
+      "index": 4,
+      "ms": 48.27905399724841,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.6288439668715,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "churning",
+      "index": 5,
+      "ms": 52.89955600164831,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 47.45212197303772,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "churning",
+      "index": 6,
+      "ms": 49.15642901323736,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.46761293709278,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "churning",
+      "index": 7,
+      "ms": 48.89741796068847,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 42.80013998504728,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "churning",
+      "index": 8,
+      "ms": 50.44471402652562,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.498513055965304,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "churning",
+      "index": 9,
+      "ms": 51.92951008211821,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 44.33227702975273,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "retained",
+      "index": 0,
+      "ms": 2.053629024885595,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "retained",
+      "index": 1,
+      "ms": 2.423139987513423,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "retained",
+      "index": 2,
+      "ms": 3.2404540106654167,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "retained",
+      "index": 3,
+      "ms": 3.2249148935079575,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "retained",
+      "index": 4,
+      "ms": 5.601754994131625,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "retained",
+      "index": 5,
+      "ms": 5.593204987235367,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "retained",
+      "index": 6,
+      "ms": 5.593295092694461,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "retained",
+      "index": 7,
+      "ms": 5.597934941761196,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "retained",
+      "index": 8,
+      "ms": 9.940174990333617,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 4,
+      "engine": "retained",
+      "index": 9,
+      "ms": 9.930943953804672,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "churning",
+      "index": 0,
+      "ms": 44.16700603906065,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 41.66572506073862,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "churning",
+      "index": 1,
+      "ms": 46.35059495922178,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.41150191612542,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "churning",
+      "index": 2,
+      "ms": 45.876163989305496,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 42.36543795559555,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "churning",
+      "index": 3,
+      "ms": 45.88684404734522,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 42.16256691142917,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "churning",
+      "index": 4,
+      "ms": 49.60613092407584,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 44.854719075374305,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "churning",
+      "index": 5,
+      "ms": 50.77940598130226,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 45.3751920722425,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "churning",
+      "index": 6,
+      "ms": 50.115803023800254,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 44.36699906364083,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "churning",
+      "index": 7,
+      "ms": 53.38386702351272,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 47.10679000709206,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "churning",
+      "index": 8,
+      "ms": 50.80316599924117,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.80588501226157,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "churning",
+      "index": 9,
+      "ms": 53.32238704431802,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 45.75291299261153,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "retained",
+      "index": 0,
+      "ms": 2.055069082416594,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "retained",
+      "index": 1,
+      "ms": 2.4255909956991673,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "retained",
+      "index": 2,
+      "ms": 3.2396240858361125,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "retained",
+      "index": 3,
+      "ms": 3.244174993596971,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "retained",
+      "index": 4,
+      "ms": 5.604855017736554,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "retained",
+      "index": 5,
+      "ms": 5.602004937827587,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "retained",
+      "index": 6,
+      "ms": 5.590254906564951,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "retained",
+      "index": 7,
+      "ms": 5.57901500724256,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "retained",
+      "index": 8,
+      "ms": 9.916763985529542,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 5,
+      "engine": "retained",
+      "index": 9,
+      "ms": 9.914004011079669,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "churning",
+      "index": 0,
+      "ms": 48.38344594463706,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 45.786533039063215,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "churning",
+      "index": 1,
+      "ms": 49.114438937976956,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 46.13172495737672,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "churning",
+      "index": 2,
+      "ms": 47.1820899983868,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.662043986842036,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "churning",
+      "index": 3,
+      "ms": 57.52897704951465,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 53.67792898323387,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "churning",
+      "index": 4,
+      "ms": 54.28191099781543,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 49.397657974623144,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "churning",
+      "index": 5,
+      "ms": 53.25200699735433,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 47.79419302940369,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "churning",
+      "index": 6,
+      "ms": 54.832152905873954,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 49.00285694748163,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "churning",
+      "index": 7,
+      "ms": 54.3052019784227,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 48.12317399773747,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "churning",
+      "index": 8,
+      "ms": 54.82516309712082,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 47.69037198275328,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "churning",
+      "index": 9,
+      "ms": 54.31890091858804,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 46.66461702436209,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "retained",
+      "index": 0,
+      "ms": 2.062979037873447,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "retained",
+      "index": 1,
+      "ms": 2.4378809612244368,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "retained",
+      "index": 2,
+      "ms": 3.271033987402916,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "retained",
+      "index": 3,
+      "ms": 3.241823986172676,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "retained",
+      "index": 4,
+      "ms": 5.626465077511966,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "retained",
+      "index": 5,
+      "ms": 5.636075045913458,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "retained",
+      "index": 6,
+      "ms": 5.619714967906475,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "retained",
+      "index": 7,
+      "ms": 5.633024964481592,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "retained",
+      "index": 8,
+      "ms": 9.983484982512891,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 6,
+      "engine": "retained",
+      "index": 9,
+      "ms": 9.967784979380667,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "churning",
+      "index": 0,
+      "ms": 47.3688110942021,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 44.813790009357035,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "churning",
+      "index": 1,
+      "ms": 53.24164591729641,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 50.21782300900668,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "churning",
+      "index": 2,
+      "ms": 52.541883080266416,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 48.85366698727012,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "churning",
+      "index": 3,
+      "ms": 52.49119398649782,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 48.47036593127996,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "churning",
+      "index": 4,
+      "ms": 50.07100198417902,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 45.38037092424929,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "churning",
+      "index": 5,
+      "ms": 50.73648598045111,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 45.33980193082243,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "churning",
+      "index": 6,
+      "ms": 49.19850896112621,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.48836303688586,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "churning",
+      "index": 7,
+      "ms": 50.707763992249966,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 44.53711793757975,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "churning",
+      "index": 8,
+      "ms": 55.95635704230517,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 48.79215592518449,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "churning",
+      "index": 9,
+      "ms": 51.08274600934237,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.48494205623865,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "retained",
+      "index": 0,
+      "ms": 2.057529054582119,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "retained",
+      "index": 1,
+      "ms": 2.43911100551486,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "retained",
+      "index": 2,
+      "ms": 3.2518249936401844,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "retained",
+      "index": 3,
+      "ms": 3.260633908212185,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "retained",
+      "index": 4,
+      "ms": 5.630546016618609,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "retained",
+      "index": 5,
+      "ms": 5.667904973961413,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "retained",
+      "index": 6,
+      "ms": 5.637055030092597,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "retained",
+      "index": 7,
+      "ms": 5.594304064288735,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "retained",
+      "index": 8,
+      "ms": 9.935384034179151,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 7,
+      "engine": "retained",
+      "index": 9,
+      "ms": 9.993753978051245,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "churning",
+      "index": 0,
+      "ms": 44.57916901446879,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 42.04907699022442,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "churning",
+      "index": 1,
+      "ms": 48.1492739636451,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 45.11096095666289,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "churning",
+      "index": 2,
+      "ms": 57.81731801107526,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 53.8458899827674,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "churning",
+      "index": 3,
+      "ms": 64.30089601781219,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 60.10836793575436,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "churning",
+      "index": 4,
+      "ms": 65.87048305664212,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 60.85535092279315,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "churning",
+      "index": 5,
+      "ms": 60.881971032358706,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 55.04442495293915,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "churning",
+      "index": 6,
+      "ms": 84.30102397687733,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 78.07314803358167,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "churning",
+      "index": 7,
+      "ms": 97.05450898036361,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 90.29663994442672,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "churning",
+      "index": 8,
+      "ms": 78.27288890257478,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 70.73137490078807,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "churning",
+      "index": 9,
+      "ms": 67.49018002301455,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 59.450704022310674,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "retained",
+      "index": 0,
+      "ms": 2.264790004119277,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "retained",
+      "index": 1,
+      "ms": 2.667051972821355,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "retained",
+      "index": 2,
+      "ms": 3.4936650190502405,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "retained",
+      "index": 3,
+      "ms": 3.4909049281850457,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "retained",
+      "index": 4,
+      "ms": 5.778186023235321,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "retained",
+      "index": 5,
+      "ms": 5.804087035357952,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "retained",
+      "index": 6,
+      "ms": 5.887495935894549,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "retained",
+      "index": 7,
+      "ms": 5.792576004751027,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "retained",
+      "index": 8,
+      "ms": 10.18429605755955,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 8,
+      "engine": "retained",
+      "index": 9,
+      "ms": 10.162114980630577,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "churning",
+      "index": 0,
+      "ms": 46.44832806661725,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 43.863476952537894,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "churning",
+      "index": 1,
+      "ms": 52.32199199963361,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 49.27644901908934,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "churning",
+      "index": 2,
+      "ms": 52.31988104060292,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 48.660214990377426,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "churning",
+      "index": 3,
+      "ms": 61.69725500512868,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 57.737696915864944,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "churning",
+      "index": 4,
+      "ms": 64.14638494607061,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 59.16279391385615,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "churning",
+      "index": 5,
+      "ms": 64.80068899691105,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 59.03899192344397,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "churning",
+      "index": 6,
+      "ms": 59.79190499056131,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 53.826109040528536,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "churning",
+      "index": 7,
+      "ms": 56.329531013034284,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 49.92286209017038,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "churning",
+      "index": 8,
+      "ms": 57.62713809963316,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 50.427224952727556,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "churning",
+      "index": 9,
+      "ms": 55.36141700576991,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 47.47310094535351,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "retained",
+      "index": 0,
+      "ms": 2.1371300099417567,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "retained",
+      "index": 1,
+      "ms": 2.6303319027647376,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "retained",
+      "index": 2,
+      "ms": 3.401375957764685,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "retained",
+      "index": 3,
+      "ms": 3.3994161058217287,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "retained",
+      "index": 4,
+      "ms": 5.774465971626341,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "retained",
+      "index": 5,
+      "ms": 5.771145923063159,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "retained",
+      "index": 6,
+      "ms": 5.863217054866254,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "retained",
+      "index": 7,
+      "ms": 5.789435934275389,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "retained",
+      "index": 8,
+      "ms": 10.066144983284175,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 9,
+      "engine": "retained",
+      "index": 9,
+      "ms": 10.124895023182034,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "churning",
+      "index": 0,
+      "ms": 48.85886807460338,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 46.04244604706764,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "churning",
+      "index": 1,
+      "ms": 53.896929952315986,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 50.403964007273316,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "churning",
+      "index": 2,
+      "ms": 53.29434806481004,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 49.57593104336411,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "churning",
+      "index": 3,
+      "ms": 51.61015992052853,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 47.76569292880595,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "churning",
+      "index": 4,
+      "ms": 53.73830895405263,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 48.92592807300389,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "churning",
+      "index": 5,
+      "ms": 59.0954830404371,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 53.327067056670785,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "churning",
+      "index": 6,
+      "ms": 63.02300002425909,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 56.91199307329953,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "churning",
+      "index": 7,
+      "ms": 60.48262899275869,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 54.157271049916744,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "churning",
+      "index": 8,
+      "ms": 56.84869294054806,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 49.69961103051901,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "churning",
+      "index": 9,
+      "ms": 56.41009903047234,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 48.59784501604736,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "retained",
+      "index": 0,
+      "ms": 2.0887190476059914,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "retained",
+      "index": 1,
+      "ms": 2.4456209503114223,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "retained",
+      "index": 2,
+      "ms": 3.274913993664086,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "retained",
+      "index": 3,
+      "ms": 3.2900840742513537,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "retained",
+      "index": 4,
+      "ms": 5.715375998988748,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "retained",
+      "index": 5,
+      "ms": 5.74224500451237,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "retained",
+      "index": 6,
+      "ms": 5.758234998211265,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "retained",
+      "index": 7,
+      "ms": 5.772134987637401,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "retained",
+      "index": 8,
+      "ms": 10.108885006047785,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 10,
+      "engine": "retained",
+      "index": 9,
+      "ms": 10.094585013575852,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "churning",
+      "index": 0,
+      "ms": 57.22656601574272,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 54.47621294297278,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "churning",
+      "index": 1,
+      "ms": 62.32778704725206,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 59.14452311117202,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "churning",
+      "index": 2,
+      "ms": 55.83971901796758,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 51.96328100282699,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "churning",
+      "index": 3,
+      "ms": 59.47195494081825,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 55.41354708839208,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "churning",
+      "index": 4,
+      "ms": 59.217263013124466,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 54.15438103955239,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "churning",
+      "index": 5,
+      "ms": 59.41445496864617,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 53.73929894994944,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "churning",
+      "index": 6,
+      "ms": 65.88309293147177,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 59.560065041296184,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "churning",
+      "index": 7,
+      "ms": 59.85623598098755,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 53.27644699718803,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "churning",
+      "index": 8,
+      "ms": 60.898141004145145,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 53.540577995590866,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "churning",
+      "index": 9,
+      "ms": 61.552993953228,
+      "exact_logits_and_actions": true,
+      "graph_miss": true,
+      "graph_build_ms": 53.66741900797933,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "retained",
+      "index": 0,
+      "ms": 2.222049981355667,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "retained",
+      "index": 1,
+      "ms": 2.653733012266457,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "retained",
+      "index": 2,
+      "ms": 3.414344973862171,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "retained",
+      "index": 3,
+      "ms": 3.4756649984046817,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "retained",
+      "index": 4,
+      "ms": 5.8310170425102115,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "retained",
+      "index": 5,
+      "ms": 5.817804951220751,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "retained",
+      "index": 6,
+      "ms": 5.801995983347297,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "retained",
+      "index": 7,
+      "ms": 5.78930601477623,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "retained",
+      "index": 8,
+      "ms": 10.180195095017552,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    },
+    {
+      "cycle": 11,
+      "engine": "retained",
+      "index": 9,
+      "ms": 10.156375006772578,
+      "exact_logits_and_actions": true,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io"
+    }
+  ],
+  "status": "passed",
+  "current": {
+    "cycle": 11,
+    "engine": "retained",
+    "index": 9
+  },
+  "cuda_bytes_after_close": 0
+}

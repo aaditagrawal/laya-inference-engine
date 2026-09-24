@@ -1,0 +1,648 @@
+{
+  "created_utc": "2026-09-23T19:26:22.099643+00:00",
+  "profile": "hybrid-compiled",
+  "hardware": {
+    "host": "rtx-a6000",
+    "python": "3.12.10",
+    "cpu": "AMD Ryzen Threadripper PRO 7995WX 96-Cores",
+    "gpu_telemetry": "NVIDIA RTX A6000, 580.173.02, 1552 MiB, 0 %, 68"
+  },
+  "options": {
+    "split": "scorer",
+    "cpu_threads": 1,
+    "gpu_dtype": "fp16",
+    "cpu_dtype": "fp32",
+    "graphs": true,
+    "compile_model": true
+  },
+  "repeats": 20,
+  "warmups": 5,
+  "packages": {
+    "torch": "2.14.0",
+    "transformers": "5.17.0",
+    "laya": "0.3.9",
+    "tokenizers": "0.23.2",
+    "triton": "3.8.0"
+  },
+  "cuda_runtime": "13.0",
+  "method": "Serial in-process predict. Tokenization, transfers, inference and response formatting included. Model loading, first call, warmup, HTTP and SSH transport excluded equally. Separate process per profile. No answer cache. CPU microbatching and precision follow the recorded profile.",
+  "non_blackwell_benchmark_override": false,
+  "cases": [
+    {
+      "name": "1-short",
+      "questions": 1,
+      "request_sha256": "da98b5ec5dff8bff4a9ba124c84677565b54cf546d23634345bb47f56ce7d6c7",
+      "input_tokens": 63,
+      "first_call_ms": 28919.93968002498,
+      "graph_count": 1,
+      "answers": {
+        "q0": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.9432,
+            "technical": 0.0295,
+            "sales": 0.0273
+          },
+          "confidence": 0.7657,
+          "action": {
+            "act_probability": 1.0
+          }
+        }
+      },
+      "samples_ms": [
+        2.7898799162358046,
+        2.7843420393764973,
+        2.7751880697906017,
+        2.7913220692425966,
+        2.775908913463354,
+        2.7883669827133417,
+        2.7782018296420574,
+        2.7863348368555307,
+        2.7735461480915546,
+        2.783671021461487,
+        2.7850528713315725,
+        2.7929251082241535,
+        2.77787190862,
+        2.7696900069713593,
+        2.7887888718396425,
+        2.776720095425844,
+        2.786946017295122,
+        2.783050062134862,
+        2.7825990691781044,
+        2.780196024104953
+      ],
+      "p50_ms": 2.7833605417981744,
+      "p95_ms": 2.7914022211916745,
+      "mean_ms": 2.782530093099922,
+      "decisions_per_second": 359.38515183709444
+    },
+    {
+      "name": "16-short",
+      "questions": 16,
+      "request_sha256": "60b67ccbbe143c6ced6d1e8f2020f25a8e4fb6b671950e352f7557bd8247b18a",
+      "input_tokens": 993,
+      "first_call_ms": 31740.166656905785,
+      "graph_count": 2,
+      "answers": {
+        "q0": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.9432,
+            "technical": 0.0296,
+            "sales": 0.0272
+          },
+          "confidence": 0.7657,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q1": {
+          "type": "score",
+          "score": 0.9766,
+          "legend": {
+            "0": "not urgent",
+            "1": "soon",
+            "2": "critical deadline"
+          },
+          "probabilities": {
+            "0": 0.189,
+            "1": 0.6455,
+            "2": 0.1655
+          },
+          "confidence": 0.1852,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q2": {
+          "type": "noul",
+          "noul": 0.999,
+          "confidence": 0.999,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q3": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.9432,
+            "technical": 0.0296,
+            "sales": 0.0272
+          },
+          "confidence": 0.7657,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q4": {
+          "type": "score",
+          "score": 0.9766,
+          "legend": {
+            "0": "not urgent",
+            "1": "soon",
+            "2": "critical deadline"
+          },
+          "probabilities": {
+            "0": 0.189,
+            "1": 0.6455,
+            "2": 0.1655
+          },
+          "confidence": 0.1852,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q5": {
+          "type": "noul",
+          "noul": 0.999,
+          "confidence": 0.999,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q6": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.9432,
+            "technical": 0.0296,
+            "sales": 0.0272
+          },
+          "confidence": 0.7657,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q7": {
+          "type": "score",
+          "score": 0.9766,
+          "legend": {
+            "0": "not urgent",
+            "1": "soon",
+            "2": "critical deadline"
+          },
+          "probabilities": {
+            "0": 0.189,
+            "1": 0.6455,
+            "2": 0.1655
+          },
+          "confidence": 0.1852,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q8": {
+          "type": "noul",
+          "noul": 0.999,
+          "confidence": 0.999,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q9": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.9432,
+            "technical": 0.0296,
+            "sales": 0.0272
+          },
+          "confidence": 0.7657,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q10": {
+          "type": "score",
+          "score": 0.9766,
+          "legend": {
+            "0": "not urgent",
+            "1": "soon",
+            "2": "critical deadline"
+          },
+          "probabilities": {
+            "0": 0.189,
+            "1": 0.6455,
+            "2": 0.1655
+          },
+          "confidence": 0.1852,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q11": {
+          "type": "noul",
+          "noul": 0.999,
+          "confidence": 0.999,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q12": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.9432,
+            "technical": 0.0296,
+            "sales": 0.0272
+          },
+          "confidence": 0.7657,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q13": {
+          "type": "score",
+          "score": 0.9766,
+          "legend": {
+            "0": "not urgent",
+            "1": "soon",
+            "2": "critical deadline"
+          },
+          "probabilities": {
+            "0": 0.189,
+            "1": 0.6455,
+            "2": 0.1655
+          },
+          "confidence": 0.1852,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q14": {
+          "type": "noul",
+          "noul": 0.999,
+          "confidence": 0.999,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q15": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.9432,
+            "technical": 0.0296,
+            "sales": 0.0272
+          },
+          "confidence": 0.7657,
+          "action": {
+            "act_probability": 1.0
+          }
+        }
+      },
+      "samples_ms": [
+        12.064994079992175,
+        12.053715996444225,
+        12.20297091640532,
+        12.303812894970179,
+        12.1782838832587,
+        12.18860992230475,
+        12.165063992142677,
+        12.176071060821414,
+        12.270823121070862,
+        12.248740065842867,
+        12.108989991247654,
+        12.15618010610342,
+        12.10878905840218,
+        12.079926207661629,
+        12.054047081619501,
+        12.308830861002207,
+        12.372086057439446,
+        12.165684951469302,
+        12.153507210314274,
+        12.092845048755407
+      ],
+      "p50_ms": 12.16537447180599,
+      "p95_ms": 12.311993620824069,
+      "mean_ms": 12.17269862536341,
+      "decisions_per_second": 1314.4168349540757
+    },
+    {
+      "name": "1-long",
+      "questions": 1,
+      "request_sha256": "6c8d2da685689c3c33a26855bddf64ac54d97c6e5a5147feab971b3ec6e3920a",
+      "input_tokens": 512,
+      "first_call_ms": 32452.10952893831,
+      "graph_count": 3,
+      "answers": {
+        "q0": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.7614,
+            "technical": 0.1249,
+            "sales": 0.1137
+          },
+          "confidence": 0.3496,
+          "action": {
+            "act_probability": 1.0
+          }
+        }
+      },
+      "samples_ms": [
+        8.178862975910306,
+        8.167936000972986,
+        8.178181946277618,
+        8.25616903603077,
+        8.358703926205635,
+        8.83667403832078,
+        8.410641923546791,
+        8.305213879793882,
+        8.26733699068427,
+        8.282528957352042,
+        8.243230171501637,
+        8.258843095973134,
+        8.209839928895235,
+        8.236460154876113,
+        8.23447690345347,
+        8.271122118458152,
+        8.32790695130825,
+        8.401768980547786,
+        8.341388078406453,
+        8.29775189049542
+      ],
+      "p50_ms": 8.269229554571211,
+      "p95_ms": 8.43194352928549,
+      "mean_ms": 8.303251897450536,
+      "decisions_per_second": 120.43474199633086
+    },
+    {
+      "name": "16-long",
+      "questions": 16,
+      "request_sha256": "c78ea353c2e5e6c0579bcfa38baf6cfaa3e678c7db11394d22468411dc20dfc6",
+      "input_tokens": 8192,
+      "first_call_ms": 33845.49251804128,
+      "graph_count": 4,
+      "answers": {
+        "q0": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.7607,
+            "technical": 0.1253,
+            "sales": 0.114
+          },
+          "confidence": 0.3485,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q1": {
+          "type": "score",
+          "score": 0.9987,
+          "legend": {
+            "0": "not urgent",
+            "1": "soon",
+            "2": "critical deadline"
+          },
+          "probabilities": {
+            "0": 0.3352,
+            "1": 0.331,
+            "2": 0.3338
+          },
+          "confidence": 0.0,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q2": {
+          "type": "noul",
+          "noul": 0.8567,
+          "confidence": 0.8567,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q3": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.7607,
+            "technical": 0.1253,
+            "sales": 0.114
+          },
+          "confidence": 0.3485,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q4": {
+          "type": "score",
+          "score": 0.9987,
+          "legend": {
+            "0": "not urgent",
+            "1": "soon",
+            "2": "critical deadline"
+          },
+          "probabilities": {
+            "0": 0.3352,
+            "1": 0.331,
+            "2": 0.3338
+          },
+          "confidence": 0.0,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q5": {
+          "type": "noul",
+          "noul": 0.8567,
+          "confidence": 0.8567,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q6": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.7607,
+            "technical": 0.1253,
+            "sales": 0.114
+          },
+          "confidence": 0.3485,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q7": {
+          "type": "score",
+          "score": 0.9987,
+          "legend": {
+            "0": "not urgent",
+            "1": "soon",
+            "2": "critical deadline"
+          },
+          "probabilities": {
+            "0": 0.3352,
+            "1": 0.331,
+            "2": 0.3338
+          },
+          "confidence": 0.0,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q8": {
+          "type": "noul",
+          "noul": 0.8567,
+          "confidence": 0.8567,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q9": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.7607,
+            "technical": 0.1253,
+            "sales": 0.114
+          },
+          "confidence": 0.3485,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q10": {
+          "type": "score",
+          "score": 0.9987,
+          "legend": {
+            "0": "not urgent",
+            "1": "soon",
+            "2": "critical deadline"
+          },
+          "probabilities": {
+            "0": 0.3352,
+            "1": 0.331,
+            "2": 0.3338
+          },
+          "confidence": 0.0,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q11": {
+          "type": "noul",
+          "noul": 0.8567,
+          "confidence": 0.8567,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q12": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.7607,
+            "technical": 0.1253,
+            "sales": 0.114
+          },
+          "confidence": 0.3485,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q13": {
+          "type": "score",
+          "score": 0.9987,
+          "legend": {
+            "0": "not urgent",
+            "1": "soon",
+            "2": "critical deadline"
+          },
+          "probabilities": {
+            "0": 0.3352,
+            "1": 0.331,
+            "2": 0.3338
+          },
+          "confidence": 0.0,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q14": {
+          "type": "noul",
+          "noul": 0.8567,
+          "confidence": 0.8567,
+          "action": {
+            "act_probability": 1.0
+          }
+        },
+        "q15": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.7607,
+            "technical": 0.1253,
+            "sales": 0.114
+          },
+          "confidence": 0.3485,
+          "action": {
+            "act_probability": 1.0
+          }
+        }
+      },
+      "samples_ms": [
+        89.76206602528691,
+        89.82378896325827,
+        89.63242080062628,
+        90.81746498122811,
+        90.48277093097568,
+        90.77245811931789,
+        90.27096210047603,
+        90.81844706088305,
+        90.03329486586154,
+        90.23045096546412,
+        90.08917887695134,
+        89.88299802877009,
+        90.04241810180247,
+        90.00547300092876,
+        90.29076201841235,
+        90.36213904619217,
+        90.11884406208992,
+        89.90797703154385,
+        90.31367697753012,
+        90.45473905280232
+      ],
+      "p50_ms": 90.17464751377702,
+      "p95_ms": 90.81751408521086,
+      "mean_ms": 90.20561655052006,
+      "decisions_per_second": 177.37254742934024
+    }
+  ],
+  "status": "complete",
+  "model_load_ms": 3208.4035389125347,
+  "torch_threads": 1,
+  "model_revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+  "configuration": {
+    "backend": "hybrid",
+    "split": "scorer",
+    "cpu_threads": 1,
+    "gpu_dtype": "fp16",
+    "cpu_dtype": "fp32",
+    "graphs": true,
+    "token_cache": true,
+    "compile_model": true,
+    "gpu": "NVIDIA RTX A6000",
+    "cpu_stages": "scorer + action head",
+    "gpu_stages": "ModernBERT encoder + 2 transformer head layers",
+    "single_request_overlap": false,
+    "metric": "input_tokens_per_second; time_to_first_decision_ms",
+    "pipeline_workers": 2,
+    "predict_many_overlap": "CPU learned stages can overlap another request GPU stage",
+    "graph_count": 4,
+    "graph_capture_seconds": 126.84466370381415,
+    "graph_capture_warmups": 1
+  },
+  "hardware_after": {
+    "host": "rtx-a6000",
+    "python": "3.12.10",
+    "cpu": "AMD Ryzen Threadripper PRO 7995WX 96-Cores",
+    "gpu_telemetry": "NVIDIA RTX A6000, 580.173.02, 3547 MiB, 95 %, 76"
+  }
+}

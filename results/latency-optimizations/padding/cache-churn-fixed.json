@@ -1,0 +1,2091 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T03:07:57.812101+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "max_graphs": 8,
+  "requests_per_cycle": 10,
+  "stable_host": true,
+  "method": "Counts 1..10 short, in order. One complete untimed cycle then two timed cycles per block. Three randomized blocks. Includes graph recapture, excludes initial model load and initial warmup.",
+  "rows": [
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 1,
+      "elapsed_ms": 52.082855021581054,
+      "graph_miss": true,
+      "graph_build_ms": 49.156146007589996,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.07384505774826
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 2,
+      "elapsed_ms": 52.14971606619656,
+      "graph_miss": true,
+      "graph_build_ms": 48.65795001387596,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.1363050211221
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 3,
+      "elapsed_ms": 48.86532202363014,
+      "graph_miss": true,
+      "graph_build_ms": 44.82458904385567,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 48.851232044398785
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 4,
+      "elapsed_ms": 49.23748702276498,
+      "graph_miss": true,
+      "graph_build_ms": 44.911760953255,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 49.2226870264858
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 5,
+      "elapsed_ms": 50.63277599401772,
+      "graph_miss": true,
+      "graph_build_ms": 45.390067039988935,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.615875981748104
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 6,
+      "elapsed_ms": 53.562192944809794,
+      "graph_miss": true,
+      "graph_build_ms": 47.55363508593291,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 53.54590294882655
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 7,
+      "elapsed_ms": 52.129296003840864,
+      "graph_miss": true,
+      "graph_build_ms": 45.694101019762456,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.11133603006601
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 8,
+      "elapsed_ms": 55.96418504137546,
+      "graph_miss": true,
+      "graph_build_ms": 49.13232603576034,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 55.94389501493424
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 9,
+      "elapsed_ms": 52.820474025793374,
+      "graph_miss": true,
+      "graph_build_ms": 45.06637202575803,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.799923927523196
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 10,
+      "elapsed_ms": 54.89591194782406,
+      "graph_miss": true,
+      "graph_build_ms": 46.49917094502598,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 54.87968190573156
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 1,
+      "elapsed_ms": 46.083815046586096,
+      "graph_miss": true,
+      "graph_build_ms": 43.23885799385607,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 46.06995510403067
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 2,
+      "elapsed_ms": 50.78769801184535,
+      "graph_miss": true,
+      "graph_build_ms": 47.373002977110445,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.77779700513929
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 3,
+      "elapsed_ms": 50.652215955778956,
+      "graph_miss": true,
+      "graph_build_ms": 46.413109987042844,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.63379602506757
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 4,
+      "elapsed_ms": 56.4441520255059,
+      "graph_miss": true,
+      "graph_build_ms": 51.83181201573461,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 56.42593093216419
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 5,
+      "elapsed_ms": 51.43326590768993,
+      "graph_miss": true,
+      "graph_build_ms": 46.062104986049235,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 51.41961597837508
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 6,
+      "elapsed_ms": 55.29945692978799,
+      "graph_miss": true,
+      "graph_build_ms": 49.18399697635323,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 55.28049706481397
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 7,
+      "elapsed_ms": 55.1616350421682,
+      "graph_miss": true,
+      "graph_build_ms": 48.5787489451468,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 55.14605506323278
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 8,
+      "elapsed_ms": 54.408565047197044,
+      "graph_miss": true,
+      "graph_build_ms": 47.357862000353634,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 54.38904499169439
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 9,
+      "elapsed_ms": 55.44722895137966,
+      "graph_miss": true,
+      "graph_build_ms": 47.56439500488341,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 55.42990902904421
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 10,
+      "elapsed_ms": 58.52124898228794,
+      "graph_miss": true,
+      "graph_build_ms": 50.03487691283226,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 58.498397935181856
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 1,
+      "elapsed_ms": 2.3894610349088907,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.3811310529708862
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 2,
+      "elapsed_ms": 3.3787740394473076,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.3730240538716316
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 3,
+      "elapsed_ms": 3.7561890203505754,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.7493089912459254
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 4,
+      "elapsed_ms": 3.75959905795753,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.7510190159082413
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 5,
+      "elapsed_ms": 6.139880977571011,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.131371017545462
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 6,
+      "elapsed_ms": 6.203141063451767,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.1948709189891815
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 7,
+      "elapsed_ms": 6.189482053741813,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.181312026455998
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 8,
+      "elapsed_ms": 6.196330999955535,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.187970982864499
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 9,
+      "elapsed_ms": 10.55870798882097,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.549708036705852
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 10,
+      "elapsed_ms": 10.568008990958333,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.557928937487304
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 1,
+      "elapsed_ms": 2.274089027196169,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.2666689474135637
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 2,
+      "elapsed_ms": 2.759805996902287,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.7544860495254397
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 3,
+      "elapsed_ms": 3.6545770708471537,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.6485870368778706
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 4,
+      "elapsed_ms": 3.6966089392080903,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.688808996230364
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 5,
+      "elapsed_ms": 6.097549921832979,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.090459995903075
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 6,
+      "elapsed_ms": 6.128390086814761,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.120439968071878
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 7,
+      "elapsed_ms": 6.231860956177115,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.2220009276643395
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 8,
+      "elapsed_ms": 6.216811016201973,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.206301040947437
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 9,
+      "elapsed_ms": 10.665370034985244,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.653039906173944
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 10,
+      "elapsed_ms": 10.739031014963984,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.724331019446254
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 1,
+      "elapsed_ms": 2.344770939089358,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.3354210425168276
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 2,
+      "elapsed_ms": 2.7711259899660945,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.7655460871756077
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 3,
+      "elapsed_ms": 3.6873490316793323,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.680669004097581
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 4,
+      "elapsed_ms": 3.695758990943432,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.688979079015553
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 5,
+      "elapsed_ms": 6.214222055859864,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.193342036567628
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 6,
+      "elapsed_ms": 6.748229032382369,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.730888970196247
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 7,
+      "elapsed_ms": 6.607415969483554,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.589366006664932
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 8,
+      "elapsed_ms": 6.5879060421139,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.569936056621373
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 9,
+      "elapsed_ms": 11.017994955182076,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.997563949786127
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 10,
+      "elapsed_ms": 10.870122932828963,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.85589302238077
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 1,
+      "elapsed_ms": 2.286010072566569,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.2778899874538183
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 2,
+      "elapsed_ms": 2.7995959389954805,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.793865976855159
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 3,
+      "elapsed_ms": 3.688598982989788,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.68252897169441
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 4,
+      "elapsed_ms": 3.75903001986444,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.7516599986702204
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 5,
+      "elapsed_ms": 6.14060100633651,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.131401052698493
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 6,
+      "elapsed_ms": 6.189360981807113,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.181320990435779
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 7,
+      "elapsed_ms": 6.2007419764995575,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.1919320141896605
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 8,
+      "elapsed_ms": 6.219131988473237,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.2100120121613145
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 9,
+      "elapsed_ms": 10.606969008222222,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.597179061733186
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 10,
+      "elapsed_ms": 10.604768991470337,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.594569030217826
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 1,
+      "elapsed_ms": 47.219570027664304,
+      "graph_miss": true,
+      "graph_build_ms": 44.39665307290852,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 47.20530996564776
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 2,
+      "elapsed_ms": 52.87148407660425,
+      "graph_miss": true,
+      "graph_build_ms": 49.38920889981091,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.86016396712512
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 3,
+      "elapsed_ms": 54.97737193945795,
+      "graph_miss": true,
+      "graph_build_ms": 50.588943995535374,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 54.95514196809381
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 4,
+      "elapsed_ms": 50.02971598878503,
+      "graph_miss": true,
+      "graph_build_ms": 45.630840002559125,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.01692601945251
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 5,
+      "elapsed_ms": 51.65595794096589,
+      "graph_miss": true,
+      "graph_build_ms": 46.302517992444336,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 51.64239800069481
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 6,
+      "elapsed_ms": 52.94213502202183,
+      "graph_miss": true,
+      "graph_build_ms": 46.92484706174582,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.927615004591644
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 7,
+      "elapsed_ms": 51.286113914102316,
+      "graph_miss": true,
+      "graph_build_ms": 44.81031792238355,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 51.26982391811907
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 8,
+      "elapsed_ms": 54.8242200165987,
+      "graph_miss": true,
+      "graph_build_ms": 47.85503796301782,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 54.80659904424101
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 9,
+      "elapsed_ms": 54.8956609563902,
+      "graph_miss": true,
+      "graph_build_ms": 46.98114702478051,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 54.8772910842672
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 10,
+      "elapsed_ms": 55.83692295476794,
+      "graph_miss": true,
+      "graph_build_ms": 47.32820193748921,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 55.815072963014245
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 1,
+      "elapsed_ms": 47.480592969805,
+      "graph_miss": true,
+      "graph_build_ms": 44.49424392078072,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 47.46602301020175
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 2,
+      "elapsed_ms": 48.948831972666085,
+      "graph_miss": true,
+      "graph_build_ms": 45.58163892943412,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 48.939861939288676
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 3,
+      "elapsed_ms": 52.83080297522247,
+      "graph_miss": true,
+      "graph_build_ms": 48.74680994544178,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.82057297881693
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 4,
+      "elapsed_ms": 49.028362962417305,
+      "graph_miss": true,
+      "graph_build_ms": 44.68618694227189,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 49.016203032806516
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 5,
+      "elapsed_ms": 49.70218299422413,
+      "graph_miss": true,
+      "graph_build_ms": 44.406492030248046,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 49.68800209462643
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 6,
+      "elapsed_ms": 52.0443330751732,
+      "graph_miss": true,
+      "graph_build_ms": 46.02174391038716,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.03095299657434
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 7,
+      "elapsed_ms": 53.454692009836435,
+      "graph_miss": true,
+      "graph_build_ms": 46.93875601515174,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 53.4392410190776
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 8,
+      "elapsed_ms": 52.09985398687422,
+      "graph_miss": true,
+      "graph_build_ms": 45.110400998964906,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.08306305576116
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 9,
+      "elapsed_ms": 55.27472496032715,
+      "graph_miss": true,
+      "graph_build_ms": 47.204778995364904,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 55.25477509945631
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 10,
+      "elapsed_ms": 56.364929070696235,
+      "graph_miss": true,
+      "graph_build_ms": 47.711716033518314,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 56.34406895842403
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 1,
+      "elapsed_ms": 49.977276008576155,
+      "graph_miss": true,
+      "graph_build_ms": 46.899304958060384,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 49.960876000113785
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 2,
+      "elapsed_ms": 51.9090520683676,
+      "graph_miss": true,
+      "graph_build_ms": 48.39406500104815,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 51.898960955441
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 3,
+      "elapsed_ms": 52.66102100722492,
+      "graph_miss": true,
+      "graph_build_ms": 48.455165000632405,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.64859099406749
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 4,
+      "elapsed_ms": 53.552911966107786,
+      "graph_miss": true,
+      "graph_build_ms": 49.058793927542865,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 53.53972199372947
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 5,
+      "elapsed_ms": 54.72309805918485,
+      "graph_miss": true,
+      "graph_build_ms": 49.27779594436288,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 54.70684799365699
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 6,
+      "elapsed_ms": 54.41356298979372,
+      "graph_miss": true,
+      "graph_build_ms": 48.21414302568883,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 54.3979830108583
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 7,
+      "elapsed_ms": 52.613431005738676,
+      "graph_miss": true,
+      "graph_build_ms": 45.99173297174275,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.59376100730151
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 8,
+      "elapsed_ms": 53.1523380195722,
+      "graph_miss": true,
+      "graph_build_ms": 46.113524003885686,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 53.136617061682045
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 9,
+      "elapsed_ms": 56.2515479978174,
+      "graph_miss": true,
+      "graph_build_ms": 48.43910504132509,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 56.233947980217636
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 10,
+      "elapsed_ms": 54.501325939781964,
+      "graph_miss": true,
+      "graph_build_ms": 45.909332926385105,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 54.48291508946568
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 1,
+      "elapsed_ms": 47.77875600848347,
+      "graph_miss": true,
+      "graph_build_ms": 44.84356800094247,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 47.762566013261676
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 2,
+      "elapsed_ms": 50.754965050145984,
+      "graph_miss": true,
+      "graph_build_ms": 47.24205902311951,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.74347497429699
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 3,
+      "elapsed_ms": 50.487330998294055,
+      "graph_miss": true,
+      "graph_build_ms": 46.173405018635094,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.473971059545875
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 4,
+      "elapsed_ms": 52.28289496153593,
+      "graph_miss": true,
+      "graph_build_ms": 47.77027608361095,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.26929497439414
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 5,
+      "elapsed_ms": 52.40912700537592,
+      "graph_miss": true,
+      "graph_build_ms": 47.07957699429244,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.39658697973937
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 6,
+      "elapsed_ms": 55.14998291619122,
+      "graph_miss": true,
+      "graph_build_ms": 48.92722191289067,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 55.1320631057024
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 7,
+      "elapsed_ms": 54.023087956011295,
+      "graph_miss": true,
+      "graph_build_ms": 47.36078099813312,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 54.0066979592666
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 8,
+      "elapsed_ms": 55.79188198316842,
+      "graph_miss": true,
+      "graph_build_ms": 48.77418896649033,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 55.771581013686955
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 9,
+      "elapsed_ms": 54.26804209128022,
+      "graph_miss": true,
+      "graph_build_ms": 46.36043799109757,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 54.250500979833305
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 10,
+      "elapsed_ms": 56.1052649281919,
+      "graph_miss": true,
+      "graph_build_ms": 47.558513935655355,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 56.086544995196164
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 0,
+      "questions": 1,
+      "elapsed_ms": 2.5700631085783243,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.5601329980418086
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 0,
+      "questions": 2,
+      "elapsed_ms": 2.8449579840525985,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.838777960278094
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 0,
+      "questions": 3,
+      "elapsed_ms": 3.859190968796611,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.8508300203830004
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 0,
+      "questions": 4,
+      "elapsed_ms": 3.819469944573939,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.8117700023576617
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 0,
+      "questions": 5,
+      "elapsed_ms": 6.193310953676701,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.184580968692899
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 0,
+      "questions": 6,
+      "elapsed_ms": 6.197461043484509,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.188781000673771
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 0,
+      "questions": 7,
+      "elapsed_ms": 6.21320097707212,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.205070996657014
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 0,
+      "questions": 8,
+      "elapsed_ms": 6.179351010359824,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.1707800487056375
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 0,
+      "questions": 9,
+      "elapsed_ms": 10.562858078628778,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.554137988947332
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 0,
+      "questions": 10,
+      "elapsed_ms": 10.720959980972111,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.703499894589186
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 1,
+      "questions": 1,
+      "elapsed_ms": 2.4052209919318557,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.3954310454428196
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 1,
+      "questions": 2,
+      "elapsed_ms": 2.8038470773026347,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.7983259642496705
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 1,
+      "questions": 3,
+      "elapsed_ms": 3.7333089858293533,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.7269690074026585
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 1,
+      "questions": 4,
+      "elapsed_ms": 3.7864490877836943,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.776688943617046
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 1,
+      "questions": 5,
+      "elapsed_ms": 6.181980948895216,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.173681002110243
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 1,
+      "questions": 6,
+      "elapsed_ms": 6.1572398990392685,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.149069988168776
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 1,
+      "questions": 7,
+      "elapsed_ms": 6.243071053177118,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.231450941413641
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 1,
+      "questions": 8,
+      "elapsed_ms": 6.2770930817350745,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.2663930002599955
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 1,
+      "questions": 9,
+      "elapsed_ms": 10.693139978684485,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.67992893513292
+    },
+    {
+      "variant": "baseline",
+      "block": 2,
+      "cycle": 1,
+      "questions": 10,
+      "elapsed_ms": 10.744421044364572,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.73210104368627
+    }
+  ],
+  "current": {
+    "variant": "baseline",
+    "block": 2,
+    "cycle": 1,
+    "questions": 10
+  },
+  "summary": {
+    "baseline": {
+      "mean_ms": 5.9138328399664415,
+      "p50_ms": 6.18066597962752,
+      "p95_ms": 10.739300516434014,
+      "samples_ms": [
+        2.3894610349088907,
+        3.3787740394473076,
+        3.7561890203505754,
+        3.75959905795753,
+        6.139880977571011,
+        6.203141063451767,
+        6.189482053741813,
+        6.196330999955535,
+        10.55870798882097,
+        10.568008990958333,
+        2.274089027196169,
+        2.759805996902287,
+        3.6545770708471537,
+        3.6966089392080903,
+        6.097549921832979,
+        6.128390086814761,
+        6.231860956177115,
+        6.216811016201973,
+        10.665370034985244,
+        10.739031014963984,
+        2.344770939089358,
+        2.7711259899660945,
+        3.6873490316793323,
+        3.695758990943432,
+        6.214222055859864,
+        6.748229032382369,
+        6.607415969483554,
+        6.5879060421139,
+        11.017994955182076,
+        10.870122932828963,
+        2.286010072566569,
+        2.7995959389954805,
+        3.688598982989788,
+        3.75903001986444,
+        6.14060100633651,
+        6.189360981807113,
+        6.2007419764995575,
+        6.219131988473237,
+        10.606969008222222,
+        10.604768991470337,
+        2.5700631085783243,
+        2.8449579840525985,
+        3.859190968796611,
+        3.819469944573939,
+        6.193310953676701,
+        6.197461043484509,
+        6.21320097707212,
+        6.179351010359824,
+        10.562858078628778,
+        10.720959980972111,
+        2.4052209919318557,
+        2.8038470773026347,
+        3.7333089858293533,
+        3.7864490877836943,
+        6.181980948895216,
+        6.1572398990392685,
+        6.243071053177118,
+        6.2770930817350745,
+        10.693139978684485,
+        10.744421044364572
+      ],
+      "graph_misses": 0,
+      "requests": 60
+    },
+    "candidate": {
+      "mean_ms": 52.719247612791754,
+      "p50_ms": 52.82563850050792,
+      "p95_ms": 56.25721705146134,
+      "samples_ms": [
+        52.082855021581054,
+        52.14971606619656,
+        48.86532202363014,
+        49.23748702276498,
+        50.63277599401772,
+        53.562192944809794,
+        52.129296003840864,
+        55.96418504137546,
+        52.820474025793374,
+        54.89591194782406,
+        46.083815046586096,
+        50.78769801184535,
+        50.652215955778956,
+        56.4441520255059,
+        51.43326590768993,
+        55.29945692978799,
+        55.1616350421682,
+        54.408565047197044,
+        55.44722895137966,
+        58.52124898228794,
+        47.219570027664304,
+        52.87148407660425,
+        54.97737193945795,
+        50.02971598878503,
+        51.65595794096589,
+        52.94213502202183,
+        51.286113914102316,
+        54.8242200165987,
+        54.8956609563902,
+        55.83692295476794,
+        47.480592969805,
+        48.948831972666085,
+        52.83080297522247,
+        49.028362962417305,
+        49.70218299422413,
+        52.0443330751732,
+        53.454692009836435,
+        52.09985398687422,
+        55.27472496032715,
+        56.364929070696235,
+        49.977276008576155,
+        51.9090520683676,
+        52.66102100722492,
+        53.552911966107786,
+        54.72309805918485,
+        54.41356298979372,
+        52.613431005738676,
+        53.1523380195722,
+        56.2515479978174,
+        54.501325939781964,
+        47.77875600848347,
+        50.754965050145984,
+        50.487330998294055,
+        52.28289496153593,
+        52.40912700537592,
+        55.14998291619122,
+        54.023087956011295,
+        55.79188198316842,
+        54.26804209128022,
+        56.1052649281919
+      ],
+      "graph_misses": 60,
+      "requests": 60
+    }
+  },
+  "status": "complete"
+}

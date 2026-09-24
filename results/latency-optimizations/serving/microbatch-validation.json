@@ -1,0 +1,4592 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T02:51:52.409285+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 1,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "variant": "microbatch-0.25",
+  "concurrent": [
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0004163980484008789,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 0,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 472.73694805335253,
+        "shape": [
+          8,
+          64,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 0.32567197922617197
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00032776594161987305,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 1,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 472.73694805335253,
+        "shape": [
+          8,
+          64,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 0.15844102017581463
+      }
+    },
+    {
+      "exact_logits_and_actions": true,
+      "max_probability_error": 0.0,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 2,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 50.820001983083785,
+        "shape": [
+          16,
+          64,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 478.2558899605647
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0006591677665710449,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 3,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 50.820001983083785,
+        "shape": [
+          16,
+          64,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 478.07766892947257
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.001192733645439148,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 4,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 47.64596908353269,
+        "shape": [
+          8,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 538.7444799998775
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00022661685943603516,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 5,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 47.64596908353269,
+        "shape": [
+          8,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 538.4693290106952
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0020350217819213867,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 6,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 50.820001983083785,
+        "shape": [
+          16,
+          64,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 477.29552595410496
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0008612573146820068,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 7,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 50.820001983083785,
+        "shape": [
+          16,
+          64,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 472.88154799025506
+      }
+    },
+    {
+      "exact_logits_and_actions": true,
+      "max_probability_error": 0.0,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 8,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 47.48942900914699,
+        "shape": [
+          4,
+          256,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 1,
+        "batch_questions": 4,
+        "queue_ms": 118.82057203911245
+      }
+    },
+    {
+      "exact_logits_and_actions": true,
+      "max_probability_error": 0.0,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 9,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 88.01615994889289,
+        "shape": [
+          4,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 1,
+        "batch_questions": 4,
+        "queue_ms": 177.00638400856405
+      }
+    },
+    {
+      "exact_logits_and_actions": true,
+      "max_probability_error": 0.0,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 10,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 46.640784945338964,
+        "shape": [
+          1,
+          64,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 1,
+        "batch_questions": 1,
+        "queue_ms": 225.6250960053876
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.003296203911304474,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "case": 11,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 46.23324307613075,
+        "shape": [
+          4,
+          64,
+          2
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 4,
+        "queue_ms": 274.38949001953006
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.008552193641662598,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "case": 12,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 44.846967910416424,
+        "shape": [
+          4,
+          64,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 4,
+        "queue_ms": 323.9352978998795
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 13,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 46.23324307613075,
+        "shape": [
+          4,
+          64,
+          2
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 4,
+        "queue_ms": 274.2940289899707
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0014367103576660156,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "case": 14,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 44.846967910416424,
+        "shape": [
+          4,
+          64,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 4,
+        "queue_ms": 265.9333070041612
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00032776594161987305,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 15,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 46.23324307613075,
+        "shape": [
+          4,
+          64,
+          2
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 4,
+        "queue_ms": 216.26949904020876
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.006640195846557617,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "case": 16,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 44.846967910416424,
+        "shape": [
+          4,
+          64,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 4,
+        "queue_ms": 207.70603592973202
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 17,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 46.23324307613075,
+        "shape": [
+          4,
+          64,
+          2
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 4,
+        "queue_ms": 48.615263076499104
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0030429959297180176,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 18,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 44.846967910416424,
+        "shape": [
+          4,
+          64,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 4,
+        "queue_ms": 49.42604689858854
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 4.080682992935181e-05,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 19,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 107.67966706771404,
+        "shape": [
+          2,
+          64,
+          2
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 2,
+        "queue_ms": 48.11060102656484
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0031147003173828125,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 64.0,
+      "passed": true,
+      "case": 20,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          4,
+          64,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 3,
+        "batch_questions": 3,
+        "queue_ms": 158.34511909633875
+      }
+    },
+    {
+      "exact_logits_and_actions": true,
+      "max_probability_error": 0.0,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 21,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 107.67966706771404,
+        "shape": [
+          2,
+          64,
+          2
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 2,
+        "queue_ms": 48.009010031819344
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.003178209066390991,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 22,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          4,
+          64,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 3,
+        "batch_questions": 3,
+        "queue_ms": 158.251148997806
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0016565397381782532,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 23,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          4,
+          64,
+          2
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 3,
+        "batch_questions": 3,
+        "queue_ms": 113.3630609838292
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0013459175825119019,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 24,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          4,
+          64,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 3,
+        "batch_questions": 3,
+        "queue_ms": 110.04982807207853
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 25,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          4,
+          64,
+          2
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 3,
+        "batch_questions": 3,
+        "queue_ms": 113.26628003735095
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00261843204498291,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 26,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          4,
+          64,
+          2
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 3,
+        "batch_questions": 3,
+        "queue_ms": 113.21803997270763
+      }
+    },
+    {
+      "exact_logits_and_actions": true,
+      "max_probability_error": 0.0,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 27,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 50.90825189836323,
+        "shape": [
+          1,
+          128,
+          8
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 1,
+        "batch_questions": 1,
+        "queue_ms": 6.418704986572266
+      }
+    },
+    {
+      "exact_logits_and_actions": true,
+      "max_probability_error": 0.0,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 28,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 48.76089398749173,
+        "shape": [
+          1,
+          256,
+          32
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 1,
+        "batch_questions": 1,
+        "queue_ms": 60.00125897116959
+      }
+    },
+    {
+      "exact_logits_and_actions": true,
+      "max_probability_error": 0.0,
+      "agreement": 1,
+      "decisions": 1,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 1,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 29,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 44.706168002448976,
+        "shape": [
+          1,
+          256,
+          64
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 1,
+        "batch_questions": 1,
+        "queue_ms": 109.25659397616982
+      }
+    },
+    {
+      "exact_logits_and_actions": true,
+      "max_probability_error": 0.0,
+      "agreement": 3,
+      "decisions": 3,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 3,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 30,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          4,
+          256,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 1,
+        "batch_questions": 3,
+        "queue_ms": 157.65578695572913
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 31,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 148.09890801552683,
+        "shape": [
+          16,
+          256,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 13,
+        "queue_ms": 168.27266896143556
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0,
+      "agreement": 8,
+      "decisions": 8,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 8,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 32,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 148.09890801552683,
+        "shape": [
+          16,
+          256,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 13,
+        "queue_ms": 164.98937597498298
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0009311139583587646,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 33,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 143.36686895694584,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 355.2794309798628
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00020080804824829102,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 34,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 200.7695980137214,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 540.6154580414295
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0013046562671661377,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "case": 35,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 143.36686895694584,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 301.70545808505267
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.003152787685394287,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 36,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 200.7695980137214,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 434.6994770457968
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0025696158409118652,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 37,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 608.165196957998
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0018507540225982666,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 38,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 200.7695980137214,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 375.507312011905
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.003968566656112671,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "case": 39,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 407.0144579745829
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0010417699813842773,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "case": 40,
+      "metrics": {
+        "graph_miss": true,
+        "graph_build_ms": 200.7695980137214,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 185.08550501428545
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0005360245704650879,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 41,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 263.6378479655832
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0027973055839538574,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "case": 42,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 305.4568939842284
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0007659792900085449,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 43,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 41.813467047177255
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0006146430969238281,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 44,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 83.66931194905192
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0006813108921051025,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 45,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 104.69025594647974
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0007810592651367188,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 46,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 83.56114197522402
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0004075169563293457,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 47,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 62.843029969371855
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0016600489616394043,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 48,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 41.71708505600691
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.002845853567123413,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 49,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 62.961689895018935
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0014968514442443848,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 50,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 104.86199695151299
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0006001591682434082,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 51,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 41.852356982417405
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0005656778812408447,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 52,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 83.74411298427731
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.000568389892578125,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 53,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 104.72871595993638
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.000491797924041748,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 54,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 83.66021292749792
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0002197176218032837,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 55,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 62.82763893250376
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0007815957069396973,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 56,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 41.75068601034582
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0009027719497680664,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 57,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 62.79835000168532
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.002556025981903076,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 58,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 104.60079601034522
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00079345703125,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 59,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 41.77265602629632
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0021561384201049805,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 60,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 83.58004200272262
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0010708272457122803,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 61,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 104.5035159913823
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.001163378357887268,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 62,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 83.48036103416234
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00028730928897857666,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "case": 63,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          8,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 2,
+        "batch_questions": 8,
+        "queue_ms": 62.70659004803747
+      }
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.002045929431915283,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 64,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          16,
+          128,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 4,
+        "batch_questions": 16,
+        "queue_ms": 41.683354997076094
+      }
+    },
+    {
+      "exact_logits_and_actions": true,
+      "max_probability_error": 0.0,
+      "agreement": 4,
+      "decisions": 4,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 4,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "case": 65,
+      "metrics": {
+        "graph_miss": false,
+        "graph_build_ms": 0.0,
+        "shape": [
+          4,
+          512,
+          4
+        ],
+        "backend": "host-cpp-graph-io",
+        "service": "microbatch",
+        "batch_requests": 1,
+        "batch_questions": 4,
+        "queue_ms": 62.71711899898946
+      }
+    }
+  ],
+  "retained_output_arrays_unchanged": true,
+  "empty_request": true,
+  "invalid_request_rejected": true,
+  "forced_microbatches": {
+    "2": [
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0004163980484008789,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 0,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.00032776594161987305,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 1,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0004751831293106079,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 2,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0005664229393005371,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 3,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.001192733645439148,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 4,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.00022661685943603516,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 5,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0004450995475053787,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 6,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0008282065391540527,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 7,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0001490265130996704,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 8,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": true,
+          "graph_build_ms": 80.77446196693927,
+          "shape": [
+            8,
+            256,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0005780607461929321,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 9,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": true,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 10,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": true,
+          "graph_build_ms": 41.80942696984857,
+          "shape": [
+            2,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": true,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 11,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            2,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0031169652938842773,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 12,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": true,
+          "graph_build_ms": 43.37910294998437,
+          "shape": [
+            2,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": true,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 13,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            2,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": true,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 14,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            2,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": true,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 15,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            2,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": true,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 16,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            2,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 17,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            2,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 6.777048110961914e-05,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 18,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            2,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 4.080682992935181e-05,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 19,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            2,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": true,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 20,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            2,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": true,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 21,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            2,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.00016897916793823242,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 22,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            2,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": true,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 23,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            2,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": true,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 24,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            2,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 25,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            2,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": true,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 26,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            2,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0002741813659667969,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 27,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": true,
+          "graph_build_ms": 165.7697889022529,
+          "shape": [
+            2,
+            128,
+            8
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 9.76421870291233e-06,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 28,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": true,
+          "graph_build_ms": 169.1428020130843,
+          "shape": [
+            2,
+            256,
+            32
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.004143416881561279,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 29,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": true,
+          "graph_build_ms": 50.23334000725299,
+          "shape": [
+            2,
+            256,
+            64
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0001490265130996704,
+        "agreement": 3,
+        "decisions": 3,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 3,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 30,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            256,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0,
+        "agreement": 5,
+        "decisions": 5,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 5,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 31,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            16,
+            256,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0,
+        "agreement": 8,
+        "decisions": 8,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 8,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 32,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            16,
+            256,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0009311139583587646,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 33,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0004018545150756836,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 34,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0013046562671661377,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 32.0,
+        "passed": true,
+        "case": 35,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.003152787685394287,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 36,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0025696158409118652,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 37,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0015513300895690918,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 38,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.003968566656112671,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 32.0,
+        "passed": true,
+        "case": 39,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0006593763828277588,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 40,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0005360245704650879,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 41,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0027973055839538574,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 42,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0007659792900085449,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 43,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 44,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0006813108921051025,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 45,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0007810592651367188,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 46,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0004075169563293457,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 47,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0011780858039855957,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 48,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.002845853567123413,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 49,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0003947541117668152,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 50,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0006001591682434082,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 51,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0004077926278114319,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 52,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.000568389892578125,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 53,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.000491797924041748,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 54,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0002197176218032837,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 55,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0008218884468078613,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 56,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0009027719497680664,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 57,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.002556025981903076,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 58,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.00079345703125,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 59,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0021561384201049805,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 60,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0010708272457122803,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 61,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0011407583951950073,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 32.0,
+        "passed": true,
+        "case": 62,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.00028730928897857666,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 63,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.002045929431915283,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 64,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.000699847936630249,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 65,
+        "batch_requests": 2,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      }
+    ],
+    "8": [
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.004377424716949463,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 0,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.004512369632720947,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 1,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0015292763710021973,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 2,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0024210214614868164,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 3,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.00019733421504497528,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 4,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": true,
+          "graph_build_ms": 141.24908205121756,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0005557835102081299,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 5,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0008949339389801025,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 6,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0010473430156707764,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 7,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.006574392318725586,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 8,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": true,
+          "graph_build_ms": 272.7957760216668,
+          "shape": [
+            32,
+            256,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0028096139430999756,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 9,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": true,
+          "graph_build_ms": 533.3591230446473,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0003120303153991699,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 10,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": true,
+          "graph_build_ms": 42.84428991377354,
+          "shape": [
+            8,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0028798356652259827,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 32.0,
+        "passed": true,
+        "case": 11,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": true,
+          "graph_build_ms": 43.460752931423485,
+          "shape": [
+            8,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.008484810590744019,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 32.0,
+        "passed": true,
+        "case": 12,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 13,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0014367103576660156,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 32.0,
+        "passed": true,
+        "case": 14,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.00032776594161987305,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 15,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.006640195846557617,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 32.0,
+        "passed": true,
+        "case": 16,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 17,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.002927839756011963,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 18,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 4.082918167114258e-05,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 19,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0031147003173828125,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 64.0,
+        "passed": true,
+        "case": 20,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 21,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0036323964595794678,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 22,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0016340017318725586,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 23,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.001912340521812439,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 24,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 25,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0021811723709106445,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 26,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            8,
+            64,
+            2
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0001983642578125,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 27,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": true,
+          "graph_build_ms": 47.62838000897318,
+          "shape": [
+            8,
+            128,
+            8
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.00029015541076660156,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 28,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": true,
+          "graph_build_ms": 79.3093959800899,
+          "shape": [
+            8,
+            256,
+            32
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.004359722137451172,
+        "agreement": 1,
+        "decisions": 1,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 1,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 29,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": true,
+          "graph_build_ms": 79.52766702510417,
+          "shape": [
+            8,
+            256,
+            64
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.006574392318725586,
+        "agreement": 3,
+        "decisions": 3,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 3,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 30,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            256,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 7.456168532371521e-05,
+        "agreement": 5,
+        "decisions": 5,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 5,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 31,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": true,
+          "graph_build_ms": 652.5971289956942,
+          "shape": [
+            64,
+            256,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 7.456168532371521e-05,
+        "agreement": 8,
+        "decisions": 8,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 8,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 32,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            64,
+            256,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0032630860805511475,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 33,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.001624464988708496,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 34,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0013046562671661377,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 35,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.005942404270172119,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 36,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0007212460041046143,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 37,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0017082691192626953,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 38,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0031213462352752686,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 39,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0010691285133361816,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 40,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0006055161356925964,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 41,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0027973055839538574,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 32.0,
+        "passed": true,
+        "case": 42,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0035777688026428223,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 43,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0009942948818206787,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 44,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.005879580974578857,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 32.0,
+        "passed": true,
+        "case": 45,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0012496709823608398,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 46,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0009609013795852661,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 47,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0011780858039855957,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 48,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0028833746910095215,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 49,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.001553177833557129,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 50,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0028805136680603027,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 51,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0006866753101348877,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 52,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0030940473079681396,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 53,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0009836256504058838,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 54,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.00043820589780807495,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 55,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0012393519282341003,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 16.0,
+        "passed": true,
+        "case": 56,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0009027719497680664,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 57,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.002556025981903076,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 58,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.000978231430053711,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 59,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0014319121837615967,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 60,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0014100074768066406,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 61,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0002745799720287323,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 62,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0016877055168151855,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 32.0,
+        "passed": true,
+        "case": 63,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.000486910343170166,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 64,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            128,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      },
+      {
+        "exact_logits_and_actions": false,
+        "max_probability_error": 0.0008233785629272461,
+        "agreement": 4,
+        "decisions": 4,
+        "max_action_probability_error": 0.0,
+        "action_argmax_agreement": 4,
+        "max_action_logit_error": 0.0,
+        "passed": true,
+        "case": 65,
+        "batch_requests": 8,
+        "metrics": {
+          "graph_miss": false,
+          "graph_build_ms": 0.0,
+          "shape": [
+            32,
+            512,
+            4
+          ],
+          "backend": "host-cpp-graph-io"
+        }
+      }
+    ]
+  },
+  "four_caller_answers_valid": true,
+  "use_after_close_rejected": true,
+  "allocated_before_service_graphs": 976821248,
+  "allocated_after_service_close": 976821248,
+  "allocated_after_engine_close": 976821248,
+  "artifact_status": "Initial validation before graph-lifetime bug was discovered; superseded by fixed-adapter validation",
+  "graph_lifetime_policy": "Original round-one adapter using pooled capture streams",
+  "lifecycle_note": "Final engine-close allocation reading preceded explicit cyclic garbage collection; use fixed-adapter validation for final cleanup evidence."
+}

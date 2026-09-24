@@ -1,0 +1,92 @@
+{
+  "source_sha256": {
+    "experiments/latency/serving/README.md": "ae39ad808b5ea8c86120d7072d6014004a2c3b67a69aa6ec2177aae9208fa281",
+    "experiments/latency/serving/__init__.py": "707301224a72b5c344c39e7918b35e4ba04f2d692bc41b6feaf051a9e7c17c86",
+    "experiments/latency/serving/cpu_checks.py": "a6aa1bef2198791d947c6a44500d6839dee37ac6e0cb564dbb3186c4fb778b43",
+    "experiments/latency/serving/graph_adapter.py": "f065fd6294747b1e0adefcda1f154bb609270ea6e4b54606a1d428bad7c84866",
+    "experiments/latency/serving/graph_churn.py": "ff16234af18b07db4d9509490709361b1a77593952f441ba46748a475203e4b3",
+    "experiments/latency/serving/run.py": "2ec26cb13485fd7d9a26cbdbc7b42124c2de52c34364c0c67bb14e6df9166782",
+    "experiments/latency/serving/service.py": "12c22ea081d4b08f219799e573b6f7f59dbe7b5c4458fbe8f7aac4c4214ee297",
+    "experiments/latency/serving/summarize.py": "0246e5fff86922a904676e5efeffe8ed720e58e3a24d43579b785349983880f4"
+  },
+  "measured_source_sha256": {
+    "run.py": "0cd520df38261a708092a2075f82b3e58ac5ee5247c46d7f1339606aa4dfbae0",
+    "service.py": "1fba47444077c16a7809db419610784e08db446a82e69a85fbe674eba2d9932d",
+    "graph_adapter.py": "75cc1d0ee2c995d19debc6cea9d806580c6c93631ae8e28342eed232cb1f3235"
+  },
+  "metadata": {
+    "created_utc": "2026-09-24T03:09:29.274667+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 1,
+    "method": "Local Python service calls, no HTTP. Fixed-count closed-loop clients at concurrency 1/2/4/8. Wall request latency includes preparation, service queue, native GPU execution and formatting. Throughput uses whole client wall time; compilation/capture and equal warmup are excluded. Baseline already overlaps caller tokenization/formatting with serialized native GPU replay. No response cache. Every profile changes visible input tokens among four states.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality.",
+    "original_baseline": "ExperimentalEngine(mode='native-window')",
+    "graph_lifetime_policy": "One uniquely owned raw CUDA capture stream per graph, in every variant including baseline",
+    "kernel": {
+      "kind": "cuda_vector_norm_triton_geglu_corrected",
+      "torch": "2.14.0+cu132",
+      "torch_cuda": "13.2",
+      "target_architecture": "sm_120",
+      "libdevice_path": ".venv/lib/python3.12/site-packages/triton/backends/nvidia/lib/libdevice.10.bc",
+      "libdevice_sha256": "5c2fae37c86e68c3a38605a95f512d7d12d5f3db986310be47f57304aa72a5ee",
+      "bf16_gelu_corrections": [
+        [
+          49288,
+          47166
+        ],
+        [
+          49292,
+          47070
+        ],
+        [
+          49294,
+          47017
+        ],
+        [
+          49309,
+          46611
+        ]
+      ],
+      "source_sha256": {
+        "native.cu": "e5dcfa5256b0331128f6271b23fe696d3a63893a8d47aaed885461b4f323f702",
+        "native_vector.cu": "520165903360075dcad2ffc97e265a55a7915edb4552b7fdc8f4a421c86bc3a3"
+      }
+    }
+  },
+  "torch_source_revision": "08187d9e0fba026dc8217405802ab5381dc88d90",
+  "graph_lifetime_source": "https://github.com/pytorch/pytorch/blob/08187d9e0fba026dc8217405802ab5381dc88d90/aten/src/ATen/cuda/CUDAGraph.cpp",
+  "artifacts": {
+    "confirmation-summary.json": "d34e301e1b5d851b5d039a28490a10313b8fecb19e259c1d13412116154a476c",
+    "confirmation.json": "5afaf0ba807d0cf4f9e4e0c4722750332e3642e5193af60661a19fccf085cc45",
+    "cpu-checks.json": "111356735062be5615a31309b4ee2585db8cdbeeeb4a06e259029520ccdb9c3b",
+    "graph-churn-fixed.json": "36f6e40852fcef91d0ca0102be980bd283c98db3ceca2734b511c9a0408aa3ed",
+    "microbatch-summary.json": "ca402197180f684fbb6a7c2a96fb9c06b093e1d52052166e293ab206a5881152",
+    "microbatch-validation-expanded.json": "7f5fd310eeaef6d9bf5b98a26a82304f57ed8321b9583f87917b7267ce23c5ef",
+    "microbatch-validation.json": "d4b411e831bb36fabf5746eda38ded9872eb2f49726047fb9eb1517a495e2a7c",
+    "priority-validation.json": "62560800dc437304006b695cb72290018649efcf235cd4a537b87bfb3584444c",
+    "screen-fixed.json": "651579f18d8dd414bcdc09dd947772a76cf3e69a2c0fd6177ff1db91a6019d5b",
+    "screen-summary.json": "dab5d2cbfb3c3db42f38b284181eaa1c51211732f6e02ddc724cba59b2c838ff",
+    "screen.json": "0b56b1a228700b534ac9b9e1b30f5c3bf5e2059ac3ec561c9bbe8dcd467b45e5",
+    "streams-validation-fixed.json": "4a26a5e6efdf73e131c4a75c8b91ea8f894ec19b5656c8819520b83034d0b3ca",
+    "streams-validation.json": "173ec3b4ab65f80d2d8f756057eac19a7476d8e25ab5c22de5307ed52087174f",
+    "summary.json": "ea58eaf341b596735a36c5a8ab81e5a3dd7d5339e9adc5deb629db59effd8e9c"
+  },
+  "ownership": "Every service closes before the underlying model; graph reset precedes buffer release and raw capture-stream destruction.",
+  "no_global_changes": "No package changes, services, GPU clock/power changes, commits or GitHub writes.",
+  "post_measurement_cleanup": "Ruff formatting/import cleanup, direct bound-method validation mapping, explicit CPU-test predicate binding, and comments annotating intentional destructor/worker exception handling. No model or serving scheduling behavior changes; measured source hashes retained separately.",
+  "final_cpu_review": {
+    "ruff": "passed",
+    "format": "passed",
+    "cpu_checks": "passed",
+    "cuda_initialized_by_cpu_checks": false
+  }
+}

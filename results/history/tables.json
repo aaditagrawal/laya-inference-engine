@@ -1,0 +1,4732 @@
+{
+  "title": "Laya benchmark history",
+  "date": "23\u201324 September 2026",
+  "tables": [
+    {
+      "id": "warm-progression",
+      "title": "Warm request latency across development stages",
+      "headers": [
+        "Stage",
+        "Implementation",
+        "1 short, ms",
+        "16 short, ms",
+        "1 long, ms",
+        "16 long, ms",
+        "Status",
+        "Source"
+      ],
+      "rows": [
+        [
+          "Baseline",
+          "Upstream default",
+          "20.524",
+          "25.491",
+          "22.187",
+          "159.697",
+          "Default SDK",
+          "benchmark.json"
+        ],
+        [
+          "Baseline",
+          "Upstream fast=True",
+          "3.991",
+          "16.209",
+          "8.825",
+          "116.790",
+          "Separate upstream option",
+          "upstream-fast.json"
+        ],
+        [
+          "Baseline",
+          "Upstream compile=True",
+          "8.236",
+          "17.820",
+          "11.462",
+          "129.283",
+          "Separate upstream option",
+          "upstream-compile.json"
+        ],
+        [
+          "Ablation",
+          "Our optimized model, graph replay disabled",
+          "11.386",
+          "12.952",
+          "Not measured",
+          "101.648",
+          "Isolated diagnostic",
+          "ablation.json"
+        ],
+        [
+          "First engine",
+          "Resident BF16 + graph replay + fused RoPE + selective head",
+          "2.812",
+          "12.509",
+          "8.653",
+          "101.693",
+          "Original validated engine",
+          "benchmark.json"
+        ],
+        [
+          "Round 1 host",
+          "C++ request packing and graph I/O",
+          "2.709",
+          "12.148",
+          "8.526",
+          "101.669",
+          "Exact fixture outputs; host changes only",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "Round 1 host",
+          "C++ I/O + direct Rust tokenizer calls",
+          "2.541",
+          "11.663",
+          "8.345",
+          "100.597",
+          "Exact fixture outputs; host changes only",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "Round 1",
+          "Native CUDA normalization + GEGLU + native host",
+          "2.207",
+          "10.782",
+          "7.905",
+          "93.069",
+          "Exact outputs on 66-request fixture",
+          "native-optimizations/combined-native.json"
+        ],
+        [
+          "Round 1",
+          "Add exact window attention",
+          "2.221",
+          "10.802",
+          "7.474",
+          "88.457",
+          "Exact outputs on 66-request fixture",
+          "native-optimizations/combined-window.json"
+        ],
+        [
+          "Round 1 final",
+          "Vectorized normalization + exact windows + native host",
+          "2.188",
+          "10.700",
+          "7.367",
+          "88.261",
+          "Exact outputs on 66-request fixture",
+          "native-optimizations/final-native.json"
+        ],
+        [
+          "Round 1 branch",
+          "Full-model compiled engine + native host",
+          "2.106",
+          "10.574",
+          "7.511",
+          "91.545",
+          "Exact outputs on 66-request fixture",
+          "native-optimizations/final-compiled.json"
+        ],
+        [
+          "Round 1 branch",
+          "Matrix autotuning + native host",
+          "2.097",
+          "10.660",
+          "7.246",
+          "84.699",
+          "Opt-in; 208/208 choices, nonexact logits",
+          "native-optimizations/final-autotuned.json"
+        ],
+        [
+          "Round 2",
+          "Projection fusion: Wi + GEGLU and QKV + RoPE",
+          "2.219",
+          "10.498",
+          "7.625",
+          "81.231",
+          "Exact fixture outputs; adds 301 MB weights",
+          "latency-optimizations/fusion/best.json"
+        ],
+        [
+          "Round 2 branch",
+          "AOT package + checked loader + lightweight tokenizer",
+          "2.116",
+          "Not supported",
+          "See single-run smoke",
+          "Not supported",
+          "Two fixed batch-one shapes",
+          "latency-optimizations/aot/index.json"
+        ]
+      ],
+      "caption": "RTX 5070 Ti. Median full predict, including preparation, transfers, inference and formatting. Serial, warmed requests. Startup and HTTP excluded. Saved runs from 23\u201324 September 2026.",
+      "notes": "This is a history of separate runs, not one paired experiment. Branches are alternatives, not cumulative steps. Smaller differences can be run-to-run noise. Sixteen-question columns are total request latency. The AOT value is the median of three process-level warm medians; the other main rows pool request samples within each recorded run. See paired comparisons for measured incremental gains."
+    },
+    {
+      "id": "paired-gains",
+      "title": "Paired comparisons and extended workloads",
+      "headers": [
+        "Comparison",
+        "Workload",
+        "Baseline p50, ms",
+        "Candidate p50, ms",
+        "Latency reduction",
+        "Samples / variant",
+        "Source"
+      ],
+      "rows": [
+        [
+          "combined-native.json",
+          "1-short",
+          "2.811",
+          "2.207",
+          "21.50%",
+          "150",
+          "native-optimizations/combined-native.json"
+        ],
+        [
+          "combined-native.json",
+          "16-short",
+          "12.532",
+          "10.782",
+          "13.97%",
+          "150",
+          "native-optimizations/combined-native.json"
+        ],
+        [
+          "combined-native.json",
+          "1-long",
+          "8.712",
+          "7.905",
+          "9.26%",
+          "150",
+          "native-optimizations/combined-native.json"
+        ],
+        [
+          "combined-native.json",
+          "16-long",
+          "102.300",
+          "93.069",
+          "9.02%",
+          "150",
+          "native-optimizations/combined-native.json"
+        ],
+        [
+          "combined-window.json",
+          "1-short",
+          "2.816",
+          "2.221",
+          "21.14%",
+          "150",
+          "native-optimizations/combined-window.json"
+        ],
+        [
+          "combined-window.json",
+          "16-short",
+          "12.507",
+          "10.802",
+          "13.63%",
+          "150",
+          "native-optimizations/combined-window.json"
+        ],
+        [
+          "combined-window.json",
+          "1-long",
+          "8.752",
+          "7.474",
+          "14.61%",
+          "150",
+          "native-optimizations/combined-window.json"
+        ],
+        [
+          "combined-window.json",
+          "16-long",
+          "101.967",
+          "88.457",
+          "13.25%",
+          "150",
+          "native-optimizations/combined-window.json"
+        ],
+        [
+          "extended-native.json",
+          "5-medium",
+          "24.589",
+          "22.000",
+          "10.53%",
+          "60",
+          "native-optimizations/extended-native.json"
+        ],
+        [
+          "extended-native.json",
+          "16-medium",
+          "48.585",
+          "43.277",
+          "10.93%",
+          "60",
+          "native-optimizations/extended-native.json"
+        ],
+        [
+          "extended-native.json",
+          "32-short",
+          "24.657",
+          "21.693",
+          "12.02%",
+          "60",
+          "native-optimizations/extended-native.json"
+        ],
+        [
+          "extended-native.json",
+          "64-short",
+          "48.707",
+          "42.452",
+          "12.84%",
+          "60",
+          "native-optimizations/extended-native.json"
+        ],
+        [
+          "extended-native.json",
+          "32-long",
+          "207.399",
+          "174.611",
+          "15.81%",
+          "60",
+          "native-optimizations/extended-native.json"
+        ],
+        [
+          "final-autotuned.json",
+          "1-short",
+          "2.792",
+          "2.097",
+          "24.89%",
+          "150",
+          "native-optimizations/final-autotuned.json"
+        ],
+        [
+          "final-autotuned.json",
+          "16-short",
+          "12.446",
+          "10.660",
+          "14.35%",
+          "150",
+          "native-optimizations/final-autotuned.json"
+        ],
+        [
+          "final-autotuned.json",
+          "1-long",
+          "8.596",
+          "7.246",
+          "15.71%",
+          "150",
+          "native-optimizations/final-autotuned.json"
+        ],
+        [
+          "final-autotuned.json",
+          "16-long",
+          "101.153",
+          "84.699",
+          "16.27%",
+          "150",
+          "native-optimizations/final-autotuned.json"
+        ],
+        [
+          "final-compiled.json",
+          "1-short",
+          "2.820",
+          "2.106",
+          "25.33%",
+          "150",
+          "native-optimizations/final-compiled.json"
+        ],
+        [
+          "final-compiled.json",
+          "16-short",
+          "12.534",
+          "10.574",
+          "15.64%",
+          "150",
+          "native-optimizations/final-compiled.json"
+        ],
+        [
+          "final-compiled.json",
+          "1-long",
+          "8.682",
+          "7.511",
+          "13.49%",
+          "150",
+          "native-optimizations/final-compiled.json"
+        ],
+        [
+          "final-compiled.json",
+          "16-long",
+          "101.622",
+          "91.545",
+          "9.92%",
+          "150",
+          "native-optimizations/final-compiled.json"
+        ],
+        [
+          "final-native.json",
+          "1-short",
+          "2.794",
+          "2.188",
+          "21.71%",
+          "150",
+          "native-optimizations/final-native.json"
+        ],
+        [
+          "final-native.json",
+          "16-short",
+          "12.451",
+          "10.700",
+          "14.07%",
+          "150",
+          "native-optimizations/final-native.json"
+        ],
+        [
+          "final-native.json",
+          "1-long",
+          "8.669",
+          "7.367",
+          "15.02%",
+          "150",
+          "native-optimizations/final-native.json"
+        ],
+        [
+          "final-native.json",
+          "16-long",
+          "101.665",
+          "88.261",
+          "13.18%",
+          "150",
+          "native-optimizations/final-native.json"
+        ],
+        [
+          "Round 2 projection fusion",
+          "1-short",
+          "2.214",
+          "2.219",
+          "-0.21%",
+          "90",
+          "latency-optimizations/fusion/best.json"
+        ],
+        [
+          "Round 2 projection fusion",
+          "16-short",
+          "10.791",
+          "10.498",
+          "2.71%",
+          "90",
+          "latency-optimizations/fusion/best.json"
+        ],
+        [
+          "Round 2 projection fusion",
+          "1-long",
+          "7.699",
+          "7.625",
+          "0.96%",
+          "90",
+          "latency-optimizations/fusion/best.json"
+        ],
+        [
+          "Round 2 projection fusion",
+          "16-long",
+          "88.143",
+          "81.231",
+          "7.84%",
+          "90",
+          "latency-optimizations/fusion/best.json"
+        ],
+        [
+          "Native versus full-model compiled",
+          "1-short",
+          "2.189",
+          "2.102",
+          "3.99%",
+          "150",
+          "native-optimizations/compiler/direct-native-vs-compiled.json"
+        ],
+        [
+          "Native versus full-model compiled",
+          "16-long",
+          "88.036",
+          "91.701",
+          "-4.16%",
+          "150",
+          "native-optimizations/compiler/direct-native-vs-compiled.json"
+        ]
+      ],
+      "caption": "Randomized blocks, both engines resident on RTX 5070 Ti. Medians pooled from full-request samples. A negative reduction means the candidate was slower.",
+      "notes": "Round 1 baseline is the original published engine. Round 2 baseline is the previous native-window engine. The direct compile comparison uses native-window as its baseline. Autotuning preserves selected decisions on the fixture but changes logits."
+    },
+    {
+      "id": "original-workloads",
+      "title": "Original engine, upstream modes and graph ablation",
+      "headers": [
+        "Backend",
+        "Workload",
+        "p50, ms",
+        "p95, ms",
+        "Mean, ms",
+        "Samples",
+        "Source"
+      ],
+      "rows": [
+        [
+          "upstream",
+          "1-short",
+          "20.524",
+          "21.653",
+          "20.672",
+          "100",
+          "benchmark.json"
+        ],
+        [
+          "upstream",
+          "4-short",
+          "22.011",
+          "24.009",
+          "22.270",
+          "100",
+          "benchmark.json"
+        ],
+        [
+          "upstream",
+          "16-short",
+          "25.491",
+          "27.321",
+          "25.708",
+          "100",
+          "benchmark.json"
+        ],
+        [
+          "upstream",
+          "1-medium",
+          "21.048",
+          "22.545",
+          "21.305",
+          "100",
+          "benchmark.json"
+        ],
+        [
+          "upstream",
+          "4-medium",
+          "23.476",
+          "24.348",
+          "23.540",
+          "100",
+          "benchmark.json"
+        ],
+        [
+          "upstream",
+          "1-long",
+          "22.187",
+          "23.527",
+          "22.422",
+          "100",
+          "benchmark.json"
+        ],
+        [
+          "upstream",
+          "16-long",
+          "159.697",
+          "161.491",
+          "159.978",
+          "100",
+          "benchmark.json"
+        ],
+        [
+          "fused",
+          "1-short",
+          "2.812",
+          "2.825",
+          "2.813",
+          "100",
+          "benchmark.json"
+        ],
+        [
+          "fused",
+          "4-short",
+          "4.563",
+          "4.585",
+          "4.564",
+          "100",
+          "benchmark.json"
+        ],
+        [
+          "fused",
+          "16-short",
+          "12.509",
+          "12.834",
+          "12.563",
+          "100",
+          "benchmark.json"
+        ],
+        [
+          "fused",
+          "1-medium",
+          "4.675",
+          "4.859",
+          "4.709",
+          "100",
+          "benchmark.json"
+        ],
+        [
+          "fused",
+          "4-medium",
+          "12.910",
+          "13.254",
+          "12.948",
+          "100",
+          "benchmark.json"
+        ],
+        [
+          "fused",
+          "1-long",
+          "8.653",
+          "8.774",
+          "8.665",
+          "100",
+          "benchmark.json"
+        ],
+        [
+          "fused",
+          "16-long",
+          "101.693",
+          "102.721",
+          "101.827",
+          "100",
+          "benchmark.json"
+        ],
+        [
+          "upstream-fast",
+          "1-short",
+          "3.991",
+          "4.012",
+          "3.993",
+          "50",
+          "upstream-fast.json"
+        ],
+        [
+          "upstream-fast",
+          "4-short",
+          "6.184",
+          "6.428",
+          "6.221",
+          "50",
+          "upstream-fast.json"
+        ],
+        [
+          "upstream-fast",
+          "16-short",
+          "16.209",
+          "16.617",
+          "16.260",
+          "50",
+          "upstream-fast.json"
+        ],
+        [
+          "upstream-fast",
+          "1-medium",
+          "5.633",
+          "5.690",
+          "5.644",
+          "50",
+          "upstream-fast.json"
+        ],
+        [
+          "upstream-fast",
+          "4-medium",
+          "13.866",
+          "14.250",
+          "13.943",
+          "50",
+          "upstream-fast.json"
+        ],
+        [
+          "upstream-fast",
+          "1-long",
+          "8.825",
+          "9.317",
+          "8.934",
+          "50",
+          "upstream-fast.json"
+        ],
+        [
+          "upstream-fast",
+          "16-long",
+          "116.790",
+          "118.265",
+          "117.082",
+          "50",
+          "upstream-fast.json"
+        ],
+        [
+          "upstream-compile",
+          "1-short",
+          "8.236",
+          "8.951",
+          "8.327",
+          "50",
+          "upstream-compile.json"
+        ],
+        [
+          "upstream-compile",
+          "4-short",
+          "9.239",
+          "9.770",
+          "9.335",
+          "50",
+          "upstream-compile.json"
+        ],
+        [
+          "upstream-compile",
+          "16-short",
+          "17.820",
+          "18.381",
+          "17.905",
+          "50",
+          "upstream-compile.json"
+        ],
+        [
+          "upstream-compile",
+          "1-medium",
+          "10.655",
+          "11.643",
+          "10.307",
+          "50",
+          "upstream-compile.json"
+        ],
+        [
+          "upstream-compile",
+          "4-medium",
+          "17.493",
+          "18.035",
+          "17.567",
+          "50",
+          "upstream-compile.json"
+        ],
+        [
+          "upstream-compile",
+          "1-long",
+          "11.462",
+          "11.958",
+          "11.567",
+          "50",
+          "upstream-compile.json"
+        ],
+        [
+          "upstream-compile",
+          "16-long",
+          "129.283",
+          "130.451",
+          "129.410",
+          "50",
+          "upstream-compile.json"
+        ],
+        [
+          "upstream",
+          "1-short",
+          "20.302",
+          "21.347",
+          "20.462",
+          "150",
+          "ablation.json"
+        ],
+        [
+          "fused_without_graph",
+          "1-short",
+          "11.386",
+          "11.799",
+          "11.446",
+          "150",
+          "ablation.json"
+        ],
+        [
+          "fused",
+          "1-short",
+          "2.807",
+          "2.872",
+          "2.818",
+          "150",
+          "ablation.json"
+        ],
+        [
+          "upstream",
+          "16-short",
+          "25.356",
+          "26.442",
+          "25.458",
+          "150",
+          "ablation.json"
+        ],
+        [
+          "fused_without_graph",
+          "16-short",
+          "12.952",
+          "13.789",
+          "13.109",
+          "150",
+          "ablation.json"
+        ],
+        [
+          "fused",
+          "16-short",
+          "12.456",
+          "12.764",
+          "12.494",
+          "150",
+          "ablation.json"
+        ],
+        [
+          "upstream",
+          "16-long",
+          "159.560",
+          "161.099",
+          "159.790",
+          "150",
+          "ablation.json"
+        ],
+        [
+          "fused_without_graph",
+          "16-long",
+          "101.648",
+          "102.559",
+          "101.763",
+          "150",
+          "ablation.json"
+        ],
+        [
+          "fused",
+          "16-long",
+          "101.855",
+          "102.852",
+          "101.948",
+          "150",
+          "ablation.json"
+        ]
+      ],
+      "caption": "RTX 5070 Ti, warm serial predict with no HTTP. Original benchmark: 100 samples per case. Upstream fast and compile: 50. Graph ablation: three randomized blocks of 50.",
+      "notes": "The graph ablation holds the optimized forward, buffers and preparation fixed. It is an order-dependent software comparison, not a Blackwell hardware attribution."
+    },
+    {
+      "id": "host",
+      "title": "C++ and Rust host-path contributions",
+      "headers": [
+        "Workload",
+        "Variant",
+        "p50, ms",
+        "Latency reduction",
+        "Samples",
+        "Source"
+      ],
+      "rows": [
+        [
+          "1-short",
+          "baseline",
+          "2.795",
+          "0.00%",
+          "150",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "1-short",
+          "cpp-graph-io",
+          "2.709",
+          "3.08%",
+          "150",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "1-short",
+          "cpp-rust-graph-io",
+          "2.541",
+          "9.10%",
+          "150",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "16-short",
+          "baseline",
+          "12.501",
+          "0.00%",
+          "150",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "16-short",
+          "cpp-graph-io",
+          "12.148",
+          "2.83%",
+          "150",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "16-short",
+          "cpp-rust-graph-io",
+          "11.663",
+          "6.70%",
+          "150",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "1-long",
+          "baseline",
+          "8.686",
+          "0.00%",
+          "150",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "1-long",
+          "cpp-graph-io",
+          "8.526",
+          "1.84%",
+          "150",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "1-long",
+          "cpp-rust-graph-io",
+          "8.345",
+          "3.92%",
+          "150",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "16-long",
+          "baseline",
+          "102.267",
+          "0.00%",
+          "150",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "16-long",
+          "cpp-graph-io",
+          "101.669",
+          "0.58%",
+          "150",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "16-long",
+          "cpp-rust-graph-io",
+          "100.597",
+          "1.63%",
+          "150",
+          "native-optimizations/host/summary.json"
+        ]
+      ],
+      "caption": "RTX 5070 Ti, five randomized blocks of 30 warm full requests. Model math unchanged.",
+      "notes": "Rust means direct access to the existing Tokenizers backend. C++ handles packing and CUDA launch/copies. Python still constructs sequences and formats responses; this is not a full language rewrite."
+    },
+    {
+      "id": "http",
+      "title": "Matched localhost HTTP latency",
+      "headers": [
+        "Experiment",
+        "Backend",
+        "Workload",
+        "p50, ms",
+        "Samples",
+        "Source"
+      ],
+      "rows": [
+        [
+          "Original comparison",
+          "upstream",
+          "1-short",
+          "22.520",
+          "100",
+          "benchmark-http.json"
+        ],
+        [
+          "Original comparison",
+          "upstream",
+          "16-short",
+          "27.466",
+          "100",
+          "benchmark-http.json"
+        ],
+        [
+          "Original comparison",
+          "upstream",
+          "16-long",
+          "161.951",
+          "100",
+          "benchmark-http.json"
+        ],
+        [
+          "Original comparison",
+          "upstream-fast",
+          "1-short",
+          "5.054",
+          "100",
+          "benchmark-http.json"
+        ],
+        [
+          "Original comparison",
+          "upstream-fast",
+          "16-short",
+          "17.879",
+          "100",
+          "benchmark-http.json"
+        ],
+        [
+          "Original comparison",
+          "upstream-fast",
+          "16-long",
+          "117.339",
+          "100",
+          "benchmark-http.json"
+        ],
+        [
+          "Original comparison",
+          "fused",
+          "1-short",
+          "3.992",
+          "100",
+          "benchmark-http.json"
+        ],
+        [
+          "Original comparison",
+          "fused",
+          "16-short",
+          "13.723",
+          "100",
+          "benchmark-http.json"
+        ],
+        [
+          "Original comparison",
+          "fused",
+          "16-long",
+          "102.849",
+          "100",
+          "benchmark-http.json"
+        ],
+        [
+          "Host-path comparison",
+          "baseline",
+          "1-short",
+          "3.967",
+          "160",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "Host-path comparison",
+          "cpp-rust-graph-io",
+          "1-short",
+          "3.683",
+          "160",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "Host-path comparison",
+          "baseline",
+          "16-short",
+          "14.091",
+          "160",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "Host-path comparison",
+          "cpp-rust-graph-io",
+          "16-short",
+          "13.149",
+          "160",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "Host-path comparison",
+          "baseline",
+          "1-long",
+          "9.905",
+          "160",
+          "native-optimizations/host/summary.json"
+        ],
+        [
+          "Host-path comparison",
+          "cpp-rust-graph-io",
+          "1-long",
+          "9.831",
+          "160",
+          "native-optimizations/host/summary.json"
+        ]
+      ],
+      "caption": "RTX 5070 Ti. Serial localhost HTTP/1.1 keep-alive through matched FastAPI wrappers. Includes HTTP and JSON; excludes model/server startup and warmup.",
+      "notes": "Original HTTP run used CUDA 13.0; the later host-path run used CUDA 13.2. These are separate paired experiments. Neither measures remote-network latency or maximum concurrent HTTP capacity."
+    },
+    {
+      "id": "startup",
+      "title": "Startup and first-use timings with explicit boundaries",
+      "headers": [
+        "Device / round",
+        "Mode",
+        "Timer boundary",
+        "Seconds",
+        "Processes",
+        "Cache conditions",
+        "Source"
+      ],
+      "rows": [
+        [
+          "RTX 5070 Ti original",
+          "upstream",
+          "First predict after loading; CUDA already initialized",
+          "0.844",
+          "1",
+          "Existing caches may be reused",
+          "benchmark.json"
+        ],
+        [
+          "RTX 5070 Ti original",
+          "fused",
+          "First predict after loading; CUDA already initialized",
+          "0.065",
+          "1",
+          "Existing caches may be reused",
+          "benchmark.json"
+        ],
+        [
+          "RTX 5070 Ti original",
+          "upstream-fast",
+          "First predict after loading; CUDA already initialized",
+          "13.720",
+          "1",
+          "Existing caches may be reused",
+          "upstream-fast.json"
+        ],
+        [
+          "RTX 5070 Ti original",
+          "upstream-compile",
+          "First predict after loading; CUDA already initialized",
+          "19.497",
+          "1",
+          "Existing caches may be reused",
+          "upstream-compile.json"
+        ],
+        [
+          "RTX 5070 Ti round 1",
+          "native-window",
+          "First predict after setup",
+          "0.619",
+          "1",
+          "reused",
+          "native-optimizations/compiler/clean-startup-native-window.json"
+        ],
+        [
+          "RTX 5070 Ti round 1",
+          "native-window",
+          "Python entry to first complete response",
+          "5.294",
+          "1",
+          "reused",
+          "native-optimizations/compiler/clean-startup-native-window.json"
+        ],
+        [
+          "RTX 5070 Ti round 1",
+          "compiled",
+          "First predict after setup",
+          "12.698",
+          "1",
+          "fresh-isolated-compiler-caches",
+          "native-optimizations/compiler/clean-startup-cold.json"
+        ],
+        [
+          "RTX 5070 Ti round 1",
+          "compiled",
+          "Python entry to first complete response",
+          "18.238",
+          "1",
+          "fresh-isolated-compiler-caches",
+          "native-optimizations/compiler/clean-startup-cold.json"
+        ],
+        [
+          "RTX 5070 Ti round 1",
+          "compiled",
+          "First predict after setup",
+          "2.761",
+          "1",
+          "reused-compiler-caches-new-process",
+          "native-optimizations/compiler/clean-startup-warm.json"
+        ],
+        [
+          "RTX 5070 Ti round 1",
+          "compiled",
+          "Python entry to first complete response",
+          "7.761",
+          "1",
+          "reused-compiler-caches-new-process",
+          "native-optimizations/compiler/clean-startup-warm.json"
+        ],
+        [
+          "RTX 5070 Ti round 2",
+          "aot-fast, fresh caches",
+          "Module entry to first complete response",
+          "3.730",
+          "3",
+          "Observed range 3.690 to 3.847 s",
+          "latency-optimizations/aot/final-offline/matrix-summary.json"
+        ],
+        [
+          "RTX 5070 Ti round 2",
+          "native, fresh caches",
+          "Module entry to first complete response",
+          "6.326",
+          "3",
+          "Observed range 6.323 to 6.376 s",
+          "latency-optimizations/aot/final-offline/matrix-summary.json"
+        ],
+        [
+          "RTX 5070 Ti round 2",
+          "compile, fresh caches",
+          "Module entry to first complete response",
+          "20.638",
+          "3",
+          "Observed range 20.600 to 20.794 s",
+          "latency-optimizations/aot/final-offline/matrix-summary.json"
+        ],
+        [
+          "RTX 5070 Ti round 2",
+          "compile, reused caches",
+          "Module entry to first complete response",
+          "8.668",
+          "3",
+          "Observed range 8.662 to 8.731 s",
+          "latency-optimizations/aot/final-offline/matrix-summary.json"
+        ],
+        [
+          "RTX A6000",
+          "blackwell",
+          "First predict after loading",
+          "0.395",
+          "1",
+          "Existing model and compiler caches; not clean install",
+          "rtx-a6000/blackwell.json"
+        ],
+        [
+          "RTX A6000",
+          "cpu-pool",
+          "First predict after loading",
+          "0.115",
+          "1",
+          "Existing model and compiler caches; not clean install",
+          "rtx-a6000/cpu-pool.json"
+        ],
+        [
+          "RTX A6000",
+          "cpu",
+          "First predict after loading",
+          "0.079",
+          "1",
+          "Existing model and compiler caches; not clean install",
+          "rtx-a6000/cpu.json"
+        ],
+        [
+          "RTX A6000",
+          "gpu-compiled-mixed-bf16",
+          "First predict after loading",
+          "35.751",
+          "1",
+          "Existing model and compiler caches; not clean install",
+          "rtx-a6000/gpu-compiled-mixed-bf16.json"
+        ],
+        [
+          "RTX A6000",
+          "gpu-compiled",
+          "First predict after loading",
+          "36.731",
+          "1",
+          "Existing model and compiler caches; not clean install",
+          "rtx-a6000/gpu-compiled.json"
+        ],
+        [
+          "RTX A6000",
+          "gpu-mixed-bf16",
+          "First predict after loading",
+          "0.608",
+          "1",
+          "Existing model and compiler caches; not clean install",
+          "rtx-a6000/gpu-mixed-bf16.json"
+        ],
+        [
+          "RTX A6000",
+          "gpu",
+          "First predict after loading",
+          "0.690",
+          "1",
+          "Existing model and compiler caches; not clean install",
+          "rtx-a6000/gpu.json"
+        ],
+        [
+          "RTX A6000",
+          "hybrid-compiled",
+          "First predict after loading",
+          "28.920",
+          "1",
+          "Existing model and compiler caches; not clean install",
+          "rtx-a6000/hybrid-compiled.json"
+        ],
+        [
+          "RTX A6000",
+          "hybrid",
+          "First predict after loading",
+          "0.564",
+          "1",
+          "Existing model and compiler caches; not clean install",
+          "rtx-a6000/hybrid.json"
+        ]
+      ],
+      "caption": "All rows use one short question. Single-process rows are observations; round 2 reports medians of three fresh processes.",
+      "notes": "These are seconds, not warm-request milliseconds. Do not compare after-loading figures with process-entry figures. Final round 2 is fully offline with warm OS file caches and prebuilt native extensions; AOT export/package construction is excluded."
+    },
+    {
+      "id": "aot",
+      "title": "Final precompiled deployment and warm-request results",
+      "headers": [
+        "Mode",
+        "Compiler caches",
+        "Workload",
+        "First response, s",
+        "Warm p50, ms",
+        "Processes",
+        "Source"
+      ],
+      "rows": [
+        [
+          "aot-fast",
+          "fresh",
+          "1-short",
+          "3.730",
+          "2.116",
+          "3",
+          "latency-optimizations/aot/index.json"
+        ],
+        [
+          "native",
+          "fresh",
+          "1-short",
+          "6.326",
+          "2.223",
+          "3",
+          "latency-optimizations/aot/index.json"
+        ],
+        [
+          "compile",
+          "fresh",
+          "1-short",
+          "20.638",
+          "2.110",
+          "3",
+          "latency-optimizations/aot/index.json"
+        ],
+        [
+          "compile",
+          "reused",
+          "1-short",
+          "8.668",
+          "2.139",
+          "3",
+          "latency-optimizations/aot/index.json"
+        ],
+        [
+          "aot-fast, smoke only",
+          "fresh",
+          "1-long",
+          "3.814",
+          "7.869",
+          "1",
+          "latency-optimizations/aot/index.json"
+        ]
+      ],
+      "caption": "RTX 5070 Ti round 2. Offline, warm OS file caches, existing model files and native extensions. First-response timing starts at module entry. Warm p50 is the median of the per-process warm p50 values for the repeated short-request conditions.",
+      "notes": "AOT supports only batch one, four options, 64 or 512 tokens and unmasked global attention. The long row is one smoke check, not a repeated benchmark. Packages are about 958 MB per shape; observed export took 5\u20136 s and compilation 24\u201326 s with existing development caches. Those build times are excluded from startup. Runtime still requires Python Torch and custom operations."
+    },
+    {
+      "id": "rtx-a6000",
+      "title": "All implementations measured on RTX A6000",
+      "headers": [
+        "Implementation",
+        "1 short, ms",
+        "16 short, ms",
+        "1 long, ms",
+        "16 long, ms",
+        "Reference choices",
+        "Source"
+      ],
+      "rows": [
+        [
+          "blackwell",
+          "3.570",
+          "13.031",
+          "8.688",
+          "99.519",
+          "34/34",
+          "rtx-a6000/blackwell.json"
+        ],
+        [
+          "cpu-pool",
+          "75.406",
+          "153.212",
+          "379.226",
+          "994.492",
+          "34/34",
+          "rtx-a6000/cpu-pool.json"
+        ],
+        [
+          "cpu",
+          "58.810",
+          "290.196",
+          "206.389",
+          "2,942.209",
+          "34/34",
+          "rtx-a6000/cpu.json"
+        ],
+        [
+          "gpu-compiled-mixed-bf16",
+          "2.628",
+          "10.922",
+          "7.966",
+          "87.397",
+          "34/34",
+          "rtx-a6000/gpu-compiled-mixed-bf16.json"
+        ],
+        [
+          "gpu-compiled",
+          "2.567",
+          "11.055",
+          "8.140",
+          "88.775",
+          "34/34",
+          "rtx-a6000/gpu-compiled.json"
+        ],
+        [
+          "gpu-mixed-bf16",
+          "4.481",
+          "17.350",
+          "11.138",
+          "140.863",
+          "34/34",
+          "rtx-a6000/gpu-mixed-bf16.json"
+        ],
+        [
+          "gpu",
+          "4.474",
+          "17.447",
+          "10.750",
+          "145.968",
+          "34/34",
+          "rtx-a6000/gpu.json"
+        ],
+        [
+          "hybrid-compiled",
+          "2.783",
+          "12.165",
+          "8.269",
+          "90.175",
+          "34/34",
+          "rtx-a6000/hybrid-compiled.json"
+        ],
+        [
+          "hybrid",
+          "4.603",
+          "18.325",
+          "11.010",
+          "147.350",
+          "34/34",
+          "rtx-a6000/hybrid.json"
+        ]
+      ],
+      "caption": "RTX A6000, Ampere SM86, with Threadripper PRO 7995WX. Twenty warm serial full requests per case, five warmups, no HTTP or startup. CUDA 13.0.",
+      "notes": "The blackwell profile is this engine with a benchmark-only hardware-guard override. All rows ran on the RTX A6000 system. Precision, CPU threads and pool behavior differ by profile. Four synthetic requests are a limited parity check, not labeled accuracy. These numbers must not be ranked against the RTX 5070 Ti results as if hardware and host were held fixed."
+    },
+    {
+      "id": "serving",
+      "title": "Concurrent serving throughput and queue-inclusive latency",
+      "headers": [
+        "Workload",
+        "Callers",
+        "Policy",
+        "Requests/s",
+        "p50, ms",
+        "p95, ms",
+        "Throughput ratio",
+        "Requests",
+        "Source"
+      ],
+      "rows": [
+        [
+          "1-long",
+          "1",
+          "priority-3",
+          "129.93",
+          "7.656",
+          "8.039",
+          "0.998\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-long",
+          "1",
+          "serial-current",
+          "130.25",
+          "7.529",
+          "8.310",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-long",
+          "1",
+          "streams-2",
+          "130.01",
+          "7.610",
+          "8.127",
+          "0.998\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-long",
+          "1",
+          "streams-4",
+          "130.68",
+          "7.596",
+          "7.982",
+          "1.003\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-long",
+          "2",
+          "priority-3",
+          "189.88",
+          "10.439",
+          "10.965",
+          "1.449\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-long",
+          "2",
+          "serial-current",
+          "131.02",
+          "15.113",
+          "16.289",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-long",
+          "2",
+          "streams-2",
+          "190.43",
+          "10.400",
+          "10.818",
+          "1.453\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-long",
+          "2",
+          "streams-4",
+          "189.75",
+          "10.447",
+          "10.877",
+          "1.448\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-long",
+          "4",
+          "priority-3",
+          "187.17",
+          "20.926",
+          "23.385",
+          "1.416\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-long",
+          "4",
+          "serial-current",
+          "132.19",
+          "30.325",
+          "31.447",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-long",
+          "4",
+          "streams-2",
+          "188.87",
+          "20.803",
+          "22.243",
+          "1.429\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-long",
+          "4",
+          "streams-4",
+          "201.98",
+          "19.621",
+          "20.896",
+          "1.528\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-long",
+          "8",
+          "priority-3",
+          "182.80",
+          "41.884",
+          "48.213",
+          "1.398\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-long",
+          "8",
+          "serial-current",
+          "130.77",
+          "61.232",
+          "65.211",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-long",
+          "8",
+          "streams-2",
+          "187.30",
+          "41.660",
+          "44.023",
+          "1.432\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-long",
+          "8",
+          "streams-4",
+          "202.16",
+          "38.988",
+          "41.323",
+          "1.546\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "1",
+          "priority-3",
+          "433.30",
+          "2.300",
+          "2.350",
+          "0.985\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "1",
+          "serial-current",
+          "439.85",
+          "2.249",
+          "2.425",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "1",
+          "streams-2",
+          "435.50",
+          "2.286",
+          "2.344",
+          "0.990\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "1",
+          "streams-4",
+          "427.48",
+          "2.304",
+          "2.520",
+          "0.972\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "2",
+          "priority-3",
+          "644.05",
+          "3.069",
+          "3.262",
+          "1.494\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "2",
+          "serial-current",
+          "431.01",
+          "4.595",
+          "4.811",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "2",
+          "streams-2",
+          "650.60",
+          "3.049",
+          "3.161",
+          "1.509\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "2",
+          "streams-4",
+          "649.73",
+          "3.059",
+          "3.158",
+          "1.507\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "4",
+          "priority-3",
+          "606.34",
+          "6.318",
+          "7.974",
+          "1.400\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "4",
+          "serial-current",
+          "433.23",
+          "9.196",
+          "9.433",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "4",
+          "streams-2",
+          "642.04",
+          "6.161",
+          "6.319",
+          "1.482\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "4",
+          "streams-4",
+          "817.87",
+          "4.829",
+          "4.958",
+          "1.888\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "8",
+          "priority-3",
+          "634.55",
+          "12.418",
+          "12.795",
+          "1.484\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "8",
+          "serial-current",
+          "427.73",
+          "18.631",
+          "19.591",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "8",
+          "streams-2",
+          "637.92",
+          "12.378",
+          "12.680",
+          "1.491\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "1-short",
+          "8",
+          "streams-4",
+          "766.45",
+          "9.669",
+          "12.670",
+          "1.792\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "1",
+          "priority-3",
+          "89.87",
+          "11.077",
+          "11.465",
+          "0.997\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "1",
+          "serial-current",
+          "90.10",
+          "11.025",
+          "11.513",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "1",
+          "streams-2",
+          "90.06",
+          "11.033",
+          "11.502",
+          "0.999\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "1",
+          "streams-4",
+          "90.51",
+          "11.001",
+          "11.424",
+          "1.005\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "2",
+          "priority-3",
+          "88.98",
+          "22.310",
+          "23.472",
+          "0.991\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "2",
+          "serial-current",
+          "89.76",
+          "22.164",
+          "22.973",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "2",
+          "streams-2",
+          "105.92",
+          "18.892",
+          "19.330",
+          "1.180\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "2",
+          "streams-4",
+          "105.98",
+          "18.855",
+          "19.380",
+          "1.181\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "4",
+          "priority-3",
+          "88.90",
+          "44.730",
+          "46.545",
+          "0.993\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "4",
+          "serial-current",
+          "89.50",
+          "44.575",
+          "46.140",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "4",
+          "streams-2",
+          "105.16",
+          "37.738",
+          "39.473",
+          "1.175\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "4",
+          "streams-4",
+          "107.19",
+          "37.255",
+          "38.146",
+          "1.198\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "8",
+          "priority-3",
+          "89.11",
+          "89.804",
+          "91.776",
+          "0.992\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "8",
+          "serial-current",
+          "89.81",
+          "88.858",
+          "91.350",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "8",
+          "streams-2",
+          "105.29",
+          "75.456",
+          "77.339",
+          "1.172\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "16-short",
+          "8",
+          "streams-4",
+          "107.12",
+          "74.283",
+          "76.408",
+          "1.193\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "1",
+          "priority-3",
+          "36.26",
+          "9.961",
+          "88.992",
+          "0.997\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "1",
+          "serial-current",
+          "36.38",
+          "9.504",
+          "88.931",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "1",
+          "streams-2",
+          "36.41",
+          "9.902",
+          "88.605",
+          "1.001\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "1",
+          "streams-4",
+          "36.52",
+          "9.585",
+          "88.382",
+          "1.004\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "2",
+          "priority-3",
+          "38.07",
+          "13.866",
+          "98.512",
+          "1.053\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "2",
+          "serial-current",
+          "36.14",
+          "21.745",
+          "95.731",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "2",
+          "streams-2",
+          "39.48",
+          "44.891",
+          "93.802",
+          "1.092\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "2",
+          "streams-4",
+          "39.45",
+          "45.002",
+          "93.806",
+          "1.092\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "4",
+          "priority-3",
+          "38.09",
+          "15.572",
+          "203.536",
+          "1.055\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "4",
+          "serial-current",
+          "36.10",
+          "110.732",
+          "112.167",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "4",
+          "streams-2",
+          "39.62",
+          "100.465",
+          "132.505",
+          "1.097\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "4",
+          "streams-4",
+          "38.86",
+          "103.098",
+          "107.320",
+          "1.077\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "8",
+          "priority-3",
+          "38.12",
+          "22.056",
+          "414.341",
+          "1.055\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "8",
+          "serial-current",
+          "36.14",
+          "220.881",
+          "223.020",
+          "1.000\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "8",
+          "streams-2",
+          "39.44",
+          "201.669",
+          "229.972",
+          "1.091\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ],
+        [
+          "mixed",
+          "8",
+          "streams-4",
+          "38.69",
+          "206.697",
+          "213.814",
+          "1.071\u00d7",
+          "192",
+          "latency-optimizations/serving/confirmation-summary.json"
+        ]
+      ],
+      "caption": "RTX 5070 Ti round 2. Three randomized blocks of 64 requests per configuration, 12,288 total. Local Python service, no HTTP. Latency includes preparation, queueing, copies, inference and formatting.",
+      "notes": "All measured formatted responses matched and all warmed graph caches had zero misses. This tests native-window with independent stream lanes, not projection fusion combined with streams. Priority policies can increase bulk tail latency."
+    },
+    {
+      "id": "padding",
+      "title": "Padding policies: warm gains that failed expanded parity",
+      "headers": [
+        "Policy",
+        "Workload",
+        "Baseline p50, ms",
+        "Candidate p50, ms",
+        "Latency reduction",
+        "Disposition",
+        "Source"
+      ],
+      "rows": [
+        [
+          "Exact batch",
+          "1-short",
+          "2.194",
+          "2.196",
+          "-0.10%",
+          "Rejected as default",
+          "latency-optimizations/padding/batch-exact-confirmed.json"
+        ],
+        [
+          "Exact batch",
+          "5-short",
+          "6.062",
+          "4.604",
+          "24.06%",
+          "Rejected as default",
+          "latency-optimizations/padding/batch-exact-confirmed.json"
+        ],
+        [
+          "Exact batch",
+          "17-short",
+          "21.245",
+          "11.453",
+          "46.09%",
+          "Rejected as default",
+          "latency-optimizations/padding/batch-exact-confirmed.json"
+        ],
+        [
+          "Exact batch",
+          "33-short",
+          "41.543",
+          "22.043",
+          "46.94%",
+          "Rejected as default",
+          "latency-optimizations/padding/batch-exact-confirmed.json"
+        ],
+        [
+          "Exact batch",
+          "1-medium",
+          "3.945",
+          "3.946",
+          "-0.03%",
+          "Rejected as default",
+          "latency-optimizations/padding/batch-exact-confirmed.json"
+        ],
+        [
+          "Exact batch",
+          "5-medium",
+          "22.137",
+          "14.553",
+          "34.26%",
+          "Rejected as default",
+          "latency-optimizations/padding/batch-exact-confirmed.json"
+        ],
+        [
+          "Exact batch",
+          "17-medium",
+          "87.290",
+          "45.150",
+          "48.28%",
+          "Rejected as default",
+          "latency-optimizations/padding/batch-exact-confirmed.json"
+        ],
+        [
+          "Exact batch",
+          "5-long",
+          "45.917",
+          "28.328",
+          "38.31%",
+          "Rejected as default",
+          "latency-optimizations/padding/batch-exact-confirmed.json"
+        ],
+        [
+          "Exact batch",
+          "17-long",
+          "180.087",
+          "94.072",
+          "47.76%",
+          "Rejected as default",
+          "latency-optimizations/padding/batch-exact-confirmed.json"
+        ],
+        [
+          "Exact batch",
+          "16-long",
+          "89.201",
+          "89.226",
+          "-0.03%",
+          "Rejected as default",
+          "latency-optimizations/padding/batch-exact-confirmed.json"
+        ],
+        [
+          "32-token buckets",
+          "1-tokens80",
+          "2.770",
+          "2.865",
+          "-3.46%",
+          "Rejected as default",
+          "latency-optimizations/padding/sequence-32.json"
+        ],
+        [
+          "32-token buckets",
+          "5-tokens80",
+          "10.746",
+          "8.962",
+          "16.59%",
+          "Rejected as default",
+          "latency-optimizations/padding/sequence-32.json"
+        ],
+        [
+          "32-token buckets",
+          "1-tokens144",
+          "3.842",
+          "3.620",
+          "5.79%",
+          "Rejected as default",
+          "latency-optimizations/padding/sequence-32.json"
+        ],
+        [
+          "32-token buckets",
+          "5-tokens144",
+          "21.789",
+          "14.226",
+          "34.71%",
+          "Rejected as default",
+          "latency-optimizations/padding/sequence-32.json"
+        ],
+        [
+          "32-token buckets",
+          "1-tokens272",
+          "5.897",
+          "5.047",
+          "14.41%",
+          "Rejected as default",
+          "latency-optimizations/padding/sequence-32.json"
+        ],
+        [
+          "32-token buckets",
+          "5-tokens272",
+          "31.557",
+          "24.710",
+          "21.70%",
+          "Rejected as default",
+          "latency-optimizations/padding/sequence-32.json"
+        ],
+        [
+          "32-token buckets",
+          "1-tokens400",
+          "6.898",
+          "6.348",
+          "7.98%",
+          "Rejected as default",
+          "latency-optimizations/padding/sequence-32.json"
+        ],
+        [
+          "32-token buckets",
+          "5-tokens400",
+          "44.313",
+          "35.344",
+          "20.24%",
+          "Rejected as default",
+          "latency-optimizations/padding/sequence-32.json"
+        ]
+      ],
+      "caption": "RTX 5070 Ti round 2, serial full predict with warm graphs. Exact-batch confirmation uses five randomized blocks and 150 samples per variant/workload.",
+      "notes": "Exact batch changed 12/946 choices; preserving attention-mask dispatch reduced this to 5/946. Sequence buckets matched 208 selected choices but exceeded the 0.01 probability-drift bound. Cache churn makes exact batches much slower when shapes do not fit: 52.826 versus 6.181 ms p50 in the 1\u201310-question cycle."
+    },
+    {
+      "id": "screens",
+      "title": "Standalone kernel, compiler and precision screens",
+      "headers": [
+        "Family",
+        "Candidate",
+        "1 short, ms",
+        "16 short, ms",
+        "1 long, ms",
+        "16 long, ms",
+        "Numerical check",
+        "Source"
+      ],
+      "rows": [
+        [
+          "kernels",
+          "baseline",
+          "2.811",
+          "12.485",
+          "8.638",
+          "101.591",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/kernels/baseline-all.json"
+        ],
+        [
+          "kernels",
+          "cuda_geglu",
+          "2.724",
+          "12.214",
+          "8.530",
+          "97.277",
+          "206/208 choices; probability drift 0.02737",
+          "native-optimizations/kernels/cuda_geglu-all.json"
+        ],
+        [
+          "kernels",
+          "cuda_geglu_lut",
+          "2.759",
+          "12.256",
+          "8.582",
+          "97.930",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/kernels/cuda_geglu_lut-all.json"
+        ],
+        [
+          "kernels",
+          "cuda_norm",
+          "2.552",
+          "11.924",
+          "8.325",
+          "97.859",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/kernels/cuda_norm-all.json"
+        ],
+        [
+          "kernels",
+          "cuda_norm_adaptive_geglu",
+          "2.488",
+          "11.680",
+          "8.137",
+          "94.033",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/kernels/cuda_norm_adaptive_geglu-all.json"
+        ],
+        [
+          "kernels",
+          "cuda_norm_geglu_lut",
+          "2.501",
+          "11.892",
+          "8.212",
+          "93.766",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/kernels/cuda_norm_geglu_lut-all.json"
+        ],
+        [
+          "kernels",
+          "cuda_norm_triton_geglu_corrected",
+          "2.486",
+          "11.825",
+          "8.151",
+          "93.732",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/kernels/cuda_norm_triton_geglu_corrected-all.json"
+        ],
+        [
+          "kernels",
+          "cuda_norm_triton_geglu_lut",
+          "2.502",
+          "11.618",
+          "8.121",
+          "93.627",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/kernels/cuda_norm_triton_geglu_lut-all.json"
+        ],
+        [
+          "kernels",
+          "cuda_static_norm",
+          "2.540",
+          "11.897",
+          "8.367",
+          "98.157",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/kernels/cuda_static_norm-all.json"
+        ],
+        [
+          "kernels",
+          "cuda_static_norm_adaptive_geglu",
+          "2.462",
+          "11.643",
+          "8.213",
+          "93.602",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/kernels/cuda_static_norm_adaptive_geglu-all.json"
+        ],
+        [
+          "kernels",
+          "cuda_vector_norm",
+          "2.530",
+          "11.860",
+          "8.290",
+          "97.736",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/kernels/cuda_vector_norm-all.json"
+        ],
+        [
+          "kernels",
+          "cuda_vector_norm_adaptive_geglu",
+          "2.447",
+          "11.693",
+          "8.089",
+          "93.457",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/kernels/cuda_vector_norm_adaptive_geglu-all.json"
+        ],
+        [
+          "kernels",
+          "cuda_vector_norm_triton_geglu_corrected",
+          "2.463",
+          "11.518",
+          "8.066",
+          "93.336",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/kernels/cuda_vector_norm_triton_geglu_corrected-all.json"
+        ],
+        [
+          "kernels",
+          "ptx_norm",
+          "2.626",
+          "11.982",
+          "8.322",
+          "98.164",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/kernels/ptx_norm-all.json"
+        ],
+        [
+          "kernels",
+          "triton_geglu_lut",
+          "2.752",
+          "12.160",
+          "8.524",
+          "97.638",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/kernels/triton_geglu_lut-all.json"
+        ],
+        [
+          "kernels",
+          "triton_twopass",
+          "2.538",
+          "11.899",
+          "8.295",
+          "98.073",
+          "208/208 choices; probability drift 0.03355",
+          "native-optimizations/kernels/triton_twopass-all.json"
+        ],
+        [
+          "kernels",
+          "triton_welford",
+          "2.553",
+          "11.927",
+          "8.288",
+          "97.785",
+          "207/208 choices; probability drift 0.04777",
+          "native-optimizations/kernels/triton_welford-all.json"
+        ],
+        [
+          "compiler",
+          "compile",
+          "2.363",
+          "Not measured",
+          "Not measured",
+          "Not measured",
+          "Screen only",
+          "native-optimizations/compiler/compile-1-short.json"
+        ],
+        [
+          "compiler",
+          "compile-native-padded-window-precise-opaque-pinned",
+          "2.463",
+          "11.477",
+          "7.957",
+          "93.046",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/compiler/compile-native-padded-window-precise-opaque-pinned.json"
+        ],
+        [
+          "compiler",
+          "compile-native-precise-opaque-pinned",
+          "2.402",
+          "Not measured",
+          "Not measured",
+          "Not measured",
+          "9/9 choices; exact choice logits",
+          "native-optimizations/compiler/compile-native-precise-opaque-pinned-screen.json"
+        ],
+        [
+          "compiler",
+          "compile-native-precise-opaque",
+          "2.404",
+          "Not measured",
+          "Not measured",
+          "Not measured",
+          "7/9 choices; probability drift 0.01560",
+          "native-optimizations/compiler/compile-native-precise-opaque-screen.json"
+        ],
+        [
+          "compiler",
+          "compile-native-precise-stablemath",
+          "2.410",
+          "Not measured",
+          "Not measured",
+          "Not measured",
+          "8/9 choices; probability drift 0.02291",
+          "native-optimizations/compiler/compile-native-precise-stablemath-screen.json"
+        ],
+        [
+          "compiler",
+          "compile-native-precise",
+          "2.412",
+          "11.878",
+          "8.225",
+          "93.533",
+          "206/208 choices; probability drift 0.02737",
+          "native-optimizations/compiler/compile-native-precise.json"
+        ],
+        [
+          "compiler",
+          "compile",
+          "2.430",
+          "11.641",
+          "8.183",
+          "92.042",
+          "Screen only",
+          "native-optimizations/compiler/compile.json"
+        ],
+        [
+          "compiler",
+          "cudnn",
+          "2.674",
+          "12.198",
+          "8.647",
+          "100.294",
+          "206/208 choices; probability drift 0.03223",
+          "native-optimizations/compiler/cudnn.json"
+        ],
+        [
+          "compiler",
+          "gemm-native-padded-window-tma",
+          "Not measured",
+          "Not measured",
+          "Not measured",
+          "85.771",
+          "9/9 choices; exact choice logits",
+          "native-optimizations/compiler/gemm-native-padded-window-tma-near.json"
+        ],
+        [
+          "compiler",
+          "gemm-native-padded-window-tma",
+          "Not measured",
+          "Not measured",
+          "Not measured",
+          "86.506",
+          "Screen only",
+          "native-optimizations/compiler/gemm-native-padded-window-tma.json"
+        ],
+        [
+          "compiler",
+          "head",
+          "2.922",
+          "12.456",
+          "8.611",
+          "101.086",
+          "208/208 choices; probability drift 0.00199",
+          "native-optimizations/compiler/head.json"
+        ],
+        [
+          "compiler",
+          "native-padded-window",
+          "2.480",
+          "11.740",
+          "8.258",
+          "89.923",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/compiler/native-padded-window.json"
+        ],
+        [
+          "compiler",
+          "native-window",
+          "2.817",
+          "12.505",
+          "8.476",
+          "99.698",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/compiler/native-window.json"
+        ],
+        [
+          "compiler",
+          "window",
+          "2.827",
+          "12.518",
+          "7.938",
+          "94.671",
+          "206/208 choices; probability drift 0.02737",
+          "native-optimizations/compiler/window.json"
+        ],
+        [
+          "precision",
+          "baseline",
+          "2.828",
+          "12.484",
+          "8.672",
+          "101.787",
+          "208/208 choices; exact choice logits",
+          "native-optimizations/precision/baseline.json"
+        ],
+        [
+          "precision",
+          "fp8-early-mlp",
+          "2.850",
+          "11.442",
+          "8.234",
+          "92.388",
+          "205/208 choices; probability drift 0.12453",
+          "native-optimizations/precision/fp8-early-mlp.json"
+        ],
+        [
+          "precision",
+          "fp8-late-mlp",
+          "2.849",
+          "11.447",
+          "8.210",
+          "92.062",
+          "206/208 choices; probability drift 0.03522",
+          "native-optimizations/precision/fp8-late-mlp.json"
+        ],
+        [
+          "precision",
+          "fp8-mlp",
+          "2.914",
+          "10.398",
+          "7.786",
+          "82.865",
+          "207/208 choices; probability drift 0.11610",
+          "native-optimizations/precision/fp8-mlp.json"
+        ],
+        [
+          "precision",
+          "fp8-wi",
+          "2.642",
+          "11.120",
+          "8.075",
+          "88.610",
+          "204/208 choices; probability drift 0.21400",
+          "native-optimizations/precision/fp8-wi.json"
+        ],
+        [
+          "precision",
+          "Channel-balanced FP8, alpha 0.25",
+          "2.939",
+          "Not measured",
+          "Not measured",
+          "82.788",
+          "Heldout 121/128 choices; rejected",
+          "native-optimizations/precision/smooth/summary.json"
+        ],
+        [
+          "precision",
+          "Channel-balanced FP8, alpha 0.5",
+          "2.922",
+          "Not measured",
+          "Not measured",
+          "83.144",
+          "Heldout 124/128 choices; rejected",
+          "native-optimizations/precision/smooth/summary.json"
+        ],
+        [
+          "precision",
+          "Channel-balanced FP8, alpha 0.75",
+          "2.947",
+          "Not measured",
+          "Not measured",
+          "83.099",
+          "Heldout 124/128 choices; rejected",
+          "native-optimizations/precision/smooth/summary.json"
+        ]
+      ],
+      "caption": "RTX 5070 Ti round 1. Completed standalone warm full-request screens. These precede or complement the randomized combined confirmations; they are not isolated per-operation timings.",
+      "notes": "Retain numerical status when reading these timings. Full-model compile variants with changed rounding, FP8 quantization and FlexAttention are not accepted replacements. Blank measurements were never taken. Handwritten PTX warp shuffle and its CUDA intrinsic compiled to identical 504-instruction machine code, so there was no separate PTX gain."
+    },
+    {
+      "id": "fusion",
+      "title": "Projection-fusion configuration comparisons",
+      "headers": [
+        "Configuration",
+        "Workload",
+        "Baseline p50, ms",
+        "Fused p50, ms",
+        "Latency reduction",
+        "Samples / variant",
+        "Source"
+      ],
+      "rows": [
+        [
+          "combined.json",
+          "1-short",
+          "2.205",
+          "2.210",
+          "-0.19%",
+          "60",
+          "latency-optimizations/fusion/combined.json"
+        ],
+        [
+          "combined.json",
+          "16-short",
+          "10.755",
+          "10.559",
+          "1.82%",
+          "60",
+          "latency-optimizations/fusion/combined.json"
+        ],
+        [
+          "combined.json",
+          "1-long",
+          "7.696",
+          "7.634",
+          "0.81%",
+          "60",
+          "latency-optimizations/fusion/combined.json"
+        ],
+        [
+          "combined.json",
+          "16-long",
+          "88.472",
+          "82.116",
+          "7.18%",
+          "60",
+          "latency-optimizations/fusion/combined.json"
+        ],
+        [
+          "combined-confirmation.json",
+          "1-short",
+          "2.250",
+          "2.223",
+          "1.20%",
+          "90",
+          "latency-optimizations/fusion/combined-confirmation.json"
+        ],
+        [
+          "combined-confirmation.json",
+          "16-short",
+          "10.742",
+          "10.547",
+          "1.81%",
+          "90",
+          "latency-optimizations/fusion/combined-confirmation.json"
+        ],
+        [
+          "combined-confirmation.json",
+          "1-long",
+          "7.548",
+          "7.619",
+          "-0.94%",
+          "90",
+          "latency-optimizations/fusion/combined-confirmation.json"
+        ],
+        [
+          "combined-confirmation.json",
+          "16-long",
+          "88.049",
+          "81.483",
+          "7.46%",
+          "90",
+          "latency-optimizations/fusion/combined-confirmation.json"
+        ],
+        [
+          "best.json",
+          "1-short",
+          "2.214",
+          "2.219",
+          "-0.21%",
+          "90",
+          "latency-optimizations/fusion/best.json"
+        ],
+        [
+          "best.json",
+          "16-short",
+          "10.791",
+          "10.498",
+          "2.71%",
+          "90",
+          "latency-optimizations/fusion/best.json"
+        ],
+        [
+          "best.json",
+          "1-long",
+          "7.699",
+          "7.625",
+          "0.96%",
+          "90",
+          "latency-optimizations/fusion/best.json"
+        ],
+        [
+          "best.json",
+          "16-long",
+          "88.143",
+          "81.231",
+          "7.84%",
+          "90",
+          "latency-optimizations/fusion/best.json"
+        ]
+      ],
+      "caption": "RTX 5070 Ti round 2. Three randomized blocks per configuration. Each number is median full-request time. Final best.json is the accepted selector.",
+      "notes": "The final selector avoids small shapes without a demonstrated gain and falls back above 8,192 rows. Exact intermediate rounding and a GELU lookup table preserve the tested outputs."
+    },
+    {
+      "id": "components",
+      "title": "Exploratory host component timings",
+      "headers": [
+        "Workload",
+        "Mode",
+        "Packing, \u00b5s",
+        "Preparation, \u00b5s",
+        "Formatting, \u00b5s",
+        "Prepared execution, ms",
+        "Full predict, ms",
+        "Source"
+      ],
+      "rows": [
+        [
+          "1-long",
+          "baseline",
+          "73.50",
+          "1,572.51",
+          "29.57",
+          "6.923",
+          "8.798",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "1-long",
+          "numpy",
+          "14.37",
+          "1,571.51",
+          "28.60",
+          "6.803",
+          "8.532",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "1-long",
+          "cpp",
+          "3.19",
+          "1,565.39",
+          "29.54",
+          "6.769",
+          "8.594",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "1-long",
+          "numpy-graph-io",
+          "14.33",
+          "1,555.86",
+          "29.05",
+          "6.781",
+          "8.514",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "1-long",
+          "cpp-graph-io",
+          "3.15",
+          "1,569.03",
+          "28.90",
+          "6.761",
+          "8.473",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "1-short",
+          "baseline",
+          "28.67",
+          "247.60",
+          "29.10",
+          "2.401",
+          "2.797",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "1-short",
+          "numpy",
+          "5.29",
+          "244.28",
+          "28.05",
+          "2.338",
+          "2.725",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "1-short",
+          "cpp",
+          "0.83",
+          "250.60",
+          "28.53",
+          "2.313",
+          "2.700",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "1-short",
+          "numpy-graph-io",
+          "5.29",
+          "252.25",
+          "29.12",
+          "2.325",
+          "2.712",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "1-short",
+          "cpp-graph-io",
+          "0.82",
+          "249.53",
+          "28.68",
+          "2.308",
+          "2.697",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "16-long",
+          "baseline",
+          "1,035.97",
+          "2,223.18",
+          "311.34",
+          "97.971",
+          "101.056",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "16-long",
+          "numpy",
+          "187.15",
+          "2,201.35",
+          "320.32",
+          "97.665",
+          "100.475",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "16-long",
+          "cpp",
+          "44.86",
+          "2,217.93",
+          "305.41",
+          "97.361",
+          "100.441",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "16-long",
+          "numpy-graph-io",
+          "188.16",
+          "2,227.44",
+          "314.58",
+          "98.001",
+          "100.423",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "16-long",
+          "cpp-graph-io",
+          "45.95",
+          "2,304.08",
+          "316.09",
+          "98.221",
+          "101.028",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "16-short",
+          "baseline",
+          "309.29",
+          "760.94",
+          "289.40",
+          "11.139",
+          "12.438",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "16-short",
+          "numpy",
+          "40.15",
+          "779.35",
+          "291.06",
+          "10.832",
+          "12.100",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "16-short",
+          "cpp",
+          "7.58",
+          "800.59",
+          "290.10",
+          "10.843",
+          "12.084",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "16-short",
+          "numpy-graph-io",
+          "40.46",
+          "782.46",
+          "290.88",
+          "10.870",
+          "12.126",
+          "native-optimizations/host/components.json"
+        ],
+        [
+          "16-short",
+          "cpp-graph-io",
+          "7.57",
+          "784.78",
+          "294.79",
+          "10.831",
+          "12.095",
+          "native-optimizations/host/components.json"
+        ]
+      ],
+      "caption": "RTX 5070 Ti round 1. Sequential exploratory mode sweep. Component microbenchmarks use different iteration counts from full predict.",
+      "notes": "Microseconds and milliseconds are explicitly separated. Do not add component medians or present a packing speedup as a whole-model speedup. Prefer randomized host confirmations for final request-level claims."
+    },
+    {
+      "id": "serving-screen",
+      "title": "Exploratory serving and microbatch sweep",
+      "headers": [
+        "Workload",
+        "Callers",
+        "Policy",
+        "Requests/s",
+        "p50, ms",
+        "p95, ms",
+        "Requests",
+        "Source"
+      ],
+      "rows": [
+        [
+          "1-long",
+          "1",
+          "microbatch-0",
+          "130.87",
+          "7.637",
+          "7.818",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "2",
+          "microbatch-0",
+          "168.11",
+          "11.806",
+          "11.949",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "4",
+          "microbatch-0",
+          "184.69",
+          "21.230",
+          "21.721",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "8",
+          "microbatch-0",
+          "181.17",
+          "43.049",
+          "45.181",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "1",
+          "microbatch-0",
+          "427.52",
+          "2.322",
+          "2.411",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "2",
+          "microbatch-0",
+          "482.89",
+          "4.049",
+          "4.367",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "4",
+          "microbatch-0",
+          "734.04",
+          "5.282",
+          "6.037",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "8",
+          "microbatch-0",
+          "801.22",
+          "8.631",
+          "14.722",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "1",
+          "microbatch-0",
+          "11.25",
+          "88.884",
+          "89.524",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "2",
+          "microbatch-0",
+          "11.62",
+          "171.849",
+          "173.021",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "4",
+          "microbatch-0",
+          "11.50",
+          "347.686",
+          "349.001",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "8",
+          "microbatch-0",
+          "11.53",
+          "692.976",
+          "746.494",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "1",
+          "microbatch-0",
+          "88.01",
+          "11.314",
+          "11.776",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "2",
+          "microbatch-0",
+          "98.52",
+          "20.207",
+          "20.569",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "4",
+          "microbatch-0",
+          "78.17",
+          "51.022",
+          "52.237",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "8",
+          "microbatch-0",
+          "96.80",
+          "81.315",
+          "84.379",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "1",
+          "microbatch-0",
+          "35.93",
+          "10.227",
+          "89.325",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "2",
+          "microbatch-0",
+          "38.10",
+          "16.423",
+          "92.651",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "4",
+          "microbatch-0",
+          "37.76",
+          "105.608",
+          "106.119",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "8",
+          "microbatch-0",
+          "38.27",
+          "207.061",
+          "384.985",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "1",
+          "microbatch-0.25",
+          "126.56",
+          "7.826",
+          "8.151",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "2",
+          "microbatch-0.25",
+          "136.27",
+          "14.783",
+          "17.152",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "4",
+          "microbatch-0.25",
+          "136.59",
+          "29.205",
+          "34.458",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "8",
+          "microbatch-0.25",
+          "178.20",
+          "42.954",
+          "46.540",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "1",
+          "microbatch-0.25",
+          "358.45",
+          "2.702",
+          "2.978",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "2",
+          "microbatch-0.25",
+          "491.38",
+          "4.026",
+          "4.112",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "4",
+          "microbatch-0.25",
+          "740.83",
+          "5.255",
+          "5.969",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "8",
+          "microbatch-0.25",
+          "851.74",
+          "8.368",
+          "13.581",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "1",
+          "microbatch-0.25",
+          "11.14",
+          "89.658",
+          "90.846",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "2",
+          "microbatch-0.25",
+          "11.18",
+          "178.855",
+          "182.002",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "4",
+          "microbatch-0.25",
+          "11.47",
+          "347.701",
+          "355.032",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "8",
+          "microbatch-0.25",
+          "11.52",
+          "691.891",
+          "698.370",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "1",
+          "microbatch-0.25",
+          "87.23",
+          "11.389",
+          "11.861",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "2",
+          "microbatch-0.25",
+          "87.18",
+          "22.936",
+          "24.284",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "4",
+          "microbatch-0.25",
+          "95.11",
+          "41.556",
+          "44.048",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "8",
+          "microbatch-0.25",
+          "96.27",
+          "81.441",
+          "85.460",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "1",
+          "microbatch-0.25",
+          "35.90",
+          "9.805",
+          "89.269",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "2",
+          "microbatch-0.25",
+          "38.02",
+          "16.483",
+          "92.811",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "4",
+          "microbatch-0.25",
+          "37.66",
+          "105.568",
+          "107.242",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "8",
+          "microbatch-0.25",
+          "37.89",
+          "208.214",
+          "387.678",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "1",
+          "priority-3",
+          "132.57",
+          "7.499",
+          "7.830",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "2",
+          "priority-3",
+          "192.64",
+          "10.267",
+          "10.539",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "4",
+          "priority-3",
+          "190.30",
+          "20.742",
+          "21.701",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "8",
+          "priority-3",
+          "184.69",
+          "41.433",
+          "43.028",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "1",
+          "priority-3",
+          "437.22",
+          "2.279",
+          "2.353",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "2",
+          "priority-3",
+          "654.22",
+          "3.040",
+          "3.108",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "4",
+          "priority-3",
+          "648.58",
+          "6.111",
+          "6.261",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "8",
+          "priority-3",
+          "641.94",
+          "12.338",
+          "12.461",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "1",
+          "priority-3",
+          "11.27",
+          "88.669",
+          "88.981",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "2",
+          "priority-3",
+          "11.29",
+          "177.305",
+          "178.097",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "4",
+          "priority-3",
+          "11.26",
+          "355.586",
+          "357.116",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "8",
+          "priority-3",
+          "11.34",
+          "707.591",
+          "708.415",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "1",
+          "priority-3",
+          "91.81",
+          "10.847",
+          "11.081",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "2",
+          "priority-3",
+          "90.71",
+          "21.976",
+          "22.499",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "4",
+          "priority-3",
+          "90.31",
+          "44.168",
+          "45.917",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "8",
+          "priority-3",
+          "90.27",
+          "88.752",
+          "91.333",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "1",
+          "priority-3",
+          "36.48",
+          "9.443",
+          "88.217",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "2",
+          "priority-3",
+          "38.12",
+          "13.859",
+          "98.464",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "4",
+          "priority-3",
+          "38.37",
+          "15.301",
+          "201.726",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "8",
+          "priority-3",
+          "38.39",
+          "23.153",
+          "412.019",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "1",
+          "serial-current",
+          "131.12",
+          "7.562",
+          "7.980",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "2",
+          "serial-current",
+          "128.17",
+          "15.526",
+          "17.224",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "4",
+          "serial-current",
+          "132.46",
+          "30.200",
+          "32.325",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "8",
+          "serial-current",
+          "131.80",
+          "60.106",
+          "60.433",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "1",
+          "serial-current",
+          "439.05",
+          "2.251",
+          "2.438",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "2",
+          "serial-current",
+          "441.22",
+          "4.517",
+          "4.597",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "4",
+          "serial-current",
+          "435.16",
+          "9.196",
+          "9.391",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "8",
+          "serial-current",
+          "437.97",
+          "18.361",
+          "18.570",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "1",
+          "serial-current",
+          "11.22",
+          "89.073",
+          "89.296",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "2",
+          "serial-current",
+          "11.21",
+          "178.464",
+          "179.040",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "4",
+          "serial-current",
+          "11.21",
+          "357.120",
+          "358.286",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "8",
+          "serial-current",
+          "11.24",
+          "713.386",
+          "714.857",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "1",
+          "serial-current",
+          "89.81",
+          "11.069",
+          "11.480",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "2",
+          "serial-current",
+          "89.71",
+          "22.247",
+          "22.778",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "4",
+          "serial-current",
+          "89.89",
+          "44.303",
+          "45.756",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "8",
+          "serial-current",
+          "89.91",
+          "88.930",
+          "89.925",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "1",
+          "serial-current",
+          "36.40",
+          "9.324",
+          "88.827",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "2",
+          "serial-current",
+          "36.25",
+          "21.565",
+          "95.284",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "4",
+          "serial-current",
+          "36.32",
+          "109.913",
+          "111.546",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "8",
+          "serial-current",
+          "36.43",
+          "218.757",
+          "222.775",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "1",
+          "serial-fifo",
+          "126.66",
+          "7.677",
+          "9.220",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "2",
+          "serial-fifo",
+          "129.33",
+          "15.292",
+          "16.761",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "4",
+          "serial-fifo",
+          "127.64",
+          "31.199",
+          "34.151",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "8",
+          "serial-fifo",
+          "129.64",
+          "61.166",
+          "68.034",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "1",
+          "serial-fifo",
+          "432.89",
+          "2.289",
+          "2.392",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "2",
+          "serial-fifo",
+          "422.78",
+          "4.714",
+          "4.806",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "4",
+          "serial-fifo",
+          "422.41",
+          "9.479",
+          "9.583",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "8",
+          "serial-fifo",
+          "417.09",
+          "19.282",
+          "19.582",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "1",
+          "serial-fifo",
+          "11.24",
+          "89.078",
+          "89.368",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "2",
+          "serial-fifo",
+          "11.19",
+          "178.607",
+          "180.177",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "4",
+          "serial-fifo",
+          "11.20",
+          "357.281",
+          "359.682",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "8",
+          "serial-fifo",
+          "11.23",
+          "714.482",
+          "715.143",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "1",
+          "serial-fifo",
+          "91.04",
+          "10.940",
+          "11.201",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "2",
+          "serial-fifo",
+          "90.03",
+          "22.178",
+          "22.576",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "4",
+          "serial-fifo",
+          "88.83",
+          "45.055",
+          "46.050",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "8",
+          "serial-fifo",
+          "89.74",
+          "89.107",
+          "90.424",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "1",
+          "serial-fifo",
+          "36.25",
+          "9.617",
+          "89.043",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "2",
+          "serial-fifo",
+          "36.18",
+          "21.536",
+          "95.418",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "4",
+          "serial-fifo",
+          "36.10",
+          "110.781",
+          "112.241",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "8",
+          "serial-fifo",
+          "36.05",
+          "222.047",
+          "223.585",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "1",
+          "streams-2",
+          "132.64",
+          "7.421",
+          "8.097",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "2",
+          "streams-2",
+          "192.70",
+          "10.317",
+          "10.485",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "4",
+          "streams-2",
+          "189.03",
+          "20.779",
+          "22.074",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "8",
+          "streams-2",
+          "187.71",
+          "41.558",
+          "43.426",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "1",
+          "streams-2",
+          "431.04",
+          "2.299",
+          "2.416",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "2",
+          "streams-2",
+          "645.10",
+          "3.075",
+          "3.184",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "4",
+          "streams-2",
+          "630.39",
+          "6.212",
+          "6.909",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "8",
+          "streams-2",
+          "639.65",
+          "12.439",
+          "12.575",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "1",
+          "streams-2",
+          "11.38",
+          "87.860",
+          "88.095",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "2",
+          "streams-2",
+          "11.65",
+          "171.823",
+          "172.314",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "4",
+          "streams-2",
+          "11.66",
+          "342.773",
+          "344.514",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "8",
+          "streams-2",
+          "11.64",
+          "687.130",
+          "689.331",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "1",
+          "streams-2",
+          "89.78",
+          "11.136",
+          "11.398",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "2",
+          "streams-2",
+          "107.67",
+          "18.477",
+          "19.022",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "4",
+          "streams-2",
+          "108.84",
+          "36.596",
+          "37.673",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "8",
+          "streams-2",
+          "106.57",
+          "74.271",
+          "78.301",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "1",
+          "streams-2",
+          "36.77",
+          "9.308",
+          "87.724",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "2",
+          "streams-2",
+          "40.01",
+          "42.970",
+          "92.210",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "4",
+          "streams-2",
+          "40.13",
+          "99.355",
+          "126.814",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "8",
+          "streams-2",
+          "39.67",
+          "200.473",
+          "228.025",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "1",
+          "streams-4",
+          "132.95",
+          "7.482",
+          "7.723",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "2",
+          "streams-4",
+          "191.02",
+          "10.362",
+          "10.522",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "4",
+          "streams-4",
+          "201.87",
+          "19.433",
+          "20.479",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-long",
+          "8",
+          "streams-4",
+          "201.67",
+          "39.003",
+          "42.307",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "1",
+          "streams-4",
+          "408.73",
+          "2.407",
+          "2.715",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "2",
+          "streams-4",
+          "646.48",
+          "3.078",
+          "3.161",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "4",
+          "streams-4",
+          "814.56",
+          "4.834",
+          "4.986",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "1-short",
+          "8",
+          "streams-4",
+          "811.79",
+          "9.633",
+          "9.882",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "1",
+          "streams-4",
+          "11.23",
+          "89.025",
+          "89.370",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "2",
+          "streams-4",
+          "11.58",
+          "172.681",
+          "174.538",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "4",
+          "streams-4",
+          "11.66",
+          "343.245",
+          "348.382",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-long",
+          "8",
+          "streams-4",
+          "11.58",
+          "689.920",
+          "700.441",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "1",
+          "streams-4",
+          "90.68",
+          "10.997",
+          "11.170",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "2",
+          "streams-4",
+          "105.35",
+          "19.019",
+          "19.555",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "4",
+          "streams-4",
+          "106.64",
+          "37.381",
+          "38.405",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "16-short",
+          "8",
+          "streams-4",
+          "106.59",
+          "74.277",
+          "76.735",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "1",
+          "streams-4",
+          "36.21",
+          "10.022",
+          "89.110",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "2",
+          "streams-4",
+          "39.43",
+          "44.948",
+          "94.023",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "4",
+          "streams-4",
+          "38.94",
+          "103.149",
+          "106.925",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ],
+        [
+          "mixed",
+          "8",
+          "streams-4",
+          "38.78",
+          "205.488",
+          "212.713",
+          "48",
+          "latency-optimizations/serving/screen-summary.json"
+        ]
+      ],
+      "caption": "RTX 5070 Ti round 2. Completed screen after the CUDA graph lifetime fix. Single measured block per configuration. Use the repeated serving confirmation for accepted stream-policy results.",
+      "notes": "Microbatching passed the initial fixture but changed 14/245 decisions in the expanded deduplicated check, with maximum probability drift 0.019893. Its throughput here is a rejected-candidate result, not a recommended engine claim."
+    }
+  ],
+  "scope": "Historical request-level benchmarks, completed candidate screens and host component measurements. Failed/incomplete runs, compiler traces and individual tile-tuning microbenchmarks remain in their raw directories and are not treated as benchmark results.",
+  "sources": [
+    {
+      "path": "ablation.json",
+      "sha256": "dd2321463ae1727772b9b0b25dbc6ae86488c216c1c5878ea44c02912e16d63a"
+    },
+    {
+      "path": "benchmark-http.json",
+      "sha256": "eb8e499c8f0133f7eb13562a8e2d9e79be9b9513f4c8fd73be89a53292cbd5d2"
+    },
+    {
+      "path": "benchmark.json",
+      "sha256": "a122d5a6ed25e0e29df42e2a8c07bd9a3c021b93492957976ea8c57881f1dc56"
+    },
+    {
+      "path": "latency-optimizations/aot/index.json",
+      "sha256": "537df96089fea3faab46e744dcc6db150500be83483c079270c31047130604de"
+    },
+    {
+      "path": "latency-optimizations/fusion/summary.json",
+      "sha256": "e94629a6b5a4a3b860de3b6009527d6a497df5e5ee3e23f82b388d8d97d7648d"
+    },
+    {
+      "path": "latency-optimizations/serving/screen-summary.json",
+      "sha256": "5c17bee19afca9b53d3eb371341a6471d761f9ccf6f60f0a131fabffa4979306"
+    },
+    {
+      "path": "latency-optimizations/summary.json",
+      "sha256": "967e6c22302177f6036a4663a5c487433ef67157ac837e13c38073027c292ab1"
+    },
+    {
+      "path": "native-optimizations/compiler/clean-startup-cold.json",
+      "sha256": "61f0aef7c676918331d2b3df2f04e89fa37005fbf356369a52e7cbd8926f82e0"
+    },
+    {
+      "path": "native-optimizations/compiler/clean-startup-native-window.json",
+      "sha256": "fe094f617879be0b812b0ea0f3caaccf5e3ab3f576b1d50ed9c353259802ac83"
+    },
+    {
+      "path": "native-optimizations/compiler/clean-startup-warm.json",
+      "sha256": "65fa0e0d6879053293af120fe0fe9f35155e3116ffbedda0826835c352593c4f"
+    },
+    {
+      "path": "native-optimizations/compiler/compile-1-short.json",
+      "sha256": "7aba77a644cfc23b09ae7e6dee727d1bddbf568a51e412b3560424d32a97d0f9"
+    },
+    {
+      "path": "native-optimizations/compiler/compile-native-padded-window-precise-opaque-pinned.json",
+      "sha256": "17556945b15722211158dad3ebbe4dd0c7de2b08ddc78b10219c6ec2fab27dca"
+    },
+    {
+      "path": "native-optimizations/compiler/compile-native-precise-opaque-pinned-screen.json",
+      "sha256": "c674e203826765b9800e3c83b95113f100080a3d8c20e91eb27ada327c0f1ce9"
+    },
+    {
+      "path": "native-optimizations/compiler/compile-native-precise-opaque-screen.json",
+      "sha256": "f9d507202d0a6b069c727bcb87035af23d03ad4aa3d922bb37bf8e1a4fc358b3"
+    },
+    {
+      "path": "native-optimizations/compiler/compile-native-precise-stablemath-screen.json",
+      "sha256": "f8c0cc0adb63ef27668b307375ee427f87e2c539de4c25ed0bc38bee095583d0"
+    },
+    {
+      "path": "native-optimizations/compiler/compile-native-precise.json",
+      "sha256": "1b33f736de3ae4d2251b46ac1d5b7ce696eb0765dd5bdc6221ae1f79f1ccc5b0"
+    },
+    {
+      "path": "native-optimizations/compiler/compile.json",
+      "sha256": "e6bde19e10cde568c11c38791775b6600ec2a86c2a847c307fdfa65c02a20b9a"
+    },
+    {
+      "path": "native-optimizations/compiler/cudnn.json",
+      "sha256": "e2bc138719ef4d977462b155a51aeb459fdc75022211ce6ad26c8e0be520240c"
+    },
+    {
+      "path": "native-optimizations/compiler/direct-native-vs-compiled.json",
+      "sha256": "ab5d966aff434dba4fd612c8622da78cc3606a12e56f97ef80ad545299df246e"
+    },
+    {
+      "path": "native-optimizations/compiler/gemm-native-padded-window-tma-near.json",
+      "sha256": "7fb718176cf62c6ced705d2bd2a6b2c023040b63ca5c7d1a89f0e1a38feaded0"
+    },
+    {
+      "path": "native-optimizations/compiler/gemm-native-padded-window-tma.json",
+      "sha256": "79d2430e3b1f00f7bfa96520842f8a818f6fda9b9aff4ed647593a446f5c3886"
+    },
+    {
+      "path": "native-optimizations/compiler/head.json",
+      "sha256": "d04a4a1286a489ed7616e59e2646b634ab281f360c37b0d4be1818ac2b9c043e"
+    },
+    {
+      "path": "native-optimizations/compiler/native-padded-window.json",
+      "sha256": "4bb90725ab829d7f0684598ece402c8bfcf8f6c5a60d37a2cab17d81474a2be9"
+    },
+    {
+      "path": "native-optimizations/compiler/native-window.json",
+      "sha256": "4a14651f208b44acd5120f72c045d34c2a7a4258a02ff2d4e29a8bf4aa624e2c"
+    },
+    {
+      "path": "native-optimizations/compiler/window.json",
+      "sha256": "ff391de1013c5411e22bd0ea4e2545eca0ab406760fc280f2ea4bf4d86329965"
+    },
+    {
+      "path": "native-optimizations/host/components.json",
+      "sha256": "c1663c009d807380ebac380c0f9a1f148422d5c203425555962219ee64e25d9e"
+    },
+    {
+      "path": "native-optimizations/host/summary.json",
+      "sha256": "fe95ef3128ae318e9effae4d5313ec66b0c6bb2328a8c7154f9346371ca5a6f7"
+    },
+    {
+      "path": "native-optimizations/kernels/baseline-all.json",
+      "sha256": "62c385580fb855acf22218a666875336b7be6dffecbe1b86d1b43f9a0fa6a48d"
+    },
+    {
+      "path": "native-optimizations/kernels/cuda_geglu-all.json",
+      "sha256": "e243e5c1ed408d29b1892f395b2eef5db16a1fdd0a1126da74d86fd2438a9505"
+    },
+    {
+      "path": "native-optimizations/kernels/cuda_geglu_lut-all.json",
+      "sha256": "ea79e826d10b5cc0ff8085bc03dac489c6eb4a3d82c75d9f626556b6fe65c8a1"
+    },
+    {
+      "path": "native-optimizations/kernels/cuda_norm-all.json",
+      "sha256": "c27e6a15a37bd7172183ae11d592603caece7fc16ddfd3348a8e0c5443107428"
+    },
+    {
+      "path": "native-optimizations/kernels/cuda_norm_adaptive_geglu-all.json",
+      "sha256": "bff65143fdda384b3f6675bcddf101b703e8c7f99188d5f65beefeda3b56ceea"
+    },
+    {
+      "path": "native-optimizations/kernels/cuda_norm_geglu_lut-all.json",
+      "sha256": "5b7fdc1e5ada90e0389a53917759acc3ec3eecc8715417fee9bbe9846b199e69"
+    },
+    {
+      "path": "native-optimizations/kernels/cuda_norm_triton_geglu_corrected-all.json",
+      "sha256": "b304f9190a51c7fce9438c27d23861a358d5ef73040f096e098c94b2c1bcd0bf"
+    },
+    {
+      "path": "native-optimizations/kernels/cuda_norm_triton_geglu_lut-all.json",
+      "sha256": "0f3663c93b157c4707c7b9fc3c815109fba0ed435d642803d819eb7e02d478b3"
+    },
+    {
+      "path": "native-optimizations/kernels/cuda_static_norm-all.json",
+      "sha256": "1a78dc48609fc2f38a4cc8422e0a7ce1849495f01408666a992ca82519f1a32f"
+    },
+    {
+      "path": "native-optimizations/kernels/cuda_static_norm_adaptive_geglu-all.json",
+      "sha256": "9a71f9300b9e36aa5740a53cc7536df68a0451a335341100afd22a8d038c4033"
+    },
+    {
+      "path": "native-optimizations/kernels/cuda_vector_norm-all.json",
+      "sha256": "681dfc6fa97e32cae2f5d32c5de2b9675abbff9f0ccec910fba889eb79c345d8"
+    },
+    {
+      "path": "native-optimizations/kernels/cuda_vector_norm_adaptive_geglu-all.json",
+      "sha256": "99a7c8f7f8ae971a4de61fdb8e497b1fb9cd38fbf8fec2cc94aea79fc617b964"
+    },
+    {
+      "path": "native-optimizations/kernels/cuda_vector_norm_triton_geglu_corrected-all.json",
+      "sha256": "bbe189e64dda1e1bc2eb419ba4dd347541679cb131776ea01bf7c921d9290935"
+    },
+    {
+      "path": "native-optimizations/kernels/ptx_norm-all.json",
+      "sha256": "a039e0e601470d0eecb371f9f61d268272fef8b05f24868cfeb3c304eeb14519"
+    },
+    {
+      "path": "native-optimizations/kernels/triton_geglu_lut-all.json",
+      "sha256": "80f4b1bd6b3a422e9f46bbb3f9d872dac72bf0f6d8a66c3f07f289f618b26d11"
+    },
+    {
+      "path": "native-optimizations/kernels/triton_twopass-all.json",
+      "sha256": "eaa4ce3e2cc4036db2763bbe6c260f2d24b70b6e45539626dcec48ee2c78e789"
+    },
+    {
+      "path": "native-optimizations/kernels/triton_welford-all.json",
+      "sha256": "b955df28b3e3a4729827f1af6e3f3c2b33664076368a7374a9a2aaa978822de9"
+    },
+    {
+      "path": "native-optimizations/precision/baseline.json",
+      "sha256": "8ef5c684113e20e6ea45ccd1c86871f32b53759145840d41b4115b3b3c11d0c6"
+    },
+    {
+      "path": "native-optimizations/precision/fp8-early-mlp.json",
+      "sha256": "05dbc7aa8a4246373d004ae1263b447a52ae4228fe43f1abe8db05d9b1a47efb"
+    },
+    {
+      "path": "native-optimizations/precision/fp8-late-mlp.json",
+      "sha256": "55a2d24d0d202992a392066305384ec56345283c4f9fed426a89a32cb2c48d9e"
+    },
+    {
+      "path": "native-optimizations/precision/fp8-mlp.json",
+      "sha256": "df27eeff27158240339374c39e17bba75e2407406f11b9e527c834cc37a04ffe"
+    },
+    {
+      "path": "native-optimizations/precision/fp8-wi.json",
+      "sha256": "cebda536f97ba50b6c797f37629287171f1f760e19730ee7ab4be28f9c3a16fe"
+    },
+    {
+      "path": "native-optimizations/precision/smooth/summary.json",
+      "sha256": "8100e7943c0a1e961926025a59a317c947aa7e1613b8b1b032420d21615ff183"
+    },
+    {
+      "path": "native-optimizations/summary.json",
+      "sha256": "d2a5529e8950d5310293b0fc08166f65448c6ed41e1a9aba1fb8e66d568b8377"
+    },
+    {
+      "path": "rtx-a6000/summary.json",
+      "sha256": "9be94c0cc9b6aad77f76699baa3d4857069c22f05c4c881c6b8b85c43dcc54af"
+    },
+    {
+      "path": "upstream-compile.json",
+      "sha256": "054709586380f153362d389d9cda7642413c8b5c07c022874c5e0a15d79073ac"
+    },
+    {
+      "path": "upstream-fast.json",
+      "sha256": "17c29bb7abd3a111eb155d3c22d76ec69f448a7fe51dc83c9c2b542a7d5dc563"
+    }
+  ]
+}

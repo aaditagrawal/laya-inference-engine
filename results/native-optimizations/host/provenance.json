@@ -1,0 +1,98 @@
+{
+  "source_revision_at_packaging": "83de1b308d246b443fa5f4d393e6ccacbbc7d406",
+  "source_files": {
+    "experiments/native/host/native_host.cpp": "ec79c1a1a4b4d150d5cfd042ef1836e591b9bddd27820274ca5111d359e3edbb",
+    "experiments/native/host/build.py": "86efa8cd92281f53befc8e41c762bf354396cc08a3dd0c54493001dd374fc4fa",
+    "experiments/native/host/_native.py": "7bcd25d9add8ba1f2851997190edb2aebe38e972a041183c8bfd32302f4566c2",
+    "experiments/native/host/adapter.py": "1d01f04717b7ef2c59a630f15716364874d090f1e216dcfeac17e104434a8cd2",
+    "experiments/native/host/__init__.py": "a5a230da8ec7ecf5099f282dee70719295d9caf0527a964e86eacd3dae007259"
+  },
+  "benchmarked_cpp_equals_clean_cpp": true,
+  "adapter_equivalence": {
+    "status": "passed",
+    "class_and_function_asts_identical_to_benchmarked_adapter": true,
+    "native_cpp_byte_identical": true,
+    "sources": {
+      "experiments/native/host/native_host.cpp": "ec79c1a1a4b4d150d5cfd042ef1836e591b9bddd27820274ca5111d359e3edbb",
+      "experiments/native/host/build.py": "86efa8cd92281f53befc8e41c762bf354396cc08a3dd0c54493001dd374fc4fa",
+      "experiments/native/host/_native.py": "7bcd25d9add8ba1f2851997190edb2aebe38e972a041183c8bfd32302f4566c2",
+      "experiments/native/host/adapter.py": "1d01f04717b7ef2c59a630f15716364874d090f1e216dcfeac17e104434a8cd2",
+      "experiments/native/host/__init__.py": "a5a230da8ec7ecf5099f282dee70719295d9caf0527a964e86eacd3dae007259"
+    },
+    "smoke": {
+      "status": "passed",
+      "extension": ".research/native-build/host/laya_native_host.cpython-312-x86_64-linux-gnu.so",
+      "requests": 3,
+      "exact_answers_and_usage": true,
+      "adapter_retained_cuda_bytes": 0,
+      "adapter_retained_active_pinned_bytes": 0,
+      "base_close_allocated_cuda_bytes": 0
+    },
+    "ruff_check": "passed",
+    "ruff_format": "passed"
+  },
+  "build": {
+    "command": [
+      "c++",
+      "-O3",
+      "-DNDEBUG",
+      "-std=c++17",
+      "-shared",
+      "-fPIC",
+      "experiments/native/host/native_host.cpp",
+      "-I.venv/lib/python3.12/site-packages/torch/include",
+      "-I<home>/.local/share/uv/python/cpython-3.12.5-linux-x86_64-gnu/include/python3.12",
+      "-I/usr/local/cuda-13.1/include",
+      "-L/usr/local/cuda-13.1/lib64",
+      "-Wl,-rpath,/usr/local/cuda-13.1/lib64",
+      "-lcudart",
+      "-o",
+      ".research/native-build/host/laya_native_host.cpython-312-x86_64-linux-gnu.so"
+    ],
+    "seconds": 4.955438781064004,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "artifact": ".research/native-build/host/laya_native_host.cpython-312-x86_64-linux-gnu.so"
+  },
+  "raw_artifacts": {
+    "predict-1-short.json": {
+      "research_source": ".research/native-20260924/host/confirm-bench-1-short-0.json",
+      "sha256": "62a98d12be5afd02a594f1a4ac5f081c77a0a8ff33ae501c82e73d6084163d07"
+    },
+    "predict-16-short.json": {
+      "research_source": ".research/native-20260924/host/confirm-bench-16-short-0.json",
+      "sha256": "0576cd7b8719c138a5d8f92173e090be654b087bd22d783c6e1cc42883bf2e5d"
+    },
+    "predict-1-long.json": {
+      "research_source": ".research/native-20260924/host/confirm-bench-1-long-0.json",
+      "sha256": "abeb3a2e1aee9a00505f465eece5e42278829a5a3ad426c94ee904dafcbbc4f5"
+    },
+    "predict-16-long.json": {
+      "research_source": ".research/native-20260924/host/confirm-bench-16-long-0.json",
+      "sha256": "0a67dc97523440ed78d8380d973b16dfae89cdb452beda4a667e9cc84157706f"
+    },
+    "http.json": {
+      "research_source": ".research/native-20260924/host/http.json",
+      "sha256": "5c566794c8c439d81044eed5d897ddf1e36c7a7fa3a3b0d812caec33546259e9"
+    },
+    "concurrency.json": {
+      "research_source": ".research/native-20260924/host/validation-0.json",
+      "sha256": "001f3558f44e5b2be67395ec1f5dfba68062b64ef696e135f2c6911d3094bade"
+    },
+    "clean-smoke.json": {
+      "research_source": ".research/native-20260924/host/clean-smoke.json",
+      "sha256": "7223d56ecc83866c0ab968f1c7440ac63d00f8252d0ddcc45b687481bb912510"
+    }
+  },
+  "excluded_artifacts": [
+    {
+      "name": "http-with-delayed-ack.json",
+      "reason": "Manual listening socket lacked TCP_NODELAY; about 40ms transport stalls. Excluded from inference comparison and retained only in ignored research directory."
+    },
+    {
+      "name": "concurrency-initial-fixture-failure.log",
+      "reason": "Test fixture mixed padded/unmasked graph keys before correction; corrected same-key concurrency test passed."
+    }
+  ]
+}

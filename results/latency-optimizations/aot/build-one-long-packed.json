@@ -1,0 +1,50 @@
+{
+  "case": "1-long",
+  "package": ".research/latency-optimizations/aot/one-long-packed.pt2",
+  "torch": "2.14.0+cu132",
+  "libdevice": {
+    "path": ".venv/lib/python3.12/site-packages/triton/backends/nvidia/lib/libdevice.10.bc",
+    "sha256": "5c2fae37c86e68c3a38605a95f512d7d12d5f3db986310be47f57304aa72a5ee"
+  },
+  "status": "complete",
+  "strict_export": true,
+  "packed_inputs": true,
+  "shape": [
+    1,
+    512,
+    4
+  ],
+  "unmasked": true,
+  "hardware": {
+    "name": "NVIDIA GeForce RTX 5070 Ti",
+    "compute_capability": "12.0",
+    "sm_count": 70,
+    "vram_bytes": 16608788480,
+    "torch": "2.14.0+cu132",
+    "cuda_runtime": "13.2",
+    "cuda_architecture": "sm_120"
+  },
+  "input_alignment_mod16": [
+    0,
+    0,
+    0,
+    8,
+    0
+  ],
+  "model_setup_ms": 2949.2144259857014,
+  "elapsed_seconds": 36.67417849297635,
+  "export_ms": 5939.802975044586,
+  "export_nodes": 1197,
+  "compile_package_ms": 26414.153322926722,
+  "package_bytes": 957838963,
+  "package_sha256": "afbcf705ca9428a6c9769084939ce0fc7271f59e19476794493e01572b8148f2",
+  "same_process_load_ms": 822.3998909816146,
+  "same_process_exact": [
+    true,
+    true
+  ],
+  "same_process_max_error": [
+    0.0,
+    0.0
+  ]
+}

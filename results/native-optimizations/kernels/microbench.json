@@ -1,0 +1,447 @@
+{
+  "device": "NVIDIA GeForce RTX 5070 Ti",
+  "torch": "2.14.0+cu132",
+  "norm": [
+    {
+      "rows": 64,
+      "bias": false,
+      "name": "torch",
+      "us": 5.369600057601929,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 64,
+      "bias": false,
+      "name": "cuda",
+      "us": 1.687680035829544,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 64,
+      "bias": false,
+      "name": "inline_ptx",
+      "us": 1.6873599588871002,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 64,
+      "bias": false,
+      "name": "triton_welford",
+      "us": 1.4758400619029999,
+      "residual_equal": true,
+      "bf16_mismatch": 2,
+      "bf16_max_abs_error": 0.0078125
+    },
+    {
+      "rows": 64,
+      "bias": false,
+      "name": "triton_twopass",
+      "us": 1.6780799627304077,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 64,
+      "bias": true,
+      "name": "torch",
+      "us": 5.3731197118759155,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 64,
+      "bias": true,
+      "name": "cuda",
+      "us": 1.9040000438690186,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 64,
+      "bias": true,
+      "name": "inline_ptx",
+      "us": 1.8963199853897095,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 64,
+      "bias": true,
+      "name": "triton_welford",
+      "us": 1.8799999356269836,
+      "residual_equal": true,
+      "bf16_mismatch": 3,
+      "bf16_max_abs_error": 0.001953125
+    },
+    {
+      "rows": 64,
+      "bias": true,
+      "name": "triton_twopass",
+      "us": 1.8857599794864655,
+      "residual_equal": true,
+      "bf16_mismatch": 2,
+      "bf16_max_abs_error": 0.001953125
+    },
+    {
+      "rows": 512,
+      "bias": false,
+      "name": "torch",
+      "us": 9.096959829330444,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 512,
+      "bias": false,
+      "name": "cuda",
+      "us": 4.15039986371994,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 512,
+      "bias": false,
+      "name": "inline_ptx",
+      "us": 4.142720103263855,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 512,
+      "bias": false,
+      "name": "triton_welford",
+      "us": 3.7513598799705505,
+      "residual_equal": true,
+      "bf16_mismatch": 8,
+      "bf16_max_abs_error": 0.0078125
+    },
+    {
+      "rows": 512,
+      "bias": false,
+      "name": "triton_twopass",
+      "us": 3.8518399000167847,
+      "residual_equal": true,
+      "bf16_mismatch": 6,
+      "bf16_max_abs_error": 0.0078125
+    },
+    {
+      "rows": 512,
+      "bias": true,
+      "name": "torch",
+      "us": 9.42304015159607,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 512,
+      "bias": true,
+      "name": "cuda",
+      "us": 4.345920085906982,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 512,
+      "bias": true,
+      "name": "inline_ptx",
+      "us": 4.3510401248931885,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 512,
+      "bias": true,
+      "name": "triton_welford",
+      "us": 4.1468799114227295,
+      "residual_equal": true,
+      "bf16_mismatch": 16,
+      "bf16_max_abs_error": 0.00390625
+    },
+    {
+      "rows": 512,
+      "bias": true,
+      "name": "triton_twopass",
+      "us": 4.137279987335205,
+      "residual_equal": true,
+      "bf16_mismatch": 12,
+      "bf16_max_abs_error": 0.00390625
+    },
+    {
+      "rows": 8192,
+      "bias": false,
+      "name": "torch",
+      "us": 181.15360260009766,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 8192,
+      "bias": false,
+      "name": "cuda",
+      "us": 131.48768424987793,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 8192,
+      "bias": false,
+      "name": "inline_ptx",
+      "us": 131.4755153656006,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 8192,
+      "bias": false,
+      "name": "triton_welford",
+      "us": 131.28191947937012,
+      "residual_equal": true,
+      "bf16_mismatch": 120,
+      "bf16_max_abs_error": 0.015625
+    },
+    {
+      "rows": 8192,
+      "bias": false,
+      "name": "triton_twopass",
+      "us": 131.40992164611816,
+      "residual_equal": true,
+      "bf16_mismatch": 102,
+      "bf16_max_abs_error": 0.03125
+    },
+    {
+      "rows": 8192,
+      "bias": true,
+      "name": "torch",
+      "us": 181.9808006286621,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 8192,
+      "bias": true,
+      "name": "cuda",
+      "us": 131.42016410827637,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 8192,
+      "bias": true,
+      "name": "inline_ptx",
+      "us": 131.37760162353516,
+      "residual_equal": true,
+      "bf16_mismatch": 0,
+      "bf16_max_abs_error": 0.0
+    },
+    {
+      "rows": 8192,
+      "bias": true,
+      "name": "triton_welford",
+      "us": 131.44319534301758,
+      "residual_equal": true,
+      "bf16_mismatch": 187,
+      "bf16_max_abs_error": 0.015625
+    },
+    {
+      "rows": 8192,
+      "bias": true,
+      "name": "triton_twopass",
+      "us": 131.50912284851074,
+      "residual_equal": true,
+      "bf16_mismatch": 163,
+      "bf16_max_abs_error": 0.015625
+    }
+  ],
+  "geglu": [
+    {
+      "rows": 64,
+      "name": "torch",
+      "us": 3.5183998942375183,
+      "mismatch": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "rows": 64,
+      "name": "old_triton_erf",
+      "us": 1.2547199428081512,
+      "mismatch": 1,
+      "max_abs_error": 2.384185791015625e-07
+    },
+    {
+      "rows": 64,
+      "name": "cuda_erf",
+      "us": 1.6911999881267548,
+      "mismatch": 7,
+      "max_abs_error": 1.52587890625e-05
+    },
+    {
+      "rows": 64,
+      "name": "cuda_erf_packed",
+      "us": 1.4812800288200378,
+      "mismatch": 7,
+      "max_abs_error": 1.52587890625e-05
+    },
+    {
+      "rows": 64,
+      "name": "cuda_lut",
+      "us": 2.303999960422516,
+      "mismatch": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "rows": 64,
+      "name": "cuda_lut_packed",
+      "us": 2.0851199328899384,
+      "mismatch": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "rows": 64,
+      "name": "triton_lut",
+      "us": 1.8905599415302277,
+      "mismatch": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "rows": 512,
+      "name": "torch",
+      "us": 10.726079940795898,
+      "mismatch": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "rows": 512,
+      "name": "old_triton_erf",
+      "us": 3.7379199266433716,
+      "mismatch": 1,
+      "max_abs_error": 2.384185791015625e-07
+    },
+    {
+      "rows": 512,
+      "name": "cuda_erf",
+      "us": 7.225599884986877,
+      "mismatch": 63,
+      "max_abs_error": 6.103515625e-05
+    },
+    {
+      "rows": 512,
+      "name": "cuda_erf_packed",
+      "us": 4.960959851741791,
+      "mismatch": 63,
+      "max_abs_error": 6.103515625e-05
+    },
+    {
+      "rows": 512,
+      "name": "cuda_lut",
+      "us": 7.823359966278076,
+      "mismatch": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "rows": 512,
+      "name": "cuda_lut_packed",
+      "us": 4.965440034866333,
+      "mismatch": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "rows": 512,
+      "name": "triton_lut",
+      "us": 4.133760035037994,
+      "mismatch": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "rows": 8192,
+      "name": "torch",
+      "us": 290.2764892578125,
+      "mismatch": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "rows": 8192,
+      "name": "old_triton_erf",
+      "us": 162.80895233154297,
+      "mismatch": 62,
+      "max_abs_error": 9.5367431640625e-07
+    },
+    {
+      "rows": 8192,
+      "name": "cuda_erf",
+      "us": 176.94303512573242,
+      "mismatch": 1023,
+      "max_abs_error": 6.103515625e-05
+    },
+    {
+      "rows": 8192,
+      "name": "cuda_erf_packed",
+      "us": 163.52352142333984,
+      "mismatch": 1023,
+      "max_abs_error": 6.103515625e-05
+    },
+    {
+      "rows": 8192,
+      "name": "cuda_lut",
+      "us": 174.02847290039062,
+      "mismatch": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "rows": 8192,
+      "name": "cuda_lut_packed",
+      "us": 163.6137580871582,
+      "mismatch": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "rows": 8192,
+      "name": "triton_lut",
+      "us": 162.71648406982422,
+      "mismatch": 0,
+      "max_abs_error": 0.0
+    }
+  ],
+  "exhaustive_gelu": [
+    {
+      "name": "cuda_erf",
+      "tested": 65280,
+      "mismatch": 7
+    },
+    {
+      "name": "cuda_lut",
+      "tested": 65280,
+      "mismatch": 0
+    },
+    {
+      "name": "triton_lut",
+      "tested": 65280,
+      "mismatch": 0
+    },
+    {
+      "name": "old_triton_erf",
+      "tested": 65280,
+      "mismatch": 4
+    }
+  ]
+}

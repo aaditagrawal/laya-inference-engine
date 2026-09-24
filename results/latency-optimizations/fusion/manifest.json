@@ -1,0 +1,37 @@
+{
+  "scope": "Local RTX 5070 Ti SM120 projection fusion. No GitHub writes.",
+  "current_source_sha256": {
+    "experiments/latency/fusion/README.md": "85554cff23edafe4216c0170bd9c5fe4d08b203bb110fce936459e8c4f157859",
+    "experiments/latency/fusion/__init__.py": "e898e1e9f2a35f062bcf0e1a07b833b45aac2271472e1741b77b133fb8acf913",
+    "experiments/latency/fusion/adapter.py": "0bb95f0d75a4f7369c68d298e75fa98e1964f722ffda888643e8d63ddbceb75c",
+    "experiments/latency/fusion/benchmark.py": "32f48d0aa98506bdd056072a3b44a9b09255573658dac0cbe8dc9c08066b8a52",
+    "experiments/latency/fusion/best.json": "9228c43179cc6bcaeeaf72aef2884f79b0119c78f8254fe44cb2d894a96b28c4",
+    "experiments/latency/fusion/combined.json": "106ac6e7912679f717d5783ed3443f58ed9c78ff53f5e7b27d5cb2f268627a9f",
+    "experiments/latency/fusion/epilogues.py": "a8482134585f514683801fd6e7090af62b5da67aa7d5cad3868d01061be1e8db",
+    "experiments/latency/fusion/identity.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "experiments/latency/fusion/kernels.py": "dcba470ed703050cb8f824339fa9c4cd85b883ea74c98060b482b42ab9fb6151",
+    "experiments/latency/fusion/microbench.py": "e62be7a2532cebb590c7b360084eb257a002082728f6998ca6d3cb19c8a77e5e",
+    "experiments/latency/fusion/qkv.json": "23b92482311d7976df9beb2afc71c95907885cda859b23277a2d04008cb4835b",
+    "experiments/latency/fusion/summarize.py": "ed780c89986029aee8e14329e9b6b9e7191919c102a71c612ebde984e9fd394c",
+    "experiments/latency/fusion/wi.json": "e140472a443201d51dbbd627a200972aa40d67e7240eec2e8d74fda63cef6cda"
+  },
+  "result_sha256": {
+    "results/latency-optimizations/fusion/best.json": "a9e5e8a72f55631abdbe0581918ccb101e65cbdfa2cd60b23110551fb1038bd1",
+    "results/latency-optimizations/fusion/combined-confirmation.json": "7a6a60e82e2051971bcae4f6ec7b5701bc1acd5d7eeab9224649860f5a0d1545",
+    "results/latency-optimizations/fusion/combined.json": "1d673bb38107b02a390d3c3b23df926a906c2c9b000d62cc84f2b2f938711bde",
+    "results/latency-optimizations/fusion/epilogues.json": "5bf06fb931dc3db3ad1a29a5fe3ac196ed09e9c776f315e5085ea51ad8ad7507",
+    "results/latency-optimizations/fusion/micro-16x512-both-shortlist.json": "451c0d5a832e605cadc366f8c68e09ea455bd9111df3f320eff5064f2e75e48a",
+    "results/latency-optimizations/fusion/micro-16x64-both.json": "34a28a02b47e6e35393576761acd607979dcffc81f8911292e83053a1a8184ac",
+    "results/latency-optimizations/fusion/micro-1x512-both-shortlist.json": "699f1c5a5d598b1de0eeda1f754c0b1e71ccadaa180760f73ad65cc17cc43cae",
+    "results/latency-optimizations/fusion/micro-1x64-both.json": "aeb7ed0fbff0a5c30530b4b4e11a6b807cb7e50aa3d87f5a69b8d6300a502bc7",
+    "results/latency-optimizations/fusion/qkv-8192-rope-64x64.ptx": "29c7dbfe3888965d290c848c4ea5470cf2760977cce502ae530a8406f36e83b6",
+    "results/latency-optimizations/fusion/summary.json": "e94629a6b5a4a3b860de3b6009527d6a497df5e5ee3e23f82b388d8d97d7648d",
+    "results/latency-optimizations/fusion/wi-8192-erf-64x32.ptx": "f3487c33d359cc75abe1cf1e4eaf2fbe42194b63e6da2f08a3100fe5ad48dd8e",
+    "results/latency-optimizations/fusion/wi-8192-erf-64x64.ptx": "25fff34eb4eee2b1ab5ebd7f22d8884c56ffb4d97db9f90bc283fec2e4ad8e5b",
+    "results/latency-optimizations/fusion/wi-8192-lut-64x32.ptx": "2d9199ad08f5c1ca29c7450b7a9d61b3d7f42ec5e52c159bd418963195732b76",
+    "results/latency-optimizations/fusion/wi-8192-lut-64x64.ptx": "120d2ca6da26e4443b28395470701fe64f91d4bded95dc9158934c08176e1a10"
+  },
+  "reported_timings_unchanged": true,
+  "post_measurement_scope_guard": "best.json caps both projections at 8,192 rows; larger shapes use the existing projection paths. Verified independently by the 32-long integration case.",
+  "reproduction_adapter": "Future CLI runs use StableHostAdapter, validated by separate graph-eviction and integrated parity checks. Saved fusion timing runs used the round-one host adapter."
+}

@@ -1,0 +1,216 @@
+{
+  "created_utc": "2026-09-23T20:24:03.832063+00:00",
+  "hardware": "RTX 5070 Ti SM120; no rtx-a6000 measurements",
+  "precision": "BF16 matrix weights, FP32 residual stream unless otherwise indicated",
+  "timing_scope": "Standalone candidate screenings: serial warm predict includes tokenization, copies and formatting. Use the final interleaved comparison for claims about combined speedups.",
+  "artifacts": [
+    {
+      "file": "attention_probe.json",
+      "status": "microbenchmark_or_diagnostic",
+      "requests": null,
+      "decisions": null,
+      "agreement": null,
+      "exact_logits_all": null,
+      "acceptance": "screen_only"
+    },
+    {
+      "file": "efficient_window_probe.json",
+      "status": "microbenchmark_or_diagnostic",
+      "requests": null,
+      "decisions": null,
+      "agreement": null,
+      "exact_logits_all": null,
+      "acceptance": "screen_only"
+    },
+    {
+      "file": "head.json",
+      "status": "complete",
+      "requests": 66,
+      "decisions": 208,
+      "agreement": 208,
+      "exact_logits_all": false,
+      "acceptance": "full_synthetic_parity"
+    },
+    {
+      "file": "window.json",
+      "status": "complete",
+      "requests": 66,
+      "decisions": 208,
+      "agreement": 206,
+      "exact_logits_all": false,
+      "acceptance": "rejected_numerics"
+    },
+    {
+      "file": "cudnn.json",
+      "status": "complete",
+      "requests": 66,
+      "decisions": 208,
+      "agreement": 206,
+      "exact_logits_all": false,
+      "acceptance": "rejected_numerics"
+    },
+    {
+      "file": "compile-1-short.json",
+      "status": "complete",
+      "requests": null,
+      "decisions": null,
+      "agreement": null,
+      "exact_logits_all": null,
+      "acceptance": "screen_only"
+    },
+    {
+      "file": "compile.json",
+      "status": "complete",
+      "requests": null,
+      "decisions": null,
+      "agreement": null,
+      "exact_logits_all": null,
+      "acceptance": "screen_only"
+    },
+    {
+      "file": "native-window.json",
+      "status": "complete",
+      "requests": 66,
+      "decisions": 208,
+      "agreement": 208,
+      "exact_logits_all": true,
+      "acceptance": "full_synthetic_parity"
+    },
+    {
+      "file": "native-padded-window.json",
+      "status": "complete",
+      "requests": 66,
+      "decisions": 208,
+      "agreement": 208,
+      "exact_logits_all": true,
+      "acceptance": "full_synthetic_parity"
+    },
+    {
+      "file": "compile-native-precise.json",
+      "status": "complete",
+      "requests": 66,
+      "decisions": 208,
+      "agreement": 206,
+      "exact_logits_all": false,
+      "acceptance": "rejected_numerics"
+    },
+    {
+      "file": "compile-native-precise-opaque-screen.json",
+      "status": "complete",
+      "requests": 3,
+      "decisions": 9,
+      "agreement": 7,
+      "exact_logits_all": false,
+      "acceptance": "rejected_numerics"
+    },
+    {
+      "file": "trace_numerics.json",
+      "status": "microbenchmark_or_diagnostic",
+      "requests": null,
+      "decisions": null,
+      "agreement": null,
+      "exact_logits_all": null,
+      "acceptance": "screen_only"
+    },
+    {
+      "file": "compile-native-precise-stablemath-screen.json",
+      "status": "complete",
+      "requests": 3,
+      "decisions": 9,
+      "agreement": 8,
+      "exact_logits_all": false,
+      "acceptance": "rejected_numerics"
+    },
+    {
+      "file": "compile-native-precise-opaque-pinned-screen.json",
+      "status": "complete",
+      "requests": 3,
+      "decisions": 9,
+      "agreement": 9,
+      "exact_logits_all": true,
+      "acceptance": "screen_only"
+    },
+    {
+      "file": "compile-native-padded-window-precise-opaque-pinned.json",
+      "status": "complete",
+      "requests": 66,
+      "decisions": 208,
+      "agreement": 208,
+      "exact_logits_all": true,
+      "acceptance": "full_synthetic_parity"
+    },
+    {
+      "file": "gemm-native-padded-window-tma.json",
+      "acceptance": "performance_screen_full_parity_passed_numerically_changed",
+      "case": "16-long"
+    },
+    {
+      "file": "clean-startup-cold.json",
+      "acceptance": "fresh_process_startup",
+      "cache_scope": "New isolated Inductor and Triton caches, existing weights and prebuilt native extensions",
+      "kernel": "cuda_norm_triton_geglu_corrected"
+    },
+    {
+      "file": "clean-startup-warm.json",
+      "acceptance": "fresh_process_startup",
+      "cache_scope": "Reused compiler caches from clean-startup-cold in a new Python process",
+      "kernel": "cuda_norm_triton_geglu_corrected"
+    },
+    {
+      "file": "clean-startup-native-window.json",
+      "acceptance": "fresh_process_startup",
+      "kernel": "cuda_norm_triton_geglu_corrected",
+      "cache_scope": "Reused compiler caches from clean-startup-cold; native-window skips full-model Inductor compilation. Existing model files and prebuilt native extensions."
+    },
+    {
+      "file": "gemm-native-padded-window-tma-near.json",
+      "acceptance": "near_tie_parity_only_see_full_result",
+      "status": "complete",
+      "requests": 3,
+      "decisions": 9,
+      "agreement": 9,
+      "exact_logits_all": true,
+      "case_indices": [
+        16,
+        33,
+        49
+      ]
+    },
+    {
+      "file": "gemm-native-padded-window-tma-full.json",
+      "acceptance": "full_synthetic_decision_parity_numerically_changed_opt_in",
+      "status": "complete",
+      "requests": 66,
+      "decisions": 208,
+      "agreement": 208,
+      "exact_logits_all": false,
+      "max_probability_error": 0.00431668758392334,
+      "max_action_logit_error": 32.0
+    }
+  ],
+  "findings": [
+    "Native window attention and native kernels with fused padded RoPE matched all 66 requests and 208 decisions. Choice and action logits had zero error against the original engine.",
+    "FlexAttention and forced cuDNN each changed two of 208 decisions and were rejected.",
+    "Pruning the final head Q projection matched 208 decisions but did not meaningfully improve latency.",
+    "Plain compile over four shapes measured performance only. Compiled native kernels with precision casts initially matched 206 of 208 decisions because Inductor changed Triton libdevice after GELU calibration.",
+    "The final compiled native/window candidate pins libdevice before calibration and preserves remaining LayerNorm and GELU operations. It matched all 66 requests and 208 decisions with exact logits. It was slower than the uncompiled native/window candidate on 16 long questions.",
+    "The initial FlexAttention 128-row probe used an incompatible 64-row block mask. The source was corrected but that configuration was not rerun; this is not evidence that 128-row tiles are unsupported.",
+    "The initial 14.74-second compile first use had unspecified existing disk caches. Explicit fresh and reused clean-cache startup measurements are separate.",
+    "Shared linear max-autotune improved the 16-long screen to 86.51 ms (85.77 ms on follow-up). All 66 requests and 208 decisions passed, with maximum choice-probability drift 0.004317 and action-logit drift 32.0. Action argmax and formatted action probabilities remain unchanged by a conservative margin bound for these saturated synthetic fixtures. This is an opt-in numerically changed candidate. The first uncached 16-long autotune took 89.82 seconds; all validation shapes took 323.70 seconds with partial preexisting caches."
+  ],
+  "updated_utc": "2026-09-23T20:47:19.557684+00:00",
+  "startup_command": "uv run --no-sync python -m experiments.native.startup",
+  "supporting_artifacts": [
+    "sources.json",
+    "gemm-selected-kernels.json"
+  ],
+  "source_files": [
+    "experiments/native/compiler/__init__.py",
+    "experiments/native/compiler/policy.py",
+    "experiments/native/compiler/window.py",
+    "experiments/native/compiler/padded_rope.py",
+    "experiments/native/compiler/preserve_ops.py",
+    "experiments/native/compiler/gemm.py",
+    "experiments/native/startup.py"
+  ]
+}

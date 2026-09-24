@@ -1,0 +1,10 @@
+The CUDA Welford reduction order is adapted from PyTorch's layer_norm_kernel.cu,
+commit08187d9e0fba026dc8217405802ab5381dc88d90.
+PyTorch is BSD-3-Clause licensed. Its license is retained in pytorch-LICENSE.
+The surrounding Laya forward adapter reuses the repository's existing
+FastDecisionModel implementation and its existing upstream notices.
+
+These are inference-only experiments for width1024, FP32 residuals, BF16 matrix
+operations, and NVIDIA SM120. They are not general-purpose LayerNorm operators.
+No inference answer cache is used. GELU correction values cover the BF16 input
+function domain and are derived from the installed PyTorch CUDA runtime.

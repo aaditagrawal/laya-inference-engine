@@ -1,0 +1,1229 @@
+{
+  "comparisons": [
+    {
+      "file": "combined-native.json",
+      "status": "complete",
+      "rows": [
+        {
+          "case": "1-short",
+          "variant": "native",
+          "p50_ms": 2.206691016908735,
+          "p95_ms": 2.2264340543188155,
+          "mean_ms": 2.208488134201616,
+          "decisions_per_second": 452.7984481843309,
+          "latency_reduction_percent": 21.49864886234978,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            2.219751535449177,
+            2.2022610064595938,
+            2.2011109977029264,
+            2.2012910339981318,
+            2.2121064830571413
+          ]
+        },
+        {
+          "case": "1-short",
+          "variant": "baseline",
+          "p50_ms": 2.811022975947708,
+          "p95_ms": 2.8463765745982528,
+          "mean_ms": 2.8141555236652493,
+          "decisions_per_second": 355.34638778512385,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            2.829228003975004,
+            2.795062493532896,
+            2.802998060360551,
+            2.8056224691681564,
+            2.8300979756750166
+          ]
+        },
+        {
+          "case": "16-short",
+          "variant": "baseline",
+          "p50_ms": 12.53200601786375,
+          "p95_ms": 12.833624030463398,
+          "mean_ms": 12.582619384241601,
+          "decisions_per_second": 1271.5953261717752,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            12.507815496064723,
+            12.548215978313237,
+            12.51753547694534,
+            12.569501006510109,
+            12.547475518658757
+          ]
+        },
+        {
+          "case": "16-short",
+          "variant": "native",
+          "p50_ms": 10.781695484183729,
+          "p95_ms": 10.931036551482975,
+          "mean_ms": 10.80621388119956,
+          "decisions_per_second": 1480.6295873743984,
+          "latency_reduction_percent": 13.96672273525117,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            10.775665519759059,
+            10.774085472803563,
+            10.77054551569745,
+            10.847595985978842,
+            10.754926013760269
+          ]
+        },
+        {
+          "case": "1-long",
+          "variant": "baseline",
+          "p50_ms": 8.711585018318146,
+          "p95_ms": 9.038453584071249,
+          "mean_ms": 8.766030088687936,
+          "decisions_per_second": 114.07672457004719,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            8.66896501975134,
+            8.705883985385299,
+            8.784779929555953,
+            8.803080476354808,
+            8.696109522134066
+          ]
+        },
+        {
+          "case": "1-long",
+          "variant": "native",
+          "p50_ms": 7.904817524831742,
+          "p95_ms": 8.428634493611753,
+          "mean_ms": 7.983418851314734,
+          "decisions_per_second": 125.25961854491914,
+          "latency_reduction_percent": 9.260857717510495,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            7.8705124906264246,
+            8.137383498251438,
+            7.954622444231063,
+            7.9617174924351275,
+            7.876397983636707
+          ]
+        },
+        {
+          "case": "16-long",
+          "variant": "native",
+          "p50_ms": 93.06914499029517,
+          "p95_ms": 93.52534633362666,
+          "mean_ms": 92.98310808682193,
+          "decisions_per_second": 172.0742651994401,
+          "latency_reduction_percent": 9.02372997428178,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            92.44965499965474,
+            93.21702504530549,
+            92.92747994186357,
+            93.0879429797642,
+            93.14809396164492
+          ]
+        },
+        {
+          "case": "16-long",
+          "variant": "baseline",
+          "p50_ms": 102.30046248761937,
+          "p95_ms": 103.00772706978023,
+          "mean_ms": 102.30029710180436,
+          "decisions_per_second": 156.40228282111013,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            101.75461205653846,
+            102.0137140294537,
+            102.16649697395042,
+            102.53007448045537,
+            102.83770802197978
+          ]
+        }
+      ],
+      "validation": {
+        "requests": 66,
+        "decisions": 208,
+        "agreement": 208,
+        "sdk_agreement": 208,
+        "unbucketed_sdk_agreement": 208,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.003152787685394287,
+        "exact_logits_all": true,
+        "passed_current_engine": true,
+        "passed_sdk": true
+      },
+      "metadata": {
+        "created_utc": "2026-09-23T19:57:04.292560+00:00",
+        "hardware": {
+          "name": "NVIDIA GeForce RTX 5070 Ti",
+          "compute_capability": "12.0",
+          "sm_count": 70,
+          "vram_bytes": 16608788480,
+          "torch": "2.14.0+cu132",
+          "cuda_runtime": "13.2",
+          "cuda_architecture": "sm_120"
+        },
+        "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+        "torch_threads": 4,
+        "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+        "validation_scope": "Synthetic implementation parity, not labeled model quality."
+      },
+      "first_shape_ms": {
+        "baseline": {
+          "1-short": 221.16202698089182,
+          "16-short": 62.313596019521356,
+          "1-long": 54.341254057362676,
+          "16-long": 411.4435659721494
+        },
+        "native": {
+          "1-short": 49.6778009692207,
+          "16-short": 58.66301606874913,
+          "1-long": 52.42175899911672,
+          "16-long": 376.08074594754726
+        }
+      }
+    },
+    {
+      "file": "combined-window.json",
+      "status": "complete",
+      "rows": [
+        {
+          "case": "1-short",
+          "variant": "native",
+          "p50_ms": 2.2208329755812883,
+          "p95_ms": 2.2768440190702677,
+          "mean_ms": 2.2282869135960937,
+          "decisions_per_second": 448.77524249611207,
+          "latency_reduction_percent": 21.13898807875184,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            2.226852928288281,
+            2.2164034890010953,
+            2.233968465588987,
+            2.2129984572529793,
+            2.216278517153114
+          ]
+        },
+        {
+          "case": "1-short",
+          "variant": "baseline",
+          "p50_ms": 2.8161355294287205,
+          "p95_ms": 3.0068929714616384,
+          "mean_ms": 2.8362763137556612,
+          "decisions_per_second": 352.5749572247592,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            2.8103954973630607,
+            2.802979957778007,
+            2.8200154774822295,
+            2.818500972352922,
+            2.8472504927776754
+          ]
+        },
+        {
+          "case": "16-short",
+          "variant": "baseline",
+          "p50_ms": 12.50656193587929,
+          "p95_ms": 13.016130489995703,
+          "mean_ms": 12.59448816999793,
+          "decisions_per_second": 1270.3970009765494,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            12.473551498260349,
+            12.818953022360802,
+            12.47472153045237,
+            12.535721471067518,
+            12.481916463002563
+          ]
+        },
+        {
+          "case": "16-short",
+          "variant": "native",
+          "p50_ms": 10.801700467709452,
+          "p95_ms": 11.060967430239543,
+          "mean_ms": 10.844957190565765,
+          "decisions_per_second": 1475.3400791585148,
+          "latency_reduction_percent": 13.63173569931212,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            10.949855553917587,
+            10.806480480823666,
+            10.77047549188137,
+            10.778899944853038,
+            10.812135471496731
+          ]
+        },
+        {
+          "case": "1-long",
+          "variant": "baseline",
+          "p50_ms": 8.752197492867708,
+          "p95_ms": 9.312830981798468,
+          "mean_ms": 8.842309881777814,
+          "decisions_per_second": 113.09262097461601,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            8.811918029095978,
+            8.712772512808442,
+            8.760682481806725,
+            8.765772974584252,
+            8.7459025089629
+          ]
+        },
+        {
+          "case": "1-long",
+          "variant": "native",
+          "p50_ms": 7.473737990949303,
+          "p95_ms": 7.561628008261323,
+          "mean_ms": 7.482739601594706,
+          "decisions_per_second": 133.6408926734377,
+          "latency_reduction_percent": 14.607297229755611,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            7.4725180165842175,
+            7.4687080341391265,
+            7.447403506375849,
+            7.495948055293411,
+            7.476462982594967
+          ]
+        },
+        {
+          "case": "16-long",
+          "variant": "native",
+          "p50_ms": 88.45681045204401,
+          "p95_ms": 89.26477958448231,
+          "mean_ms": 88.49685616015147,
+          "decisions_per_second": 180.7973830284438,
+          "latency_reduction_percent": 13.249189324877586,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            88.02900899900123,
+            88.68238801369444,
+            88.39779696427286,
+            88.37982756085694,
+            88.61376898130402
+          ]
+        },
+        {
+          "case": "16-long",
+          "variant": "baseline",
+          "p50_ms": 101.96655197069049,
+          "p95_ms": 102.71702948375605,
+          "mean_ms": 102.02596022825067,
+          "decisions_per_second": 156.8228317989371,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            101.82919102953747,
+            101.86613700352609,
+            101.98649298399687,
+            102.21860895399004,
+            102.18299546977505
+          ]
+        }
+      ],
+      "validation": {
+        "requests": 66,
+        "decisions": 208,
+        "agreement": 208,
+        "sdk_agreement": 208,
+        "unbucketed_sdk_agreement": 208,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.003152787685394287,
+        "exact_logits_all": true,
+        "passed_current_engine": true,
+        "passed_sdk": true
+      },
+      "metadata": {
+        "created_utc": "2026-09-23T20:05:06.660273+00:00",
+        "hardware": {
+          "name": "NVIDIA GeForce RTX 5070 Ti",
+          "compute_capability": "12.0",
+          "sm_count": 70,
+          "vram_bytes": 16608788480,
+          "torch": "2.14.0+cu132",
+          "cuda_runtime": "13.2",
+          "cuda_architecture": "sm_120"
+        },
+        "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+        "torch_threads": 4,
+        "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+        "validation_scope": "Synthetic implementation parity, not labeled model quality."
+      },
+      "first_shape_ms": {
+        "baseline": {
+          "1-short": 220.05196998361498,
+          "16-short": 63.28344496432692,
+          "1-long": 60.46445504762232,
+          "16-long": 411.840494023636
+        },
+        "native": {
+          "1-short": 141.12131495494395,
+          "16-short": 144.6949999080971,
+          "1-long": 142.76264095678926,
+          "16-long": 445.04502799827605
+        }
+      }
+    },
+    {
+      "file": "extended-native.json",
+      "status": "complete",
+      "rows": [
+        {
+          "case": "5-medium",
+          "variant": "candidate",
+          "p50_ms": 21.999538992531598,
+          "p95_ms": 22.167671978240833,
+          "mean_ms": 22.031280842687313,
+          "decisions_per_second": 226.95003689082446,
+          "latency_reduction_percent": 10.530555070673564,
+          "sample_count": 60,
+          "rounds": 3,
+          "round_p50_ms": [
+            22.015744005329907,
+            22.000954020768404,
+            21.972984017338604
+          ]
+        },
+        {
+          "case": "5-medium",
+          "variant": "baseline",
+          "p50_ms": 24.588885076809675,
+          "p95_ms": 25.164063519332558,
+          "mean_ms": 24.71408471853162,
+          "decisions_per_second": 202.31378410104736,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 60,
+          "rounds": 3,
+          "round_p50_ms": [
+            24.773610930424184,
+            24.507660476956517,
+            24.62986600585282
+          ]
+        },
+        {
+          "case": "16-medium",
+          "variant": "candidate",
+          "p50_ms": 43.276795477140695,
+          "p95_ms": 43.583891505841166,
+          "mean_ms": 43.30436316280005,
+          "decisions_per_second": 369.4777807919493,
+          "latency_reduction_percent": 10.92538994931317,
+          "sample_count": 60,
+          "rounds": 3,
+          "round_p50_ms": [
+            43.20790007477626,
+            43.42265549348667,
+            43.21563499979675
+          ]
+        },
+        {
+          "case": "16-medium",
+          "variant": "baseline",
+          "p50_ms": 48.58488345053047,
+          "p95_ms": 48.86101394658908,
+          "mean_ms": 48.61534807520608,
+          "decisions_per_second": 329.1141714186354,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 60,
+          "rounds": 3,
+          "round_p50_ms": [
+            48.58251794939861,
+            48.523682984523475,
+            48.627708514686674
+          ]
+        },
+        {
+          "case": "32-short",
+          "variant": "baseline",
+          "p50_ms": 24.65747995302081,
+          "p95_ms": 25.366020487854257,
+          "mean_ms": 24.748390216457967,
+          "decisions_per_second": 1293.0133927951254,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 60,
+          "rounds": 3,
+          "round_p50_ms": [
+            24.53429001616314,
+            24.731326033361256,
+            24.8307065339759
+          ]
+        },
+        {
+          "case": "32-short",
+          "variant": "candidate",
+          "p50_ms": 21.69288252480328,
+          "p95_ms": 22.46193604078144,
+          "mean_ms": 21.76605873197938,
+          "decisions_per_second": 1470.178886955983,
+          "latency_reduction_percent": 12.023116043755866,
+          "sample_count": 60,
+          "rounds": 3,
+          "round_p50_ms": [
+            21.574942453298718,
+            22.01184449950233,
+            21.517697430681437
+          ]
+        },
+        {
+          "case": "64-short",
+          "variant": "baseline",
+          "p50_ms": 48.70662355097011,
+          "p95_ms": 49.39204397960566,
+          "mean_ms": 48.76877526015354,
+          "decisions_per_second": 1312.3150962597806,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 60,
+          "rounds": 3,
+          "round_p50_ms": [
+            48.82933455519378,
+            48.65181352943182,
+            48.6541380523704
+          ]
+        },
+        {
+          "case": "64-short",
+          "variant": "candidate",
+          "p50_ms": 42.451996996533126,
+          "p95_ms": 42.77219450450502,
+          "mean_ms": 42.487153701949865,
+          "decisions_per_second": 1506.3376673562118,
+          "latency_reduction_percent": 12.841429149552297,
+          "sample_count": 60,
+          "rounds": 3,
+          "round_p50_ms": [
+            42.3374570091255,
+            42.58977301651612,
+            42.42517700185999
+          ]
+        },
+        {
+          "case": "32-long",
+          "variant": "candidate",
+          "p50_ms": 174.6110930107534,
+          "p95_ms": 176.24940751702525,
+          "mean_ms": 175.00552046694793,
+          "decisions_per_second": 182.85137471445432,
+          "latency_reduction_percent": 15.809294282120712,
+          "sample_count": 60,
+          "rounds": 3,
+          "round_p50_ms": [
+            174.58657798124477,
+            176.00774398306385,
+            174.56744296941906
+          ]
+        },
+        {
+          "case": "32-long",
+          "variant": "baseline",
+          "p50_ms": 207.3994884849526,
+          "p95_ms": 208.7432295724284,
+          "mean_ms": 207.71484728708552,
+          "decisions_per_second": 154.05735515753653,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 60,
+          "rounds": 3,
+          "round_p50_ms": [
+            207.6271545374766,
+            207.53127441275865,
+            207.31467346195132
+          ]
+        }
+      ],
+      "validation": {},
+      "metadata": {
+        "created_utc": "2026-09-23T20:38:11.242661+00:00",
+        "hardware": {
+          "name": "NVIDIA GeForce RTX 5070 Ti",
+          "compute_capability": "12.0",
+          "sm_count": 70,
+          "vram_bytes": 16608788480,
+          "torch": "2.14.0+cu132",
+          "cuda_runtime": "13.2",
+          "cuda_architecture": "sm_120"
+        },
+        "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+        "torch_threads": 4,
+        "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+        "validation_scope": "Synthetic implementation parity, not labeled model quality."
+      },
+      "first_shape_ms": {
+        "baseline": {
+          "5-medium": 275.7053809473291,
+          "16-medium": 260.9204169129953,
+          "32-short": 162.46998601127416,
+          "64-short": 253.27312399167567,
+          "32-long": 886.4149670116603
+        },
+        "candidate": {
+          "5-medium": 192.86241696681827,
+          "16-medium": 332.69690489396453,
+          "32-short": 98.13031100202352,
+          "64-short": 178.35905391257256,
+          "32-long": 863.9841709518805
+        }
+      }
+    },
+    {
+      "file": "final-autotuned.json",
+      "status": "complete",
+      "rows": [
+        {
+          "case": "1-short",
+          "variant": "candidate",
+          "p50_ms": 2.0968029857613146,
+          "p95_ms": 2.11396599188447,
+          "mean_ms": 2.0986717698785164,
+          "decisions_per_second": 476.49185277690464,
+          "latency_reduction_percent": 24.886383850652216,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            2.0914225024171174,
+            2.1046879701316357,
+            2.100432990118861,
+            2.096803509630263,
+            2.0950374891981483
+          ]
+        },
+        {
+          "case": "1-short",
+          "variant": "baseline",
+          "p50_ms": 2.7915085083805025,
+          "p95_ms": 2.851031511090696,
+          "mean_ms": 2.8018640036073825,
+          "decisions_per_second": 356.9052597529738,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            2.7873835060745478,
+            2.815429004840553,
+            2.7979289880022407,
+            2.790683472994715,
+            2.789233985822648
+          ]
+        },
+        {
+          "case": "16-short",
+          "variant": "baseline",
+          "p50_ms": 12.446238019037992,
+          "p95_ms": 12.66543609672226,
+          "mean_ms": 12.486976323804507,
+          "decisions_per_second": 1281.3350153870679,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            12.432512477971613,
+            12.444658030290157,
+            12.458957964554429,
+            12.442361505236477,
+            12.451380956918001
+          ]
+        },
+        {
+          "case": "16-short",
+          "variant": "candidate",
+          "p50_ms": 10.66020899452269,
+          "p95_ms": 10.743000009097159,
+          "mean_ms": 10.651677103402713,
+          "decisions_per_second": 1502.110873684741,
+          "latency_reduction_percent": 14.349950738394678,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            10.589236975647509,
+            10.61992795439437,
+            10.686130030080676,
+            10.671298543456942,
+            10.67049300763756
+          ]
+        },
+        {
+          "case": "1-long",
+          "variant": "baseline",
+          "p50_ms": 8.59596102964133,
+          "p95_ms": 8.66728447144851,
+          "mean_ms": 8.6030488453495,
+          "decisions_per_second": 116.23786148099859,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            8.591681020334363,
+            8.59929108992219,
+            8.583720482420176,
+            8.606976014561951,
+            8.5982849705033
+          ]
+        },
+        {
+          "case": "1-long",
+          "variant": "candidate",
+          "p50_ms": 7.245896034874022,
+          "p95_ms": 7.319068908691406,
+          "mean_ms": 7.25525018448631,
+          "decisions_per_second": 137.83122215940546,
+          "latency_reduction_percent": 15.70580636780342,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            7.239710481371731,
+            7.241706014610827,
+            7.2553910431452096,
+            7.2440599906258285,
+            7.280886464286596
+          ]
+        },
+        {
+          "case": "16-long",
+          "variant": "candidate",
+          "p50_ms": 84.69888445688412,
+          "p95_ms": 85.01385321724229,
+          "mean_ms": 84.62367246781166,
+          "decisions_per_second": 189.07238995194786,
+          "latency_reduction_percent": 16.266257869970147,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            84.28842847933993,
+            84.8347430001013,
+            84.71620245836675,
+            84.68361751874909,
+            84.84149147989228
+          ]
+        },
+        {
+          "case": "16-long",
+          "variant": "baseline",
+          "p50_ms": 101.15263250190765,
+          "p95_ms": 101.57008325913921,
+          "mean_ms": 101.15585491759703,
+          "decisions_per_second": 158.17176388884087,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            101.00677848095074,
+            101.22634097933769,
+            101.3049430330284,
+            101.29134700400755,
+            101.01927845971659
+          ]
+        }
+      ],
+      "validation": {
+        "requests": 66,
+        "decisions": 208,
+        "agreement": 208,
+        "sdk_agreement": 208,
+        "unbucketed_sdk_agreement": 208,
+        "max_probability_error": 0.00431668758392334,
+        "max_sdk_probability_error": 0.004283010959625244,
+        "exact_logits_all": false,
+        "exact_actions_all": false,
+        "action_argmax_agreement": 208,
+        "max_action_probability_error": 0.0,
+        "max_action_logit_error": 32.0,
+        "passed_actions": true,
+        "passed_current_engine": true,
+        "passed_sdk": true
+      },
+      "metadata": {
+        "created_utc": "2026-09-23T20:48:39.200453+00:00",
+        "hardware": {
+          "name": "NVIDIA GeForce RTX 5070 Ti",
+          "compute_capability": "12.0",
+          "sm_count": 70,
+          "vram_bytes": 16608788480,
+          "torch": "2.14.0+cu132",
+          "cuda_runtime": "13.2",
+          "cuda_architecture": "sm_120"
+        },
+        "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+        "torch_threads": 4,
+        "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+        "validation_scope": "Synthetic implementation parity, not labeled model quality."
+      },
+      "first_shape_ms": {
+        "baseline": {
+          "1-short": 217.44187804870307,
+          "16-short": 119.691276922822,
+          "1-long": 108.86384500190616,
+          "16-long": 413.5891490150243
+        },
+        "candidate": {
+          "1-short": 1293.01892593503,
+          "16-short": 2667.5105809699744,
+          "1-long": 2024.88629007712,
+          "16-long": 540.494495886378
+        }
+      }
+    },
+    {
+      "file": "final-compiled.json",
+      "status": "complete",
+      "rows": [
+        {
+          "case": "1-short",
+          "variant": "candidate",
+          "p50_ms": 2.1056540426798165,
+          "p95_ms": 2.12545856484212,
+          "mean_ms": 2.107983992124597,
+          "decisions_per_second": 474.3869041396842,
+          "latency_reduction_percent": 25.332264443649134,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            2.1065445034764707,
+            2.1070889779366553,
+            2.1008089534007013,
+            2.1023000590503216,
+            2.112508984282613
+          ]
+        },
+        {
+          "case": "1-short",
+          "variant": "baseline",
+          "p50_ms": 2.820032008457929,
+          "p95_ms": 2.8789715201128274,
+          "mean_ms": 2.827086951583624,
+          "decisions_per_second": 353.7209916517916,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            2.832856960594654,
+            2.8219869709573686,
+            2.815657004248351,
+            2.8172570164315403,
+            2.8209619922563434
+          ]
+        },
+        {
+          "case": "16-short",
+          "variant": "baseline",
+          "p50_ms": 12.533773493487388,
+          "p95_ms": 12.861040054121986,
+          "mean_ms": 12.569912566492954,
+          "decisions_per_second": 1272.8807710763617,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            12.514568457845598,
+            12.49038300011307,
+            12.532748456578702,
+            12.57044350495562,
+            12.494683440309018
+          ]
+        },
+        {
+          "case": "16-short",
+          "variant": "candidate",
+          "p50_ms": 10.574075509794056,
+          "p95_ms": 10.968594468431547,
+          "mean_ms": 10.642677329014987,
+          "decisions_per_second": 1503.3811047131362,
+          "latency_reduction_percent": 15.63533906777237,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            10.510524502024055,
+            10.515015048440546,
+            10.767065978143364,
+            10.624700458720326,
+            10.645940026734024
+          ]
+        },
+        {
+          "case": "1-long",
+          "variant": "baseline",
+          "p50_ms": 8.68223700672388,
+          "p95_ms": 8.970990008674562,
+          "mean_ms": 8.739284324304512,
+          "decisions_per_second": 114.42584574333343,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            8.687322493642569,
+            8.682092069648206,
+            8.710612484719604,
+            8.682051964569837,
+            8.668002032209188
+          ]
+        },
+        {
+          "case": "1-long",
+          "variant": "candidate",
+          "p50_ms": 7.511172036174685,
+          "p95_ms": 7.588361535454169,
+          "mean_ms": 7.517434580562015,
+          "decisions_per_second": 133.0241040721153,
+          "latency_reduction_percent": 13.488055781502794,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            7.49410199932754,
+            7.49488704605028,
+            7.476662518456578,
+            7.521006977185607,
+            7.53338698996231
+          ]
+        },
+        {
+          "case": "16-long",
+          "variant": "candidate",
+          "p50_ms": 91.54502104502171,
+          "p95_ms": 92.26560345850885,
+          "mean_ms": 91.62495244760066,
+          "decisions_per_second": 174.62492009641403,
+          "latency_reduction_percent": 9.916546536845672,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            91.39241004595533,
+            91.48910595104098,
+            91.86492743901908,
+            92.0775385457091,
+            91.22960001695901
+          ]
+        },
+        {
+          "case": "16-long",
+          "variant": "baseline",
+          "p50_ms": 101.62245953688398,
+          "p95_ms": 102.35601947060786,
+          "mean_ms": 101.68143176551287,
+          "decisions_per_second": 157.3541965547607,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            101.66556399781257,
+            101.99263598769903,
+            101.58874950138852,
+            101.49111348437145,
+            101.50688845897093
+          ]
+        }
+      ],
+      "validation": {
+        "requests": 66,
+        "decisions": 208,
+        "agreement": 208,
+        "sdk_agreement": 208,
+        "unbucketed_sdk_agreement": 208,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.003152787685394287,
+        "exact_logits_all": true,
+        "exact_actions_all": true,
+        "passed_current_engine": true,
+        "passed_sdk": true
+      },
+      "metadata": {
+        "created_utc": "2026-09-23T20:31:16.687928+00:00",
+        "hardware": {
+          "name": "NVIDIA GeForce RTX 5070 Ti",
+          "compute_capability": "12.0",
+          "sm_count": 70,
+          "vram_bytes": 16608788480,
+          "torch": "2.14.0+cu132",
+          "cuda_runtime": "13.2",
+          "cuda_architecture": "sm_120"
+        },
+        "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+        "torch_threads": 4,
+        "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+        "validation_scope": "Synthetic implementation parity, not labeled model quality."
+      },
+      "first_shape_ms": {
+        "baseline": {
+          "1-short": 199.90542402956635,
+          "16-short": 62.04415496904403,
+          "1-long": 57.77079705148935,
+          "16-long": 410.3717519901693
+        },
+        "candidate": {
+          "1-short": 11218.952446011826,
+          "16-short": 10959.75434500724,
+          "1-long": 11091.753574903123,
+          "16-long": 12039.452519034967
+        }
+      }
+    },
+    {
+      "file": "final-native.json",
+      "status": "complete",
+      "rows": [
+        {
+          "case": "1-short",
+          "variant": "candidate",
+          "p50_ms": 2.187664504162967,
+          "p95_ms": 2.211893000639975,
+          "mean_ms": 2.189678007271141,
+          "decisions_per_second": 456.68815080544084,
+          "latency_reduction_percent": 21.70837757537423,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            2.1838389802724123,
+            2.186589001212269,
+            2.1831290214322507,
+            2.186464029364288,
+            2.2018589661456645
+          ]
+        },
+        {
+          "case": "1-short",
+          "variant": "baseline",
+          "p50_ms": 2.7942510787397623,
+          "p95_ms": 2.8926745231729,
+          "mean_ms": 2.8047380906840167,
+          "decisions_per_second": 356.5395297769572,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            2.8030569665133953,
+            2.7957065030932426,
+            2.788881945889443,
+            2.787116973195225,
+            2.801537048071623
+          ]
+        },
+        {
+          "case": "16-short",
+          "variant": "baseline",
+          "p50_ms": 12.451222981326282,
+          "p95_ms": 13.042502530151976,
+          "mean_ms": 12.536575025102744,
+          "decisions_per_second": 1276.26564416216,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            12.407008034642786,
+            12.424818007275462,
+            12.421353021636605,
+            12.593398452736437,
+            12.731944036204368
+          ]
+        },
+        {
+          "case": "16-short",
+          "variant": "candidate",
+          "p50_ms": 10.699754988308996,
+          "p95_ms": 10.930193465901539,
+          "mean_ms": 10.728894820592055,
+          "decisions_per_second": 1491.2999211522765,
+          "latency_reduction_percent": 14.066634222550267,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            10.661120526492596,
+            10.661559994332492,
+            10.86967095034197,
+            10.709715425036848,
+            10.660950560122728
+          ]
+        },
+        {
+          "case": "1-long",
+          "variant": "baseline",
+          "p50_ms": 8.669327013194561,
+          "p95_ms": 8.991257596062496,
+          "mean_ms": 8.71810465818271,
+          "decisions_per_second": 114.70383061545513,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            8.645216992590576,
+            8.670692041050643,
+            8.650216506794095,
+            8.722522004973143,
+            8.690217044204473
+          ]
+        },
+        {
+          "case": "1-long",
+          "variant": "candidate",
+          "p50_ms": 7.367360987700522,
+          "p95_ms": 7.588581496383994,
+          "mean_ms": 7.4006473637806875,
+          "decisions_per_second": 135.12331433248306,
+          "latency_reduction_percent": 15.018074915301616,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            7.352515938691795,
+            7.3626714874990284,
+            7.406061457004398,
+            7.3598119779489934,
+            7.3858415125869215
+          ]
+        },
+        {
+          "case": "16-long",
+          "variant": "candidate",
+          "p50_ms": 88.26074650278315,
+          "p95_ms": 89.0630955749657,
+          "mean_ms": 88.2630053604953,
+          "decisions_per_second": 181.2764015302981,
+          "latency_reduction_percent": 13.184436176602388,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            87.86482992582023,
+            88.14567147055641,
+            88.2167465169914,
+            88.75510899815708,
+            88.41192751424387
+          ]
+        },
+        {
+          "case": "16-long",
+          "variant": "baseline",
+          "p50_ms": 101.6646585194394,
+          "p95_ms": 102.47646991629153,
+          "mean_ms": 101.72106013012429,
+          "decisions_per_second": 157.29289470176948,
+          "latency_reduction_percent": 0.0,
+          "sample_count": 150,
+          "rounds": 5,
+          "round_p50_ms": [
+            101.60650353645906,
+            101.43176297424361,
+            101.63543850649148,
+            101.80809954181314,
+            102.16446605045348
+          ]
+        }
+      ],
+      "validation": {
+        "requests": 66,
+        "decisions": 208,
+        "agreement": 208,
+        "sdk_agreement": 208,
+        "unbucketed_sdk_agreement": 208,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.003152787685394287,
+        "exact_logits_all": true,
+        "exact_actions_all": true,
+        "passed_current_engine": true,
+        "passed_sdk": true
+      },
+      "metadata": {
+        "created_utc": "2026-09-23T20:30:17.665714+00:00",
+        "hardware": {
+          "name": "NVIDIA GeForce RTX 5070 Ti",
+          "compute_capability": "12.0",
+          "sm_count": 70,
+          "vram_bytes": 16608788480,
+          "torch": "2.14.0+cu132",
+          "cuda_runtime": "13.2",
+          "cuda_architecture": "sm_120"
+        },
+        "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+        "torch_threads": 4,
+        "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+        "validation_scope": "Synthetic implementation parity, not labeled model quality."
+      },
+      "first_shape_ms": {
+        "baseline": {
+          "1-short": 216.3625539978966,
+          "16-short": 60.76684896834195,
+          "1-long": 54.06488000880927,
+          "16-long": 409.4405770301819
+        },
+        "candidate": {
+          "1-short": 46.09747708309442,
+          "16-short": 54.969614022411406,
+          "1-long": 118.98861709050834,
+          "16-long": 516.8819449609146
+        }
+      }
+    }
+  ],
+  "selective_fp8": [
+    {
+      "variant": "fp8-early-mlp",
+      "p50_ms": {
+        "1-short": 2.849637996405363,
+        "16-short": 11.44188706530258,
+        "1-long": 8.23358743218705,
+        "16-long": 92.38803701009601
+      },
+      "agreement": 205,
+      "decisions": 208,
+      "max_probability_error": 0.12452787160873413,
+      "accepted": false,
+      "file": "precision/fp8-early-mlp.json"
+    },
+    {
+      "variant": "fp8-late-mlp",
+      "p50_ms": {
+        "1-short": 2.8487929957918823,
+        "16-short": 11.446766497101635,
+        "1-long": 8.21048702346161,
+        "16-long": 92.06222702050582
+      },
+      "agreement": 206,
+      "decisions": 208,
+      "max_probability_error": 0.03522336483001709,
+      "accepted": false,
+      "file": "precision/fp8-late-mlp.json"
+    },
+    {
+      "variant": "fp8-mlp",
+      "p50_ms": {
+        "1-short": 2.914077020250261,
+        "16-short": 10.39766549365595,
+        "1-long": 7.786263478919864,
+        "16-long": 82.8645380679518
+      },
+      "agreement": 207,
+      "decisions": 208,
+      "max_probability_error": 0.11609825491905212,
+      "accepted": false,
+      "file": "precision/fp8-mlp.json"
+    },
+    {
+      "variant": "fp8-wi",
+      "p50_ms": {
+        "1-short": 2.64216196956113,
+        "16-short": 11.120284965727478,
+        "1-long": 8.07523651747033,
+        "16-long": 88.6098375194706
+      },
+      "agreement": 204,
+      "decisions": 208,
+      "max_probability_error": 0.21400004625320435,
+      "accepted": false,
+      "file": "precision/fp8-wi.json"
+    }
+  ],
+  "scope": "Same-device software experiments on RTX 5070 Ti SM120. Synthetic implementation parity, not labeled model accuracy. No hardware-generation attribution."
+}

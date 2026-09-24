@@ -1,0 +1,16 @@
+{
+  "torch_compile": "https://docs.pytorch.org/docs/2.14/generated/torch.compile.html",
+  "flex_attention": "https://docs.pytorch.org/docs/2.14/nn.attention.flex_attention.html",
+  "aten_attention": "https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/transformers/cuda/attention.cu",
+  "aten_window_semantics": "https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/transformers/cuda/mem_eff_attention/kernel_forward.h",
+  "inductor_precision_controls": ".venv/lib/python3.12/site-packages/torch/_inductor/config.py:3157",
+  "notes": [
+    "The symmetric window mapping uses a private ATen operation and requires a pinned PyTorch compatibility check.",
+    "For S query positions and S+64 key positions, bottom-right causal alignment permits k<=q+64; a causal window of 129 also requires k>=q-64. Appended keys are masked.",
+    "Fused RoPE writes a masked tail of 64 positions with unchanged rotary arithmetic, avoiding separate K/V padding copies. One key-padding bias is reused across all local layers.",
+    "FlexAttention and forced cuDNN accelerated some shapes but each changed two of 208 tested decisions and were rejected.",
+    "Final-head Q projection pruning preserved 208 decisions with small probability drift, but the extra small GEMM did not provide a useful latency win.",
+    "GEMM selected-kernel data records the actual autotuner winners. Enabling TMA flags does not establish that the selected kernels use TMA."
+  ],
+  "inductor_libdevice_selection": ".venv/lib/python3.12/site-packages/torch/_inductor/runtime/compile_tasks.py:54"
+}

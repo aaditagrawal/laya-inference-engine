@@ -1,0 +1,73 @@
+{
+  "packaged_runs": {
+    "final-native": {
+      "status": "complete",
+      "validation": {
+        "requests": 66,
+        "decisions": 208,
+        "agreement": 208,
+        "sdk_agreement": 208,
+        "unbucketed_sdk_agreement": 208,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.003152787685394287,
+        "exact_logits_all": true,
+        "exact_actions_all": true,
+        "passed_current_engine": true,
+        "passed_sdk": true
+      },
+      "timing_blocks": 40
+    },
+    "final-compiled": {
+      "status": "complete",
+      "validation": {
+        "requests": 66,
+        "decisions": 208,
+        "agreement": 208,
+        "sdk_agreement": 208,
+        "unbucketed_sdk_agreement": 208,
+        "max_probability_error": 0.0,
+        "max_sdk_probability_error": 0.003152787685394287,
+        "exact_logits_all": true,
+        "exact_actions_all": true,
+        "passed_current_engine": true,
+        "passed_sdk": true
+      },
+      "timing_blocks": 40
+    },
+    "final-autotuned": {
+      "status": "complete",
+      "validation": {
+        "requests": 66,
+        "decisions": 208,
+        "agreement": 208,
+        "sdk_agreement": 208,
+        "unbucketed_sdk_agreement": 208,
+        "max_probability_error": 0.00431668758392334,
+        "max_sdk_probability_error": 0.004283010959625244,
+        "exact_logits_all": false,
+        "exact_actions_all": false,
+        "action_argmax_agreement": 208,
+        "max_action_probability_error": 0.0,
+        "max_action_logit_error": 32.0,
+        "passed_actions": true,
+        "passed_current_engine": true,
+        "passed_sdk": true
+      },
+      "timing_blocks": 40
+    },
+    "extended-native": {
+      "status": "complete",
+      "validation": {},
+      "timing_blocks": 30
+    }
+  },
+  "cpu_parity_gate_tests": {
+    "passed": 4,
+    "failed": 0
+  },
+  "ruff": "passed",
+  "canvas_typescript": "passed",
+  "production_runtime_modified": false,
+  "new_experimental_files_pushed": false,
+  "scope": "Synthetic parity and serial latency. GitHub contains only the separately authorized prior rtx-a6000 startup update."
+}

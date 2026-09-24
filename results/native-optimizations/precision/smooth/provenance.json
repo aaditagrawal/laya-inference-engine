@@ -1,0 +1,14 @@
+{
+  "source_files": {
+    "experiments/native/precision/run.py": "7b2706744f82011f6088d6be66f54daa42321aa08a774ff7d387ab332b743bc7",
+    "experiments/native/precision/smooth_fp8.py": "c5704960b1faa8647bfec83a0f0e13a60a07d88a346f799c14c9a00cd257aeaa",
+    "experiments/native/precision/__init__.py": "004e1dcf44a6808ea1c99707daa4f7e35a24d9b99c95c15f2fa322eb4fe1595c"
+  },
+  "calibration_cache_sha256": "346d23c8c8cc85b2744e8a541f56c0215c1b48a503475a9145ecb38adb64ff1e",
+  "calibration_tensor_cache_location": "Ignored .research directory only; regenerate using --task calibrate. No tensor/calibration dumps copied into source or result bundle.",
+  "quantization_method": "S_j=amax(X_j)^alpha/amax(W[:,j])^(1-alpha), W*S in FP32 before static output-row FP8 packing, fused FP32 X/S before dynamic activation-row FP8 quantization.",
+  "source_revision_at_packaging": "83de1b308d246b443fa5f4d393e6ccacbbc7d406",
+  "quantizer_class_and_function_asts_identical_to_measured_source": true,
+  "quantizer_probe_passed": true,
+  "ruff_check": "passed"
+}

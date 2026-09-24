@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "gpu_initialized": false,
+  "checks": [
+    "warmup API, system_one alias, close ordering/idempotence, closed use",
+    "base cleanup still runs after adapter cleanup failure",
+    "constructor preserves installation error and attempts cleanup",
+    "invalid benchmark settings rejected before GPU initialization",
+    "action mismatch fails benchmark, preserves failure result and implementation provenance"
+  ],
+  "scope": "CPU-only behavior checks using mocked engines/resources; validates API, cleanup failure paths, benchmark argument rejection and validation gating. No GPU numerical/performance claims.",
+  "script_path": ".research/native-20260924/host/review_checks.py",
+  "script_sha256": "c939429623c434271611f069c2ff122ebebe7d4033b0f1b6904748f0906ab05f",
+  "command": "flock -s /tmp/laya-gpu-experiments.lock uv run --no-sync python .research/native-20260924/host/review_checks.py"
+}

@@ -1,0 +1,1631 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T02:56:37.409934+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "max_graphs": 8,
+  "requests_per_cycle": 10,
+  "method": "Counts 1..10 short, in order. One complete untimed cycle then two timed cycles per block. Three randomized blocks. Includes graph recapture, excludes initial model load and initial warmup.",
+  "rows": [
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 1,
+      "elapsed_ms": 44.77025102823973,
+      "graph_miss": true,
+      "graph_build_ms": 42.078539030626416,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 44.76323106791824
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 2,
+      "elapsed_ms": 47.89769393391907,
+      "graph_miss": true,
+      "graph_build_ms": 44.652720098383725,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 47.883603954687715
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 3,
+      "elapsed_ms": 46.772300032898784,
+      "graph_miss": true,
+      "graph_build_ms": 42.845792951993644,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 46.76032008137554
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 4,
+      "elapsed_ms": 47.86895401775837,
+      "graph_miss": true,
+      "graph_build_ms": 43.65929600317031,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 47.85365401767194
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 5,
+      "elapsed_ms": 48.86126902420074,
+      "graph_miss": true,
+      "graph_build_ms": 43.741216068156064,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 48.84676798246801
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 6,
+      "elapsed_ms": 50.583206000737846,
+      "graph_miss": true,
+      "graph_build_ms": 44.718291028402746,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.56643602438271
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 7,
+      "elapsed_ms": 51.02258804254234,
+      "graph_miss": true,
+      "graph_build_ms": 44.67431106604636,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 51.00365693215281
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 8,
+      "elapsed_ms": 52.23934201058,
+      "graph_miss": true,
+      "graph_build_ms": 45.480274013243616,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.219901932403445
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 9,
+      "elapsed_ms": 52.91388602927327,
+      "graph_miss": true,
+      "graph_build_ms": 45.259561971761286,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.89493594318628
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 0,
+      "questions": 10,
+      "elapsed_ms": 53.28166706021875,
+      "graph_miss": true,
+      "graph_build_ms": 45.04456196445972,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 53.26670699287206
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 1,
+      "elapsed_ms": 44.645479996688664,
+      "graph_miss": true,
+      "graph_build_ms": 41.918349103070796,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 44.6331100538373
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 2,
+      "elapsed_ms": 47.108120983466506,
+      "graph_miss": true,
+      "graph_build_ms": 43.85292704682797,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 47.099711024202406
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 3,
+      "elapsed_ms": 51.784971030429006,
+      "graph_miss": true,
+      "graph_build_ms": 47.702283016406,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 51.772610982879996
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 4,
+      "elapsed_ms": 53.31998795736581,
+      "graph_miss": true,
+      "graph_build_ms": 48.77521796151996,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 53.30239702016115
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 5,
+      "elapsed_ms": 51.97051202412695,
+      "graph_miss": true,
+      "graph_build_ms": 46.675857971422374,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 51.95703206118196
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 6,
+      "elapsed_ms": 51.25514906831086,
+      "graph_miss": true,
+      "graph_build_ms": 45.28062301687896,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 51.24319891911
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 7,
+      "elapsed_ms": 50.636606058105826,
+      "graph_miss": true,
+      "graph_build_ms": 44.338278006762266,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.623825984075665
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 8,
+      "elapsed_ms": 51.18480895180255,
+      "graph_miss": true,
+      "graph_build_ms": 44.43428909871727,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 51.169348997063935
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 9,
+      "elapsed_ms": 52.481902996078134,
+      "graph_miss": true,
+      "graph_build_ms": 44.78094098158181,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.46572301257402
+    },
+    {
+      "variant": "candidate",
+      "block": 0,
+      "cycle": 1,
+      "questions": 10,
+      "elapsed_ms": 52.90397605858743,
+      "graph_miss": true,
+      "graph_build_ms": 44.646370923146605,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.88851505611092
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 1,
+      "elapsed_ms": 2.3256299318745732,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.3178700357675552
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 2,
+      "elapsed_ms": 2.7481509605422616,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.7428310131654143
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 3,
+      "elapsed_ms": 3.644465934485197,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.6386658903211355
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 4,
+      "elapsed_ms": 3.671935060992837,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.6653049755841494
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 5,
+      "elapsed_ms": 6.068146089091897,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.060865940526128
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 6,
+      "elapsed_ms": 6.086225970648229,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.0785559471696615
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 7,
+      "elapsed_ms": 6.089335889555514,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.081156083382666
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 8,
+      "elapsed_ms": 6.17903599049896,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.170686101540923
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 9,
+      "elapsed_ms": 10.537593974731863,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.528784012421966
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 0,
+      "questions": 10,
+      "elapsed_ms": 10.540614952333272,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.53204492200166
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 1,
+      "elapsed_ms": 2.2349900100380182,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.228180062957108
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 2,
+      "elapsed_ms": 2.7301720110699534,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.724912017583847
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 3,
+      "elapsed_ms": 3.6365549312904477,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.630674909800291
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 4,
+      "elapsed_ms": 3.666254924610257,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.659625072032213
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 5,
+      "elapsed_ms": 6.054696044884622,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.047166069038212
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 6,
+      "elapsed_ms": 6.094546988606453,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.087276036851108
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 7,
+      "elapsed_ms": 6.112755974754691,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.105085019953549
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 8,
+      "elapsed_ms": 6.14698592107743,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.139046046882868
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 9,
+      "elapsed_ms": 10.535674984566867,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.526704951189458
+    },
+    {
+      "variant": "baseline",
+      "block": 0,
+      "cycle": 1,
+      "questions": 10,
+      "elapsed_ms": 10.58495498728007,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.575955035164952
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 1,
+      "elapsed_ms": 2.2362699965015054,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.22932908218354
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 2,
+      "elapsed_ms": 2.7445009909570217,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.739300951361656
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 3,
+      "elapsed_ms": 3.6402150290086865,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.6344750551506877
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 4,
+      "elapsed_ms": 3.66866507101804,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.6624049535021186
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 5,
+      "elapsed_ms": 6.0722059570252895,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.065436056815088
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 6,
+      "elapsed_ms": 6.1079659499228,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.100885919295251
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 7,
+      "elapsed_ms": 6.132776034064591,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.124565959908068
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 8,
+      "elapsed_ms": 6.170687032863498,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.162656936794519
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 9,
+      "elapsed_ms": 10.538254980929196,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.529704974032938
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 0,
+      "questions": 10,
+      "elapsed_ms": 10.65644493792206,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.648034978657961
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 1,
+      "elapsed_ms": 2.2399689769372344,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.2325190948322415
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 2,
+      "elapsed_ms": 2.744821016676724,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 2.739451010711491
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 3,
+      "elapsed_ms": 3.649385995231569,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.6433259956538677
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 4,
+      "elapsed_ms": 3.666226053610444,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 3.659595036879182
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 5,
+      "elapsed_ms": 6.065385998226702,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.058595958165824
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 6,
+      "elapsed_ms": 6.151836016215384,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.1426060274243355
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 7,
+      "elapsed_ms": 6.259246962144971,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.247327080927789
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 8,
+      "elapsed_ms": 6.348267896100879,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 6.334197008982301
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 9,
+      "elapsed_ms": 10.88166597764939,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.86429599672556
+    },
+    {
+      "variant": "baseline",
+      "block": 1,
+      "cycle": 1,
+      "questions": 10,
+      "elapsed_ms": 10.862915893085301,
+      "graph_miss": false,
+      "graph_build_ms": 0.0,
+      "shape": [
+        16,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 10.845105978660285
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 1,
+      "elapsed_ms": 47.601722995750606,
+      "graph_miss": true,
+      "graph_build_ms": 44.712940929457545,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 47.58408304769546
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 2,
+      "elapsed_ms": 49.90483191795647,
+      "graph_miss": true,
+      "graph_build_ms": 46.52069800067693,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 49.89513196051121
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 3,
+      "elapsed_ms": 48.0941649293527,
+      "graph_miss": true,
+      "graph_build_ms": 44.041867018677294,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 48.083224915899336
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 4,
+      "elapsed_ms": 48.732807976193726,
+      "graph_miss": true,
+      "graph_build_ms": 44.45677902549505,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 48.72065794188529
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 5,
+      "elapsed_ms": 50.43023498728871,
+      "graph_miss": true,
+      "graph_build_ms": 45.18644290510565,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.41718506254256
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 6,
+      "elapsed_ms": 52.463504020124674,
+      "graph_miss": true,
+      "graph_build_ms": 46.483517973683774,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.45020391885191
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 7,
+      "elapsed_ms": 50.40630605071783,
+      "graph_miss": true,
+      "graph_build_ms": 44.07191800419241,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.392146105878055
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 8,
+      "elapsed_ms": 50.65429606474936,
+      "graph_miss": true,
+      "graph_build_ms": 43.8916269922629,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.639246008358896
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 9,
+      "elapsed_ms": 50.7891159504652,
+      "graph_miss": true,
+      "graph_build_ms": 43.14813402015716,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.77470594551414
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 0,
+      "questions": 10,
+      "elapsed_ms": 51.815320970490575,
+      "graph_miss": true,
+      "graph_build_ms": 43.55011601001024,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 51.79854994639754
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 1,
+      "elapsed_ms": 44.3621490849182,
+      "graph_miss": true,
+      "graph_build_ms": 41.62239795550704,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 44.34780892916024
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 2,
+      "elapsed_ms": 47.64020291622728,
+      "graph_miss": true,
+      "graph_build_ms": 44.35285902582109,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 47.630672925151885
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 3,
+      "elapsed_ms": 48.35185594856739,
+      "graph_miss": true,
+      "graph_build_ms": 44.320038985461,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 48.34064596798271
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 4,
+      "elapsed_ms": 47.216420993208885,
+      "graph_miss": true,
+      "graph_build_ms": 42.94090298935771,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 47.205341048538685
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 5,
+      "elapsed_ms": 48.55168703943491,
+      "graph_miss": true,
+      "graph_build_ms": 43.40985510498285,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 48.54017705656588
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 6,
+      "elapsed_ms": 50.575096043758094,
+      "graph_miss": true,
+      "graph_build_ms": 44.68426096718758,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.562246004119515
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 7,
+      "elapsed_ms": 51.40244902577251,
+      "graph_miss": true,
+      "graph_build_ms": 45.046421932056546,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 51.3854589080438
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 8,
+      "elapsed_ms": 53.002857021056116,
+      "graph_miss": true,
+      "graph_build_ms": 46.03305703494698,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.98397608567029
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 9,
+      "elapsed_ms": 53.62668901216239,
+      "graph_miss": true,
+      "graph_build_ms": 45.770635013468564,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 53.61077794805169
+    },
+    {
+      "variant": "candidate",
+      "block": 1,
+      "cycle": 1,
+      "questions": 10,
+      "elapsed_ms": 54.51154301408678,
+      "graph_miss": true,
+      "graph_build_ms": 46.027896925807,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 54.49062306433916
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 1,
+      "elapsed_ms": 49.08204998355359,
+      "graph_miss": true,
+      "graph_build_ms": 46.08704603742808,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 49.063840066082776
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 2,
+      "elapsed_ms": 52.413324010558426,
+      "graph_miss": true,
+      "graph_build_ms": 48.95244794897735,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.403284003958106
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 3,
+      "elapsed_ms": 50.07613298948854,
+      "graph_miss": true,
+      "graph_build_ms": 45.936095993965864,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.064843031577766
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 4,
+      "elapsed_ms": 49.9109230004251,
+      "graph_miss": true,
+      "graph_build_ms": 45.56543508078903,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 49.89965294953436
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 5,
+      "elapsed_ms": 49.941772944293916,
+      "graph_miss": true,
+      "graph_build_ms": 44.721540063619614,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 49.93032303173095
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 6,
+      "elapsed_ms": 51.88765109051019,
+      "graph_miss": true,
+      "graph_build_ms": 45.92593607958406,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 51.874910946935415
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 7,
+      "elapsed_ms": 53.66794904693961,
+      "graph_miss": true,
+      "graph_build_ms": 47.129790065810084,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 53.65258897654712
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 8,
+      "elapsed_ms": 52.5400839978829,
+      "graph_miss": true,
+      "graph_build_ms": 45.68154504522681,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.523283986374736
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 9,
+      "elapsed_ms": 53.069825982674956,
+      "graph_miss": true,
+      "graph_build_ms": 45.34393292851746,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 53.05296601727605
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 0,
+      "questions": 10,
+      "elapsed_ms": 54.9946139799431,
+      "graph_miss": true,
+      "graph_build_ms": 46.59641801845282,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 54.977444000542164
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 1,
+      "elapsed_ms": 44.860590947791934,
+      "graph_miss": true,
+      "graph_build_ms": 42.080038925632834,
+      "shape": [
+        1,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 44.847450917586684
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 2,
+      "elapsed_ms": 48.045514966361225,
+      "graph_miss": true,
+      "graph_build_ms": 44.746781000867486,
+      "shape": [
+        2,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 48.03650500252843
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 3,
+      "elapsed_ms": 47.41156206000596,
+      "graph_miss": true,
+      "graph_build_ms": 43.401494971476495,
+      "shape": [
+        3,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 47.40247200243175
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 4,
+      "elapsed_ms": 48.256685957312584,
+      "graph_miss": true,
+      "graph_build_ms": 43.996638036333025,
+      "shape": [
+        4,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 48.24610601644963
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 5,
+      "elapsed_ms": 49.10479998216033,
+      "graph_miss": true,
+      "graph_build_ms": 43.92171697691083,
+      "shape": [
+        5,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 49.092879984527826
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 6,
+      "elapsed_ms": 50.26386398822069,
+      "graph_miss": true,
+      "graph_build_ms": 44.304459006525576,
+      "shape": [
+        6,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.251204054802656
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 7,
+      "elapsed_ms": 50.27660389896482,
+      "graph_miss": true,
+      "graph_build_ms": 43.98299800232053,
+      "shape": [
+        7,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 50.262153963558376
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 8,
+      "elapsed_ms": 51.066147047095,
+      "graph_miss": true,
+      "graph_build_ms": 44.31197897065431,
+      "shape": [
+        8,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 51.05052702128887
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 9,
+      "elapsed_ms": 52.09503206424415,
+      "graph_miss": true,
+      "graph_build_ms": 44.4178800098598,
+      "shape": [
+        9,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 52.07915196660906
+    },
+    {
+      "variant": "candidate",
+      "block": 2,
+      "cycle": 1,
+      "questions": 10,
+      "elapsed_ms": 53.57727792579681,
+      "graph_miss": true,
+      "graph_build_ms": 45.24865292478353,
+      "shape": [
+        10,
+        64,
+        4
+      ],
+      "backend": "host-cpp-graph-io",
+      "total_ms": 53.55985800269991
+    }
+  ],
+  "current": {
+    "variant": "baseline",
+    "block": 2,
+    "cycle": 0,
+    "questions": 1
+  },
+  "status": "failed",
+  "traceback": "Traceback (most recent call last):\n  File \"experiments/latency/padding/cache_churn.py\", line 59, in main\n    response = engines[name].predict(**request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"experiments/native/engine.py\", line 85, in predict\n    return self.adapter.predict(state, questions)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"experiments/native/host/adapter.py\", line 195, in predict\n    logits, actions, metrics = self.run_prepared(prepared)\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \".venv/lib/python3.12/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"experiments/native/host/adapter.py\", line 167, in run_prepared\n    slot.native.run(prepared.items)\nRuntimeError: an illegal memory access was encountered\n"
+}

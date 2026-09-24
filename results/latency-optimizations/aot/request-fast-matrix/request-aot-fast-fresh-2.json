@@ -1,0 +1,121 @@
+{
+  "mode": "aot-fast",
+  "cache_state": "fresh",
+  "scope": "Fresh Python process through completed request. Includes imports, tokenizer/config/weights, CUDA Graph construction, tokenization, host/device transfers, inference, and formatting. Existing local weights and native extensions, warm OS file cache; excludes HTTP and one-time AOT artifact creation.",
+  "status": "complete",
+  "cache_environment": {
+    "TORCHINDUCTOR_CACHE_DIR": "/tmp/laya-latency-optimizations-aot-fast-request-caches/aot-fast-2/inductor",
+    "TRITON_CACHE_DIR": "/tmp/laya-latency-optimizations-aot-fast-request-caches/aot-fast-2/triton"
+  },
+  "cache_files_before": {
+    "TORCHINDUCTOR_CACHE_DIR": 0,
+    "TRITON_CACHE_DIR": 0
+  },
+  "imports_ms": 3151.4426099602133,
+  "model_and_adapter_setup_ms": 1250.2936640521511,
+  "hardware": {
+    "name": "NVIDIA GeForce RTX 5070 Ti",
+    "compute_capability": "12.0",
+    "sm_count": 70,
+    "vram_bytes": 16608788480,
+    "torch": "2.14.0+cu132",
+    "cuda_runtime": "13.2",
+    "cuda_architecture": "sm_120"
+  },
+  "first_predict_ms": 250.9536239085719,
+  "entry_to_first_response_ms": 4652.91642898228,
+  "response": {
+    "model": "laya-rl-agent",
+    "answers": {
+      "q0": {
+        "type": "choice",
+        "choice": "billing",
+        "probabilities": {
+          "billing": 0.9656,
+          "technical": 0.0134,
+          "sales": 0.0099,
+          "other": 0.0111
+        },
+        "confidence": 0.865,
+        "action": {
+          "act_probability": 1.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 64,
+      "output_tokens": 0
+    }
+  },
+  "exact_outputs": [
+    true,
+    true
+  ],
+  "max_output_error": [
+    0.0,
+    0.0
+  ],
+  "prepared_inputs_exact": true,
+  "warm_predict_p50_ms": 2.116568968631327,
+  "warm_samples_ms": [
+    2.1122199250385165,
+    2.110718982294202,
+    2.1521199960261583,
+    2.1860689157620072,
+    2.108620014041662,
+    2.1084389882162213,
+    2.1094989497214556,
+    2.130748936906457,
+    2.1350199822336435,
+    2.2522099316120148,
+    2.1734089823439717,
+    2.1121400641277432,
+    2.131509012542665,
+    2.1171990083530545,
+    2.1194700384512544,
+    2.1237690234556794,
+    2.2128800628706813,
+    2.139798947609961,
+    2.126020030118525,
+    2.1272189915180206,
+    2.1163190249353647,
+    2.1114699775353074,
+    2.110288944095373,
+    2.1519100992009044,
+    2.1902789594605565,
+    2.1213690051808953,
+    2.11217999458313,
+    2.099469071254134,
+    2.0957989618182182,
+    2.109378925524652,
+    2.1123189944773912,
+    2.1469700150191784,
+    2.1213790168985724,
+    2.1136499708518386,
+    2.1076489938423038,
+    2.1444689482450485,
+    2.111649955622852,
+    2.1157889859750867,
+    2.1078999852761626,
+    2.0993889775127172,
+    2.1168189123272896,
+    2.100339042954147,
+    2.096068928949535,
+    2.110379980877042,
+    2.120749093592167,
+    2.1124189952388406,
+    2.1048900671303272,
+    2.12105899117887,
+    2.119779004715383,
+    2.131118904799223
+  ],
+  "unsupported_mask_and_batch_rejected": [
+    true,
+    true
+  ],
+  "cache_files_after": {
+    "TORCHINDUCTOR_CACHE_DIR": 0,
+    "TRITON_CACHE_DIR": 0
+  },
+  "elapsed_seconds": 4.787089859950356
+}

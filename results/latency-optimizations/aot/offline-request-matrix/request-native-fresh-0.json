@@ -1,0 +1,20 @@
+{
+  "mode": "native",
+  "cache_state": "fresh",
+  "scope": "Fresh Python process through completed request. Includes imports, tokenizer/config/weights, CUDA Graph construction, tokenization, host/device transfers, inference, and formatting. Existing local weights and native extensions, warm OS file cache; excludes HTTP and one-time AOT artifact creation.",
+  "status": "failed",
+  "local_files_only": true,
+  "cache_environment": {
+    "TORCHINDUCTOR_CACHE_DIR": "/tmp/laya-latency-optimizations-aot-offline-request-caches/native-0/inductor",
+    "TRITON_CACHE_DIR": "/tmp/laya-latency-optimizations-aot-offline-request-caches/native-0/triton"
+  },
+  "cache_files_before": {
+    "TORCHINDUCTOR_CACHE_DIR": 0,
+    "TRITON_CACHE_DIR": 0
+  },
+  "imports_ms": 3335.3938380023465,
+  "failed_stage": "importing",
+  "error": "The cached snapshot for 'convaiinnovations/laya' (revision '5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b', commit 5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b) is incomplete: 33 file(s) are missing (.gitattributes, README.md, assets/laya_benchmark.png, ... (30 more)). Outgoing traffic is disabled ('local_files_only=True'). Re-run the download with network access to complete the snapshot.",
+  "traceback": "Traceback (most recent call last):\n  File \"experiments/latency/aot/request_startup.py\", line 72, in main\n    snapshot_download(\n  File \".venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py\", line 91, in _inner_fn\n    return fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^\n  File \".venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py\", line 266, in _inner\n    return fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^\n  File \".venv/lib/python3.12/site-packages/huggingface_hub/_snapshot_download.py\", line 330, in snapshot_download\n    _raise_if_incomplete_snapshot(\n  File \".venv/lib/python3.12/site-packages/huggingface_hub/_snapshot_download.py\", line 586, in _raise_if_incomplete_snapshot\n    raise IncompleteSnapshotError(\nhuggingface_hub.errors.IncompleteSnapshotError: The cached snapshot for 'convaiinnovations/laya' (revision '5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b', commit 5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b) is incomplete: 33 file(s) are missing (.gitattributes, README.md, assets/laya_benchmark.png, ... (30 more)). Outgoing traffic is disabled ('local_files_only=True'). Re-run the download with network access to complete the snapshot.\n",
+  "elapsed_seconds": 3.3409187929937616
+}

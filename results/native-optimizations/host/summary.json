@@ -1,0 +1,246 @@
+{
+  "scope": "Local RTX 5070 Ti host-path experiment. No model math or precision changes. Original SDK sequence builder and formatter retained. C++ native request packing and CUDA runtime launch/copies; Rust tokenizer is the existing Tokenizers backend reached directly, not a complete server rewrite.",
+  "method": "150 warm serial requests per variant/case in five randomized blocks, after five warmups per block. Exclusive GPU/build flock. Complete predict includes tokenization, packing, transfers, inference and formatting.",
+  "timings": [
+    {
+      "case": "1-short",
+      "variants": {
+        "baseline": {
+          "pooled_p50_ms": 2.7950930525548756,
+          "mean_ms": 2.798505762281517,
+          "round_p50_ms": [
+            2.8027479420416057,
+            2.7938829734921455,
+            2.7927180053666234,
+            2.792813000269234,
+            2.793887979350984
+          ],
+          "sample_count": 150,
+          "latency_reduction_percent": 0.0
+        },
+        "cpp-graph-io": {
+          "pooled_p50_ms": 2.7090379735454917,
+          "mean_ms": 2.7125963180636368,
+          "round_p50_ms": [
+            2.7058629784733057,
+            2.7051279903389513,
+            2.716623479500413,
+            2.698667987715453,
+            2.7197779854759574
+          ],
+          "sample_count": 150,
+          "latency_reduction_percent": 3.078791202701625
+        },
+        "cpp-rust-graph-io": {
+          "pooled_p50_ms": 2.540778019465506,
+          "mean_ms": 2.543611549772322,
+          "round_p50_ms": [
+            2.5384329492226243,
+            2.5369530194438994,
+            2.5413030525669456,
+            2.53750296542421,
+            2.5486479862593114
+          ],
+          "sample_count": 150,
+          "latency_reduction_percent": 9.09862492259107
+        }
+      }
+    },
+    {
+      "case": "16-short",
+      "variants": {
+        "baseline": {
+          "pooled_p50_ms": 12.501189485192299,
+          "mean_ms": 12.535542773548514,
+          "round_p50_ms": [
+            12.537528993561864,
+            12.564029602799565,
+            12.498354015406221,
+            12.475488998461515,
+            12.49548397026956
+          ],
+          "sample_count": 150,
+          "latency_reduction_percent": 0.0
+        },
+        "cpp-graph-io": {
+          "pooled_p50_ms": 12.147623987402767,
+          "mean_ms": 12.165911963675171,
+          "round_p50_ms": [
+            12.170663510914892,
+            12.11308897472918,
+            12.066368479281664,
+            12.18983402941376,
+            12.171778944320977
+          ],
+          "sample_count": 150,
+          "latency_reduction_percent": 2.82825484893523
+        },
+        "cpp-rust-graph-io": {
+          "pooled_p50_ms": 11.663313023746014,
+          "mean_ms": 11.665765301634869,
+          "round_p50_ms": [
+            11.577168013900518,
+            11.68425299692899,
+            11.585757485590875,
+            11.670933512505144,
+            11.689823004417121
+          ],
+          "sample_count": 150,
+          "latency_reduction_percent": 6.7023739016095485
+        }
+      }
+    },
+    {
+      "case": "1-long",
+      "variants": {
+        "baseline": {
+          "pooled_p50_ms": 8.685701002832502,
+          "mean_ms": 8.721442952131232,
+          "round_p50_ms": [
+            8.68548097787425,
+            8.788131584879011,
+            8.663240994792432,
+            8.705895976163447,
+            8.653780969325453
+          ],
+          "sample_count": 150,
+          "latency_reduction_percent": 0.0
+        },
+        "cpp-graph-io": {
+          "pooled_p50_ms": 8.525584999006242,
+          "mean_ms": 8.537546924004952,
+          "round_p50_ms": [
+            8.518405025824904,
+            8.536065521184355,
+            8.529185492079705,
+            8.538145397324115,
+            8.519700495526195
+          ],
+          "sample_count": 150,
+          "latency_reduction_percent": 1.843443652665977
+        },
+        "cpp-rust-graph-io": {
+          "pooled_p50_ms": 8.344880014192313,
+          "mean_ms": 8.375836512229094,
+          "round_p50_ms": [
+            8.336984959896654,
+            8.349459967575967,
+            8.332920027896762,
+            8.36004497250542,
+            8.376329962629825
+          ],
+          "sample_count": 150,
+          "latency_reduction_percent": 3.923931856842
+        }
+      }
+    },
+    {
+      "case": "16-long",
+      "variants": {
+        "baseline": {
+          "pooled_p50_ms": 102.26743400562555,
+          "mean_ms": 102.12495414773002,
+          "round_p50_ms": [
+            101.14905750378966,
+            101.59959155134857,
+            102.52195742214099,
+            102.38293750444427,
+            102.57277055643499
+          ],
+          "sample_count": 150,
+          "latency_reduction_percent": 0.0
+        },
+        "cpp-graph-io": {
+          "pooled_p50_ms": 101.66917752940208,
+          "mean_ms": 101.44244167332847,
+          "round_p50_ms": [
+            100.34076904412359,
+            101.58550750929862,
+            101.74335952615365,
+            101.76092700567096,
+            101.7300850362517
+          ],
+          "sample_count": 150,
+          "latency_reduction_percent": 0.5849921649452527
+        },
+        "cpp-rust-graph-io": {
+          "pooled_p50_ms": 100.59730749344453,
+          "mean_ms": 100.53573560512935,
+          "round_p50_ms": [
+            100.46809149207547,
+            100.05703149363399,
+            100.26183852460235,
+            100.39014701033011,
+            101.0216569993645
+          ],
+          "sample_count": 150,
+          "latency_reduction_percent": 1.633097112898274
+        }
+      }
+    }
+  ],
+  "validation": {
+    "requests": 66,
+    "decisions": 208,
+    "all_logits_bitwise_exact": true,
+    "sdk_agreement": 208,
+    "unbucketed_sdk_agreement": 208
+  },
+  "http": [
+    {
+      "case": "1-short",
+      "variants": {
+        "baseline": {
+          "pooled_p50_ms": 3.966513,
+          "samples": 160
+        },
+        "cpp-rust-graph-io": {
+          "pooled_p50_ms": 3.6829975,
+          "samples": 160
+        }
+      }
+    },
+    {
+      "case": "16-short",
+      "variants": {
+        "baseline": {
+          "pooled_p50_ms": 14.0913075,
+          "samples": 160
+        },
+        "cpp-rust-graph-io": {
+          "pooled_p50_ms": 13.148824999999999,
+          "samples": 160
+        }
+      }
+    },
+    {
+      "case": "1-long",
+      "variants": {
+        "baseline": {
+          "pooled_p50_ms": 9.905098500000001,
+          "samples": 160
+        },
+        "cpp-rust-graph-io": {
+          "pooled_p50_ms": 9.831369,
+          "samples": 160
+        }
+      }
+    }
+  ],
+  "notes": [
+    "Initial mode sweep has sequential variants and is exploratory; randomized confirmation is the comparison used here.",
+    "Microbenchmark pack and prepare timings exclude inference and cannot be presented as whole-model speedups.",
+    "Warm benchmark first-call timings share an already loaded model and warm kernel caches across variants; use startup-baseline/native.json for fresh-process startup.",
+    "HTTP negative artifact http-with-delayed-ack.json used a manually supplied socket without TCP_NODELAY and has about 40 ms delayed-ACK stalls. Excluded from engine conclusions.",
+    "Initial concurrency fixture accidentally mixed masked and unmasked graph keys; corrected same-key concurrent test passed. Initial log retained.",
+    "Raw CUDA graph launch bypasses PyTorch replay hooks; graph, streams, input/output storage and model remain owned for every replay, with an explicit lock and completed synchronization before release."
+  ],
+  "raw_predict_files": [
+    "predict-1-short.json",
+    "predict-16-short.json",
+    "predict-1-long.json",
+    "predict-16-long.json"
+  ],
+  "startup_note": "One fresh-process run per variant; both about 5 seconds with warm disk/model caches. No startup speedup claim.",
+  "language_scope": "The warm request packing/CUDA launch path is C++, and tokenization calls the existing Rust Tokenizers backend directly. Model setup, SDK sequence construction, response formatting, and HTTP remain Python; this is not a complete C++ or Rust server rewrite."
+}

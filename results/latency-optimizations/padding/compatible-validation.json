@@ -1,0 +1,2099 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T02:51:11.577208+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "policy": "batch-compatible",
+  "status": "complete",
+  "scope": "Repeat the four original question definitions cyclically to form 5 and 17 questions for each qualifying reference request. Compare newly evaluated current-engine outputs plus cached unbucketed SDK selected decisions. No fitting or calibration.",
+  "cases": [
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.003959640860557556,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "original_case": 0,
+      "questions": 5,
+      "request_sha256": "34746a5a334c25c777b18c5ff347a2edbbb7d825f6416005549799a977caf348",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        64,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00606963038444519,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "original_case": 1,
+      "questions": 5,
+      "request_sha256": "76d649e3b8de508c4c535a3380194466e5ff175617c990d27373fc0c3844affe",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        64,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.004352867603302002,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 2,
+      "questions": 5,
+      "request_sha256": "5a8b9d61952ee04c8b90ce0cdfe6b6e6fa8e36e7d9d186fb2a622766ca31a868",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        64,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.006904423236846924,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 48.0,
+      "passed": true,
+      "original_case": 3,
+      "questions": 5,
+      "request_sha256": "24dbd3e0363eba2f29fc558b4e685c4c8f49c6dfdb6cc03600086bf45df13080",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        64,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0030438005924224854,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 4,
+      "questions": 5,
+      "request_sha256": "aaafef7611c8ff46f023181736acc23a698af8db0f4e4cf252e8dee155e20b91",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.01459568738937378,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 32.0,
+      "passed": false,
+      "original_case": 5,
+      "questions": 5,
+      "request_sha256": "4f357f75d65acdd2955c55dc5b8330412f8b87eeedeeaeb00380d3607d7c0607",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0029765963554382324,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 48.0,
+      "passed": true,
+      "original_case": 6,
+      "questions": 5,
+      "request_sha256": "569abf59ae43d166502de024a1ade5f66421ec2b4f7d25ba18713b7b1709d71c",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        64,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.004532709717750549,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "original_case": 7,
+      "questions": 5,
+      "request_sha256": "8e3d9d5490c1d8aac0f6d898dd00a3c3a0407f1a1310ad5ef552fce84976bb8a",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        64,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0030275583267211914,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "original_case": 8,
+      "questions": 5,
+      "request_sha256": "e69ea737b686dccb48c2f173f9599b059e950745522eeee84198711e2258ddda",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        256,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        256,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00037817656993865967,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 9,
+      "questions": 5,
+      "request_sha256": "c1ebae1303ca98e16f2f7769988059ac3458f53eb5785cfdc7bd0773b5c9c8d5",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0010463893413543701,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 33,
+      "questions": 5,
+      "request_sha256": "8bc9bef019480ddb292137e2fd121924d0cb1a4b20da6d37b8c13176f8f9aa3e",
+      "unbucketed_sdk_agreement": 3,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.005594849586486816,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 34,
+      "questions": 5,
+      "request_sha256": "8a934c5b84469cb6e8705a251bc9f69c835f5be5c362fa7d7cf9d8644a03031a",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0010469555854797363,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 35,
+      "questions": 5,
+      "request_sha256": "807916050667dec8ad774537c3b324c819edbb4a7977f2adb812a228df4592d5",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.006283581256866455,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "original_case": 36,
+      "questions": 5,
+      "request_sha256": "6785bb1dca27fed840b101d4291c996c8f88345081f44a45d56c045feaed40bd",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.002590358257293701,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "original_case": 37,
+      "questions": 5,
+      "request_sha256": "e076cbab40d182b359c6645d2139e3266cb708ea38715de10779a4bd681b1904",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00517582893371582,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "original_case": 38,
+      "questions": 5,
+      "request_sha256": "0943b780bed777f604bb610074fdcf65dda3f703201db7e8c967edc62ec03823",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0011152178049087524,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 39,
+      "questions": 5,
+      "request_sha256": "38429e46e23e78166d51b5d444e3b3bfbdc15b0b771fdc9a19ab866b26f82150",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00417664647102356,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "original_case": 40,
+      "questions": 5,
+      "request_sha256": "8e52ccafb94476e42e501740adbab3cc368e3dabc7bd5b80ae932b69aed56611",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.001326441764831543,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "original_case": 41,
+      "questions": 5,
+      "request_sha256": "8308f9a6686bbf2e2c9379cea0c5341de5d9511936c4cb62e6481efa46b4f957",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00549924373626709,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "original_case": 42,
+      "questions": 5,
+      "request_sha256": "8f3c24aaa68334734dad2a62e87d6ff1d8023f9fe1ff3bc1691ed1a180876a5f",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 43,
+      "questions": 5,
+      "request_sha256": "132d56d07ce774137e54ba1a0b3240d45ec952bb19fd53eb5378d61401167e4b",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.003041185438632965,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 44,
+      "questions": 5,
+      "request_sha256": "5480abb96ae40099ee1c0a187510285dcce8401e1801809210a3a1e900157f51",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0029629170894622803,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 45,
+      "questions": 5,
+      "request_sha256": "708fcab1182144cc304f63eb4139b71f76bb596b2974c3bfc5f684375d40513f",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0064630210399627686,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 46,
+      "questions": 5,
+      "request_sha256": "521e67d5456ed972b9c7940902b2ff18442c611e0b9f685d9e5cee1363af0f12",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0002114623785018921,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 47,
+      "questions": 5,
+      "request_sha256": "61eecfeefed04ea7d72474abee031cc78d1945c5b1e12083cce5a6e394df53ec",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.009484410285949707,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 48,
+      "questions": 5,
+      "request_sha256": "6eafc595c7e5bae919a13dace2a29e760fc709db40ba67c4baea344916ba3540",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00015544891357421875,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 49,
+      "questions": 5,
+      "request_sha256": "074012ca3008e203b050387c102d11a103d5b12155d6aeb8cf917a71d138de70",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0037461817264556885,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 50,
+      "questions": 5,
+      "request_sha256": "741cfbb847b57fd1ab9cd5fc4c9d4ee2b408e7b39c2adabcf123d00086d2d79f",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00012254714965820312,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 51,
+      "questions": 5,
+      "request_sha256": "6a18e2875a6c9ac04b161f5ffdb27b9b30ad11ed0517b61036c9c5381a05a6b2",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.001736462116241455,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 52,
+      "questions": 5,
+      "request_sha256": "8e872dc8fe3b9e5a3c81b9aa138371e8c615ae7e439cd3eedd2125cbf5c7f592",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0012736916542053223,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 53,
+      "questions": 5,
+      "request_sha256": "3561a96ab82c830eb49940fb76e66a85e6793f863f5bb36d570ab7aace93dfc1",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00244063138961792,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 54,
+      "questions": 5,
+      "request_sha256": "3bc3677de23b16fc8e1cd104050ffc221b61268792a3192a49285218b7fa6531",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0031453967094421387,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 55,
+      "questions": 5,
+      "request_sha256": "330a958b26776de00061decb99f3d7c305e939723199a1b7048f68e0a25da287",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0015721321105957031,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 56,
+      "questions": 5,
+      "request_sha256": "a8d0c21974a37acbad4743fc41460b8838afcea951f97bf0e315d84306a94984",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 57,
+      "questions": 5,
+      "request_sha256": "22fee976baf4613e15cc8bbc83ac89b16a58a2daf110eaaab6a5eb0b86dde33e",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.005475878715515137,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "original_case": 58,
+      "questions": 5,
+      "request_sha256": "a07e24e50a223d8858fe0e7b5c480405a4416cfc60b2e10d13db11fb09848927",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 5.2072107791900635e-05,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 59,
+      "questions": 5,
+      "request_sha256": "b7297ae87d9d7229637c495c303fbc5cc7a32f397c8d02b8e10b35eb2cf9aa10",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.006209075450897217,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 60,
+      "questions": 5,
+      "request_sha256": "4615bd80992e943de12add0bd1eaa054be58ef626e7eba1b78132cf0f3df2af3",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 2.6211142539978027e-05,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 61,
+      "questions": 5,
+      "request_sha256": "38e528c468b9118d5c26a57d1e945ef9523a84c51ac1de44d8ddde5dfe453edc",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.003321349620819092,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 62,
+      "questions": 5,
+      "request_sha256": "ae2e0a7c4d5c5ee10f4c93a543b41644e04dd74a392cdf63c62ed8ccf031bbbf",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0011278390884399414,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 63,
+      "questions": 5,
+      "request_sha256": "42f792e61240b2289fbb2784a246ef6e95bc6b5c089a3deb59b2e800d2ae52df",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.004896402359008789,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 64,
+      "questions": 5,
+      "request_sha256": "6b53138febbcba4dcd97a06fd528c0a35f10e0b5eebb159dd04cd90241ad64a9",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0002825632691383362,
+      "agreement": 5,
+      "decisions": 5,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 5,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 65,
+      "questions": 5,
+      "request_sha256": "d5921238eb0979b3759f035c9c84965bb23a4e77963974bf6388a362856a927c",
+      "unbucketed_sdk_agreement": 5,
+      "baseline_shape": [
+        8,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        5,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0031142830848693848,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 0,
+      "questions": 17,
+      "request_sha256": "e0614329d0e4bad36166a0cb0a3edbf5cb6084e6b10b552985b8c7d38cf07915",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        64,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0029538869857788086,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 1,
+      "questions": 17,
+      "request_sha256": "1201063d4b18d4dcc039a1ac975d1b5fc0e1658265f1267d8268418d5b3311f2",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        64,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0015292763710021973,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 2,
+      "questions": 17,
+      "request_sha256": "632fbabfbacb679e171bf3f0781ff4bac943d2a990d07b71f011a42fb0743b50",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        64,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00029078125953674316,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 3,
+      "questions": 17,
+      "request_sha256": "fe26ba05108c3b33d667ede16edc13d28f051464f73e4b0b5d4604daf5039748",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        64,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 7.003545761108398e-05,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 4,
+      "questions": 17,
+      "request_sha256": "31da47f323e0820247d5c79057f113087a93cb2aad5ca9b0b3a0a7e3801b43d7",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0009065568447113037,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 5,
+      "questions": 17,
+      "request_sha256": "bc427b16a436951c3918a475c8ab2df5955dc60f7db4ca20c461b2a8eacadd3c",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0008949339389801025,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 6,
+      "questions": 17,
+      "request_sha256": "2504ff9ccaa4a265932cffbbaa75496336b923a92f893d151b2f532939d2e5a9",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        64,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0003123432397842407,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 7,
+      "questions": 17,
+      "request_sha256": "c54a662f3b4b8b31bdbb59b48a57492682a7bc26ba4c61b74751b394bd0fd179",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        64,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        64,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.006528258323669434,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 8,
+      "questions": 17,
+      "request_sha256": "ea45ae82ddbf17e14f2e2cbabf46a54779b2742790b15fe69521b15f3ebbb28c",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        256,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        256,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00020101666450500488,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 9,
+      "questions": 17,
+      "request_sha256": "1a3e719fe9420e169db59dde2553a856344cd2c8180ace1c7f8c2f647b82e4cd",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.000485152006149292,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 33,
+      "questions": 17,
+      "request_sha256": "da035ac9f869e19ddd2eb0c684e501a9d43cede9423f66fd983ebb89e3f080b7",
+      "unbucketed_sdk_agreement": 12,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.001416027545928955,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 34,
+      "questions": 17,
+      "request_sha256": "65b3e83856e2272073eda0d48a62aa778dd9dd8e68431d4c6b7601cedc18f66a",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0003954768180847168,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 35,
+      "questions": 17,
+      "request_sha256": "fe433ca0f05c69750ad1c7d85eb4775d4a05b700e4f47ba208d4bba812960f5d",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": true,
+      "max_probability_error": 0.0,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 36,
+      "questions": 17,
+      "request_sha256": "76ae8d66b560f98873bed32ce45be586c199216cae541677987bd532455eca11",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0008341073989868164,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 37,
+      "questions": 17,
+      "request_sha256": "9907341e33ecf0e9c6cd7485a09568af61f85d060034b2bf35f3f0a1055b1200",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0013580322265625,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 38,
+      "questions": 17,
+      "request_sha256": "e546552267b00aefb3632a2e7ca6e99a86a495e4c01b49125039aeeacd736f7c",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00017839670181274414,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 39,
+      "questions": 17,
+      "request_sha256": "3e15a1e092181e61bb487ae6e27e3463337da8b187bba05e0390fc862add386f",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0005102753639221191,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 40,
+      "questions": 17,
+      "request_sha256": "f1f914f1d186604b814942831e58d40d366117a22ba814d3166d8f3d47d6630e",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0013349652290344238,
+      "agreement": 12,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": false,
+      "original_case": 41,
+      "questions": 17,
+      "request_sha256": "a6e6dcc6bfa48a31741595120ce5b299d7ee63e696099fe8f91151fe800b2e71",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00019694864749908447,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "original_case": 42,
+      "questions": 17,
+      "request_sha256": "8b507890891098c32bb371b27f462adbe39fa78f5898ff515cb3915744219493",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 43,
+      "questions": 17,
+      "request_sha256": "33b9392d673326d94c8ce07ca4bcbebbb695142a377c0fcc40bc3c78fa721a20",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00011164508759975433,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 44,
+      "questions": 17,
+      "request_sha256": "8744d8b277c8563ed9a56caaad8476e96887f8a0f2f6d87afb0ba26537c20d87",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00026960670948028564,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 45,
+      "questions": 17,
+      "request_sha256": "e6f8cff280a87a1efc82d1397c713907f1b4f5ebb5e0be35da16efeab7b0d111",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 6.330013275146484e-05,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 46,
+      "questions": 17,
+      "request_sha256": "fa53ef9f4ceab1f4eff9606a3042f2df62359396e06676178fb4e0ee6b1367af",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0013504326343536377,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 47,
+      "questions": 17,
+      "request_sha256": "f4c55d50a2ae56cd4b63ac3717187f8e4b0fa5b60e6407cf97eb179e820415c1",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00027276575565338135,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 48,
+      "questions": 17,
+      "request_sha256": "7b188eb32c3fd61ff73f33fb59e9788854b22d501db0217906c400fbdcf9c2d6",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0005479753017425537,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 49,
+      "questions": 17,
+      "request_sha256": "b9b5a0ab8bdd3ac392a2aabc5c174fcc22fd1cc4c10b4bcbf4788f5c85f1ee0d",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00015738233923912048,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 50,
+      "questions": 17,
+      "request_sha256": "634c4bd87a0a66617fdd590ae71e278998e0c0b9170f5b57ccb8e44e1ec9ff1f",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00024503469467163086,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 51,
+      "questions": 17,
+      "request_sha256": "e867993a08c46bebf9f30a97c5c3aeb1dcae391a4352931347ce26f6ed523ada",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00036678463220596313,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 52,
+      "questions": 17,
+      "request_sha256": "207379c3ed47df193a9096cd1cbc71ae109f2e3f95b11afc20720e014d97708c",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0012075304985046387,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 53,
+      "questions": 17,
+      "request_sha256": "5fae808d5b1cafa828e24b0fd7d5dc9bb30ab873981eaaa3f16cf3a5606d30fa",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0004918277263641357,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 54,
+      "questions": 17,
+      "request_sha256": "b88d35b66bf73cbfcc8ba4bb2c99d41ef440ef44f1de806c70e07d7ccaff6e67",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0019695162773132324,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 55,
+      "questions": 17,
+      "request_sha256": "1bfe99fc5224b67c702284697ba7541c3c37bfd9aa7ea2f0951c5e4209bf9006",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 4.108250141143799e-05,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 56,
+      "questions": 17,
+      "request_sha256": "89759444a13b8f41411ebae8a81e4ca9fae5c6ee50245c004b0a24527ce87b73",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.001463085412979126,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 57,
+      "questions": 17,
+      "request_sha256": "e2308440782e9234824c630017bcb5d75d4fa4327cd7a69120b352cacddbdeaf",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0004905760288238525,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 58,
+      "questions": 17,
+      "request_sha256": "fa656d8b36a7ba47af38db93349f6547a2c50d4a3233aa508aa13fa940e71b36",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00012543797492980957,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 32.0,
+      "passed": true,
+      "original_case": 59,
+      "questions": 17,
+      "request_sha256": "dc643617d43387407701d1d99bc297facf77f05bc35ab6ecaa3ede6c429da24f",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": true,
+      "max_probability_error": 0.0,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 60,
+      "questions": 17,
+      "request_sha256": "8bd6dfffd2f4ee81afe76bfdd8ca160c715bdf7c0bc45d0136b000ee87a8725a",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.0,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 61,
+      "questions": 17,
+      "request_sha256": "dcb670c3f63b355eca37358d9a163565dbd1b1b3710f033edd1d44f923316375",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 7.870793342590332e-05,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 62,
+      "questions": 17,
+      "request_sha256": "5066882a1eb45a1a0a8ef99762ac22b2f4135b84381a5d519ed1c1c72259e644",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00023584067821502686,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 63,
+      "questions": 17,
+      "request_sha256": "eed2451e4950557644f16959cc41e67397d488d03c7e11273b6831045f1c7092",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 6.064772605895996e-05,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 0.0,
+      "passed": true,
+      "original_case": 64,
+      "questions": 17,
+      "request_sha256": "0d2cf34d26038a38d006e3ff0104b648760d1e5150403b3a0994fd50c18d2600",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        128,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        128,
+        4
+      ]
+    },
+    {
+      "exact_logits_and_actions": false,
+      "max_probability_error": 0.00025406479835510254,
+      "agreement": 17,
+      "decisions": 17,
+      "max_action_probability_error": 0.0,
+      "action_argmax_agreement": 17,
+      "max_action_logit_error": 16.0,
+      "passed": true,
+      "original_case": 65,
+      "questions": 17,
+      "request_sha256": "0812531148e3918a620ad2a04257240f572cceee41e146a1bb2cf60224cf671f",
+      "unbucketed_sdk_agreement": 17,
+      "baseline_shape": [
+        32,
+        512,
+        4
+      ],
+      "candidate_shape": [
+        17,
+        512,
+        4
+      ]
+    }
+  ],
+  "summary": {
+    "requests": 86,
+    "decisions": 946,
+    "agreement": 941,
+    "unbucketed_sdk_agreement": 939,
+    "action_argmax_agreement": 946,
+    "max_probability_error": 0.01459568738937378,
+    "max_action_probability_error": 0.0,
+    "max_action_logit_error": 48.0,
+    "exact_all": false,
+    "passed": false
+  }
+}

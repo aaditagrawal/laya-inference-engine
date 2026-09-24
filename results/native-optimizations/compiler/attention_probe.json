@@ -1,0 +1,194 @@
+[
+  {
+    "batch": 1,
+    "length": 64,
+    "mode": "default",
+    "device_ms": 0.012288000583648682,
+    "max_abs": 0.0,
+    "rms": 0.0,
+    "finite": true,
+    "setup_s": 0.14870174892712384
+  },
+  {
+    "batch": 1,
+    "length": 64,
+    "mode": "efficient",
+    "device_ms": 0.012288000583648682,
+    "max_abs": 0.0,
+    "rms": 0.0,
+    "finite": true,
+    "setup_s": 0.004180610994808376
+  },
+  {
+    "batch": 1,
+    "length": 64,
+    "mode": "cudnn",
+    "device_ms": 0.00825119972229004,
+    "max_abs": 0.001953125,
+    "rms": 2.2132273443276063e-05,
+    "finite": true,
+    "setup_s": 0.6716335850069299
+  },
+  {
+    "batch": 1,
+    "length": 64,
+    "mode": "flash",
+    "error": "No available kernel. Aborting execution.",
+    "setup_s": 0.007395423948764801
+  },
+  {
+    "batch": 1,
+    "length": 64,
+    "mode": "flex64",
+    "device_ms": 0.020490241050720216,
+    "max_abs": 0.001953125,
+    "rms": 2.0776045857928693e-05,
+    "finite": true,
+    "setup_s": 9.051088562002406
+  },
+  {
+    "batch": 1,
+    "length": 64,
+    "mode": "flex128",
+    "error": "LoweringException: ValueError: Invalid FlexAttention decode kernel options: Q and KV block sizes must be divisible by the selected tile sizes. Got SPARSE_Q_BLOCK_SIZE=64, SPARSE_KV_BLOCK_SIZE=64, and BLOCK_M=128, BLOCK_N=64. Pass compatible values with kernel_options. Available decode tuning options are BLOCK_M, BLOCK_N, num_warps, and num_stages; use the fwd_ prefix to set decode-only options. For example: kernel_options={'fwd_BLOCK_M': 32, 'fwd_BLOCK_N': 64, 'fwd_num_stages': 1, 'fwd_num_warps': 4}. If you did not pin these options, compiling with mode='max-autotune-no-cudagraphs' can also fix this by trying more FlexAttention configs.\n  target: flex_attention\n  args[0]: TensorBox(StorageBox(\n    InputBuffer(name='arg0_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 16, 64, 64], stride=[196608, 64, 3072, 1]))\n  ))\n  args[1]: TensorBox(StorageBox(\n    InputBuffer(name='arg1_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 16, 64, 64], stride=[196608, 64, 3072, 1]))\n  ))\n  args[2]: TensorBox(StorageBox(\n    InputBuffer(name='arg2_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 16, 64, 64], stride=[196608, 64, 3072, 1]))\n  ))\n  args[3]: Subgraph(name='sdpa_score0', graph_module=<lambda>(), inductor_config_patches=None, graph=None)\n  args[4]: (64, 64, TensorBox(StorageBox(\n    InputBuffer(name='arg4_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg3_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg6_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg7_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg8_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg9_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg10_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg11_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))\n  )), None, None, None, None, 64, 64, Subgraph(name='sdpa_mask0', graph_module=<lambda>(), inductor_config_patches=None, graph=None))\n  args[5]: 0.125\n  args[6]: {'BLOCK_M': 128, 'BLOCK_N': 64, 'BACKEND': 'AUTO', 'PRESCALE_QK': False, 'ROWS_GUARANTEED_SAFE': False, 'BLOCKS_ARE_CONTIGUOUS': False, 'WRITE_DQ': True, 'OUTPUT_LOGSUMEXP': True, 'OUTPUT_MAX': False}\n  args[7]: (TensorBox(StorageBox(\n    InputBuffer(name='arg5_1', layout=FixedLayout('cuda:0', torch.bool, size=[1, 64], stride=[64, 1]))\n  )),)\n  args[8]: ()ValueError: Invalid FlexAttention decode kernel options: Q and KV block sizes must be divisible by the selected tile sizes. Got SPARSE_Q_BLOCK_SIZE=64, SPARSE_KV_BLOCK_SIZE=64, and BLOCK_M=128, BLOCK_N=64. Pass compatible values with kernel_options. Available decode tuning options are BLOCK_M, BLOCK_N, num_warps, and num_stages; use the fwd_ prefix to set decode-only options. For example: kernel_options={'fwd_BLOCK_M': 32, 'fwd_BLOCK_N': 64, 'fwd_num_stages': 1, 'fwd_num_warps': 4}. If you did not pin these options, compiling with mode='max-autotune-no-cudagraphs' can also fix this by trying more FlexAttention configs.\n  target: flex_attention\n  args[0]: TensorBox(StorageBox(\n    InputBuffer(name='arg0_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 16, 64, 64], stride=[196608, 64, 3072, 1]))\n  ))\n  args[1]: TensorBox(StorageBox(\n    InputBuffer(name='arg1_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 16, 64, 64], stride=[196608, 64, 3072, 1]))\n  ))\n  args[2]: TensorBox(StorageBox(\n    InputBuffer(name='arg2_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 16, 64, 64], stride=[196608, 64, 3072, 1]))\n  ))\n  args[3]: Subgraph(name='sdpa_score0', graph_module=<lambda>(), inductor_config_patches=None, graph=None)\n  args[4]: (64, 64, TensorBox(StorageBox(\n    InputBuffer(name='arg4_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg3_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg6_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg7_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg8_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg9_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg10_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1], stride=[1, 1, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg11_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))\n  )), None, None, None, None, 64, 64, Subgraph(name='sdpa_mask0', graph_module=<lambda>(), inductor_config_patches=None, graph=None))\n  args[5]: 0.125\n  args[6]: {'BLOCK_M': 128, 'BLOCK_N': 64, 'BACKEND': 'AUTO', 'PRESCALE_QK': False, 'ROWS_GUARANTEED_SAFE': False, 'BLOCKS_ARE_CONTIGUOUS': False, 'WRITE_DQ': True, 'OUTPUT_LOGSUMEXP': True, 'OUTPUT_MAX': False}\n  args[7]: (TensorBox(StorageBox(\n    InputBuffer(name='arg5_1', layout=FixedLayout('cuda:0', torch.bool, size=[1, 64], stride=[64, 1]))\n  )),)\n  args[8]: ()\nFound from : \n   File \".venv/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py\", line 2577, in flex_attention\n    out, lse, max_scores = flex_attention_hop(\n                           ^^^^^^^^^^^^^^^^^^^\n\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n",
+    "setup_s": 0.20123471994884312
+  },
+  {
+    "batch": 1,
+    "length": 64,
+    "mode": "flex_default",
+    "device_ms": 0.008212479948997497,
+    "max_abs": 0.0078125,
+    "rms": 0.00043321220437064767,
+    "finite": true,
+    "setup_s": 5.674420590978116
+  },
+  {
+    "batch": 1,
+    "length": 512,
+    "mode": "default",
+    "device_ms": 0.05223167896270752,
+    "max_abs": 0.0,
+    "rms": 0.0,
+    "finite": true,
+    "setup_s": 0.007029207074083388
+  },
+  {
+    "batch": 1,
+    "length": 512,
+    "mode": "efficient",
+    "device_ms": 0.052151999473571777,
+    "max_abs": 0.0,
+    "rms": 0.0,
+    "finite": true,
+    "setup_s": 0.006626656977459788
+  },
+  {
+    "batch": 1,
+    "length": 512,
+    "mode": "cudnn",
+    "device_ms": 0.048382081985473634,
+    "max_abs": 0.001953125,
+    "rms": 8.646796231914777e-06,
+    "finite": true,
+    "setup_s": 0.45974002906586975
+  },
+  {
+    "batch": 1,
+    "length": 512,
+    "mode": "flash",
+    "error": "No available kernel. Aborting execution.",
+    "setup_s": 0.00016731000505387783
+  },
+  {
+    "batch": 1,
+    "length": 512,
+    "mode": "flex64",
+    "device_ms": 0.010240000486373902,
+    "max_abs": 0.00390625,
+    "rms": 0.00023569625045638531,
+    "finite": true,
+    "setup_s": 2.8988602340687066
+  },
+  {
+    "batch": 1,
+    "length": 512,
+    "mode": "flex128",
+    "error": "LoweringException: ValueError: Invalid FlexAttention forward kernel options: Q and KV block sizes must be divisible by the selected tile sizes. Got SPARSE_Q_BLOCK_SIZE=64, SPARSE_KV_BLOCK_SIZE=64, and BLOCK_M=128, BLOCK_N=64. Pass compatible values with kernel_options. Available forward tuning options are BLOCK_M, BLOCK_N, num_warps, and num_stages; use the fwd_ prefix to set forward-only options. For example: kernel_options={'fwd_BLOCK_M': 32, 'fwd_BLOCK_N': 64, 'fwd_num_stages': 1, 'fwd_num_warps': 4}. If you did not pin these options, and the default choice errors, compiling with mode='max-autotune-no-cudagraphs' can also fix this by trying more FlexAttention configs.\n  target: flex_attention\n  args[0]: TensorBox(StorageBox(\n    InputBuffer(name='arg0_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 16, 512, 64], stride=[1572864, 64, 3072, 1]))\n  ))\n  args[1]: TensorBox(StorageBox(\n    InputBuffer(name='arg1_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 16, 512, 64], stride=[1572864, 64, 3072, 1]))\n  ))\n  args[2]: TensorBox(StorageBox(\n    InputBuffer(name='arg2_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 16, 512, 64], stride=[1572864, 64, 3072, 1]))\n  ))\n  args[3]: Subgraph(name='sdpa_score0', graph_module=<lambda>(), inductor_config_patches=None, graph=None)\n  args[4]: (512, 512, TensorBox(StorageBox(\n    InputBuffer(name='arg7_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s99], stride=[s99, s99, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg5_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s22, s72], stride=[s22*s72, s22*s72, s72, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg10_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s94], stride=[s94, s94, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg13_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s28, s4], stride=[s28*s4, s28*s4, s4, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg15_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s56], stride=[s56, s56, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg18_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s84, s53], stride=[s53*s84, s53*s84, s53, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg20_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s100], stride=[s100, s100, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg23_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s5, s10], stride=[s10*s5, s10*s5, s10, 1]))\n  )), None, None, None, None, 64, 64, Subgraph(name='sdpa_mask0', graph_module=<lambda>(), inductor_config_patches=None, graph=None))\n  args[5]: 0.125\n  args[6]: {'BLOCK_M': 128, 'BLOCK_N': 64, 'BACKEND': 'AUTO', 'PRESCALE_QK': False, 'ROWS_GUARANTEED_SAFE': False, 'BLOCKS_ARE_CONTIGUOUS': False, 'WRITE_DQ': True, 'OUTPUT_LOGSUMEXP': True, 'OUTPUT_MAX': False}\n  args[7]: (TensorBox(StorageBox(\n    InputBuffer(name='arg8_1', layout=FixedLayout('cuda:0', torch.bool, size=[1, 512], stride=[512, 1]))\n  )),)\n  args[8]: ()ValueError: Invalid FlexAttention forward kernel options: Q and KV block sizes must be divisible by the selected tile sizes. Got SPARSE_Q_BLOCK_SIZE=64, SPARSE_KV_BLOCK_SIZE=64, and BLOCK_M=128, BLOCK_N=64. Pass compatible values with kernel_options. Available forward tuning options are BLOCK_M, BLOCK_N, num_warps, and num_stages; use the fwd_ prefix to set forward-only options. For example: kernel_options={'fwd_BLOCK_M': 32, 'fwd_BLOCK_N': 64, 'fwd_num_stages': 1, 'fwd_num_warps': 4}. If you did not pin these options, and the default choice errors, compiling with mode='max-autotune-no-cudagraphs' can also fix this by trying more FlexAttention configs.\n  target: flex_attention\n  args[0]: TensorBox(StorageBox(\n    InputBuffer(name='arg0_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 16, 512, 64], stride=[1572864, 64, 3072, 1]))\n  ))\n  args[1]: TensorBox(StorageBox(\n    InputBuffer(name='arg1_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 16, 512, 64], stride=[1572864, 64, 3072, 1]))\n  ))\n  args[2]: TensorBox(StorageBox(\n    InputBuffer(name='arg2_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[1, 16, 512, 64], stride=[1572864, 64, 3072, 1]))\n  ))\n  args[3]: Subgraph(name='sdpa_score0', graph_module=<lambda>(), inductor_config_patches=None, graph=None)\n  args[4]: (512, 512, TensorBox(StorageBox(\n    InputBuffer(name='arg7_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s99], stride=[s99, s99, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg5_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s22, s72], stride=[s22*s72, s22*s72, s72, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg10_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s94], stride=[s94, s94, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg13_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s28, s4], stride=[s28*s4, s28*s4, s4, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg15_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s56], stride=[s56, s56, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg18_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s84, s53], stride=[s53*s84, s53*s84, s53, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg20_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s100], stride=[s100, s100, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg23_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s5, s10], stride=[s10*s5, s10*s5, s10, 1]))\n  )), None, None, None, None, 64, 64, Subgraph(name='sdpa_mask0', graph_module=<lambda>(), inductor_config_patches=None, graph=None))\n  args[5]: 0.125\n  args[6]: {'BLOCK_M': 128, 'BLOCK_N': 64, 'BACKEND': 'AUTO', 'PRESCALE_QK': False, 'ROWS_GUARANTEED_SAFE': False, 'BLOCKS_ARE_CONTIGUOUS': False, 'WRITE_DQ': True, 'OUTPUT_LOGSUMEXP': True, 'OUTPUT_MAX': False}\n  args[7]: (TensorBox(StorageBox(\n    InputBuffer(name='arg8_1', layout=FixedLayout('cuda:0', torch.bool, size=[1, 512], stride=[512, 1]))\n  )),)\n  args[8]: ()\nFound from : \n   File \".venv/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py\", line 2577, in flex_attention\n    out, lse, max_scores = flex_attention_hop(\n                           ^^^^^^^^^^^^^^^^^^^\n\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n",
+    "setup_s": 0.26185270806308836
+  },
+  {
+    "batch": 1,
+    "length": 512,
+    "mode": "flex_default",
+    "device_ms": 0.010240000486373902,
+    "max_abs": 0.00390625,
+    "rms": 0.00023569625045638531,
+    "finite": true,
+    "setup_s": 1.118926084949635
+  },
+  {
+    "batch": 16,
+    "length": 512,
+    "mode": "default",
+    "device_ms": 0.47312896728515624,
+    "max_abs": 0.0,
+    "rms": 0.0,
+    "finite": true,
+    "setup_s": 0.05325114098377526
+  },
+  {
+    "batch": 16,
+    "length": 512,
+    "mode": "efficient",
+    "device_ms": 0.47476734161376954,
+    "max_abs": 0.0,
+    "rms": 0.0,
+    "finite": true,
+    "setup_s": 0.05383439897559583
+  },
+  {
+    "batch": 16,
+    "length": 512,
+    "mode": "cudnn",
+    "device_ms": 0.39446529388427737,
+    "max_abs": 0.001953125,
+    "rms": 5.304245860315859e-06,
+    "finite": true,
+    "setup_s": 0.08084880898240954
+  },
+  {
+    "batch": 16,
+    "length": 512,
+    "mode": "flash",
+    "error": "No available kernel. Aborting execution.",
+    "setup_s": 0.00019591907039284706
+  },
+  {
+    "batch": 16,
+    "length": 512,
+    "mode": "flex64",
+    "device_ms": 0.1045753574371338,
+    "max_abs": 0.00390625,
+    "rms": 0.0002336966572329402,
+    "finite": true,
+    "setup_s": 3.0857719680061564
+  },
+  {
+    "batch": 16,
+    "length": 512,
+    "mode": "flex128",
+    "error": "LoweringException: ValueError: Invalid FlexAttention forward kernel options: Q and KV block sizes must be divisible by the selected tile sizes. Got SPARSE_Q_BLOCK_SIZE=64, SPARSE_KV_BLOCK_SIZE=64, and BLOCK_M=128, BLOCK_N=64. Pass compatible values with kernel_options. Available forward tuning options are BLOCK_M, BLOCK_N, num_warps, and num_stages; use the fwd_ prefix to set forward-only options. For example: kernel_options={'fwd_BLOCK_M': 32, 'fwd_BLOCK_N': 64, 'fwd_num_stages': 1, 'fwd_num_warps': 4}. If you did not pin these options, and the default choice errors, compiling with mode='max-autotune-no-cudagraphs' can also fix this by trying more FlexAttention configs.\n  target: flex_attention\n  args[0]: TensorBox(StorageBox(\n    InputBuffer(name='arg0_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[16, 16, 512, 64], stride=[1572864, 64, 3072, 1]))\n  ))\n  args[1]: TensorBox(StorageBox(\n    InputBuffer(name='arg1_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[16, 16, 512, 64], stride=[1572864, 64, 3072, 1]))\n  ))\n  args[2]: TensorBox(StorageBox(\n    InputBuffer(name='arg2_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[16, 16, 512, 64], stride=[1572864, 64, 3072, 1]))\n  ))\n  args[3]: Subgraph(name='sdpa_score0', graph_module=<lambda>(), inductor_config_patches=None, graph=None)\n  args[4]: (512, 512, TensorBox(StorageBox(\n    InputBuffer(name='arg7_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s99], stride=[s99, s99, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg5_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s22, s72], stride=[s22*s72, s22*s72, s72, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg10_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s94], stride=[s94, s94, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg13_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s28, s4], stride=[s28*s4, s28*s4, s4, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg15_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s56], stride=[s56, s56, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg18_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s84, s53], stride=[s53*s84, s53*s84, s53, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg20_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s100], stride=[s100, s100, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg23_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s5, s10], stride=[s10*s5, s10*s5, s10, 1]))\n  )), None, None, None, None, 64, 64, Subgraph(name='sdpa_mask0', graph_module=<lambda>(), inductor_config_patches=None, graph=None))\n  args[5]: 0.125\n  args[6]: {'BLOCK_M': 128, 'BLOCK_N': 64, 'BACKEND': 'AUTO', 'PRESCALE_QK': False, 'ROWS_GUARANTEED_SAFE': False, 'BLOCKS_ARE_CONTIGUOUS': False, 'WRITE_DQ': True, 'OUTPUT_LOGSUMEXP': True, 'OUTPUT_MAX': False}\n  args[7]: (TensorBox(StorageBox(\n    InputBuffer(name='arg8_1', layout=FixedLayout('cuda:0', torch.bool, size=[16, 512], stride=[512, 1]))\n  )),)\n  args[8]: ()ValueError: Invalid FlexAttention forward kernel options: Q and KV block sizes must be divisible by the selected tile sizes. Got SPARSE_Q_BLOCK_SIZE=64, SPARSE_KV_BLOCK_SIZE=64, and BLOCK_M=128, BLOCK_N=64. Pass compatible values with kernel_options. Available forward tuning options are BLOCK_M, BLOCK_N, num_warps, and num_stages; use the fwd_ prefix to set forward-only options. For example: kernel_options={'fwd_BLOCK_M': 32, 'fwd_BLOCK_N': 64, 'fwd_num_stages': 1, 'fwd_num_warps': 4}. If you did not pin these options, and the default choice errors, compiling with mode='max-autotune-no-cudagraphs' can also fix this by trying more FlexAttention configs.\n  target: flex_attention\n  args[0]: TensorBox(StorageBox(\n    InputBuffer(name='arg0_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[16, 16, 512, 64], stride=[1572864, 64, 3072, 1]))\n  ))\n  args[1]: TensorBox(StorageBox(\n    InputBuffer(name='arg1_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[16, 16, 512, 64], stride=[1572864, 64, 3072, 1]))\n  ))\n  args[2]: TensorBox(StorageBox(\n    InputBuffer(name='arg2_1', layout=FixedLayout('cuda:0', torch.bfloat16, size=[16, 16, 512, 64], stride=[1572864, 64, 3072, 1]))\n  ))\n  args[3]: Subgraph(name='sdpa_score0', graph_module=<lambda>(), inductor_config_patches=None, graph=None)\n  args[4]: (512, 512, TensorBox(StorageBox(\n    InputBuffer(name='arg7_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s99], stride=[s99, s99, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg5_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s22, s72], stride=[s22*s72, s22*s72, s72, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg10_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s94], stride=[s94, s94, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg13_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s28, s4], stride=[s28*s4, s28*s4, s4, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg15_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s56], stride=[s56, s56, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg18_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s84, s53], stride=[s53*s84, s53*s84, s53, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg20_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s100], stride=[s100, s100, 1]))\n  )), TensorBox(StorageBox(\n    InputBuffer(name='arg23_1', layout=FixedLayout('cuda:0', torch.int32, size=[1, 1, s5, s10], stride=[s10*s5, s10*s5, s10, 1]))\n  )), None, None, None, None, 64, 64, Subgraph(name='sdpa_mask0', graph_module=<lambda>(), inductor_config_patches=None, graph=None))\n  args[5]: 0.125\n  args[6]: {'BLOCK_M': 128, 'BLOCK_N': 64, 'BACKEND': 'AUTO', 'PRESCALE_QK': False, 'ROWS_GUARANTEED_SAFE': False, 'BLOCKS_ARE_CONTIGUOUS': False, 'WRITE_DQ': True, 'OUTPUT_LOGSUMEXP': True, 'OUTPUT_MAX': False}\n  args[7]: (TensorBox(StorageBox(\n    InputBuffer(name='arg8_1', layout=FixedLayout('cuda:0', torch.bool, size=[16, 512], stride=[512, 1]))\n  )),)\n  args[8]: ()\nFound from : \n   File \".venv/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py\", line 2577, in flex_attention\n    out, lse, max_scores = flex_attention_hop(\n                           ^^^^^^^^^^^^^^^^^^^\n\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n",
+    "setup_s": 0.2434524369891733
+  },
+  {
+    "batch": 16,
+    "length": 512,
+    "mode": "flex_default",
+    "device_ms": 0.10463871955871581,
+    "max_abs": 0.00390625,
+    "rms": 0.0002336966572329402,
+    "finite": true,
+    "setup_s": 1.1310968559700996
+  }
+]

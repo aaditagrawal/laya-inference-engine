@@ -36,7 +36,7 @@ The short-request ratios are about 5.6× against default upstream and 1.3× agai
 
 ## What comes from Blackwell
 
-The measurements isolate a **software implementation change on Blackwell**, not a hardware-generation change. Both implementations already use the RTX 5070 Ti and its Tensor Cores. No comparison against an Ada, Hopper, or Ampere GPU was run, so there is no measured percentage that can be assigned to Blackwell itself.
+The RTX 5070 Ti measurements isolate a **software implementation change on Blackwell**, not a hardware-generation change. Both implementations already use the RTX 5070 Ti and its Tensor Cores. A separate [RTX A6000 comparison](rtx-a6000-comparison.md) runs this engine and the comparison CPU/GPU/hybrid implementations on the same Ampere A6000. That comparison also measures software differences within one machine. Neither experiment assigns a percentage of the gain to Blackwell hardware itself.
 
 The default `fused` backend reduces work through:
 

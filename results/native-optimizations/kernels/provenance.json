@@ -1,0 +1,16 @@
+{
+  "clean_source_sha256": {
+    "candidates.py": "ed28f542d6e676635708279a8ebf5fb2f73ffb1e9ddc6651ed822f809bfdbbca",
+    "build.py": "af700e8a9847fb62bbaa24daec5d9840fee7bf0f7e6cdb71b875a7a7f468ff5b",
+    "native.cu": "e5dcfa5256b0331128f6271b23fe696d3a63893a8d47aaed885461b4f323f702",
+    "native_vector.cu": "520165903360075dcad2ffc97e265a55a7915edb4552b7fdc8f4a421c86bc3a3",
+    "pytorch-LICENSE": "bd018feef8825e88181c84eb7e3aa4eafb8f08a20d9fd6ef948569610c4a3e43",
+    "NOTICE": "0ae36d532c3323740929c74b334dbf34f6ccd61b85d1dc356b2827ba0334aa47"
+  },
+  "selected_variant": "cuda_vector_norm_triton_geglu_corrected",
+  "validation_scope": "66 requests, 208 decisions against current engine and SDK at matched and original shapes. Synthetic numerical parity, not labeled task accuracy.",
+  "github_writes": false,
+  "precision": "FP32 residuals and Welford statistics; BF16 matrix operations, normalization outputs and GELU intermediate rounding.",
+  "correction_library": "TRITON_LIBDEVICE_PATH is pinned before calibration. Choose an alternate compiler math library before install.",
+  "source_note": "Final clean guards check dtype, contiguity, shape and device and use CUDAGuard. GPU kernel arithmetic is unchanged; parent final combined run validates rebuilt guards."
+}
