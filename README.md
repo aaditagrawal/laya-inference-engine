@@ -15,7 +15,7 @@ Contributor model to this effort and testing: GPT-6 Astra.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/performance-overview-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="docs/assets/performance-overview-light.png">
-  <img alt="Full RTX 5070 Ti performance comparison for one short question. Historical runs: upstream default 20.524 ms, upstream compile=True 8.236 ms, upstream fast=True 3.991 ms, first fused engine 2.812 ms, native plus window about 2.19 ms, compiled native about 2.11 ms, retained optimized BF16 1.624 ms. Current paired public modes: balanced 2.804 ms and fast 1.610 ms, 42.6% lower latency. All bars use the same zero-based scale. Includes tokenization, transfers, inference and formatting; excludes loading, compilation, first capture and HTTP." src="docs/assets/performance-overview-light.png" width="1000">
+  <img alt="RTX 5070 Ti warm full-request p50 for one short question: upstream default 20.524 ms, upstream compiled 8.236 ms, upstream fast 3.991 ms, our initial release 2.812 ms, and our latest fast mode 1.610 ms. Separate runs on the same GPU; includes tokenization, transfers, inference and formatting, and excludes startup and HTTP." src="docs/assets/performance-overview-light.png" width="1000">
 </picture>
 
 [Mode selection and build options](docs/performance-modes.md) · [All benchmark results](results/README.md) · [Measurement and hardware details](docs/performance.md)

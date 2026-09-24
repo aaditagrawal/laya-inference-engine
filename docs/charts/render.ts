@@ -18,7 +18,7 @@ try {
   if (!address || typeof address === "string") throw new Error("No local chart server address");
   for (const theme of ["light", "dark"]) {
     await page.goto(`http://127.0.0.1:${address.port}/?theme=${theme}`);
-    await page.waitForFunction(() => document.querySelectorAll("canvas[data-ready='true']").length === 26);
+    await page.waitForFunction(() => document.querySelectorAll("canvas[data-ready='true']").length === 22);
     await page.evaluate(() => document.fonts.ready);
     if (errors.length) throw new Error(errors.join("\n"));
     for (const chart of ["performance-overview", "public-modes", "warm-latency", "latest-paired", "experimental-gains", "startup"]) {

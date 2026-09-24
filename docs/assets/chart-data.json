@@ -1,5 +1,5 @@
 {
-  "overviewHistory": [
+  "overview": [
     {
       "label": "Upstream default",
       "detail": "Original comparison",
@@ -7,52 +7,26 @@
       "color": "neutral"
     },
     {
-      "label": "Upstream compile=True",
+      "label": "Upstream compiled",
       "detail": "Separate upstream run",
       "value": 8.23587749619037,
       "color": "neutral"
     },
     {
-      "label": "Upstream fast=True",
+      "label": "Upstream fast",
       "detail": "Separate upstream run",
       "value": 3.990803495980799,
       "color": "neutral"
     },
     {
-      "label": "First fused engine",
+      "label": "Our initial release",
       "detail": "Original implementation",
       "value": 2.81198404263705,
       "color": "accent"
     },
     {
-      "label": "Native + window",
-      "detail": "Earlier native path",
-      "value": 2.187664504162967,
-      "color": "accent"
-    },
-    {
-      "label": "Compiled native",
-      "detail": "Earlier compiled path",
-      "value": 2.1056540426798165,
-      "color": "accent"
-    },
-    {
-      "label": "Retained optimized BF16",
-      "detail": "Before packaging · historical run",
-      "value": 1.623769465368241,
-      "color": "accent"
-    }
-  ],
-  "overviewCurrent": [
-    {
-      "label": "Balanced · current",
-      "detail": "Default public mode",
-      "value": 2.803831943310797,
-      "color": "neutral"
-    },
-    {
-      "label": "Fast · current",
-      "detail": "Published FastEngine · SM120",
+      "label": "Our latest fast mode",
+      "detail": "Compiled SM120 configuration",
       "value": 1.6100694774650037,
       "color": "accent"
     }
@@ -375,9 +349,6 @@
         "results/benchmark.json",
         "results/upstream-fast.json",
         "results/upstream-compile.json",
-        "results/native-optimizations/summary.json",
-        "results/frontier/summary.json",
-        "results/frontier/full-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format.json",
         "results/fast-package.json"
       ],
       "public-modes": [
@@ -405,10 +376,10 @@
       "results/benchmark.json": "a122d5a6ed25e0e29df42e2a8c07bd9a3c021b93492957976ea8c57881f1dc56",
       "results/upstream-fast.json": "17c29bb7abd3a111eb155d3c22d76ec69f448a7fe51dc83c9c2b542a7d5dc563",
       "results/upstream-compile.json": "054709586380f153362d389d9cda7642413c8b5c07c022874c5e0a15d79073ac",
+      "results/fast-package.json": "b3f01615d226f7fe4a70d9782223f3f56f7ef6cadc0a7d40548bb211738dd9a3",
       "results/native-optimizations/summary.json": "d2a5529e8950d5310293b0fc08166f65448c6ed41e1a9aba1fb8e66d568b8377",
       "results/frontier/summary.json": "26fc2cb134db070ace0a84c68ba6021033ac36aa25c08ceeab2edd97865af85a",
       "results/frontier/full-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format.json": "e40a0c0309706c97d90fe8a08fd260340026eadf2bfe1782df680d14c9ed54f2",
-      "results/fast-package.json": "b3f01615d226f7fe4a70d9782223f3f56f7ef6cadc0a7d40548bb211738dd9a3",
       "results/frontier/holdout-native-format.json": "ea9f10d376f8c88e02a43c399a6471e894c95eb4ea62ecfa11cd12e8ebc66ddd",
       "results/latency-optimizations/summary.json": "967e6c22302177f6036a4663a5c487433ef67157ac837e13c38073027c292ab1",
       "results/latency-optimizations/serving/confirmation-summary.json": "8fcaa643f4457d221ea8bcb22c22a7c0b02fd95dfe1d6332cb6e849bfcf8e06d",

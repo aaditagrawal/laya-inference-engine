@@ -30,9 +30,10 @@ along with changes to the renderer. To update Dither Kit deliberately, change
 the pinned registry revision in `package.json`, reinstall in a clean chart
 checkout and inspect the generated images.
 
-The README leads with the full performance comparison, covering upstream modes,
-earlier optimizations and the current balanced/fast pair. Its two groups use the
-same scale. The dedicated public-mode chart provides a closer 0–3 ms view.
+The README leads with a compact comparison of the three upstream modes, our
+initial release and the latest fast mode. Intermediate optimization steps stay
+in the historical charts. The dedicated public-mode chart provides a closer
+0–3 ms view of the current balanced/fast pair.
 
 The data export records each chart's input paths and SHA-256 hashes. The public
 modes chart recomputes p50 for balanced, fast and retained implementations from
@@ -44,7 +45,7 @@ summary fails rendering instead of silently relabeling an older chart.
 
 | Image | Input files | Measurement |
 | --- | --- | --- |
-| Full performance comparison | [Original](../../results/benchmark.json), [upstream fast](../../results/upstream-fast.json), [upstream compiled](../../results/upstream-compile.json), [native summary](../../results/native-optimizations/summary.json), [frontier summary](../../results/frontier/summary.json), its full raw report, and [package validation](../../results/fast-package.json) | Nine configurations on one shared 0–25 ms scale. Seven historical rows are separate runs; the two current public modes come from the same paired run. No cross-run speedup claim. |
+| Full performance comparison | [Original](../../results/benchmark.json), [upstream fast](../../results/upstream-fast.json), [upstream compiled](../../results/upstream-compile.json), and [package validation](../../results/fast-package.json) | Five configurations on one shared 0–25 ms scale. Separate recorded runs, including the initial release at 2.812 ms and latest fast mode at 1.610 ms. |
 | Public modes | [Package validation](../../results/fast-package.json) | One short question, 900 full requests per mode across nine randomized paired rounds. Balanced 2.803831943 ms, fast 1.610069477 ms, 42.6% lower latency. Includes tokenization, copies, inference and formatting; excludes loading, compilation, first capture and HTTP. |
 | Historical warm latency | [Original](../../results/benchmark.json), [upstream fast](../../results/upstream-fast.json), [native summary](../../results/native-optimizations/summary.json) | Full warm request p50. Historical runs, not a single paired experiment. Earlier engine configurations retain their measured values. |
 | Paired result before packaging | [Frontier summary](../../results/frontier/summary.json), [full raw report](../../results/frontier/full-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format.json), [holdout](../../results/frontier/holdout-native-format.json) | One short question, 250 full requests per mode across five paired rounds. Native baseline 2.197088033 ms, optimized BF16 1.623769465 ms, 26.1% lower latency. Earlier native baseline differs from balanced mode. Retains the `latest-paired` filename for existing links. |

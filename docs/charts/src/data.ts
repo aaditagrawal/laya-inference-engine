@@ -104,20 +104,14 @@ export const latestMeasurement = {
   holdout: latestSummary.holdout,
 };
 
-export const overviewHistory = [
+export const overview = [
   warm[0],
-  {label: "Upstream compile=True", detail: "Separate upstream run", value: required(upstreamCompile.rows.find(
+  {label: "Upstream compiled", detail: "Separate upstream run", value: required(upstreamCompile.rows.find(
     row => row.questions === 1 && row.state_length === "short",
   )).p50_ms, color: "neutral"},
-  warm[1],
-  warm[2],
-  warm[3],
-  warm[4],
-  {label: "Retained optimized BF16", detail: "Before packaging · historical run", value: latestShort.optimized.p50_ms, color: "accent"},
-];
-export const overviewCurrent = [
-  {...publicModes[0], label: "Balanced · current", detail: "Default public mode"},
-  {...publicModes[1], label: "Fast · current", detail: "Published FastEngine · SM120"},
+  {...warm[1], label: "Upstream fast"},
+  {...warm[2], label: "Our initial release"},
+  {...publicModes[1], label: "Our latest fast mode"},
 ];
 export const fusion = required(latency.fusion.rows.find(row => row.case === "16-long")).variants;
 export const fusionReduction = 100 * (1 - fusion.fusion.p50_ms / fusion["native-window"].p50_ms);
@@ -138,11 +132,11 @@ export const cold = [
 
 // This also records unrounded values alongside the exported images for review.
 export const chartSources = {
-  "performance-overview": ["results/benchmark.json", "results/upstream-fast.json", "results/upstream-compile.json", "results/native-optimizations/summary.json", "results/frontier/summary.json", latestSummary.source, "results/fast-package.json"],
+  "performance-overview": ["results/benchmark.json", "results/upstream-fast.json", "results/upstream-compile.json", "results/fast-package.json"],
   "public-modes": ["results/fast-package.json"],
   "warm-latency": ["results/benchmark.json", "results/upstream-fast.json", "results/native-optimizations/summary.json"],
   "latest-paired": ["results/frontier/summary.json", latestSummary.source, "results/frontier/holdout-native-format.json"],
   "experimental-gains": ["results/latency-optimizations/summary.json", "results/latency-optimizations/serving/confirmation-summary.json"],
   startup: ["results/latency-optimizations/aot/final-offline/matrix-summary.json"],
 };
-export const chartData = {overviewHistory, overviewCurrent, publicModes, publicReduction, publicWorkloads, publicMeasurement, warm, originalSpeedup, latest, latestReduction, latestWorkloads, latestMeasurement, fusion, fusionReduction, concurrent, throughputGain, cold};
+export const chartData = {overview, publicModes, publicReduction, publicWorkloads, publicMeasurement, warm, originalSpeedup, latest, latestReduction, latestWorkloads, latestMeasurement, fusion, fusionReduction, concurrent, throughputGain, cold};

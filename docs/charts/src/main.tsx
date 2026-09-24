@@ -6,7 +6,7 @@ import "@fontsource/ibm-plex-sans/600.css";
 import "@fontsource/ibm-plex-mono/400.css";
 import { paintColumn } from "./components/dither-kit/dither-paint";
 import type { Rgb } from "./components/dither-kit/palette";
-import { overviewHistory, overviewCurrent, publicModes, publicReduction, publicMeasurement, warm, originalSpeedup, latest, latestReduction, latestMeasurement, fusion, fusionReduction, concurrent, throughputGain, cold, chartData, chartSources } from "./data";
+import { overview, publicModes, publicReduction, publicMeasurement, warm, originalSpeedup, latest, latestReduction, latestMeasurement, fusion, fusionReduction, concurrent, throughputGain, cold, chartData, chartSources } from "./data";
 import "./style.css";
 
 const theme = new URLSearchParams(location.search).get("theme") === "dark" ? "dark" : "light";
@@ -92,16 +92,12 @@ function Pair({values, labels, max, ticks, unit, digits}: {
 function App() {
   return <main>
     <section className="sheet overview" id="performance-overview">
-      <Masthead index="01" label="FULL PERFORMANCE COMPARISON" />
-      <header><div><h1>From upstream to fast mode.</h1><p>One short question · full warm request p50 · lower is better</p></div>
-        <div className="headline-stat"><strong>{format(publicModes[1].value)}<small>ms</small></strong><span>latest public fast mode</span></div>
+      <Masthead index="01" label="FULL COMPARISON" />
+      <header><div><h1>Upstream → fast.</h1><p>One short question · full warm request p50</p></div>
+        <div className="headline-stat"><strong>{format(publicModes[1].value)}<small>ms</small></strong><span>Fast mode</span></div>
       </header>
-      <div className="comparison-group">HISTORICAL MEASUREMENTS <span>Separate runs on the same GPU</span></div>
-      <HorizontalBars rows={overviewHistory} max={25} ticks={[0, 5, 10, 15, 20, 25]} unit="ms" digits={3} />
-      <div className="comparison-group current-group">CURRENT PUBLIC MODES <span>Same paired run · same 0–25 ms scale</span></div>
-      <HorizontalBars rows={overviewCurrent} max={25} ticks={[0, 5, 10, 15, 20, 25]} unit="ms" digits={3} />
-      <div className="overview-result"><strong>{format(publicReduction, 1)}% lower latency</strong><span>Fast vs. balanced · {publicMeasurement.samples_per_mode} requests per mode · {publicMeasurement.rounds} paired rounds</span></div>
-      <Footer>Includes tokenization, transfers, inference and formatting.<br />Excludes loading, compilation, first graph capture and HTTP.<br />Historical rows are separate runs; the current modes are paired.<br />Fast adds 491.9 MiB of GPU token tables and requires first-use setup.</Footer>
+      <HorizontalBars rows={overview} max={25} ticks={[0, 5, 10, 15, 20, 25]} unit="ms" digits={3} />
+      <footer><span>Separate runs · no startup or HTTP</span><span className="hardware">RTX 5070 Ti · 16 GB</span></footer>
     </section>
 
     <section className="sheet" id="public-modes">
