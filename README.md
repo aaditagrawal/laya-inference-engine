@@ -13,9 +13,9 @@ Laya returns typed decisions in one forward pass. It does not generate or stream
 Contributor model to this effort and testing: GPT-6 Astra.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/public-modes-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="docs/assets/public-modes-light.png">
-  <img alt="Paired public modes on RTX 5070 Ti: balanced 2.804 ms, fast 1.610 ms, 42.6% lower full warm short-request latency. 900 requests per mode across nine randomized paired rounds. Includes tokenization, transfers, inference and formatting; excludes loading, compilation, first capture and HTTP. Fast adds 491.9 MiB of GPU token tables." src="docs/assets/public-modes-light.png" width="1000">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/performance-overview-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="docs/assets/performance-overview-light.png">
+  <img alt="Full RTX 5070 Ti performance comparison for one short question. Historical runs: upstream default 20.524 ms, upstream compile=True 8.236 ms, upstream fast=True 3.991 ms, first fused engine 2.812 ms, native plus window about 2.19 ms, compiled native about 2.11 ms, retained optimized BF16 1.624 ms. Current paired public modes: balanced 2.804 ms and fast 1.610 ms, 42.6% lower latency. All bars use the same zero-based scale. Includes tokenization, transfers, inference and formatting; excludes loading, compilation, first capture and HTTP." src="docs/assets/performance-overview-light.png" width="1000">
 </picture>
 
 [Mode selection and build options](docs/performance-modes.md) · [All benchmark results](results/README.md) · [Measurement and hardware details](docs/performance.md)
@@ -115,9 +115,9 @@ not balanced mode. This earlier comparison remains in the
 The original balanced implementation measured 2.81 ms against default upstream at 20.52 ms, about 7.3× faster. Upstream's optional `Agent(fast=True)` measured 3.99 ms in a separate run. **Upstream `fast=True` is the Laya SDK's mode; this repository's `--mode fast` is a different implementation.** Those older results are historical comparisons, and their ratios must not be multiplied with the latest paired reduction.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/warm-latency-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="docs/assets/warm-latency-light.png">
-  <img alt="Historical RTX 5070 Ti warm single-question results: upstream default 20.52 ms, upstream fast=True 3.99 ms, first fused engine 2.81 ms, earlier native path 2.19 ms, earlier compiled path 2.11 ms. Separate historical runs; the latest paired result appears separately." src="docs/assets/warm-latency-light.png" width="1000" loading="lazy">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/public-modes-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="docs/assets/public-modes-light.png">
+  <img alt="Closer view of the current paired public modes: balanced 2.804 ms, fast 1.610 ms, 42.6% lower full warm short-request latency. 900 requests per mode across nine randomized paired rounds. Includes tokenization, transfers, inference and formatting; excludes loading, compilation, first capture and HTTP. Fast adds 491.9 MiB of GPU token tables." src="docs/assets/public-modes-light.png" width="1000" loading="lazy">
 </picture>
 
 [Original comparison](results/benchmark.json), [upstream fast mode](results/upstream-fast.json), [matched HTTP comparison](results/benchmark-http.json). Both sides exclude startup equally in these warm comparisons. This measures software improvements on Blackwell; it does not assign a percentage of the gain to Blackwell hardware itself.

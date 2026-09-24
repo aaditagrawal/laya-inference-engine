@@ -1,6 +1,7 @@
 // Read the recorded results directly. No benchmark values are copied into the renderer.
 import original from "../../../results/benchmark.json";
 import upstreamFast from "../../../results/upstream-fast.json";
+import upstreamCompile from "../../../results/upstream-compile.json";
 import native from "../../../results/native-optimizations/summary.json";
 import latency from "../../../results/latency-optimizations/summary.json";
 import serving from "../../../results/latency-optimizations/serving/confirmation-summary.json";
@@ -102,6 +103,22 @@ export const latestMeasurement = {
   original_exact: latestSummary.original_exact,
   holdout: latestSummary.holdout,
 };
+
+export const overviewHistory = [
+  warm[0],
+  {label: "Upstream compile=True", detail: "Separate upstream run", value: required(upstreamCompile.rows.find(
+    row => row.questions === 1 && row.state_length === "short",
+  )).p50_ms, color: "neutral"},
+  warm[1],
+  warm[2],
+  warm[3],
+  warm[4],
+  {label: "Retained optimized BF16", detail: "Before packaging · historical run", value: latestShort.optimized.p50_ms, color: "accent"},
+];
+export const overviewCurrent = [
+  {...publicModes[0], label: "Balanced · current", detail: "Default public mode"},
+  {...publicModes[1], label: "Fast · current", detail: "Published FastEngine · SM120"},
+];
 export const fusion = required(latency.fusion.rows.find(row => row.case === "16-long")).variants;
 export const fusionReduction = 100 * (1 - fusion.fusion.p50_ms / fusion["native-window"].p50_ms);
 export const concurrent = ["serial-current", "streams-4"].map(variant => required(serving.rows.find(
@@ -121,10 +138,11 @@ export const cold = [
 
 // This also records unrounded values alongside the exported images for review.
 export const chartSources = {
+  "performance-overview": ["results/benchmark.json", "results/upstream-fast.json", "results/upstream-compile.json", "results/native-optimizations/summary.json", "results/frontier/summary.json", latestSummary.source, "results/fast-package.json"],
   "public-modes": ["results/fast-package.json"],
   "warm-latency": ["results/benchmark.json", "results/upstream-fast.json", "results/native-optimizations/summary.json"],
   "latest-paired": ["results/frontier/summary.json", latestSummary.source, "results/frontier/holdout-native-format.json"],
   "experimental-gains": ["results/latency-optimizations/summary.json", "results/latency-optimizations/serving/confirmation-summary.json"],
   startup: ["results/latency-optimizations/aot/final-offline/matrix-summary.json"],
 };
-export const chartData = {publicModes, publicReduction, publicWorkloads, publicMeasurement, warm, originalSpeedup, latest, latestReduction, latestWorkloads, latestMeasurement, fusion, fusionReduction, concurrent, throughputGain, cold};
+export const chartData = {overviewHistory, overviewCurrent, publicModes, publicReduction, publicWorkloads, publicMeasurement, warm, originalSpeedup, latest, latestReduction, latestWorkloads, latestMeasurement, fusion, fusionReduction, concurrent, throughputGain, cold};
