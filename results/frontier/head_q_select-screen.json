@@ -1,0 +1,3976 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T12:10:48.003926+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "source_before": {
+    "head_q_select_adapter.py": "74b6a30f81ba54d6004bc5a270bb87e155f101e8d638663be93094d2407f95aa",
+    "head_q_select_full.py": "c38e1e282bf6b0c4e60c06bf77368b257353a951c2012d214f468ae2531a51a0",
+    "head_q_select_kernel.py": "6a13f0695195f6e197b99a315faaa3de77722489a45d3cd0e2485d0b4c963e51",
+    "head_q_select_probe.py": "3cd2c1a61cb9e9193b0b8c2ffd98f4138a8dee5b60c42f8a2cf7f3f2890ae641"
+  },
+  "sources": [
+    {
+      "suite": "benchmark",
+      "index": 0,
+      "selected_rows": 5,
+      "request": {
+        "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+        "questions": {
+          "q0": {
+            "type": "choice",
+            "instructions": "Which department should handle this request?",
+            "criteria": {
+              "billing": "invoices, payments, refunds",
+              "technical": "bugs, outages, system errors",
+              "sales": "pricing and new contracts",
+              "other": "everything else"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 10,
+      "selected_rows": 5,
+      "request": {
+        "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+        "questions": {
+          "q": {
+            "type": "choice",
+            "instructions": "Which department should handle this request?",
+            "criteria": {
+              "billing": "invoices, payments, refunds",
+              "technical": "bugs, outages, system errors",
+              "sales": "pricing and new contracts",
+              "other": "everything else"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 11,
+      "selected_rows": 3,
+      "request": {
+        "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+        "questions": {
+          "q": {
+            "type": "noul",
+            "instructions": "Does the customer need an urgent response?"
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 12,
+      "selected_rows": 5,
+      "request": {
+        "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+        "questions": {
+          "q": {
+            "type": "score",
+            "instructions": "How severe is the problem?",
+            "criteria": [
+              "minor inconvenience",
+              "work is delayed",
+              "business cannot operate"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 13,
+      "selected_rows": 3,
+      "request": {
+        "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+        "questions": {
+          "q": {
+            "type": "choice",
+            "instructions": "Select the available category.",
+            "criteria": [
+              "ticket"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 14,
+      "selected_rows": 5,
+      "request": {
+        "state": "The production API has been down for three hours and our entire team is blocked.",
+        "questions": {
+          "q": {
+            "type": "choice",
+            "instructions": "Which department should handle this request?",
+            "criteria": {
+              "billing": "invoices, payments, refunds",
+              "technical": "bugs, outages, system errors",
+              "sales": "pricing and new contracts",
+              "other": "everything else"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 15,
+      "selected_rows": 3,
+      "request": {
+        "state": "The production API has been down for three hours and our entire team is blocked.",
+        "questions": {
+          "q": {
+            "type": "noul",
+            "instructions": "Does the customer need an urgent response?"
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 16,
+      "selected_rows": 5,
+      "request": {
+        "state": "The production API has been down for three hours and our entire team is blocked.",
+        "questions": {
+          "q": {
+            "type": "score",
+            "instructions": "How severe is the problem?",
+            "criteria": [
+              "minor inconvenience",
+              "work is delayed",
+              "business cannot operate"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 17,
+      "selected_rows": 3,
+      "request": {
+        "state": "The production API has been down for three hours and our entire team is blocked.",
+        "questions": {
+          "q": {
+            "type": "choice",
+            "instructions": "Select the available category.",
+            "criteria": [
+              "ticket"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 18,
+      "selected_rows": 5,
+      "request": {
+        "state": "Could you send pricing for 100 seats? We are planning next year's budget.",
+        "questions": {
+          "q": {
+            "type": "choice",
+            "instructions": "Which department should handle this request?",
+            "criteria": {
+              "billing": "invoices, payments, refunds",
+              "technical": "bugs, outages, system errors",
+              "sales": "pricing and new contracts",
+              "other": "everything else"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 19,
+      "selected_rows": 3,
+      "request": {
+        "state": "Could you send pricing for 100 seats? We are planning next year's budget.",
+        "questions": {
+          "q": {
+            "type": "noul",
+            "instructions": "Does the customer need an urgent response?"
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 20,
+      "selected_rows": 5,
+      "request": {
+        "state": "Could you send pricing for 100 seats? We are planning next year's budget.",
+        "questions": {
+          "q": {
+            "type": "score",
+            "instructions": "How severe is the problem?",
+            "criteria": [
+              "minor inconvenience",
+              "work is delayed",
+              "business cannot operate"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 21,
+      "selected_rows": 3,
+      "request": {
+        "state": "Could you send pricing for 100 seats? We are planning next year's budget.",
+        "questions": {
+          "q": {
+            "type": "choice",
+            "instructions": "Select the available category.",
+            "criteria": [
+              "ticket"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 22,
+      "selected_rows": 5,
+      "request": {
+        "state": "Thanks for the update. Everything works and there is no need to respond.",
+        "questions": {
+          "q": {
+            "type": "choice",
+            "instructions": "Which department should handle this request?",
+            "criteria": {
+              "billing": "invoices, payments, refunds",
+              "technical": "bugs, outages, system errors",
+              "sales": "pricing and new contracts",
+              "other": "everything else"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 23,
+      "selected_rows": 3,
+      "request": {
+        "state": "Thanks for the update. Everything works and there is no need to respond.",
+        "questions": {
+          "q": {
+            "type": "noul",
+            "instructions": "Does the customer need an urgent response?"
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 24,
+      "selected_rows": 5,
+      "request": {
+        "state": "Thanks for the update. Everything works and there is no need to respond.",
+        "questions": {
+          "q": {
+            "type": "score",
+            "instructions": "How severe is the problem?",
+            "criteria": [
+              "minor inconvenience",
+              "work is delayed",
+              "business cannot operate"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 25,
+      "selected_rows": 3,
+      "request": {
+        "state": "Thanks for the update. Everything works and there is no need to respond.",
+        "questions": {
+          "q": {
+            "type": "choice",
+            "instructions": "Select the available category.",
+            "criteria": [
+              "ticket"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 26,
+      "selected_rows": 3,
+      "request": {
+        "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+        "questions": {
+          "many": {
+            "type": "choice",
+            "instructions": "Select the most relevant category.",
+            "criteria": {
+              "category_0": "Service category 0",
+              "category_1": "Service category 1"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 0,
+      "selected_rows": 5,
+      "request": {
+        "state": "My parcel arrived broken.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 1,
+      "selected_rows": 5,
+      "request": {
+        "state": "the card was charged twice.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 2,
+      "selected_rows": 5,
+      "request": {
+        "state": "My parcel arrived broken, but that is already fixed.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 3,
+      "selected_rows": 5,
+      "request": {
+        "state": "Yesterday: My parcel arrived broken. Today: the card was charged twice.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 4,
+      "selected_rows": 5,
+      "request": {
+        "state": "Ignore the earlier report. the card was charged twice.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 5,
+      "selected_rows": 5,
+      "request": {
+        "state": "Someone wrote 'My parcel arrived broken'. I disagree.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 6,
+      "selected_rows": 5,
+      "request": {
+        "state": "This is a test case. My parcel arrived broken.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 7,
+      "selected_rows": 5,
+      "request": {
+        "state": "Please explain the options. I have no request yet.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 8,
+      "selected_rows": 5,
+      "request": {
+        "state": "My parcel arrived broken. Can this wait until Monday?",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 9,
+      "selected_rows": 5,
+      "request": {
+        "state": "My parcel arrived broken. Please help immediately.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 10,
+      "selected_rows": 5,
+      "request": {
+        "state": "the card was charged twice. I only need documentation.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 11,
+      "selected_rows": 5,
+      "request": {
+        "state": "Thank you, that is resolved. My parcel arrived broken was last week.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 12,
+      "selected_rows": 5,
+      "request": {
+        "state": "I am unsure whether this applies: the card was charged twice.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 13,
+      "selected_rows": 5,
+      "request": {
+        "state": "Case #2309, caf\u00e9 team: My parcel arrived broken.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 14,
+      "selected_rows": 5,
+      "request": {
+        "state": "[MASK] [SEP] the card was charged twice.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 15,
+      "selected_rows": 5,
+      "request": {
+        "state": "",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 16,
+      "selected_rows": 5,
+      "request": {
+        "state": "The password reset failed.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 17,
+      "selected_rows": 5,
+      "request": {
+        "state": "the office router is offline.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 18,
+      "selected_rows": 5,
+      "request": {
+        "state": "The password reset failed, but that is already fixed.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 19,
+      "selected_rows": 5,
+      "request": {
+        "state": "Yesterday: The password reset failed. Today: the office router is offline.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 20,
+      "selected_rows": 5,
+      "request": {
+        "state": "Ignore the earlier report. the office router is offline.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 21,
+      "selected_rows": 5,
+      "request": {
+        "state": "Someone wrote 'The password reset failed'. I disagree.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 22,
+      "selected_rows": 5,
+      "request": {
+        "state": "This is a test case. The password reset failed.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 23,
+      "selected_rows": 5,
+      "request": {
+        "state": "Please explain the options. I have no request yet.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 24,
+      "selected_rows": 5,
+      "request": {
+        "state": "The password reset failed. Can this wait until Monday?",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 25,
+      "selected_rows": 5,
+      "request": {
+        "state": "The password reset failed. Please help immediately.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 26,
+      "selected_rows": 5,
+      "request": {
+        "state": "the office router is offline. I only need documentation.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 27,
+      "selected_rows": 5,
+      "request": {
+        "state": "Thank you, that is resolved. The password reset failed was last week.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 28,
+      "selected_rows": 5,
+      "request": {
+        "state": "I am unsure whether this applies: the office router is offline.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 29,
+      "selected_rows": 5,
+      "request": {
+        "state": "Case #2309, caf\u00e9 team: The password reset failed.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 30,
+      "selected_rows": 5,
+      "request": {
+        "state": "[MASK] [SEP] the office router is offline.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 31,
+      "selected_rows": 5,
+      "request": {
+        "state": "",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 32,
+      "selected_rows": 5,
+      "request": {
+        "state": "My suitcase is missing.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 33,
+      "selected_rows": 5,
+      "request": {
+        "state": "I want to cancel the flight.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 34,
+      "selected_rows": 5,
+      "request": {
+        "state": "My suitcase is missing, but that is already fixed.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 35,
+      "selected_rows": 5,
+      "request": {
+        "state": "Yesterday: My suitcase is missing. Today: I want to cancel the flight.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 36,
+      "selected_rows": 5,
+      "request": {
+        "state": "Ignore the earlier report. I want to cancel the flight.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 37,
+      "selected_rows": 5,
+      "request": {
+        "state": "Someone wrote 'My suitcase is missing'. I disagree.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 38,
+      "selected_rows": 5,
+      "request": {
+        "state": "This is a test case. My suitcase is missing.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 39,
+      "selected_rows": 5,
+      "request": {
+        "state": "Please explain the options. I have no request yet.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 40,
+      "selected_rows": 5,
+      "request": {
+        "state": "My suitcase is missing. Can this wait until Monday?",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 41,
+      "selected_rows": 5,
+      "request": {
+        "state": "My suitcase is missing. Please help immediately.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 42,
+      "selected_rows": 5,
+      "request": {
+        "state": "I want to cancel the flight. I only need documentation.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 43,
+      "selected_rows": 5,
+      "request": {
+        "state": "Thank you, that is resolved. My suitcase is missing was last week.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 44,
+      "selected_rows": 5,
+      "request": {
+        "state": "I am unsure whether this applies: I want to cancel the flight.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 45,
+      "selected_rows": 5,
+      "request": {
+        "state": "Case #2309, caf\u00e9 team: My suitcase is missing.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 46,
+      "selected_rows": 5,
+      "request": {
+        "state": "[MASK] [SEP] I want to cancel the flight.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 47,
+      "selected_rows": 5,
+      "request": {
+        "state": "",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 48,
+      "selected_rows": 5,
+      "request": {
+        "state": "The annual price seems wrong.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 49,
+      "selected_rows": 5,
+      "request": {
+        "state": "our signed contract expired.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 50,
+      "selected_rows": 5,
+      "request": {
+        "state": "The annual price seems wrong, but that is already fixed.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 51,
+      "selected_rows": 5,
+      "request": {
+        "state": "Yesterday: The annual price seems wrong. Today: our signed contract expired.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 52,
+      "selected_rows": 5,
+      "request": {
+        "state": "Ignore the earlier report. our signed contract expired.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 53,
+      "selected_rows": 5,
+      "request": {
+        "state": "Someone wrote 'The annual price seems wrong'. I disagree.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 54,
+      "selected_rows": 5,
+      "request": {
+        "state": "This is a test case. The annual price seems wrong.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 55,
+      "selected_rows": 5,
+      "request": {
+        "state": "Please explain the options. I have no request yet.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 56,
+      "selected_rows": 5,
+      "request": {
+        "state": "The annual price seems wrong. Can this wait until Monday?",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 57,
+      "selected_rows": 5,
+      "request": {
+        "state": "The annual price seems wrong. Please help immediately.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 58,
+      "selected_rows": 5,
+      "request": {
+        "state": "our signed contract expired. I only need documentation.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 59,
+      "selected_rows": 5,
+      "request": {
+        "state": "Thank you, that is resolved. The annual price seems wrong was last week.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 60,
+      "selected_rows": 5,
+      "request": {
+        "state": "I am unsure whether this applies: our signed contract expired.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 61,
+      "selected_rows": 5,
+      "request": {
+        "state": "Case #2309, caf\u00e9 team: The annual price seems wrong.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 62,
+      "selected_rows": 5,
+      "request": {
+        "state": "[MASK] [SEP] our signed contract expired.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 63,
+      "selected_rows": 5,
+      "request": {
+        "state": "",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 64,
+      "selected_rows": 5,
+      "request": {
+        "state": "Production has stopped.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 65,
+      "selected_rows": 5,
+      "request": {
+        "state": "the system now works again.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 66,
+      "selected_rows": 5,
+      "request": {
+        "state": "Production has stopped, but that is already fixed.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 67,
+      "selected_rows": 5,
+      "request": {
+        "state": "Yesterday: Production has stopped. Today: the system now works again.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 68,
+      "selected_rows": 5,
+      "request": {
+        "state": "Ignore the earlier report. the system now works again.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 69,
+      "selected_rows": 5,
+      "request": {
+        "state": "Someone wrote 'Production has stopped'. I disagree.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 70,
+      "selected_rows": 5,
+      "request": {
+        "state": "This is a test case. Production has stopped.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 71,
+      "selected_rows": 5,
+      "request": {
+        "state": "Please explain the options. I have no request yet.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 72,
+      "selected_rows": 5,
+      "request": {
+        "state": "Production has stopped. Can this wait until Monday?",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 73,
+      "selected_rows": 5,
+      "request": {
+        "state": "Production has stopped. Please help immediately.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 74,
+      "selected_rows": 5,
+      "request": {
+        "state": "the system now works again. I only need documentation.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 75,
+      "selected_rows": 5,
+      "request": {
+        "state": "Thank you, that is resolved. Production has stopped was last week.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 76,
+      "selected_rows": 5,
+      "request": {
+        "state": "I am unsure whether this applies: the system now works again.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 77,
+      "selected_rows": 5,
+      "request": {
+        "state": "Case #2309, caf\u00e9 team: Production has stopped.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 78,
+      "selected_rows": 5,
+      "request": {
+        "state": "[MASK] [SEP] the system now works again.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 79,
+      "selected_rows": 5,
+      "request": {
+        "state": "",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 80,
+      "selected_rows": 5,
+      "request": {
+        "state": "The soup arrived cold.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 81,
+      "selected_rows": 5,
+      "request": {
+        "state": "we waited an hour for water.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 82,
+      "selected_rows": 5,
+      "request": {
+        "state": "The soup arrived cold, but that is already fixed.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 83,
+      "selected_rows": 5,
+      "request": {
+        "state": "Yesterday: The soup arrived cold. Today: we waited an hour for water.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 84,
+      "selected_rows": 5,
+      "request": {
+        "state": "Ignore the earlier report. we waited an hour for water.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 85,
+      "selected_rows": 5,
+      "request": {
+        "state": "Someone wrote 'The soup arrived cold'. I disagree.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 86,
+      "selected_rows": 5,
+      "request": {
+        "state": "This is a test case. The soup arrived cold.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 87,
+      "selected_rows": 5,
+      "request": {
+        "state": "Please explain the options. I have no request yet.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 88,
+      "selected_rows": 5,
+      "request": {
+        "state": "The soup arrived cold. Can this wait until Monday?",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 89,
+      "selected_rows": 5,
+      "request": {
+        "state": "The soup arrived cold. Please help immediately.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 90,
+      "selected_rows": 5,
+      "request": {
+        "state": "we waited an hour for water. I only need documentation.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 91,
+      "selected_rows": 5,
+      "request": {
+        "state": "Thank you, that is resolved. The soup arrived cold was last week.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 92,
+      "selected_rows": 5,
+      "request": {
+        "state": "I am unsure whether this applies: we waited an hour for water.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 93,
+      "selected_rows": 5,
+      "request": {
+        "state": "Case #2309, caf\u00e9 team: The soup arrived cold.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 94,
+      "selected_rows": 5,
+      "request": {
+        "state": "[MASK] [SEP] we waited an hour for water.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 95,
+      "selected_rows": 5,
+      "request": {
+        "state": "",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 96,
+      "selected_rows": 5,
+      "request": {
+        "state": "The export button crashes.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 97,
+      "selected_rows": 5,
+      "request": {
+        "state": "I need a weekly report option.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 98,
+      "selected_rows": 5,
+      "request": {
+        "state": "The export button crashes, but that is already fixed.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 99,
+      "selected_rows": 5,
+      "request": {
+        "state": "Yesterday: The export button crashes. Today: I need a weekly report option.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 100,
+      "selected_rows": 5,
+      "request": {
+        "state": "Ignore the earlier report. I need a weekly report option.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 101,
+      "selected_rows": 5,
+      "request": {
+        "state": "Someone wrote 'The export button crashes'. I disagree.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 102,
+      "selected_rows": 5,
+      "request": {
+        "state": "This is a test case. The export button crashes.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 103,
+      "selected_rows": 5,
+      "request": {
+        "state": "Please explain the options. I have no request yet.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 104,
+      "selected_rows": 5,
+      "request": {
+        "state": "The export button crashes. Can this wait until Monday?",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 105,
+      "selected_rows": 5,
+      "request": {
+        "state": "The export button crashes. Please help immediately.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 106,
+      "selected_rows": 5,
+      "request": {
+        "state": "I need a weekly report option. I only need documentation.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 107,
+      "selected_rows": 5,
+      "request": {
+        "state": "Thank you, that is resolved. The export button crashes was last week.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 108,
+      "selected_rows": 5,
+      "request": {
+        "state": "I am unsure whether this applies: I need a weekly report option.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 109,
+      "selected_rows": 5,
+      "request": {
+        "state": "Case #2309, caf\u00e9 team: The export button crashes.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 110,
+      "selected_rows": 5,
+      "request": {
+        "state": "[MASK] [SEP] I need a weekly report option.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 111,
+      "selected_rows": 5,
+      "request": {
+        "state": "",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 112,
+      "selected_rows": 5,
+      "request": {
+        "state": "The update is wonderful.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 113,
+      "selected_rows": 5,
+      "request": {
+        "state": "the new interface is confusing.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 114,
+      "selected_rows": 5,
+      "request": {
+        "state": "The update is wonderful, but that is already fixed.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 115,
+      "selected_rows": 5,
+      "request": {
+        "state": "Yesterday: The update is wonderful. Today: the new interface is confusing.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 116,
+      "selected_rows": 5,
+      "request": {
+        "state": "Ignore the earlier report. the new interface is confusing.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 117,
+      "selected_rows": 5,
+      "request": {
+        "state": "Someone wrote 'The update is wonderful'. I disagree.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 118,
+      "selected_rows": 5,
+      "request": {
+        "state": "This is a test case. The update is wonderful.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 119,
+      "selected_rows": 5,
+      "request": {
+        "state": "Please explain the options. I have no request yet.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 120,
+      "selected_rows": 5,
+      "request": {
+        "state": "The update is wonderful. Can this wait until Monday?",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 121,
+      "selected_rows": 5,
+      "request": {
+        "state": "The update is wonderful. Please help immediately.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 122,
+      "selected_rows": 5,
+      "request": {
+        "state": "the new interface is confusing. I only need documentation.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 123,
+      "selected_rows": 5,
+      "request": {
+        "state": "Thank you, that is resolved. The update is wonderful was last week.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 124,
+      "selected_rows": 5,
+      "request": {
+        "state": "I am unsure whether this applies: the new interface is confusing.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 125,
+      "selected_rows": 5,
+      "request": {
+        "state": "Case #2309, caf\u00e9 team: The update is wonderful.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 126,
+      "selected_rows": 5,
+      "request": {
+        "state": "[MASK] [SEP] the new interface is confusing.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "What is the main issue?",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 127,
+      "selected_rows": 5,
+      "request": {
+        "state": "",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "index": 0,
+      "selected_rows": 5,
+      "request": {
+        "state": "My parcel arrived broken. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "index": 1,
+      "selected_rows": 5,
+      "request": {
+        "state": "The password reset failed. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "index": 2,
+      "selected_rows": 5,
+      "request": {
+        "state": "My suitcase is missing. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "index": 3,
+      "selected_rows": 5,
+      "request": {
+        "state": "The annual price seems wrong. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "index": 4,
+      "selected_rows": 5,
+      "request": {
+        "state": "Production has stopped. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "index": 5,
+      "selected_rows": 5,
+      "request": {
+        "state": "The soup arrived cold. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "index": 6,
+      "selected_rows": 5,
+      "request": {
+        "state": "The export button crashes. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "index": 7,
+      "selected_rows": 5,
+      "request": {
+        "state": "The update is wonderful. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "rows": [
+    {
+      "bm": 32,
+      "projection_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "chain_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "unused_zero": true,
+      "all_exact": true,
+      "binary_before_timing": {
+        "(3, 32)": {
+          "ptx": "7e0cb547203134e37e97d184125a419260abe38a53a0e8cff9f0d75f005a491d",
+          "cubin": "bacb0304358f50fd84f503f3a4733b17bb6589faaac84bee7b164abdc783fac8"
+        },
+        "(5, 32)": {
+          "ptx": "edb5ee93d80f9e152b9bbaa2b98da8ef24482f026f76e7265b3cc0f2f43bdb4e",
+          "cubin": "b372f2dd292c783c1a831b317b75e6a89cbf507bb82331f9e486db7124bde963"
+        }
+      },
+      "timings": {
+        "full": {
+          "projection_reference": {
+            "ms": 0.012359999418258667,
+            "samples_ms": [
+              0.012438080310821532,
+              0.012359999418258667,
+              0.012341760396957398,
+              0.012364159822463989,
+              0.012361600399017333,
+              0.012352639436721801,
+              0.012331839799880982
+            ]
+          },
+          "projection_candidate": {
+            "ms": 0.010267839431762696,
+            "samples_ms": [
+              0.01032032012939453,
+              0.01026911973953247,
+              0.010262399911880493,
+              0.010265599489212036,
+              0.010268160104751588,
+              0.01026304006576538,
+              0.010267839431762696
+            ]
+          },
+          "chain_reference": {
+            "ms": 0.045083842277526855,
+            "samples_ms": [
+              0.04517504215240478,
+              0.045083842277526855,
+              0.04508063793182373,
+              0.04507999897003174,
+              0.045089921951293944,
+              0.04509024143218994,
+              0.04507872104644775
+            ]
+          },
+          "chain_candidate": {
+            "ms": 0.04102431774139404,
+            "samples_ms": [
+              0.041094398498535155,
+              0.04100895881652832,
+              0.041063361167907715,
+              0.04104832172393799,
+              0.04102431774139404,
+              0.04101888179779053,
+              0.04100128173828125
+            ]
+          }
+        },
+        "padded": {
+          "projection_reference": {
+            "ms": 0.012346880435943603,
+            "samples_ms": [
+              0.01238495945930481,
+              0.012351360321044922,
+              0.012343360185623169,
+              0.012344000339508056,
+              0.012346880435943603,
+              0.012349439859390259,
+              0.012333439588546753
+            ]
+          },
+          "projection_candidate": {
+            "ms": 0.010280959606170655,
+            "samples_ms": [
+              0.010316799879074096,
+              0.010280959606170655,
+              0.010270400047302246,
+              0.010271040201187133,
+              0.010282880067825318,
+              0.010288959741592408,
+              0.01026911973953247
+            ]
+          },
+          "chain_reference": {
+            "ms": 0.045089921951293944,
+            "samples_ms": [
+              0.045176639556884765,
+              0.04509503841400146,
+              0.04509471893310547,
+              0.04508895874023437,
+              0.04507904052734375,
+              0.045083198547363285,
+              0.045089921951293944
+            ]
+          },
+          "chain_candidate": {
+            "ms": 0.04100192070007324,
+            "samples_ms": [
+              0.04109055995941162,
+              0.04102431774139404,
+              0.041011838912963866,
+              0.040986242294311526,
+              0.04100192070007324,
+              0.04098176002502441,
+              0.040984001159667965
+            ]
+          }
+        }
+      },
+      "binary_after_timing": {
+        "(3, 32)": {
+          "ptx": "7e0cb547203134e37e97d184125a419260abe38a53a0e8cff9f0d75f005a491d",
+          "cubin": "bacb0304358f50fd84f503f3a4733b17bb6589faaac84bee7b164abdc783fac8"
+        },
+        "(5, 32)": {
+          "ptx": "edb5ee93d80f9e152b9bbaa2b98da8ef24482f026f76e7265b3cc0f2f43bdb4e",
+          "cubin": "b372f2dd292c783c1a831b317b75e6a89cbf507bb82331f9e486db7124bde963"
+        }
+      }
+    },
+    {
+      "bm": 16,
+      "projection_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "chain_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "unused_zero": true,
+      "all_exact": true,
+      "binary_before_timing": {
+        "(3, 16)": {
+          "ptx": "4a30586ac6e1e90a37dc82067abe5dc59c34d5839062223c1ba95ed837cacb36",
+          "cubin": "871bda98cbf79e4df5c890cb68a1e1fe9ca776f62aeec57c20565e7dfbf98ef8"
+        },
+        "(3, 32)": {
+          "ptx": "7e0cb547203134e37e97d184125a419260abe38a53a0e8cff9f0d75f005a491d",
+          "cubin": "bacb0304358f50fd84f503f3a4733b17bb6589faaac84bee7b164abdc783fac8"
+        },
+        "(5, 16)": {
+          "ptx": "639029cac47ed8e9b014f48c66d05c73bdce330c1d36ab490fc93f9041a47da3",
+          "cubin": "94e8f9005e75134601fd7ae78084a3103554929f4d2af8ca778c05d4008c0000"
+        },
+        "(5, 32)": {
+          "ptx": "edb5ee93d80f9e152b9bbaa2b98da8ef24482f026f76e7265b3cc0f2f43bdb4e",
+          "cubin": "b372f2dd292c783c1a831b317b75e6a89cbf507bb82331f9e486db7124bde963"
+        }
+      },
+      "timings": {
+        "full": {
+          "projection_reference": {
+            "ms": 0.0123471999168396,
+            "samples_ms": [
+              0.012418880462646484,
+              0.01235103964805603,
+              0.012331199645996094,
+              0.012357759475708007,
+              0.0123471999168396,
+              0.012341760396957398,
+              0.012338559627532959
+            ]
+          },
+          "projection_candidate": {
+            "ms": 0.010287679433822632,
+            "samples_ms": [
+              0.010313919782638549,
+              0.010301120281219482,
+              0.010271999835968017,
+              0.01029536008834839,
+              0.010287359952926636,
+              0.010287679433822632,
+              0.010287679433822632
+            ]
+          },
+          "chain_reference": {
+            "ms": 0.045090560913085935,
+            "samples_ms": [
+              0.04516640186309814,
+              0.04510719776153564,
+              0.04509823799133301,
+              0.045090560913085935,
+              0.045088000297546386,
+              0.04508255958557129,
+              0.04508224010467529
+            ]
+          },
+          "chain_candidate": {
+            "ms": 0.04275743961334229,
+            "samples_ms": [
+              0.04275743961334229,
+              0.042839040756225584,
+              0.04271679878234863,
+              0.042854080200195314,
+              0.042877120971679686,
+              0.04264927864074707,
+              0.042746238708496094
+            ]
+          }
+        },
+        "padded": {
+          "projection_reference": {
+            "ms": 0.012345600128173827,
+            "samples_ms": [
+              0.012374399900436402,
+              0.012352319955825806,
+              0.012345600128173827,
+              0.012330880165100097,
+              0.012331199645996094,
+              0.012348159551620483,
+              0.012331199645996094
+            ]
+          },
+          "projection_candidate": {
+            "ms": 0.010287359952926636,
+            "samples_ms": [
+              0.010326080322265625,
+              0.01029695987701416,
+              0.010293760299682618,
+              0.010283520221710205,
+              0.010287359952926636,
+              0.010279680490493775,
+              0.010279040336608886
+            ]
+          },
+          "chain_reference": {
+            "ms": 0.04509439945220947,
+            "samples_ms": [
+              0.04517248153686523,
+              0.04509439945220947,
+              0.045096640586853025,
+              0.045077118873596195,
+              0.04508768081665039,
+              0.04508416175842285,
+              0.04509568214416504
+            ]
+          },
+          "chain_candidate": {
+            "ms": 0.04303167819976807,
+            "samples_ms": [
+              0.04312352180480957,
+              0.04303328037261963,
+              0.043015360832214355,
+              0.04300896167755127,
+              0.04303167819976807,
+              0.04303679943084717,
+              0.043015360832214355
+            ]
+          }
+        }
+      },
+      "binary_after_timing": {
+        "(3, 16)": {
+          "ptx": "4a30586ac6e1e90a37dc82067abe5dc59c34d5839062223c1ba95ed837cacb36",
+          "cubin": "871bda98cbf79e4df5c890cb68a1e1fe9ca776f62aeec57c20565e7dfbf98ef8"
+        },
+        "(3, 32)": {
+          "ptx": "7e0cb547203134e37e97d184125a419260abe38a53a0e8cff9f0d75f005a491d",
+          "cubin": "bacb0304358f50fd84f503f3a4733b17bb6589faaac84bee7b164abdc783fac8"
+        },
+        "(5, 16)": {
+          "ptx": "639029cac47ed8e9b014f48c66d05c73bdce330c1d36ab490fc93f9041a47da3",
+          "cubin": "94e8f9005e75134601fd7ae78084a3103554929f4d2af8ca778c05d4008c0000"
+        },
+        "(5, 32)": {
+          "ptx": "edb5ee93d80f9e152b9bbaa2b98da8ef24482f026f76e7265b3cc0f2f43bdb4e",
+          "cubin": "b372f2dd292c783c1a831b317b75e6a89cbf507bb82331f9e486db7124bde963"
+        }
+      }
+    }
+  ],
+  "scope": "Final head Q-selected/KV-full projection and chained head; not full-request latency",
+  "reference_config": [
+    32,
+    64,
+    64,
+    1,
+    4,
+    3,
+    false
+  ],
+  "source_after": {
+    "head_q_select_adapter.py": "74b6a30f81ba54d6004bc5a270bb87e155f101e8d638663be93094d2407f95aa",
+    "head_q_select_full.py": "c38e1e282bf6b0c4e60c06bf77368b257353a951c2012d214f468ae2531a51a0",
+    "head_q_select_kernel.py": "6a13f0695195f6e197b99a315faaa3de77722489a45d3cd0e2485d0b4c963e51",
+    "head_q_select_probe.py": "3cd2c1a61cb9e9193b0b8c2ffd98f4138a8dee5b60c42f8a2cf7f3f2890ae641"
+  }
+}

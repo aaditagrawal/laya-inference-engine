@@ -1,0 +1,758 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T10:09:12.997574+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "seed": 20260924,
+  "method": "28 distinct checkpoint matrices and independent random BF16 activations per field; graph replay; BF16 MMA register layout; split-4 BF16 partial rounding for MLPWo",
+  "compressed_storage_ratio": 0.8125,
+  "rows": [
+    {
+      "field": "attn.Wqkv",
+      "variant": "retained-bf16",
+      "ms": 0.2820757230122884,
+      "samples_ms": [
+        0.28297065099080404,
+        0.2820757230122884,
+        0.2817760149637858,
+        0.28245118459065754,
+        0.2818506558736165
+      ]
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "compressed",
+      "tile": 3,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.5451605478922527,
+      "samples_ms": [
+        0.5458239873250326,
+        0.5450101216634115,
+        0.5452096303304036,
+        0.5451605478922527,
+        0.5448511759440104
+      ],
+      "speedup_retained": 0.5174177113565429
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "compressed",
+      "tile": 0,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.5104650815327962,
+      "samples_ms": [
+        0.5112256050109864,
+        0.5104650815327962,
+        0.5103786786397299,
+        0.5104127883911133,
+        0.5119584083557129
+      ],
+      "speedup_retained": 0.5525857364528971
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "compressed",
+      "tile": 1,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.6373055775960287,
+      "samples_ms": [
+        0.638263448079427,
+        0.6373055775960287,
+        0.6372010548909505,
+        0.6371381123860677,
+        0.6374410629272461
+      ],
+      "speedup_retained": 0.4426067069368861
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "compressed",
+      "tile": 2,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.5776266733805339,
+      "samples_ms": [
+        0.5803295771280924,
+        0.578166389465332,
+        0.5774922688802083,
+        0.5776234944661458,
+        0.5776266733805339
+      ],
+      "speedup_retained": 0.4883356950285087
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "raw-fragments",
+      "tile": 3,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.3895039876302083,
+      "samples_ms": [
+        0.3911818822224935,
+        0.3895039876302083,
+        0.3895680109659831,
+        0.38932374318440754,
+        0.38932374318440754
+      ],
+      "speedup_retained": 0.7241921314553745
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "raw-fragments",
+      "tile": 0,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.3262218793233236,
+      "samples_ms": [
+        0.32758293151855467,
+        0.3266058603922526,
+        0.3261930783589681,
+        0.3261119842529297,
+        0.3262218793233236
+      ],
+      "speedup_retained": 0.8646744467213333
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "raw-fragments",
+      "tile": 1,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.35450881322224936,
+      "samples_ms": [
+        0.35450881322224936,
+        0.3544778823852539,
+        0.3544682820638021,
+        0.3547295888264974,
+        0.35471998850504555
+      ],
+      "speedup_retained": 0.7956804245525172
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "raw-fragments",
+      "tile": 2,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.3431424140930176,
+      "samples_ms": [
+        0.34368000030517576,
+        0.34281813303629555,
+        0.3431424140930176,
+        0.34305601119995116,
+        0.3431477228800456
+      ],
+      "speedup_retained": 0.8220368903035825
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "retained-bf16",
+      "ms": 0.12692053318023683,
+      "samples_ms": [
+        0.1273258686065674,
+        0.12692053318023683,
+        0.12705492973327637,
+        0.1268831968307495,
+        0.1269162654876709
+      ]
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "compressed",
+      "tile": 3,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.3075519879659017,
+      "samples_ms": [
+        0.30859734217325846,
+        0.3075104077657064,
+        0.3075519879659017,
+        0.30750398635864257,
+        0.30766932169596356
+      ],
+      "speedup_retained": 0.4126799310245671
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "compressed",
+      "tile": 0,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.2805952072143555,
+      "samples_ms": [
+        0.2816842714945475,
+        0.2805952072143555,
+        0.2806175867716471,
+        0.28035411834716795,
+        0.2799114545186361
+      ],
+      "speedup_retained": 0.4523260908133696
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "compressed",
+      "tile": 1,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.4588063875834147,
+      "samples_ms": [
+        0.45824000040690105,
+        0.4584650675455729,
+        0.45885438919067384,
+        0.4588063875834147,
+        0.4588095982869466
+      ],
+      "speedup_retained": 0.27663200996119885
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "compressed",
+      "tile": 2,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.3874826749165853,
+      "samples_ms": [
+        0.38781973520914714,
+        0.3874826749165853,
+        0.3873813311258952,
+        0.3873066584269206,
+        0.38750826517740883
+      ],
+      "speedup_retained": 0.3275515046125854
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "raw-fragments",
+      "tile": 3,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.22791892687479656,
+      "samples_ms": [
+        0.2286634604136149,
+        0.22791892687479656,
+        0.22791147232055664,
+        0.22787626584370932,
+        0.2283189296722412
+      ],
+      "speedup_retained": 0.556867018112798
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "raw-fragments",
+      "tile": 0,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.2063423951466878,
+      "samples_ms": [
+        0.20728319485982258,
+        0.20653866132100424,
+        0.20576426188151042,
+        0.20598293940226237,
+        0.2063423951466878
+      ],
+      "speedup_retained": 0.6150967332234833
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "raw-fragments",
+      "tile": 1,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.25817492802937825,
+      "samples_ms": [
+        0.2584309260050456,
+        0.2581717332204183,
+        0.25817492802937825,
+        0.258134396870931,
+        0.2582293351491292
+      ],
+      "speedup_retained": 0.4916067340427196
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "raw-fragments",
+      "tile": 2,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.26466347376505533,
+      "samples_ms": [
+        0.2650730609893799,
+        0.2648085276285807,
+        0.2646410624186198,
+        0.2644970734914144,
+        0.26466347376505533
+      ],
+      "speedup_retained": 0.47955439930825355
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "retained-bf16",
+      "ms": 0.4451370557149251,
+      "samples_ms": [
+        0.44558080037434894,
+        0.4451370557149251,
+        0.4451946576436361,
+        0.4449632008870443,
+        0.44479999542236326
+      ]
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "compressed",
+      "tile": 3,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.861627705891927,
+      "samples_ms": [
+        0.861627705891927,
+        0.8600704193115234,
+        0.8615669250488281,
+        0.8685248057047527,
+        0.8671829223632812
+      ],
+      "speedup_retained": 0.5166234240972262
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "compressed",
+      "tile": 0,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7909589131673177,
+      "samples_ms": [
+        0.7877344131469727,
+        0.7883861541748047,
+        0.7909589131673177,
+        0.7951904296875,
+        0.7949408213297526
+      ],
+      "speedup_retained": 0.5627815153285488
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "compressed",
+      "tile": 1,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.8826453526814778,
+      "samples_ms": [
+        0.8873952229817709,
+        0.8825546900431315,
+        0.8820298512776693,
+        0.8826453526814778,
+        0.8826602935791016
+      ],
+      "speedup_retained": 0.5043215311365976
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "compressed",
+      "tile": 2,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.8204842885335286,
+      "samples_ms": [
+        0.8204842885335286,
+        0.8203200022379558,
+        0.820741335550944,
+        0.8203392028808594,
+        0.8206293106079101
+      ],
+      "speedup_retained": 0.5425296522259181
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "raw-fragments",
+      "tile": 3,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7682101567586263,
+      "samples_ms": [
+        0.7669642766316732,
+        0.7682111740112305,
+        0.7669621149698893,
+        0.7682101567586263,
+        0.7683338801066081
+      ],
+      "speedup_retained": 0.5794469804892054
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "raw-fragments",
+      "tile": 0,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.48367465337117516,
+      "samples_ms": [
+        0.4840746561686198,
+        0.48323841094970704,
+        0.48367465337117516,
+        0.4836554527282715,
+        0.48384319941202797
+      ],
+      "speedup_retained": 0.9203233053713981
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "raw-fragments",
+      "tile": 1,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.5033503850301106,
+      "samples_ms": [
+        0.5033962567647298,
+        0.5035765329996745,
+        0.5023071924845378,
+        0.5033503850301106,
+        0.5031434694925944
+      ],
+      "speedup_retained": 0.8843482968395799
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "raw-fragments",
+      "tile": 2,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.47603734334309894,
+      "samples_ms": [
+        0.4765695889790853,
+        0.4757354736328125,
+        0.4760448137919108,
+        0.47529172897338867,
+        0.47603734334309894
+      ],
+      "speedup_retained": 0.9350885218139225
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "retained-bf16",
+      "ms": 0.26487040519714355,
+      "samples_ms": [
+        0.2650272051493327,
+        0.2647285302480062,
+        0.26490453084309895,
+        0.2646122614542643,
+        0.26487040519714355
+      ]
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "compressed",
+      "tile": 3,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.4547530810038249,
+      "samples_ms": [
+        0.4552298545837402,
+        0.45367040634155276,
+        0.45474987030029296,
+        0.45501120885213214,
+        0.4547530810038249
+      ],
+      "speedup_retained": 0.5824488414954043
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "compressed",
+      "tile": 0,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.425760014851888,
+      "samples_ms": [
+        0.42744852701822916,
+        0.425760014851888,
+        0.4258399963378906,
+        0.4257322629292806,
+        0.42563947041829425
+      ],
+      "speedup_retained": 0.6221119784799092
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "compressed",
+      "tile": 1,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.4737930615743001,
+      "samples_ms": [
+        0.47959038416544597,
+        0.47478081385294596,
+        0.4737930615743001,
+        0.4735445340474447,
+        0.4737749417622884
+      ],
+      "speedup_retained": 0.55904238934408
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "compressed",
+      "tile": 2,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.4360010782877604,
+      "samples_ms": [
+        0.4375424067179362,
+        0.4360010782877604,
+        0.4359530766805013,
+        0.4358624140421549,
+        0.4360575993855794
+      ],
+      "speedup_retained": 0.6074994269218968
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "raw-fragments",
+      "tile": 3,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.3247925440470378,
+      "samples_ms": [
+        0.3253162701924642,
+        0.3248384157816569,
+        0.3247925440470378,
+        0.324452273050944,
+        0.32428693771362305
+      ],
+      "speedup_retained": 0.8155064211042479
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "raw-fragments",
+      "tile": 0,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.2848853429158529,
+      "samples_ms": [
+        0.2859061241149902,
+        0.2848853429158529,
+        0.28476053873697915,
+        0.2849983851114909,
+        0.2848010698954264
+      ],
+      "speedup_retained": 0.9297438839293983
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "raw-fragments",
+      "tile": 1,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.2892512003580729,
+      "samples_ms": [
+        0.29044694900512696,
+        0.2892512003580729,
+        0.28919251759847003,
+        0.28897600173950194,
+        0.28936745325724283
+      ],
+      "speedup_retained": 0.9157106517423347
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "raw-fragments",
+      "tile": 2,
+      "unroll": 0,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.288812796274821,
+      "samples_ms": [
+        0.28991146087646485,
+        0.2888736089070638,
+        0.2883946736653646,
+        0.288812796274821,
+        0.28857491811116537
+      ],
+      "speedup_retained": 0.9171006569428629
+    }
+  ],
+  "baseline_selection": {
+    "attn.Wqkv": {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "variant": "tma",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.2824053366978963,
+      "samples_ms": [
+        0.2842533389727275,
+        0.2824053366978963,
+        0.2823973298072815
+      ],
+      "speedup": 1.1323865060223333,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r15];",
+      "shared_bytes": 36888
+    },
+    "attn.Wo": {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        5
+      ],
+      "variant": "bf16",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.12824533383051553,
+      "samples_ms": [
+        0.129530668258667,
+        0.12824533383051553,
+        0.12781866391499838
+      ],
+      "speedup": 1.5529402232354563
+    },
+    "mlp.Wi": {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "bf16",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.44487198193868,
+      "samples_ms": [
+        0.4462960163752238,
+        0.4447973171869914,
+        0.44487198193868
+      ],
+      "speedup": 1.1813076064907817
+    },
+    "mlp.Wo": {
+      "field": "mlp.Wo",
+      "variant": "bf16-partial",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.26548266410827637,
+      "samples_ms": [
+        0.2674853404362996,
+        0.26548266410827637,
+        0.26505066951115924
+      ],
+      "speedup": 1.1396902301869904
+    }
+  },
+  "source_sha256": {
+    "native_lossless_build.py": "039910189d838a8dd857271a64d52485fbbe2798130a802498136a6120a0219c",
+    "native_lossless_probe.py": "73330b8457fd1c46ef888c549a0062e3b55aa74ba958f477e7e5d30ca7d89709",
+    "native_lossless.py": "d3a2c6cfcc69790e3dd7e9bb44d943d88ccee92f1c3e058172dee546768f5ae8",
+    "native_lossless.cu": "dbd32f57fcb7a72c3d9840718fded1d451383de9db32792565b8ae56adcad383"
+  },
+  "native_build": {
+    "seconds": 25.90147514792625,
+    "source_sha256": "dbd32f57fcb7a72c3d9840718fded1d451383de9db32792565b8ae56adcad383",
+    "library_sha256": "cbd4c3a1b725552e3ec6f178be700db5ff0e7fa928f96f8f1dd82b789d607f93",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "architecture": "sm_120"
+  },
+  "decode_validation": "Both independent Triton unpacking and the native CUDA/PTX fragment decoder reproduce every BF16 weight bit across all 112 actual matrices.",
+  "outcome": "Screened out. No configuration outperforms retained BF16 despite exact weights and exact GEMM outputs.",
+  "findings": [
+    "Checkpoint-specific sign/mantissa bytes and 5-bit exponents are packed in MMA B-register lane order, using exactly 13/16 of original BF16 storage. Unsupported exponents and subnormals are rejected.",
+    "Four CTA geometries use an explicit two-stage cp.async shared-memory pipeline, activation-bank swizzling and register decoding into mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32.",
+    "MLP output follows the retained K64 split-4 partition and rounds each partial to BF16 before sequential FP32 reduction. All 32 pipeline configurations across four projection families have zero BF16 output-bit mismatches.",
+    "Best compressed speeds relative to retained kernels range from 0.452x to 0.622x. The uncompressed fragment-layout controls range from 0.615x to 0.935x. This shows decode overhead remains material, and explicit register/shared layouts alone do not resolve the latency gap.",
+    "Benchmark medians cover 28 distinct model weights and independent random BF16 activation tensors, five blocks of 30 CUDA Graph replays. These are isolated matrix measurements, not full-request latency."
+  ]
+}

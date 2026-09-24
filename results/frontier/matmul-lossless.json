@@ -1,0 +1,3720 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T07:35:16.537158+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "method": "CUDA Graph with 28 distinct layer weights per replay, then median of three blocks. Larger than L2. Isolated operations require full-request confirmation.",
+  "quantized": false,
+  "rows": [
+    {
+      "field": "attn.Wqkv",
+      "variant": "cublas",
+      "ms": 0.31918400526046753,
+      "samples_ms": [
+        0.3215786616007487,
+        0.31918400526046753,
+        0.31916266679763794
+      ]
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        128,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2793,
+      "max_abs_error": 0.0625,
+      "ms": 2.6059066454569497,
+      "samples_ms": [
+        2.607271989186605,
+        2.6059066454569497,
+        2.6050000190734863
+      ],
+      "speedup": 0.1224848195605634
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        32,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2473,
+      "max_abs_error": 0.0625,
+      "ms": 0.7889359792073568,
+      "samples_ms": [
+        0.793293317159017,
+        0.7889359792073568,
+        0.7868639628092448
+      ],
+      "speedup": 0.40457529339852316
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 658,
+      "max_abs_error": 0.0625,
+      "ms": 0.8349066575368246,
+      "samples_ms": [
+        0.835098663965861,
+        0.8330453236897787,
+        0.8349066575368246
+      ],
+      "speedup": 0.3822990299324443
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 658,
+      "max_abs_error": 0.0625,
+      "ms": 2.1619253158569336,
+      "samples_ms": [
+        2.1645387013753257,
+        2.161618709564209,
+        2.1619253158569336
+      ],
+      "speedup": 0.14763877499346037
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        32,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2861,
+      "max_abs_error": 0.0625,
+      "ms": 0.858400026957194,
+      "samples_ms": [
+        0.8615840276082357,
+        0.858400026957194,
+        0.858346700668335
+      ],
+      "speedup": 0.37183596835602656
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2861,
+      "max_abs_error": 0.0625,
+      "ms": 2.210573355356852,
+      "samples_ms": [
+        2.2110026677449546,
+        2.210573355356852,
+        2.209909280141195
+      ],
+      "speedup": 0.1443896917001163
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        128,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        128,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2861,
+      "max_abs_error": 0.0625,
+      "ms": 1.3789013226826985,
+      "samples_ms": [
+        1.3812853495279949,
+        1.3789013226826985,
+        1.3788293202718098
+      ],
+      "speedup": 0.23147704626135568
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        128,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2861,
+      "max_abs_error": 0.0625,
+      "ms": 2.1167279879252114,
+      "samples_ms": [
+        2.118845303853353,
+        2.1162427266438804,
+        2.1167279879252114
+      ],
+      "speedup": 0.15079122451313523
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        32,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 658,
+      "max_abs_error": 0.0625,
+      "ms": 2.7989174524943032,
+      "samples_ms": [
+        2.7989174524943032,
+        2.797727902730306,
+        2.7993574142456055
+      ],
+      "speedup": 0.1140383775791677
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        256,
+        64,
+        2,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 180224, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        32,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2861,
+      "max_abs_error": 0.0625,
+      "ms": 2.8536933263142905,
+      "samples_ms": [
+        2.8537041346232095,
+        2.8536933263142905,
+        2.852967898050944
+      ],
+      "speedup": 0.11184944167518943
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        128,
+        128,
+        8,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2861,
+      "max_abs_error": 0.0625,
+      "ms": 1.558008035024007,
+      "samples_ms": [
+        1.5606560707092285,
+        1.5579813321431477,
+        1.558008035024007
+      ],
+      "speedup": 0.20486672602785985
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        128,
+        128,
+        4,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 294912, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        128,
+        64,
+        4,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        128,
+        128,
+        1,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 294912, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        128,
+        128,
+        2,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 294912, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2861,
+      "max_abs_error": 0.0625,
+      "ms": 1.114202658335368,
+      "samples_ms": [
+        1.1183040142059326,
+        1.114202658335368,
+        1.113437334696452
+      ],
+      "speedup": 0.28646853682554685
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        128,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 163840, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        32,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2793,
+      "max_abs_error": 0.0625,
+      "ms": 2.4094932874043784,
+      "samples_ms": [
+        2.4107413291931152,
+        2.4094932874043784,
+        2.408895969390869
+      ],
+      "speedup": 0.13246934819407935
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        32,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2473,
+      "max_abs_error": 0.0625,
+      "ms": 2.897850672403971,
+      "samples_ms": [
+        2.898599942525228,
+        2.897301355997721,
+        2.897850672403971
+      ],
+      "speedup": 0.11014508383749184
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2473,
+      "max_abs_error": 0.0625,
+      "ms": 1.1724987030029297,
+      "samples_ms": [
+        1.1750133037567139,
+        1.171242634455363,
+        1.1724987030029297
+      ],
+      "speedup": 0.272225465531854
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        32,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2473,
+      "max_abs_error": 0.0625,
+      "ms": 2.2142292658487954,
+      "samples_ms": [
+        2.216229279836019,
+        2.2142292658487954,
+        2.2126800219217935
+      ],
+      "speedup": 0.14415129010505268
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2473,
+      "max_abs_error": 0.0625,
+      "ms": 2.2460266749064126,
+      "samples_ms": [
+        2.247722625732422,
+        2.2460266749064126,
+        2.2457760175069175
+      ],
+      "speedup": 0.14211051401416117
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        32,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2861,
+      "max_abs_error": 0.0625,
+      "ms": 2.308039983113607,
+      "samples_ms": [
+        2.3089599609375,
+        2.308039983113607,
+        2.3050079345703125
+      ],
+      "speedup": 0.13829223392823545
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 163840, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        128,
+        64,
+        8,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2793,
+      "max_abs_error": 0.0625,
+      "ms": 0.9826773007710775,
+      "samples_ms": [
+        0.9845946629842123,
+        0.981655995051066,
+        0.9826773007710775
+      ],
+      "speedup": 0.32481060161867314
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2793,
+      "max_abs_error": 0.0625,
+      "ms": 0.7950106461842855,
+      "samples_ms": [
+        0.7970986366271973,
+        0.7950106461842855,
+        0.7939279874165853
+      ],
+      "speedup": 0.40148393835027946
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        128,
+        64,
+        1,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2793,
+      "max_abs_error": 0.0625,
+      "ms": 2.2636240323384604,
+      "samples_ms": [
+        2.2636240323384604,
+        2.2624640464782715,
+        2.2640026410420737
+      ],
+      "speedup": 0.1410057503810521
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        256,
+        64,
+        4,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 180224, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2793,
+      "max_abs_error": 0.0625,
+      "ms": 2.22597074508667,
+      "samples_ms": [
+        2.2285173734029136,
+        2.2229973475138345,
+        2.22597074508667
+      ],
+      "speedup": 0.1433909254939646
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        256,
+        64,
+        8,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 180224, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 658,
+      "max_abs_error": 0.0625,
+      "ms": 1.082103967666626,
+      "samples_ms": [
+        1.083733320236206,
+        1.0819439888000488,
+        1.082103967666626
+      ],
+      "speedup": 0.2949661167482213
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        128,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 2473,
+      "max_abs_error": 0.0625,
+      "ms": 2.500874678293864,
+      "samples_ms": [
+        2.502130667368571,
+        2.5007306734720864,
+        2.500874678293864
+      ],
+      "speedup": 0.1276289483958548
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 658,
+      "max_abs_error": 0.0625,
+      "ms": 2.8542960484822593,
+      "samples_ms": [
+        2.854501406351725,
+        2.8540213902791343,
+        2.8542960484822593
+      ],
+      "speedup": 0.11182582319384499
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        128,
+        64,
+        2,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        128,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 163840, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        256,
+        64,
+        1,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 245760, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "cublas",
+      "ms": 0.19944000244140625,
+      "samples_ms": [
+        0.20097867647806802,
+        0.19944000244140625,
+        0.19929865996042886
+      ]
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 887,
+      "max_abs_error": 0.0625,
+      "ms": 1.3004480202992756,
+      "samples_ms": [
+        1.3007307052612305,
+        1.3004133701324463,
+        1.3004480202992756
+      ],
+      "speedup": 0.15336253301036099
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 786,
+      "max_abs_error": 0.0625,
+      "ms": 0.3803759813308716,
+      "samples_ms": [
+        0.3825013240178426,
+        0.3803759813308716,
+        0.38011467456817627
+      ],
+      "speedup": 0.5243233333072168
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 189,
+      "max_abs_error": 0.03125,
+      "ms": 0.6821200052897135,
+      "samples_ms": [
+        0.6822053591410319,
+        0.6817119916280111,
+        0.6821200052897135
+      ],
+      "speedup": 0.29238257329324197
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 189,
+      "max_abs_error": 0.03125,
+      "ms": 0.9075653553009033,
+      "samples_ms": [
+        0.9076186815897623,
+        0.9063493410746256,
+        0.9075653553009033
+      ],
+      "speedup": 0.2197527718268641
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 919,
+      "max_abs_error": 0.0625,
+      "ms": 0.35201064745585126,
+      "samples_ms": [
+        0.3533466657002767,
+        0.3516666491826375,
+        0.35201064745585126
+      ],
+      "speedup": 0.5665737780457899
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 919,
+      "max_abs_error": 0.0625,
+      "ms": 0.8321519692738851,
+      "samples_ms": [
+        0.8338533242543539,
+        0.8321519692738851,
+        0.8308800061543783
+      ],
+      "speedup": 0.23966776478992483
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        128,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 919,
+      "max_abs_error": 0.0625,
+      "ms": 0.5169653495152792,
+      "samples_ms": [
+        0.5194853146870931,
+        0.5168453454971313,
+        0.5169653495152792
+      ],
+      "speedup": 0.38578988442534234
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 919,
+      "max_abs_error": 0.0625,
+      "ms": 0.7413919766743978,
+      "samples_ms": [
+        0.7435306708017985,
+        0.740943988164266,
+        0.7413919766743978
+      ],
+      "speedup": 0.26900750037249954
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        32,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 189,
+      "max_abs_error": 0.03125,
+      "ms": 2.780029296875,
+      "samples_ms": [
+        2.7812318801879883,
+        2.780029296875,
+        2.7799065907796225
+      ],
+      "speedup": 0.07174025204180205
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        256,
+        64,
+        2,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 180224, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        32,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 919,
+      "max_abs_error": 0.0625,
+      "ms": 0.9849226474761963,
+      "samples_ms": [
+        0.9859786828358968,
+        0.9849226474761963,
+        0.984831968943278
+      ],
+      "speedup": 0.20249306171653073
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        128,
+        128,
+        8,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 919,
+      "max_abs_error": 0.0625,
+      "ms": 0.5416693290074667,
+      "samples_ms": [
+        0.5448026657104492,
+        0.5416693290074667,
+        0.5416106780370077
+      ],
+      "speedup": 0.36819511787173215
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        128,
+        128,
+        4,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 294912, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        4,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        128,
+        128,
+        1,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 294912, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        128,
+        128,
+        2,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 294912, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 919,
+      "max_abs_error": 0.0625,
+      "ms": 0.40410931905110675,
+      "samples_ms": [
+        0.408402681350708,
+        0.40410931905110675,
+        0.40376798311869305
+      ],
+      "speedup": 0.4935298272994876
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        128,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 163840, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        32,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 887,
+      "max_abs_error": 0.0625,
+      "ms": 0.8549493153889974,
+      "samples_ms": [
+        0.8563973108927408,
+        0.8547840118408203,
+        0.8549493153889974
+      ],
+      "speedup": 0.23327698946768805
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        32,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 786,
+      "max_abs_error": 0.0625,
+      "ms": 1.5033094088236492,
+      "samples_ms": [
+        1.5043706893920898,
+        1.5033094088236492,
+        1.5026720364888508
+      ],
+      "speedup": 0.13266730140235705
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 786,
+      "max_abs_error": 0.0625,
+      "ms": 0.5896186828613281,
+      "samples_ms": [
+        0.5916399955749512,
+        0.5896186828613281,
+        0.5893786748250326
+      ],
+      "speedup": 0.33825251512308735
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 786,
+      "max_abs_error": 0.0625,
+      "ms": 0.7787413597106934,
+      "samples_ms": [
+        0.7818586826324463,
+        0.7787413597106934,
+        0.7785173257191976
+      ],
+      "speedup": 0.25610557337740386
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 786,
+      "max_abs_error": 0.0625,
+      "ms": 0.8407893180847168,
+      "samples_ms": [
+        0.843552033106486,
+        0.8402853012084961,
+        0.8407893180847168
+      ],
+      "speedup": 0.23720568060465172
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 919,
+      "max_abs_error": 0.0625,
+      "ms": 0.8436986605326334,
+      "samples_ms": [
+        0.8465387026468912,
+        0.8436986605326334,
+        0.8427546819051107
+      ],
+      "speedup": 0.23638771965751165
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 163840, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        8,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 887,
+      "max_abs_error": 0.0625,
+      "ms": 0.35249332586924237,
+      "samples_ms": [
+        0.35420000553131104,
+        0.35249332586924237,
+        0.35229599475860596
+      ],
+      "speedup": 0.5657979536196627
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 887,
+      "max_abs_error": 0.0625,
+      "ms": 0.3126346667607625,
+      "samples_ms": [
+        0.31413867076237995,
+        0.3126346667607625,
+        0.312282661596934
+      ],
+      "speedup": 0.6379331009827639
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        1,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 887,
+      "max_abs_error": 0.0625,
+      "ms": 0.7904640038808187,
+      "samples_ms": [
+        0.7934799989064535,
+        0.7904640038808187,
+        0.7900079886118571
+      ],
+      "speedup": 0.252307507315003
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        256,
+        64,
+        4,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 180224, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 887,
+      "max_abs_error": 0.0625,
+      "ms": 0.8922213713328043,
+      "samples_ms": [
+        0.8927919864654541,
+        0.8922213713328043,
+        0.8866026401519775
+      ],
+      "speedup": 0.22353197182833884
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        256,
+        64,
+        8,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 180224, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 189,
+      "max_abs_error": 0.03125,
+      "ms": 1.0625066757202148,
+      "samples_ms": [
+        1.0625066757202148,
+        1.0617012977600098,
+        1.0627546310424805
+      ],
+      "speedup": 0.18770705822268538
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 786,
+      "max_abs_error": 0.0625,
+      "ms": 2.457866668701172,
+      "samples_ms": [
+        2.4596773783365884,
+        2.457866668701172,
+        2.4577040672302246
+      ],
+      "speedup": 0.0811435400386457
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 189,
+      "max_abs_error": 0.03125,
+      "ms": 1.5800053278605144,
+      "samples_ms": [
+        1.5800053278605144,
+        1.5805546442667644,
+        1.5791759490966797
+      ],
+      "speedup": 0.12622742399955575
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        2,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        128,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 163840, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        256,
+        64,
+        1,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 245760, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "cublas",
+      "ms": 0.5290666818618774,
+      "samples_ms": [
+        0.530514677365621,
+        0.5290666818618774,
+        0.5290026664733887
+      ]
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        128,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4759,
+      "max_abs_error": 0.0625,
+      "ms": 3.8753865559895835,
+      "samples_ms": [
+        3.877450625101725,
+        3.874898592631022,
+        3.8753865559895835
+      ],
+      "speedup": 0.1365197185411559
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        32,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4335,
+      "max_abs_error": 0.0625,
+      "ms": 1.2269279956817627,
+      "samples_ms": [
+        1.2297013600667317,
+        1.2269279956817627,
+        1.2268586953481038
+      ],
+      "speedup": 0.4312124947217402
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 1182,
+      "max_abs_error": 0.03125,
+      "ms": 1.4656960169474285,
+      "samples_ms": [
+        1.4673706690470378,
+        1.4630427360534668,
+        1.4656960169474285
+      ],
+      "speedup": 0.360966172892898
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 1182,
+      "max_abs_error": 0.03125,
+      "ms": 3.57257874806722,
+      "samples_ms": [
+        3.5719305674235025,
+        3.57257874806722,
+        3.5779946645100913
+      ],
+      "speedup": 0.14809097830190718
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        32,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4992,
+      "max_abs_error": 0.0625,
+      "ms": 1.4066054026285808,
+      "samples_ms": [
+        1.4089733759562175,
+        1.4062053362528484,
+        1.4066054026285808
+      ],
+      "speedup": 0.3761301363361672
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4992,
+      "max_abs_error": 0.0625,
+      "ms": 3.7769041061401367,
+      "samples_ms": [
+        3.7690000534057617,
+        3.776975949605306,
+        3.7769041061401367
+      ],
+      "speedup": 0.14007945846487616
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        128,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        128,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4992,
+      "max_abs_error": 0.0625,
+      "ms": 2.2196133931477866,
+      "samples_ms": [
+        2.218071937561035,
+        2.2196133931477866,
+        2.222287972768148
+      ],
+      "speedup": 0.23835983486816664
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        128,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4992,
+      "max_abs_error": 0.0625,
+      "ms": 3.4761412938435874,
+      "samples_ms": [
+        3.470032056172689,
+        3.4761412938435874,
+        3.479384104410807
+      ],
+      "speedup": 0.15219941801528028
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        32,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 1182,
+      "max_abs_error": 0.03125,
+      "ms": 5.3760935465494795,
+      "samples_ms": [
+        5.3785146077473955,
+        5.3760935465494795,
+        5.375877380371094
+      ],
+      "speedup": 0.09841098881202441
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        256,
+        64,
+        2,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 180224, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        32,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4992,
+      "max_abs_error": 0.0625,
+      "ms": 4.713570594787598,
+      "samples_ms": [
+        4.709216117858887,
+        4.713570594787598,
+        4.720093409220378
+      ],
+      "speedup": 0.11224329226063456
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        128,
+        128,
+        8,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4992,
+      "max_abs_error": 0.0625,
+      "ms": 2.5319679578145347,
+      "samples_ms": [
+        2.5319679578145347,
+        2.530517260233561,
+        2.536813259124756
+      ],
+      "speedup": 0.20895473034285186
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        128,
+        128,
+        4,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 294912, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        128,
+        64,
+        4,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        128,
+        128,
+        1,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 294912, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        128,
+        128,
+        2,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 294912, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4992,
+      "max_abs_error": 0.0625,
+      "ms": 1.8126133282979329,
+      "samples_ms": [
+        1.809000015258789,
+        1.8126133282979329,
+        1.8146212895711262
+      ],
+      "speedup": 0.29188060884373934
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        128,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 163840, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        32,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4759,
+      "max_abs_error": 0.0625,
+      "ms": 3.9748427073160806,
+      "samples_ms": [
+        3.969594637552897,
+        3.9748427073160806,
+        3.9778054555257163
+      ],
+      "speedup": 0.13310380329970775
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        32,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4335,
+      "max_abs_error": 0.0625,
+      "ms": 4.338829358418782,
+      "samples_ms": [
+        4.330562591552734,
+        4.338829358418782,
+        4.341642697652181
+      ],
+      "speedup": 0.12193765602588423
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4335,
+      "max_abs_error": 0.0625,
+      "ms": 1.7548213005065918,
+      "samples_ms": [
+        1.7533520062764485,
+        1.7548213005065918,
+        1.759874661763509
+      ],
+      "speedup": 0.3014931957511249
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        32,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4335,
+      "max_abs_error": 0.0625,
+      "ms": 3.657445271809896,
+      "samples_ms": [
+        3.6529785792032876,
+        3.657445271809896,
+        3.65775458017985
+      ],
+      "speedup": 0.14465470910520759
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4335,
+      "max_abs_error": 0.0625,
+      "ms": 3.6616799036661782,
+      "samples_ms": [
+        3.657613436381022,
+        3.6624507904052734,
+        3.6616799036661782
+      ],
+      "speedup": 0.14448741992224956
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        32,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4992,
+      "max_abs_error": 0.0625,
+      "ms": 3.813503901163737,
+      "samples_ms": [
+        3.809885342915853,
+        3.813503901163737,
+        3.815434773763021
+      ],
+      "speedup": 0.1387350572003942
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 163840, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        128,
+        64,
+        8,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4759,
+      "max_abs_error": 0.0625,
+      "ms": 1.6099707285563152,
+      "samples_ms": [
+        1.60917329788208,
+        1.6099707285563152,
+        1.6110506057739258
+      ],
+      "speedup": 0.3286188205025935
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4759,
+      "max_abs_error": 0.0625,
+      "ms": 1.2744747002919514,
+      "samples_ms": [
+        1.2775626977284749,
+        1.2731573581695557,
+        1.2744747002919514
+      ],
+      "speedup": 0.4151252918089947
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        128,
+        64,
+        1,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4759,
+      "max_abs_error": 0.0625,
+      "ms": 3.7452799479166665,
+      "samples_ms": [
+        3.741538683573405,
+        3.745685259501139,
+        3.7452799479166665
+      ],
+      "speedup": 0.14126225254701558
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        256,
+        64,
+        4,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 180224, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4759,
+      "max_abs_error": 0.0625,
+      "ms": 3.5796400705973306,
+      "samples_ms": [
+        3.579202651977539,
+        3.5796400705973306,
+        3.581439971923828
+      ],
+      "speedup": 0.14779884888638892
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        256,
+        64,
+        8,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 180224, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 1182,
+      "max_abs_error": 0.03125,
+      "ms": 2.155240058898926,
+      "samples_ms": [
+        2.1567360560099282,
+        2.155240058898926,
+        2.15392271677653
+      ],
+      "speedup": 0.24547923544636058
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        128,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 4335,
+      "max_abs_error": 0.0625,
+      "ms": 4.967181205749512,
+      "samples_ms": [
+        4.958210627237956,
+        4.968525250752767,
+        4.967181205749512
+      ],
+      "speedup": 0.10651245846426598
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 1182,
+      "max_abs_error": 0.03125,
+      "ms": 4.327794710795085,
+      "samples_ms": [
+        4.324562708536784,
+        4.327794710795085,
+        4.327831904093425
+      ],
+      "speedup": 0.12224856242422817
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        128,
+        64,
+        2,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        128,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 163840, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        256,
+        64,
+        1,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 245760, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "cublas",
+      "ms": 0.3024666706720988,
+      "samples_ms": [
+        0.3036453326543172,
+        0.3024666706720988,
+        0.30215466022491455
+      ]
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735807,
+      "max_abs_error": 0.25,
+      "ms": 3.34931214650472,
+      "samples_ms": [
+        3.3508691787719727,
+        3.34931214650472,
+        3.349085489908854
+      ],
+      "speedup": 0.09030710111261125
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735797,
+      "max_abs_error": 0.25,
+      "ms": 0.9447626272837321,
+      "samples_ms": [
+        0.9455119768778483,
+        0.9442133108774821,
+        0.9447626272837321
+      ],
+      "speedup": 0.320150969076449
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735790,
+      "max_abs_error": 0.25,
+      "ms": 1.8345840771993,
+      "samples_ms": [
+        1.8345840771993,
+        1.8331947326660156,
+        1.8356614112854004
+      ],
+      "speedup": 0.16486934255629668
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735790,
+      "max_abs_error": 0.25,
+      "ms": 2.0804773966471353,
+      "samples_ms": [
+        2.0787013371785483,
+        2.0804773966471353,
+        2.081501324971517
+      ],
+      "speedup": 0.1453833005633944
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735811,
+      "max_abs_error": 0.25,
+      "ms": 0.7741146882375082,
+      "samples_ms": [
+        0.7774426937103271,
+        0.7726773420969645,
+        0.7741146882375082
+      ],
+      "speedup": 0.39072591602770135
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735811,
+      "max_abs_error": 0.25,
+      "ms": 1.6374185880025227,
+      "samples_ms": [
+        1.6347306569417317,
+        1.6374185880025227,
+        1.63919464747111
+      ],
+      "speedup": 0.1847216544921944
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        128,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 163840, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735811,
+      "max_abs_error": 0.25,
+      "ms": 1.934765338897705,
+      "samples_ms": [
+        1.931554635365804,
+        1.934765338897705,
+        1.9357840220133464
+      ],
+      "speedup": 0.15633248363050753
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        32,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735790,
+      "max_abs_error": 0.25,
+      "ms": 6.23305066426595,
+      "samples_ms": [
+        6.23305066426595,
+        6.231554667154948,
+        6.244437535603841
+      ],
+      "speedup": 0.048526265381755807
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        256,
+        64,
+        2,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 180224, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        32,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735810,
+      "max_abs_error": 0.25,
+      "ms": 1.8693493207295735,
+      "samples_ms": [
+        1.866146723429362,
+        1.8699572881062825,
+        1.8693493207295735
+      ],
+      "speedup": 0.16180318323492984
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        128,
+        128,
+        8,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 294912, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        128,
+        128,
+        4,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 294912, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        4,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        128,
+        128,
+        1,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 294912, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        128,
+        128,
+        2,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 294912, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735811,
+      "max_abs_error": 0.25,
+      "ms": 0.9222213427225748,
+      "samples_ms": [
+        0.9227519830067953,
+        0.920250654220581,
+        0.9222213427225748
+      ],
+      "speedup": 0.3279762207401956
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        128,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 163840, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        32,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735806,
+      "max_abs_error": 0.25,
+      "ms": 1.7398613293965657,
+      "samples_ms": [
+        1.7380213737487793,
+        1.7398613293965657,
+        1.7403440475463867
+      ],
+      "speedup": 0.1738452746558848
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        32,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735800,
+      "max_abs_error": 0.25,
+      "ms": 3.2009385426839194,
+      "samples_ms": [
+        3.1934986114501953,
+        3.201754570007324,
+        3.2009385426839194
+      ],
+      "speedup": 0.09449312026418567
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735797,
+      "max_abs_error": 0.25,
+      "ms": 1.4219120343526204,
+      "samples_ms": [
+        1.421888033548991,
+        1.4219120343526204,
+        1.422592004140218
+      ],
+      "speedup": 0.2127182718513303
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735797,
+      "max_abs_error": 0.25,
+      "ms": 1.5789306958516438,
+      "samples_ms": [
+        1.5796586672465007,
+        1.5775814056396484,
+        1.5789306958516438
+      ],
+      "speedup": 0.19156424754219772
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735797,
+      "max_abs_error": 0.25,
+      "ms": 1.6922507286071777,
+      "samples_ms": [
+        1.6922507286071777,
+        1.6900960604349773,
+        1.6925253868103027
+      ],
+      "speedup": 0.17873632172760046
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        8,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735811,
+      "max_abs_error": 0.25,
+      "ms": 1.6335867245992024,
+      "samples_ms": [
+        1.635759989420573,
+        1.6335867245992024,
+        1.6329545974731445
+      ],
+      "speedup": 0.18515495144361466
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 163840, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        8,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735807,
+      "max_abs_error": 0.25,
+      "ms": 0.7987573146820068,
+      "samples_ms": [
+        0.7993093331654867,
+        0.7980373700459799,
+        0.7987573146820068
+      ],
+      "speedup": 0.3786715503100135
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735807,
+      "max_abs_error": 0.25,
+      "ms": 0.70851731300354,
+      "samples_ms": [
+        0.7133626937866211,
+        0.7083973089853922,
+        0.70851731300354
+      ],
+      "speedup": 0.4269008888292156
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        1,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735807,
+      "max_abs_error": 0.25,
+      "ms": 1.519005298614502,
+      "samples_ms": [
+        1.5185813903808594,
+        1.5190587043762207,
+        1.519005298614502
+      ],
+      "speedup": 0.19912153759304285
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        256,
+        64,
+        4,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 180224, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735807,
+      "max_abs_error": 0.25,
+      "ms": 1.5852160453796387,
+      "samples_ms": [
+        1.5866212844848633,
+        1.5852160453796387,
+        1.5835332870483398
+      ],
+      "speedup": 0.19080469917881884
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        256,
+        64,
+        8,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 180224, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735790,
+      "max_abs_error": 0.25,
+      "ms": 2.743376096089681,
+      "samples_ms": [
+        2.743376096089681,
+        2.743768056233724,
+        2.7428719202677407
+      ],
+      "speedup": 0.11025344687635974
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735797,
+      "max_abs_error": 0.25,
+      "ms": 6.274864196777344,
+      "samples_ms": [
+        6.275856018066406,
+        6.274864196777344,
+        6.273621241251628
+      ],
+      "speedup": 0.04820290307277729
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "mismatches": 735790,
+      "max_abs_error": 0.25,
+      "ms": 3.2343012491861978,
+      "samples_ms": [
+        3.2343012491861978,
+        3.2349812189737954,
+        3.2343012491861978
+      ],
+      "speedup": 0.09351839775228245
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        128,
+        64,
+        2,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        128,
+        2,
+        4,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 163840, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        256,
+        64,
+        1,
+        8,
+        3
+      ],
+      "variant": "lossless",
+      "error": "out of resource: shared memory, Required: 245760, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    }
+  ],
+  "packing": {
+    "attn.Wqkv": [
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4935552,
+        "escape_blocks": 159,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4935552,
+        "escape_blocks": 159,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4933248,
+        "escape_blocks": 141,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4936192,
+        "escape_blocks": 164,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4934144,
+        "escape_blocks": 148,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4936448,
+        "escape_blocks": 166,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4932480,
+        "escape_blocks": 135,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4931072,
+        "escape_blocks": 124,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4935168,
+        "escape_blocks": 156,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4935424,
+        "escape_blocks": 158,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4934016,
+        "escape_blocks": 147,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4932608,
+        "escape_blocks": 136,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4933888,
+        "escape_blocks": 146,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4933632,
+        "escape_blocks": 144,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4935808,
+        "escape_blocks": 161,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4933120,
+        "escape_blocks": 140,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4933760,
+        "escape_blocks": 145,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4930048,
+        "escape_blocks": 116,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4931968,
+        "escape_blocks": 131,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4932096,
+        "escape_blocks": 132,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4932480,
+        "escape_blocks": 135,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4933888,
+        "escape_blocks": 146,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4932864,
+        "escape_blocks": 138,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4934272,
+        "escape_blocks": 149,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4935680,
+        "escape_blocks": 160,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4935936,
+        "escape_blocks": 162,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4934656,
+        "escape_blocks": 152,
+        "blocks": 49152,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 6291456,
+        "packed_bytes": 4933120,
+        "escape_blocks": 140,
+        "blocks": 49152,
+        "exact_bits": true
+      }
+    ],
+    "attn.Wo": [
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1644288,
+        "escape_blocks": 46,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1646336,
+        "escape_blocks": 62,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1644800,
+        "escape_blocks": 50,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1644288,
+        "escape_blocks": 46,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1643776,
+        "escape_blocks": 42,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1645312,
+        "escape_blocks": 54,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1646720,
+        "escape_blocks": 65,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1645312,
+        "escape_blocks": 54,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1645312,
+        "escape_blocks": 54,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1644800,
+        "escape_blocks": 50,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1644416,
+        "escape_blocks": 47,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1645696,
+        "escape_blocks": 57,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1643136,
+        "escape_blocks": 37,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1644800,
+        "escape_blocks": 50,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1644544,
+        "escape_blocks": 48,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1643008,
+        "escape_blocks": 36,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1644928,
+        "escape_blocks": 51,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1642880,
+        "escape_blocks": 35,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1645568,
+        "escape_blocks": 56,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1644544,
+        "escape_blocks": 48,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1644288,
+        "escape_blocks": 46,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1645952,
+        "escape_blocks": 59,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1643520,
+        "escape_blocks": 40,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1644800,
+        "escape_blocks": 50,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1644160,
+        "escape_blocks": 45,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1644672,
+        "escape_blocks": 49,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1644416,
+        "escape_blocks": 47,
+        "blocks": 16384,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 2097152,
+        "packed_bytes": 1645056,
+        "escape_blocks": 52,
+        "blocks": 16384,
+        "exact_bits": true
+      }
+    ],
+    "mlp.Wi": [
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8428928,
+        "escape_blocks": 251,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8426880,
+        "escape_blocks": 235,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8428928,
+        "escape_blocks": 251,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8425216,
+        "escape_blocks": 222,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8429696,
+        "escape_blocks": 257,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8427648,
+        "escape_blocks": 241,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8428160,
+        "escape_blocks": 245,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8426752,
+        "escape_blocks": 234,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8427264,
+        "escape_blocks": 238,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8427264,
+        "escape_blocks": 238,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8429696,
+        "escape_blocks": 257,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8428672,
+        "escape_blocks": 249,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8428928,
+        "escape_blocks": 251,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8426624,
+        "escape_blocks": 233,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8428416,
+        "escape_blocks": 247,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8427904,
+        "escape_blocks": 243,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8427392,
+        "escape_blocks": 239,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8433408,
+        "escape_blocks": 286,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8426112,
+        "escape_blocks": 229,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8430208,
+        "escape_blocks": 261,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8429184,
+        "escape_blocks": 253,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8430720,
+        "escape_blocks": 265,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8424960,
+        "escape_blocks": 220,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8432384,
+        "escape_blocks": 278,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8428416,
+        "escape_blocks": 247,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8426752,
+        "escape_blocks": 234,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8425344,
+        "escape_blocks": 223,
+        "blocks": 83968,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 10747904,
+        "packed_bytes": 8424448,
+        "escape_blocks": 216,
+        "blocks": 83968,
+        "exact_bits": true
+      }
+    ],
+    "mlp.Wo": [
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4216960,
+        "escape_blocks": 145,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4215296,
+        "escape_blocks": 132,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4212864,
+        "escape_blocks": 113,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4214272,
+        "escape_blocks": 124,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4213504,
+        "escape_blocks": 118,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4214528,
+        "escape_blocks": 126,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4213248,
+        "escape_blocks": 116,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4212864,
+        "escape_blocks": 113,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4213888,
+        "escape_blocks": 121,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4215552,
+        "escape_blocks": 134,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4214912,
+        "escape_blocks": 129,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4213632,
+        "escape_blocks": 119,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4215424,
+        "escape_blocks": 133,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4213376,
+        "escape_blocks": 117,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4214400,
+        "escape_blocks": 125,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4214656,
+        "escape_blocks": 127,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4215424,
+        "escape_blocks": 133,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4211328,
+        "escape_blocks": 101,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4213248,
+        "escape_blocks": 116,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4215296,
+        "escape_blocks": 132,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4212864,
+        "escape_blocks": 113,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4213376,
+        "escape_blocks": 117,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4215808,
+        "escape_blocks": 136,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4211584,
+        "escape_blocks": 103,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4213760,
+        "escape_blocks": 120,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4213120,
+        "escape_blocks": 115,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4213888,
+        "escape_blocks": 121,
+        "blocks": 41984,
+        "exact_bits": true
+      },
+      {
+        "original_bytes": 5373952,
+        "packed_bytes": 4211968,
+        "escape_blocks": 106,
+        "blocks": 41984,
+        "exact_bits": true
+      }
+    ]
+  }
+}

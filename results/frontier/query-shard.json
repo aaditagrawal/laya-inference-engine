@@ -1,0 +1,4357 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T12:37:53.911504+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "scope": "Same 32Q x 64K template with 32/16/8 real query rows per block. No changed K reduction or softmax math.",
+  "build": {
+    "seconds": 33.3126926519908,
+    "torch_revision": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cutlass_revision": "e05f953a5b3d38adc240df2ff928e0421c2abba3",
+    "torch_header_sha256": "fcbfa07f0bc48e239e4d8c45025d5d9e65ff017d00e9dd667918e03172637650",
+    "source_sha256": "cb637ec4c80af20d642c21dcb08500341531589b1140c0124d4d93a4b3694397",
+    "library_sha256": "a0fd59c1b9ecd99a540345095271b4ddcf3cfe25210daf4b1bf15640d04b38c8",
+    "architecture": "sm_120",
+    "fast_math": false
+  },
+  "variants": {
+    "native-special-32": {
+      "tile_queries": 32,
+      "grid_ctas": 32
+    },
+    "native-special-64": {
+      "tile_queries": 64,
+      "grid_ctas": 16
+    },
+    "shard-32": {
+      "tile_queries": 32,
+      "real_queries": 32,
+      "grid_ctas": 32
+    },
+    "shard-16": {
+      "tile_queries": 32,
+      "real_queries": 16,
+      "grid_ctas": 64
+    },
+    "shard-8": {
+      "tile_queries": 32,
+      "real_queries": 8,
+      "grid_ctas": 128
+    }
+  },
+  "requests": [
+    {
+      "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+      "questions": {
+        "q0": {
+          "type": "choice",
+          "instructions": "Which department should handle this request?",
+          "criteria": {
+            "billing": "invoices, payments, refunds",
+            "technical": "bugs, outages, system errors",
+            "sales": "pricing and new contracts",
+            "other": "everything else"
+          }
+        }
+      }
+    },
+    {
+      "state": "My parcel arrived broken.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The password reset failed.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "My suitcase is missing.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The annual price seems wrong.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Production has stopped.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "The soup arrived cold.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The export button crashes.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The update is wonderful.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    }
+  ],
+  "real_qkv_gate": [
+    {
+      "source": 0,
+      "case": "local-full",
+      "variant": "native-special-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 0,
+      "case": "local-full",
+      "variant": "native-special-64",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 0,
+      "case": "local-full",
+      "variant": "shard-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 0,
+      "case": "local-full",
+      "variant": "shard-16",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 0,
+      "case": "local-full",
+      "variant": "shard-8",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 1,
+      "case": "local-padded",
+      "variant": "native-special-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 1,
+      "case": "local-padded",
+      "variant": "native-special-64",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 1,
+      "case": "local-padded",
+      "variant": "shard-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 1,
+      "case": "local-padded",
+      "variant": "shard-16",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 1,
+      "case": "local-padded",
+      "variant": "shard-8",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 1,
+      "case": "global-padded",
+      "variant": "native-special-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 1,
+      "case": "global-padded",
+      "variant": "native-special-64",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 1,
+      "case": "global-padded",
+      "variant": "shard-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 1,
+      "case": "global-padded",
+      "variant": "shard-16",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 1,
+      "case": "global-padded",
+      "variant": "shard-8",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 2,
+      "case": "local-padded",
+      "variant": "native-special-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 2,
+      "case": "local-padded",
+      "variant": "native-special-64",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 2,
+      "case": "local-padded",
+      "variant": "shard-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 2,
+      "case": "local-padded",
+      "variant": "shard-16",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 2,
+      "case": "local-padded",
+      "variant": "shard-8",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 2,
+      "case": "global-padded",
+      "variant": "native-special-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 2,
+      "case": "global-padded",
+      "variant": "native-special-64",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 2,
+      "case": "global-padded",
+      "variant": "shard-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 2,
+      "case": "global-padded",
+      "variant": "shard-16",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 2,
+      "case": "global-padded",
+      "variant": "shard-8",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 3,
+      "case": "local-padded",
+      "variant": "native-special-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 3,
+      "case": "local-padded",
+      "variant": "native-special-64",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 3,
+      "case": "local-padded",
+      "variant": "shard-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 3,
+      "case": "local-padded",
+      "variant": "shard-16",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 3,
+      "case": "local-padded",
+      "variant": "shard-8",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 3,
+      "case": "global-padded",
+      "variant": "native-special-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 3,
+      "case": "global-padded",
+      "variant": "native-special-64",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 3,
+      "case": "global-padded",
+      "variant": "shard-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 3,
+      "case": "global-padded",
+      "variant": "shard-16",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 3,
+      "case": "global-padded",
+      "variant": "shard-8",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 4,
+      "case": "local-padded",
+      "variant": "native-special-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 4,
+      "case": "local-padded",
+      "variant": "native-special-64",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 4,
+      "case": "local-padded",
+      "variant": "shard-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 4,
+      "case": "local-padded",
+      "variant": "shard-16",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 4,
+      "case": "local-padded",
+      "variant": "shard-8",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 4,
+      "case": "global-padded",
+      "variant": "native-special-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 4,
+      "case": "global-padded",
+      "variant": "native-special-64",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 4,
+      "case": "global-padded",
+      "variant": "shard-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 4,
+      "case": "global-padded",
+      "variant": "shard-16",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 4,
+      "case": "global-padded",
+      "variant": "shard-8",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 5,
+      "case": "local-padded",
+      "variant": "native-special-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 5,
+      "case": "local-padded",
+      "variant": "native-special-64",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 5,
+      "case": "local-padded",
+      "variant": "shard-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 5,
+      "case": "local-padded",
+      "variant": "shard-16",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 5,
+      "case": "local-padded",
+      "variant": "shard-8",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 5,
+      "case": "global-padded",
+      "variant": "native-special-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 5,
+      "case": "global-padded",
+      "variant": "native-special-64",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 5,
+      "case": "global-padded",
+      "variant": "shard-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 5,
+      "case": "global-padded",
+      "variant": "shard-16",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 5,
+      "case": "global-padded",
+      "variant": "shard-8",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 6,
+      "case": "local-padded",
+      "variant": "native-special-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 6,
+      "case": "local-padded",
+      "variant": "native-special-64",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 6,
+      "case": "local-padded",
+      "variant": "shard-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 6,
+      "case": "local-padded",
+      "variant": "shard-16",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 6,
+      "case": "local-padded",
+      "variant": "shard-8",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 6,
+      "case": "global-padded",
+      "variant": "native-special-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 6,
+      "case": "global-padded",
+      "variant": "native-special-64",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 6,
+      "case": "global-padded",
+      "variant": "shard-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 6,
+      "case": "global-padded",
+      "variant": "shard-16",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 6,
+      "case": "global-padded",
+      "variant": "shard-8",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 7,
+      "case": "local-padded",
+      "variant": "native-special-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 7,
+      "case": "local-padded",
+      "variant": "native-special-64",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 7,
+      "case": "local-padded",
+      "variant": "shard-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 7,
+      "case": "local-padded",
+      "variant": "shard-16",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 7,
+      "case": "local-padded",
+      "variant": "shard-8",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 7,
+      "case": "global-padded",
+      "variant": "native-special-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 7,
+      "case": "global-padded",
+      "variant": "native-special-64",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 7,
+      "case": "global-padded",
+      "variant": "shard-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 7,
+      "case": "global-padded",
+      "variant": "shard-16",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 7,
+      "case": "global-padded",
+      "variant": "shard-8",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 8,
+      "case": "local-padded",
+      "variant": "native-special-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 8,
+      "case": "local-padded",
+      "variant": "native-special-64",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 8,
+      "case": "local-padded",
+      "variant": "shard-32",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 8,
+      "case": "local-padded",
+      "variant": "shard-16",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 8,
+      "case": "local-padded",
+      "variant": "shard-8",
+      "calls": 18,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 8,
+      "case": "global-padded",
+      "variant": "native-special-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 8,
+      "case": "global-padded",
+      "variant": "native-special-64",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 8,
+      "case": "global-padded",
+      "variant": "shard-32",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 8,
+      "case": "global-padded",
+      "variant": "shard-16",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": 8,
+      "case": "global-padded",
+      "variant": "shard-8",
+      "calls": 10,
+      "mismatches": 0,
+      "per_call": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "offset_stride_gate": [
+    {
+      "layout": "original",
+      "bias": "dense-head-row",
+      "variant": "native-special-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "dense-head-row",
+      "variant": "native-special-64",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "dense-head-row",
+      "variant": "shard-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "dense-head-row",
+      "variant": "shard-16",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "dense-head-row",
+      "variant": "shard-8",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "head-broadcast",
+      "variant": "native-special-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "head-broadcast",
+      "variant": "native-special-64",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "head-broadcast",
+      "variant": "shard-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "head-broadcast",
+      "variant": "shard-16",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "head-broadcast",
+      "variant": "shard-8",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "strided-row",
+      "variant": "native-special-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "strided-row",
+      "variant": "native-special-64",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "strided-row",
+      "variant": "shard-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "strided-row",
+      "variant": "shard-16",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "strided-row",
+      "variant": "shard-8",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "shared-head-row",
+      "variant": "native-special-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "shared-head-row",
+      "variant": "native-special-64",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "shared-head-row",
+      "variant": "shard-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "shared-head-row",
+      "variant": "shard-16",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "shared-head-row",
+      "variant": "shard-8",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "shared-head-broadcast",
+      "variant": "native-special-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "shared-head-broadcast",
+      "variant": "native-special-64",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "shared-head-broadcast",
+      "variant": "shard-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "shared-head-broadcast",
+      "variant": "shard-16",
+      "mismatches": 0
+    },
+    {
+      "layout": "original",
+      "bias": "shared-head-broadcast",
+      "variant": "shard-8",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "dense-head-row",
+      "variant": "native-special-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "dense-head-row",
+      "variant": "native-special-64",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "dense-head-row",
+      "variant": "shard-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "dense-head-row",
+      "variant": "shard-16",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "dense-head-row",
+      "variant": "shard-8",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "head-broadcast",
+      "variant": "native-special-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "head-broadcast",
+      "variant": "native-special-64",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "head-broadcast",
+      "variant": "shard-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "head-broadcast",
+      "variant": "shard-16",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "head-broadcast",
+      "variant": "shard-8",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "strided-row",
+      "variant": "native-special-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "strided-row",
+      "variant": "native-special-64",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "strided-row",
+      "variant": "shard-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "strided-row",
+      "variant": "shard-16",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "strided-row",
+      "variant": "shard-8",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "shared-head-row",
+      "variant": "native-special-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "shared-head-row",
+      "variant": "native-special-64",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "shared-head-row",
+      "variant": "shard-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "shared-head-row",
+      "variant": "shard-16",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "shared-head-row",
+      "variant": "shard-8",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "shared-head-broadcast",
+      "variant": "native-special-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "shared-head-broadcast",
+      "variant": "native-special-64",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "shared-head-broadcast",
+      "variant": "shard-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "shared-head-broadcast",
+      "variant": "shard-16",
+      "mismatches": 0
+    },
+    {
+      "layout": "contiguous",
+      "bias": "shared-head-broadcast",
+      "variant": "shard-8",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "dense-head-row",
+      "variant": "native-special-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "dense-head-row",
+      "variant": "native-special-64",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "dense-head-row",
+      "variant": "shard-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "dense-head-row",
+      "variant": "shard-16",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "dense-head-row",
+      "variant": "shard-8",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "head-broadcast",
+      "variant": "native-special-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "head-broadcast",
+      "variant": "native-special-64",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "head-broadcast",
+      "variant": "shard-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "head-broadcast",
+      "variant": "shard-16",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "head-broadcast",
+      "variant": "shard-8",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "strided-row",
+      "variant": "native-special-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "strided-row",
+      "variant": "native-special-64",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "strided-row",
+      "variant": "shard-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "strided-row",
+      "variant": "shard-16",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "strided-row",
+      "variant": "shard-8",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "shared-head-row",
+      "variant": "native-special-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "shared-head-row",
+      "variant": "native-special-64",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "shared-head-row",
+      "variant": "shard-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "shared-head-row",
+      "variant": "shard-16",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "shared-head-row",
+      "variant": "shard-8",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "shared-head-broadcast",
+      "variant": "native-special-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "shared-head-broadcast",
+      "variant": "native-special-64",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "shared-head-broadcast",
+      "variant": "shard-32",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "shared-head-broadcast",
+      "variant": "shard-16",
+      "mismatches": 0
+    },
+    {
+      "layout": "sequence-major",
+      "bias": "shared-head-broadcast",
+      "variant": "shard-8",
+      "mismatches": 0
+    }
+  ],
+  "exact_variants": [
+    "native-special-32",
+    "native-special-64",
+    "shard-32",
+    "shard-16",
+    "shard-8"
+  ],
+  "timing": {
+    "rows": [
+      {
+        "case": "local-full",
+        "round": 0,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.09425680160522461,
+        "samples_ms": [
+          0.09425680160522461
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 0,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11070320129394531,
+        "samples_ms": [
+          0.11070320129394531
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 0,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.0799724817276001,
+        "samples_ms": [
+          0.0799724817276001
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 0,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.08816864013671875,
+        "samples_ms": [
+          0.08816864013671875
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 0,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.08194080352783203,
+        "samples_ms": [
+          0.08194080352783203
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 1,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.07997375965118408,
+        "samples_ms": [
+          0.07997375965118408
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 1,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.09422880172729492,
+        "samples_ms": [
+          0.09422880172729492
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 1,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.1106884765625,
+        "samples_ms": [
+          0.1106884765625
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 1,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.0819161605834961,
+        "samples_ms": [
+          0.0819161605834961
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 1,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.08819151878356933,
+        "samples_ms": [
+          0.08819151878356933
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 2,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.07998223781585694,
+        "samples_ms": [
+          0.07998223781585694
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 2,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11071567535400391,
+        "samples_ms": [
+          0.11071567535400391
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 2,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.0881833553314209,
+        "samples_ms": [
+          0.0881833553314209
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 2,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.09423904418945313,
+        "samples_ms": [
+          0.09423904418945313
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 2,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.08195615768432617,
+        "samples_ms": [
+          0.08195615768432617
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 3,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11071184158325195,
+        "samples_ms": [
+          0.11071184158325195
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 3,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.08816911697387696,
+        "samples_ms": [
+          0.08816911697387696
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 3,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.09423503875732422,
+        "samples_ms": [
+          0.09423503875732422
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 3,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.0799729585647583,
+        "samples_ms": [
+          0.0799729585647583
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 3,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.0819478416442871,
+        "samples_ms": [
+          0.0819478416442871
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 4,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.09423664093017578,
+        "samples_ms": [
+          0.09423664093017578
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 4,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.08179295539855957,
+        "samples_ms": [
+          0.08179295539855957
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 4,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11069904327392578,
+        "samples_ms": [
+          0.11069904327392578
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 4,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.07996479988098144,
+        "samples_ms": [
+          0.07996479988098144
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 4,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.08816847801208497,
+        "samples_ms": [
+          0.08816847801208497
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 5,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.0881503963470459,
+        "samples_ms": [
+          0.0881503963470459
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 5,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11070351600646973,
+        "samples_ms": [
+          0.11070351600646973
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 5,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.07995935916900634,
+        "samples_ms": [
+          0.07995935916900634
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 5,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.08173456192016601,
+        "samples_ms": [
+          0.08173456192016601
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 5,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.09423088073730469,
+        "samples_ms": [
+          0.09423088073730469
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 6,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.07997104167938232,
+        "samples_ms": [
+          0.07997104167938232
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 6,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.09423472404479981,
+        "samples_ms": [
+          0.09423472404479981
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 6,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.1107084846496582,
+        "samples_ms": [
+          0.1107084846496582
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 6,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.08191920280456542,
+        "samples_ms": [
+          0.08191920280456542
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 6,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.08816960334777832,
+        "samples_ms": [
+          0.08816960334777832
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 7,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.07995967864990235,
+        "samples_ms": [
+          0.07995967864990235
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 7,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.09422863960266113,
+        "samples_ms": [
+          0.09422863960266113
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 7,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.08815888404846191,
+        "samples_ms": [
+          0.08815888404846191
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 7,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11070960044860839,
+        "samples_ms": [
+          0.11070960044860839
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 7,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.08195152282714843,
+        "samples_ms": [
+          0.08195152282714843
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 8,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.0819428825378418,
+        "samples_ms": [
+          0.0819428825378418
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 8,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11070768356323242,
+        "samples_ms": [
+          0.11070768356323242
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 8,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.08816847801208497,
+        "samples_ms": [
+          0.08816847801208497
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 8,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.09423744201660156,
+        "samples_ms": [
+          0.09423744201660156
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 8,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.07998112201690674,
+        "samples_ms": [
+          0.07998112201690674
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 0,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.0924619197845459,
+        "samples_ms": [
+          0.0924619197845459
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 0,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.09000752449035644,
+        "samples_ms": [
+          0.09000752449035644
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 0,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.1085694408416748,
+        "samples_ms": [
+          0.1085694408416748
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 0,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11685279846191406,
+        "samples_ms": [
+          0.11685279846191406
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 0,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.09628175735473633,
+        "samples_ms": [
+          0.09628175735473633
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 1,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.09251392364501954,
+        "samples_ms": [
+          0.09251392364501954
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 1,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.10855664253234863,
+        "samples_ms": [
+          0.10855664253234863
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 1,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11685615539550781,
+        "samples_ms": [
+          0.11685615539550781
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 1,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.09000111579895019,
+        "samples_ms": [
+          0.09000111579895019
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 1,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.09628000259399414,
+        "samples_ms": [
+          0.09628000259399414
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 2,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.09249711990356445,
+        "samples_ms": [
+          0.09249711990356445
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 2,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.096278076171875,
+        "samples_ms": [
+          0.096278076171875
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 2,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.08989199638366699,
+        "samples_ms": [
+          0.08989199638366699
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 2,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.108569917678833,
+        "samples_ms": [
+          0.108569917678833
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 2,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11685791969299317,
+        "samples_ms": [
+          0.11685791969299317
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 3,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.10857536315917969,
+        "samples_ms": [
+          0.10857536315917969
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 3,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.09000160217285157,
+        "samples_ms": [
+          0.09000160217285157
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 3,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.09245759963989258,
+        "samples_ms": [
+          0.09245759963989258
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 3,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.09627264022827148,
+        "samples_ms": [
+          0.09627264022827148
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 3,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11684944152832032,
+        "samples_ms": [
+          0.11684944152832032
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 4,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.10855487823486328,
+        "samples_ms": [
+          0.10855487823486328
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 4,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11685824394226074,
+        "samples_ms": [
+          0.11685824394226074
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 4,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.09002688407897949,
+        "samples_ms": [
+          0.09002688407897949
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 4,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.09243439674377442,
+        "samples_ms": [
+          0.09243439674377442
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 4,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.09629584312438964,
+        "samples_ms": [
+          0.09629584312438964
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 5,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11685664176940919,
+        "samples_ms": [
+          0.11685664176940919
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 5,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.10857024192810058,
+        "samples_ms": [
+          0.10857024192810058
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 5,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.09628800392150878,
+        "samples_ms": [
+          0.09628800392150878
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 5,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.09246944427490235,
+        "samples_ms": [
+          0.09246944427490235
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 5,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.08998368263244629,
+        "samples_ms": [
+          0.08998368263244629
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 6,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.09245183944702148,
+        "samples_ms": [
+          0.09245183944702148
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 6,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.10856207847595215,
+        "samples_ms": [
+          0.10856207847595215
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 6,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.0962713623046875,
+        "samples_ms": [
+          0.0962713623046875
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 6,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11686223983764649,
+        "samples_ms": [
+          0.11686223983764649
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 6,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.09003775596618652,
+        "samples_ms": [
+          0.09003775596618652
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 7,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.08997823715209961,
+        "samples_ms": [
+          0.08997823715209961
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 7,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.09250271797180176,
+        "samples_ms": [
+          0.09250271797180176
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 7,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.0962763214111328,
+        "samples_ms": [
+          0.0962763214111328
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 7,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11685775756835938,
+        "samples_ms": [
+          0.11685775756835938
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 7,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.1085870361328125,
+        "samples_ms": [
+          0.1085870361328125
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 8,
+        "variant": "shard-8",
+        "calls": 18,
+        "ms": 0.11685728073120118,
+        "samples_ms": [
+          0.11685728073120118
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 8,
+        "variant": "native-special-32",
+        "calls": 18,
+        "ms": 0.09247183799743652,
+        "samples_ms": [
+          0.09247183799743652
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 8,
+        "variant": "native-special-64",
+        "calls": 18,
+        "ms": 0.10856752395629883,
+        "samples_ms": [
+          0.10856752395629883
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 8,
+        "variant": "shard-16",
+        "calls": 18,
+        "ms": 0.0962775993347168,
+        "samples_ms": [
+          0.0962775993347168
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 8,
+        "variant": "shard-32",
+        "calls": 18,
+        "ms": 0.08999343872070313,
+        "samples_ms": [
+          0.08999343872070313
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 0,
+        "variant": "shard-16",
+        "calls": 10,
+        "ms": 0.05331967830657959,
+        "samples_ms": [
+          0.05331967830657959
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 0,
+        "variant": "shard-8",
+        "calls": 10,
+        "ms": 0.06557392120361329,
+        "samples_ms": [
+          0.06557392120361329
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 0,
+        "variant": "native-special-32",
+        "calls": 10,
+        "ms": 0.05128223896026611,
+        "samples_ms": [
+          0.05128223896026611
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 0,
+        "variant": "native-special-64",
+        "calls": 10,
+        "ms": 0.05947216033935547,
+        "samples_ms": [
+          0.05947216033935547
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 0,
+        "variant": "shard-32",
+        "calls": 10,
+        "ms": 0.049247360229492186,
+        "samples_ms": [
+          0.049247360229492186
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 1,
+        "variant": "shard-8",
+        "calls": 10,
+        "ms": 0.0655731201171875,
+        "samples_ms": [
+          0.0655731201171875
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 1,
+        "variant": "native-special-64",
+        "calls": 10,
+        "ms": 0.05946479797363281,
+        "samples_ms": [
+          0.05946479797363281
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 1,
+        "variant": "shard-32",
+        "calls": 10,
+        "ms": 0.04924111843109131,
+        "samples_ms": [
+          0.04924111843109131
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 1,
+        "variant": "shard-16",
+        "calls": 10,
+        "ms": 0.053327999114990234,
+        "samples_ms": [
+          0.053327999114990234
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 1,
+        "variant": "native-special-32",
+        "calls": 10,
+        "ms": 0.05126927852630615,
+        "samples_ms": [
+          0.05126927852630615
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 2,
+        "variant": "native-special-64",
+        "calls": 10,
+        "ms": 0.05946752071380615,
+        "samples_ms": [
+          0.05946752071380615
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 2,
+        "variant": "shard-16",
+        "calls": 10,
+        "ms": 0.053333277702331545,
+        "samples_ms": [
+          0.053333277702331545
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 2,
+        "variant": "shard-32",
+        "calls": 10,
+        "ms": 0.049258880615234375,
+        "samples_ms": [
+          0.049258880615234375
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 2,
+        "variant": "shard-8",
+        "calls": 10,
+        "ms": 0.06558095932006835,
+        "samples_ms": [
+          0.06558095932006835
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 2,
+        "variant": "native-special-32",
+        "calls": 10,
+        "ms": 0.051275839805603025,
+        "samples_ms": [
+          0.051275839805603025
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 3,
+        "variant": "native-special-32",
+        "calls": 10,
+        "ms": 0.05129631996154785,
+        "samples_ms": [
+          0.05129631996154785
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 3,
+        "variant": "shard-32",
+        "calls": 10,
+        "ms": 0.04930399894714355,
+        "samples_ms": [
+          0.04930399894714355
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 3,
+        "variant": "native-special-64",
+        "calls": 10,
+        "ms": 0.05947487831115723,
+        "samples_ms": [
+          0.05947487831115723
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 3,
+        "variant": "shard-16",
+        "calls": 10,
+        "ms": 0.05333727836608887,
+        "samples_ms": [
+          0.05333727836608887
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 3,
+        "variant": "shard-8",
+        "calls": 10,
+        "ms": 0.06556399822235108,
+        "samples_ms": [
+          0.06556399822235108
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 4,
+        "variant": "shard-16",
+        "calls": 10,
+        "ms": 0.05333792209625244,
+        "samples_ms": [
+          0.05333792209625244
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 4,
+        "variant": "shard-32",
+        "calls": 10,
+        "ms": 0.04921919822692871,
+        "samples_ms": [
+          0.04921919822692871
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 4,
+        "variant": "native-special-64",
+        "calls": 10,
+        "ms": 0.05947343826293945,
+        "samples_ms": [
+          0.05947343826293945
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 4,
+        "variant": "shard-8",
+        "calls": 10,
+        "ms": 0.065590238571167,
+        "samples_ms": [
+          0.065590238571167
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 4,
+        "variant": "native-special-32",
+        "calls": 10,
+        "ms": 0.05127855777740478,
+        "samples_ms": [
+          0.05127855777740478
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 5,
+        "variant": "shard-8",
+        "calls": 10,
+        "ms": 0.06559855937957763,
+        "samples_ms": [
+          0.06559855937957763
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 5,
+        "variant": "shard-32",
+        "calls": 10,
+        "ms": 0.049249281883239744,
+        "samples_ms": [
+          0.049249281883239744
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 5,
+        "variant": "native-special-32",
+        "calls": 10,
+        "ms": 0.05127567768096924,
+        "samples_ms": [
+          0.05127567768096924
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 5,
+        "variant": "native-special-64",
+        "calls": 10,
+        "ms": 0.05948944091796875,
+        "samples_ms": [
+          0.05948944091796875
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 5,
+        "variant": "shard-16",
+        "calls": 10,
+        "ms": 0.05335951805114746,
+        "samples_ms": [
+          0.05335951805114746
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 6,
+        "variant": "native-special-32",
+        "calls": 10,
+        "ms": 0.051276321411132815,
+        "samples_ms": [
+          0.051276321411132815
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 6,
+        "variant": "shard-32",
+        "calls": 10,
+        "ms": 0.049270401000976564,
+        "samples_ms": [
+          0.049270401000976564
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 6,
+        "variant": "native-special-64",
+        "calls": 10,
+        "ms": 0.05945119857788086,
+        "samples_ms": [
+          0.05945119857788086
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 6,
+        "variant": "shard-16",
+        "calls": 10,
+        "ms": 0.05332511901855469,
+        "samples_ms": [
+          0.05332511901855469
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 6,
+        "variant": "shard-8",
+        "calls": 10,
+        "ms": 0.06555952072143555,
+        "samples_ms": [
+          0.06555952072143555
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 7,
+        "variant": "native-special-32",
+        "calls": 10,
+        "ms": 0.051281919479370115,
+        "samples_ms": [
+          0.051281919479370115
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 7,
+        "variant": "native-special-64",
+        "calls": 10,
+        "ms": 0.059464640617370605,
+        "samples_ms": [
+          0.059464640617370605
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 7,
+        "variant": "shard-16",
+        "calls": 10,
+        "ms": 0.05334512233734131,
+        "samples_ms": [
+          0.05334512233734131
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 7,
+        "variant": "shard-32",
+        "calls": 10,
+        "ms": 0.049272160530090335,
+        "samples_ms": [
+          0.049272160530090335
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 7,
+        "variant": "shard-8",
+        "calls": 10,
+        "ms": 0.06558095932006835,
+        "samples_ms": [
+          0.06558095932006835
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 8,
+        "variant": "native-special-64",
+        "calls": 10,
+        "ms": 0.05947904109954834,
+        "samples_ms": [
+          0.05947904109954834
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 8,
+        "variant": "shard-8",
+        "calls": 10,
+        "ms": 0.06556911945343018,
+        "samples_ms": [
+          0.06556911945343018
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 8,
+        "variant": "native-special-32",
+        "calls": 10,
+        "ms": 0.05129104137420654,
+        "samples_ms": [
+          0.05129104137420654
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 8,
+        "variant": "shard-16",
+        "calls": 10,
+        "ms": 0.05334640026092529,
+        "samples_ms": [
+          0.05334640026092529
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 8,
+        "variant": "shard-32",
+        "calls": 10,
+        "ms": 0.04930960178375244,
+        "samples_ms": [
+          0.04930960178375244
+        ]
+      }
+    ],
+    "order": [
+      {
+        "case": "local-full",
+        "round": 0,
+        "variants": [
+          "native-special-64",
+          "shard-8",
+          "shard-32",
+          "shard-16",
+          "native-special-32"
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 1,
+        "variants": [
+          "shard-32",
+          "native-special-64",
+          "shard-8",
+          "native-special-32",
+          "shard-16"
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 2,
+        "variants": [
+          "shard-32",
+          "shard-8",
+          "shard-16",
+          "native-special-64",
+          "native-special-32"
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 3,
+        "variants": [
+          "shard-8",
+          "shard-16",
+          "native-special-64",
+          "shard-32",
+          "native-special-32"
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 4,
+        "variants": [
+          "native-special-64",
+          "native-special-32",
+          "shard-8",
+          "shard-32",
+          "shard-16"
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 5,
+        "variants": [
+          "shard-16",
+          "shard-8",
+          "shard-32",
+          "native-special-32",
+          "native-special-64"
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 6,
+        "variants": [
+          "shard-32",
+          "native-special-64",
+          "shard-8",
+          "native-special-32",
+          "shard-16"
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 7,
+        "variants": [
+          "shard-32",
+          "native-special-64",
+          "shard-16",
+          "shard-8",
+          "native-special-32"
+        ]
+      },
+      {
+        "case": "local-full",
+        "round": 8,
+        "variants": [
+          "native-special-32",
+          "shard-8",
+          "shard-16",
+          "native-special-64",
+          "shard-32"
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 0,
+        "variants": [
+          "native-special-32",
+          "shard-32",
+          "native-special-64",
+          "shard-8",
+          "shard-16"
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 1,
+        "variants": [
+          "native-special-32",
+          "native-special-64",
+          "shard-8",
+          "shard-32",
+          "shard-16"
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 2,
+        "variants": [
+          "native-special-32",
+          "shard-16",
+          "shard-32",
+          "native-special-64",
+          "shard-8"
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 3,
+        "variants": [
+          "native-special-64",
+          "shard-32",
+          "native-special-32",
+          "shard-16",
+          "shard-8"
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 4,
+        "variants": [
+          "native-special-64",
+          "shard-8",
+          "shard-32",
+          "native-special-32",
+          "shard-16"
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 5,
+        "variants": [
+          "shard-8",
+          "native-special-64",
+          "shard-16",
+          "native-special-32",
+          "shard-32"
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 6,
+        "variants": [
+          "native-special-32",
+          "native-special-64",
+          "shard-16",
+          "shard-8",
+          "shard-32"
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 7,
+        "variants": [
+          "shard-32",
+          "native-special-32",
+          "shard-16",
+          "shard-8",
+          "native-special-64"
+        ]
+      },
+      {
+        "case": "local-padded",
+        "round": 8,
+        "variants": [
+          "shard-8",
+          "native-special-32",
+          "native-special-64",
+          "shard-16",
+          "shard-32"
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 0,
+        "variants": [
+          "shard-16",
+          "shard-8",
+          "native-special-32",
+          "native-special-64",
+          "shard-32"
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 1,
+        "variants": [
+          "shard-8",
+          "native-special-64",
+          "shard-32",
+          "shard-16",
+          "native-special-32"
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 2,
+        "variants": [
+          "native-special-64",
+          "shard-16",
+          "shard-32",
+          "shard-8",
+          "native-special-32"
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 3,
+        "variants": [
+          "native-special-32",
+          "shard-32",
+          "native-special-64",
+          "shard-16",
+          "shard-8"
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 4,
+        "variants": [
+          "shard-16",
+          "shard-32",
+          "native-special-64",
+          "shard-8",
+          "native-special-32"
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 5,
+        "variants": [
+          "shard-8",
+          "shard-32",
+          "native-special-32",
+          "native-special-64",
+          "shard-16"
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 6,
+        "variants": [
+          "native-special-32",
+          "shard-32",
+          "native-special-64",
+          "shard-16",
+          "shard-8"
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 7,
+        "variants": [
+          "native-special-32",
+          "native-special-64",
+          "shard-16",
+          "shard-32",
+          "shard-8"
+        ]
+      },
+      {
+        "case": "global-padded",
+        "round": 8,
+        "variants": [
+          "native-special-64",
+          "shard-8",
+          "native-special-32",
+          "shard-16",
+          "shard-32"
+        ]
+      }
+    ]
+  },
+  "summary": {
+    "local-full": {
+      "median_ms": {
+        "native-special-32": 0.08194080352783203,
+        "native-special-64": 0.09423503875732422,
+        "shard-32": 0.0799724817276001,
+        "shard-16": 0.08816864013671875,
+        "shard-8": 0.11070768356323242
+      },
+      "speedup": {
+        "native-special-32": 1.0,
+        "native-special-64": 0.8695364761174182,
+        "shard-32": 1.024612488667494,
+        "shard-16": 0.9293644928715071,
+        "shard-8": 0.7401546206233307
+      },
+      "faster_rounds": {
+        "native-special-32": 0,
+        "native-special-64": 0,
+        "shard-32": 9,
+        "shard-16": 0,
+        "shard-8": 0
+      }
+    },
+    "local-padded": {
+      "median_ms": {
+        "native-special-32": 0.09246944427490235,
+        "native-special-64": 0.1085694408416748,
+        "shard-32": 0.09000111579895019,
+        "shard-16": 0.096278076171875,
+        "shard-8": 0.11685728073120118
+      },
+      "speedup": {
+        "native-special-32": 1.0,
+        "native-special-64": 0.8517078429992945,
+        "shard-32": 1.0274255319396934,
+        "shard-16": 0.960441337754054,
+        "shard-8": 0.7913023792467283
+      },
+      "faster_rounds": {
+        "native-special-32": 0,
+        "native-special-64": 0,
+        "shard-32": 9,
+        "shard-16": 0,
+        "shard-8": 0
+      }
+    },
+    "global-padded": {
+      "median_ms": {
+        "native-special-32": 0.05127855777740478,
+        "native-special-64": 0.05947216033935547,
+        "shard-32": 0.049258880615234375,
+        "shard-16": 0.05333727836608887,
+        "shard-8": 0.06557392120361329
+      },
+      "speedup": {
+        "native-special-32": 1.0,
+        "native-special-64": 0.8622279312673866,
+        "shard-32": 1.0410012801132509,
+        "shard-16": 0.9614018440432275,
+        "shard-8": 0.7819962088004462
+      },
+      "faster_rounds": {
+        "native-special-32": 0,
+        "native-special-64": 0,
+        "shard-32": 9,
+        "shard-16": 0,
+        "shard-8": 0
+      }
+    }
+  },
+  "source_sha256": {
+    "experiments/frontier/query_shard.py": "2e6717c41756882c42396db46f1360ce7ceedf22183573e3405322109ea17119",
+    "experiments/frontier/query_shard_build.py": "6649086e4401b50d4167b443f670b7bb232d33b0720914015889981ddc674207",
+    "experiments/frontier/query_shard_kernel.cu": "cb637ec4c80af20d642c21dcb08500341531589b1140c0124d4d93a4b3694397",
+    "experiments/frontier/query_shard_probe.py": "2aef19656ca98488f747770c2e85d138fae9f81d848d7337ad113b0ddde1c7b1"
+  }
+}

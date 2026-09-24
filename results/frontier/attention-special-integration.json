@@ -1,0 +1,59 @@
+{
+  "created_utc": "2026-09-24T10:56:25.552651+00:00",
+  "scope": "Source snapshot for canonical attention_special constructor checks; defaults unchanged",
+  "sources_sha256": {
+    "experiments/frontier/engine.py": "a58675309aa66969e3e376d84df9df1e023320349c71f3fb8f82309d7786db57",
+    "experiments/frontier/compare.py": "ded47473997a65305a0667a6fdd679a0ce4d3f3773ffd2c61b975279ee187a9b",
+    "experiments/frontier/holdout.py": "339f6add877bd1434ef63cd4126f8333b89a90aeb04de0383f1ac7819f045a8f",
+    "experiments/frontier/profile.py": "bc40e9d00b5afbe722a2749d1a6cf0feb1783ca60563e93f0d30430e9ce052b2",
+    "experiments/frontier/paired_attention.py": "b53a5e156a162fe0cf25da0f0ec45c8862c8c25377a303d16efe1470ac8437e1",
+    "experiments/frontier/summarize.py": "7cc9979f54db21dbb49bb767df78dbe465e9c2b5c45f49fbef8846b66060a64a",
+    "experiments/frontier/attention_special_adapter.py": "2bab131b67485aca57be2f7a691b0feba309dec5264daeb6e8bff6c1bb6bd760",
+    "experiments/frontier/attention_special_full.py": "0181a163db03415ac4a8ceeac87dda5c2477f568e911cca84acddac2bae6c728",
+    "experiments/frontier/attention_special_probe.py": "d136cc6a8343d37150b71678e3bbf30b6bf659e3b16204d2f35db7263c9cf6a9",
+    "experiments/frontier/attention_special_padding.py": "def19c69d24cd07d9edfc37b31192453291b021ae3d70e03ca6a29613f053647",
+    "experiments/frontier/attention_special_build.py": "ffea3cc1fc303e5d97de59397537a870082798058f1417c7a936fa27b126a80f",
+    "experiments/frontier/attention_special_kernel.cu": "d4ddc9d9affd63d8d94dc7e9b97222940bb155af659ad80fc14f5d3047e4865c"
+  },
+  "native_build": {
+    "seconds": 37.09486639499664,
+    "torch_revision": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cutlass_revision": "e05f953a5b3d38adc240df2ff928e0421c2abba3",
+    "torch_header_sha256": "fcbfa07f0bc48e239e4d8c45025d5d9e65ff017d00e9dd667918e03172637650",
+    "source_sha256": "d4ddc9d9affd63d8d94dc7e9b97222940bb155af659ad80fc14f5d3047e4865c",
+    "library_sha256": "c16ae4957d10b5d27248f9e41bef940060c16300ceb7d62bd8e84bf005c1fee6",
+    "architecture": "sm_120",
+    "fast_math": false
+  },
+  "required_constructor": {
+    "policy": "bf16-splitk-exact-short-compiled",
+    "attention": "native",
+    "fuse_reduce_norm": true,
+    "token_tables": true,
+    "fuse_mlp_geglu": true,
+    "mlp_geglu_unpacked": true,
+    "head_kernels": true,
+    "host_prepare": "batch",
+    "attention_special": true
+  },
+  "sources_at_canonical_execution_sha256": {
+    "experiments/frontier/engine.py": "a58675309aa66969e3e376d84df9df1e023320349c71f3fb8f82309d7786db57",
+    "experiments/frontier/compare.py": "ded47473997a65305a0667a6fdd679a0ce4d3f3773ffd2c61b975279ee187a9b",
+    "experiments/frontier/holdout.py": "339f6add877bd1434ef63cd4126f8333b89a90aeb04de0383f1ac7819f045a8f",
+    "experiments/frontier/profile.py": "bc40e9d00b5afbe722a2749d1a6cf0feb1783ca60563e93f0d30430e9ce052b2",
+    "experiments/frontier/paired_attention.py": "b53a5e156a162fe0cf25da0f0ec45c8862c8c25377a303d16efe1470ac8437e1",
+    "experiments/frontier/summarize.py": "7cc9979f54db21dbb49bb767df78dbe465e9c2b5c45f49fbef8846b66060a64a",
+    "experiments/frontier/attention_special_adapter.py": "2bab131b67485aca57be2f7a691b0feba309dec5264daeb6e8bff6c1bb6bd760",
+    "experiments/frontier/attention_special_full.py": "54043d6b2c505274f36d3b23f2bc0f8a43e78df79eb127ae303ea3577f595937",
+    "experiments/frontier/attention_special_probe.py": "d136cc6a8343d37150b71678e3bbf30b6bf659e3b16204d2f35db7263c9cf6a9",
+    "experiments/frontier/attention_special_padding.py": "def19c69d24cd07d9edfc37b31192453291b021ae3d70e03ca6a29613f053647",
+    "experiments/frontier/attention_special_build.py": "ffea3cc1fc303e5d97de59397537a870082798058f1417c7a936fa27b126a80f",
+    "experiments/frontier/attention_special_kernel.cu": "d4ddc9d9affd63d8d94dc7e9b97222940bb155af659ad80fc14f5d3047e4865c"
+  },
+  "post_run_reproduction_change": "attention_special_full.py now removes attention_special from the recommended constructor before building its retained comparison baseline. This helper was not used by canonical compare, holdout, or profile.",
+  "canonical_results_sha256": {
+    "results/frontier/full-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special.json": "00eddba9c88ffe303af0ca233bbc41d8702d72b1f52270867e3eb9a0359cdd76",
+    "results/frontier/holdout-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special.json": "09a4167efbe981d388726ad3a6f58d343c6d000cef4d0452e14174613254fce4",
+    "results/frontier/profile-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special.json": "395aa71fb39ad6cc9e4b53f0d8fe28529f403dde51f18aa57775409b287431e4"
+  }
+}

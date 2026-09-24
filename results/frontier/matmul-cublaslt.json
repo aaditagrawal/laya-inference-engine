@@ -1,0 +1,797 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T07:37:23.316057+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "method": "Explicit cuBLASLt heuristics, 64 MB workspace, 28 distinct weights per CUDA Graph replay, three timing blocks per algorithm. Random BF16 input; full-request validation is required.",
+  "rows": [
+    {
+      "field": "attn.Wqkv",
+      "variant": "pytorch",
+      "ms": 0.3198240001996358,
+      "samples_ms": [
+        0.3213786681493123,
+        0.3198240001996358,
+        0.31965599457422894
+      ]
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "cublaslt",
+      "index": 1,
+      "algorithm": {
+        "workspace_bytes": 0,
+        "waves": 0.34285715222358704,
+        "0": 21,
+        "1": 15,
+        "2": 1,
+        "3": 0,
+        "6": 12
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.3048853278160095,
+      "samples_ms": [
+        0.3066800038019816,
+        0.3046506643295288,
+        0.3048853278160095
+      ],
+      "speedup": 1.048997675587201
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "cublaslt",
+      "index": 7,
+      "algorithm": {
+        "workspace_bytes": 48,
+        "waves": 0.6857143044471741,
+        "0": 21,
+        "1": 24,
+        "2": 5,
+        "3": 1,
+        "6": 9
+      },
+      "mismatches": 2253436,
+      "max_abs_error": 0.125,
+      "ms": 0.7494479815165201,
+      "samples_ms": [
+        0.7512799898783366,
+        0.7494479815165201,
+        0.749234676361084
+      ],
+      "speedup": 0.42674609590977447
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "cublaslt",
+      "index": 4,
+      "algorithm": {
+        "workspace_bytes": 192,
+        "waves": 1.0285714864730835,
+        "0": 21,
+        "1": 15,
+        "2": 3,
+        "3": 1,
+        "6": 12
+      },
+      "mismatches": 2017137,
+      "max_abs_error": 0.125,
+      "ms": 0.44816799958546955,
+      "samples_ms": [
+        0.44816799958546955,
+        0.44893598556518555,
+        0.4466986656188965
+      ],
+      "speedup": 0.7136252487804913
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "cublaslt",
+      "index": 2,
+      "algorithm": {
+        "workspace_bytes": 0,
+        "waves": 0.6857143044471741,
+        "0": 21,
+        "1": 15,
+        "2": 1,
+        "3": 0,
+        "6": 18
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.2967200080553691,
+      "samples_ms": [
+        0.29866933822631836,
+        0.2967200080553691,
+        0.2961120009422302
+      ],
+      "speedup": 1.077864624956317
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "cublaslt",
+      "index": 6,
+      "algorithm": {
+        "workspace_bytes": 786432,
+        "waves": 0.6857143044471741,
+        "0": 21,
+        "1": 20,
+        "2": 2,
+        "3": 4,
+        "6": 10
+      },
+      "mismatches": 2062722,
+      "max_abs_error": 0.125,
+      "ms": 0.5053626696268717,
+      "samples_ms": [
+        0.5082240104675293,
+        0.505181352297465,
+        0.5053626696268717
+      ],
+      "speedup": 0.6328603583556615
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "cublaslt",
+      "index": 0,
+      "algorithm": {
+        "workspace_bytes": 0,
+        "waves": 0.5485714077949524,
+        "0": 21,
+        "1": 11,
+        "2": 1,
+        "3": 0,
+        "6": 14
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.3201599915822347,
+      "samples_ms": [
+        0.3214906652768453,
+        0.3201599915822347,
+        0.3197546601295471
+      ],
+      "speedup": 0.9989505516259592
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "cublaslt",
+      "index": 3,
+      "algorithm": {
+        "workspace_bytes": 0,
+        "waves": 1.3714286088943481,
+        "0": 21,
+        "1": 11,
+        "2": 1,
+        "3": 0,
+        "6": 20
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.4164453347524007,
+      "samples_ms": [
+        0.41846132278442383,
+        0.416373332341512,
+        0.4164453347524007
+      ],
+      "speedup": 0.7679855517886603
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "cublaslt",
+      "index": 5,
+      "algorithm": {
+        "workspace_bytes": 786432,
+        "waves": 0.6857143044471741,
+        "0": 21,
+        "1": 18,
+        "2": 2,
+        "3": 4,
+        "6": 15
+      },
+      "mismatches": 2062722,
+      "max_abs_error": 0.125,
+      "ms": 0.38358132044474286,
+      "samples_ms": [
+        0.3848559856414795,
+        0.38358132044474286,
+        0.3825306495030721
+      ],
+      "speedup": 0.8337840847641285
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "pytorch",
+      "ms": 0.1992853283882141,
+      "samples_ms": [
+        0.19995200634002686,
+        0.19915199279785156,
+        0.1992853283882141
+      ]
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "cublaslt",
+      "index": 1,
+      "algorithm": {
+        "workspace_bytes": 0,
+        "waves": 0.18285714089870453,
+        "0": 21,
+        "1": 11,
+        "2": 1,
+        "3": 0,
+        "6": 19
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.21333332856496176,
+      "samples_ms": [
+        0.21502133210500082,
+        0.21333332856496176,
+        0.21332800388336182
+      ],
+      "speedup": 0.9341499976996331
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "cublaslt",
+      "index": 7,
+      "algorithm": {
+        "workspace_bytes": 262144,
+        "waves": 0.36571428179740906,
+        "0": 23,
+        "1": 11,
+        "2": 2,
+        "3": 4,
+        "6": 19
+      },
+      "mismatches": 687309,
+      "max_abs_error": 0.0625,
+      "ms": 0.2054319977760315,
+      "samples_ms": [
+        0.2076560060183207,
+        0.2054319977760315,
+        0.20507733027140299
+      ],
+      "speedup": 0.9700792989682226
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "cublaslt",
+      "index": 4,
+      "algorithm": {
+        "workspace_bytes": 524288,
+        "waves": 0.9142857193946838,
+        "0": 21,
+        "1": 15,
+        "2": 4,
+        "3": 4,
+        "6": 18
+      },
+      "mismatches": 737848,
+      "max_abs_error": 0.125,
+      "ms": 0.18088799715042114,
+      "samples_ms": [
+        0.1828533411026001,
+        0.18088799715042114,
+        0.18083999554316202
+      ],
+      "speedup": 1.101705649504728
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "cublaslt",
+      "index": 2,
+      "algorithm": {
+        "workspace_bytes": 524288,
+        "waves": 0.9142857193946838,
+        "0": 21,
+        "1": 15,
+        "2": 4,
+        "3": 4,
+        "6": 25
+      },
+      "mismatches": 737848,
+      "max_abs_error": 0.125,
+      "ms": 0.1752880016962687,
+      "samples_ms": [
+        0.17663466930389404,
+        0.17528533935546875,
+        0.1752880016962687
+      ],
+      "speedup": 1.1369022777356257
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "cublaslt",
+      "index": 6,
+      "algorithm": {
+        "workspace_bytes": 393216,
+        "waves": 0.6857143044471741,
+        "0": 21,
+        "1": 15,
+        "2": 3,
+        "3": 4,
+        "6": 18
+      },
+      "mismatches": 716330,
+      "max_abs_error": 0.125,
+      "ms": 0.19139466683069864,
+      "samples_ms": [
+        0.1930746634801229,
+        0.19120800495147705,
+        0.19139466683069864
+      ],
+      "speedup": 1.0412271757002263
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "cublaslt",
+      "index": 0,
+      "algorithm": {
+        "workspace_bytes": 0,
+        "waves": 0.4571428596973419,
+        "0": 21,
+        "1": 11,
+        "2": 1,
+        "3": 0,
+        "6": 20
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.20004266500473022,
+      "samples_ms": [
+        0.20067467292149863,
+        0.20002400875091553,
+        0.20004266500473022
+      ],
+      "speedup": 0.9962141245393916
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "cublaslt",
+      "index": 3,
+      "algorithm": {
+        "workspace_bytes": 524288,
+        "waves": 0.9142857193946838,
+        "0": 21,
+        "1": 15,
+        "2": 4,
+        "3": 4,
+        "6": 25
+      },
+      "mismatches": 737848,
+      "max_abs_error": 0.125,
+      "ms": 0.17549866437911987,
+      "samples_ms": [
+        0.17745333909988403,
+        0.17549866437911987,
+        0.1751520037651062
+      ],
+      "speedup": 1.1355375785522177
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "cublaslt",
+      "index": 5,
+      "algorithm": {
+        "workspace_bytes": 0,
+        "waves": 0.18285714089870453,
+        "0": 21,
+        "1": 11,
+        "2": 1,
+        "3": 0,
+        "6": 14
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.25762399037679035,
+      "samples_ms": [
+        0.2579866647720337,
+        0.2560080091158549,
+        0.25762399037679035
+      ],
+      "speedup": 0.7735511281257135
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "pytorch",
+      "ms": 0.5294986565907797,
+      "samples_ms": [
+        0.5297093391418457,
+        0.5293039878209432,
+        0.5294986565907797
+      ]
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "cublaslt",
+      "index": 1,
+      "algorithm": {
+        "workspace_bytes": 0,
+        "waves": 0.5857142806053162,
+        "0": 21,
+        "1": 18,
+        "2": 1,
+        "3": 0,
+        "6": 15
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.4773626724878947,
+      "samples_ms": [
+        0.4780106544494629,
+        0.4773626724878947,
+        0.4763760169347127
+      ],
+      "speedup": 1.1092167174093552
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "cublaslt",
+      "index": 7,
+      "algorithm": {
+        "workspace_bytes": 0,
+        "waves": 0.5857142806053162,
+        "0": 21,
+        "1": 20,
+        "2": 1,
+        "3": 0,
+        "6": 10
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7489893436431885,
+      "samples_ms": [
+        0.7510080337524414,
+        0.7489893436431885,
+        0.7489066918691
+      ],
+      "speedup": 0.7069508546212746
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "cublaslt",
+      "index": 4,
+      "algorithm": {
+        "workspace_bytes": 0,
+        "waves": 2.3428571224212646,
+        "0": 21,
+        "1": 11,
+        "2": 1,
+        "3": 0,
+        "6": 20
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.615938663482666,
+      "samples_ms": [
+        0.6195093393325806,
+        0.6157679955164591,
+        0.615938663482666
+      ],
+      "speedup": 0.8596613396484422
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "cublaslt",
+      "index": 2,
+      "algorithm": {
+        "workspace_bytes": 0,
+        "waves": 0.9371428489685059,
+        "0": 21,
+        "1": 11,
+        "2": 1,
+        "3": 0,
+        "6": 14
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.4684053262074788,
+      "samples_ms": [
+        0.47062134742736816,
+        0.4684053262074788,
+        0.4681066672007243
+      ],
+      "speedup": 1.1304283426449333
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "cublaslt",
+      "index": 6,
+      "algorithm": {
+        "workspace_bytes": 84,
+        "waves": 0.8999999761581421,
+        "0": 21,
+        "1": 24,
+        "2": 3,
+        "3": 1,
+        "6": 9
+      },
+      "mismatches": 3454751,
+      "max_abs_error": 0.125,
+      "ms": 0.8792693614959717,
+      "samples_ms": [
+        0.8840479850769043,
+        0.8792693614959717,
+        0.874514659245809
+      ],
+      "speedup": 0.6022030105653869
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "cublaslt",
+      "index": 0,
+      "algorithm": {
+        "workspace_bytes": 0,
+        "waves": 0.5857142806053162,
+        "0": 21,
+        "1": 15,
+        "2": 1,
+        "3": 0,
+        "6": 12
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.5283946593602499,
+      "samples_ms": [
+        0.5299226840337118,
+        0.5270746548970541,
+        0.5283946593602499
+      ],
+      "speedup": 1.0020893421441208
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "cublaslt",
+      "index": 3,
+      "algorithm": {
+        "workspace_bytes": 328,
+        "waves": 1.7571429014205933,
+        "0": 21,
+        "1": 15,
+        "2": 3,
+        "3": 1,
+        "6": 12
+      },
+      "mismatches": 3454751,
+      "max_abs_error": 0.125,
+      "ms": 0.577239990234375,
+      "samples_ms": [
+        0.5787200133005778,
+        0.577239990234375,
+        0.5769786834716797
+      ],
+      "speedup": 0.917293786897524
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "cublaslt",
+      "index": 5,
+      "algorithm": {
+        "workspace_bytes": 0,
+        "waves": 1.1714285612106323,
+        "0": 21,
+        "1": 15,
+        "2": 1,
+        "3": 0,
+        "6": 18
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.600655992825826,
+      "samples_ms": [
+        0.6017893155415853,
+        0.6002053419748942,
+        0.600655992825826
+      ],
+      "speedup": 0.8815339610610027
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "pytorch",
+      "ms": 0.30323733886082965,
+      "samples_ms": [
+        0.30426667133967084,
+        0.30301332473754883,
+        0.30323733886082965
+      ]
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "cublaslt",
+      "index": 1,
+      "algorithm": {
+        "workspace_bytes": 524288,
+        "waves": 0.9142857193946838,
+        "0": 21,
+        "1": 15,
+        "2": 4,
+        "3": 4,
+        "6": 18
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.30349334081013996,
+      "samples_ms": [
+        0.30559732516606647,
+        0.30349334081013996,
+        0.3033466736475627
+      ],
+      "speedup": 0.9991564824828547
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "cublaslt",
+      "index": 7,
+      "algorithm": {
+        "workspace_bytes": 0,
+        "waves": 0.7314285635948181,
+        "0": 21,
+        "1": 5,
+        "2": 1,
+        "3": 0,
+        "6": 20
+      },
+      "mismatches": 735782,
+      "max_abs_error": 0.25,
+      "ms": 0.4793146848678589,
+      "samples_ms": [
+        0.4813493490219116,
+        0.478767991065979,
+        0.4793146848678589
+      ],
+      "speedup": 0.6326477123154038
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "cublaslt",
+      "index": 4,
+      "algorithm": {
+        "workspace_bytes": 1048576,
+        "waves": 0.4571428596973419,
+        "0": 21,
+        "1": 15,
+        "2": 4,
+        "3": 2,
+        "6": 12
+      },
+      "mismatches": 735816,
+      "max_abs_error": 0.25,
+      "ms": 0.29334133863449097,
+      "samples_ms": [
+        0.295960009098053,
+        0.29334133863449097,
+        0.2932959993680318
+      ],
+      "speedup": 1.0337354437407449
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "cublaslt",
+      "index": 2,
+      "algorithm": {
+        "workspace_bytes": 917504,
+        "waves": 0.800000011920929,
+        "0": 21,
+        "1": 18,
+        "2": 8,
+        "3": 4,
+        "6": 12
+      },
+      "mismatches": 896724,
+      "max_abs_error": 0.25,
+      "ms": 0.3296719988187154,
+      "samples_ms": [
+        0.33195199569066364,
+        0.3295066754023234,
+        0.3296719988187154
+      ],
+      "speedup": 0.9198152707763877
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "cublaslt",
+      "index": 6,
+      "algorithm": {
+        "workspace_bytes": 524288,
+        "waves": 0.9142857193946838,
+        "0": 21,
+        "1": 17,
+        "2": 4,
+        "3": 4,
+        "6": 15
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.3512266476949056,
+      "samples_ms": [
+        0.35492531458536786,
+        0.3512266476949056,
+        0.3509813149770101
+      ],
+      "speedup": 0.8633665493520241
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "cublaslt",
+      "index": 0,
+      "algorithm": {
+        "workspace_bytes": 524288,
+        "waves": 0.9142857193946838,
+        "0": 21,
+        "1": 15,
+        "2": 4,
+        "3": 4,
+        "6": 25
+      },
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.3030053377151489,
+      "samples_ms": [
+        0.30507733424504596,
+        0.30299466848373413,
+        0.3030053377151489
+      ],
+      "speedup": 1.0007656668606242
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "cublaslt",
+      "index": 3,
+      "algorithm": {
+        "workspace_bytes": 1048576,
+        "waves": 0.9142857193946838,
+        "0": 21,
+        "1": 15,
+        "2": 4,
+        "3": 2,
+        "6": 25
+      },
+      "mismatches": 735816,
+      "max_abs_error": 0.25,
+      "ms": 0.3041146596272786,
+      "samples_ms": [
+        0.30635732412338257,
+        0.3041146596272786,
+        0.3039439916610718
+      ],
+      "speedup": 0.9971151644990602
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "cublaslt",
+      "index": 5,
+      "algorithm": {
+        "workspace_bytes": 0,
+        "waves": 0.4571428596973419,
+        "0": 21,
+        "1": 11,
+        "2": 1,
+        "3": 0,
+        "6": 20
+      },
+      "mismatches": 735782,
+      "max_abs_error": 0.25,
+      "ms": 0.4524266719818115,
+      "samples_ms": [
+        0.45475999514261883,
+        0.4524266719818115,
+        0.45232534408569336
+      ],
+      "speedup": 0.6702463794464806
+    }
+  ]
+}

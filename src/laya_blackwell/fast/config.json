@@ -1,0 +1,134 @@
+{
+  "format_version": 1,
+  "architecture": "sm_120",
+  "checkpoint_revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+  "encoder": {
+    "attn.Wqkv": {
+      "variant": "tma",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ]
+    },
+    "attn.Wo": {
+      "variant": "bf16",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        5
+      ]
+    },
+    "mlp.Wi": {
+      "variant": "bf16",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ]
+    },
+    "mlp.Wo": {
+      "variant": "bf16-partial",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ]
+    }
+  },
+  "mlp_geglu": [
+    32,
+    64,
+    64,
+    4,
+    3,
+    2,
+    false
+  ],
+  "head": [
+    {
+      "names": [
+        "net.head.layers.0.in_proj",
+        "net.head.layers.1.in_proj"
+      ],
+      "rows": 64,
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "relu": false
+    },
+    {
+      "names": [
+        "net.head.layers.1.self_attn.out_proj"
+      ],
+      "rows": 5,
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "relu": false
+    },
+    {
+      "names": [
+        "net.head.layers.1.linear1"
+      ],
+      "rows": 5,
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "relu": true
+    },
+    {
+      "names": [
+        "net.scorer.1"
+      ],
+      "rows": 4,
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "relu": false
+    }
+  ],
+  "local_attention": [
+    32,
+    true,
+    true
+  ],
+  "global_attention": 8
+}

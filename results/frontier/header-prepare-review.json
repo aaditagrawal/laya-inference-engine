@@ -1,0 +1,97 @@
+{
+  "verdict": "Keep experimental; hardened CPU gain did not justify full-request timing.",
+  "timing": {
+    "initial": {
+      "report": "results/frontier/header-prepare-initial.json",
+      "report_sha256": "be8c9d81045a4fe39a445f542161d33262fcb2ddfefbd101d321b97dd0f1e5f0",
+      "timings": {
+        "1-short": {
+          "retained_us": 100.0655,
+          "candidate_us": 96.101,
+          "faster_rounds": 9,
+          "median_paired_saving_us": 3.2345000000000015
+        },
+        "1-long": {
+          "retained_us": 1293.6680000000001,
+          "candidate_us": 1306.2024999999999,
+          "faster_rounds": 3,
+          "median_paired_saving_us": -8.850500000000094
+        },
+        "16-short": {
+          "retained_us": 309.96599999999995,
+          "candidate_us": 303.757,
+          "faster_rounds": 9,
+          "median_paired_saving_us": 7.9504999999999715
+        },
+        "changing": {
+          "retained_us": 74.8355,
+          "candidate_us": 71.131,
+          "faster_rounds": 9,
+          "median_paired_saving_us": 3.7905000000000024
+        }
+      }
+    },
+    "hardened": {
+      "report": "results/frontier/header-prepare.json",
+      "report_sha256": "d74c9fbe279ca41a1daa935f84b0f6d4506856138c8be72ff614e899eee73f23",
+      "timings": {
+        "1-short": {
+          "retained_us": 101.29100000000001,
+          "candidate_us": 101.65100000000001,
+          "faster_rounds": 3,
+          "median_paired_saving_us": -0.4645000000000066
+        },
+        "1-long": {
+          "retained_us": 1367.5324999999998,
+          "candidate_us": 1362.3925,
+          "faster_rounds": 6,
+          "median_paired_saving_us": 10.10500000000003
+        },
+        "16-short": {
+          "retained_us": 313.99699999999996,
+          "candidate_us": 311.152,
+          "faster_rounds": 8,
+          "median_paired_saving_us": 1.915
+        },
+        "changing": {
+          "retained_us": 77.0105,
+          "candidate_us": 76.6455,
+          "faster_rounds": 8,
+          "median_paired_saving_us": 0.31950000000000034
+        }
+      }
+    }
+  },
+  "correctness": {
+    "established_cases": 610,
+    "targeted_cases": 224,
+    "all_exact": true,
+    "all_targeted_fallbacks_as_expected": true,
+    "scope": "Prepared values, error types/messages, warnings, logging, and guarded fallback behavior. Targeted finite fixtures do not prove arbitrary monkeypatched-tokenizer equivalence."
+  },
+  "guard_findings_fixed": [
+    "Reject subclasses before reading __dict__.",
+    "Reject modified class __getattr__, __getattribute__, conversion and vocabulary lookup methods.",
+    "Reject special-token properties shadowed on the instance or class hierarchy.",
+    "Require the current recognized-special-token list to contain mask_token, cls_token and sep_token."
+  ],
+  "mutation_coverage": [
+    "Unset, unknown, changed, empty, newly added and AddedToken special values.",
+    "Nonstandard map/value types, missing definitions, subclasses and overridden converters.",
+    "Instance/class special-token shadows, altered recognized-token list, attribute dispatch overrides.",
+    "Ordinary and special-token-bearing text, empty requests and invalid questions.",
+    "Verbose unset-token logging and custom converter logs/exceptions."
+  ],
+  "full_request_status": "Not run. The same-resident-engine 197-request, 11-round harness is prepared and lint/format checked only. Its CPU latency gate rejects the current report. No full-request speedup is claimed.",
+  "native_library_status": "No model was loaded and no native library/GPU parity or timing was run for this candidate. The unrun full harness records loaded experiment-library hashes before and after a future comparison.",
+  "files_sha256": {
+    "experiments/frontier/header_prepare.py": "b0a4f78071d92dfe3cc1549acf80ee748907b5e389475ed7dcc05927c1687ad8",
+    "experiments/frontier/header_prepare_probe.py": "56fa21d838fd112c65657cbc0e804f56a85232d0391c6fd890a00e00593a632b",
+    "experiments/frontier/header_prepare_extra.py": "fbb782b7dae5dcf0300e24078a38f0a5e89431f83d2fb07d063f34f04582bc97",
+    "experiments/frontier/header_prepare_full.py": "a13a6be430a492b1a7ef50dd7ab4b274ab8e934d213cca4abd9ecece526df003",
+    ".research/header_prepare.initial.py": "6c70038715801b965d0227d65c0f15f2b25cdd795bc6a3e22830a1ed49653a90",
+    "results/frontier/header-prepare-extra.json": "bc544c72f45478a89110d6db709e6e0e1fa27b9269a7312973aad05cb3ff75a4"
+  },
+  "sources_unchanged_during_targeted_probe": true,
+  "frozen": true
+}

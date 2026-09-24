@@ -1,0 +1,458 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T11:49:52.645133+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "build": {
+    "direct_staging": true,
+    "seconds": 63.748075515031815,
+    "torch_revision": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cutlass_revision": "e05f953a5b3d38adc240df2ff928e0421c2abba3",
+    "flash_revision": "14c377950125c70b7a9dabf9c561fca53715ac7d",
+    "source_sha256": "655a96974e0f62cc9c784b2def47aad2622621bfe738a62484417c31c0b28c51",
+    "helper_sha256": "326f8b1a1dbe6369fe03d578a8ba12d63cdd32fba6d564ef7cd7d51b5d99d62f",
+    "generator_sha256": "9e58161da6112e7cedffde5460d8c6613fdbd412d647cbfd652e83a3caa154e0",
+    "headers_sha256": {
+      "/home/mav/Code/vibes/Laya Inference Engine/.venv/lib/python3.12/site-packages/torch/include/ATen/native/transformers/cuda/mem_eff_attention/kernel_forward.h": "fcbfa07f0bc48e239e4d8c45025d5d9e65ff017d00e9dd667918e03172637650",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-torch-flash/csrc/flash_attn/src/flash_fwd_kernel.h": "9b31cdff4009fcd0e1bc52f9b97907d226442db24e0a150d8dfed0711ee64dda",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-rope-attention/rope_attention_cutlass_kernel.h": "abed2a70a5181bfd1eaf3fd1428e2f4fdd136bbf6b1d32c904160f99f67458d5",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-rope-attention/rope_attention_flash_kernel.h": "9a6a34f60ca48e57eb34db3a7b36af89065380071bef7180eda248fa2762a9dd"
+    },
+    "library_sha256": "37670cf214cee8a995b3211acd6401ef18cdff85c64c8d967ccb99c822cab326",
+    "architecture": "sm_120",
+    "fast_math": false,
+    "rope_math": "Separate FP32 multiply and add rounding, then BF16 RN"
+  },
+  "scope": "28 encoder layers: separate exact FP32 RoPE + retained attention versus shared-staging fusion",
+  "sources": [
+    {
+      "suite": "benchmark",
+      "index": 0,
+      "request": {
+        "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+        "questions": {
+          "q0": {
+            "type": "choice",
+            "instructions": "Which department should handle this request?",
+            "criteria": {
+              "billing": "invoices, payments, refunds",
+              "technical": "bugs, outages, system errors",
+              "sales": "pricing and new contracts",
+              "other": "everything else"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 0,
+      "request": {
+        "state": "My parcel arrived broken.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 1,
+      "request": {
+        "state": "the card was charged twice.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "rows": [
+    {
+      "local_config": 0,
+      "global_config": 2,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "timings": {
+        "full": {
+          "baseline_ms": 0.12697919845581054,
+          "fused_ms": 0.2846195220947266,
+          "speedup": 0.44613664418124327,
+          "baseline_samples_ms": [
+            0.12718527793884277,
+            0.1269923210144043,
+            0.12697919845581054,
+            0.12697088241577148,
+            0.12696736335754394,
+            0.12695839881896973,
+            0.12698240280151368
+          ],
+          "fused_samples_ms": [
+            0.2847219276428223,
+            0.2845884895324707,
+            0.2846195220947266,
+            0.2846937561035156,
+            0.28466047286987306,
+            0.2846124839782715,
+            0.284597110748291
+          ]
+        },
+        "padded": {
+          "baseline_ms": 0.22120447158813478,
+          "fused_ms": 0.4177983856201172,
+          "speedup": 0.5294526719144979,
+          "baseline_samples_ms": [
+            0.22165695190429688,
+            0.22120351791381837,
+            0.22119327545166015,
+            0.2211894416809082,
+            0.22120447158813478,
+            0.2212646484375,
+            0.2212998390197754
+          ],
+          "fused_samples_ms": [
+            0.4178927993774414,
+            0.41765918731689455,
+            0.4177983856201172,
+            0.4177859115600586,
+            0.4179024124145508,
+            0.4178374481201172,
+            0.41776031494140625
+          ]
+        }
+      }
+    },
+    {
+      "local_config": 0,
+      "global_config": 3,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "timings": {
+        "full": {
+          "baseline_ms": 0.12699647903442382,
+          "fused_ms": 0.31352800369262696,
+          "speedup": 0.40505625506717796,
+          "baseline_samples_ms": [
+            0.12720576286315918,
+            0.12699647903442382,
+            0.12700480461120606,
+            0.12699935913085938,
+            0.12697823524475096,
+            0.12699071884155275,
+            0.1269916820526123
+          ],
+          "fused_samples_ms": [
+            0.3137055969238281,
+            0.31352800369262696,
+            0.31349983215332033,
+            0.31350175857543944,
+            0.31356704711914063,
+            0.3135635185241699,
+            0.31352447509765624
+          ]
+        },
+        "padded": {
+          "baseline_ms": 0.22132959365844726,
+          "fused_ms": 0.417685432434082,
+          "speedup": 0.5298954104495298,
+          "baseline_samples_ms": [
+            0.22170623779296875,
+            0.22132959365844726,
+            0.22134496688842772,
+            0.22131647109985353,
+            0.22133695602416992,
+            0.22129791259765624,
+            0.22129440307617188
+          ],
+          "fused_samples_ms": [
+            0.41783775329589845,
+            0.417608642578125,
+            0.41767520904541017,
+            0.4176220703125,
+            0.41776992797851564,
+            0.41770687103271487,
+            0.417685432434082
+          ]
+        }
+      }
+    },
+    {
+      "local_config": 0,
+      "global_config": 4,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "timings": {
+        "full": {
+          "baseline_ms": 0.12706015586853028,
+          "fused_ms": 0.35427616119384764,
+          "speedup": 0.3586472074224813,
+          "baseline_samples_ms": [
+            0.12716959953308105,
+            0.1269696044921875,
+            0.12700192451477052,
+            0.12704095840454102,
+            0.12706687927246094,
+            0.12710304260253907,
+            0.12706015586853028
+          ],
+          "fused_samples_ms": [
+            0.3543590545654297,
+            0.3543484878540039,
+            0.35427616119384764,
+            0.35425472259521484,
+            0.3542464065551758,
+            0.3542572784423828,
+            0.35437152862548826
+          ]
+        },
+        "padded": {
+          "baseline_ms": 0.22122560501098631,
+          "fused_ms": 0.41768062591552735,
+          "speedup": 0.5296525414030755,
+          "baseline_samples_ms": [
+            0.22156896591186523,
+            0.2211961555480957,
+            0.22130783081054686,
+            0.22122560501098631,
+            0.22120704650878906,
+            0.22123807907104492,
+            0.22122560501098631
+          ],
+          "fused_samples_ms": [
+            0.41795585632324217,
+            0.41767776489257813,
+            0.41768478393554687,
+            0.41768062591552735,
+            0.4176460647583008,
+            0.41763198852539063,
+            0.41770912170410157
+          ]
+        }
+      }
+    },
+    {
+      "local_config": 1,
+      "global_config": 2,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "timings": {
+        "full": {
+          "baseline_ms": 0.12697695732116698,
+          "fused_ms": 0.24568767547607423,
+          "speedup": 0.5168226573641557,
+          "baseline_samples_ms": [
+            0.12716511726379395,
+            0.1270137596130371,
+            0.12698240280151368,
+            0.12696672439575196,
+            0.12695103645324707,
+            0.12697695732116698,
+            0.1269593620300293
+          ],
+          "fused_samples_ms": [
+            0.24579231262207032,
+            0.24562047958374023,
+            0.2456710433959961,
+            0.24564800262451172,
+            0.24572416305541991,
+            0.24571584701538085,
+            0.24568767547607423
+          ]
+        },
+        "padded": {
+          "baseline_ms": 0.22115104675292968,
+          "fused_ms": 0.3629638290405273,
+          "speedup": 0.6092922463858973,
+          "baseline_samples_ms": [
+            0.2214918327331543,
+            0.2211465644836426,
+            0.22115104675292968,
+            0.22114719390869142,
+            0.2211248016357422,
+            0.22120960235595702,
+            0.22116640090942383
+          ],
+          "fused_samples_ms": [
+            0.36318721771240237,
+            0.3629638290405273,
+            0.3629564666748047,
+            0.3629679870605469,
+            0.362911376953125,
+            0.3628662490844727,
+            0.36307998657226564
+          ]
+        }
+      }
+    },
+    {
+      "local_config": 1,
+      "global_config": 3,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "timings": {
+        "full": {
+          "baseline_ms": 0.1270035171508789,
+          "fused_ms": 0.2744195175170898,
+          "speedup": 0.46280788735433004,
+          "baseline_samples_ms": [
+            0.12717632293701173,
+            0.12699295997619628,
+            0.12697216033935546,
+            0.1270035171508789,
+            0.12704031944274902,
+            0.12701184272766114,
+            0.12699872016906738
+          ],
+          "fused_samples_ms": [
+            0.2744816017150879,
+            0.2744444847106934,
+            0.2743846321105957,
+            0.27454816818237304,
+            0.2744195175170898,
+            0.2744083213806152,
+            0.27439424514770505
+          ]
+        },
+        "padded": {
+          "baseline_ms": 0.22117855072021483,
+          "fused_ms": 0.36310142517089844,
+          "speedup": 0.6091371043672281,
+          "baseline_samples_ms": [
+            0.2215376091003418,
+            0.22117855072021483,
+            0.2211587142944336,
+            0.22116800308227538,
+            0.22121824264526369,
+            0.22117151260375978,
+            0.22118335723876953
+          ],
+          "fused_samples_ms": [
+            0.3632038497924805,
+            0.3629321670532227,
+            0.3628684616088867,
+            0.3630963134765625,
+            0.36325630187988284,
+            0.36310142517089844,
+            0.3632294464111328
+          ]
+        }
+      }
+    },
+    {
+      "local_config": 1,
+      "global_config": 4,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "timings": {
+        "full": {
+          "baseline_ms": 0.12702655792236328,
+          "fused_ms": 0.3153740882873535,
+          "speedup": 0.40278057912805715,
+          "baseline_samples_ms": [
+            0.1271894359588623,
+            0.1270793628692627,
+            0.12699487686157226,
+            0.1270041561126709,
+            0.12702655792236328,
+            0.12707584381103515,
+            0.12698304176330566
+          ],
+          "fused_samples_ms": [
+            0.31546112060546877,
+            0.3154889678955078,
+            0.31545440673828123,
+            0.3153740882873535,
+            0.3153705596923828,
+            0.31536447525024414,
+            0.3153536033630371
+          ]
+        },
+        "padded": {
+          "baseline_ms": 0.22118303298950195,
+          "fused_ms": 0.36302913665771486,
+          "speedup": 0.6092707462157405,
+          "baseline_samples_ms": [
+            0.22157119750976562,
+            0.22118303298950195,
+            0.22119359970092772,
+            0.22114368438720702,
+            0.22119583129882814,
+            0.22115232467651366,
+            0.22114463806152343
+          ],
+          "fused_samples_ms": [
+            0.36323745727539064,
+            0.3630883026123047,
+            0.3629734420776367,
+            0.36313793182373044,
+            0.36297088623046875,
+            0.36294464111328123,
+            0.36302913665771486
+          ]
+        }
+      }
+    }
+  ],
+  "python_sha256": {
+    "rope_attention_probe.py": "a9e01bda2005dcbd5d68e8d248218f2f90ae4c4a8f49736dc0787dc8e1ec0b2b",
+    "rope_attention_adapter.py": "cec5168348dcd06fb8da534a33573a6851d2a7d88cf9133e35ed17cc07661d25"
+  }
+}

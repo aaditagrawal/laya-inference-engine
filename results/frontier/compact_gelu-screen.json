@@ -1,0 +1,188 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T12:29:06.043291+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "source_before": {
+    "compact_gelu_kernel.py": "77b538e811e67211bbdaf9f18c6768beaca6ddbb50a0abe93f69c3b0e43835da",
+    "compact_gelu_probe.py": "43f87db16037af322546e87344cb41e9f23001498f805edcd6c38ed0750d034a",
+    "mlp_geglu.py": "8ac6eda13b6ebe2bc8acf203ab35b8ac905b73a48a59207c72dde05bb93e2c98"
+  },
+  "domain": {
+    "positive_middle_start": 15179,
+    "positive_middle_stop": 16434,
+    "negative_middle_start": 15179,
+    "negative_middle_stop": 16562,
+    "positive_middle_values": 1255,
+    "negative_middle_values": 1383,
+    "special_values": 256,
+    "table_bytes": 5788,
+    "reference_sha256": "5362e5db9ad282e05fde0356b5be5f14c8f0153fc15aa528e04b97e4499223e1",
+    "table_sha256": "377757c2dfb659b9c3eee1261d25ea304c98c0d791b7798469808fb82763c260",
+    "derivation": "Maximal contiguous finite prefixes matching BF16-rounded x/2; finite suffixes matching positive identity or negative signed zero; exact reference middle and all Inf/NaN encodings retained in compact table."
+  },
+  "proof": {
+    "patterns": 65536,
+    "bitwise_mismatches": 0,
+    "mismatch_codes": []
+  },
+  "rows": {
+    "retained-erf-corrections": {
+      "bitwise_mismatches": 0,
+      "samples_ms": [
+        0.44523521423339846,
+        0.4454195022583008,
+        0.44554241180419923,
+        0.4455014419555664,
+        0.4457062530517578,
+        0.44560382843017576,
+        0.44546047210693357,
+        0.44554241180419923,
+        0.44537857055664065
+      ],
+      "median_ms": 0.4455014419555664,
+      "speedup_vs_retained": 1.0,
+      "faster_rounds_vs_retained": 0
+    },
+    "full-lut": {
+      "bitwise_mismatches": 0,
+      "samples_ms": [
+        0.4458086395263672,
+        0.446033935546875,
+        0.44607425689697267,
+        0.4457881546020508,
+        0.445665283203125,
+        0.4457676696777344,
+        0.4456243133544922,
+        0.44591102600097654,
+        0.44568576812744143
+      ],
+      "median_ms": 0.4457881546020508,
+      "speedup_vs_retained": 0.9993568410386761,
+      "faster_rounds_vs_retained": 1
+    },
+    "compact-lut": {
+      "bitwise_mismatches": 0,
+      "samples_ms": [
+        0.4563558578491211,
+        0.45666305541992186,
+        0.4564787292480469,
+        0.4562739181518555,
+        0.4566835021972656,
+        0.45651966094970703,
+        0.45666305541992186,
+        0.45682689666748044,
+        0.45686782836914064
+      ],
+      "median_ms": 0.45666305541992186,
+      "speedup_vs_retained": 0.97555831738109,
+      "faster_rounds_vs_retained": 0
+    }
+  },
+  "scope": "28 distinct checkpoint MLP input weights and seeded BF16 activations; retained fixed 32x64x64 MMA, 4 warps, 3 stages, unpacked GEGLU, no math reassociation",
+  "method": "Exclusive experiment lock; interleaved randomized variants for 9 CUDA-event rounds of 50 graph replays",
+  "binary_before": {
+    "exhaustive": {
+      "ptx": "6edda878adb218abd626f52341c90148c057566e6b34e26c46ef3642929b0cdf",
+      "cubin": "a012693d753170e906261eb918261f6e02651ee03184045f6677717bbc546abb"
+    },
+    "project": {
+      "ptx": "84f8417c499220d8d82b62ce48301cff6ac02b0ba30ebfa91c3b420f8e899c9f",
+      "cubin": "5b11420dc67978d781584302365627ea84d02716387f7041856b75a4464d8f4a"
+    }
+  },
+  "reference_binary_before": {
+    "(32, 64, 64, 4, 3, 2, False)": {
+      "ptx": "d774a649d37f49daf7e95e61c88285d695cca110d5e9e9ffe1062678fc2f29cd",
+      "cubin": "bbe9df456649ea28379bad4a55cf8b0007bb5af0c5a5965fb2e093a02cdab6c7"
+    },
+    "(32, 64, 64, 4, 3, 2, True)": {
+      "ptx": "0c4e1cff9124edfd0b711e1d8507987aec202b30673489b730d5b8d6beb300cf",
+      "cubin": "be004cef78366025dda837f3c7a628107099b75e7ca7d5eeb87d863e75d8f769"
+    }
+  },
+  "order": [
+    [
+      "retained-erf-corrections",
+      "compact-lut",
+      "full-lut"
+    ],
+    [
+      "compact-lut",
+      "full-lut",
+      "retained-erf-corrections"
+    ],
+    [
+      "retained-erf-corrections",
+      "full-lut",
+      "compact-lut"
+    ],
+    [
+      "compact-lut",
+      "retained-erf-corrections",
+      "full-lut"
+    ],
+    [
+      "full-lut",
+      "retained-erf-corrections",
+      "compact-lut"
+    ],
+    [
+      "full-lut",
+      "compact-lut",
+      "retained-erf-corrections"
+    ],
+    [
+      "full-lut",
+      "retained-erf-corrections",
+      "compact-lut"
+    ],
+    [
+      "full-lut",
+      "compact-lut",
+      "retained-erf-corrections"
+    ],
+    [
+      "compact-lut",
+      "full-lut",
+      "retained-erf-corrections"
+    ]
+  ],
+  "source_after": {
+    "compact_gelu_kernel.py": "77b538e811e67211bbdaf9f18c6768beaca6ddbb50a0abe93f69c3b0e43835da",
+    "compact_gelu_probe.py": "43f87db16037af322546e87344cb41e9f23001498f805edcd6c38ed0750d034a",
+    "mlp_geglu.py": "8ac6eda13b6ebe2bc8acf203ab35b8ac905b73a48a59207c72dde05bb93e2c98"
+  },
+  "binary_after": {
+    "exhaustive": {
+      "ptx": "6edda878adb218abd626f52341c90148c057566e6b34e26c46ef3642929b0cdf",
+      "cubin": "a012693d753170e906261eb918261f6e02651ee03184045f6677717bbc546abb"
+    },
+    "project": {
+      "ptx": "84f8417c499220d8d82b62ce48301cff6ac02b0ba30ebfa91c3b420f8e899c9f",
+      "cubin": "5b11420dc67978d781584302365627ea84d02716387f7041856b75a4464d8f4a"
+    }
+  },
+  "reference_binary_after": {
+    "(32, 64, 64, 4, 3, 2, False)": {
+      "ptx": "d774a649d37f49daf7e95e61c88285d695cca110d5e9e9ffe1062678fc2f29cd",
+      "cubin": "bbe9df456649ea28379bad4a55cf8b0007bb5af0c5a5965fb2e093a02cdab6c7"
+    },
+    "(32, 64, 64, 4, 3, 2, True)": {
+      "ptx": "0c4e1cff9124edfd0b711e1d8507987aec202b30673489b730d5b8d6beb300cf",
+      "cubin": "be004cef78366025dda837f3c7a628107099b75e7ca7d5eeb87d863e75d8f769"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T07:54:20.645191+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "rows": [
+    {
+      "field": "attn.Wqkv",
+      "max_error_vs_dequantized": 0.0625,
+      "relative_l2_vs_dequantized": 9.674431203166023e-05,
+      "baseline_ms": 0.31938934326171875,
+      "candidate_ms": 0.3987893263498942,
+      "samples_ms": [
+        0.3987893263498942,
+        0.39822665850321454,
+        0.3991733392079671
+      ],
+      "speedup": 0.8008974216664199
+    },
+    {
+      "field": "attn.Wo",
+      "max_error_vs_dequantized": 0.03125,
+      "relative_l2_vs_dequantized": 0.00010528002167120576,
+      "baseline_ms": 0.19915199279785156,
+      "candidate_ms": 0.2688746651013692,
+      "samples_ms": [
+        0.2696959972381592,
+        0.2688586711883545,
+        0.2688746651013692
+      ],
+      "speedup": 0.7406870882489754
+    },
+    {
+      "field": "mlp.Wi",
+      "max_error_vs_dequantized": 0.03125,
+      "relative_l2_vs_dequantized": 7.886791718192399e-05,
+      "baseline_ms": 0.5284826755523682,
+      "candidate_ms": 0.48794134457906085,
+      "samples_ms": [
+        0.49007999897003174,
+        0.48794134457906085,
+        0.4878186782201131
+      ],
+      "speedup": 1.0830864845205557
+    },
+    {
+      "field": "mlp.Wo",
+      "max_error_vs_dequantized": 0.25,
+      "relative_l2_vs_dequantized": 0.0027112464886158705,
+      "baseline_ms": 0.30316267410914105,
+      "candidate_ms": 0.6171280145645142,
+      "samples_ms": [
+        0.6169093449910482,
+        0.6171280145645142,
+        0.6173520088195801
+      ],
+      "speedup": 0.491247629267118
+    }
+  ],
+  "scope": "Weight-only group32 INT8, BF16 activation. CUDA Graph timing over 28 distinct weight matrices."
+}

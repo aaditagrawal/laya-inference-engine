@@ -1,0 +1,1302 @@
+{
+  "created_utc": "2026-09-24T14:08:28.344534+00:00",
+  "target": "Under 1 ms full warm single-question request latency, without an answer cache",
+  "target_achieved": false,
+  "rows": [
+    {
+      "policy": "bf16-exact-compiled",
+      "source": "results/frontier/full-bf16-exact-compiled.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.1961010061204433,
+            "mean_ms": 2.2011080835945904,
+            "samples": 250
+          },
+          "bf16-exact-compiled": {
+            "p50_ms": 1.9710909691639245,
+            "mean_ms": 1.9725805828347802,
+            "samples": 250
+          },
+          "latency_reduction_percent": 10.245887430925315
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.411725993733853,
+            "mean_ms": 7.448810544796288,
+            "samples": 250
+          },
+          "bf16-exact-compiled": {
+            "p50_ms": 7.559226476587355,
+            "mean_ms": 7.672172543592751,
+            "samples": 250
+          },
+          "latency_reduction_percent": -1.9900962741769446
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.772264970000833,
+            "mean_ms": 10.791498226113617,
+            "samples": 250
+          },
+          "bf16-exact-compiled": {
+            "p50_ms": 10.571050050202757,
+            "mean_ms": 10.583061642944813,
+            "samples": 250
+          },
+          "latency_reduction_percent": 1.8678979802152051
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0,
+      "original_exact": true,
+      "holdout": {
+        "all_passed": true,
+        "all_exact": true,
+        "agreement": 128,
+        "max_probability_error": 0.0,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": true,
+      "formatter_validation": null
+    },
+    {
+      "policy": "bf16-exact-short-compiled-attn-native",
+      "source": "results/frontier/full-bf16-exact-short-compiled-attn-native.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.1979970624670386,
+            "mean_ms": 2.204675321467221,
+            "samples": 250
+          },
+          "bf16-exact-short-compiled-attn-native": {
+            "p50_ms": 1.9531199359335005,
+            "mean_ms": 1.9790091537870467,
+            "samples": 250
+          },
+          "latency_reduction_percent": 11.140921465049058
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.527129491791129,
+            "mean_ms": 7.617380348499864,
+            "samples": 250
+          },
+          "bf16-exact-short-compiled-attn-native": {
+            "p50_ms": 7.547490007709712,
+            "mean_ms": 7.6235525398515165,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.27049509299377217
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.828215046785772,
+            "mean_ms": 10.856987941078842,
+            "samples": 250
+          },
+          "bf16-exact-short-compiled-attn-native": {
+            "p50_ms": 10.856790002435446,
+            "mean_ms": 10.886789112817496,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.26389349977082865
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0,
+      "original_exact": true,
+      "holdout": {
+        "all_passed": true,
+        "all_exact": true,
+        "agreement": 128,
+        "max_probability_error": 0.0,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": true,
+      "formatter_validation": null
+    },
+    {
+      "policy": "bf16-exact-short-compiled-attn-triton",
+      "source": "results/frontier/full-bf16-exact-short-compiled-attn-triton.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.2130630677565932,
+            "mean_ms": 2.226229009218514,
+            "samples": 250
+          },
+          "bf16-exact-short-compiled-attn-triton": {
+            "p50_ms": 1.847378967795521,
+            "mean_ms": 1.8529848787002265,
+            "samples": 250
+          },
+          "latency_reduction_percent": 16.523889684344617
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.4249645113013685,
+            "mean_ms": 7.468698018696159,
+            "samples": 250
+          },
+          "bf16-exact-short-compiled-attn-triton": {
+            "p50_ms": 7.408298959489912,
+            "mean_ms": 7.4435400306247175,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.22445294904899216
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.802641976624727,
+            "mean_ms": 10.84389079362154,
+            "samples": 250
+          },
+          "bf16-exact-short-compiled-attn-triton": {
+            "p50_ms": 10.80378150800243,
+            "mean_ms": 10.82951331557706,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.010548635974139131
+        }
+      },
+      "original_gate_passed": false,
+      "original_decision_agreement": 207,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.00578075647354126,
+      "original_exact": false,
+      "holdout": {
+        "all_passed": false,
+        "all_exact": false,
+        "agreement": 128,
+        "max_probability_error": 0.011563777923583984,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": false,
+      "formatter_validation": null
+    },
+    {
+      "policy": "bf16-exact-short-compiled",
+      "source": "results/frontier/full-bf16-exact-short-compiled.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.191647537983954,
+            "mean_ms": 2.1960972268134356,
+            "samples": 250
+          },
+          "bf16-exact-short-compiled": {
+            "p50_ms": 1.9725770107470453,
+            "mean_ms": 1.98027269449085,
+            "samples": 250
+          },
+          "latency_reduction_percent": 9.995700651685379
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.373620988801122,
+            "mean_ms": 7.464005829300731,
+            "samples": 250
+          },
+          "bf16-exact-short-compiled": {
+            "p50_ms": 7.36759597202763,
+            "mean_ms": 7.406604117713869,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.08171042127934625
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.757248033769429,
+            "mean_ms": 10.790828339289874,
+            "samples": 250
+          },
+          "bf16-exact-short-compiled": {
+            "p50_ms": 10.706303000915796,
+            "mean_ms": 10.729736723471433,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.47358797244151374
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0,
+      "original_exact": true,
+      "holdout": {
+        "all_passed": true,
+        "all_exact": true,
+        "agreement": 128,
+        "max_probability_error": 0.0,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": true,
+      "formatter_validation": null
+    },
+    {
+      "policy": "bf16-exact",
+      "source": "results/frontier/full-bf16-exact.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.1878674742765725,
+            "mean_ms": 2.18970166798681,
+            "samples": 250
+          },
+          "bf16-exact": {
+            "p50_ms": 2.0607479964382946,
+            "mean_ms": 2.064938656054437,
+            "samples": 250
+          },
+          "latency_reduction_percent": 5.810200084459427
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.485672016628087,
+            "mean_ms": 7.545734000392258,
+            "samples": 250
+          },
+          "bf16-exact": {
+            "p50_ms": 7.4252624763175845,
+            "mean_ms": 7.507190158590674,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.8070022327496207
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.760184493847191,
+            "mean_ms": 10.759865996893495,
+            "samples": 250
+          },
+          "bf16-exact": {
+            "p50_ms": 10.766153980512172,
+            "mean_ms": 10.782327157445252,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.05547754937096361
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0,
+      "original_exact": true,
+      "holdout": {
+        "all_passed": true,
+        "all_exact": true,
+        "agreement": 128,
+        "max_probability_error": 0.0,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": true,
+      "formatter_validation": null
+    },
+    {
+      "policy": "bf16-fast",
+      "source": "results/frontier/full-bf16-fast.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.1873515215702355,
+            "mean_ms": 2.193218734115362,
+            "samples": 250
+          },
+          "bf16-fast": {
+            "p50_ms": 2.017906983383,
+            "mean_ms": 2.0231453608721495,
+            "samples": 250
+          },
+          "latency_reduction_percent": 7.746561835913612
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.512966985814273,
+            "mean_ms": 7.64994044508785,
+            "samples": 250
+          },
+          "bf16-fast": {
+            "p50_ms": 7.50254699960351,
+            "mean_ms": 7.777124554850161,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.13869335816912853
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.783146019093692,
+            "mean_ms": 10.824184724595398,
+            "samples": 250
+          },
+          "bf16-fast": {
+            "p50_ms": 10.766500956378877,
+            "mean_ms": 10.812573311384767,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.1543618410187686
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.00551760196685791,
+      "original_exact": false,
+      "holdout": {
+        "all_passed": false,
+        "all_exact": false,
+        "agreement": 127,
+        "max_probability_error": 0.03473922610282898,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": false,
+      "formatter_validation": null
+    },
+    {
+      "policy": "bf16-pipeline-exact-short-compiled-attn-native",
+      "source": "results/frontier/full-bf16-pipeline-exact-short-compiled-attn-native.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.1869284682907164,
+            "mean_ms": 2.19117677398026,
+            "samples": 250
+          },
+          "bf16-pipeline-exact-short-compiled-attn-native": {
+            "p50_ms": 1.8903964664787054,
+            "mean_ms": 1.8920770743861794,
+            "samples": 250
+          },
+          "latency_reduction_percent": 13.559291312521882
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.442025991622359,
+            "mean_ms": 7.4747740821912885,
+            "samples": 250
+          },
+          "bf16-pipeline-exact-short-compiled-attn-native": {
+            "p50_ms": 7.435196021106094,
+            "mean_ms": 7.479511980898678,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.09177568748016673
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.81313204485923,
+            "mean_ms": 10.855769141577184,
+            "samples": 250
+          },
+          "bf16-pipeline-exact-short-compiled-attn-native": {
+            "p50_ms": 10.774526977911592,
+            "mean_ms": 10.824959270190448,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.3570202119745014
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0,
+      "original_exact": true,
+      "holdout": {
+        "all_passed": true,
+        "all_exact": true,
+        "agreement": 128,
+        "max_probability_error": 0.0,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": true,
+      "formatter_validation": null
+    },
+    {
+      "policy": "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format",
+      "source": "results/frontier/full-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.197088033426553,
+            "mean_ms": 2.2121724002063274,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format": {
+            "p50_ms": 1.623769465368241,
+            "mean_ms": 1.6288147387094796,
+            "samples": 250
+          },
+          "latency_reduction_percent": 26.094474110087017
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.350858009885997,
+            "mean_ms": 7.429847116116434,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format": {
+            "p50_ms": 6.966580520384014,
+            "mean_ms": 6.985726012382656,
+            "samples": 250
+          },
+          "latency_reduction_percent": 5.227654907565582
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.738693061284721,
+            "mean_ms": 10.756132415961474,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format": {
+            "p50_ms": 10.450236033648252,
+            "mean_ms": 10.470080790575594,
+            "samples": 250
+          },
+          "latency_reduction_percent": 2.686146498370623
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0,
+      "original_exact": true,
+      "holdout": {
+        "all_passed": true,
+        "all_exact": true,
+        "agreement": 128,
+        "max_probability_error": 0.0,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": true,
+      "formatter_validation": {
+        "all_passed": true,
+        "cpu_cases": 12103,
+        "public_response_requests": 194,
+        "source": "results/frontier/native-format-full.json"
+      }
+    },
+    {
+      "policy": "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime",
+      "source": "results/frontier/full-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.196227025706321,
+            "mean_ms": 2.198572459165007,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime": {
+            "p50_ms": 1.6545039834454656,
+            "mean_ms": 1.6564305257052183,
+            "samples": 250
+          },
+          "latency_reduction_percent": 24.666076681514003
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.393024512566626,
+            "mean_ms": 7.490322221070528,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime": {
+            "p50_ms": 7.018437492661178,
+            "mean_ms": 7.099428739864379,
+            "samples": 250
+          },
+          "latency_reduction_percent": 5.066762855563733
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.83209301577881,
+            "mean_ms": 10.873237152583897,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime": {
+            "p50_ms": 10.765352519229054,
+            "mean_ms": 10.796163148246706,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.6161366640088484
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0,
+      "original_exact": true,
+      "holdout": {
+        "all_passed": true,
+        "all_exact": true,
+        "agreement": 128,
+        "max_probability_error": 0.0,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": true,
+      "formatter_validation": null
+    },
+    {
+      "policy": "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special",
+      "source": "results/frontier/full-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.199024020228535,
+            "mean_ms": 2.2023215759545565,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special": {
+            "p50_ms": 1.7310215043835342,
+            "mean_ms": 1.733843312598765,
+            "samples": 250
+          },
+          "latency_reduction_percent": 21.282283028284667
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.339183008298278,
+            "mean_ms": 7.419277187436819,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special": {
+            "p50_ms": 7.022221048828214,
+            "mean_ms": 7.083292152732611,
+            "samples": 250
+          },
+          "latency_reduction_percent": 4.318763534192849
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.798780480399728,
+            "mean_ms": 10.85437051160261,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special": {
+            "p50_ms": 10.764000937342644,
+            "mean_ms": 10.827325169928372,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.3220691736461445
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0,
+      "original_exact": true,
+      "holdout": {
+        "all_passed": true,
+        "all_exact": true,
+        "agreement": 128,
+        "max_probability_error": 0.0,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": true,
+      "formatter_validation": null
+    },
+    {
+      "policy": "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch",
+      "source": "results/frontier/full-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.2084429510869086,
+            "mean_ms": 2.2248311205767095,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch": {
+            "p50_ms": 1.7788195400498807,
+            "mean_ms": 1.7879921081475914,
+            "samples": 250
+          },
+          "latency_reduction_percent": 19.453679381918565
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.3435320518910885,
+            "mean_ms": 7.375446492340416,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch": {
+            "p50_ms": 7.033615023829043,
+            "mean_ms": 7.072922778315842,
+            "samples": 250
+          },
+          "latency_reduction_percent": 4.220272014503379
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.821991018019617,
+            "mean_ms": 10.860782169736922,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch": {
+            "p50_ms": 10.883726470638067,
+            "mean_ms": 10.91293803229928,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.5704629814943907
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0,
+      "original_exact": true,
+      "holdout": {
+        "all_passed": true,
+        "all_exact": true,
+        "agreement": 128,
+        "max_probability_error": 0.0,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": true,
+      "formatter_validation": null
+    },
+    {
+      "policy": "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels",
+      "source": "results/frontier/full-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.2019254975020885,
+            "mean_ms": 2.2041598516516387,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels": {
+            "p50_ms": 1.7952585476450622,
+            "mean_ms": 1.7972136973403394,
+            "samples": 250
+          },
+          "latency_reduction_percent": 18.468697070739136
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.338579511269927,
+            "mean_ms": 7.423473010305315,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels": {
+            "p50_ms": 7.324614562094212,
+            "mean_ms": 7.368177840486169,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.19029499038974995
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.748745524324477,
+            "mean_ms": 10.771939509548247,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels": {
+            "p50_ms": 10.757846001069993,
+            "mean_ms": 10.774146486539394,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.08466547770549226
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0,
+      "original_exact": true,
+      "holdout": {
+        "all_passed": true,
+        "all_exact": true,
+        "agreement": 128,
+        "max_probability_error": 0.0,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": true,
+      "formatter_validation": null
+    },
+    {
+      "policy": "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu",
+      "source": "results/frontier/full-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.1750854793936014,
+            "mean_ms": 2.177024877164513,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu": {
+            "p50_ms": 1.7818475025705993,
+            "mean_ms": 1.782952681183815,
+            "samples": 250
+          },
+          "latency_reduction_percent": 18.079196452207203
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.388258003629744,
+            "mean_ms": 7.450025577098131,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu": {
+            "p50_ms": 7.335697999224067,
+            "mean_ms": 7.427904392126948,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.7113991468605363
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.720981983467937,
+            "mean_ms": 10.723083488177508,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu": {
+            "p50_ms": 10.739091958384961,
+            "mean_ms": 10.767522290814668,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.16892085953461589
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0,
+      "original_exact": true,
+      "holdout": {
+        "all_passed": true,
+        "all_exact": true,
+        "agreement": 128,
+        "max_probability_error": 0.0,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": true,
+      "formatter_validation": null
+    },
+    {
+      "policy": "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables",
+      "source": "results/frontier/full-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.1937384735792875,
+            "mean_ms": 2.1966016734950244,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables": {
+            "p50_ms": 1.828917011152953,
+            "mean_ms": 1.8338124565780163,
+            "samples": 250
+          },
+          "latency_reduction_percent": 16.630125551433416
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.510813535191119,
+            "mean_ms": 7.545063679572195,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables": {
+            "p50_ms": 7.5137835228815675,
+            "mean_ms": 7.581270904745907,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.03954282284512889
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.814516455866396,
+            "mean_ms": 10.863951050676405,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables": {
+            "p50_ms": 10.836066561751068,
+            "mean_ms": 10.889947624877095,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.19927017516332413
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0,
+      "original_exact": true,
+      "holdout": {
+        "all_passed": true,
+        "all_exact": true,
+        "agreement": 128,
+        "max_probability_error": 0.0,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": true,
+      "formatter_validation": null
+    },
+    {
+      "policy": "bf16-splitk-exact-short-compiled-attn-native-reduce-norm",
+      "source": "results/frontier/full-bf16-splitk-exact-short-compiled-attn-native-reduce-norm.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.2092940052971244,
+            "mean_ms": 2.2189138936810195,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm": {
+            "p50_ms": 1.8511314992792904,
+            "mean_ms": 1.8649585139937699,
+            "samples": 250
+          },
+          "latency_reduction_percent": 16.211627115227035
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.548378547653556,
+            "mean_ms": 7.737138312775642,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm": {
+            "p50_ms": 7.506467518396676,
+            "mean_ms": 7.601102373562753,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.5552322130149223
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.785998951178044,
+            "mean_ms": 10.796352224890143,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native-reduce-norm": {
+            "p50_ms": 10.837734036613256,
+            "mean_ms": 10.87220399454236,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.47965038444177654
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0,
+      "original_exact": true,
+      "holdout": {
+        "all_passed": true,
+        "all_exact": true,
+        "agreement": 128,
+        "max_probability_error": 0.0,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": true,
+      "formatter_validation": null
+    },
+    {
+      "policy": "bf16-splitk-exact-short-compiled-attn-native",
+      "source": "results/frontier/full-bf16-splitk-exact-short-compiled-attn-native.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.200455986894667,
+            "mean_ms": 2.202897457871586,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native": {
+            "p50_ms": 1.8596639856696129,
+            "mean_ms": 1.8685399387031794,
+            "samples": 250
+          },
+          "latency_reduction_percent": 15.48733550022
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.514249940868467,
+            "mean_ms": 7.622274526394904,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native": {
+            "p50_ms": 7.485599548090249,
+            "mean_ms": 7.59625528100878,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.3812808065166151
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.799879033584148,
+            "mean_ms": 10.802271060179919,
+            "samples": 250
+          },
+          "bf16-splitk-exact-short-compiled-attn-native": {
+            "p50_ms": 10.816954483743757,
+            "mean_ms": 10.837029591202736,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.15810779089757698
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0,
+      "original_exact": true,
+      "holdout": {
+        "all_passed": true,
+        "all_exact": true,
+        "agreement": 128,
+        "max_probability_error": 0.0,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": true,
+      "formatter_validation": null
+    },
+    {
+      "policy": "bf16-tma-exact-short-compiled-attn-native",
+      "source": "results/frontier/full-bf16-tma-exact-short-compiled-attn-native.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.2003339836373925,
+            "mean_ms": 2.218027003109455,
+            "samples": 250
+          },
+          "bf16-tma-exact-short-compiled-attn-native": {
+            "p50_ms": 1.899986993521452,
+            "mean_ms": 1.9044362353160977,
+            "samples": 250
+          },
+          "latency_reduction_percent": 13.650063688033132
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.320431002881378,
+            "mean_ms": 7.3533032475970685,
+            "samples": 250
+          },
+          "bf16-tma-exact-short-compiled-attn-native": {
+            "p50_ms": 7.3268364649266005,
+            "mean_ms": 7.391278776805848,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.0875011600095954
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.751538444310427,
+            "mean_ms": 10.7723498349078,
+            "samples": 250
+          },
+          "bf16-tma-exact-short-compiled-attn-native": {
+            "p50_ms": 10.729323024861515,
+            "mean_ms": 10.752561903558671,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.206625494239554
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0,
+      "original_exact": true,
+      "holdout": {
+        "all_passed": true,
+        "all_exact": true,
+        "agreement": 128,
+        "max_probability_error": 0.0,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": true,
+      "formatter_validation": null
+    },
+    {
+      "policy": "lt-fast",
+      "source": "results/frontier/full-lt-fast.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.1875654929317534,
+            "mean_ms": 2.199381469283253,
+            "samples": 250
+          },
+          "lt-fast": {
+            "p50_ms": 2.1089400979690254,
+            "mean_ms": 2.1223361529409885,
+            "samples": 250
+          },
+          "latency_reduction_percent": 3.594196160836083
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.3876394890248775,
+            "mean_ms": 7.432325881905854,
+            "samples": 250
+          },
+          "lt-fast": {
+            "p50_ms": 7.367604470346123,
+            "mean_ms": 7.393308793194592,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.271196485812808
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.789997992105782,
+            "mean_ms": 10.859939119778574,
+            "samples": 250
+          },
+          "lt-fast": {
+            "p50_ms": 10.854023043066263,
+            "mean_ms": 10.879844647366554,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.593374076689579
+        }
+      },
+      "original_gate_passed": true,
+      "original_decision_agreement": 208,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.005846738815307617,
+      "original_exact": false,
+      "holdout": null,
+      "accepted_after_both_suites": false,
+      "formatter_validation": null
+    },
+    {
+      "policy": "mx-all",
+      "source": "results/frontier/full-mx-all.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.193854539655149,
+            "mean_ms": 2.195713244844228,
+            "samples": 250
+          },
+          "mx-all": {
+            "p50_ms": 1.771620474755764,
+            "mean_ms": 1.785721561871469,
+            "samples": 250
+          },
+          "latency_reduction_percent": 19.246219713625855
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.494152057915926,
+            "mean_ms": 7.53596773929894,
+            "samples": 250
+          },
+          "mx-all": {
+            "p50_ms": 7.453412457834929,
+            "mean_ms": 7.545636311173439,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.5436185410458094
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.771784523967654,
+            "mean_ms": 10.80293167149648,
+            "samples": 250
+          },
+          "mx-all": {
+            "p50_ms": 10.77629451174289,
+            "mean_ms": 10.77225206233561,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.04186852944563224
+        }
+      },
+      "original_gate_passed": false,
+      "original_decision_agreement": 207,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.14702308177947998,
+      "original_exact": false,
+      "holdout": null,
+      "accepted_after_both_suites": false,
+      "formatter_validation": null
+    },
+    {
+      "policy": "mx-mlp",
+      "source": "results/frontier/full-mx-mlp.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.186603029258549,
+            "mean_ms": 2.1938722557388246,
+            "samples": 250
+          },
+          "mx-mlp": {
+            "p50_ms": 1.8952534883283079,
+            "mean_ms": 1.9052466545253992,
+            "samples": 250
+          },
+          "latency_reduction_percent": 13.324299702860765
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.4029925162903965,
+            "mean_ms": 7.465875206980854,
+            "samples": 250
+          },
+          "mx-mlp": {
+            "p50_ms": 7.4225630378350616,
+            "mean_ms": 7.4555066912434995,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.2643596018988337
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.745850508101285,
+            "mean_ms": 10.741120742633939,
+            "samples": 250
+          },
+          "mx-mlp": {
+            "p50_ms": 10.761494981124997,
+            "mean_ms": 10.768237568903714,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.14558617777082894
+        }
+      },
+      "original_gate_passed": false,
+      "original_decision_agreement": 207,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.03746172785758972,
+      "original_exact": false,
+      "holdout": null,
+      "accepted_after_both_suites": false,
+      "formatter_validation": null
+    },
+    {
+      "policy": "nvfp4-all-short-compiled-attn-native",
+      "source": "results/frontier/full-nvfp4-all-short-compiled-attn-native.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.2054739529266953,
+            "mean_ms": 2.213833590503782,
+            "samples": 250
+          },
+          "nvfp4-all-short-compiled-attn-native": {
+            "p50_ms": 1.393908984027803,
+            "mean_ms": 1.4106132541783154,
+            "samples": 250
+          },
+          "latency_reduction_percent": 36.79775804297911
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.650157960597426,
+            "mean_ms": 7.71815801365301,
+            "samples": 250
+          },
+          "nvfp4-all-short-compiled-attn-native": {
+            "p50_ms": 7.686184078920633,
+            "mean_ms": 7.816747278906405,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.4709199275199527
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.82784857135266,
+            "mean_ms": 10.849854772444814,
+            "samples": 250
+          },
+          "nvfp4-all-short-compiled-attn-native": {
+            "p50_ms": 10.810667998157442,
+            "mean_ms": 10.844203165732324,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.15867023889375442
+        }
+      },
+      "original_gate_passed": false,
+      "original_decision_agreement": 206,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.17002049088478088,
+      "original_exact": false,
+      "holdout": {
+        "all_passed": false,
+        "all_exact": false,
+        "agreement": 119,
+        "max_probability_error": 0.28024429082870483,
+        "optimized_shape_requests": 128
+      },
+      "accepted_after_both_suites": false,
+      "formatter_validation": null
+    },
+    {
+      "policy": "wfp8-all",
+      "source": "results/frontier/full-wfp8-all.json",
+      "timings": {
+        "1-short": {
+          "native": {
+            "p50_ms": 2.188252517953515,
+            "mean_ms": 2.195250255521387,
+            "samples": 250
+          },
+          "wfp8-all": {
+            "p50_ms": 1.8494209507480264,
+            "mean_ms": 1.8538022232241929,
+            "samples": 250
+          },
+          "latency_reduction_percent": 15.484116409123061
+        },
+        "1-long": {
+          "native": {
+            "p50_ms": 7.399140566121787,
+            "mean_ms": 7.476333285681903,
+            "samples": 250
+          },
+          "wfp8-all": {
+            "p50_ms": 7.3899005074054,
+            "mean_ms": 7.43976976769045,
+            "samples": 250
+          },
+          "latency_reduction_percent": 0.12488016187574003
+        },
+        "16-short": {
+          "native": {
+            "p50_ms": 10.689912014640868,
+            "mean_ms": 10.701468835119158,
+            "samples": 250
+          },
+          "wfp8-all": {
+            "p50_ms": 10.74819703353569,
+            "mean_ms": 10.759513965342194,
+            "samples": 250
+          },
+          "latency_reduction_percent": -0.5452338505218313
+        }
+      },
+      "original_gate_passed": false,
+      "original_decision_agreement": 207,
+      "original_decisions": 208,
+      "original_max_probability_error": 0.0478348582983017,
+      "original_exact": false,
+      "holdout": null,
+      "accepted_after_both_suites": false,
+      "formatter_validation": null
+    }
+  ],
+  "best_measured_accepted_ms": 1.623769465368241,
+  "recommended_variant": "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format",
+  "recommended_constructor": {
+    "policy": "bf16-splitk-exact-short-compiled",
+    "attention": "native",
+    "fuse_reduce_norm": true,
+    "token_tables": true,
+    "fuse_mlp_geglu": true,
+    "mlp_geglu_unpacked": true,
+    "head_kernels": true,
+    "host_prepare": "batch",
+    "attention_special": true,
+    "global_attention": true,
+    "host_runtime": true,
+    "native_format": true
+  }
+}

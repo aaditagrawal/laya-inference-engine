@@ -1,0 +1,594 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T11:12:42.368253+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "build": {
+    "seconds": 70.62058915302623,
+    "torch_revision": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cutlass_revision": "e05f953a5b3d38adc240df2ff928e0421c2abba3",
+    "flash_revision": "14c377950125c70b7a9dabf9c561fca53715ac7d",
+    "flash_headers_sha256": {
+      "csrc/flash_attn/src/alibi.h": "ba61a17e2d3a22d81a27e6f69302d27c887f79f369b288ab1fa1c6ff8a02450d",
+      "csrc/flash_attn/src/block_info.h": "89cb30fd392372f0313db50cde8a93632ae8dc8c02a5902a245d985fc3fa609b",
+      "csrc/flash_attn/src/dropout.h": "a1d14c0c10227d67bfd36bada415565f4deefa604e6eb1863d7dcc0fd8f12098",
+      "csrc/flash_attn/src/flash.h": "44cf722b1913873b3e5cd0700ddfc3db4714e3e1c10039f21885fd17225c6b2a",
+      "csrc/flash_attn/src/flash_bwd_kernel.h": "e5667e3eafc52d602bd1fec464eeaecd463080ceb56f0ae69402ca21eec78c25",
+      "csrc/flash_attn/src/flash_bwd_launch_template.h": "2369366e77210f7705d58e1e8aea4559322ca2fb2263954ea636841f6a09cf4a",
+      "csrc/flash_attn/src/flash_bwd_preprocess_kernel.h": "1f39f0a0cc95dcf06b1d542480c02548be5712e3274d3d153aa8066a2fcabca5",
+      "csrc/flash_attn/src/flash_fwd_kernel.h": "9b31cdff4009fcd0e1bc52f9b97907d226442db24e0a150d8dfed0711ee64dda",
+      "csrc/flash_attn/src/flash_fwd_launch_template.h": "ff0695a64800db7ba75056170ec68417bb4d03d915c1016df03eee0ef2fd703d",
+      "csrc/flash_attn/src/hardware_info.h": "deef803b86266ec3f3c6f3f3a4c414ad91cc92d637ba9be02eec520db712cfe3",
+      "csrc/flash_attn/src/kernel_traits.h": "880a6f432613dc01979a605d304da75985f9ed34ff66f1f4ded85fc90b7047ac",
+      "csrc/flash_attn/src/mask.h": "4ea99928f81a7861894a6fbeb9ab127abccce49fdb81fdca0b8e570b3f6f1a22",
+      "csrc/flash_attn/src/namespace_config.h": "2f50a22748285224426a7d374715fc63123ad4b4153e1f46b455a87a8a07f4a5",
+      "csrc/flash_attn/src/philox.cuh": "81ef706f740783b4e035b8a78d7f579ee5750d4defdb2068781b3b7cb027abee",
+      "csrc/flash_attn/src/philox_unpack.cuh": "6ba5317ef1f8956983ec83e1d5cbca70aec3446e290ca7f24896c670af9d24d8",
+      "csrc/flash_attn/src/rotary.h": "f000eba29dade79f629849ed5dbce654d475d61826142a0f94011506be3d2427",
+      "csrc/flash_attn/src/softmax.h": "77e70b8d0dbe72f459ced29199a554a0d1e0559cad2370a2e5b5f1fa5faf73f1",
+      "csrc/flash_attn/src/static_switch.h": "52da74dec74f8b9a26ef34bf4a311950c28c0c77b73eab8b9a169f8e65ae1616",
+      "csrc/flash_attn/src/utils.h": "abc6d4c73522af35f6c31be3938830b9474f620d7c8083168d80dab226a0fdc9"
+    },
+    "source_sha256": "d4a23ffd954d5b0b3b69664efd9e21b582a76f2fc8a06b95f0ec040df66ad914",
+    "library_sha256": "91ed4d69f6ae1929ff77d1361b2a800947df5f98ed687f40d19568de007373a0",
+    "architecture": "sm_120",
+    "fast_math": false
+  },
+  "scope": "10unmasked global attention calls; exact real activations from original and holdout fixtures eligible for64-token unmasked specialization",
+  "rows": [
+    {
+      "configuration": 8,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "ms": 0.02258080005645752,
+      "samples_ms": [
+        0.022700159549713134,
+        0.02261728048324585,
+        0.02258080005645752,
+        0.022589120864868164,
+        0.02257024049758911,
+        0.022573440074920653,
+        0.022576959133148194
+      ],
+      "speedup": 2.3621625171548652
+    },
+    {
+      "configuration": 1,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "ms": 0.04102784156799316,
+      "samples_ms": [
+        0.04107872009277344,
+        0.041026878356933597,
+        0.04103424072265625,
+        0.04100671768188477,
+        0.04103072166442871,
+        0.04099711894989014,
+        0.04102784156799316
+      ],
+      "speedup": 1.300081053796988
+    },
+    {
+      "configuration": 5,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "ms": 0.02668895959854126,
+      "samples_ms": [
+        0.02677504062652588,
+        0.026685760021209717,
+        0.02668895959854126,
+        0.026694400310516356,
+        0.02668992042541504,
+        0.02667135953903198,
+        0.0266646409034729
+      ],
+      "speedup": 1.9985612141901479
+    },
+    {
+      "configuration": 2,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "ms": 0.03692095994949341,
+      "samples_ms": [
+        0.03698944091796875,
+        0.03692255973815918,
+        0.03689919948577881,
+        0.03692095994949341,
+        0.03692095994949341,
+        0.03691103935241699,
+        0.03691359996795654
+      ],
+      "speedup": 1.4446948176238925
+    },
+    {
+      "configuration": 4,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "ms": 0.0348857593536377,
+      "samples_ms": [
+        0.034941120147705076,
+        0.0348857593536377,
+        0.03489824056625366,
+        0.03487967967987061,
+        0.03487008094787598,
+        0.034888319969177246,
+        0.034884800910949705
+      ],
+      "speedup": 1.5289768802229173
+    },
+    {
+      "configuration": 3,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "ms": 0.02872767925262451,
+      "samples_ms": [
+        0.028788800239562987,
+        0.028744959831237794,
+        0.028713281154632567,
+        0.02872767925262451,
+        0.02872960090637207,
+        0.028717119693756104,
+        0.028696959018707276
+      ],
+      "speedup": 1.8567291507147907
+    },
+    {
+      "configuration": 7,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "ms": 0.028703999519348145,
+      "samples_ms": [
+        0.02876672029495239,
+        0.028732481002807616,
+        0.028703999519348145,
+        0.028700799942016603,
+        0.028719360828399657,
+        0.028694720268249513,
+        0.028690879344940187
+      ],
+      "speedup": 1.8582608832883558
+    },
+    {
+      "configuration": 9,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "ms": 0.02256927967071533,
+      "samples_ms": [
+        0.022652480602264404,
+        0.022568960189819336,
+        0.022588160037994385,
+        0.022559359073638915,
+        0.02256927967071533,
+        0.022564799785614015,
+        0.022585599422454833
+      ],
+      "speedup": 2.3633682722246063
+    },
+    {
+      "configuration": 0,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "ms": 0.05331488132476807,
+      "samples_ms": [
+        0.0533676815032959,
+        0.05331488132476807,
+        0.05331071853637695,
+        0.05331103801727295,
+        0.05331488132476807,
+        0.05331200122833252,
+        0.05331520080566406
+      ],
+      "speedup": 1.0004621256833393
+    },
+    {
+      "configuration": 6,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "ms": 0.0362992000579834,
+      "samples_ms": [
+        0.036924800872802734,
+        0.036109440326690674,
+        0.03633440017700195,
+        0.0362556791305542,
+        0.03637248039245605,
+        0.0362992000579834,
+        0.036276800632476805
+      ],
+      "speedup": 1.469440632728249
+    }
+  ],
+  "eligible_requests": [
+    {
+      "suite": "benchmark",
+      "index": 0,
+      "request": {
+        "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+        "questions": {
+          "q0": {
+            "type": "choice",
+            "instructions": "Which department should handle this request?",
+            "criteria": {
+              "billing": "invoices, payments, refunds",
+              "technical": "bugs, outages, system errors",
+              "sales": "pricing and new contracts",
+              "other": "everything else"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "original",
+      "index": 10,
+      "request": {
+        "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+        "questions": {
+          "q": {
+            "type": "choice",
+            "instructions": "Which department should handle this request?",
+            "criteria": {
+              "billing": "invoices, payments, refunds",
+              "technical": "bugs, outages, system errors",
+              "sales": "pricing and new contracts",
+              "other": "everything else"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "request": {
+        "state": "My parcel arrived broken. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "request": {
+        "state": "The password reset failed. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "login": "login",
+              "network": "network",
+              "storage": "storage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "request": {
+        "state": "My suitcase is missing. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "booking": "booking",
+              "cancellation": "cancellation",
+              "baggage": "baggage",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "request": {
+        "state": "The annual price seems wrong. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "invoice": "invoice",
+              "contract": "contract",
+              "support": "support",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "request": {
+        "state": "Production has stopped. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "urgent": "urgent",
+              "normal": "normal",
+              "resolved": "resolved",
+              "unknown": "unknown"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "request": {
+        "state": "The soup arrived cold. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "food": "food",
+              "drinks": "drinks",
+              "service": "service",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "request": {
+        "state": "The export button crashes. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "bug": "bug",
+              "feature": "feature",
+              "question": "question",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "extra-fully-occupied",
+      "request": {
+        "state": "The update is wonderful. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "positive": "positive",
+              "negative": "negative",
+              "neutral": "neutral",
+              "mixed": "mixed"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "baseline_ms": 0.05333951950073242,
+  "baseline_samples_ms": [
+    0.05346144199371338,
+    0.05334464073181153,
+    0.05333951950073242,
+    0.05331200122833252,
+    0.05331424236297608,
+    0.05334144115447998,
+    0.05331552028656006
+  ],
+  "configuration_fields": [
+    "query_tile",
+    "key_tile",
+    "warps",
+    "fixed_dimensions"
+  ],
+  "configurations": [
+    [
+      128,
+      128,
+      4,
+      false
+    ],
+    [
+      128,
+      128,
+      4,
+      true
+    ],
+    [
+      64,
+      128,
+      4,
+      false
+    ],
+    [
+      64,
+      128,
+      4,
+      true
+    ],
+    [
+      32,
+      128,
+      2,
+      false
+    ],
+    [
+      32,
+      128,
+      2,
+      true
+    ],
+    [
+      16,
+      128,
+      1,
+      false
+    ],
+    [
+      16,
+      128,
+      1,
+      true
+    ],
+    [
+      64,
+      64,
+      4,
+      true
+    ],
+    [
+      32,
+      64,
+      2,
+      true
+    ]
+  ]
+}

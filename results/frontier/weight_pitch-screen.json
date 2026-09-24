@@ -1,0 +1,1796 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T12:20:52.438178+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "source_before": {
+    "weight_pitch_kernel.py": "fe3cfdab37f8d2433f8254a31ac6c8fba3e5e8fabbe79c1f3187a821e8942da4",
+    "weight_pitch_probe.py": "884016bb51d3a194339287bee58783e0a2a16ca93f22ac01e19c095e561635eb",
+    "matmul.py": "c560a8addba657ddc1101cccddca16850431e4a7b31c3020eac054740a77efd5",
+    "tma.py": "0ebb5c4f14cb13ed975e19ebec1b888d6ce478a8b6d2b16f4e21d8b6005cb69a",
+    "mlp_geglu.py": "8ac6eda13b6ebe2bc8acf203ab35b8ac905b73a48a59207c72dde05bb93e2c98"
+  },
+  "configs": {
+    "attn.Wqkv": [
+      32,
+      64,
+      64,
+      1,
+      4,
+      4,
+      false
+    ],
+    "attn.Wo": [
+      32,
+      32,
+      64,
+      1,
+      4,
+      5
+    ],
+    "mlp.Wo": [
+      32,
+      32,
+      64,
+      4,
+      4,
+      3
+    ],
+    "mlp.Wi": [
+      32,
+      64,
+      64,
+      4,
+      3,
+      2,
+      false
+    ]
+  },
+  "scope": "28 distinct matrices per field; independent seeded BF16 inputs, identical retained arithmetic, tile geometry and reduction order. QKV bank includes first-layer weight although token tables remove that request projection.",
+  "method": "Exclusive experiment lock; separate CUDA graphs per variant, randomized variant order for 9 rounds, 50 replays per sample. Unused row-padding storage initialized to zero.",
+  "fields": {
+    "mlp.Wi": {
+      "shape": [
+        5248,
+        1024
+      ],
+      "matrices": 28,
+      "rows": {
+        "retained": {
+          "samples_ms": [
+            0.44468223571777343,
+            0.44494846343994143,
+            0.4451123046875,
+            0.44509185791015626,
+            0.44503040313720704,
+            0.4451532745361328,
+            0.44503040313720704,
+            0.44476417541503904,
+            0.4450713729858398
+          ],
+          "median_ms": 0.44503040313720704,
+          "speedup_vs_retained": 1.0,
+          "speedup_vs_pitch0": 1.0016566655566228,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 9
+        },
+        "pitch+0": {
+          "padding_bf16_elements": 0,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 300941312,
+          "samples_ms": [
+            0.4459519958496094,
+            0.44554241180419923,
+            0.445665283203125,
+            0.44591102600097654,
+            0.445849609375,
+            0.44554241180419923,
+            0.44560382843017576,
+            0.4457676696777344,
+            0.44589054107666015
+          ],
+          "median_ms": 0.4457676696777344,
+          "speedup_vs_retained": 0.9983460744448777,
+          "speedup_vs_pitch0": 1.0,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+8": {
+          "padding_bf16_elements": 8,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 303292416,
+          "samples_ms": [
+            0.49276927947998045,
+            0.4929536056518555,
+            0.49254398345947265,
+            0.49238014221191406,
+            0.49262592315673825,
+            0.4928511810302734,
+            0.4926464080810547,
+            0.4922163009643555,
+            0.4927897644042969
+          ],
+          "median_ms": 0.4926464080810547,
+          "speedup_vs_retained": 0.9033464891598003,
+          "speedup_vs_pitch0": 0.9048430321740875,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+16": {
+          "padding_bf16_elements": 16,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 305643520,
+          "samples_ms": [
+            0.4491263961791992,
+            0.4491263961791992,
+            0.44892158508300783,
+            0.4494131088256836,
+            0.4490444946289063,
+            0.4492697525024414,
+            0.44906494140625,
+            0.44888065338134764,
+            0.4489011383056641
+          ],
+          "median_ms": 0.44906494140625,
+          "speedup_vs_retained": 0.9910156908343618,
+          "speedup_vs_pitch0": 0.9926574723954399,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+32": {
+          "padding_bf16_elements": 32,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 310345728,
+          "samples_ms": [
+            0.45043712615966797,
+            0.4501708984375,
+            0.45008895874023436,
+            0.45037567138671875,
+            0.450252799987793,
+            0.45037567138671875,
+            0.4501504135131836,
+            0.45008895874023436,
+            0.450252799987793
+          ],
+          "median_ms": 0.450252799987793,
+          "speedup_vs_retained": 0.9884011896189706,
+          "speedup_vs_pitch0": 0.9900386398259373,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+64": {
+          "padding_bf16_elements": 64,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 319750144,
+          "samples_ms": [
+            0.44589054107666015,
+            0.44568576812744143,
+            0.44560382843017576,
+            0.445665283203125,
+            0.4455219268798828,
+            0.4457676696777344,
+            0.4457881546020508,
+            0.44539905548095704,
+            0.4458086395263672
+          ],
+          "median_ms": 0.44568576812744143,
+          "speedup_vs_retained": 0.9985295357467036,
+          "speedup_vs_pitch0": 1.0001837652358456,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 6
+        },
+        "pitch+128": {
+          "padding_bf16_elements": 128,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 338558976,
+          "samples_ms": [
+            0.4473446273803711,
+            0.44806144714355467,
+            0.44797950744628906,
+            0.4480204772949219,
+            0.4480819320678711,
+            0.4480819320678711,
+            0.4477542495727539,
+            0.4481024169921875,
+            0.44797950744628906
+          ],
+          "median_ms": 0.4480204772949219,
+          "speedup_vs_retained": 0.9933260323818937,
+          "speedup_vs_pitch0": 0.9949716414062375,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+256": {
+          "padding_bf16_elements": 256,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 376176640,
+          "samples_ms": [
+            0.44969982147216797,
+            0.4496384048461914,
+            0.4499660873413086,
+            0.449617919921875,
+            0.4497407913208008,
+            0.4500070571899414,
+            0.4498227310180664,
+            0.4497407913208008,
+            0.4497407913208008
+          ],
+          "median_ms": 0.4497407913208008,
+          "speedup_vs_retained": 0.9895264377292523,
+          "speedup_vs_pitch0": 0.991165752096006,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        }
+      },
+      "order": [
+        [
+          "pitch+128",
+          "pitch+8",
+          "pitch+64",
+          "pitch+0",
+          "pitch+256",
+          "retained",
+          "pitch+16",
+          "pitch+32"
+        ],
+        [
+          "pitch+256",
+          "pitch+16",
+          "pitch+64",
+          "retained",
+          "pitch+32",
+          "pitch+8",
+          "pitch+128",
+          "pitch+0"
+        ],
+        [
+          "pitch+8",
+          "pitch+128",
+          "pitch+256",
+          "retained",
+          "pitch+32",
+          "pitch+16",
+          "pitch+0",
+          "pitch+64"
+        ],
+        [
+          "pitch+16",
+          "pitch+8",
+          "pitch+128",
+          "pitch+32",
+          "pitch+64",
+          "pitch+256",
+          "retained",
+          "pitch+0"
+        ],
+        [
+          "pitch+128",
+          "retained",
+          "pitch+8",
+          "pitch+16",
+          "pitch+0",
+          "pitch+32",
+          "pitch+256",
+          "pitch+64"
+        ],
+        [
+          "pitch+256",
+          "pitch+0",
+          "pitch+16",
+          "pitch+8",
+          "pitch+128",
+          "retained",
+          "pitch+64",
+          "pitch+32"
+        ],
+        [
+          "pitch+64",
+          "pitch+32",
+          "pitch+128",
+          "retained",
+          "pitch+0",
+          "pitch+8",
+          "pitch+256",
+          "pitch+16"
+        ],
+        [
+          "pitch+16",
+          "pitch+32",
+          "pitch+64",
+          "pitch+256",
+          "pitch+8",
+          "retained",
+          "pitch+128",
+          "pitch+0"
+        ],
+        [
+          "pitch+0",
+          "pitch+64",
+          "pitch+128",
+          "pitch+256",
+          "pitch+8",
+          "pitch+32",
+          "retained",
+          "pitch+16"
+        ]
+      ],
+      "binary_before": {
+        "('mlp.Wi', 1024, False)": {
+          "ptx": "64066ed1dde47aee82c111997001cb1cd0ef2373bf43f7f4396c7647c79cbb2c",
+          "cubin": "01f8d97a06092820e47e501cfdd2a8e4494bfc77661a91f5cc44d6683e0c70e4"
+        },
+        "('mlp.Wi', 1032, False)": {
+          "ptx": "0bd0e4c7226c644b8c4122b82b13617e491f8b1c568c8e9c7be56bc6fce32d57",
+          "cubin": "4b5174bde395c0ac96db964ec78069615a3f329bf8eb75cbb52eca6047635609"
+        },
+        "('mlp.Wi', 1040, False)": {
+          "ptx": "04ddad9a089e325d221022890d503fc631d7cfae6fef404f7372172320d1e0e2",
+          "cubin": "b18a55095d3cc7cbc20ddf01a95d6c286a465ddde9560adcc3a7ee0d21f40c25"
+        },
+        "('mlp.Wi', 1056, False)": {
+          "ptx": "4e6622666e66002ee19b88b187f18bcbb262a54e2dadf21867746ed088dbc8e1",
+          "cubin": "3ebccc59cf52448e8093b24043824a62e46762777fd2a64c3fb5ced7e73a5b0e"
+        },
+        "('mlp.Wi', 1088, False)": {
+          "ptx": "3ef1825755d5c757a84107833542e86f87dd01979510f5f4cd48e21db7c1b463",
+          "cubin": "8b2010ec20fc9bbfa9e94a44dbd88b26fe5c46cb16b56a64fa55135a8ec65384"
+        },
+        "('mlp.Wi', 1152, False)": {
+          "ptx": "fddca4101529cd6854a36a81dcfa4a6f59121c78d1810bf1a1d4764bcae0c159",
+          "cubin": "ab763fb27ba5076f4b991ea67994d6a749b9d41ef7af119cb39e6d6a74837970"
+        },
+        "('mlp.Wi', 1280, False)": {
+          "ptx": "c9eade5201bbc2f12b25ab27cd33b4c1f42d5b6d91004a432b8ba9f20c79abc2",
+          "cubin": "6dd725fd2512c3e17aefa9e550ebaedee6bd7b89ce587b62d40eb070920c5f62"
+        }
+      },
+      "binary_after": {
+        "('mlp.Wi', 1024, False)": {
+          "ptx": "64066ed1dde47aee82c111997001cb1cd0ef2373bf43f7f4396c7647c79cbb2c",
+          "cubin": "01f8d97a06092820e47e501cfdd2a8e4494bfc77661a91f5cc44d6683e0c70e4"
+        },
+        "('mlp.Wi', 1032, False)": {
+          "ptx": "0bd0e4c7226c644b8c4122b82b13617e491f8b1c568c8e9c7be56bc6fce32d57",
+          "cubin": "4b5174bde395c0ac96db964ec78069615a3f329bf8eb75cbb52eca6047635609"
+        },
+        "('mlp.Wi', 1040, False)": {
+          "ptx": "04ddad9a089e325d221022890d503fc631d7cfae6fef404f7372172320d1e0e2",
+          "cubin": "b18a55095d3cc7cbc20ddf01a95d6c286a465ddde9560adcc3a7ee0d21f40c25"
+        },
+        "('mlp.Wi', 1056, False)": {
+          "ptx": "4e6622666e66002ee19b88b187f18bcbb262a54e2dadf21867746ed088dbc8e1",
+          "cubin": "3ebccc59cf52448e8093b24043824a62e46762777fd2a64c3fb5ced7e73a5b0e"
+        },
+        "('mlp.Wi', 1088, False)": {
+          "ptx": "3ef1825755d5c757a84107833542e86f87dd01979510f5f4cd48e21db7c1b463",
+          "cubin": "8b2010ec20fc9bbfa9e94a44dbd88b26fe5c46cb16b56a64fa55135a8ec65384"
+        },
+        "('mlp.Wi', 1152, False)": {
+          "ptx": "fddca4101529cd6854a36a81dcfa4a6f59121c78d1810bf1a1d4764bcae0c159",
+          "cubin": "ab763fb27ba5076f4b991ea67994d6a749b9d41ef7af119cb39e6d6a74837970"
+        },
+        "('mlp.Wi', 1280, False)": {
+          "ptx": "c9eade5201bbc2f12b25ab27cd33b4c1f42d5b6d91004a432b8ba9f20c79abc2",
+          "cubin": "6dd725fd2512c3e17aefa9e550ebaedee6bd7b89ce587b62d40eb070920c5f62"
+        }
+      }
+    },
+    "attn.Wqkv": {
+      "shape": [
+        3072,
+        1024
+      ],
+      "matrices": 28,
+      "rows": {
+        "retained": {
+          "samples_ms": [
+            0.2821529579162598,
+            0.28246015548706055,
+            0.2820096015930176,
+            0.28207103729248045,
+            0.28205055236816406,
+            0.28217344284057616,
+            0.2819891166687012,
+            0.28192768096923826,
+            0.28192768096923826
+          ],
+          "median_ms": 0.28205055236816406,
+          "speedup_vs_retained": 1.0,
+          "speedup_vs_pitch0": 0.99738604823023,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+0": {
+          "padding_bf16_elements": 0,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 176160768,
+          "samples_ms": [
+            0.28108800888061525,
+            0.281395206451416,
+            0.2813132858276367,
+            0.281210880279541,
+            0.2813337516784668,
+            0.2813132858276367,
+            0.2811494445800781,
+            0.2813132858276367,
+            0.28141567230224607
+          ],
+          "median_ms": 0.2813132858276367,
+          "speedup_vs_retained": 1.0026208024208962,
+          "speedup_vs_pitch0": 1.0,
+          "faster_rounds_vs_retained": 9,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+8": {
+          "padding_bf16_elements": 8,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 177537024,
+          "samples_ms": [
+            0.3015679931640625,
+            0.3015065574645996,
+            0.30113792419433594,
+            0.3013017654418945,
+            0.30152704238891603,
+            0.3011584091186523,
+            0.301342716217041,
+            0.3013017654418945,
+            0.30128128051757813
+          ],
+          "median_ms": 0.3013017654418945,
+          "speedup_vs_retained": 0.9361065374260377,
+          "speedup_vs_pitch0": 0.9336596000858397,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+16": {
+          "padding_bf16_elements": 16,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 178913280,
+          "samples_ms": [
+            0.293621768951416,
+            0.2934169578552246,
+            0.293253116607666,
+            0.2934579277038574,
+            0.29317119598388675,
+            0.2933555221557617,
+            0.2934169578552246,
+            0.2933145523071289,
+            0.2933964729309082
+          ],
+          "median_ms": 0.2933964729309082,
+          "speedup_vs_retained": 0.9613290492233831,
+          "speedup_vs_pitch0": 0.9588161814538344,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+32": {
+          "padding_bf16_elements": 32,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 181665792,
+          "samples_ms": [
+            0.2955878448486328,
+            0.29571071624755857,
+            0.295731201171875,
+            0.2958950424194336,
+            0.2954854393005371,
+            0.29571071624755857,
+            0.2957516860961914,
+            0.2958131217956543,
+            0.29571071624755857
+          ],
+          "median_ms": 0.29571071624755857,
+          "speedup_vs_retained": 0.9538056515072024,
+          "speedup_vs_pitch0": 0.9513124495364286,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+64": {
+          "padding_bf16_elements": 64,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 187170816,
+          "samples_ms": [
+            0.28196863174438475,
+            0.28241920471191406,
+            0.28229631423950197,
+            0.2823987197875977,
+            0.28233728408813474,
+            0.28231679916381835,
+            0.28223487854003904,
+            0.28227584838867187,
+            0.28233728408813474
+          ],
+          "median_ms": 0.28231679916381835,
+          "speedup_vs_retained": 0.9990569218819324,
+          "speedup_vs_pitch0": 0.9964454352728782,
+          "faster_rounds_vs_retained": 2,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+128": {
+          "padding_bf16_elements": 128,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 198180864,
+          "samples_ms": [
+            0.28485631942749023,
+            0.28495872497558594,
+            0.28499967575073243,
+            0.28479488372802736,
+            0.2847539138793945,
+            0.28483583450317385,
+            0.2850611114501953,
+            0.2848768043518066,
+            0.2846310424804688
+          ],
+          "median_ms": 0.28485631942749023,
+          "speedup_vs_retained": 0.9901502376181605,
+          "speedup_vs_pitch0": 0.9875620326522003,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+256": {
+          "padding_bf16_elements": 256,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 220200960,
+          "samples_ms": [
+            0.28667903900146485,
+            0.28678144454956056,
+            0.28680192947387695,
+            0.28663808822631837,
+            0.2867404747009277,
+            0.28694528579711914,
+            0.2869043159484863,
+            0.2868633651733398,
+            0.28672000885009763
+          ],
+          "median_ms": 0.28678144454956056,
+          "speedup_vs_retained": 0.9835034927422617,
+          "speedup_vs_pitch0": 0.9809326620468332,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        }
+      },
+      "order": [
+        [
+          "pitch+32",
+          "pitch+64",
+          "pitch+8",
+          "retained",
+          "pitch+256",
+          "pitch+16",
+          "pitch+0",
+          "pitch+128"
+        ],
+        [
+          "pitch+16",
+          "pitch+128",
+          "retained",
+          "pitch+8",
+          "pitch+256",
+          "pitch+0",
+          "pitch+64",
+          "pitch+32"
+        ],
+        [
+          "pitch+32",
+          "retained",
+          "pitch+256",
+          "pitch+16",
+          "pitch+128",
+          "pitch+0",
+          "pitch+8",
+          "pitch+64"
+        ],
+        [
+          "pitch+64",
+          "retained",
+          "pitch+32",
+          "pitch+16",
+          "pitch+0",
+          "pitch+256",
+          "pitch+8",
+          "pitch+128"
+        ],
+        [
+          "pitch+32",
+          "pitch+8",
+          "pitch+256",
+          "retained",
+          "pitch+16",
+          "pitch+64",
+          "pitch+0",
+          "pitch+128"
+        ],
+        [
+          "retained",
+          "pitch+64",
+          "pitch+8",
+          "pitch+128",
+          "pitch+32",
+          "pitch+16",
+          "pitch+0",
+          "pitch+256"
+        ],
+        [
+          "pitch+0",
+          "pitch+128",
+          "pitch+8",
+          "pitch+64",
+          "pitch+16",
+          "pitch+32",
+          "pitch+256",
+          "retained"
+        ],
+        [
+          "pitch+256",
+          "pitch+8",
+          "pitch+16",
+          "pitch+32",
+          "retained",
+          "pitch+0",
+          "pitch+128",
+          "pitch+64"
+        ],
+        [
+          "pitch+128",
+          "pitch+256",
+          "pitch+0",
+          "pitch+32",
+          "pitch+8",
+          "retained",
+          "pitch+64",
+          "pitch+16"
+        ]
+      ],
+      "binary_before": {
+        "('attn.Wqkv', 1024, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1032, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1040, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1056, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1088, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1152, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1280, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('mlp.Wi', 1024, False)": {
+          "ptx": "64066ed1dde47aee82c111997001cb1cd0ef2373bf43f7f4396c7647c79cbb2c",
+          "cubin": "01f8d97a06092820e47e501cfdd2a8e4494bfc77661a91f5cc44d6683e0c70e4"
+        },
+        "('mlp.Wi', 1032, False)": {
+          "ptx": "0bd0e4c7226c644b8c4122b82b13617e491f8b1c568c8e9c7be56bc6fce32d57",
+          "cubin": "4b5174bde395c0ac96db964ec78069615a3f329bf8eb75cbb52eca6047635609"
+        },
+        "('mlp.Wi', 1040, False)": {
+          "ptx": "04ddad9a089e325d221022890d503fc631d7cfae6fef404f7372172320d1e0e2",
+          "cubin": "b18a55095d3cc7cbc20ddf01a95d6c286a465ddde9560adcc3a7ee0d21f40c25"
+        },
+        "('mlp.Wi', 1056, False)": {
+          "ptx": "4e6622666e66002ee19b88b187f18bcbb262a54e2dadf21867746ed088dbc8e1",
+          "cubin": "3ebccc59cf52448e8093b24043824a62e46762777fd2a64c3fb5ced7e73a5b0e"
+        },
+        "('mlp.Wi', 1088, False)": {
+          "ptx": "3ef1825755d5c757a84107833542e86f87dd01979510f5f4cd48e21db7c1b463",
+          "cubin": "8b2010ec20fc9bbfa9e94a44dbd88b26fe5c46cb16b56a64fa55135a8ec65384"
+        },
+        "('mlp.Wi', 1152, False)": {
+          "ptx": "fddca4101529cd6854a36a81dcfa4a6f59121c78d1810bf1a1d4764bcae0c159",
+          "cubin": "ab763fb27ba5076f4b991ea67994d6a749b9d41ef7af119cb39e6d6a74837970"
+        },
+        "('mlp.Wi', 1280, False)": {
+          "ptx": "c9eade5201bbc2f12b25ab27cd33b4c1f42d5b6d91004a432b8ba9f20c79abc2",
+          "cubin": "6dd725fd2512c3e17aefa9e550ebaedee6bd7b89ce587b62d40eb070920c5f62"
+        }
+      },
+      "binary_after": {
+        "('attn.Wqkv', 1024, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1032, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1040, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1056, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1088, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1152, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1280, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('mlp.Wi', 1024, False)": {
+          "ptx": "64066ed1dde47aee82c111997001cb1cd0ef2373bf43f7f4396c7647c79cbb2c",
+          "cubin": "01f8d97a06092820e47e501cfdd2a8e4494bfc77661a91f5cc44d6683e0c70e4"
+        },
+        "('mlp.Wi', 1032, False)": {
+          "ptx": "0bd0e4c7226c644b8c4122b82b13617e491f8b1c568c8e9c7be56bc6fce32d57",
+          "cubin": "4b5174bde395c0ac96db964ec78069615a3f329bf8eb75cbb52eca6047635609"
+        },
+        "('mlp.Wi', 1040, False)": {
+          "ptx": "04ddad9a089e325d221022890d503fc631d7cfae6fef404f7372172320d1e0e2",
+          "cubin": "b18a55095d3cc7cbc20ddf01a95d6c286a465ddde9560adcc3a7ee0d21f40c25"
+        },
+        "('mlp.Wi', 1056, False)": {
+          "ptx": "4e6622666e66002ee19b88b187f18bcbb262a54e2dadf21867746ed088dbc8e1",
+          "cubin": "3ebccc59cf52448e8093b24043824a62e46762777fd2a64c3fb5ced7e73a5b0e"
+        },
+        "('mlp.Wi', 1088, False)": {
+          "ptx": "3ef1825755d5c757a84107833542e86f87dd01979510f5f4cd48e21db7c1b463",
+          "cubin": "8b2010ec20fc9bbfa9e94a44dbd88b26fe5c46cb16b56a64fa55135a8ec65384"
+        },
+        "('mlp.Wi', 1152, False)": {
+          "ptx": "fddca4101529cd6854a36a81dcfa4a6f59121c78d1810bf1a1d4764bcae0c159",
+          "cubin": "ab763fb27ba5076f4b991ea67994d6a749b9d41ef7af119cb39e6d6a74837970"
+        },
+        "('mlp.Wi', 1280, False)": {
+          "ptx": "c9eade5201bbc2f12b25ab27cd33b4c1f42d5b6d91004a432b8ba9f20c79abc2",
+          "cubin": "6dd725fd2512c3e17aefa9e550ebaedee6bd7b89ce587b62d40eb070920c5f62"
+        }
+      }
+    },
+    "attn.Wo": {
+      "shape": [
+        1024,
+        1024
+      ],
+      "matrices": 28,
+      "rows": {
+        "retained": {
+          "samples_ms": [
+            0.1277952003479004,
+            0.12836864471435547,
+            0.12793855667114257,
+            0.12824576377868652,
+            0.12824576377868652,
+            0.1277952003479004,
+            0.12800000190734864,
+            0.12783616065979003,
+            0.12785663604736328
+          ],
+          "median_ms": 0.12793855667114257,
+          "speedup_vs_retained": 1.0,
+          "speedup_vs_pitch0": 0.9913558593042439,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+0": {
+          "padding_bf16_elements": 0,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 58720256,
+          "samples_ms": [
+            0.12683263778686524,
+            0.12689408302307129,
+            0.126812162399292,
+            0.12699647903442382,
+            0.1267302417755127,
+            0.12685312271118165,
+            0.12677120208740233,
+            0.126812162399292,
+            0.12685312271118165
+          ],
+          "median_ms": 0.12683263778686524,
+          "speedup_vs_retained": 1.0087195133963527,
+          "speedup_vs_pitch0": 1.0,
+          "faster_rounds_vs_retained": 9,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+8": {
+          "padding_bf16_elements": 8,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 59179008,
+          "samples_ms": [
+            0.13944831848144532,
+            0.1395302391052246,
+            0.13979647636413575,
+            0.13942784309387207,
+            0.1392640018463135,
+            0.13944831848144532,
+            0.13946880340576173,
+            0.13949888229370117,
+            0.1393868827819824
+          ],
+          "median_ms": 0.13944831848144532,
+          "speedup_vs_retained": 0.9174621685249348,
+          "speedup_vs_pitch0": 0.9095314964571718,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+16": {
+          "padding_bf16_elements": 16,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 59637760,
+          "samples_ms": [
+            0.1288806438446045,
+            0.1288601589202881,
+            0.12896256446838378,
+            0.1289420795440674,
+            0.1288601589202881,
+            0.12892160415649415,
+            0.1288806438446045,
+            0.128787841796875,
+            0.12890111923217773
+          ],
+          "median_ms": 0.1288806438446045,
+          "speedup_vs_retained": 0.9926902353576242,
+          "speedup_vs_pitch0": 0.9841092812958896,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+32": {
+          "padding_bf16_elements": 32,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 60555264,
+          "samples_ms": [
+            0.13899776458740234,
+            0.13897727966308593,
+            0.13897727966308593,
+            0.13905920028686525,
+            0.13914112091064454,
+            0.13907967567443846,
+            0.13922304153442383,
+            0.13905920028686525,
+            0.13922304153442383
+          ],
+          "median_ms": 0.13905920028686525,
+          "speedup_vs_retained": 0.9200294292446534,
+          "speedup_vs_pitch0": 0.9120765654140263,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+64": {
+          "padding_bf16_elements": 64,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 62390272,
+          "samples_ms": [
+            0.12810239791870118,
+            0.12836864471435547,
+            0.12843008041381837,
+            0.12840959548950195,
+            0.12800000190734864,
+            0.12816384315490723,
+            0.1281433582305908,
+            0.12810239791870118,
+            0.12793855667114257
+          ],
+          "median_ms": 0.1281433582305908,
+          "speedup_vs_retained": 0.9984017778035775,
+          "speedup_vs_pitch0": 0.9897714523653504,
+          "faster_rounds_vs_retained": 1,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+128": {
+          "padding_bf16_elements": 128,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 66060288,
+          "samples_ms": [
+            0.12873727798461915,
+            0.12859392166137695,
+            0.12890111923217773,
+            0.12857343673706054,
+            0.12877823829650878,
+            0.1288601589202881,
+            0.12877823829650878,
+            0.12890111923217773,
+            0.12877823829650878
+          ],
+          "median_ms": 0.12877823829650878,
+          "speedup_vs_retained": 0.993479631058216,
+          "speedup_vs_pitch0": 0.9848918533489809,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+256": {
+          "padding_bf16_elements": 256,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 73400320,
+          "samples_ms": [
+            0.12804096221923827,
+            0.12816384315490723,
+            0.12824576377868652,
+            0.1284505558013916,
+            0.12847935676574707,
+            0.12812288284301757,
+            0.12816384315490723,
+            0.12800000190734864,
+            0.1280294418334961
+          ],
+          "median_ms": 0.12816384315490723,
+          "speedup_vs_retained": 0.998242199373716,
+          "speedup_vs_pitch0": 0.9896132533538885,
+          "faster_rounds_vs_retained": 1,
+          "faster_rounds_vs_pitch0": 0
+        }
+      },
+      "order": [
+        [
+          "pitch+32",
+          "pitch+256",
+          "pitch+64",
+          "retained",
+          "pitch+16",
+          "pitch+8",
+          "pitch+128",
+          "pitch+0"
+        ],
+        [
+          "pitch+32",
+          "pitch+0",
+          "pitch+256",
+          "pitch+128",
+          "pitch+8",
+          "pitch+16",
+          "pitch+64",
+          "retained"
+        ],
+        [
+          "pitch+64",
+          "pitch+128",
+          "pitch+8",
+          "pitch+256",
+          "retained",
+          "pitch+16",
+          "pitch+0",
+          "pitch+32"
+        ],
+        [
+          "pitch+0",
+          "pitch+128",
+          "pitch+64",
+          "pitch+32",
+          "pitch+8",
+          "pitch+256",
+          "retained",
+          "pitch+16"
+        ],
+        [
+          "pitch+128",
+          "pitch+0",
+          "pitch+8",
+          "pitch+32",
+          "retained",
+          "pitch+16",
+          "pitch+256",
+          "pitch+64"
+        ],
+        [
+          "pitch+16",
+          "pitch+256",
+          "pitch+32",
+          "pitch+8",
+          "pitch+128",
+          "pitch+64",
+          "retained",
+          "pitch+0"
+        ],
+        [
+          "pitch+128",
+          "pitch+32",
+          "pitch+16",
+          "pitch+64",
+          "retained",
+          "pitch+0",
+          "pitch+256",
+          "pitch+8"
+        ],
+        [
+          "retained",
+          "pitch+8",
+          "pitch+0",
+          "pitch+16",
+          "pitch+128",
+          "pitch+32",
+          "pitch+256",
+          "pitch+64"
+        ],
+        [
+          "pitch+0",
+          "pitch+64",
+          "pitch+32",
+          "pitch+256",
+          "retained",
+          "pitch+16",
+          "pitch+8",
+          "pitch+128"
+        ]
+      ],
+      "binary_before": {
+        "('attn.Wo', 1024, False)": {
+          "ptx": "55ee0fdd7a732a5638a4a459d3cd766c1295f930c94c891ca36835011a1c448e",
+          "cubin": "3e8e1d490190ba61fb155c5f8c5705b602bb8925138d1879665fca5c9a0ad47f"
+        },
+        "('attn.Wo', 1032, False)": {
+          "ptx": "758c44f9c7c7984828752ab99b75443635a05cc3613059dbfedbdc0b5c9128be",
+          "cubin": "29e8a4fb9d8379dcfd19e8c1e90cf586e0febeb2a98f14649e0e7f4c24dc15e9"
+        },
+        "('attn.Wo', 1040, False)": {
+          "ptx": "f3862cf520cbbbcf707f007e2e018dcfaa57a69fafc279290331aa39a4e378af",
+          "cubin": "36693dcfeb5107def13dfc019a5551240f704caf9000aab48e9e1c1d9d9e80bb"
+        },
+        "('attn.Wo', 1056, False)": {
+          "ptx": "59307815e5834fa748552fbef5d0e63615cca503c8d90110d9db04ece26d6df8",
+          "cubin": "cee64c3b0d5ce13fd25276f4e938c38999a94e88c163fdc25d0a7fe91cdf7bbf"
+        },
+        "('attn.Wo', 1088, False)": {
+          "ptx": "265a8e581b68058828a9c7ab014be7a918e6f95e1d13b0f650cbd2cd113065fa",
+          "cubin": "b341711be5c160cb0437b4d6a885ddc14d376c0a81cab31b5f208d55c26ad724"
+        },
+        "('attn.Wo', 1152, False)": {
+          "ptx": "13d894d65a38789f9db0e328b94a7d0744c5d36d266fdc3fb1693f9f855a46e0",
+          "cubin": "33c62b8f101666746fdc781bfdf9cbff7f7aa1ee0323ec8820489a97682ec436"
+        },
+        "('attn.Wo', 1280, False)": {
+          "ptx": "c37f03a1dec3b4da6566b966e79007f681d8632413c2767aaa0cf1a8044ae906",
+          "cubin": "e297d2c1448a1b5b5e4912a58eb7b8cc64c214c2b155749954d42abaf65d7128"
+        },
+        "('attn.Wqkv', 1024, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1032, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1040, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1056, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1088, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1152, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1280, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('mlp.Wi', 1024, False)": {
+          "ptx": "64066ed1dde47aee82c111997001cb1cd0ef2373bf43f7f4396c7647c79cbb2c",
+          "cubin": "01f8d97a06092820e47e501cfdd2a8e4494bfc77661a91f5cc44d6683e0c70e4"
+        },
+        "('mlp.Wi', 1032, False)": {
+          "ptx": "0bd0e4c7226c644b8c4122b82b13617e491f8b1c568c8e9c7be56bc6fce32d57",
+          "cubin": "4b5174bde395c0ac96db964ec78069615a3f329bf8eb75cbb52eca6047635609"
+        },
+        "('mlp.Wi', 1040, False)": {
+          "ptx": "04ddad9a089e325d221022890d503fc631d7cfae6fef404f7372172320d1e0e2",
+          "cubin": "b18a55095d3cc7cbc20ddf01a95d6c286a465ddde9560adcc3a7ee0d21f40c25"
+        },
+        "('mlp.Wi', 1056, False)": {
+          "ptx": "4e6622666e66002ee19b88b187f18bcbb262a54e2dadf21867746ed088dbc8e1",
+          "cubin": "3ebccc59cf52448e8093b24043824a62e46762777fd2a64c3fb5ced7e73a5b0e"
+        },
+        "('mlp.Wi', 1088, False)": {
+          "ptx": "3ef1825755d5c757a84107833542e86f87dd01979510f5f4cd48e21db7c1b463",
+          "cubin": "8b2010ec20fc9bbfa9e94a44dbd88b26fe5c46cb16b56a64fa55135a8ec65384"
+        },
+        "('mlp.Wi', 1152, False)": {
+          "ptx": "fddca4101529cd6854a36a81dcfa4a6f59121c78d1810bf1a1d4764bcae0c159",
+          "cubin": "ab763fb27ba5076f4b991ea67994d6a749b9d41ef7af119cb39e6d6a74837970"
+        },
+        "('mlp.Wi', 1280, False)": {
+          "ptx": "c9eade5201bbc2f12b25ab27cd33b4c1f42d5b6d91004a432b8ba9f20c79abc2",
+          "cubin": "6dd725fd2512c3e17aefa9e550ebaedee6bd7b89ce587b62d40eb070920c5f62"
+        }
+      },
+      "binary_after": {
+        "('attn.Wo', 1024, False)": {
+          "ptx": "55ee0fdd7a732a5638a4a459d3cd766c1295f930c94c891ca36835011a1c448e",
+          "cubin": "3e8e1d490190ba61fb155c5f8c5705b602bb8925138d1879665fca5c9a0ad47f"
+        },
+        "('attn.Wo', 1032, False)": {
+          "ptx": "758c44f9c7c7984828752ab99b75443635a05cc3613059dbfedbdc0b5c9128be",
+          "cubin": "29e8a4fb9d8379dcfd19e8c1e90cf586e0febeb2a98f14649e0e7f4c24dc15e9"
+        },
+        "('attn.Wo', 1040, False)": {
+          "ptx": "f3862cf520cbbbcf707f007e2e018dcfaa57a69fafc279290331aa39a4e378af",
+          "cubin": "36693dcfeb5107def13dfc019a5551240f704caf9000aab48e9e1c1d9d9e80bb"
+        },
+        "('attn.Wo', 1056, False)": {
+          "ptx": "59307815e5834fa748552fbef5d0e63615cca503c8d90110d9db04ece26d6df8",
+          "cubin": "cee64c3b0d5ce13fd25276f4e938c38999a94e88c163fdc25d0a7fe91cdf7bbf"
+        },
+        "('attn.Wo', 1088, False)": {
+          "ptx": "265a8e581b68058828a9c7ab014be7a918e6f95e1d13b0f650cbd2cd113065fa",
+          "cubin": "b341711be5c160cb0437b4d6a885ddc14d376c0a81cab31b5f208d55c26ad724"
+        },
+        "('attn.Wo', 1152, False)": {
+          "ptx": "13d894d65a38789f9db0e328b94a7d0744c5d36d266fdc3fb1693f9f855a46e0",
+          "cubin": "33c62b8f101666746fdc781bfdf9cbff7f7aa1ee0323ec8820489a97682ec436"
+        },
+        "('attn.Wo', 1280, False)": {
+          "ptx": "c37f03a1dec3b4da6566b966e79007f681d8632413c2767aaa0cf1a8044ae906",
+          "cubin": "e297d2c1448a1b5b5e4912a58eb7b8cc64c214c2b155749954d42abaf65d7128"
+        },
+        "('attn.Wqkv', 1024, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1032, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1040, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1056, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1088, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1152, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1280, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('mlp.Wi', 1024, False)": {
+          "ptx": "64066ed1dde47aee82c111997001cb1cd0ef2373bf43f7f4396c7647c79cbb2c",
+          "cubin": "01f8d97a06092820e47e501cfdd2a8e4494bfc77661a91f5cc44d6683e0c70e4"
+        },
+        "('mlp.Wi', 1032, False)": {
+          "ptx": "0bd0e4c7226c644b8c4122b82b13617e491f8b1c568c8e9c7be56bc6fce32d57",
+          "cubin": "4b5174bde395c0ac96db964ec78069615a3f329bf8eb75cbb52eca6047635609"
+        },
+        "('mlp.Wi', 1040, False)": {
+          "ptx": "04ddad9a089e325d221022890d503fc631d7cfae6fef404f7372172320d1e0e2",
+          "cubin": "b18a55095d3cc7cbc20ddf01a95d6c286a465ddde9560adcc3a7ee0d21f40c25"
+        },
+        "('mlp.Wi', 1056, False)": {
+          "ptx": "4e6622666e66002ee19b88b187f18bcbb262a54e2dadf21867746ed088dbc8e1",
+          "cubin": "3ebccc59cf52448e8093b24043824a62e46762777fd2a64c3fb5ced7e73a5b0e"
+        },
+        "('mlp.Wi', 1088, False)": {
+          "ptx": "3ef1825755d5c757a84107833542e86f87dd01979510f5f4cd48e21db7c1b463",
+          "cubin": "8b2010ec20fc9bbfa9e94a44dbd88b26fe5c46cb16b56a64fa55135a8ec65384"
+        },
+        "('mlp.Wi', 1152, False)": {
+          "ptx": "fddca4101529cd6854a36a81dcfa4a6f59121c78d1810bf1a1d4764bcae0c159",
+          "cubin": "ab763fb27ba5076f4b991ea67994d6a749b9d41ef7af119cb39e6d6a74837970"
+        },
+        "('mlp.Wi', 1280, False)": {
+          "ptx": "c9eade5201bbc2f12b25ab27cd33b4c1f42d5b6d91004a432b8ba9f20c79abc2",
+          "cubin": "6dd725fd2512c3e17aefa9e550ebaedee6bd7b89ce587b62d40eb070920c5f62"
+        }
+      }
+    },
+    "mlp.Wo": {
+      "shape": [
+        1024,
+        2624
+      ],
+      "matrices": 28,
+      "rows": {
+        "retained": {
+          "samples_ms": [
+            0.2535014343261719,
+            0.25333759307861325,
+            0.2530713653564453,
+            0.2533580780029297,
+            0.2532761573791504,
+            0.2533785629272461,
+            0.2534604835510254,
+            0.2531328010559082,
+            0.2533990478515625
+          ],
+          "median_ms": 0.2533580780029297,
+          "speedup_vs_retained": 1.0,
+          "speedup_vs_pitch0": 0.9984641571421473,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+0": {
+          "padding_bf16_elements": 0,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 150470656,
+          "samples_ms": [
+            0.2529280090332031,
+            0.25288703918457034,
+            0.25276416778564453,
+            0.2530099105834961,
+            0.25317375183105467,
+            0.2530508804321289,
+            0.2529689598083496,
+            0.2531328010559082,
+            0.2526617622375488
+          ],
+          "median_ms": 0.2529689598083496,
+          "speedup_vs_retained": 1.001538205299476,
+          "speedup_vs_pitch0": 1.0,
+          "faster_rounds_vs_retained": 8,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+8": {
+          "padding_bf16_elements": 8,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 150929408,
+          "samples_ms": [
+            0.29288448333740236,
+            0.29280256271362304,
+            0.2928230476379394,
+            0.29270015716552733,
+            0.29278207778930665,
+            0.2928639984130859,
+            0.2927206420898438,
+            0.29288448333740236,
+            0.29278207778930665
+          ],
+          "median_ms": 0.29280256271362304,
+          "speedup_vs_retained": 0.865286408885457,
+          "speedup_vs_pitch0": 0.8639574649343733,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+16": {
+          "padding_bf16_elements": 16,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 151388160,
+          "samples_ms": [
+            0.26443775177001955,
+            0.26443775177001955,
+            0.26431488037109374,
+            0.2644787216186523,
+            0.2645196723937988,
+            0.2642329597473145,
+            0.26443775177001955,
+            0.26411008834838867,
+            0.26449920654296877
+          ],
+          "median_ms": 0.26443775177001955,
+          "speedup_vs_retained": 0.9581010135923187,
+          "speedup_vs_pitch0": 0.9566295209934915,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+32": {
+          "padding_bf16_elements": 32,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 152305664,
+          "samples_ms": [
+            0.2596044731140137,
+            0.25964544296264647,
+            0.2597683143615723,
+            0.2598092842102051,
+            0.25964544296264647,
+            0.2597478485107422,
+            0.25995264053344724,
+            0.25989120483398437,
+            0.25989120483398437
+          ],
+          "median_ms": 0.2597683143615723,
+          "speedup_vs_retained": 0.9753232553616215,
+          "speedup_vs_pitch0": 0.9738253121057766,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+64": {
+          "padding_bf16_elements": 64,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 154140672,
+          "samples_ms": [
+            0.25378816604614257,
+            0.25372671127319335,
+            0.2534809684753418,
+            0.25382911682128906,
+            0.25382911682128906,
+            0.2538700866699219,
+            0.2536652755737305,
+            0.25378816604614257,
+            0.2538700866699219
+          ],
+          "median_ms": 0.25378816604614257,
+          "speedup_vs_retained": 0.9983053266434233,
+          "speedup_vs_pitch0": 0.9967720865375416,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+128": {
+          "padding_bf16_elements": 128,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 157810688,
+          "samples_ms": [
+            0.2531328010559082,
+            0.253255672454834,
+            0.25354240417480467,
+            0.25333759307861325,
+            0.2533990478515625,
+            0.25333759307861325,
+            0.2532352066040039,
+            0.2533580780029297,
+            0.2534195137023926
+          ],
+          "median_ms": 0.25333759307861325,
+          "speedup_vs_retained": 1.000080860183708,
+          "speedup_vs_pitch0": 0.9985448931373195,
+          "faster_rounds_vs_retained": 5,
+          "faster_rounds_vs_pitch0": 0
+        },
+        "pitch+256": {
+          "padding_bf16_elements": 256,
+          "mismatches": 0,
+          "max_abs_error": 0.0,
+          "weight_bytes": 165150720,
+          "samples_ms": [
+            0.255467529296875,
+            0.2552627182006836,
+            0.2549555206298828,
+            0.2551603126525879,
+            0.2550169563293457,
+            0.2551603126525879,
+            0.2549964714050293,
+            0.2549964714050293,
+            0.2550579261779785
+          ],
+          "median_ms": 0.2550579261779785,
+          "speedup_vs_retained": 0.9933354426560237,
+          "speedup_vs_pitch0": 0.9918098355109685,
+          "faster_rounds_vs_retained": 0,
+          "faster_rounds_vs_pitch0": 0
+        }
+      },
+      "order": [
+        [
+          "pitch+64",
+          "pitch+32",
+          "pitch+128",
+          "pitch+0",
+          "retained",
+          "pitch+256",
+          "pitch+8",
+          "pitch+16"
+        ],
+        [
+          "pitch+16",
+          "pitch+0",
+          "pitch+8",
+          "retained",
+          "pitch+64",
+          "pitch+128",
+          "pitch+32",
+          "pitch+256"
+        ],
+        [
+          "pitch+0",
+          "pitch+128",
+          "pitch+32",
+          "pitch+256",
+          "pitch+16",
+          "retained",
+          "pitch+8",
+          "pitch+64"
+        ],
+        [
+          "pitch+256",
+          "retained",
+          "pitch+32",
+          "pitch+64",
+          "pitch+8",
+          "pitch+0",
+          "pitch+16",
+          "pitch+128"
+        ],
+        [
+          "pitch+64",
+          "pitch+256",
+          "pitch+16",
+          "pitch+0",
+          "pitch+8",
+          "retained",
+          "pitch+128",
+          "pitch+32"
+        ],
+        [
+          "pitch+0",
+          "pitch+16",
+          "pitch+128",
+          "pitch+256",
+          "pitch+64",
+          "pitch+8",
+          "retained",
+          "pitch+32"
+        ],
+        [
+          "pitch+256",
+          "pitch+128",
+          "retained",
+          "pitch+64",
+          "pitch+0",
+          "pitch+32",
+          "pitch+16",
+          "pitch+8"
+        ],
+        [
+          "pitch+0",
+          "pitch+8",
+          "pitch+64",
+          "retained",
+          "pitch+128",
+          "pitch+16",
+          "pitch+32",
+          "pitch+256"
+        ],
+        [
+          "pitch+32",
+          "pitch+0",
+          "pitch+128",
+          "pitch+16",
+          "retained",
+          "pitch+64",
+          "pitch+256",
+          "pitch+8"
+        ]
+      ],
+      "binary_before": {
+        "('attn.Wo', 1024, False)": {
+          "ptx": "55ee0fdd7a732a5638a4a459d3cd766c1295f930c94c891ca36835011a1c448e",
+          "cubin": "3e8e1d490190ba61fb155c5f8c5705b602bb8925138d1879665fca5c9a0ad47f"
+        },
+        "('attn.Wo', 1032, False)": {
+          "ptx": "758c44f9c7c7984828752ab99b75443635a05cc3613059dbfedbdc0b5c9128be",
+          "cubin": "29e8a4fb9d8379dcfd19e8c1e90cf586e0febeb2a98f14649e0e7f4c24dc15e9"
+        },
+        "('attn.Wo', 1040, False)": {
+          "ptx": "f3862cf520cbbbcf707f007e2e018dcfaa57a69fafc279290331aa39a4e378af",
+          "cubin": "36693dcfeb5107def13dfc019a5551240f704caf9000aab48e9e1c1d9d9e80bb"
+        },
+        "('attn.Wo', 1056, False)": {
+          "ptx": "59307815e5834fa748552fbef5d0e63615cca503c8d90110d9db04ece26d6df8",
+          "cubin": "cee64c3b0d5ce13fd25276f4e938c38999a94e88c163fdc25d0a7fe91cdf7bbf"
+        },
+        "('attn.Wo', 1088, False)": {
+          "ptx": "265a8e581b68058828a9c7ab014be7a918e6f95e1d13b0f650cbd2cd113065fa",
+          "cubin": "b341711be5c160cb0437b4d6a885ddc14d376c0a81cab31b5f208d55c26ad724"
+        },
+        "('attn.Wo', 1152, False)": {
+          "ptx": "13d894d65a38789f9db0e328b94a7d0744c5d36d266fdc3fb1693f9f855a46e0",
+          "cubin": "33c62b8f101666746fdc781bfdf9cbff7f7aa1ee0323ec8820489a97682ec436"
+        },
+        "('attn.Wo', 1280, False)": {
+          "ptx": "c37f03a1dec3b4da6566b966e79007f681d8632413c2767aaa0cf1a8044ae906",
+          "cubin": "e297d2c1448a1b5b5e4912a58eb7b8cc64c214c2b155749954d42abaf65d7128"
+        },
+        "('attn.Wqkv', 1024, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1032, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1040, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1056, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1088, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1152, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1280, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('mlp.Wi', 1024, False)": {
+          "ptx": "64066ed1dde47aee82c111997001cb1cd0ef2373bf43f7f4396c7647c79cbb2c",
+          "cubin": "01f8d97a06092820e47e501cfdd2a8e4494bfc77661a91f5cc44d6683e0c70e4"
+        },
+        "('mlp.Wi', 1032, False)": {
+          "ptx": "0bd0e4c7226c644b8c4122b82b13617e491f8b1c568c8e9c7be56bc6fce32d57",
+          "cubin": "4b5174bde395c0ac96db964ec78069615a3f329bf8eb75cbb52eca6047635609"
+        },
+        "('mlp.Wi', 1040, False)": {
+          "ptx": "04ddad9a089e325d221022890d503fc631d7cfae6fef404f7372172320d1e0e2",
+          "cubin": "b18a55095d3cc7cbc20ddf01a95d6c286a465ddde9560adcc3a7ee0d21f40c25"
+        },
+        "('mlp.Wi', 1056, False)": {
+          "ptx": "4e6622666e66002ee19b88b187f18bcbb262a54e2dadf21867746ed088dbc8e1",
+          "cubin": "3ebccc59cf52448e8093b24043824a62e46762777fd2a64c3fb5ced7e73a5b0e"
+        },
+        "('mlp.Wi', 1088, False)": {
+          "ptx": "3ef1825755d5c757a84107833542e86f87dd01979510f5f4cd48e21db7c1b463",
+          "cubin": "8b2010ec20fc9bbfa9e94a44dbd88b26fe5c46cb16b56a64fa55135a8ec65384"
+        },
+        "('mlp.Wi', 1152, False)": {
+          "ptx": "fddca4101529cd6854a36a81dcfa4a6f59121c78d1810bf1a1d4764bcae0c159",
+          "cubin": "ab763fb27ba5076f4b991ea67994d6a749b9d41ef7af119cb39e6d6a74837970"
+        },
+        "('mlp.Wi', 1280, False)": {
+          "ptx": "c9eade5201bbc2f12b25ab27cd33b4c1f42d5b6d91004a432b8ba9f20c79abc2",
+          "cubin": "6dd725fd2512c3e17aefa9e550ebaedee6bd7b89ce587b62d40eb070920c5f62"
+        },
+        "('mlp.Wo', 2624, False)": {
+          "ptx": "fe904c5dfdd146eb1a71a3d6a35a7a56166ebb0bc94865a8f8d5988c95fe2a77",
+          "cubin": "b19cc297f8fe8cffbee86ccd8cb89019f230502a6f3ce83be7ab4ae914d2e6ff"
+        },
+        "('mlp.Wo', 2624, True)": {
+          "ptx": "fe904c5dfdd146eb1a71a3d6a35a7a56166ebb0bc94865a8f8d5988c95fe2a77",
+          "cubin": "b19cc297f8fe8cffbee86ccd8cb89019f230502a6f3ce83be7ab4ae914d2e6ff"
+        },
+        "('mlp.Wo', 2632, False)": {
+          "ptx": "0bbaaeb90e6658d9bb3196ad44bec915528a31bafb72044eb3f0269c7405e71c",
+          "cubin": "16c36f46219f407b18e23980863a90c75322c08f7e261dc57d683fa5b7a9df24"
+        },
+        "('mlp.Wo', 2632, True)": {
+          "ptx": "0bbaaeb90e6658d9bb3196ad44bec915528a31bafb72044eb3f0269c7405e71c",
+          "cubin": "16c36f46219f407b18e23980863a90c75322c08f7e261dc57d683fa5b7a9df24"
+        },
+        "('mlp.Wo', 2640, False)": {
+          "ptx": "016381c53f851d20fe14df71769e76d62bde1e1c949246fe5a81cc8050186b59",
+          "cubin": "37832a447885c576685cc37f2a5468ca31b1ac1d25e6dbe3321b9643c0dcdd4e"
+        },
+        "('mlp.Wo', 2640, True)": {
+          "ptx": "016381c53f851d20fe14df71769e76d62bde1e1c949246fe5a81cc8050186b59",
+          "cubin": "37832a447885c576685cc37f2a5468ca31b1ac1d25e6dbe3321b9643c0dcdd4e"
+        },
+        "('mlp.Wo', 2656, False)": {
+          "ptx": "8c146f71599f72faf6728a9d9cd96dbb8352cb665d16eecc623dde09b2f4bbaa",
+          "cubin": "8a5904c3cfae09f947c86666a2caabf3d4e222cf419f88da649601348973ed15"
+        },
+        "('mlp.Wo', 2656, True)": {
+          "ptx": "8c146f71599f72faf6728a9d9cd96dbb8352cb665d16eecc623dde09b2f4bbaa",
+          "cubin": "8a5904c3cfae09f947c86666a2caabf3d4e222cf419f88da649601348973ed15"
+        },
+        "('mlp.Wo', 2688, False)": {
+          "ptx": "bda4962d246dc593cc065018fdfc86e8ab97c245d410975eb7a22cf045ed2a34",
+          "cubin": "7f96f13616be47e1f58f6363d22e369c3d402c234352010274e353b3162804ef"
+        },
+        "('mlp.Wo', 2688, True)": {
+          "ptx": "bda4962d246dc593cc065018fdfc86e8ab97c245d410975eb7a22cf045ed2a34",
+          "cubin": "7f96f13616be47e1f58f6363d22e369c3d402c234352010274e353b3162804ef"
+        },
+        "('mlp.Wo', 2752, False)": {
+          "ptx": "2ae77e52b4555c54b3be61625c439bbd512560fb58102b11812332b71c2bab1d",
+          "cubin": "714ae59fe86f39e0a89270a8db5713aa9bc03592f3a58bfc6580c23942e564e2"
+        },
+        "('mlp.Wo', 2752, True)": {
+          "ptx": "2ae77e52b4555c54b3be61625c439bbd512560fb58102b11812332b71c2bab1d",
+          "cubin": "714ae59fe86f39e0a89270a8db5713aa9bc03592f3a58bfc6580c23942e564e2"
+        },
+        "('mlp.Wo', 2880, False)": {
+          "ptx": "690b86162f366d84f46f5af0ccb1fa02ec3c0fa7854f4ef9b1214cf5eadbff0f",
+          "cubin": "371849a0681945b0768966625c9af6e30672260b8ac9fd2088e4c3e809b87de6"
+        },
+        "('mlp.Wo', 2880, True)": {
+          "ptx": "690b86162f366d84f46f5af0ccb1fa02ec3c0fa7854f4ef9b1214cf5eadbff0f",
+          "cubin": "371849a0681945b0768966625c9af6e30672260b8ac9fd2088e4c3e809b87de6"
+        }
+      },
+      "binary_after": {
+        "('attn.Wo', 1024, False)": {
+          "ptx": "55ee0fdd7a732a5638a4a459d3cd766c1295f930c94c891ca36835011a1c448e",
+          "cubin": "3e8e1d490190ba61fb155c5f8c5705b602bb8925138d1879665fca5c9a0ad47f"
+        },
+        "('attn.Wo', 1032, False)": {
+          "ptx": "758c44f9c7c7984828752ab99b75443635a05cc3613059dbfedbdc0b5c9128be",
+          "cubin": "29e8a4fb9d8379dcfd19e8c1e90cf586e0febeb2a98f14649e0e7f4c24dc15e9"
+        },
+        "('attn.Wo', 1040, False)": {
+          "ptx": "f3862cf520cbbbcf707f007e2e018dcfaa57a69fafc279290331aa39a4e378af",
+          "cubin": "36693dcfeb5107def13dfc019a5551240f704caf9000aab48e9e1c1d9d9e80bb"
+        },
+        "('attn.Wo', 1056, False)": {
+          "ptx": "59307815e5834fa748552fbef5d0e63615cca503c8d90110d9db04ece26d6df8",
+          "cubin": "cee64c3b0d5ce13fd25276f4e938c38999a94e88c163fdc25d0a7fe91cdf7bbf"
+        },
+        "('attn.Wo', 1088, False)": {
+          "ptx": "265a8e581b68058828a9c7ab014be7a918e6f95e1d13b0f650cbd2cd113065fa",
+          "cubin": "b341711be5c160cb0437b4d6a885ddc14d376c0a81cab31b5f208d55c26ad724"
+        },
+        "('attn.Wo', 1152, False)": {
+          "ptx": "13d894d65a38789f9db0e328b94a7d0744c5d36d266fdc3fb1693f9f855a46e0",
+          "cubin": "33c62b8f101666746fdc781bfdf9cbff7f7aa1ee0323ec8820489a97682ec436"
+        },
+        "('attn.Wo', 1280, False)": {
+          "ptx": "c37f03a1dec3b4da6566b966e79007f681d8632413c2767aaa0cf1a8044ae906",
+          "cubin": "e297d2c1448a1b5b5e4912a58eb7b8cc64c214c2b155749954d42abaf65d7128"
+        },
+        "('attn.Wqkv', 1024, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1032, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1040, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1056, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1088, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1152, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('attn.Wqkv', 1280, False)": {
+          "ptx": "5138d334139143befc2342c7b0aa16e2d404ba2a513e76f839995280561c6aa5",
+          "cubin": "85d692a1f1efd3095acc3c8d4a94bc62bca42f2f78303677f1841eaa407605a8"
+        },
+        "('mlp.Wi', 1024, False)": {
+          "ptx": "64066ed1dde47aee82c111997001cb1cd0ef2373bf43f7f4396c7647c79cbb2c",
+          "cubin": "01f8d97a06092820e47e501cfdd2a8e4494bfc77661a91f5cc44d6683e0c70e4"
+        },
+        "('mlp.Wi', 1032, False)": {
+          "ptx": "0bd0e4c7226c644b8c4122b82b13617e491f8b1c568c8e9c7be56bc6fce32d57",
+          "cubin": "4b5174bde395c0ac96db964ec78069615a3f329bf8eb75cbb52eca6047635609"
+        },
+        "('mlp.Wi', 1040, False)": {
+          "ptx": "04ddad9a089e325d221022890d503fc631d7cfae6fef404f7372172320d1e0e2",
+          "cubin": "b18a55095d3cc7cbc20ddf01a95d6c286a465ddde9560adcc3a7ee0d21f40c25"
+        },
+        "('mlp.Wi', 1056, False)": {
+          "ptx": "4e6622666e66002ee19b88b187f18bcbb262a54e2dadf21867746ed088dbc8e1",
+          "cubin": "3ebccc59cf52448e8093b24043824a62e46762777fd2a64c3fb5ced7e73a5b0e"
+        },
+        "('mlp.Wi', 1088, False)": {
+          "ptx": "3ef1825755d5c757a84107833542e86f87dd01979510f5f4cd48e21db7c1b463",
+          "cubin": "8b2010ec20fc9bbfa9e94a44dbd88b26fe5c46cb16b56a64fa55135a8ec65384"
+        },
+        "('mlp.Wi', 1152, False)": {
+          "ptx": "fddca4101529cd6854a36a81dcfa4a6f59121c78d1810bf1a1d4764bcae0c159",
+          "cubin": "ab763fb27ba5076f4b991ea67994d6a749b9d41ef7af119cb39e6d6a74837970"
+        },
+        "('mlp.Wi', 1280, False)": {
+          "ptx": "c9eade5201bbc2f12b25ab27cd33b4c1f42d5b6d91004a432b8ba9f20c79abc2",
+          "cubin": "6dd725fd2512c3e17aefa9e550ebaedee6bd7b89ce587b62d40eb070920c5f62"
+        },
+        "('mlp.Wo', 2624, False)": {
+          "ptx": "fe904c5dfdd146eb1a71a3d6a35a7a56166ebb0bc94865a8f8d5988c95fe2a77",
+          "cubin": "b19cc297f8fe8cffbee86ccd8cb89019f230502a6f3ce83be7ab4ae914d2e6ff"
+        },
+        "('mlp.Wo', 2624, True)": {
+          "ptx": "fe904c5dfdd146eb1a71a3d6a35a7a56166ebb0bc94865a8f8d5988c95fe2a77",
+          "cubin": "b19cc297f8fe8cffbee86ccd8cb89019f230502a6f3ce83be7ab4ae914d2e6ff"
+        },
+        "('mlp.Wo', 2632, False)": {
+          "ptx": "0bbaaeb90e6658d9bb3196ad44bec915528a31bafb72044eb3f0269c7405e71c",
+          "cubin": "16c36f46219f407b18e23980863a90c75322c08f7e261dc57d683fa5b7a9df24"
+        },
+        "('mlp.Wo', 2632, True)": {
+          "ptx": "0bbaaeb90e6658d9bb3196ad44bec915528a31bafb72044eb3f0269c7405e71c",
+          "cubin": "16c36f46219f407b18e23980863a90c75322c08f7e261dc57d683fa5b7a9df24"
+        },
+        "('mlp.Wo', 2640, False)": {
+          "ptx": "016381c53f851d20fe14df71769e76d62bde1e1c949246fe5a81cc8050186b59",
+          "cubin": "37832a447885c576685cc37f2a5468ca31b1ac1d25e6dbe3321b9643c0dcdd4e"
+        },
+        "('mlp.Wo', 2640, True)": {
+          "ptx": "016381c53f851d20fe14df71769e76d62bde1e1c949246fe5a81cc8050186b59",
+          "cubin": "37832a447885c576685cc37f2a5468ca31b1ac1d25e6dbe3321b9643c0dcdd4e"
+        },
+        "('mlp.Wo', 2656, False)": {
+          "ptx": "8c146f71599f72faf6728a9d9cd96dbb8352cb665d16eecc623dde09b2f4bbaa",
+          "cubin": "8a5904c3cfae09f947c86666a2caabf3d4e222cf419f88da649601348973ed15"
+        },
+        "('mlp.Wo', 2656, True)": {
+          "ptx": "8c146f71599f72faf6728a9d9cd96dbb8352cb665d16eecc623dde09b2f4bbaa",
+          "cubin": "8a5904c3cfae09f947c86666a2caabf3d4e222cf419f88da649601348973ed15"
+        },
+        "('mlp.Wo', 2688, False)": {
+          "ptx": "bda4962d246dc593cc065018fdfc86e8ab97c245d410975eb7a22cf045ed2a34",
+          "cubin": "7f96f13616be47e1f58f6363d22e369c3d402c234352010274e353b3162804ef"
+        },
+        "('mlp.Wo', 2688, True)": {
+          "ptx": "bda4962d246dc593cc065018fdfc86e8ab97c245d410975eb7a22cf045ed2a34",
+          "cubin": "7f96f13616be47e1f58f6363d22e369c3d402c234352010274e353b3162804ef"
+        },
+        "('mlp.Wo', 2752, False)": {
+          "ptx": "2ae77e52b4555c54b3be61625c439bbd512560fb58102b11812332b71c2bab1d",
+          "cubin": "714ae59fe86f39e0a89270a8db5713aa9bc03592f3a58bfc6580c23942e564e2"
+        },
+        "('mlp.Wo', 2752, True)": {
+          "ptx": "2ae77e52b4555c54b3be61625c439bbd512560fb58102b11812332b71c2bab1d",
+          "cubin": "714ae59fe86f39e0a89270a8db5713aa9bc03592f3a58bfc6580c23942e564e2"
+        },
+        "('mlp.Wo', 2880, False)": {
+          "ptx": "690b86162f366d84f46f5af0ccb1fa02ec3c0fa7854f4ef9b1214cf5eadbff0f",
+          "cubin": "371849a0681945b0768966625c9af6e30672260b8ac9fd2088e4c3e809b87de6"
+        },
+        "('mlp.Wo', 2880, True)": {
+          "ptx": "690b86162f366d84f46f5af0ccb1fa02ec3c0fa7854f4ef9b1214cf5eadbff0f",
+          "cubin": "371849a0681945b0768966625c9af6e30672260b8ac9fd2088e4c3e809b87de6"
+        }
+      }
+    }
+  },
+  "source_after": {
+    "weight_pitch_kernel.py": "fe3cfdab37f8d2433f8254a31ac6c8fba3e5e8fabbe79c1f3187a821e8942da4",
+    "weight_pitch_probe.py": "884016bb51d3a194339287bee58783e0a2a16ca93f22ac01e19c095e561635eb",
+    "matmul.py": "c560a8addba657ddc1101cccddca16850431e4a7b31c3020eac054740a77efd5",
+    "tma.py": "0ebb5c4f14cb13ed975e19ebec1b888d6ce478a8b6d2b16f4e21d8b6005cb69a",
+    "mlp_geglu.py": "8ac6eda13b6ebe2bc8acf203ab35b8ac905b73a48a59207c72dde05bb93e2c98"
+  }
+}

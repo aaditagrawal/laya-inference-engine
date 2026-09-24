@@ -1,0 +1,52 @@
+{
+  "build": {
+    "seconds": 64.95440879499074,
+    "torch_revision": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cutlass_revision": "e05f953a5b3d38adc240df2ff928e0421c2abba3",
+    "flash_revision": "14c377950125c70b7a9dabf9c561fca53715ac7d",
+    "source_sha256": "655a96974e0f62cc9c784b2def47aad2622621bfe738a62484417c31c0b28c51",
+    "helper_sha256": "815980bc0f38ea1b43b06142d78c28d3c770d9d4b4413d5b95830ffd30515cd5",
+    "generator_sha256": "f2d085fa112bbd9a0d68cdbbdcaed9f02b47617e8aaa60d9cd660401bc7bd379",
+    "headers_sha256": {
+      "/home/mav/Code/vibes/Laya Inference Engine/.venv/lib/python3.12/site-packages/torch/include/ATen/native/transformers/cuda/mem_eff_attention/kernel_forward.h": "fcbfa07f0bc48e239e4d8c45025d5d9e65ff017d00e9dd667918e03172637650",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-torch-flash/csrc/flash_attn/src/flash_fwd_kernel.h": "9b31cdff4009fcd0e1bc52f9b97907d226442db24e0a150d8dfed0711ee64dda",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-rope-attention/rope_attention_cutlass_kernel.h": "12e1e6f4eb3d8adc81cc0e491de9e717081ca72444f059733a2181da3c05c806",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-rope-attention/rope_attention_flash_kernel.h": "f129490e7ac5525749b1f1939a6efcbc16cbca9baf13d6b30baf113b065064e5"
+    },
+    "library_sha256": "760056b4e92b7ba6abd66cb7aa8c7e7e1f0b277816731fc10f058eaea0369b06",
+    "architecture": "sm_120",
+    "fast_math": false,
+    "rope_math": "Separate FP32 multiply and add rounding, then BF16 RN"
+  },
+  "variants": {
+    "baseline": [
+      {
+        "name": "_rope",
+        "count": 28.0,
+        "cuda_us": 27.051619999999886
+      },
+      {
+        "name": "void global_attention_kernel<Flash_fwd_kernel_traits<64, 64, 64, 4, false, false, cutlass::bfloat16_t, Flash_kernel_traits<64, 64, 64, 4, cutlass::bfloat16_t> >, true, true>(laya_global_flash::Flash_fwd_params)",
+        "count": 10.0,
+        "cuda_us": 21.72754000000006
+      },
+      {
+        "name": "void special_attention<PyTorchMemEffAttention::AttentionKernel<cutlass::bfloat16_t, cutlass::arch::Sm80, true, 32, 64, 64, false, true>, false>(PyTorchMemEffAttention::AttentionKernel<cutlass::bfloat16_t, cutlass::arch::Sm80, true, 32, 64, 64, false, true>::Params)",
+        "count": 18.0,
+        "cuda_us": 77.37695999999988
+      }
+    ],
+    "cutlass64_flash32": [
+      {
+        "name": "void rope_flash_kernel<Flash_fwd_kernel_traits<64, 32, 64, 2, false, false, cutlass::bfloat16_t, Flash_kernel_traits<64, 32, 64, 2, cutlass::bfloat16_t> > >(RopeFlashParams)",
+        "count": 10.0,
+        "cuda_us": 76.2249199999999
+      },
+      {
+        "name": "void rope_cutlass_kernel<RopeMemEffAttention::AttentionKernel<cutlass::bfloat16_t, cutlass::arch::Sm80, true, 64, 64, 64, false, true>, false>(RopeMemEffAttention::AttentionKernel<cutlass::bfloat16_t, cutlass::arch::Sm80, true, 64, 64, 64, false, true>::Params)",
+        "count": 18.0,
+        "cuda_us": 192.1634200000002
+      }
+    ]
+  }
+}

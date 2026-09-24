@@ -1,0 +1,57 @@
+The native attention experiment instantiates PyTorch's installed CUTLASS
+attention template with a smaller query tile. attention.py also contains an
+experimental transcription of its softmax reduction order.
+attention_special_kernel.cu specializes that same template with constant
+dimensions and attention parameters, retaining real bias for padded inputs.
+global_attention_kernel.cu instantiates FlashAttention templates pinned by
+the installed Torch build, from revision
+14c377950125c70b7a9dabf9c561fca53715ac7d. FlashAttention's BSD-3-Clause
+license and author list are retained in global_attention_FLASH_LICENSE and
+global_attention_FLASH_AUTHORS. Its header source remains in the ignored
+checkout documented in README.md.
+The optional rope_attention build generates private modified copies of those
+same pinned PyTorch and FlashAttention headers to rotate Q/K during shared
+staging. Generated copies retain their upstream notices under .research;
+the same PyTorch, CUTLASS and FlashAttention licenses above apply.
+The reduction/normalization build adapts the existing exact CUDA Welford
+kernel in ../native/kernels/native_vector.cu, retaining its PyTorch attribution
+in the generated source. Its original license is listed below.
+
+PyTorch revision: 08187d9e0fba026dc8217405802ab5381dc88d90
+PyTorch license: ../native/kernels/pytorch-LICENSE (BSD-3-Clause)
+Corresponding CUTLASS revision: e05f953a5b3d38adc240df2ff928e0421c2abba3
+CUTLASS license: cutlass-LICENSE (BSD-3-Clause, with upstream file exceptions)
+
+The PyTorch and CUTLASS header source trees are not copied into this directory.
+Builds use the installed PyTorch headers and a pinned, ignored CUTLASS checkout.
+Keep these notices with any distributed build.
+
+The optional FlashAttention CuTe probe uses upstream revision
+eed1971f5132630dc296fe37601e834d4b57a248 from an ignored checkout which retains
+its upstream BSD notices. The optional Marlin probe uses the ignored Apache-2.0
+vLLM checkout documented in README.md. Neither checkout is vendored here.
+
+The surrounding model adapters retain the repository's existing Apache-2.0
+upstream notices. Original experimental code follows the repository license.
+
+The optional Turbo-Lossless adaptation includes Apache-2.0 source from
+revision 50b72e5520f93cc855f0bd3a0114a7eb97338588. Its retained license and
+attribution are in turbo_LICENSE and turbo_NOTICE in this directory.
+
+The optional nvCOMPDx ANS experiment adapts NVIDIA MathDx 26.06.1 examples.
+Their Apache-2.0 license and notices are retained in nvcompdx_LICENSE and
+nvcompdx_NOTICE. NVIDIA SDK headers and device libraries remain in the
+ignored research directory under their original license and are not vendored.
+
+The optional cutlass_geglu kernels adapt CUTLASS mainloop and epilogue visitor
+integration from the same pinned revision. Their retained BSD-3-Clause license
+and attribution are in cutlass_geglu_LICENSE and cutlass_geglu_NOTICE.
+The optional query_shard attention build instantiates the installed PyTorch
+attention templates with adjusted query-row bounds; the PyTorch and CUTLASS
+notices above apply.
+
+The optional norm_geglu prologue adapts the same exact PyTorch Welford
+reduction. Its BSD license and attribution are in norm_geglu_LICENSE and
+norm_geglu_NOTICE. The irregular_geglu tile experiment uses the same pinned
+CUTLASS mainloop and accumulator layout, with license and attribution retained
+in irregular_geglu_LICENSE and irregular_geglu_NOTICE.

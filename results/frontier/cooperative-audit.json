@@ -1,0 +1,37 @@
+{
+  "scope": "Instrumented trace audit; no new timing or GPU execution",
+  "method": "Sort kernel events by timestamp and sum next.start minus previous.end for the recorded adjacent stage pairs.",
+  "decision": "Do not implement a cooperative rewrite aimed only at eliminating these small exposed boundary gaps.",
+  "limitation": "Observed trace gaps are not a universal bound on fusion gains. Normalization arithmetic and intermediate storage remain necessary with the existing distributed projection tiles.",
+  "trace": ".research/frontier-profile-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format.trace.json",
+  "trace_sha256": "a1f0b6c4c618d989c7b0d8a167a35dd50d616a1862f596abf96adf8e91305a3a",
+  "replays": 10,
+  "kernel_events": 2700,
+  "pairs": [
+    {
+      "previous": "_matmul",
+      "following": "residual_norm",
+      "count": 540,
+      "gap_us_per_replay": 5.132137499999992,
+      "overlapping_pairs": 0
+    },
+    {
+      "previous": "residual_norm",
+      "following": "_project",
+      "count": 280,
+      "gap_us_per_replay": 2.7306937499999995,
+      "overlapping_pairs": 0
+    },
+    {
+      "previous": "residual_norm",
+      "following": "_tma",
+      "count": 270,
+      "gap_us_per_replay": 2.5393046874999996,
+      "overlapping_pairs": 0
+    }
+  ],
+  "selected_gap_us_per_replay": 10.402135937499992,
+  "residual_norm_count_per_replay": 55.0,
+  "residual_norm_us_per_replay": 79.1884,
+  "source_sha256": "444656c20befbac7d7cda385343fc87e4f1224f06a9333fe875e244d3ea59083"
+}

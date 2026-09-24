@@ -1,0 +1,407 @@
+{
+  "scope": "Read-only backward structural dependency audit of the frozen exact path. CPU tokenization and set-closure checks only. No model execution, GPU work, timing, or retained-source edits.",
+  "model_revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+  "verdict": "No additional live encoder or first-head token rows can be omitted from the fully occupied 64-token benchmark by backward dependency analysis. Do not implement late encoder row pruning.",
+  "topology": {
+    "encoder_layers": 28,
+    "head_layers": 2,
+    "hidden_size": 1024,
+    "attention_heads": 16,
+    "head_dimension": 64,
+    "local_radius": 64,
+    "global_layer_indices": [
+      0,
+      3,
+      6,
+      9,
+      12,
+      15,
+      18,
+      21,
+      24,
+      27
+    ],
+    "final_encoder_layer": "full_attention",
+    "head_attention": "Bidirectional full attention with a key-padding mask, without causal or segment restrictions."
+  },
+  "evidence": [
+    {
+      "finding": "The public result consumes every valid option score and action probability. Action depends on CLS plus top probabilities, margin, entropy, and option count. Dropping CLS or any valid option is not allowed.",
+      "code": [
+        "src/laya_blackwell/model.py:113-123",
+        "src/laya_blackwell/protocol.py:132-177"
+      ]
+    },
+    {
+      "finding": "The final head already restricts attention outputs, output projection, residual/normalization, and FFN to CLS plus option markers. Full final-head K/V remain necessary. Moving Q selection into projection is the separately tested selected-Q experiment and is excluded from this audit.",
+      "code": [
+        "src/laya_blackwell/model.py:58-70",
+        "src/laya_blackwell/model.py:105-110",
+        "experiments/frontier/head_q_select_adapter.py:14-26"
+      ]
+    },
+    {
+      "finding": "Final-head selected queries attend every live first-head output. Thus all live first-head query, attention output, FFN, and residual rows are dependencies. Those first-head queries in turn require every live encoder output.",
+      "code": [
+        "src/laya_blackwell/model.py:62-70",
+        "src/laya_blackwell/model.py:109-110",
+        ".venv/lib/python3.12/site-packages/laya/common.py:119-140"
+      ]
+    },
+    {
+      "finding": "Every live encoder output is needed, including final MLP, final normalization, and type embedding. The last encoder layer is global. At length 64, maximum positional separation 63 is below local radius 64, so even all 18 local layers expose all 64 live keys. No backward cone shrinks.",
+      "code": [
+        "src/laya_blackwell/model.py:76-104",
+        "checkpoint@5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b/encoder/config.json"
+      ]
+    },
+    {
+      "finding": "MLP, linear projections, rotary, residuals, and LayerNorm are token-row-local, but none of their live rows is dead once attention requires every live row. LayerNorm couples all hidden channels within each row.",
+      "code": [
+        "src/laya_blackwell/model.py:14-18",
+        "src/laya_blackwell/model.py:90-104"
+      ]
+    },
+    {
+      "finding": "Only embedding normalization and first QKV are context-free token computations. The retained token tables already precompute those with matched 64-row geometry. First-layer global attention introduces request dependence immediately.",
+      "code": [
+        "experiments/frontier/token_tables.py:12-35",
+        "experiments/frontier/token_tables.py:54-65",
+        "src/laya_blackwell/model.py:94-101"
+      ]
+    }
+  ],
+  "padding_caveats": [
+    "Sequence-padding rows are structurally dead to live outputs because every attention layer masks their key positions, all other operations are row-local, and prepared markers are within the live prefix. This does not justify treating live non-marker tokens as padding.",
+    "The fixed benchmark has 64 live tokens and four real option markers, so neither sequence padding nor padded marker queries offer any work reduction there.",
+    "Holdout requests average 25.53125 dead sequence rows of 64, but retained encoder GEMMs and local attention use 32-row tiles. Only 9 of 128 holdout requests have a wholly dead second tile. For the remaining 119 requests, both tiles still contain live rows; masking stores alone does not remove tensor-core work.",
+    "An optional future padding experiment could preserve logical 64-row buffers, K/V extent, masks, RoPE positions, per-row reduction order, and the existing 32-row arithmetic, while suppressing completely padded Q/MLP tiles when live length is at most 32. It must initialize skipped buffers to finite values so masked V products cannot see NaNs, preserve graph-cache semantics, and pass exact raw-logit tests. This is a separate unmeasured kernel design, offers no benefit for the fixed benchmark, and was not implemented.",
+    "Padded option scores are overwritten by -1e4 and their duplicate CLS queries are structurally dead except the real CLS row. Removing these must retain output shapes and unchanged probability-reduction geometry. The fixed and all 128 holdout requests have four real options and no such padded queries.",
+    "Numerically small attention weights or rounded public responses do not establish structural independence. Skipping work based on those observations would need an additional arbitrary-input proof; no such approximation is proposed."
+  ],
+  "fixture_statistics": {
+    "fixed": {
+      "requests": 1,
+      "single_question_64_bucket_requests": 1,
+      "live_token_histogram": {
+        "64": 1
+      },
+      "mean_dead_padding_rows": 0.0,
+      "requests_with_whole_dead_32_row_tile": 0,
+      "requests_with_padded_marker_queries": 0,
+      "examples": [
+        {
+          "index": 0,
+          "live_tokens": 64,
+          "markers": [
+            12,
+            22,
+            32,
+            39
+          ],
+          "final_head_rows": 5,
+          "unique_final_head_rows": 5
+        }
+      ]
+    },
+    "original": {
+      "requests": 66,
+      "single_question_64_bucket_requests": 17,
+      "live_token_histogram": {
+        "29": 1,
+        "30": 2,
+        "32": 1,
+        "47": 1,
+        "48": 1,
+        "49": 3,
+        "50": 2,
+        "51": 1,
+        "52": 1,
+        "61": 1,
+        "62": 2,
+        "64": 1
+      },
+      "mean_dead_padding_rows": 16.058823529411764,
+      "requests_with_whole_dead_32_row_tile": 4,
+      "requests_with_padded_marker_queries": 8,
+      "examples": [
+        {
+          "index": 10,
+          "live_tokens": 64,
+          "markers": [
+            12,
+            22,
+            32,
+            39
+          ],
+          "final_head_rows": 5,
+          "unique_final_head_rows": 5
+        },
+        {
+          "index": 11,
+          "live_tokens": 52,
+          "markers": [
+            14,
+            24
+          ],
+          "final_head_rows": 3,
+          "unique_final_head_rows": 3
+        },
+        {
+          "index": 12,
+          "live_tokens": 51,
+          "markers": [
+            11,
+            17,
+            24
+          ],
+          "final_head_rows": 5,
+          "unique_final_head_rows": 4
+        }
+      ]
+    },
+    "holdout": {
+      "requests": 128,
+      "single_question_64_bucket_requests": 128,
+      "live_token_histogram": {
+        "28": 8,
+        "32": 1,
+        "33": 7,
+        "34": 5,
+        "35": 3,
+        "36": 2,
+        "37": 10,
+        "38": 7,
+        "39": 25,
+        "40": 27,
+        "41": 13,
+        "42": 5,
+        "43": 5,
+        "44": 9,
+        "45": 1
+      },
+      "mean_dead_padding_rows": 25.53125,
+      "requests_with_whole_dead_32_row_tile": 9,
+      "requests_with_padded_marker_queries": 0,
+      "examples": [
+        {
+          "index": 0,
+          "live_tokens": 33,
+          "markers": [
+            10,
+            14,
+            18,
+            22
+          ],
+          "final_head_rows": 5,
+          "unique_final_head_rows": 5
+        },
+        {
+          "index": 1,
+          "live_tokens": 34,
+          "markers": [
+            10,
+            14,
+            18,
+            22
+          ],
+          "final_head_rows": 5,
+          "unique_final_head_rows": 5
+        },
+        {
+          "index": 2,
+          "live_tokens": 40,
+          "markers": [
+            11,
+            15,
+            19,
+            23
+          ],
+          "final_head_rows": 5,
+          "unique_final_head_rows": 5
+        }
+      ]
+    }
+  },
+  "full_fixed_backward_closure": [
+    {
+      "stage": "observed final-head output",
+      "rows": 5,
+      "positions": [
+        0,
+        12,
+        22,
+        32,
+        39
+      ]
+    },
+    {
+      "stage": "head layer 1 input",
+      "rows": 64,
+      "reason": "Every observed query uses all 64 unmasked K/V rows; residual and FFN are row-local."
+    },
+    {
+      "stage": "head layer 0 input",
+      "rows": 64,
+      "reason": "Every observed query uses all 64 unmasked K/V rows; residual and FFN are row-local."
+    },
+    {
+      "stage": "encoder layer 27 input",
+      "rows": 64,
+      "attention": "full_attention"
+    },
+    {
+      "stage": "encoder layer 26 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 25 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 24 input",
+      "rows": 64,
+      "attention": "full_attention"
+    },
+    {
+      "stage": "encoder layer 23 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 22 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 21 input",
+      "rows": 64,
+      "attention": "full_attention"
+    },
+    {
+      "stage": "encoder layer 20 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 19 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 18 input",
+      "rows": 64,
+      "attention": "full_attention"
+    },
+    {
+      "stage": "encoder layer 17 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 16 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 15 input",
+      "rows": 64,
+      "attention": "full_attention"
+    },
+    {
+      "stage": "encoder layer 14 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 13 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 12 input",
+      "rows": 64,
+      "attention": "full_attention"
+    },
+    {
+      "stage": "encoder layer 11 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 10 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 9 input",
+      "rows": 64,
+      "attention": "full_attention"
+    },
+    {
+      "stage": "encoder layer 8 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 7 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 6 input",
+      "rows": 64,
+      "attention": "full_attention"
+    },
+    {
+      "stage": "encoder layer 5 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 4 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 3 input",
+      "rows": 64,
+      "attention": "full_attention"
+    },
+    {
+      "stage": "encoder layer 2 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 1 input",
+      "rows": 64,
+      "attention": "sliding_attention"
+    },
+    {
+      "stage": "encoder layer 0 input",
+      "rows": 64,
+      "attention": "full_attention"
+    }
+  ],
+  "limits": "This is a topology and mask audit, not an exhaustive learned-weight sparsity proof or a benchmark of a padding-aware kernel. Mathematical dead-row reasoning alone does not prove bitwise equivalence after changing GEMM/attention geometry.",
+  "sources_sha256": {
+    "src/laya_blackwell/model.py": "15f3d5d79554501014cd52dd2ac603defe69d7d05bc0926056e043bef2b187cf",
+    "src/laya_blackwell/engine.py": "c3b8b68759727f58c98d6403a2b15aa5259a0f10c7da2a6136c9ddabf6711016",
+    "src/laya_blackwell/protocol.py": "18e055f72f35fc777c584d7af84848b062e24f346f3a4c521e56d6639d7d43d5",
+    "src/laya_blackwell/workloads.py": "a9f45bdd593fb41c88718de6413a20d7530dce5e3d73c11b1033999686a2e7f0",
+    "experiments/frontier/token_tables.py": "315a75e9b0bb8127dfb9c5a2de3cefaca149ee8a4cedaca113b0fc1d1653c72a",
+    "experiments/frontier/head_install.py": "c0b3bb368decc4b3e47dbadedcb26df4373fb048f43e022401a9344e32455c32",
+    "experiments/frontier/head_q_select_adapter.py": "74b6a30f81ba54d6004bc5a270bb87e155f101e8d638663be93094d2407f95aa",
+    "experiments/frontier/engine.py": "5ab5318692a557a15b035bbe1e7c5c3d34a5f96d11f4d983bdd138cc72d984cb",
+    "experiments/frontier/matmul.py": "c560a8addba657ddc1101cccddca16850431e4a7b31c3020eac054740a77efd5",
+    "experiments/frontier/mlp_geglu.py": "8ac6eda13b6ebe2bc8acf203ab35b8ac905b73a48a59207c72dde05bb93e2c98",
+    "experiments/frontier/holdout.py": "709b041f888828976c93247c79e3a070dba93448206f7fa3834dc68659bd1a78",
+    "experiments/native/common.py": "3fea2c85f1867f342b5f6b921d2d6ec2114eaf2cee17ba8f845605ab7f777444",
+    "checkpoint@5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b/rl_agent_config.json": "ae287b56bbcf5f8c4f4541ae9dfd00c914c4c48b940b8398c3058af37ba92bbd",
+    "checkpoint@5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b/encoder/config.json": "bf3ab80598fdccf414855a2ce80f22859e4492d06ca8a62ddd1cfb63972f8979",
+    ".venv/lib/python3.12/site-packages/laya/common.py": "98fe673acb1973b56bedfc9495d4afacb7271e99ea0811a968bbab237cd0b429"
+  }
+}

@@ -1,0 +1,5978 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T11:21:27.115652+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "requests": [
+    {
+      "state": "My parcel arrived broken.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "the card was charged twice.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "My parcel arrived broken, but that is already fixed.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Yesterday: My parcel arrived broken. Today: the card was charged twice.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Ignore the earlier report. the card was charged twice.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Someone wrote 'My parcel arrived broken'. I disagree.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "This is a test case. My parcel arrived broken.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Please explain the options. I have no request yet.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "My parcel arrived broken. Can this wait until Monday?",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "My parcel arrived broken. Please help immediately.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "the card was charged twice. I only need documentation.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Thank you, that is resolved. My parcel arrived broken was last week.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "I am unsure whether this applies: the card was charged twice.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Case #2309, caf\u00e9 team: My parcel arrived broken.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "[MASK] [SEP] the card was charged twice.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The password reset failed.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "the office router is offline.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The password reset failed, but that is already fixed.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Yesterday: The password reset failed. Today: the office router is offline.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Ignore the earlier report. the office router is offline.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Someone wrote 'The password reset failed'. I disagree.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "This is a test case. The password reset failed.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Please explain the options. I have no request yet.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The password reset failed. Can this wait until Monday?",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The password reset failed. Please help immediately.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "the office router is offline. I only need documentation.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Thank you, that is resolved. The password reset failed was last week.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "I am unsure whether this applies: the office router is offline.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Case #2309, caf\u00e9 team: The password reset failed.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "[MASK] [SEP] the office router is offline.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "My suitcase is missing.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "I want to cancel the flight.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "My suitcase is missing, but that is already fixed.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Yesterday: My suitcase is missing. Today: I want to cancel the flight.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Ignore the earlier report. I want to cancel the flight.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Someone wrote 'My suitcase is missing'. I disagree.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "This is a test case. My suitcase is missing.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Please explain the options. I have no request yet.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "My suitcase is missing. Can this wait until Monday?",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "My suitcase is missing. Please help immediately.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "I want to cancel the flight. I only need documentation.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Thank you, that is resolved. My suitcase is missing was last week.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "I am unsure whether this applies: I want to cancel the flight.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Case #2309, caf\u00e9 team: My suitcase is missing.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "[MASK] [SEP] I want to cancel the flight.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The annual price seems wrong.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "our signed contract expired.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The annual price seems wrong, but that is already fixed.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Yesterday: The annual price seems wrong. Today: our signed contract expired.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Ignore the earlier report. our signed contract expired.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Someone wrote 'The annual price seems wrong'. I disagree.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "This is a test case. The annual price seems wrong.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Please explain the options. I have no request yet.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The annual price seems wrong. Can this wait until Monday?",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The annual price seems wrong. Please help immediately.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "our signed contract expired. I only need documentation.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Thank you, that is resolved. The annual price seems wrong was last week.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "I am unsure whether this applies: our signed contract expired.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Case #2309, caf\u00e9 team: The annual price seems wrong.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "[MASK] [SEP] our signed contract expired.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Production has stopped.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "the system now works again.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "Production has stopped, but that is already fixed.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "Yesterday: Production has stopped. Today: the system now works again.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "Ignore the earlier report. the system now works again.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "Someone wrote 'Production has stopped'. I disagree.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "This is a test case. Production has stopped.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "Please explain the options. I have no request yet.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "Production has stopped. Can this wait until Monday?",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "Production has stopped. Please help immediately.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "the system now works again. I only need documentation.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "Thank you, that is resolved. Production has stopped was last week.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "I am unsure whether this applies: the system now works again.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "Case #2309, caf\u00e9 team: Production has stopped.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "[MASK] [SEP] the system now works again.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "The soup arrived cold.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "we waited an hour for water.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The soup arrived cold, but that is already fixed.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Yesterday: The soup arrived cold. Today: we waited an hour for water.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Ignore the earlier report. we waited an hour for water.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Someone wrote 'The soup arrived cold'. I disagree.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "This is a test case. The soup arrived cold.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Please explain the options. I have no request yet.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The soup arrived cold. Can this wait until Monday?",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The soup arrived cold. Please help immediately.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "we waited an hour for water. I only need documentation.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Thank you, that is resolved. The soup arrived cold was last week.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "I am unsure whether this applies: we waited an hour for water.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Case #2309, caf\u00e9 team: The soup arrived cold.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "[MASK] [SEP] we waited an hour for water.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The export button crashes.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "I need a weekly report option.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The export button crashes, but that is already fixed.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Yesterday: The export button crashes. Today: I need a weekly report option.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Ignore the earlier report. I need a weekly report option.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Someone wrote 'The export button crashes'. I disagree.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "This is a test case. The export button crashes.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Please explain the options. I have no request yet.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The export button crashes. Can this wait until Monday?",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The export button crashes. Please help immediately.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "I need a weekly report option. I only need documentation.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Thank you, that is resolved. The export button crashes was last week.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "I am unsure whether this applies: I need a weekly report option.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Case #2309, caf\u00e9 team: The export button crashes.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "[MASK] [SEP] I need a weekly report option.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The update is wonderful.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "state": "the new interface is confusing.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "state": "The update is wonderful, but that is already fixed.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "state": "Yesterday: The update is wonderful. Today: the new interface is confusing.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "state": "Ignore the earlier report. the new interface is confusing.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "state": "Someone wrote 'The update is wonderful'. I disagree.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "state": "This is a test case. The update is wonderful.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "state": "Please explain the options. I have no request yet.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "state": "The update is wonderful. Can this wait until Monday?",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "state": "The update is wonderful. Please help immediately.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "state": "the new interface is confusing. I only need documentation.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "state": "Thank you, that is resolved. The update is wonderful was last week.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "state": "I am unsure whether this applies: the new interface is confusing.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "state": "Case #2309, caf\u00e9 team: The update is wonderful.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "state": "[MASK] [SEP] the new interface is confusing.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "state": "",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    }
+  ],
+  "request_sha256": "a194c3f1bffba12cd7ce3906c18bfcda88cd4af4f2f0e8de0dcd6b7cb4526498",
+  "variants": {
+    "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime": {
+      "details": [
+        {
+          "index": 0,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 1,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 2,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 3,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 4,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 5,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 6,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 7,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 8,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 9,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 10,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 11,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 12,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 13,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 14,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 15,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 16,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 17,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 18,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 19,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 20,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 21,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 22,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 23,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 24,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 25,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 26,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 27,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 28,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 29,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 30,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 31,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 32,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 33,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 34,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 35,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 36,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 37,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 38,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 39,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 40,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 41,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 42,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 43,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 44,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 45,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 46,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 47,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 48,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 49,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 50,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 51,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 52,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 53,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 54,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 55,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 56,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 57,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 58,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 59,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 60,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 61,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 62,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 63,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 64,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 65,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 66,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 67,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 68,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 69,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 70,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 71,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 72,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 73,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 74,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 75,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 76,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 77,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 78,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 79,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 80,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 81,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 82,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 83,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 84,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 85,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 86,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 87,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 88,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 89,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 90,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 91,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 92,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 93,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 94,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 95,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 96,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 97,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 98,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 99,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 100,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 101,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 102,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 103,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 104,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 105,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 106,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 107,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 108,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 109,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 110,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 111,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 112,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 113,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 114,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 115,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 116,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 117,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 118,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 119,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 120,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 121,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 122,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 123,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 124,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 125,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 126,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 127,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        }
+      ],
+      "all_passed": true,
+      "all_exact": true,
+      "agreement": 128,
+      "max_probability_error": 0.0,
+      "optimized_shape_requests": 128,
+      "timings": {
+        "native": {
+          "mean_ms": 2.1976423156957026,
+          "p50_ms": 2.192637010011822,
+          "p95_ms": 2.2416525112930685,
+          "samples_ms": [
+            2.262311987578869,
+            2.2458519088104367,
+            2.234881976619363,
+            2.245881943963468,
+            2.213902072981,
+            2.2266219602897763,
+            2.2158720530569553,
+            2.214872045442462,
+            2.246332005597651,
+            2.2107219556346536,
+            2.2143219830468297,
+            2.246852032840252,
+            2.2630220046266913,
+            2.256673062220216,
+            2.2240009857341647,
+            2.2040820913389325,
+            2.2306920727714896,
+            2.209921949543059,
+            2.215252025052905,
+            2.22974200733006,
+            2.2199919912964106,
+            2.1994219860062003,
+            2.202771953307092,
+            2.2175019839778543,
+            2.208892023190856,
+            2.201491966843605,
+            2.2370120277628303,
+            2.296842052601278,
+            2.314212964847684,
+            2.3141319397836924,
+            2.299443003721535,
+            2.241031965240836,
+            2.230921993032098,
+            2.26315192412585,
+            2.2354520624503493,
+            2.214512089267373,
+            2.2189420415088534,
+            2.220412017777562,
+            2.2113219602033496,
+            2.2184719564393163,
+            2.216822002083063,
+            2.195951994508505,
+            2.213191008195281,
+            2.219041925854981,
+            2.2080419585108757,
+            2.210241975262761,
+            2.2120720241218805,
+            2.204052056185901,
+            2.198942005634308,
+            2.1989020751789212,
+            2.1763109834864736,
+            2.204132964834571,
+            2.2170209558680654,
+            2.2036719601601362,
+            2.2037819726392627,
+            2.214582054875791,
+            2.220632042735815,
+            2.205472090281546,
+            2.234152052551508,
+            2.2401020396500826,
+            2.236091997474432,
+            2.2302019642665982,
+            2.196251996792853,
+            2.219201996922493,
+            2.207702025771141,
+            2.2304320009425282,
+            2.224441966973245,
+            2.204942051321268,
+            2.2111618891358376,
+            2.2070310078561306,
+            2.214052015915513,
+            2.2174720652401447,
+            2.171302097849548,
+            2.2055419394746423,
+            2.1955419797450304,
+            2.212862018495798,
+            2.1895209793001413,
+            2.2050419356673956,
+            2.1925519686192274,
+            2.194891916587949,
+            2.1978620206937194,
+            2.1924220491200686,
+            2.1976419957354665,
+            2.173941000364721,
+            2.1967620123177767,
+            2.2078820038586855,
+            2.192081999965012,
+            2.1929919021204114,
+            2.2009318927302957,
+            2.2022309713065624,
+            2.184442011639476,
+            2.1898120176047087,
+            2.202462055720389,
+            2.186481957323849,
+            2.213351894170046,
+            2.217722008936107,
+            2.2252319613471627,
+            2.2084320662543178,
+            2.202571020461619,
+            2.163902041502297,
+            2.212021965533495,
+            2.193282009102404,
+            2.2025620564818382,
+            2.193061984144151,
+            2.1700109355151653,
+            2.182652009651065,
+            2.1951720118522644,
+            2.185951918363571,
+            2.2047419333830476,
+            2.190230996347964,
+            2.2025119978934526,
+            2.2108519915491343,
+            2.173622022382915,
+            2.203122014179826,
+            2.198781003244221,
+            2.200272982008755,
+            2.19914095941931,
+            2.200742019340396,
+            2.192592015489936,
+            2.1835019579157233,
+            2.182952011935413,
+            2.2115210304036736,
+            2.179221948608756,
+            2.184092067182064,
+            2.202472067438066,
+            2.2331320215016603,
+            2.1977820433676243,
+            2.211421960964799,
+            2.311973017640412,
+            2.350842929445207,
+            2.308062044903636,
+            2.257231972180307,
+            2.239312045276165,
+            2.218232024461031,
+            2.238861983641982,
+            2.233311999589205,
+            2.255672006867826,
+            2.2152719320729375,
+            2.2191720781847835,
+            2.1939120488241315,
+            2.182372030802071,
+            2.2191819734871387,
+            2.1886019967496395,
+            2.202622010372579,
+            2.172371023334563,
+            2.1921119187027216,
+            2.1992719266563654,
+            2.2012420231476426,
+            2.1968819200992584,
+            2.1934709511697292,
+            2.1970729576423764,
+            2.173571032471955,
+            2.1950718946754932,
+            2.1863520378246903,
+            2.1793110063299537,
+            2.1862919675186276,
+            2.1941419690847397,
+            2.20806198194623,
+            2.187501988373697,
+            2.1933719981461763,
+            2.2043309872969985,
+            2.212931984104216,
+            2.1844319999217987,
+            2.200662042014301,
+            2.201932016760111,
+            2.190152066759765,
+            2.202482079155743,
+            2.2057410096749663,
+            2.19176197424531,
+            2.1942020393908024,
+            2.195072011090815,
+            2.173622022382915,
+            2.2039010655134916,
+            2.171832020394504,
+            2.195731969550252,
+            2.2009420208632946,
+            2.196272020228207,
+            2.215681946836412,
+            2.1886619506403804,
+            2.1972209215164185,
+            2.2058020113036036,
+            2.191702020354569,
+            2.2069920087233186,
+            2.1713420283049345,
+            2.171491039916873,
+            2.1918120328336954,
+            2.1969019435346127,
+            2.1815019426867366,
+            2.177361981011927,
+            2.1852910285815597,
+            2.1846420131623745,
+            2.1966120693832636,
+            2.1989819360896945,
+            2.208612044341862,
+            2.191862091422081,
+            2.189341001212597,
+            2.1841919515281916,
+            2.1884720772504807,
+            2.2432919358834624,
+            2.1896320395171642,
+            2.202182076871395,
+            2.1977019496262074,
+            2.2157520288601518,
+            2.310301992110908,
+            2.2787320194765925,
+            2.2775219986215234,
+            2.304101944901049,
+            2.2414219565689564,
+            2.2282019490376115,
+            2.234742045402527,
+            2.201701980084181,
+            2.2049620747566223,
+            2.184752025641501,
+            2.1791209001094103,
+            2.1984719205647707,
+            2.243181923404336,
+            2.207521931268275,
+            2.1664919331669807,
+            2.198272035457194,
+            2.1933120442554355,
+            2.186211058869958,
+            2.205652999691665,
+            2.188950893469155,
+            2.190672094002366,
+            2.1855520317330956,
+            2.21637194044888,
+            2.2246119333431125,
+            2.202332019805908,
+            2.209090976975858,
+            2.2085329983383417,
+            2.19833105802536,
+            2.1930919028818607,
+            2.1968920482322574,
+            2.1971820387989283,
+            2.2199919912964106,
+            2.228021970950067,
+            2.2125020623207092,
+            2.186011988669634,
+            2.193380962125957,
+            2.1751720923930407,
+            2.2136219777166843,
+            2.205322030931711,
+            2.18058202881366,
+            2.177770948037505,
+            2.1887520560994744,
+            2.1898620761930943,
+            2.1986219799146056,
+            2.19130190089345,
+            2.2175320191308856,
+            2.206471050158143,
+            2.203501993790269,
+            2.1915719844400883,
+            2.18042207416147,
+            2.1871119970455766,
+            2.1830310579389334,
+            2.183101954869926,
+            2.1722220117226243,
+            2.171891974285245,
+            2.189032034948468,
+            2.181490999646485,
+            2.187281963415444,
+            2.199331996962428,
+            2.1853219950571656,
+            2.1954820258542895,
+            2.195481094531715,
+            2.1957720164209604,
+            2.1831520134583116,
+            2.1667820401489735,
+            2.185422112233937,
+            2.187380916438997,
+            2.208741963841021,
+            2.189172082580626,
+            2.1978520089760423,
+            2.1890419302508235,
+            2.177361981011927,
+            2.1846010349690914,
+            2.1948820212855935,
+            2.2089920239523053,
+            2.2021320182830095,
+            2.2809020010754466,
+            2.325482899323106,
+            2.33018200378865,
+            2.2953529842197895,
+            2.2983719827607274,
+            2.260821987874806,
+            2.22032202873379,
+            2.220332040451467,
+            2.2090020356699824,
+            2.187201986089349,
+            2.2607119753956795,
+            2.2495120065286756,
+            2.193271997384727,
+            2.204112010076642,
+            2.1839620312675834,
+            2.2100319620221853,
+            2.2062220377847552,
+            2.196750952862203,
+            2.193851978518069,
+            2.2036320297047496,
+            2.2060320479795337,
+            2.1825520088896155,
+            2.179151983000338,
+            2.1943210158497095,
+            2.1999019663780928,
+            2.1949419751763344,
+            2.1886619506403804,
+            2.192762098275125,
+            2.191600971855223,
+            2.2030130494385958,
+            2.201240975409746,
+            2.181911957450211,
+            2.174871973693371,
+            2.1956709679216146,
+            2.193902968429029,
+            2.201691037043929,
+            2.1814219653606415,
+            2.1827620221301913,
+            2.183911041356623,
+            2.1749520674347878,
+            2.1879120031371713,
+            2.1733719622716308,
+            2.171001979149878,
+            2.1928410278633237,
+            2.201201976276934,
+            2.1969720255583525,
+            2.1757620852440596,
+            2.2072020219638944,
+            2.1981409518048167,
+            2.189081977121532,
+            2.185432007536292,
+            2.193271997384727,
+            2.181482035666704,
+            2.2011820692569017,
+            2.203030977398157,
+            2.2102619986981153,
+            2.2057919995859265,
+            2.194472006522119,
+            2.212841995060444,
+            2.217122004367411,
+            2.2012819536030293,
+            2.2130319848656654,
+            2.2106419783085585,
+            2.183681004680693,
+            2.183791948482394,
+            2.1877919789403677,
+            2.2029420360922813,
+            2.190731931477785,
+            2.1927820052951574,
+            2.169101033359766,
+            2.180562005378306,
+            2.192682004533708,
+            2.1729719592258334,
+            2.1692709997296333,
+            2.184601966291666,
+            2.1847019670531154,
+            2.158181043341756,
+            2.205761964432895,
+            2.194772008806467,
+            2.181752002798021,
+            2.168752020224929,
+            2.1665410604327917,
+            2.18827195931226,
+            2.1821019472554326,
+            2.169981016777456,
+            2.192253014072776,
+            2.198620932176709,
+            2.1770719904452562,
+            2.2063918877393007,
+            2.1990019595250487,
+            2.190802013501525,
+            2.1872309735044837,
+            2.17354204505682,
+            2.225551987066865,
+            2.1949319634586573,
+            2.1946319611743093,
+            2.19111202750355,
+            2.183450968004763,
+            2.1896320395171642,
+            2.181782037951052,
+            2.1790419705212116,
+            2.180980984121561,
+            2.2073519648984075,
+            2.234522020444274,
+            2.1640219492837787,
+            2.2401820169761777,
+            2.2077220492064953,
+            2.2062320495024323,
+            2.189981983974576,
+            2.1843219874426723,
+            2.1771109895780683,
+            2.1810720209032297,
+            2.190522034652531,
+            2.183502074331045,
+            2.1801419788971543,
+            2.1914009703323245,
+            2.188722020946443,
+            2.1912220399826765,
+            2.161721931770444,
+            2.184041077271104,
+            2.1687019616365433,
+            2.18984205275774,
+            2.192012034356594,
+            2.1762920077890158,
+            2.180551062338054,
+            2.194622065871954,
+            2.186922007240355,
+            2.1865719463676214,
+            2.1950319642201066,
+            2.182111027650535,
+            2.1932319505140185,
+            2.2017419105395675,
+            2.177951973862946,
+            2.1966020576655865,
+            2.1740710362792015,
+            2.1958419820293784,
+            2.1767219295725226,
+            2.1784909768030047,
+            2.1831130143254995,
+            2.1810909966006875,
+            2.190892002545297,
+            2.1900919964537024,
+            2.1879810374230146,
+            2.1841219859197736,
+            2.201282070018351,
+            2.171522006392479,
+            2.172271953895688,
+            2.1860309643670917,
+            2.168591949157417,
+            2.1776719950139523,
+            2.180000999942422,
+            2.1851520286872983,
+            2.1809720201417804,
+            2.172732027247548,
+            2.1768519654870033,
+            2.170741092413664,
+            2.181521966122091,
+            2.1821620175614953,
+            2.1791119361296296,
+            2.1698310738429427,
+            2.191331936046481,
+            2.199932001531124,
+            2.1937519777566195,
+            2.1768020233139396,
+            2.1870810305699706,
+            2.1871220087632537,
+            2.1782920230180025,
+            2.186852041631937,
+            2.176571055315435,
+            2.167352009564638,
+            2.189761959016323,
+            2.1703419042751193,
+            2.195390989072621,
+            2.180272014811635,
+            2.1766419522464275,
+            2.169582061469555,
+            2.182941068895161,
+            2.197291934862733,
+            2.1898819832131267,
+            2.1862019784748554,
+            2.183091943152249,
+            2.1760609233751893,
+            2.17885198071599,
+            2.2273119539022446,
+            2.196711953729391,
+            2.1849520271643996,
+            2.1721419179812074,
+            2.1841109264642,
+            2.1838820539414883,
+            2.17996200080961,
+            2.189241931773722,
+            2.1745309932157397,
+            2.148512052372098,
+            2.1584220230579376,
+            2.1793809719383717,
+            2.179292030632496,
+            2.1815819200128317,
+            2.191171981394291,
+            2.1810319740325212,
+            2.1759510273113847,
+            2.183701959438622,
+            2.186832018196583,
+            2.1606310037896037,
+            2.185121993534267,
+            2.175352070480585,
+            2.1847019670531154,
+            2.181950956583023,
+            2.1800820250064135,
+            2.1830620244145393,
+            2.1888120099902153,
+            2.1895519457757473,
+            2.189430990256369,
+            2.174651948735118,
+            2.1805319702252746,
+            2.1781609393656254,
+            2.186922007240355,
+            2.1938709542155266,
+            2.1877720719203353,
+            2.1744220284745097,
+            2.1725610131397843,
+            2.180282026529312,
+            2.1989119704812765,
+            2.1759619703516364,
+            2.1620719926431775,
+            2.173671033233404,
+            2.1755120251327753,
+            2.1826120791956782,
+            2.197801019065082,
+            2.1974219707772136,
+            2.1930120419710875,
+            2.1728220162913203,
+            2.17308197170496,
+            2.201671013608575,
+            2.266952069476247,
+            2.1871220087632537,
+            2.2026619408279657,
+            2.195051987655461,
+            2.1970419911667705,
+            2.1897510159760714,
+            2.175402012653649,
+            2.1789519814774394,
+            2.174610970541835,
+            2.1849919576197863,
+            2.1785920253023505,
+            2.188561949878931,
+            2.183872042223811,
+            2.1814110223203897,
+            2.1720119984820485,
+            2.182352007366717,
+            2.1789520978927612,
+            2.188821090385318,
+            2.214491949416697,
+            2.2192520555108786,
+            2.20799189992249,
+            2.2008620435371995,
+            2.2003420162945986,
+            2.1925120381638408,
+            2.1797820227220654,
+            2.166341058909893,
+            2.188332029618323,
+            2.162722055800259,
+            2.1794309141114354,
+            2.1672919392585754,
+            2.187301986850798,
+            2.1989020751789212,
+            2.2036320297047496,
+            2.1909020142629743,
+            2.194270957261324,
+            2.19864200334996,
+            2.198962029069662,
+            2.177801914513111,
+            2.1716419141739607,
+            2.181290998123586,
+            2.1861520363017917,
+            2.167252008803189,
+            2.20275204628706,
+            2.1603209897875786,
+            2.191771985962987,
+            2.1728220162913203,
+            2.17266206163913,
+            2.191300969570875,
+            2.1842520218342543,
+            2.1817220840603113,
+            2.1801219554618,
+            2.1895919926464558,
+            2.1807709708809853,
+            2.1778119262307882,
+            2.1736420458182693,
+            2.1919519640505314,
+            2.185980905778706,
+            2.184911980293691,
+            2.163831959478557,
+            2.1717710187658668,
+            2.1777519723400474,
+            2.176761976443231,
+            2.1799219539389014,
+            2.1800119429826736,
+            2.2070109844207764,
+            2.1885220194235444,
+            2.1801720140501857,
+            2.174961962737143,
+            2.1756619680672884,
+            2.172691049054265,
+            2.1707420237362385,
+            2.186182071454823,
+            2.1660010097548366,
+            2.1712719462811947,
+            2.1766419522464275,
+            2.1876420360058546,
+            2.182321040891111,
+            2.1796519868075848,
+            2.187361940741539,
+            2.1687919506803155,
+            2.1741120144724846,
+            2.206310979090631,
+            2.18534201849252,
+            2.19642196316272,
+            2.1769519662484527,
+            2.203582087531686,
+            2.2138510830700397,
+            2.1921820007264614,
+            2.2110819118097425,
+            2.1999519085511565,
+            2.194151980802417,
+            2.1773020271211863,
+            2.1945920307189226,
+            2.2228920133784413,
+            2.216610941104591,
+            2.21072300337255,
+            2.216991037130356,
+            2.174881985411048,
+            2.187152043916285,
+            2.1766209974884987,
+            2.169801970012486,
+            2.198572037741542,
+            2.1928820060566068,
+            2.166752004995942,
+            2.1766909630969167,
+            2.177292015403509,
+            2.1857619285583496,
+            2.175191999413073,
+            2.175681060180068,
+            2.1737419301643968,
+            2.193721942603588,
+            2.1819319808855653,
+            2.1837219828739762,
+            2.1787609439343214,
+            2.1925620967522264,
+            2.2096619941294193,
+            2.204921911470592,
+            2.2415720159187913,
+            2.225772012025118,
+            2.2164919646456838,
+            2.20845197327435,
+            2.2122920490801334,
+            2.2211020113900304,
+            2.216452034190297,
+            2.231162041425705,
+            2.2017519222572446,
+            2.2096610628068447,
+            2.215722925029695
+          ]
+        },
+        "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime": {
+          "mean_ms": 1.6907608440305921,
+          "p50_ms": 1.676919055171311,
+          "p95_ms": 1.7856115533504635,
+          "samples_ms": [
+            1.7390400171279907,
+            1.7065090360119939,
+            1.6870290273800492,
+            1.6998390201479197,
+            1.687009003944695,
+            1.6901089111343026,
+            1.692559919320047,
+            1.6810980159789324,
+            1.673749997280538,
+            1.6746280016377568,
+            1.6812700778245926,
+            1.6912990249693394,
+            1.6848789528012276,
+            1.6817690338939428,
+            1.6744089080020785,
+            1.6698890831321478,
+            1.678489032201469,
+            1.6732390504330397,
+            1.6855989815667272,
+            1.679539098404348,
+            1.683359034359455,
+            1.659428933635354,
+            1.6685390146449208,
+            1.6978189814835787,
+            1.6814989503473043,
+            1.6820880118757486,
+            1.7034300835803151,
+            1.6767490888014436,
+            1.689329044893384,
+            1.678338972851634,
+            1.680659013800323,
+            1.7105989390984178,
+            1.7390999710187316,
+            1.7718990566208959,
+            1.7459900118410587,
+            1.7522290581837296,
+            1.7481389222666621,
+            1.7152189975604415,
+            1.7018000362440944,
+            1.7150590429082513,
+            1.75347994081676,
+            1.730278949253261,
+            1.6964190872386098,
+            1.7028190195560455,
+            1.7017489299178123,
+            1.694559003226459,
+            1.689139986410737,
+            1.716598984785378,
+            1.6844290075823665,
+            1.7113289795815945,
+            1.6652490012347698,
+            1.6974289901554585,
+            1.6852690605446696,
+            1.6909899422898889,
+            1.6900179907679558,
+            1.7002499662339687,
+            1.6840890748426318,
+            1.6737490659579635,
+            1.709729083813727,
+            1.7015889752656221,
+            1.7009290168061852,
+            1.6895890003070235,
+            1.6943680820986629,
+            1.7080300021916628,
+            1.6972690355032682,
+            1.6913090366870165,
+            1.6989689320325851,
+            1.7268599476665258,
+            1.6904189251363277,
+            1.6886990051716566,
+            1.7019090009853244,
+            1.6966789262369275,
+            1.6790590016171336,
+            1.7262189649045467,
+            1.7153900116682053,
+            1.702848938293755,
+            1.686119008809328,
+            1.7138589173555374,
+            1.703978981822729,
+            1.6889390535652637,
+            1.6916299937292933,
+            1.6904789954423904,
+            1.6957189654931426,
+            1.69484899379313,
+            1.6910090344026685,
+            1.6872090054675937,
+            1.6896590823307633,
+            1.690299017354846,
+            1.7008600989356637,
+            1.695759012363851,
+            1.701508997939527,
+            1.700458931736648,
+            1.7060990212485194,
+            1.6725290333852172,
+            1.6919489717110991,
+            1.7007000278681517,
+            1.6983289970085025,
+            1.6921190544962883,
+            1.6986889531835914,
+            1.6814690316095948,
+            1.6985989641398191,
+            1.7132189823314548,
+            1.7025800189003348,
+            1.694649108685553,
+            1.6692490316927433,
+            1.6872490523383021,
+            1.6991290031000972,
+            1.6751490766182542,
+            1.6864590579643846,
+            1.6753089148551226,
+            1.6770189395174384,
+            1.676468993537128,
+            1.662048976868391,
+            1.682449015788734,
+            1.6801190795376897,
+            1.687758951447904,
+            1.6907700337469578,
+            1.6974089667201042,
+            1.6936990432441235,
+            1.6911790007725358,
+            1.704949070699513,
+            1.7073799390345812,
+            1.67546805460006,
+            1.6809100052341819,
+            1.6776580596342683,
+            1.6912099672481418,
+            1.6870190156623721,
+            1.6857690643519163,
+            1.7467089928686619,
+            1.7586100148037076,
+            1.829260028898716,
+            1.8055490218102932,
+            1.802879967726767,
+            1.8129299860447645,
+            1.8352000042796135,
+            1.8455000827088952,
+            1.8343100091442466,
+            1.8662590300664306,
+            1.8702499801293015,
+            1.8776599317789078,
+            1.862649922259152,
+            1.9005100475624204,
+            1.8608999671414495,
+            1.892790081910789,
+            1.831559929996729,
+            1.836729934439063,
+            1.7922399565577507,
+            1.8029690254479647,
+            1.8128299852833152,
+            1.786419888958335,
+            1.8247299594804645,
+            1.7764389049261808,
+            1.762669999152422,
+            1.7576990649104118,
+            1.748839975334704,
+            1.7233589896932244,
+            1.7167989863082767,
+            1.7288000090047717,
+            1.7221890157088637,
+            1.732219010591507,
+            1.7947899177670479,
+            1.795319956727326,
+            1.7504689749330282,
+            1.7687989166006446,
+            1.7612399533390999,
+            1.7188889905810356,
+            1.71572994440794,
+            1.7178690759465098,
+            1.7156889662146568,
+            1.7291490221396089,
+            1.706019975244999,
+            1.6956089530140162,
+            1.7081890255212784,
+            1.7012590542435646,
+            1.8298199865967035,
+            1.8266099505126476,
+            1.801840029656887,
+            1.8150800606235862,
+            1.7894789343699813,
+            1.7885500565171242,
+            1.7558590043336153,
+            1.7201700247824192,
+            1.7263090703636408,
+            1.6937190666794777,
+            1.7172290245071054,
+            1.7282600747421384,
+            1.7138690454885364,
+            1.7046990105882287,
+            1.6913589788600802,
+            1.7011789605021477,
+            1.7225600313395262,
+            1.7086989246308804,
+            1.7057289369404316,
+            1.694918959401548,
+            1.704788999632001,
+            1.6909590922296047,
+            1.6954499296844006,
+            1.6903089126572013,
+            1.702398993074894,
+            1.6812690300866961,
+            1.6971289878711104,
+            1.714739017188549,
+            1.717610051855445,
+            1.7006489215418696,
+            1.7249390948563814,
+            1.6943890368565917,
+            1.6997390193864703,
+            1.6663200221955776,
+            1.701868954114616,
+            1.705838949419558,
+            1.6730190254747868,
+            1.7010889714583755,
+            1.68969901278615,
+            1.6941990470513701,
+            1.725809066556394,
+            1.7306399531662464,
+            1.7488689627498388,
+            1.7662900499999523,
+            1.7450390150770545,
+            1.7688500229269266,
+            1.791698974557221,
+            1.7554699443280697,
+            1.7548090545460582,
+            1.7112500499933958,
+            1.7135989619418979,
+            1.720698899589479,
+            1.770479022525251,
+            1.7811800353229046,
+            1.7970000626519322,
+            1.7632489325478673,
+            1.7824399983510375,
+            1.7141590360552073,
+            1.7012390308082104,
+            1.6976299230009317,
+            1.697769039310515,
+            1.7016790807247162,
+            1.7161290161311626,
+            1.693808939307928,
+            1.6840699827298522,
+            1.668368000537157,
+            1.6949999844655395,
+            1.7018390353769064,
+            1.6637289663776755,
+            1.6756390687078238,
+            1.6697089886292815,
+            1.6803989419713616,
+            1.6823089681565762,
+            1.6825890634208918,
+            1.673998893238604,
+            1.6636690124869347,
+            1.6842290060594678,
+            1.7031190218403935,
+            1.7545099835842848,
+            1.7855690093711019,
+            1.7678099684417248,
+            1.7663890030235052,
+            1.6991989687085152,
+            1.6965289833024144,
+            1.714759971946478,
+            1.7316389130428433,
+            1.7163690645247698,
+            1.6980889486148953,
+            1.684988965280354,
+            1.7138790572062135,
+            1.7355000600218773,
+            1.7058190423995256,
+            1.6924189403653145,
+            1.6700699925422668,
+            1.6792379319667816,
+            1.6797900898382068,
+            1.6775380354374647,
+            1.6881800256669521,
+            1.6768990317359567,
+            1.6670490149408579,
+            1.6607589786872268,
+            1.681628986261785,
+            1.6820490127429366,
+            1.6869590617716312,
+            1.6769390786066651,
+            1.6661490080878139,
+            1.6884090146049857,
+            1.681179041042924,
+            1.6687189927324653,
+            1.6794489929452538,
+            1.6874789725989103,
+            1.6739389393478632,
+            1.6926790121942759,
+            1.6794990515336394,
+            1.66048901155591,
+            1.6877790912985802,
+            1.6706290189176798,
+            1.6688299365341663,
+            1.678168075159192,
+            1.650908961892128,
+            1.6768190544098616,
+            1.6744299791753292,
+            1.6674079233780503,
+            1.6725700115785003,
+            1.6743780579417944,
+            1.6793899703770876,
+            1.6680079279467463,
+            1.6667599556967616,
+            1.6731689684092999,
+            1.6696990933269262,
+            1.663877977989614,
+            1.669490011408925,
+            1.6645790310576558,
+            1.6760779544711113,
+            1.6785399056971073,
+            1.6670679906383157,
+            1.6768699279055,
+            1.6660880064591765,
+            1.6709900228306651,
+            1.6606190474703908,
+            1.6614290652796626,
+            1.67055893689394,
+            1.6740589635446668,
+            1.6713589429855347,
+            1.6718190163373947,
+            1.6741290455684066,
+            1.6758390702307224,
+            1.664808951318264,
+            1.6746589681133628,
+            1.660248963162303,
+            1.6679279506206512,
+            1.6452999552711844,
+            1.6758089186623693,
+            1.6698789549991488,
+            1.6730580246075988,
+            1.665589981712401,
+            1.660639070905745,
+            1.6638580709695816,
+            1.6718599945306778,
+            1.6704079462215304,
+            1.6786700580269098,
+            1.6637080116197467,
+            1.6702000284567475,
+            1.6647179145365953,
+            1.6721400897949934,
+            1.6594890039414167,
+            1.6621180111542344,
+            1.6629290767014027,
+            1.660029054619372,
+            1.6617689980193973,
+            1.663929084315896,
+            1.6799389850348234,
+            1.6629390884190798,
+            1.6756290569901466,
+            1.657639048062265,
+            1.6605390701442957,
+            1.663319068029523,
+            1.6607890138402581,
+            1.65464892052114,
+            1.661979011259973,
+            1.6690390184521675,
+            1.6511089634150267,
+            1.6641289694234729,
+            1.6722389264032245,
+            1.6778090503066778,
+            1.655238913372159,
+            1.6653590137138963,
+            1.6649789176881313,
+            1.662648981437087,
+            1.6673090867698193,
+            1.658609020523727,
+            1.6616589855402708,
+            1.6599289374426007,
+            1.670708996243775,
+            1.6662789275869727,
+            1.6615190543234348,
+            1.660998910665512,
+            1.6517590265721083,
+            1.6474389703944325,
+            1.667467993684113,
+            1.6640190733596683,
+            1.6657590167596936,
+            1.660750014707446,
+            1.6585480188950896,
+            1.6737988917157054,
+            1.6511590220034122,
+            1.6558190109208226,
+            1.665938994847238,
+            1.67124904692173,
+            1.6431089024990797,
+            1.642999006435275,
+            1.6661890549585223,
+            1.6673889476805925,
+            1.6653690254315734,
+            1.6691089840605855,
+            1.6543889651075006,
+            1.6594090266153216,
+            1.6716989921405911,
+            1.6649989411234856,
+            1.676468993537128,
+            1.6759790014475584,
+            1.67616899125278,
+            1.6655989456921816,
+            1.6524889506399632,
+            1.6628189478069544,
+            1.6518889460712671,
+            1.6815389972180128,
+            1.6761989099904895,
+            1.6541489167138934,
+            1.6713689547032118,
+            1.6635590000078082,
+            1.6606190474703908,
+            1.6723989974707365,
+            1.6620589885860682,
+            1.6641590045765042,
+            1.6703590517863631,
+            1.6694790683686733,
+            1.6699089901521802,
+            1.6836890717968345,
+            1.6598990187048912,
+            1.678038970567286,
+            1.658148947171867,
+            1.6585590783506632,
+            1.6672490164637566,
+            1.6588590806350112,
+            1.6636690124869347,
+            1.6760790022090077,
+            1.6816090792417526,
+            1.6625190619379282,
+            1.6699290135875344,
+            1.6712989890947938,
+            1.663057948462665,
+            1.6701699933037162,
+            1.6556089976802468,
+            1.6762190498411655,
+            1.6662189736962318,
+            1.662948983721435,
+            1.6645189607515931,
+            1.6814389964565635,
+            1.674839062616229,
+            1.6567279817536473,
+            1.6650300240144134,
+            1.6728489426895976,
+            1.6648289747536182,
+            1.655068015679717,
+            1.6727399779483676,
+            1.6760090366005898,
+            1.6784790204837918,
+            1.6566290287300944,
+            1.6613779589533806,
+            1.6702599823474884,
+            1.6587480204179883,
+            1.664930023252964,
+            1.6730279894545674,
+            1.6623889096081257,
+            1.6710700001567602,
+            1.6589279985055327,
+            1.6658089589327574,
+            1.6753689851611853,
+            1.6700400738045573,
+            1.6646479489281774,
+            1.6650600591674447,
+            1.676807994954288,
+            1.6634290805086493,
+            1.6646990552544594,
+            1.6680689295753837,
+            1.6660790424793959,
+            1.6603589756414294,
+            1.6687889583408833,
+            1.6666390001773834,
+            1.6754489624872804,
+            1.6776390839368105,
+            1.6603890107944608,
+            1.6641590045765042,
+            1.6782489838078618,
+            1.6780589940026402,
+            1.6532890731468797,
+            1.652778941206634,
+            1.6446990193799138,
+            1.6523890662938356,
+            1.660189009271562,
+            1.6820690361782908,
+            1.6777690034359694,
+            1.6687388997524977,
+            1.658388995565474,
+            1.6726090107113123,
+            1.6690189950168133,
+            1.6442290507256985,
+            1.6654790379106998,
+            1.671919017098844,
+            1.6586390556767583,
+            1.6619890229776502,
+            1.6620690003037453,
+            1.6702889697626233,
+            1.6681889537721872,
+            1.6733090160414577,
+            1.6702190041542053,
+            1.6843489138409495,
+            1.7034390475600958,
+            1.6868090024217963,
+            1.6966488910838962,
+            1.7024489352479577,
+            1.696379971690476,
+            1.6993189929053187,
+            1.7205089097842574,
+            1.7398300115019083,
+            1.7888490110635757,
+            1.7104989383369684,
+            1.6918489709496498,
+            1.6935099847614765,
+            1.7505590803921223,
+            1.746759982779622,
+            1.7441989621147513,
+            1.6943790251389146,
+            1.6805690247565508,
+            1.6767189372330904,
+            1.659958972595632,
+            1.6787489876151085,
+            1.7213199753314257,
+            1.6742190346121788,
+            1.6957189654931426,
+            1.6875589499250054,
+            1.6783089376986027,
+            1.6848689410835505,
+            1.6793289687484503,
+            1.6728700138628483,
+            1.6711780335754156,
+            1.6653999919071794,
+            1.6718580154702067,
+            1.6833499539643526,
+            1.6677880194038153,
+            1.678450033068657,
+            1.6729590715840459,
+            1.6713989898562431,
+            1.6870989929884672,
+            1.6674890648573637,
+            1.6917689936235547,
+            1.6657189698889852,
+            1.6627289587631822,
+            1.668259035795927,
+            1.665038987994194,
+            1.6624489799141884,
+            1.6656590159982443,
+            1.6481690108776093,
+            1.6641590045765042,
+            1.6569390427321196,
+            1.6701380955055356,
+            1.6599299851804972,
+            1.6632380429655313,
+            1.6676100203767419,
+            1.6711680218577385,
+            1.6747699119150639,
+            1.669819001108408,
+            1.6691091004759073,
+            1.6817690338939428,
+            1.681109075434506,
+            1.6663289861753583,
+            1.669298973865807,
+            1.6688390169292688,
+            1.6570689622312784,
+            1.6726289177313447,
+            1.6593390610069036,
+            1.6748489579185843,
+            1.6654380597174168,
+            1.6626599244773388,
+            1.6617890214547515,
+            1.66593911126256,
+            1.655968022532761,
+            1.6533589223399758,
+            1.6940099885687232,
+            1.695528975687921,
+            1.6751589719206095,
+            1.677889027632773,
+            1.67662906460464,
+            1.6673889476805925,
+            1.6721989959478378,
+            1.653668936342001,
+            1.6688790637999773,
+            1.6749290516600013,
+            1.6555589390918612,
+            1.6624589916318655,
+            1.6606779536232352,
+            1.6641890397295356,
+            1.6617979854345322,
+            1.6613099724054337,
+            1.6586079727858305,
+            1.6785600455477834,
+            1.6616180073469877,
+            1.6593090258538723,
+            1.6703089931979775,
+            1.6658289823681116,
+            1.6566389240324497,
+            1.6637190710753202,
+            1.664589042775333,
+            1.6745190368965268,
+            1.6652190824970603,
+            1.6726289177313447,
+            1.6625189455226064,
+            1.6742489533498883,
+            1.6875991132110357,
+            1.652259030379355,
+            1.6757389530539513,
+            1.6546188853681087,
+            1.662569004110992,
+            1.6605090349912643,
+            1.6562389209866524,
+            1.6617790097370744,
+            1.6706789610907435,
+            1.6701390268281102,
+            1.6451389528810978,
+            1.6534789465367794,
+            1.6907890094444156,
+            1.678028958849609,
+            1.7035689670592546,
+            1.691328943707049,
+            1.6602689865976572,
+            1.6724889865145087,
+            1.6714789671823382,
+            1.6756090335547924,
+            1.6752890078350902,
+            1.6750780632719398,
+            1.6477990429848433,
+            1.667649019509554,
+            1.6640990506857634,
+            1.6641690162941813,
+            1.67616899125278,
+            1.6708188923075795,
+            1.6594090266153216,
+            1.6700190026313066,
+            1.6693489160388708,
+            1.671909005381167,
+            1.6645790310576558,
+            1.6779089346528053,
+            1.6761589795351028,
+            1.66540895588696,
+            1.6708290204405785,
+            1.6873980639502406,
+            1.6990900039672852,
+            1.7019490478560328,
+            1.6799590084701777,
+            1.6886090161278844,
+            1.6735891113057733,
+            1.6660590190440416,
+            1.6652490012347698,
+            1.661438960582018,
+            1.668329001404345
+          ]
+        }
+      },
+      "order": [
+        {
+          "variants": [
+            "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime",
+            "native"
+          ],
+          "indices": [
+            32,
+            50,
+            18,
+            76,
+            121,
+            88,
+            6,
+            5,
+            86,
+            17,
+            28,
+            91,
+            93,
+            69,
+            117,
+            16,
+            78,
+            65,
+            62,
+            108,
+            12,
+            112,
+            81,
+            107,
+            8,
+            68,
+            61,
+            124,
+            3,
+            99,
+            7,
+            74,
+            64,
+            29,
+            58,
+            82,
+            53,
+            92,
+            118,
+            56,
+            67,
+            49,
+            39,
+            123,
+            109,
+            36,
+            37,
+            38,
+            22,
+            26,
+            111,
+            46,
+            40,
+            119,
+            24,
+            11,
+            113,
+            79,
+            66,
+            35,
+            122,
+            85,
+            0,
+            60,
+            4,
+            102,
+            55,
+            100,
+            57,
+            87,
+            103,
+            44,
+            95,
+            27,
+            9,
+            75,
+            23,
+            59,
+            101,
+            21,
+            33,
+            20,
+            84,
+            96,
+            19,
+            77,
+            83,
+            30,
+            54,
+            45,
+            1,
+            94,
+            13,
+            47,
+            90,
+            10,
+            104,
+            73,
+            125,
+            31,
+            25,
+            2,
+            126,
+            105,
+            63,
+            97,
+            114,
+            48,
+            34,
+            41,
+            42,
+            120,
+            127,
+            115,
+            71,
+            98,
+            110,
+            43,
+            116,
+            14,
+            70,
+            51,
+            89,
+            72,
+            15,
+            52,
+            80,
+            106
+          ]
+        },
+        {
+          "variants": [
+            "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime",
+            "native"
+          ],
+          "indices": [
+            39,
+            38,
+            108,
+            116,
+            72,
+            23,
+            56,
+            45,
+            22,
+            74,
+            123,
+            96,
+            127,
+            61,
+            48,
+            51,
+            64,
+            84,
+            121,
+            100,
+            58,
+            78,
+            75,
+            79,
+            67,
+            122,
+            16,
+            97,
+            101,
+            92,
+            68,
+            41,
+            60,
+            13,
+            15,
+            90,
+            124,
+            7,
+            3,
+            98,
+            85,
+            52,
+            55,
+            49,
+            4,
+            1,
+            6,
+            115,
+            87,
+            99,
+            14,
+            93,
+            43,
+            21,
+            109,
+            32,
+            81,
+            28,
+            69,
+            0,
+            95,
+            86,
+            10,
+            12,
+            54,
+            83,
+            57,
+            44,
+            9,
+            20,
+            120,
+            25,
+            27,
+            11,
+            106,
+            2,
+            18,
+            62,
+            8,
+            31,
+            34,
+            53,
+            111,
+            94,
+            113,
+            47,
+            77,
+            103,
+            89,
+            63,
+            71,
+            24,
+            19,
+            50,
+            26,
+            88,
+            30,
+            82,
+            70,
+            5,
+            40,
+            107,
+            126,
+            119,
+            36,
+            76,
+            91,
+            66,
+            35,
+            105,
+            110,
+            112,
+            29,
+            59,
+            80,
+            17,
+            73,
+            102,
+            46,
+            125,
+            114,
+            65,
+            104,
+            42,
+            118,
+            37,
+            33,
+            117
+          ]
+        },
+        {
+          "variants": [
+            "native",
+            "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime"
+          ],
+          "indices": [
+            47,
+            48,
+            39,
+            13,
+            71,
+            7,
+            20,
+            83,
+            51,
+            107,
+            17,
+            111,
+            10,
+            125,
+            78,
+            69,
+            77,
+            32,
+            65,
+            18,
+            88,
+            5,
+            124,
+            86,
+            57,
+            123,
+            62,
+            118,
+            12,
+            38,
+            91,
+            42,
+            64,
+            56,
+            60,
+            113,
+            75,
+            63,
+            93,
+            34,
+            23,
+            25,
+            99,
+            43,
+            1,
+            121,
+            117,
+            76,
+            102,
+            85,
+            28,
+            6,
+            52,
+            46,
+            4,
+            68,
+            27,
+            94,
+            110,
+            40,
+            22,
+            26,
+            82,
+            104,
+            98,
+            30,
+            61,
+            73,
+            103,
+            31,
+            119,
+            72,
+            81,
+            9,
+            14,
+            92,
+            50,
+            19,
+            35,
+            24,
+            49,
+            3,
+            114,
+            87,
+            105,
+            122,
+            58,
+            90,
+            55,
+            37,
+            116,
+            53,
+            97,
+            70,
+            21,
+            84,
+            112,
+            101,
+            8,
+            80,
+            2,
+            59,
+            120,
+            96,
+            16,
+            106,
+            74,
+            100,
+            66,
+            108,
+            126,
+            11,
+            44,
+            36,
+            109,
+            0,
+            95,
+            45,
+            29,
+            54,
+            41,
+            89,
+            33,
+            127,
+            79,
+            67,
+            115,
+            15
+          ]
+        },
+        {
+          "variants": [
+            "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime",
+            "native"
+          ],
+          "indices": [
+            111,
+            110,
+            120,
+            46,
+            105,
+            64,
+            88,
+            121,
+            94,
+            23,
+            124,
+            122,
+            44,
+            95,
+            21,
+            47,
+            45,
+            55,
+            0,
+            2,
+            50,
+            90,
+            108,
+            7,
+            58,
+            93,
+            91,
+            102,
+            37,
+            85,
+            59,
+            9,
+            25,
+            113,
+            16,
+            125,
+            42,
+            19,
+            14,
+            51,
+            57,
+            117,
+            18,
+            97,
+            83,
+            62,
+            5,
+            34,
+            8,
+            54,
+            32,
+            103,
+            4,
+            101,
+            63,
+            53,
+            43,
+            74,
+            33,
+            72,
+            61,
+            73,
+            76,
+            60,
+            68,
+            27,
+            112,
+            99,
+            3,
+            126,
+            17,
+            13,
+            123,
+            71,
+            67,
+            10,
+            98,
+            22,
+            82,
+            35,
+            77,
+            87,
+            118,
+            29,
+            69,
+            115,
+            65,
+            31,
+            127,
+            1,
+            20,
+            66,
+            11,
+            109,
+            96,
+            104,
+            116,
+            15,
+            38,
+            48,
+            89,
+            78,
+            30,
+            84,
+            75,
+            40,
+            100,
+            39,
+            119,
+            86,
+            114,
+            107,
+            12,
+            6,
+            41,
+            70,
+            24,
+            49,
+            79,
+            81,
+            36,
+            106,
+            56,
+            28,
+            92,
+            26,
+            80,
+            52
+          ]
+        },
+        {
+          "variants": [
+            "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime",
+            "native"
+          ],
+          "indices": [
+            6,
+            70,
+            11,
+            107,
+            66,
+            88,
+            98,
+            9,
+            73,
+            82,
+            86,
+            99,
+            68,
+            77,
+            90,
+            30,
+            58,
+            124,
+            75,
+            22,
+            106,
+            54,
+            84,
+            61,
+            14,
+            127,
+            28,
+            111,
+            114,
+            32,
+            25,
+            122,
+            42,
+            65,
+            91,
+            45,
+            52,
+            39,
+            74,
+            57,
+            34,
+            113,
+            35,
+            47,
+            59,
+            119,
+            118,
+            92,
+            103,
+            16,
+            112,
+            115,
+            100,
+            38,
+            40,
+            76,
+            62,
+            53,
+            63,
+            21,
+            60,
+            1,
+            2,
+            85,
+            5,
+            7,
+            24,
+            104,
+            23,
+            81,
+            97,
+            123,
+            33,
+            17,
+            120,
+            78,
+            12,
+            108,
+            27,
+            72,
+            8,
+            13,
+            31,
+            46,
+            48,
+            116,
+            20,
+            80,
+            69,
+            43,
+            37,
+            79,
+            0,
+            109,
+            105,
+            3,
+            56,
+            64,
+            10,
+            67,
+            102,
+            44,
+            19,
+            95,
+            96,
+            121,
+            94,
+            101,
+            126,
+            15,
+            41,
+            125,
+            50,
+            18,
+            51,
+            117,
+            26,
+            36,
+            87,
+            71,
+            55,
+            93,
+            83,
+            29,
+            4,
+            49,
+            89,
+            110
+          ]
+        }
+      ]
+    }
+  }
+}

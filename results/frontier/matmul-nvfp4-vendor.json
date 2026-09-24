@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T09:06:43.346734+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "rows": [
+    {
+      "field": "attn.Wqkv",
+      "relative_l2_vs_decoded": 0.0016665654256939888,
+      "baseline_ms": 0.3198080062866211,
+      "ms": 0.35328535238901776,
+      "samples_ms": [
+        0.35601866245269775,
+        0.35328535238901776,
+        0.35304001967112225
+      ],
+      "speedup": 0.9052399260936997
+    },
+    {
+      "field": "attn.Wo",
+      "relative_l2_vs_decoded": 0.0016742059960961342,
+      "baseline_ms": 0.1997013290723165,
+      "ms": 0.28668532768885296,
+      "samples_ms": [
+        0.2898240089416504,
+        0.28668532768885296,
+        0.2866160074869792
+      ],
+      "speedup": 0.6965871978249879
+    },
+    {
+      "field": "mlp.Wi",
+      "relative_l2_vs_decoded": 0.0016671062912791967,
+      "baseline_ms": 0.5273066759109497,
+      "ms": 0.4076160192489624,
+      "samples_ms": [
+        0.4098000129063924,
+        0.4070640007654826,
+        0.4076160192489624
+      ],
+      "speedup": 1.293635801857147
+    },
+    {
+      "field": "mlp.Wo",
+      "relative_l2_vs_decoded": 0.0016754104290157557,
+      "baseline_ms": 0.3028293251991272,
+      "ms": 0.47205865383148193,
+      "samples_ms": [
+        0.47442932923634845,
+        0.47203465302785236,
+        0.47205865383148193
+      ],
+      "speedup": 0.6415078353954567
+    }
+  ]
+}

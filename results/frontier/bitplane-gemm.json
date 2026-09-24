@@ -1,0 +1,325 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T10:56:45.912239+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "scope": "28 distinct MLP input matrices, independent random activations, isolated GEMM only",
+  "source_sha256": {
+    "bitplane_gemm.py": "3e85c005b8d6b51340269d53403e83e97c1ab73e94f2cbd99712e8d91425228a",
+    "probe_bitplane_gemm.py": "ac9b5c91fd803abda6fac4b6d01098396d485e3e0574608371360a8d04ea04c5"
+  },
+  "rows": [
+    {
+      "variant": "compressed-bitplanes",
+      "config": [
+        64,
+        32,
+        1
+      ],
+      "mismatches": 0,
+      "ms": 1.0617216110229493,
+      "samples_ms": [
+        1.063606357574463,
+        1.0611295700073242,
+        1.0617216110229493
+      ],
+      "baseline_ms": 0.44482078552246096,
+      "baseline_samples_ms": [
+        0.44482078552246096,
+        0.44502081871032717,
+        0.4443039894104004
+      ],
+      "speedup": 0.41896178895132813,
+      "registers": 106,
+      "shared_bytes": 8192,
+      "warp_shuffle": true
+    },
+    {
+      "variant": "plain-bitplanes",
+      "config": [
+        64,
+        32,
+        1
+      ],
+      "mismatches": 0,
+      "ms": 1.0653488159179687,
+      "samples_ms": [
+        1.0701552391052247,
+        1.0653488159179687,
+        1.065272045135498
+      ],
+      "baseline_ms": 0.44495840072631837,
+      "baseline_samples_ms": [
+        0.44495840072631837,
+        0.44507360458374023,
+        0.4443215847015381
+      ],
+      "speedup": 0.4176645189612525,
+      "registers": 106,
+      "shared_bytes": 8192,
+      "warp_shuffle": true
+    },
+    {
+      "variant": "bf16-control",
+      "config": [
+        64,
+        32,
+        1
+      ],
+      "mismatches": 0,
+      "ms": 0.5288271903991699,
+      "samples_ms": [
+        0.529315185546875,
+        0.5288271903991699,
+        0.5283391952514649
+      ],
+      "baseline_ms": 0.4445551872253418,
+      "baseline_samples_ms": [
+        0.44526400566101076,
+        0.4445055961608887,
+        0.4445551872253418
+      ],
+      "speedup": 0.84064358886271,
+      "registers": 102,
+      "shared_bytes": 8192,
+      "warp_shuffle": false
+    },
+    {
+      "variant": "bf16-control",
+      "config": [
+        32,
+        32,
+        1
+      ],
+      "mismatches": 0,
+      "ms": 0.4714335918426514,
+      "samples_ms": [
+        0.47266077995300293,
+        0.4714335918426514,
+        0.4710815906524658
+      ],
+      "baseline_ms": 0.44476637840270994,
+      "baseline_samples_ms": [
+        0.44476637840270994,
+        0.4447760105133057,
+        0.44414238929748534
+      ],
+      "speedup": 0.943433786006403,
+      "registers": 72,
+      "shared_bytes": 4096,
+      "warp_shuffle": false
+    },
+    {
+      "variant": "plain-bitplanes",
+      "config": [
+        32,
+        32,
+        1
+      ],
+      "mismatches": 0,
+      "ms": 1.5257648468017577,
+      "samples_ms": [
+        1.5226783752441406,
+        1.5261136054992677,
+        1.5257648468017577
+      ],
+      "baseline_ms": 0.4443024158477783,
+      "baseline_samples_ms": [
+        0.4452064037322998,
+        0.4443024158477783,
+        0.44425277709960936
+      ],
+      "speedup": 0.291199798434933,
+      "registers": 75,
+      "shared_bytes": 8192,
+      "warp_shuffle": true
+    },
+    {
+      "variant": "compressed-bitplanes",
+      "config": [
+        32,
+        32,
+        1
+      ],
+      "mismatches": 0,
+      "ms": 1.523583984375,
+      "samples_ms": [
+        1.523851203918457,
+        1.523583984375,
+        1.5233839988708495
+      ],
+      "baseline_ms": 0.444927978515625,
+      "baseline_samples_ms": [
+        0.444927978515625,
+        0.4451007843017578,
+        0.44404001235961915
+      ],
+      "speedup": 0.292027208922219,
+      "registers": 75,
+      "shared_bytes": 8192,
+      "warp_shuffle": true
+    },
+    {
+      "variant": "plain-bitplanes",
+      "config": [
+        64,
+        64,
+        1
+      ],
+      "mismatches": 0,
+      "ms": 1.3848416328430175,
+      "samples_ms": [
+        1.3843775749206544,
+        1.3848416328430175,
+        1.3850255966186524
+      ],
+      "baseline_ms": 0.4446144104003906,
+      "baseline_samples_ms": [
+        0.44510397911071775,
+        0.44457440376281737,
+        0.4446144104003906
+      ],
+      "speedup": 0.3210579461621306,
+      "registers": 127,
+      "shared_bytes": 16384,
+      "warp_shuffle": true
+    },
+    {
+      "variant": "compressed-bitplanes",
+      "config": [
+        64,
+        64,
+        1
+      ],
+      "mismatches": 0,
+      "ms": 1.3828831672668458,
+      "samples_ms": [
+        1.3848560333251954,
+        1.3828831672668458,
+        1.38155517578125
+      ],
+      "baseline_ms": 0.4448431968688965,
+      "baseline_samples_ms": [
+        0.44541120529174805,
+        0.4448431968688965,
+        0.44434561729431155
+      ],
+      "speedup": 0.32167807620949807,
+      "registers": 127,
+      "shared_bytes": 16384,
+      "warp_shuffle": true
+    },
+    {
+      "variant": "bf16-control",
+      "config": [
+        64,
+        64,
+        1
+      ],
+      "mismatches": 0,
+      "ms": 0.628704023361206,
+      "samples_ms": [
+        0.6291103839874268,
+        0.628436803817749,
+        0.628704023361206
+      ],
+      "baseline_ms": 0.4449039936065674,
+      "baseline_samples_ms": [
+        0.44527521133422854,
+        0.4449039936065674,
+        0.44466562271118165
+      ],
+      "speedup": 0.7076525313580808,
+      "registers": 138,
+      "shared_bytes": 8192,
+      "warp_shuffle": false
+    },
+    {
+      "variant": "compressed-bitplanes",
+      "config": [
+        32,
+        64,
+        1
+      ],
+      "mismatches": 0,
+      "ms": 1.6350448608398438,
+      "samples_ms": [
+        1.6349311828613282,
+        1.6350448608398438,
+        1.6362207412719727
+      ],
+      "baseline_ms": 0.4444255828857422,
+      "baseline_samples_ms": [
+        0.4447311878204346,
+        0.44417757987976075,
+        0.4444255828857422
+      ],
+      "speedup": 0.27181247042815826,
+      "registers": 96,
+      "shared_bytes": 16384,
+      "warp_shuffle": true
+    },
+    {
+      "variant": "plain-bitplanes",
+      "config": [
+        32,
+        64,
+        1
+      ],
+      "mismatches": 0,
+      "ms": 1.6420480728149414,
+      "samples_ms": [
+        1.6463712692260741,
+        1.6415391921997071,
+        1.6420480728149414
+      ],
+      "baseline_ms": 0.44490880966186525,
+      "baseline_samples_ms": [
+        0.44490880966186525,
+        0.44480161666870116,
+        0.4453120231628418
+      ],
+      "speedup": 0.2709474935768256,
+      "registers": 96,
+      "shared_bytes": 16384,
+      "warp_shuffle": true
+    },
+    {
+      "variant": "bf16-control",
+      "config": [
+        32,
+        64,
+        1
+      ],
+      "mismatches": 0,
+      "ms": 0.5058383941650391,
+      "samples_ms": [
+        0.5070640087127686,
+        0.5058383941650391,
+        0.5050816059112548
+      ],
+      "baseline_ms": 0.4442912101745605,
+      "baseline_samples_ms": [
+        0.44492640495300295,
+        0.4442431926727295,
+        0.4442912101745605
+      ],
+      "speedup": 0.8783263890198149,
+      "registers": 96,
+      "shared_bytes": 4096,
+      "warp_shuffle": false
+    }
+  ]
+}

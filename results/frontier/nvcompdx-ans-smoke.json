@@ -1,0 +1,1892 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T11:55:02.799475+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "native_build": {
+    "source_sha256": "1f6bb3e17aa667c301801d1282a62ef991d5170ebd2f531c25451e08f79eb792",
+    "library_sha256": "2b624a4f7e5e1d3d2d36478e155c83adbdad8dbda954fbbb5c919b369738cb87",
+    "sdk_archive_sha256": "59a9233db34b75568acbcc5284e6cefe6fad5577ee644f85044971d62eeea353",
+    "sdk_files_sha256": {
+      "include/commondx/commondx_version.hpp": "0a6effcb5dc61362c115462a45c49c34137143ceb2f26622f74876db682b7cb8",
+      "include/commondx/complex_types.hpp": "7dd8262571ad5224590a6f19924238ba11354e48c1c6b251259636c83174d971",
+      "include/commondx/complex_types_cutlass.hpp": "b451487432986bf22a0e405dd7912559819932c4f408feca94a4a6470c2e39ba",
+      "include/commondx/detail/config.hpp": "9b7beb74656534b0623450b260183541d6ea7313c6b847f589291c54a1e37578",
+      "include/commondx/detail/cute/tensor.hpp": "c7d010c288fd9b628f8438f45444d1ae13ba2b8d693489a2f8210cc347c74bf7",
+      "include/commondx/detail/expressions.hpp": "3642f129a221a01b6dd101ccc64c525202410d3c72b4a2ae91130b68455de86b",
+      "include/commondx/detail/macros.hpp": "4a118ab43a036a632572e372c6b224726adb2c6e372f537fb510563830af48d3",
+      "include/commondx/detail/namespace_wrapper_close.hpp": "1fd4125cce59d0896301250e204abcbbac0b0fdb5aa326614e5f821b1aad8bec",
+      "include/commondx/detail/namespace_wrapper_open.hpp": "d323029bc7ab23d0a44896c3dd45240decbf555fa0e8bf966a8273a9d5d5239a",
+      "include/commondx/detail/stl/cstddef.hpp": "4c0c2a55ab1ce5fdd5e7f43d957be62e89f99aebd46808c857f3680e5719622c",
+      "include/commondx/detail/stl/cstdint.hpp": "6c6f6514381a7b6c77561cfd3f04a8974f7c87507f524cf8c731ae44ff484514",
+      "include/commondx/detail/stl/tuple.hpp": "e3d2e94da808bb33cb50925fb880d56f4a5ec59f4c7b0fa620c899d9e1fd2c1f",
+      "include/commondx/detail/stl/type_traits.hpp": "e089f62449b526217725b892a2ddeac7b17a58b79f669241a1e383177770bb70",
+      "include/commondx/detail/stl/utility.hpp": "7d44c7358d3e38e4d94597262efa3d681417061abb457886f12c2adac427feef",
+      "include/commondx/device_info.hpp": "0b2931d23f09ca98b72dec9f52683dbf39451250671a44be41759c34ab226660",
+      "include/commondx/device_info_shared_memory.hpp": "2c72f98065c852948addbea067debd46203522e57f5092b076445d72e9fea5fc",
+      "include/commondx/operators/block_dim.hpp": "66f5a2f92e24f1d8441d2455a937d8ef729b66448cf7570e73ec53578d999b4b",
+      "include/commondx/operators/execution_operators.hpp": "e8f4f6f568f1a7e5b8f016d60fc4e55d12e475577ab2ddf88fff63531652e061",
+      "include/commondx/operators/precision.hpp": "88b237caf279e8063bf3d1cb8b60c8cd409e3591eef845b0a4095c2bf3bc7161",
+      "include/commondx/operators/size3d.hpp": "ea064ec653de1e372441e786df613e33b0efebd5cf0c39e7a934783f406fb483",
+      "include/commondx/operators/sm.hpp": "a864ed84f76166d443816afc0094cdac4ccca5c4722de01e8f47cb9b7bca4338",
+      "include/commondx/operators/type.hpp": "ba7af680a123c2f9c5f8536a02bac2b186050ad774274e5c339023f1fa4588f7",
+      "include/commondx/shared_memory.hpp": "2e8f336a57c7788061eef3fb0bcba8880438305138dcc9f96eaa57e83fe2f41c",
+      "include/commondx/tensor.hpp": "ceb5bc27355a59c4b96d39b1704e7ea6023b970a97a1f77bbb6375245d6fcaa3",
+      "include/commondx/traits/detail/description_traits.hpp": "a4c7a0095291947e8611fc9b2d6cf6850fb574a942cc11f5b48b72e8f5b1ade3",
+      "include/commondx/traits/detail/get.hpp": "8080266dbb4c5723fc2d4bdd45af606a7aab4fd327cc43853d9fa7a6cd6cec3f",
+      "include/commondx/traits/detail/get_operator_fd.hpp": "bc0752a006661b13bb99c197a62c47b1abf2fe77e5ffd0378372869c4e48e266",
+      "include/commondx/traits/detail/is_operator_fd.hpp": "05ae8cb122c8fdeed8d22e9fabc237cfd0cf7c5e900db994b066039aa63e802f",
+      "include/commondx/traits/detail/make_cudavalue_type.hpp": "efdb23844e8299889af676b6019bfb14f13b833219be4f9e374d5d5b960007de",
+      "include/commondx/traits/dx_traits.hpp": "31cf636dbe497f91b8f6107dfc95f2b42f30f27db71a696fa6e2ac0492f91b00",
+      "include/commondx/traits/numeric_traits.hpp": "99a1b878cbc168a1cf3a411360eb948a329df5c29edd82ea41a1e1958a32dc85",
+      "include/commondx/type_list.hpp": "1365bfa0777701afdf215e4aa4ce242b3469cb3fceebd8bb56927374076f2c56",
+      "include/commondx/types.hpp": "bdcd1b6897316ca0b847e59b0249bec1df9f29ae8c4a15753010212f7fa41f83",
+      "include/nvcompdx/config.hpp": "083cdb2d1b6029774e61937924fed63314cd52375f45559122e9ee15e25f8c94",
+      "include/nvcompdx/detail/comp_checks.hpp": "2dec4ec1e054c0b52984b4a1500a2e02988362ba18c68d073dcf9c3b5c637efc",
+      "include/nvcompdx/detail/comp_description.hpp": "0ae0d499fed723aa4bd2ee4c6d30bd1aa4157e3f70052462da80ca963c64ee11",
+      "include/nvcompdx/detail/comp_description_arithmetic.hpp": "9c327752a5b78b40f02c011012d38b43f0a5f2a74b9d6596d938f3cd34478471",
+      "include/nvcompdx/detail/comp_description_fd.hpp": "95e2cc22dabc00c4ef1236c2b18061af565f1f64ec1764945cd7f9d6408f1f2e",
+      "include/nvcompdx/detail/comp_execution.hpp": "0788f7346521fe64b62d71bd3748c8b47f0b7e97564383ea4416671b482ac2a7",
+      "include/nvcompdx/detail/comp_runtime_dispatch.hpp": "78a88b79e367c6aa34704efc78a4467062be7b8ca21fa7c6f00c64ed4d80bdc6",
+      "include/nvcompdx/detail/core.hpp": "70c570f970f9e417f448beb54912660641eeeeb83a49102eafc09f1f505d1222",
+      "include/nvcompdx/detail/lto/ans/compress_device.hpp": "d0a820d190ddf8726ba81b14c2a78a4d49fb66e6842795c03281b2c43059c588",
+      "include/nvcompdx/detail/lto/ans/decompress_device.hpp": "7b440e54b4a0b2f433679ae59d7a25cf2671dd00e90e00cb9436a87446716418",
+      "include/nvcompdx/detail/lto/common_fallback.hpp": "9f56bc78759d0013cf38c4fc96961a8de22c8e1e4d51bb6ff1183d25ca85ef77",
+      "include/nvcompdx/detail/lto/common_fd.hpp": "0991105e115ea9970c94761f4cc7c2dfd49c45c9372eccc8dea811b618a08bfa",
+      "include/nvcompdx/detail/lto/execute_impl.hpp": "ff458584169aec7347641407f1610ba29908f50323fb174865668fc786b8f48c",
+      "include/nvcompdx/detail/lto/lz4/compress_device.hpp": "ec1ef44ed062a91d59efeeb21e8c710f5ca6f2fba8b458d816c1816aae1c9010",
+      "include/nvcompdx/detail/lto/lz4/decompress_device.hpp": "d2b4a223a336c8e6bf5fd8181d52a16c8056f47b764d602e36baff12034c4252",
+      "include/nvcompdx/detail/lto/types.hpp": "b337c5afeb0ac9aaed049dc2a1412e8476a21b59bf393718d87746775090db82",
+      "include/nvcompdx/detail/runtime.hpp": "982faba6d527e2273e836343b7fb8240994a3b91eba3f48d128d7fd22501cee8",
+      "include/nvcompdx/detail/system_checks.hpp": "b5fe884971ef6386ba4506263090247f8eb63d80ae5937a401b5b0098b6261ef",
+      "include/nvcompdx/detail/utils.hpp": "cc110b364b4534ff2be577b343636ca4aa177dbd8e64fc3c741e4a6f55ec9d4d",
+      "include/nvcompdx/nvcompdx_version.hpp": "f547a91742b137ce836b400bb206d870a1c0f405fd27b762a6505bd31e672b2d",
+      "include/nvcompdx/operators/algorithm.hpp": "fa948c997fcdc962f9aea8af8b63204071773fce66712669e0ab8a5707f418aa",
+      "include/nvcompdx/operators/block_dim.hpp": "d764ab5a18cb84f46c60325101f47612d55df90de61b38ab016780c24a12fd44",
+      "include/nvcompdx/operators/block_warp.hpp": "c6ce11580d654f73f68463c7713302c95cec12bcc102e2a16fa9b56b2a5904c7",
+      "include/nvcompdx/operators/datatype.hpp": "5d64d5d6b54a82fd15547979f03c31f7fd02c35717f7f275cf1e075b47e9494d",
+      "include/nvcompdx/operators/direction.hpp": "323e95a9ce5b972f9d393d8bfa4927b4036c3828365ee48fa5a39355fa6f57bd",
+      "include/nvcompdx/operators/execution.hpp": "03d68762a1668b4d32e03e3b8e256ae81a7db27429312d72c0d166c0b912e297",
+      "include/nvcompdx/operators/max_uncomp_chunk_size.hpp": "0630b428cdd422344e84430b6b481478e35beadeb94927a67863dbfe8ee5db5c",
+      "include/nvcompdx/operators/operator_type.hpp": "c28c4f0b49f192a300e24d8ab93c2358686ff3aae8fce025aabbd115d1b307e1",
+      "include/nvcompdx/operators/sm.hpp": "ff3fd48ae34846d81be33fa1f4d39273ae30802acb95d2ed6e4a0cfb3728f21c",
+      "include/nvcompdx/operators.hpp": "a0411e4456fef1a86389a61bd74e3b92b95793fdc733f335018caa261e6a5a21",
+      "include/nvcompdx/traits/comp_traits.hpp": "a7cf1bd3d30c742d7dbe6a8cc740b6ebc28cfe7c1ae9dc1cac8bb094397c36cb",
+      "include/nvcompdx/traits/detail/description_traits.hpp": "baea1b0cf4098573b02acc265b6f0423b01546356b17766a7cc50f26c374cbd1",
+      "include/nvcompdx/traits/detail/is_complete.hpp": "7bba8648e103a908526ca598a815ed6579f5537d8cc226eae1907666b976d7f4",
+      "include/nvcompdx/traits/detail/is_supported.hpp": "750462123c39ed747a256e7014b3535587f7b532edb1f33771e2259c0a019622",
+      "include/nvcompdx/traits/detail/num_warps.hpp": "849b90a9961bfacdda334eb85e65ecddd893d6e04b51bb5067d47079dd69616a",
+      "include/nvcompdx/traits.hpp": "e9723e5963929b6df753c117de81f13f121a235f8bc9a0ad582f954e7899b9a2",
+      "include/nvcompdx/types.hpp": "07b3169d09a64689dee5077911ffe078110ba0de1886245a87d16fc929ba8b44",
+      "include/nvcompdx.hpp": "04b3c1cfe0c2b709334eb035664936a4bfd09ca2218f6fcef46a4aff0fac7324",
+      "lib/libnvcompdx.a": "3c1a4c7eae124cc3d250140bac4b6b3db831d8559c3407ea8595ccd1257a6dcf"
+    },
+    "sass_sha256": "e05143608544366933f83aae91b34e9becfbf57a054dca3eb2788b9888d3f407",
+    "sdk_url": "https://developer.download.nvidia.com/compute/nvcompdx/redist/nvcompdx/cuda13/nvidia-mathdx-26.06.1-cuda13.tar.gz",
+    "architecture": "sm_120",
+    "device_lto": true,
+    "command": [
+      "/usr/local/cuda-13.1/bin/nvcc",
+      "-O3",
+      "-std=c++20",
+      "-arch=sm_120",
+      "-rdc=true",
+      "-dlto",
+      "--expt-relaxed-constexpr",
+      "--compiler-options",
+      "-fPIC",
+      "--ptxas-options=-v",
+      "-lineinfo",
+      "-I",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-nvcompdx/nvidia-mathdx-26.06.1-cuda13/nvidia/mathdx/26.06/include",
+      "-shared",
+      "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/nvcompdx_ans.cu",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-nvcompdx/nvidia-mathdx-26.06.1-cuda13/nvidia/mathdx/26.06/lib/libnvcompdx.a",
+      "-o",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-nvcompdx/nvcompdx_ans.so"
+    ]
+  },
+  "source_sha256": {
+    "experiments/frontier/nvcompdx_ans.cu": "1f6bb3e17aa667c301801d1282a62ef991d5170ebd2f531c25451e08f79eb792",
+    "experiments/frontier/nvcompdx_probe.py": "a5ab96da6b5766df2e00ff13dd0aae1711f13ece825bf37ef1f88d5f7f15c92e",
+    "experiments/frontier/nvcompdx_ans.py": "a9cf28d2456404a5b9b2c3e7f39d295efcd6a2ab1557a9cd02eb2f6fdca8041c",
+    "experiments/frontier/nvcompdx_build.py": "a2c49ebb71d96b7f7e8432458248823c30ac9c3a2fb9b54c089235cb8fa3b478"
+  },
+  "method": "Whole checkpoint MLPWi bank, nvCOMPDx ANS SM decoder with device LTO. Exact entire-bank reconstruction gate before timing. Decompression writes directly into shared memory, followed by uint32-to-uint64 checksum reduction. Matched raw cp.async-to-shared/checksum uses the same chunk/block and shared scratch allocation. Compression, compaction, transforms and global restoration are excluded from steady-state timing. Transform reversal inside GEMM would be additional work, so transformed checksum throughput is optimistic.",
+  "rows": [
+    {
+      "format": "raw_bytes",
+      "transform": 0,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 16384,
+      "block_threads": 128,
+      "transform_setup_ms": 0.047740060836076736,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 128,
+        "decode_registers": 46,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 5
+      },
+      "setup": {
+        "wall_ms": 65.49217808060348,
+        "compression_device_ms": 0.11327999830245972,
+        "compression_temporary_output_bytes": 15009280,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 8925254,
+        "aligned_stream_bytes": 8927288,
+        "allocated_stream_bytes": 8927304,
+        "metadata_bytes": 10496,
+        "ratio_original_to_compressed": 1.204212675628055,
+        "chunk_sizes_min": 13522,
+        "chunk_sizes_max": 13712,
+        "per_matrix_compressed_bytes": [
+          8925254
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006569600105285645,
+            "samples_ms": [
+              0.007542400062084198,
+              0.006569600105285645,
+              0.006409599632024765
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.1204416036605835,
+            "samples_ms": [
+              0.12105920314788818,
+              0.1204416036605835,
+              0.11927679777145386
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.11932159662246704,
+            "samples_ms": [
+              0.11953279972076417,
+              0.11932159662246704,
+              0.11924799680709838
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.00647680014371872,
+            "samples_ms": [
+              0.0067103996872901915,
+              0.00647680014371872,
+              0.006393600255250931
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006425599753856659,
+            "samples_ms": [
+              0.006819199770689011,
+              0.006425599753856659,
+              0.006406400352716446
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.11941440105438232,
+            "samples_ms": [
+              0.11961599588394164,
+              0.11941440105438232,
+              0.11935360431671142
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.00647680014371872,
+      "raw_shared_checksum_uncompressed_gbs": 1659.4466034934626,
+      "ans_shared_checksum_ms": 0.11941440105438232,
+      "ans_shared_checksum_uncompressed_gbs": 90.00509071854168,
+      "speedup_matched_raw": 0.05423801557040955,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "raw_bytes",
+      "transform": 0,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 4096,
+      "block_threads": 256,
+      "transform_setup_ms": 0.047740060836076736,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 256,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 6
+      },
+      "setup": {
+        "wall_ms": 1.955231069587171,
+        "compression_device_ms": 0.31747201085090637,
+        "compression_temporary_output_bytes": 18116096,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 9961034,
+        "aligned_stream_bytes": 9969016,
+        "allocated_stream_bytes": 9969032,
+        "metadata_bytes": 41984,
+        "ratio_original_to_compressed": 1.0789948111812488,
+        "chunk_sizes_min": 3760,
+        "chunk_sizes_max": 3856,
+        "per_matrix_compressed_bytes": [
+          9961034
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.00865280032157898,
+            "samples_ms": [
+              0.008806400001049042,
+              0.008553600311279297,
+              0.00865280032157898
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.40369281768798826,
+            "samples_ms": [
+              0.40425920486450195,
+              0.40369281768798826,
+              0.40316162109375
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.40342397689819337,
+            "samples_ms": [
+              0.40361919403076174,
+              0.40342397689819337,
+              0.40333118438720705
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.008595199882984161,
+            "samples_ms": [
+              0.008774399757385254,
+              0.008489599823951722,
+              0.008595199882984161
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.00859839990735054,
+            "samples_ms": [
+              0.008819200098514557,
+              0.008451200276613235,
+              0.00859839990735054
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.40387840270996095,
+            "samples_ms": [
+              0.40378880500793457,
+              0.40399680137634275,
+              0.40387840270996095
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.00859839990735054,
+      "raw_shared_checksum_uncompressed_gbs": 1249.9888486009945,
+      "ans_shared_checksum_ms": 0.40369281768798826,
+      "ans_shared_checksum_uncompressed_gbs": 26.623966365205412,
+      "speedup_matched_raw": 0.021299363106321578,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "raw_bytes",
+      "transform": 0,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 4096,
+      "block_threads": 128,
+      "transform_setup_ms": 0.047740060836076736,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 128,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 12
+      },
+      "setup": {
+        "wall_ms": 1.7563099972903728,
+        "compression_device_ms": 0.21030400693416595,
+        "compression_temporary_output_bytes": 18116096,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 9961034,
+        "aligned_stream_bytes": 9969016,
+        "allocated_stream_bytes": 9969032,
+        "metadata_bytes": 41984,
+        "ratio_original_to_compressed": 1.0789948111812488,
+        "chunk_sizes_min": 3760,
+        "chunk_sizes_max": 3856,
+        "per_matrix_compressed_bytes": [
+          9961034
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006623999774456024,
+            "samples_ms": [
+              0.006854400038719177,
+              0.006623999774456024,
+              0.00650240033864975
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.23614718914031982,
+            "samples_ms": [
+              0.23663361072540284,
+              0.23614718914031982,
+              0.2359999895095825
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.23612480163574218,
+            "samples_ms": [
+              0.23612480163574218,
+              0.23632960319519042,
+              0.23608000278472902
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.006675200164318084,
+            "samples_ms": [
+              0.0068800002336502075,
+              0.006675200164318084,
+              0.006524799764156342
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.0065311998128890995,
+            "samples_ms": [
+              0.006867200136184692,
+              0.006441599875688553,
+              0.0065311998128890995
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.2359839916229248,
+            "samples_ms": [
+              0.23621759414672852,
+              0.2359839916229248,
+              0.23597440719604493
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.006623999774456024,
+      "raw_shared_checksum_uncompressed_gbs": 1622.570103556901,
+      "ans_shared_checksum_ms": 0.23612480163574218,
+      "ans_shared_checksum_uncompressed_gbs": 45.517895305975735,
+      "speedup_matched_raw": 0.02805296067405293,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "raw_bytes",
+      "transform": 0,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 16384,
+      "block_threads": 256,
+      "transform_setup_ms": 0.047740060836076736,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 256,
+        "decode_registers": 48,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 4
+      },
+      "setup": {
+        "wall_ms": 1.7920900136232376,
+        "compression_device_ms": 0.15254400670528412,
+        "compression_temporary_output_bytes": 15009280,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 8925254,
+        "aligned_stream_bytes": 8927288,
+        "allocated_stream_bytes": 8927304,
+        "metadata_bytes": 10496,
+        "ratio_original_to_compressed": 1.204212675628055,
+        "chunk_sizes_min": 13522,
+        "chunk_sizes_max": 13712,
+        "per_matrix_compressed_bytes": [
+          8925254
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006627199798822403,
+            "samples_ms": [
+              0.0069920003414154054,
+              0.006627199798822403,
+              0.006566400080919266
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.17271360158920288,
+            "samples_ms": [
+              0.1729920029640198,
+              0.17271360158920288,
+              0.17241920232772828
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.1725376009941101,
+            "samples_ms": [
+              0.17280960083007812,
+              0.1725376009941101,
+              0.1725119948387146
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.006636799871921539,
+            "samples_ms": [
+              0.006675200164318084,
+              0.006636799871921539,
+              0.0065311998128890995
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006550399959087372,
+            "samples_ms": [
+              0.006892800331115723,
+              0.006447999924421311,
+              0.006550399959087372
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.17262400388717652,
+            "samples_ms": [
+              0.1727839946746826,
+              0.17262400388717652,
+              0.17239680290222167
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.006627199798822403,
+      "raw_shared_checksum_uncompressed_gbs": 1621.786625764597,
+      "ans_shared_checksum_ms": 0.17262400388717652,
+      "ans_shared_checksum_uncompressed_gbs": 62.26193204871211,
+      "speedup_matched_raw": 0.038390951719285825,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "byte_planes",
+      "transform": 1,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 16384,
+      "block_threads": 128,
+      "transform_setup_ms": 45.191481010988355,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 128,
+        "decode_registers": 46,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 5
+      },
+      "setup": {
+        "wall_ms": 0.5903930868953466,
+        "compression_device_ms": 0.08483199775218964,
+        "compression_temporary_output_bytes": 15009280,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 7698434,
+        "aligned_stream_bytes": 7700376,
+        "allocated_stream_bytes": 7700392,
+        "metadata_bytes": 10496,
+        "ratio_original_to_compressed": 1.3961156255934648,
+        "chunk_sizes_min": 6194,
+        "chunk_sizes_max": 17214,
+        "per_matrix_compressed_bytes": [
+          7698434
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006639999896287918,
+            "samples_ms": [
+              0.007212799787521362,
+              0.006639999896287918,
+              0.006390400230884552
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.098854398727417,
+            "samples_ms": [
+              0.09897599816322326,
+              0.098854398727417,
+              0.09876480102539062
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.09890559911727906,
+            "samples_ms": [
+              0.09901440143585205,
+              0.09890559911727906,
+              0.09874879717826843
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.006585600227117539,
+            "samples_ms": [
+              0.006822399795055389,
+              0.006585600227117539,
+              0.006400000303983688
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006550399959087372,
+            "samples_ms": [
+              0.006729599833488464,
+              0.006447999924421311,
+              0.006550399959087372
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.09885119795799255,
+            "samples_ms": [
+              0.09896320104598999,
+              0.09885119795799255,
+              0.09875199794769288
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.006585600227117539,
+      "raw_shared_checksum_uncompressed_gbs": 1632.0310418697045,
+      "ans_shared_checksum_ms": 0.098854398727417,
+      "ans_shared_checksum_uncompressed_gbs": 108.72459028997258,
+      "speedup_matched_raw": 0.0666191925892625,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "byte_planes",
+      "transform": 1,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 4096,
+      "block_threads": 256,
+      "transform_setup_ms": 45.191481010988355,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 256,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 6
+      },
+      "setup": {
+        "wall_ms": 1.9182709511369467,
+        "compression_device_ms": 0.2494720071554184,
+        "compression_temporary_output_bytes": 18116096,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 8624116,
+        "aligned_stream_bytes": 8631936,
+        "allocated_stream_bytes": 8631952,
+        "metadata_bytes": 41984,
+        "ratio_original_to_compressed": 1.2462615298773811,
+        "chunk_sizes_min": 1842,
+        "chunk_sizes_max": 4704,
+        "per_matrix_compressed_bytes": [
+          8624116
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.00870719999074936,
+            "samples_ms": [
+              0.00910400003194809,
+              0.00870719999074936,
+              0.008617600053548813
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.31968638896942136,
+            "samples_ms": [
+              0.3201184034347534,
+              0.31968638896942136,
+              0.31880960464477537
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.3196608066558838,
+            "samples_ms": [
+              0.3182751893997192,
+              0.3196608066558838,
+              0.3199712038040161
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.008620800077915191,
+            "samples_ms": [
+              0.008710400015115739,
+              0.008620800077915191,
+              0.008556800335645676
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.008636800199747085,
+            "samples_ms": [
+              0.008851200342178345,
+              0.008636800199747085,
+              0.008454400300979614
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.3200671911239624,
+            "samples_ms": [
+              0.32007999420166017,
+              0.3200671911239624,
+              0.3199680089950562
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.008636800199747085,
+      "raw_shared_checksum_uncompressed_gbs": 1244.4312420605415,
+      "ans_shared_checksum_ms": 0.31968638896942136,
+      "ans_shared_checksum_uncompressed_gbs": 33.620148904832035,
+      "speedup_matched_raw": 0.027016477703632268,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "byte_planes",
+      "transform": 1,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 4096,
+      "block_threads": 128,
+      "transform_setup_ms": 45.191481010988355,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 128,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 12
+      },
+      "setup": {
+        "wall_ms": 1.9085709936916828,
+        "compression_device_ms": 0.15353600680828094,
+        "compression_temporary_output_bytes": 18116096,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 8624116,
+        "aligned_stream_bytes": 8631936,
+        "allocated_stream_bytes": 8631952,
+        "metadata_bytes": 41984,
+        "ratio_original_to_compressed": 1.2462615298773811,
+        "chunk_sizes_min": 1842,
+        "chunk_sizes_max": 4704,
+        "per_matrix_compressed_bytes": [
+          8624116
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006764800101518631,
+            "samples_ms": [
+              0.007014399766921997,
+              0.006764800101518631,
+              0.006377600133419037
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.17857279777526855,
+            "samples_ms": [
+              0.17883520126342772,
+              0.17857279777526855,
+              0.17821760177612306
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.17677439451217652,
+            "samples_ms": [
+              0.1784000039100647,
+              0.17671040296554566,
+              0.17677439451217652
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.0065760001540184024,
+            "samples_ms": [
+              0.0067840002477169035,
+              0.0065760001540184024,
+              0.006550399959087372
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.00663359984755516,
+            "samples_ms": [
+              0.006719999760389328,
+              0.00663359984755516,
+              0.006505600363016129
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.176800000667572,
+            "samples_ms": [
+              0.1769760012626648,
+              0.17672640085220337,
+              0.176800000667572
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.00663359984755516,
+      "raw_shared_checksum_uncompressed_gbs": 1620.2219378609614,
+      "ans_shared_checksum_ms": 0.176800000667572,
+      "ans_shared_checksum_uncompressed_gbs": 60.79131198765511,
+      "speedup_matched_raw": 0.037520360987034033,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "byte_planes",
+      "transform": 1,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 16384,
+      "block_threads": 256,
+      "transform_setup_ms": 45.191481010988355,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 256,
+        "decode_registers": 48,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 4
+      },
+      "setup": {
+        "wall_ms": 1.6494799638167024,
+        "compression_device_ms": 0.10070399940013885,
+        "compression_temporary_output_bytes": 15009280,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 7698434,
+        "aligned_stream_bytes": 7700376,
+        "allocated_stream_bytes": 7700392,
+        "metadata_bytes": 10496,
+        "ratio_original_to_compressed": 1.3961156255934648,
+        "chunk_sizes_min": 6194,
+        "chunk_sizes_max": 17214,
+        "per_matrix_compressed_bytes": [
+          7698434
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006505600363016129,
+            "samples_ms": [
+              0.0069023996591567995,
+              0.006505600363016129,
+              0.006486400216817856
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.13167040348052977,
+            "samples_ms": [
+              0.1317471981048584,
+              0.13167040348052977,
+              0.13166719675064087
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.1316256046295166,
+            "samples_ms": [
+              0.13169920444488525,
+              0.1316256046295166,
+              0.13150719404220582
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.006639999896287918,
+            "samples_ms": [
+              0.006764800101518631,
+              0.006639999896287918,
+              0.006534399837255478
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006611199676990509,
+            "samples_ms": [
+              0.006697600334882736,
+              0.006611199676990509,
+              0.006550399959087372
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.13151040077209472,
+            "samples_ms": [
+              0.131769597530365,
+              0.13142080307006837,
+              0.13151040077209472
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.006611199676990509,
+      "raw_shared_checksum_uncompressed_gbs": 1625.7115992740012,
+      "ans_shared_checksum_ms": 0.1316256046295166,
+      "ans_shared_checksum_uncompressed_gbs": 81.65511588913012,
+      "speedup_matched_raw": 0.050227307183878786,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "sign_mantissa_exponent_planes",
+      "transform": 2,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 16384,
+      "block_threads": 128,
+      "transform_setup_ms": 42.27210395038128,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 128,
+        "decode_registers": 46,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 5
+      },
+      "setup": {
+        "wall_ms": 0.611374038271606,
+        "compression_device_ms": 0.08073599636554718,
+        "compression_temporary_output_bytes": 15009280,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 7602884,
+        "aligned_stream_bytes": 7604864,
+        "allocated_stream_bytes": 7604880,
+        "metadata_bytes": 10496,
+        "ratio_original_to_compressed": 1.4136614474191636,
+        "chunk_sizes_min": 5910,
+        "chunk_sizes_max": 17222,
+        "per_matrix_compressed_bytes": [
+          7602884
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006496000289916992,
+            "samples_ms": [
+              0.007295999675989151,
+              0.006496000289916992,
+              0.006428799778223038
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.09477120041847228,
+            "samples_ms": [
+              0.09496639966964722,
+              0.09477120041847228,
+              0.09466239809989929
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.09477760195732117,
+            "samples_ms": [
+              0.09488000273704529,
+              0.09477760195732117,
+              0.09457280039787293
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.006563200056552887,
+            "samples_ms": [
+              0.00671359971165657,
+              0.006563200056552887,
+              0.006486400216817856
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006518399715423584,
+            "samples_ms": [
+              0.006716799736022949,
+              0.006518399715423584,
+              0.006489600241184235
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.09476799964904785,
+            "samples_ms": [
+              0.09477440118789673,
+              0.09476799964904785,
+              0.09476159811019898
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.006518399715423584,
+      "raw_shared_checksum_uncompressed_gbs": 1648.8562330058905,
+      "ans_shared_checksum_ms": 0.09477120041847228,
+      "ans_shared_checksum_uncompressed_gbs": 113.40896762456833,
+      "speedup_matched_raw": 0.06878038567245007,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "sign_mantissa_exponent_planes",
+      "transform": 2,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 4096,
+      "block_threads": 256,
+      "transform_setup_ms": 42.27210395038128,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 256,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 6
+      },
+      "setup": {
+        "wall_ms": 1.8990510143339634,
+        "compression_device_ms": 0.23718400299549103,
+        "compression_temporary_output_bytes": 18116096,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 8401468,
+        "aligned_stream_bytes": 8409376,
+        "allocated_stream_bytes": 8409392,
+        "metadata_bytes": 41984,
+        "ratio_original_to_compressed": 1.2792888100032043,
+        "chunk_sizes_min": 1676,
+        "chunk_sizes_max": 4702,
+        "per_matrix_compressed_bytes": [
+          8401468
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.008745600283145905,
+            "samples_ms": [
+              0.009046400338411332,
+              0.008745600283145905,
+              0.008591999858617782
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.30357439517974855,
+            "samples_ms": [
+              0.30382399559020995,
+              0.30357439517974855,
+              0.30355520248413087
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.30375359058380125,
+            "samples_ms": [
+              0.30375359058380125,
+              0.3035327911376953,
+              0.30383360385894775
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.008550400286912918,
+            "samples_ms": [
+              0.008899199962615966,
+              0.008544000238180161,
+              0.008550400286912918
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.008633600175380706,
+            "samples_ms": [
+              0.008886399865150451,
+              0.008460800349712371,
+              0.008633600175380706
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.3038048028945923,
+            "samples_ms": [
+              0.3038880109786987,
+              0.3038048028945923,
+              0.30368640422821047
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.008633600175380706,
+      "raw_shared_checksum_uncompressed_gbs": 1244.8924876841497,
+      "ans_shared_checksum_ms": 0.30375359058380125,
+      "ans_shared_checksum_uncompressed_gbs": 35.3836278259065,
+      "speedup_matched_raw": 0.02842303907844283,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "sign_mantissa_exponent_planes",
+      "transform": 2,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 4096,
+      "block_threads": 128,
+      "transform_setup_ms": 42.27210395038128,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 128,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 12
+      },
+      "setup": {
+        "wall_ms": 1.7416899790987372,
+        "compression_device_ms": 0.14102399349212646,
+        "compression_temporary_output_bytes": 18116096,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 8401468,
+        "aligned_stream_bytes": 8409376,
+        "allocated_stream_bytes": 8409392,
+        "metadata_bytes": 41984,
+        "ratio_original_to_compressed": 1.2792888100032043,
+        "chunk_sizes_min": 1676,
+        "chunk_sizes_max": 4702,
+        "per_matrix_compressed_bytes": [
+          8401468
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.0066592000424861904,
+            "samples_ms": [
+              0.006985600292682648,
+              0.0066592000424861904,
+              0.0066431999206542965
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.16634559631347656,
+            "samples_ms": [
+              0.16657919883728028,
+              0.16634559631347656,
+              0.16626559495925902
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.16643199920654297,
+            "samples_ms": [
+              0.16646720170974733,
+              0.16643199920654297,
+              0.16587840318679808
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.006723199784755707,
+            "samples_ms": [
+              0.006819199770689011,
+              0.006723199784755707,
+              0.006588800251483918
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006534399837255478,
+            "samples_ms": [
+              0.006780800223350525,
+              0.006534399837255478,
+              0.006415999680757523
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.16584960222244263,
+            "samples_ms": [
+              0.1662783980369568,
+              0.16543359756469728,
+              0.16584960222244263
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.0066592000424861904,
+      "raw_shared_checksum_uncompressed_gbs": 1613.9932621677642,
+      "ans_shared_checksum_ms": 0.16634559631347656,
+      "ans_shared_checksum_uncompressed_gbs": 64.61189378133993,
+      "speedup_matched_raw": 0.04003231940049075,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "sign_mantissa_exponent_planes",
+      "transform": 2,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 16384,
+      "block_threads": 256,
+      "transform_setup_ms": 42.27210395038128,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 256,
+        "decode_registers": 48,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 4
+      },
+      "setup": {
+        "wall_ms": 1.6453289426863194,
+        "compression_device_ms": 0.09782399982213974,
+        "compression_temporary_output_bytes": 15009280,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 7602884,
+        "aligned_stream_bytes": 7604864,
+        "allocated_stream_bytes": 7604880,
+        "metadata_bytes": 10496,
+        "ratio_original_to_compressed": 1.4136614474191636,
+        "chunk_sizes_min": 5910,
+        "chunk_sizes_max": 17222,
+        "per_matrix_compressed_bytes": [
+          7602884
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.0066143997013568875,
+            "samples_ms": [
+              0.006732799857854843,
+              0.006604799628257751,
+              0.0066143997013568875
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.12369279861450196,
+            "samples_ms": [
+              0.12369279861450196,
+              0.12387839555740357,
+              0.12343679666519165
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.12357120513916016,
+            "samples_ms": [
+              0.12357120513916016,
+              0.12360639572143554,
+              0.12348480224609375
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.006518399715423584,
+            "samples_ms": [
+              0.006745599955320358,
+              0.006518399715423584,
+              0.006380800157785416
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006630399823188781,
+            "samples_ms": [
+              0.006822399795055389,
+              0.006499200314283371,
+              0.006630399823188781
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.12354240417480469,
+            "samples_ms": [
+              0.12364799976348877,
+              0.12354240417480469,
+              0.12348159551620483
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.0066143997013568875,
+      "raw_shared_checksum_uncompressed_gbs": 1624.9250854609163,
+      "ans_shared_checksum_ms": 0.12357120513916016,
+      "ans_shared_checksum_uncompressed_gbs": 86.97741506928098,
+      "speedup_matched_raw": 0.05352703078284344,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "fp16_bits",
+      "transform": 0,
+      "ans_datatype": "float16_bit_reinterpretation",
+      "chunk_bytes": 16384,
+      "block_threads": 128,
+      "transform_setup_ms": 0.022919964976608753,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 9216,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 128,
+        "decode_registers": 51,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 5
+      },
+      "setup": {
+        "wall_ms": 1.595978974364698,
+        "compression_device_ms": 0.08588799834251404,
+        "compression_temporary_output_bytes": 15009280,
+        "compression_global_scratch_bytes": 6045696,
+        "compressed_bytes": 7572750,
+        "aligned_stream_bytes": 7574736,
+        "allocated_stream_bytes": 7574752,
+        "metadata_bytes": 10496,
+        "ratio_original_to_compressed": 1.4192867848535868,
+        "chunk_sizes_min": 11466,
+        "chunk_sizes_max": 11676,
+        "per_matrix_compressed_bytes": [
+          7572750
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.0064800001680850984,
+            "samples_ms": [
+              0.0068063996732234955,
+              0.0064800001680850984,
+              0.006451199948787689
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.07207040190696716,
+            "samples_ms": [
+              0.07231680154800416,
+              0.0720192015171051,
+              0.07207040190696716
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.0720736026763916,
+            "samples_ms": [
+              0.0722656011581421,
+              0.0720736026763916,
+              0.07205119729042053
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.006486400216817856,
+            "samples_ms": [
+              0.007574400305747986,
+              0.006486400216817856,
+              0.006460800021886826
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006550399959087372,
+            "samples_ms": [
+              0.006748799979686737,
+              0.006511999666690827,
+              0.006550399959087372
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.07225599884986877,
+            "samples_ms": [
+              0.0722656011581421,
+              0.07208639979362488,
+              0.07225599884986877
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.006486400216817856,
+      "raw_shared_checksum_uncompressed_gbs": 1656.9905711542392,
+      "ans_shared_checksum_ms": 0.0720736026763916,
+      "ans_shared_checksum_uncompressed_gbs": 149.12400103346823,
+      "speedup_matched_raw": 0.08999689173221445,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "fp16_bits",
+      "transform": 0,
+      "ans_datatype": "float16_bit_reinterpretation",
+      "chunk_bytes": 4096,
+      "block_threads": 256,
+      "transform_setup_ms": 0.022919964976608753,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 3072,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 256,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 6
+      },
+      "setup": {
+        "wall_ms": 1.7271399265155196,
+        "compression_device_ms": 0.18857599794864655,
+        "compression_temporary_output_bytes": 18116096,
+        "compression_global_scratch_bytes": 8060928,
+        "compressed_bytes": 8532418,
+        "aligned_stream_bytes": 8540400,
+        "allocated_stream_bytes": 8540416,
+        "metadata_bytes": 41984,
+        "ratio_original_to_compressed": 1.2596551176934838,
+        "chunk_sizes_min": 3218,
+        "chunk_sizes_max": 3316,
+        "per_matrix_compressed_bytes": [
+          8532418
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.008534400165081025,
+            "samples_ms": [
+              0.009452799707651139,
+              0.008534400165081025,
+              0.008511999994516373
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.17269439697265626,
+            "samples_ms": [
+              0.17301759719848633,
+              0.17269439697265626,
+              0.1725823998451233
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.17267520427703859,
+            "samples_ms": [
+              0.17284480333328248,
+              0.17267520427703859,
+              0.1726431965827942
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.008736000210046769,
+            "samples_ms": [
+              0.008899199962615966,
+              0.008736000210046769,
+              0.008697599917650223
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.008739200234413148,
+            "samples_ms": [
+              0.00878399983048439,
+              0.008739200234413148,
+              0.008531200140714646
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.1727776050567627,
+            "samples_ms": [
+              0.1727776050567627,
+              0.17286080121994019,
+              0.17268480062484742
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.008736000210046769,
+      "raw_shared_checksum_uncompressed_gbs": 1230.3003367192523,
+      "ans_shared_checksum_ms": 0.17269439697265626,
+      "ans_shared_checksum_uncompressed_gbs": 62.23655305795347,
+      "speedup_matched_raw": 0.05058647161222024,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "fp16_bits",
+      "transform": 0,
+      "ans_datatype": "float16_bit_reinterpretation",
+      "chunk_bytes": 4096,
+      "block_threads": 128,
+      "transform_setup_ms": 0.022919964976608753,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 3072,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 128,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 12
+      },
+      "setup": {
+        "wall_ms": 1.9019710598513484,
+        "compression_device_ms": 0.13923199474811554,
+        "compression_temporary_output_bytes": 18116096,
+        "compression_global_scratch_bytes": 8060928,
+        "compressed_bytes": 8532418,
+        "aligned_stream_bytes": 8540400,
+        "allocated_stream_bytes": 8540416,
+        "metadata_bytes": 41984,
+        "ratio_original_to_compressed": 1.2596551176934838,
+        "chunk_sizes_min": 3218,
+        "chunk_sizes_max": 3316,
+        "per_matrix_compressed_bytes": [
+          8532418
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006579200178384781,
+            "samples_ms": [
+              0.007001599669456482,
+              0.006579200178384781,
+              0.0065311998128890995
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.10298559665679932,
+            "samples_ms": [
+              0.10301439762115479,
+              0.10298559665679932,
+              0.10279040336608887
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.1028704047203064,
+            "samples_ms": [
+              0.10310080051422119,
+              0.1028704047203064,
+              0.1028704047203064
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.0066592000424861904,
+            "samples_ms": [
+              0.0068960003554821014,
+              0.0066592000424861904,
+              0.006569600105285645
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006662400066852569,
+            "samples_ms": [
+              0.0067391999065876005,
+              0.006662400066852569,
+              0.00642239972949028
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.10272639989852905,
+            "samples_ms": [
+              0.1026304006576538,
+              0.10279999971389771,
+              0.10272639989852905
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.0066592000424861904,
+      "raw_shared_checksum_uncompressed_gbs": 1613.9932621677642,
+      "ans_shared_checksum_ms": 0.1028704047203064,
+      "ans_shared_checksum_uncompressed_gbs": 104.48004000006026,
+      "speedup_matched_raw": 0.0647338761871487,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "fp16_bits",
+      "transform": 0,
+      "ans_datatype": "float16_bit_reinterpretation",
+      "chunk_bytes": 16384,
+      "block_threads": 256,
+      "transform_setup_ms": 0.022919964976608753,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 9216,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 256,
+        "decode_registers": 48,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 4
+      },
+      "setup": {
+        "wall_ms": 1.664989977143705,
+        "compression_device_ms": 0.10812799632549286,
+        "compression_temporary_output_bytes": 15009280,
+        "compression_global_scratch_bytes": 6045696,
+        "compressed_bytes": 7572750,
+        "aligned_stream_bytes": 7574736,
+        "allocated_stream_bytes": 7574752,
+        "metadata_bytes": 10496,
+        "ratio_original_to_compressed": 1.4192867848535868,
+        "chunk_sizes_min": 11466,
+        "chunk_sizes_max": 11676,
+        "per_matrix_compressed_bytes": [
+          7572750
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.0066592000424861904,
+            "samples_ms": [
+              0.006745599955320358,
+              0.0066592000424861904,
+              0.00650240033864975
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.10512000322341919,
+            "samples_ms": [
+              0.10548160076141358,
+              0.10512000322341919,
+              0.10497920513153076
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 0.10506880283355713,
+            "samples_ms": [
+              0.1053056001663208,
+              0.10506880283355713,
+              0.10496000051498414
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.006550399959087372,
+            "samples_ms": [
+              0.006764800101518631,
+              0.006505600363016129,
+              0.006550399959087372
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.006752000004053116,
+            "samples_ms": [
+              0.006752000004053116,
+              0.00676800012588501,
+              0.006511999666690827
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 0.10497599840164185,
+            "samples_ms": [
+              0.10501439571380615,
+              0.10484479665756226,
+              0.10497599840164185
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.0066592000424861904,
+      "raw_shared_checksum_uncompressed_gbs": 1613.9932621677642,
+      "ans_shared_checksum_ms": 0.10506880283355713,
+      "ans_shared_checksum_uncompressed_gbs": 102.29396081562004,
+      "speedup_matched_raw": 0.06337942246315725,
+      "paired_faster_rounds": 0
+    }
+  ],
+  "matrix_count": 1,
+  "original_bytes": 10747904
+}

@@ -1,0 +1,211 @@
+{
+  "outcome": "Rejected. None of the three placements produced a consistent useful full-request speedup. Retained engine and defaults unchanged.",
+  "scope": "Complete retained engine with 136 frozen BF16 Parameters relocated before graph capture. FP32 parameters and all precomputed buffers unchanged.",
+  "bf16_parameter_bytes": 739290630,
+  "bf16_parameter_elements": 369645315,
+  "validation": "Every stored BF16 weight bit compared; all197 requests compare prepared structures, raw logits/actions bitwise, reference formatting, and public responses. 591 total request comparisons across three layouts.",
+  "granularity": {
+    "minimum_bytes": 2097152,
+    "recommended_bytes": 2097152,
+    "interpretation": "CUDA VMM allocation granularities only. Neither physical page size nor TLB mapping is inferred."
+  },
+  "timing": "One original resident baseline paired with each candidate. Nine randomized rounds:150 fixed requests per round and128 changing holdouts. No HTTP; warm full request including tokenization, copies, GPU replay, and formatting.",
+  "rows": [
+    {
+      "kind": "torch-bank",
+      "source": "results/frontier/weight_layout-torch-bank.json",
+      "source_sha256": "1837b3e5abe9de34c6405b101bdb0b99d6e3b1ed42f8fb84f68bc7182011639b",
+      "all197requests_exact": true,
+      "decisions": 354,
+      "weight_bit_mismatches": 0,
+      "setup_ms": 18.78035895060748,
+      "allocated_bytes": 739291140,
+      "logical_bytes": 739291140,
+      "parameter_offsets_recorded": true,
+      "summary": {
+        "1-short": {
+          "pooled_p50_ms": {
+            "original": 1.6110495198518038,
+            "candidate": 1.6135845216922462
+          },
+          "paired_savings_ms": [
+            -0.007439986802637577,
+            -0.0019355793483555317,
+            8.10832716524601e-05,
+            0.0008299248293042183,
+            0.0007600756362080574,
+            -0.0030444934964179993,
+            0.0009239302016794682,
+            -0.00022602034732699394,
+            -0.0030900118872523308
+          ],
+          "median_paired_savings_ms": -0.00022602034732699394,
+          "faster_rounds": 4
+        },
+        "changing-holdout": {
+          "pooled_p50_ms": {
+            "original": 1.63975,
+            "candidate": 1.6426895
+          },
+          "paired_savings_ms": [
+            0.014779499999999945,
+            -0.0013740000000002084,
+            -0.010915000000000008,
+            -0.005760500000000057,
+            -0.015309000000000017,
+            0.0010950000000000681,
+            -0.005149999999999988,
+            0.002594999999999903,
+            -0.0013999999999998458
+          ],
+          "median_paired_savings_ms": -0.0013999999999998458,
+          "faster_rounds": 3
+        }
+      },
+      "cleanup": {
+        "strict_guard_refused_release": true,
+        "process_exited": true
+      },
+      "historical_source_hashes_stable_during_measurement": true
+    },
+    {
+      "kind": "vmm-bank",
+      "source": "results/frontier/weight_layout-vmm-bank.json",
+      "source_sha256": "476703c73f367c7f1578d34be084dbfbd3ade044a422638790efb2af55347947",
+      "all197requests_exact": true,
+      "decisions": 354,
+      "weight_bit_mismatches": 0,
+      "setup_ms": 18.905324046500027,
+      "allocated_bytes": 740294656,
+      "logical_bytes": 739291140,
+      "parameter_offsets_recorded": true,
+      "summary": {
+        "1-short": {
+          "pooled_p50_ms": {
+            "original": 1.610572449862957,
+            "candidate": 1.6149184666574001
+          },
+          "paired_savings_ms": [
+            -0.005500507541000843,
+            -0.0060400343500077724,
+            -0.005079957190901041,
+            0.003050430677831173,
+            0.00510999234393239,
+            -0.00516505679115653,
+            -0.009285053238272667,
+            -0.013059529010206461,
+            -0.005310517735779285
+          ],
+          "median_paired_savings_ms": -0.005310517735779285,
+          "faster_rounds": 2
+        },
+        "changing-holdout": {
+          "pooled_p50_ms": {
+            "original": 1.639653,
+            "candidate": 1.643503
+          },
+          "paired_savings_ms": [
+            0.015516000000000085,
+            -0.010080499999999937,
+            -0.013259500000000202,
+            -0.0009449999999999736,
+            -0.006240000000000023,
+            0.003070499999999754,
+            -0.0044399999999999995,
+            -0.007055999999999951,
+            -0.0023495000000002264
+          ],
+          "median_paired_savings_ms": -0.0044399999999999995,
+          "faster_rounds": 2
+        }
+      },
+      "cleanup": {
+        "ownership": "dedicated worker process lifetime",
+        "manual_unmap_performed": false,
+        "bank_retained_until_process_exit": true,
+        "worker_streams_synchronized": true,
+        "candidate_engine_closed_before_retention": true,
+        "reason": "Compiled method references outlive model close and in-memory cache resets. Keep the mapping alive until CUDA context teardown instead of guessing reference lifetimes."
+      },
+      "historical_source_hashes_stable_during_measurement": true
+    },
+    {
+      "kind": "vmm-2m-aligned",
+      "source": "results/frontier/weight_layout-vmm-2m-aligned.json",
+      "source_sha256": "8a8a739082b5924d673dc54324201b2dd5f8987412ed34872513627432e1c3e0",
+      "all197requests_exact": true,
+      "decisions": 354,
+      "weight_bit_mismatches": 0,
+      "setup_ms": 19.56061797682196,
+      "allocated_bytes": 849346560,
+      "logical_bytes": 847249412,
+      "parameter_offsets_recorded": true,
+      "summary": {
+        "1-short": {
+          "pooled_p50_ms": {
+            "original": 1.6154379700310528,
+            "candidate": 1.6166979912668467
+          },
+          "paired_savings_ms": [
+            -0.0009154900908470154,
+            0.0025153858587145805,
+            -0.0031199888326227665,
+            -0.002935004886239767,
+            0.0073855044320225716,
+            -0.0019205035641789436,
+            -0.018139544408768415,
+            -0.015280500520020723,
+            0.0597454491071403
+          ],
+          "median_paired_savings_ms": -0.0019205035641789436,
+          "faster_rounds": 3
+        },
+        "changing-holdout": {
+          "pooled_p50_ms": {
+            "original": 1.636508,
+            "candidate": 1.637778
+          },
+          "paired_savings_ms": [
+            0.015515500000000015,
+            7.45000000001994e-05,
+            -0.0008200000000000429,
+            -0.007543999999999995,
+            0.0022600000000001508,
+            0.0006209999999997606,
+            0.002174999999999816,
+            -0.010955499999999674,
+            -0.0038954999999998297
+          ],
+          "median_paired_savings_ms": 7.45000000001994e-05,
+          "faster_rounds": 5
+        }
+      },
+      "cleanup": {
+        "ownership": "dedicated worker process lifetime",
+        "manual_unmap_performed": false,
+        "bank_retained_until_process_exit": true,
+        "worker_streams_synchronized": true,
+        "candidate_engine_closed_before_retention": true,
+        "reason": "Compiled method references outlive model close and in-memory cache resets. Keep the mapping alive until CUDA context teardown instead of guessing reference lifetimes."
+      },
+      "historical_source_hashes_stable_during_measurement": true
+    }
+  ],
+  "lifetime": "Initial torch-owned bank finished all validation/timing but strict cleanup detected surviving bound Linear method references. Explicit unmapping was refused. Subsequent VMM tests used one dedicated process each, synchronized and closed engine graphs, retained the bank, and never manually unmapped. Both VMM workers exited with code0. Final dispatcher applies process ownership to every layout.",
+  "no_physical_page_or_tlb_claim": true,
+  "provenance": {
+    "file": "results/frontier/weight_layout-provenance.json",
+    "sha256": "76a0236d084b640163d5067a9e8235f92f5783c97a1e0f71b4c6bbd990691cdf"
+  },
+  "reproduce": "uv run --no-sync python -m experiments.frontier.weight_layout_probe",
+  "secondary_long_and_batch_timings_run": false,
+  "secondary_trigger": "Would run only for >5us median paired short-case savings in at least7 of9 rounds; no layout met it.",
+  "source_current": {
+    "experiments/frontier/weight_layout_lifetime.py": "3cc9444c3adbe1aa2213dd6d5b75721550c96169d897eae54ed2cad7b64ee507",
+    "experiments/frontier/weight_layout.py": "e10326140a9b5679a162ac251705e73bc80143f570f2722ac43b64eba1435436",
+    "experiments/frontier/weight_layout_probe.py": "10d2b106dfb61d7f87a31b36b9c399801a15d5de476c67e9ce5a5cb34127b450"
+  },
+  "validation_limit": "Synthetic implementation parity, not proof over all possible requests.",
+  "defaults_changed": false,
+  "github_writes": false
+}

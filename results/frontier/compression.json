@@ -1,0 +1,597 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T08:36:32.931725+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "method": "28 distinct weights, exact values; randomized rounds, GPU-populated VMM allocations",
+  "rows": [
+    {
+      "field": "attn.Wqkv",
+      "variant": "torch-bf16",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "allocation": null,
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.28516321182250975,
+        0.28518879413604736,
+        0.28517119884490966,
+        0.2852128028869629,
+        0.28538079261779786
+      ],
+      "ms": 0.28518879413604736,
+      "speedup": 1.0
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "vmm-bf16",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 0,
+        "logical_bytes": 176160768,
+        "allocated_bytes": 176160768,
+        "dtype": "torch.bfloat16"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.28507840633392334,
+        0.2852799892425537,
+        0.2852720022201538,
+        0.2853039979934692,
+        0.2853568077087402
+      ],
+      "ms": 0.2852799892425537,
+      "speedup": 0.9996803312186443
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "compressed-bf16",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 1,
+        "logical_bytes": 176160768,
+        "allocated_bytes": 176160768,
+        "dtype": "torch.bfloat16"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.28554720878601075,
+        0.28518080711364746,
+        0.28602559566497804,
+        0.2854079961776733,
+        0.2856112003326416
+      ],
+      "ms": 0.28554720878601075,
+      "speedup": 0.9987448147313813
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "vmm-fp32",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 0,
+        "logical_bytes": 352321536,
+        "allocated_bytes": 352321536,
+        "dtype": "torch.float32"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.4754032135009766,
+        0.47542881965637207,
+        0.47577757835388185,
+        0.4748976230621338,
+        0.47532958984375
+      ],
+      "ms": 0.4754032135009766,
+      "speedup": 0.599888233896975
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "compressed-fp32",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 1,
+        "logical_bytes": 352321536,
+        "allocated_bytes": 352321536,
+        "dtype": "torch.float32"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.47148962020874025,
+        0.4713119983673096,
+        0.4713568210601807,
+        0.47162718772888185,
+        0.4716383934020996
+      ],
+      "ms": 0.47148962020874025,
+      "speedup": 0.6048675981663969
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "torch-bf16",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "allocation": null,
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.16474080085754395,
+        0.16440000534057617,
+        0.16452159881591796,
+        0.1644719958305359,
+        0.16453919410705567
+      ],
+      "ms": 0.16452159881591796,
+      "speedup": 1.0
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "vmm-bf16",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 0,
+        "logical_bytes": 58720256,
+        "allocated_bytes": 58720256,
+        "dtype": "torch.bfloat16"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.16455839872360228,
+        0.16467519998550414,
+        0.16516319513320923,
+        0.1647264003753662,
+        0.16467200517654418
+      ],
+      "ms": 0.16467519998550414,
+      "speedup": 0.9990672477118613
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "compressed-bf16",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 1,
+        "logical_bytes": 58720256,
+        "allocated_bytes": 58720256,
+        "dtype": "torch.bfloat16"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.16622560024261473,
+        0.16627039909362792,
+        0.1661679983139038,
+        0.16618080139160157,
+        0.16625759601593018
+      ],
+      "ms": 0.16622560024261473,
+      "speedup": 0.9897488628453759
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "vmm-fp32",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 0,
+        "logical_bytes": 117440512,
+        "allocated_bytes": 117440512,
+        "dtype": "torch.float32"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.20190720558166503,
+        0.20167200565338134,
+        0.2016688108444214,
+        0.20149760246276854,
+        0.20226719379425048
+      ],
+      "ms": 0.20167200565338134,
+      "speedup": 0.8157879834779117
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "compressed-fp32",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 1,
+        "logical_bytes": 117440512,
+        "allocated_bytes": 117440512,
+        "dtype": "torch.float32"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.20103039741516113,
+        0.2012239933013916,
+        0.20145120620727539,
+        0.20132319927215575,
+        0.20134398937225342
+      ],
+      "ms": 0.20132319927215575,
+      "speedup": 0.8172013926398611
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "torch-bf16",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "allocation": null,
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.44019360542297364,
+        0.4400911808013916,
+        0.440780782699585,
+        0.4405695915222168,
+        0.44013280868530275
+      ],
+      "ms": 0.44019360542297364,
+      "speedup": 1.0
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "vmm-bf16",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 0,
+        "logical_bytes": 300941312,
+        "allocated_bytes": 301989888,
+        "dtype": "torch.bfloat16"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.43961281776428224,
+        0.43973917961120607,
+        0.4395808219909668,
+        0.4394544124603271,
+        0.43979997634887696
+      ],
+      "ms": 0.43961281776428224,
+      "speedup": 1.0013211344965898
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "compressed-bf16",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 1,
+        "logical_bytes": 300941312,
+        "allocated_bytes": 301989888,
+        "dtype": "torch.bfloat16"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.4401072025299072,
+        0.4397264003753662,
+        0.43964638710021975,
+        0.4401440143585205,
+        0.43938560485839845
+      ],
+      "ms": 0.4397264003753662,
+      "speedup": 1.0010624903285512
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "vmm-fp32",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 0,
+        "logical_bytes": 601882624,
+        "allocated_bytes": 601882624,
+        "dtype": "torch.float32"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.9100624084472656,
+        0.9093008041381836,
+        0.9098064422607421,
+        0.9097871780395508,
+        0.9100815773010253
+      ],
+      "ms": 0.9098064422607421,
+      "speedup": 0.4838321482195201
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "compressed-fp32",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 1,
+        "logical_bytes": 601882624,
+        "allocated_bytes": 601882624,
+        "dtype": "torch.float32"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.9093423843383789,
+        0.9086527824401855,
+        0.9092543601989747,
+        0.9089504241943359,
+        0.909825611114502
+      ],
+      "ms": 0.9092543601989747,
+      "speedup": 0.4841259219550455
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "torch-bf16",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "allocation": null,
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.26356480121612547,
+        0.2637216091156006,
+        0.2640415906906128,
+        0.2642384052276611,
+        0.26425600051879883
+      ],
+      "ms": 0.2640415906906128,
+      "speedup": 1.0
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "vmm-bf16",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 0,
+        "logical_bytes": 150470656,
+        "allocated_bytes": 150994944,
+        "dtype": "torch.bfloat16"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.26353759765625,
+        0.2634448051452637,
+        0.2637487888336182,
+        0.26414239406585693,
+        0.26428000926971434
+      ],
+      "ms": 0.2637487888336182,
+      "speedup": 1.0011101543187724
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "compressed-bf16",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 1,
+        "logical_bytes": 150470656,
+        "allocated_bytes": 150994944,
+        "dtype": "torch.bfloat16"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.2643071889877319,
+        0.26472959518432615,
+        0.2643392086029053,
+        0.26452639102935793,
+        0.26413118839263916
+      ],
+      "ms": 0.2643392086029053,
+      "speedup": 0.9988741060629429
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "vmm-fp32",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 0,
+        "logical_bytes": 300941312,
+        "allocated_bytes": 301989888,
+        "dtype": "torch.float32"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.4376543998718262,
+        0.4372543811798096,
+        0.4373792171478271,
+        0.43761439323425294,
+        0.4376192092895508
+      ],
+      "ms": 0.43761439323425294,
+      "speedup": 0.6033658736386044
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "compressed-fp32",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "allocation": {
+        "supported": 1,
+        "compression_granted": 1,
+        "logical_bytes": 300941312,
+        "allocated_bytes": 301989888,
+        "dtype": "torch.float32"
+      },
+      "weight_mismatches": 0,
+      "mismatches": 0,
+      "samples_ms": [
+        0.43396801948547364,
+        0.4344175815582275,
+        0.43382558822631834,
+        0.43381757736206056,
+        0.4342927932739258
+      ],
+      "ms": 0.43396801948547364,
+      "speedup": 0.6084355962535417
+    }
+  ]
+}

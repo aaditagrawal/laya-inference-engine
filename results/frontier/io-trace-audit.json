@@ -1,0 +1,352 @@
+{
+  "scope": "Read-only instrumented trace audit; no new GPU timing or execution",
+  "limitation": "Transfer durations and gaps are instrumented observations, not an additive request timing or a bound on mapped-memory gains.",
+  "trace": ".research/frontier-profile-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format.trace.json",
+  "trace_sha256": "a1f0b6c4c618d989c7b0d8a167a35dd50d616a1862f596abf96adf8e91305a3a",
+  "source_sha256": "237254b62483a81718391e563785ab07f30fe0e50ea6fc63b43d19f28bdae9b1",
+  "graph_replays": 10,
+  "mean_copy_duration_us": 1.6705,
+  "median_copy_duration_us": 1.6480000000000001,
+  "rows": [
+    {
+      "device_graph_correlation": [
+        0,
+        2,
+        3
+      ],
+      "kernels": 270,
+      "memsets": 2,
+      "copies": [
+        {
+          "name": "Memcpy HtoD (Pinned -> Device)",
+          "bytes": 1072,
+          "duration_us": 0.288,
+          "previous_gap_us": null,
+          "following_gap_us": 2275.446375
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 16,
+          "duration_us": 1.024,
+          "previous_gap_us": 1.983953125,
+          "following_gap_us": 0.3519765625
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 8,
+          "duration_us": 0.32,
+          "previous_gap_us": 0.3519765625,
+          "following_gap_us": null
+        }
+      ],
+      "copy_duration_us": 1.6320000000000001,
+      "device_span_us": 3739.94140625
+    },
+    {
+      "device_graph_correlation": [
+        0,
+        2,
+        8
+      ],
+      "kernels": 270,
+      "memsets": 2,
+      "copies": [
+        {
+          "name": "Memcpy HtoD (Pinned -> Device)",
+          "bytes": 1072,
+          "duration_us": 0.992,
+          "previous_gap_us": null,
+          "following_gap_us": 7.4562421875
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 16,
+          "duration_us": 0.32,
+          "previous_gap_us": 5.37653125,
+          "following_gap_us": 0.3196484375
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 8,
+          "duration_us": 0.32,
+          "previous_gap_us": 0.3196484375,
+          "following_gap_us": null
+        }
+      ],
+      "copy_duration_us": 1.6320000000000001,
+      "device_span_us": 1465.3583984375
+    },
+    {
+      "device_graph_correlation": [
+        0,
+        2,
+        13
+      ],
+      "kernels": 270,
+      "memsets": 2,
+      "copies": [
+        {
+          "name": "Memcpy HtoD (Pinned -> Device)",
+          "bytes": 1072,
+          "duration_us": 0.992,
+          "previous_gap_us": null,
+          "following_gap_us": 4.2570234375
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 16,
+          "duration_us": 0.32,
+          "previous_gap_us": 4.67265625,
+          "following_gap_us": 0.3196484375
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 8,
+          "duration_us": 0.32,
+          "previous_gap_us": 0.3196484375,
+          "following_gap_us": null
+        }
+      ],
+      "copy_duration_us": 1.6320000000000001,
+      "device_span_us": 1465.294921875
+    },
+    {
+      "device_graph_correlation": [
+        0,
+        2,
+        18
+      ],
+      "kernels": 270,
+      "memsets": 2,
+      "copies": [
+        {
+          "name": "Memcpy HtoD (Pinned -> Device)",
+          "bytes": 1072,
+          "duration_us": 0.96,
+          "previous_gap_us": null,
+          "following_gap_us": 11.295859375
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 16,
+          "duration_us": 0.32,
+          "previous_gap_us": 0.73590625,
+          "following_gap_us": 0.320625
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 8,
+          "duration_us": 0.32,
+          "previous_gap_us": 0.320625,
+          "following_gap_us": null
+        }
+      ],
+      "copy_duration_us": 1.6,
+      "device_span_us": 1467.087890625
+    },
+    {
+      "device_graph_correlation": [
+        0,
+        2,
+        23
+      ],
+      "kernels": 270,
+      "memsets": 2,
+      "copies": [
+        {
+          "name": "Memcpy HtoD (Pinned -> Device)",
+          "bytes": 1072,
+          "duration_us": 1.024,
+          "previous_gap_us": null,
+          "following_gap_us": 9.407640624999999
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 16,
+          "duration_us": 0.32,
+          "previous_gap_us": 3.8403984375,
+          "following_gap_us": 0.3196484375
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 8,
+          "duration_us": 0.352,
+          "previous_gap_us": 0.3196484375,
+          "following_gap_us": null
+        }
+      ],
+      "copy_duration_us": 1.696,
+      "device_span_us": 1467.373046875
+    },
+    {
+      "device_graph_correlation": [
+        0,
+        2,
+        28
+      ],
+      "kernels": 270,
+      "memsets": 2,
+      "copies": [
+        {
+          "name": "Memcpy HtoD (Pinned -> Device)",
+          "bytes": 1072,
+          "duration_us": 1.248,
+          "previous_gap_us": null,
+          "following_gap_us": 7.1035625
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 16,
+          "duration_us": 0.32,
+          "previous_gap_us": 0.800359375,
+          "following_gap_us": 0.3196484375
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 8,
+          "duration_us": 0.32,
+          "previous_gap_us": 0.3196484375,
+          "following_gap_us": null
+        }
+      ],
+      "copy_duration_us": 1.888,
+      "device_span_us": 1459.150390625
+    },
+    {
+      "device_graph_correlation": [
+        0,
+        2,
+        33
+      ],
+      "kernels": 270,
+      "memsets": 2,
+      "copies": [
+        {
+          "name": "Memcpy HtoD (Pinned -> Device)",
+          "bytes": 1072,
+          "duration_us": 1.024,
+          "previous_gap_us": null,
+          "following_gap_us": 4.3519765625
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 16,
+          "duration_us": 0.32,
+          "previous_gap_us": 3.456609375,
+          "following_gap_us": 0.351875
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 8,
+          "duration_us": 0.288,
+          "previous_gap_us": 0.351875,
+          "following_gap_us": null
+        }
+      ],
+      "copy_duration_us": 1.6320000000000001,
+      "device_span_us": 1459.1513671875
+    },
+    {
+      "device_graph_correlation": [
+        0,
+        2,
+        38
+      ],
+      "kernels": 270,
+      "memsets": 2,
+      "copies": [
+        {
+          "name": "Memcpy HtoD (Pinned -> Device)",
+          "bytes": 1072,
+          "duration_us": 1.025,
+          "previous_gap_us": null,
+          "following_gap_us": 11.4564453125
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 16,
+          "duration_us": 0.32,
+          "previous_gap_us": 7.3599296875,
+          "following_gap_us": 0.3196484375
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 8,
+          "duration_us": 0.32,
+          "previous_gap_us": 0.3196484375,
+          "following_gap_us": null
+        }
+      ],
+      "copy_duration_us": 1.665,
+      "device_span_us": 1471.439453125
+    },
+    {
+      "device_graph_correlation": [
+        0,
+        2,
+        43
+      ],
+      "kernels": 270,
+      "memsets": 2,
+      "copies": [
+        {
+          "name": "Memcpy HtoD (Pinned -> Device)",
+          "bytes": 1072,
+          "duration_us": 1.024,
+          "previous_gap_us": null,
+          "following_gap_us": 8.384203124999999
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 16,
+          "duration_us": 0.32,
+          "previous_gap_us": 1.215625,
+          "following_gap_us": 0.3196484375
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 8,
+          "duration_us": 0.32,
+          "previous_gap_us": 0.3196484375,
+          "following_gap_us": null
+        }
+      ],
+      "copy_duration_us": 1.6640000000000001,
+      "device_span_us": 1461.0390625
+    },
+    {
+      "device_graph_correlation": [
+        0,
+        2,
+        48
+      ],
+      "kernels": 270,
+      "memsets": 2,
+      "copies": [
+        {
+          "name": "Memcpy HtoD (Pinned -> Device)",
+          "bytes": 1072,
+          "duration_us": 1.024,
+          "previous_gap_us": null,
+          "following_gap_us": 4.8324453125
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 16,
+          "duration_us": 0.32,
+          "previous_gap_us": 1.7915703125,
+          "following_gap_us": 0.3196484375
+        },
+        {
+          "name": "Memcpy DtoH (Device -> Pinned)",
+          "bytes": 8,
+          "duration_us": 0.32,
+          "previous_gap_us": 0.3196484375,
+          "following_gap_us": null
+        }
+      ],
+      "copy_duration_us": 1.6640000000000001,
+      "device_span_us": 1453.166015625
+    }
+  ]
+}

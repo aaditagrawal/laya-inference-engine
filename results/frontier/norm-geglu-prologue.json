@@ -1,0 +1,1793 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T12:56:24.966206+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "constructor": {
+    "policy": "bf16-splitk-exact",
+    "attention": "native",
+    "fuse_reduce_norm": true,
+    "token_tables": true,
+    "fuse_mlp_geglu": true,
+    "mlp_geglu_unpacked": true,
+    "head_kernels": true,
+    "host_prepare": "batch",
+    "attention_special": true,
+    "global_attention": true,
+    "host_runtime": true,
+    "native_format": true
+  },
+  "build": {
+    "command": [
+      "/usr/local/cuda-13.1/bin/nvcc",
+      "-O3",
+      "-std=c++20",
+      "-arch=sm_120",
+      "--compiler-options",
+      "-fPIC",
+      "--ptxas-options=-v",
+      "-lineinfo",
+      "-shared",
+      "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/norm_geglu_prologue.cu",
+      "-o",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-norm-geglu/norm_geglu.so"
+    ],
+    "source_sha256": "610c22227ea6580a5d66a64413090e52de639fb83d212b4d43ea6a98e5c5526c",
+    "builder_sha256": "075a249a13924b4f4d24bd8811bc8ede3aa186afd36399fe242e442e4fa1aa20",
+    "library_sha256": "2648dea34a672e7a3662135e0f86b9319ce644664cf74e2de04198d42a624942",
+    "sass_sha256": "dd5da59ed9f529c9215f9c120d27220dfbab77b62ac6eed5e31e2eef6c12e97a"
+  },
+  "source_sha256": {
+    "experiments/frontier/norm_geglu_prologue.cu": "610c22227ea6580a5d66a64413090e52de639fb83d212b4d43ea6a98e5c5526c",
+    "experiments/frontier/norm_geglu_probe.py": "8f2ba80a41f55497bce773e4395ae6d83ac921ac6fcd8b71e43372ad78234f52",
+    "experiments/frontier/norm_geglu_build.py": "075a249a13924b4f4d24bd8811bc8ede3aa186afd36399fe242e442e4fa1aa20"
+  },
+  "scope": "Optimistic prologue-only mapping control, not fused inference or a rigorous execution lower bound. Timed candidate computes duplicated exact mean/rstd only; omits normalization application, residual output and all GEMM work.",
+  "method": "One physical warp simulates each original group of four Welford warps; four rows in parallel per 128-thread CTA. Original online-value order, shfl-down16/8/4/2/1 and warp0+2/warp1+3 tree retained.",
+  "retained_fused_config": [
+    32,
+    64,
+    64,
+    4,
+    3,
+    2,
+    false
+  ],
+  "fixtures": [
+    {
+      "index": 0,
+      "request": {
+        "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+        "questions": {
+          "q0": {
+            "type": "choice",
+            "instructions": "Which department should handle this request?",
+            "criteria": {
+              "billing": "invoices, payments, refunds",
+              "technical": "bugs, outages, system errors",
+              "sales": "pricing and new contracts",
+              "other": "everything else"
+            }
+          }
+        }
+      },
+      "tokens": 64,
+      "checks": [
+        {
+          "bm": 32,
+          "bn": 64,
+          "layers": [
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            }
+          ]
+        },
+        {
+          "bm": 32,
+          "bn": 128,
+          "layers": [
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            }
+          ]
+        },
+        {
+          "bm": 16,
+          "bn": 128,
+          "layers": [
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "request": {
+        "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+        "questions": {
+          "q": {
+            "type": "choice",
+            "instructions": "Which department should handle this request?",
+            "criteria": {
+              "billing": "invoices, payments, refunds",
+              "technical": "bugs, outages, system errors",
+              "sales": "pricing and new contracts",
+              "other": "everything else"
+            }
+          }
+        }
+      },
+      "tokens": 64,
+      "checks": [
+        {
+          "bm": 32,
+          "bn": 64,
+          "layers": [
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            }
+          ]
+        },
+        {
+          "bm": 32,
+          "bn": 128,
+          "layers": [
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            }
+          ]
+        },
+        {
+          "bm": 16,
+          "bn": 128,
+          "layers": [
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "request": {
+        "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+        "questions": {
+          "q": {
+            "type": "noul",
+            "instructions": "Does the customer need an urgent response?"
+          }
+        }
+      },
+      "tokens": 52,
+      "checks": [
+        {
+          "bm": 32,
+          "bn": 64,
+          "layers": [
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            }
+          ]
+        },
+        {
+          "bm": 32,
+          "bn": 128,
+          "layers": [
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            }
+          ]
+        },
+        {
+          "bm": 16,
+          "bn": 128,
+          "layers": [
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            },
+            {
+              "residual_mismatches": 0,
+              "normalized_mismatches": 0,
+              "statistics_mismatches": 0,
+              "geglu_mismatches": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "bm": 32,
+      "bn": 64,
+      "n_tiles": 82,
+      "grid": [
+        82,
+        2
+      ],
+      "threads": 128,
+      "resources": {
+        "registers": 40,
+        "shared_bytes": 0,
+        "local_bytes": 0,
+        "active_blocks_per_sm": 12
+      },
+      "statistics_mismatches": 0,
+      "ms": 0.3197248140970866,
+      "samples_ms": [
+        0.31998720169067385,
+        0.31958185831705727,
+        0.3197248140970866,
+        0.3197717348734538,
+        0.31969385147094725
+      ],
+      "ratio_to_entire_retained_chain": 0.6495317445873932,
+      "logical_input_bytes": 902823936
+    },
+    {
+      "bm": 32,
+      "bn": 128,
+      "n_tiles": 41,
+      "grid": [
+        41,
+        2
+      ],
+      "threads": 128,
+      "resources": {
+        "registers": 40,
+        "shared_bytes": 0,
+        "local_bytes": 0,
+        "active_blocks_per_sm": 12
+      },
+      "statistics_mismatches": 0,
+      "ms": 0.22554027239481608,
+      "samples_ms": [
+        0.2257717291514079,
+        0.22571412722269693,
+        0.22554027239481608,
+        0.2254634698232015,
+        0.22542826334635416
+      ],
+      "ratio_to_entire_retained_chain": 0.4581926711476213,
+      "logical_input_bytes": 451411968
+    },
+    {
+      "bm": 16,
+      "bn": 128,
+      "n_tiles": 41,
+      "grid": [
+        41,
+        4
+      ],
+      "threads": 128,
+      "resources": {
+        "registers": 40,
+        "shared_bytes": 0,
+        "local_bytes": 0,
+        "active_blocks_per_sm": 12
+      },
+      "statistics_mismatches": 0,
+      "ms": 0.19076372782389323,
+      "samples_ms": [
+        0.1916970729827881,
+        0.19076053301493326,
+        0.19110719362894693,
+        0.19076372782389323,
+        0.19071040153503419
+      ],
+      "ratio_to_entire_retained_chain": 0.38754294779204335,
+      "logical_input_bytes": 451411968
+    }
+  ],
+  "baseline_norm_ms": 0.03500693241755168,
+  "baseline_norm_samples_ms": [
+    0.035523200035095216,
+    0.03503359953562419,
+    0.03500693241755168,
+    0.03496319850285848,
+    0.035000534852345784
+  ],
+  "baseline_chain_ms": 0.4922389348347982,
+  "baseline_chain_samples_ms": [
+    0.49233706792195636,
+    0.49185387293497723,
+    0.4922026634216309,
+    0.4922389348347982,
+    0.49227094650268555
+  ],
+  "baseline_chain_after_ms": 0.49239358901977537
+}

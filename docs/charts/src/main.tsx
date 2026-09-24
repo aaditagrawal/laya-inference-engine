@@ -6,7 +6,7 @@ import "@fontsource/ibm-plex-sans/600.css";
 import "@fontsource/ibm-plex-mono/400.css";
 import { paintColumn } from "./components/dither-kit/dither-paint";
 import type { Rgb } from "./components/dither-kit/palette";
-import { warm, originalSpeedup, fusion, fusionReduction, concurrent, throughputGain, cold, chartData } from "./data";
+import { publicModes, publicReduction, publicMeasurement, warm, originalSpeedup, latest, latestReduction, latestMeasurement, fusion, fusionReduction, concurrent, throughputGain, cold, chartData, chartSources } from "./data";
 import "./style.css";
 
 const theme = new URLSearchParams(location.search).get("theme") === "dark" ? "dark" : "light";
@@ -60,7 +60,7 @@ function Footer({children}: {children: React.ReactNode}) {
   return <footer><div>{children}</div><span className="hardware">RTX 5070 Ti · 16 GB<br />BLACKWELL / SM120</span></footer>;
 }
 type Row = {label: string; detail: string; value: number; color: string};
-function HorizontalBars({rows, max, ticks, unit}: {rows: Row[]; max: number; ticks: number[]; unit: string}) {
+function HorizontalBars({rows, max, ticks, unit, digits = 2}: {rows: Row[]; max: number; ticks: number[]; unit: string; digits?: number}) {
   return <div className="horizontal-chart">
     <div className="axis-row"><span /><div className="axis">{ticks.map(tick => <span key={tick} style={{left: `${100 * tick / max}%`}}>{tick}</span>)}</div><span className="axis-unit">{unit}</span></div>
     {rows.map((row, index) => <div className="chart-row" key={index}>
@@ -69,7 +69,7 @@ function HorizontalBars({rows, max, ticks, unit}: {rows: Row[]; max: number; tic
         {ticks.map(tick => <i className="gridline" key={tick} style={{left: `${100 * tick / max}%`}} />)}
         <DitherBar value={row.value} max={max} color={row.color} />
       </div>
-      <div className={`row-value ${row.color}`}>{format(row.value)}<small>{unit}</small></div>
+      <div className={`row-value ${row.color}`}>{format(row.value, digits)}<small>{unit}</small></div>
     </div>)}
   </div>;
 }
@@ -91,17 +91,37 @@ function Pair({values, labels, max, ticks, unit, digits}: {
 
 function App() {
   return <main>
+    <section className="sheet" id="public-modes">
+      <Masthead index="01" label="BALANCED VS. FAST" />
+      <header><div><h1>{format(publicModes[1].value)} ms with fast mode.</h1><p>One short question · full warm request p50 · lower is better</p></div>
+        <div className="headline-stat"><strong>{format(publicReduction, 1)}%</strong><span>lower latency<br />vs. balanced mode</span></div>
+      </header>
+      <HorizontalBars rows={publicModes} max={3} ticks={[0, 0.5, 1, 1.5, 2, 2.5, 3]} unit="ms" digits={3} />
+      <div className="validation-note">{publicMeasurement.samples_per_mode} requests per mode · {publicMeasurement.rounds} randomized paired rounds · serial execution<br />Fast preserves the retained implementation. Adds 491.9 MiB of GPU token tables.</div>
+      <Footer>Includes tokenization, transfers, inference and formatting.<br />Excludes loading, compilation, first graph capture and HTTP.<br />Exact on {publicMeasurement.parity_requests} requests / {publicMeasurement.parity_decisions} decisions versus the retained implementation.</Footer>
+    </section>
+
     <section className="sheet" id="warm-latency">
-      <Masthead index="01" label="WARM LATENCY" />
-      <header><div><h1>Less waiting per request.</h1><p>One short question · full request p50 · lower is better</p></div>
+      <Masthead index="02" label="HISTORICAL WARM LATENCY" />
+      <header><div><h1>Where the speedups began.</h1><p>One short question · full request p50 · lower is better</p></div>
         <div className="headline-stat"><strong>{format(originalSpeedup, 1)}×</strong><span>original engine speedup<br />vs. upstream default</span></div>
       </header>
       <HorizontalBars rows={warm} max={25} ticks={[0, 5, 10, 15, 20, 25]} unit="ms" />
-      <Footer>Historical runs on the same GPU, not one paired experiment.<br />Includes tokenization, transfers, inference and formatting.<br />Excludes loading, warmup and HTTP. Later modes are opt-in.</Footer>
+      <Footer>Historical runs on the same GPU, not one paired experiment.<br />Includes tokenization, transfers, inference and formatting.<br />Excludes loading, warmup and HTTP. Latest result shown separately.</Footer>
+    </section>
+
+    <section className="sheet" id="latest-paired">
+      <Masthead index="03" label="PAIRED RESULT BEFORE PACKAGING" />
+      <header><div><h1>{format(latest[1].value, 3)} ms for the full request.</h1><p>One short question · warm request p50 · lower is better</p></div>
+        <div className="headline-stat"><strong>{format(latestReduction, 1)}%</strong><span>lower latency<br />vs. native baseline</span></div>
+      </header>
+      <HorizontalBars rows={latest} max={2.5} ticks={[0, 0.5, 1, 1.5, 2, 2.5]} unit="ms" digits={3} />
+      <div className="validation-note">Exact logits and actions on the original and holdout fixtures.<br />{latestMeasurement.samples_per_mode} requests per mode · {latestMeasurement.rounds} paired rounds · serial execution</div>
+      <Footer>Includes tokenization, transfers, inference and formatting.<br />Excludes model loading, first-use setup and HTTP.<br />Software comparison on this GPU. No cross-generation speedup claim.</Footer>
     </section>
 
     <section className="sheet" id="experimental-gains">
-      <Masthead index="02" label="OPT-IN EXPERIMENTS" />
+      <Masthead index="04" label="EARLIER OPT-IN EXPERIMENTS" />
       <header><div><h1>More work. Less time.</h1><p>Two separate comparisons against the optimized native engine</p></div></header>
       <div className="panels">
         <article>
@@ -123,17 +143,17 @@ function App() {
     </section>
 
     <section className="sheet" id="startup">
-      <Masthead index="03" label="EXPERIMENTAL STARTUP" />
+      <Masthead index="05" label="SEPARATE STARTUP EXPERIMENT" />
       <header><div><h1>Get to the first response sooner.</h1><p>Module entry to completed response · median · lower is better</p></div>
         <div className="headline-stat"><strong>{format(cold[3].value)}<small>s</small></strong><span>precompiled AOT<br />deployment path</span></div>
       </header>
       <HorizontalBars rows={cold} max={25} ticks={[0, 5, 10, 15, 20, 25]} unit="s" />
-      <div className="startup-scope">AOT supports two fixed batch-one shapes. About 958 MB per artifact.<br />The measured AOT path also changes the loader and tokenizer initialization.</div>
+      <div className="startup-scope">Separate deployment modes, not the latest optimized BF16 startup.<br />AOT supports two fixed batch-one shapes. About 958 MB per artifact.<br />The measured AOT path also changes the loader and tokenizer initialization.</div>
       <Footer>3 fresh processes per mode · offline · warm OS file caches.<br />Includes imports, model loading, graph capture and first request.<br />Prebuilt native extensions. Artifact build, download and HTTP excluded.</Footer>
     </section>
   </main>;
 }
 
 // Exported for the renderer's provenance record, never substituted for source data.
-Object.assign(window, {chartData});
+Object.assign(window, {chartData, chartSources});
 createRoot(document.getElementById("root")!).render(<App />);

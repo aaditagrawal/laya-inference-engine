@@ -1,0 +1,107 @@
+{
+  "scope": "Optimistic matrix-weight streaming diagnostic. Not inference, model-output parity, or a rigorous latency floor. No GEMM arithmetic, activation reads, repeated CTA weight reads or non-projection kernels are included.",
+  "report": "results/frontier/weight-stream.json",
+  "report_sha256": "8148e833d23ed69ee440b2c262c905b4dc42ab16889f241b71947ff36512fd38",
+  "projection_launch_count": 123,
+  "total_logical_bytes": 732959744,
+  "l2_bytes": 50331648,
+  "logical_bytes_over_l2": 14.562601725260416,
+  "groups": {
+    "attn.Wo": {
+      "projections": 28,
+      "bytes": 58720256
+    },
+    "mlp.Wi": {
+      "projections": 28,
+      "bytes": 300941312
+    },
+    "mlp.Wo": {
+      "projections": 28,
+      "bytes": 150470656
+    },
+    "attn.Wqkv": {
+      "projections": 27,
+      "bytes": 169869312
+    },
+    "head_and_decision": {
+      "projections": 12,
+      "bytes": 52958208
+    }
+  },
+  "dense_bias_bytes_excluded": 39430,
+  "cases": {
+    "per_projection_original_allocations": {
+      "graph": {
+        "kernel_nodes": 123,
+        "kernel_names": [
+          "_weight_stream"
+        ]
+      },
+      "median_ms": 0.9880917231241862,
+      "logical_GB_per_second": 741.7932230850997
+    },
+    "per_projection_contiguous_slices": {
+      "graph": {
+        "kernel_nodes": 123,
+        "kernel_names": [
+          "_weight_stream"
+        ]
+      },
+      "median_ms": 0.9863168080647786,
+      "logical_GB_per_second": 743.1281085416332
+    },
+    "combined_contiguous_one_kernel": {
+      "graph": {
+        "kernel_nodes": 1,
+        "kernel_names": [
+          "_weight_stream"
+        ]
+      },
+      "median_ms": 0.8629248301188152,
+      "logical_GB_per_second": 849.3900261267017
+    }
+  },
+  "paired_granularity_difference_median_us": 123.4261830647786,
+  "paired_placement_difference_median_us": 1.774978637695268,
+  "checks_before": {
+    "per_projection_original_allocations": {
+      "checked_output_words": 44739,
+      "mismatches": 0
+    },
+    "per_projection_contiguous_slices": {
+      "checked_output_words": 44739,
+      "mismatches": 0
+    },
+    "combined_contiguous_one_kernel": {
+      "checked_output_words": 44737,
+      "mismatches": 0
+    }
+  },
+  "checks_after": {
+    "per_projection_original_allocations": {
+      "checked_output_words": 44739,
+      "mismatches": 0
+    },
+    "per_projection_contiguous_slices": {
+      "checked_output_words": 44739,
+      "mismatches": 0
+    },
+    "combined_contiguous_one_kernel": {
+      "checked_output_words": 44737,
+      "mismatches": 0
+    }
+  },
+  "validation": {
+    "ruff_check": "passed",
+    "ruff_format_check": "passed",
+    "python_ast_parse": "passed",
+    "source_and_binary_hashes_before_after": "identical and verified against disk",
+    "compiled_checksum_variants": 9,
+    "spills": 0,
+    "entire_concatenated_bank_bytes": "Every source matrix checked against the corresponding CPU bank slice",
+    "trace_architecture_check": true
+  },
+  "interpretation": "Contiguous one-kernel streaming is faster than 123 per-projection kernels. Moving the same per-projection work into contiguous storage alone changes little. The measured gap includes grid partitioning and scheduling, so it is not pure launch overhead. Neither result is an inference latency floor or a full-request benchmark.",
+  "retained_source_changes": false,
+  "engine_integration": false
+}

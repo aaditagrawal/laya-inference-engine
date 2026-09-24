@@ -1,0 +1,78 @@
+{
+  "decision": "rejected: no nonzero pitch padding improves both retained and zero-padding controls",
+  "scope": "Isolated banks of 28 distinct weights for each retained encoder projection family. Seeded BF16 inputs; no full-request latency claim.",
+  "paddings_bf16_elements": [
+    0,
+    8,
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "matrices_per_family": 28,
+  "families": 4,
+  "variant_matrix_comparisons": 784,
+  "all_exact": true,
+  "summary": [
+    {
+      "field": "mlp.Wi",
+      "retained_us": 445.03040313720703,
+      "stride_aware_zero_padding_us": 445.7676696777344,
+      "best_nonzero_padding": 64,
+      "best_nonzero_us": 445.6857681274414,
+      "speedup_vs_retained": 0.9985295357467036,
+      "speedup_vs_zero_padding": 1.0001837652358456,
+      "all_variants_exact": true,
+      "binary_hashes_unchanged": true
+    },
+    {
+      "field": "attn.Wqkv",
+      "retained_us": 282.05055236816406,
+      "stride_aware_zero_padding_us": 281.3132858276367,
+      "best_nonzero_padding": 64,
+      "best_nonzero_us": 282.31679916381836,
+      "speedup_vs_retained": 0.9990569218819324,
+      "speedup_vs_zero_padding": 0.9964454352728782,
+      "all_variants_exact": true,
+      "binary_hashes_unchanged": true
+    },
+    {
+      "field": "attn.Wo",
+      "retained_us": 127.93855667114256,
+      "stride_aware_zero_padding_us": 126.83263778686523,
+      "best_nonzero_padding": 64,
+      "best_nonzero_us": 128.14335823059082,
+      "speedup_vs_retained": 0.9984017778035775,
+      "speedup_vs_zero_padding": 0.9897714523653504,
+      "all_variants_exact": true,
+      "binary_hashes_unchanged": true
+    },
+    {
+      "field": "mlp.Wo",
+      "retained_us": 253.3580780029297,
+      "stride_aware_zero_padding_us": 252.9689598083496,
+      "best_nonzero_padding": 128,
+      "best_nonzero_us": 253.33759307861325,
+      "speedup_vs_retained": 1.000080860183708,
+      "speedup_vs_zero_padding": 0.9985448931373195,
+      "all_variants_exact": true,
+      "binary_hashes_unchanged": true
+    }
+  ],
+  "arithmetic": "Cloned retained kernels change only weight row addressing. TMA changes descriptor leading stride. Tile geometry, K-loop order, BF16 roundings, GEGLU corrections and split-K reduction are unchanged. MLPWo returns retained BF16 partials for the first 27 layers and reduces the last layer.",
+  "allocation": "All added storage zero initialized and original BF16 values verified bitwise. All paddings preserve 16-byte TMA stride alignment.",
+  "control_note": "Zero-padding clones differ from original timing by less than 1%, showing that copying/reinstantiating alone can change results. No nonzero padding clearly exceeds both controls.",
+  "stop_reason": "The isolated bank did not establish a candidate, so real-activation and full-request gates were not run.",
+  "source_sha256": {
+    "weight_pitch_kernel.py": "fe3cfdab37f8d2433f8254a31ac6c8fba3e5e8fabbe79c1f3187a821e8942da4",
+    "weight_pitch_probe.py": "884016bb51d3a194339287bee58783e0a2a16ca93f22ac01e19c095e561635eb",
+    "matmul.py": "c560a8addba657ddc1101cccddca16850431e4a7b31c3020eac054740a77efd5",
+    "tma.py": "0ebb5c4f14cb13ed975e19ebec1b888d6ce478a8b6d2b16f4e21d8b6005cb69a",
+    "mlp_geglu.py": "8ac6eda13b6ebe2bc8acf203ab35b8ac905b73a48a59207c72dde05bb93e2c98"
+  },
+  "sources_stable": true,
+  "all_binaries_stable": true,
+  "source_result": "results/frontier/weight_pitch-screen.json",
+  "timing_method": "Exclusive experiment lock; separate CUDA graphs per variant, randomized variant order for 9 rounds, 50 replays per sample. Unused row-padding storage initialized to zero."
+}

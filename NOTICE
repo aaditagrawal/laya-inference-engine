@@ -22,6 +22,16 @@ https://github.com/huggingface/transformers/blob/v5.17.0/src/transformers/models
 A copy of the Apache-2.0 terms is in licenses/Apache-2.0.txt.
 Model weights are downloaded separately and are not included in this package.
 
-The optional native LayerNorm experiments adapt PyTorch's Welford reduction
-order under its BSD-3-Clause license. Attribution and the retained license are
-in experiments/native/kernels/NOTICE and pytorch-LICENSE in that directory.
+The optional FastEngine packages native CUDA normalization and attention
+kernels under their retained BSD-3-Clause terms. Its normalization and fused
+reduction follow PyTorch's Welford operation order; its attention kernels
+instantiate pinned PyTorch, CUTLASS and FlashAttention templates. Licenses,
+author lists and revision-specific attribution are included in
+src/laya_blackwell/fast/native/NOTICE.txt and the adjacent license files.
+The package metadata includes BSD-3-Clause alongside MIT and Apache-2.0.
+
+FastEngine's request preparation and native response formatting also adapt
+the Laya SDK protocol under Apache-2.0. Changes include batched Rust
+tokenization, packed host transfers, and native NumPy FP32 formatting loops.
+The model adapter adds exact BF16 projections, matched partial reductions,
+specialized attention and frozen token-local tables, without caching answers.

@@ -1,0 +1,1171 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T10:46:33.991880+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "seed": 20260925,
+  "upstream_revision": "50b72e5520f93cc855f0bd3a0114a7eb97338588",
+  "upstream_url": "https://github.com/cenconq25/Turbo-Lossless",
+  "source_sha256": {
+    "turbo_native.cu": "28f4e7f0d706134105b4a043bc07a3038fdfc0f89b9a9cc83482c0bcf0336c32",
+    "turbo_kernel.cuh": "df6e3a10400a22744443a993d6b87174c3b2995fc12e7825a441520b14c90ccd"
+  },
+  "native_build": {
+    "seconds": 4.124508097069338,
+    "upstream_revision": "50b72e5520f93cc855f0bd3a0114a7eb97338588",
+    "architecture": "sm_120",
+    "source_sha256": {
+      "turbo_native.cu": "28f4e7f0d706134105b4a043bc07a3038fdfc0f89b9a9cc83482c0bcf0336c32",
+      "turbo_kernel.cuh": "df6e3a10400a22744443a993d6b87174c3b2995fc12e7825a441520b14c90ccd"
+    },
+    "library_sha256": "c725c4ce2b99049a219e330c4e8a33308d58ab438e9fe6c05fcebb87fce2582d",
+    "command": [
+      "/usr/local/cuda-13.1/bin/nvcc",
+      "-O3",
+      "-std=c++20",
+      "-gencode=arch=compute_120,code=sm_120",
+      "--compiler-options",
+      "-fPIC",
+      "--ptxas-options=-v",
+      "-shared",
+      "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/turbo_native.cu",
+      "-L/usr/local/cuda-13.1/lib64",
+      "-lcudart",
+      "-lcuda",
+      "-o",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-turbo-lossless/turbo_lossless.so"
+    ]
+  },
+  "all_65536_bf16_patterns_decoded_exactly": true,
+  "exhaustive_patterns_escape_count": 61696,
+  "method": "28 distinct real matrices and independent random BF16 activations. Exact sparse escape replacement before MMA. CUDA graph replay. MLPWo preserves split-4 BF16 partial rounding. Unsafe skip-escape controls are measured separately and cannot be retained.",
+  "rows": [
+    {
+      "field": "attn.Wqkv",
+      "variant": "retained-bf16",
+      "ms": 0.2822208086649577,
+      "samples_ms": [
+        0.2832074801127116,
+        0.2823605219523112,
+        0.2821386655171712,
+        0.2814581235249837,
+        0.2822208086649577
+      ]
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "exact-escapes",
+      "token_tile": 16,
+      "weight_tile": 32,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.805841064453125,
+      "samples_ms": [
+        0.8064138412475585,
+        0.8039168039957683,
+        0.8041226704915364,
+        0.805841064453125,
+        0.8060351689656575
+      ],
+      "speedup_retained": 0.3502189465319488
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 16,
+      "weight_tile": 64,
+      "mismatches": 62975,
+      "max_abs_error": 8.5625,
+      "ms": 0.433132807413737,
+      "samples_ms": [
+        0.4345568021138509,
+        0.43311894734700523,
+        0.4330026626586914,
+        0.4333354632059733,
+        0.433132807413737
+      ],
+      "speedup_retained": 0.6515803093977474
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "exact-escapes",
+      "token_tile": 64,
+      "weight_tile": 64,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.8513055801391601,
+      "samples_ms": [
+        0.8513055801391601,
+        0.8520650863647461,
+        0.8522549311319987,
+        0.8499605178833007,
+        0.8501248041788737
+      ],
+      "speedup_retained": 0.3315152810566847
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 64,
+      "weight_tile": 32,
+      "mismatches": 62975,
+      "max_abs_error": 8.5625,
+      "ms": 0.39263572692871096,
+      "samples_ms": [
+        0.3934048016866048,
+        0.39266347885131836,
+        0.39263572692871096,
+        0.39213441212972006,
+        0.39222081502278644
+      ],
+      "speedup_retained": 0.7187853506672846
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 32,
+      "weight_tile": 64,
+      "mismatches": 62975,
+      "max_abs_error": 8.5625,
+      "ms": 0.4065365473429362,
+      "samples_ms": [
+        0.40778878529866536,
+        0.40641387303670246,
+        0.4058506647745768,
+        0.40688746770222983,
+        0.4065365473429362
+      ],
+      "speedup_retained": 0.6942077176320601
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 64,
+      "weight_tile": 64,
+      "mismatches": 62975,
+      "max_abs_error": 8.5625,
+      "ms": 0.43692267735799156,
+      "samples_ms": [
+        0.43772586186726886,
+        0.4367871920267741,
+        0.43676799138387046,
+        0.43692267735799156,
+        0.4374357223510742
+      ],
+      "speedup_retained": 0.6459284978557447
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "exact-escapes",
+      "token_tile": 32,
+      "weight_tile": 32,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7843242645263672,
+      "samples_ms": [
+        0.7843242645263672,
+        0.7830240249633789,
+        0.7833695729573568,
+        0.7846890767415364,
+        0.7852725346883138
+      ],
+      "speedup_retained": 0.3598266959589519
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "exact-escapes",
+      "token_tile": 32,
+      "weight_tile": 64,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.8085290908813476,
+      "samples_ms": [
+        0.8097248077392578,
+        0.8081322352091471,
+        0.8085290908813476,
+        0.8086901346842448,
+        0.808521588643392
+      ],
+      "speedup_retained": 0.3490546126884801
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 16,
+      "weight_tile": 32,
+      "mismatches": 62975,
+      "max_abs_error": 8.5625,
+      "ms": 0.4341557184855143,
+      "samples_ms": [
+        0.4365322748819987,
+        0.4342848141988119,
+        0.4333237330118815,
+        0.4340330759684245,
+        0.4341557184855143
+      ],
+      "speedup_retained": 0.6500451258581638
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "exact-escapes",
+      "token_tile": 64,
+      "weight_tile": 32,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.8121482849121093,
+      "samples_ms": [
+        0.8119605382283529,
+        0.8124789555867513,
+        0.8121482849121093,
+        0.8124095916748046,
+        0.8121397018432617
+      ],
+      "speedup_retained": 0.3474991130412836
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "exact-escapes",
+      "token_tile": 16,
+      "weight_tile": 64,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.8263530731201172,
+      "samples_ms": [
+        0.8283840179443359,
+        0.826144027709961,
+        0.8263530731201172,
+        0.8264479955037435,
+        0.8260533650716145
+      ],
+      "speedup_retained": 0.34152569627333446
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 32,
+      "weight_tile": 32,
+      "mismatches": 62975,
+      "max_abs_error": 8.5625,
+      "ms": 0.4015040079752604,
+      "samples_ms": [
+        0.4025962511698405,
+        0.4013162612915039,
+        0.4015040079752604,
+        0.4017418543497721,
+        0.4010623931884766
+      ],
+      "speedup_retained": 0.7029090695461934
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "retained-bf16",
+      "ms": 0.12788480122884113,
+      "samples_ms": [
+        0.12850773334503174,
+        0.12782506942749022,
+        0.12788480122884113,
+        0.12787840366363526,
+        0.12799572944641113
+      ]
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "exact-escapes",
+      "token_tile": 16,
+      "weight_tile": 32,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.641755739847819,
+      "samples_ms": [
+        0.6417919794718424,
+        0.641755739847819,
+        0.6413354873657227,
+        0.6414655685424805,
+        0.6420597076416016
+      ],
+      "speedup_retained": 0.19927332673201606
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 16,
+      "weight_tile": 64,
+      "mismatches": 15138,
+      "max_abs_error": 15.046875,
+      "ms": 0.31807146072387693,
+      "samples_ms": [
+        0.31845547358194987,
+        0.3181461334228516,
+        0.31807146072387693,
+        0.31804052988688153,
+        0.31780694325764974
+      ],
+      "speedup_retained": 0.402063111659867
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "exact-escapes",
+      "token_tile": 64,
+      "weight_tile": 64,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7903615951538085,
+      "samples_ms": [
+        0.7903615951538085,
+        0.7904789606730144,
+        0.7901994705200195,
+        0.7902495702107747,
+        0.7907936096191406
+      ],
+      "speedup_retained": 0.1618054343897543
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 64,
+      "weight_tile": 32,
+      "mismatches": 15138,
+      "max_abs_error": 15.046875,
+      "ms": 0.3594271977742513,
+      "samples_ms": [
+        0.35995200475056965,
+        0.3593088150024414,
+        0.35952746073404945,
+        0.3590858777364095,
+        0.3594271977742513
+      ],
+      "speedup_retained": 0.355801681177068
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 32,
+      "weight_tile": 64,
+      "mismatches": 15138,
+      "max_abs_error": 15.046875,
+      "ms": 0.3272608121236165,
+      "samples_ms": [
+        0.3272608121236165,
+        0.3272447903951009,
+        0.32791999181111653,
+        0.32720108032226564,
+        0.32768640518188474
+      ],
+      "speedup_retained": 0.3907733419072953
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 64,
+      "weight_tile": 64,
+      "mismatches": 15138,
+      "max_abs_error": 15.046875,
+      "ms": 0.38281386693318686,
+      "samples_ms": [
+        0.38313172658284506,
+        0.3827733357747396,
+        0.3828842798868815,
+        0.38281386693318686,
+        0.38280747731526693
+      ],
+      "speedup_retained": 0.3340652266683983
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "exact-escapes",
+      "token_tile": 32,
+      "weight_tile": 32,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.6845770517985026,
+      "samples_ms": [
+        0.6848618825276692,
+        0.6845866521199544,
+        0.6844682693481445,
+        0.6845770517985026,
+        0.6844906489054362
+      ],
+      "speedup_retained": 0.18680848400171404
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "exact-escapes",
+      "token_tile": 32,
+      "weight_tile": 64,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7110080083211263,
+      "samples_ms": [
+        0.7110080083211263,
+        0.7113845189412434,
+        0.7106271743774414,
+        0.7109034856160482,
+        0.7110698699951172
+      ],
+      "speedup_retained": 0.1798640799149509
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 16,
+      "weight_tile": 32,
+      "mismatches": 15138,
+      "max_abs_error": 15.046875,
+      "ms": 0.30586986541748046,
+      "samples_ms": [
+        0.3066901206970215,
+        0.30606826146443683,
+        0.30548054377237954,
+        0.3053375879923503,
+        0.30586986541748046
+      ],
+      "speedup_retained": 0.4181019959396514
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "exact-escapes",
+      "token_tile": 64,
+      "weight_tile": 32,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7682015736897786,
+      "samples_ms": [
+        0.7678645451863607,
+        0.768182373046875,
+        0.7682090759277344,
+        0.7682015736897786,
+        0.7682229359944661
+      ],
+      "speedup_retained": 0.16647297481387954
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "exact-escapes",
+      "token_tile": 16,
+      "weight_tile": 64,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.6514154434204101,
+      "samples_ms": [
+        0.6515402475992839,
+        0.6518271764119467,
+        0.6514154434204101,
+        0.6512906392415364,
+        0.6510815938313802
+      ],
+      "speedup_retained": 0.1963183441850133
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 32,
+      "weight_tile": 32,
+      "mismatches": 15138,
+      "max_abs_error": 15.046875,
+      "ms": 0.3226666768391927,
+      "samples_ms": [
+        0.3229898770650228,
+        0.32233705520629885,
+        0.3226666768391927,
+        0.3228864034016927,
+        0.3226037343343099
+      ],
+      "speedup_retained": 0.39633718139594265
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "retained-bf16",
+      "ms": 0.44482027689615883,
+      "samples_ms": [
+        0.44482027689615883,
+        0.44459625879923503,
+        0.4446762720743815,
+        0.4450442632039388,
+        0.4453397432963053
+      ]
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "exact-escapes",
+      "token_tile": 16,
+      "weight_tile": 32,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.5122997283935546,
+      "samples_ms": [
+        1.5106005350748697,
+        1.5106207529703777,
+        1.5126687367757161,
+        1.5122997283935546,
+        1.5127403259277343
+      ],
+      "speedup_retained": 0.29413499754355615
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 16,
+      "weight_tile": 64,
+      "mismatches": 46632,
+      "max_abs_error": 30.8125,
+      "ms": 0.6433322906494141,
+      "samples_ms": [
+        0.6448544184366862,
+        0.6432778676350911,
+        0.6433322906494141,
+        0.6429482777913411,
+        0.6441439946492513
+      ],
+      "speedup_retained": 0.6914316028613042
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "exact-escapes",
+      "token_tile": 64,
+      "weight_tile": 64,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.0377589543660481,
+      "samples_ms": [
+        1.0459701538085937,
+        1.0380490620930989,
+        1.0377461115519206,
+        1.0377589543660481,
+        1.0375743865966798
+      ],
+      "speedup_retained": 0.428635450481748
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 64,
+      "weight_tile": 32,
+      "mismatches": 46632,
+      "max_abs_error": 30.8125,
+      "ms": 0.5296383857727051,
+      "samples_ms": [
+        0.5319274584452311,
+        0.5302666664123535,
+        0.5296383857727051,
+        0.5292405446370443,
+        0.5294538815816243
+      ],
+      "speedup_retained": 0.8398565678867808
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 32,
+      "weight_tile": 64,
+      "mismatches": 46632,
+      "max_abs_error": 30.8125,
+      "ms": 0.5089322725931803,
+      "samples_ms": [
+        0.5101333300272624,
+        0.5089322725931803,
+        0.5090218544006347,
+        0.508784008026123,
+        0.5087168057759602
+      ],
+      "speedup_retained": 0.8740264684525715
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 64,
+      "weight_tile": 64,
+      "mismatches": 46632,
+      "max_abs_error": 30.8125,
+      "ms": 0.5354730606079101,
+      "samples_ms": [
+        0.5369269053141276,
+        0.5354901631673177,
+        0.5354730606079101,
+        0.5349184036254883,
+        0.5354431788126628
+      ],
+      "speedup_retained": 0.8307052391975887
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "exact-escapes",
+      "token_tile": 32,
+      "weight_tile": 32,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.9963338851928711,
+      "samples_ms": [
+        0.9977589289347331,
+        0.9961237589518229,
+        0.9963338851928711,
+        0.9947562535603841,
+        0.9966271718343099
+      ],
+      "speedup_retained": 0.4464570396600033
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "exact-escapes",
+      "token_tile": 32,
+      "weight_tile": 64,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.0043413162231445,
+      "samples_ms": [
+        1.0057717641194661,
+        1.0033717473347983,
+        1.003550910949707,
+        1.0043413162231445,
+        1.004807472229004
+      ],
+      "speedup_retained": 0.4428975187129797
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 16,
+      "weight_tile": 32,
+      "mismatches": 46632,
+      "max_abs_error": 30.8125,
+      "ms": 0.8091424306233724,
+      "samples_ms": [
+        0.8103157043457031,
+        0.8091424306233724,
+        0.8086463928222656,
+        0.8084949493408203,
+        0.8094090779622396
+      ],
+      "speedup_retained": 0.5497428636308991
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "exact-escapes",
+      "token_tile": 64,
+      "weight_tile": 32,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.0123594919840495,
+      "samples_ms": [
+        1.012277348836263,
+        1.0128789265950522,
+        1.0126080195109048,
+        1.0116586685180664,
+        1.0123594919840495
+      ],
+      "speedup_retained": 0.43938964411188364
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "exact-escapes",
+      "token_tile": 16,
+      "weight_tile": 64,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.542090606689453,
+      "samples_ms": [
+        1.5435146331787108,
+        1.5413717905680338,
+        1.5422196706136069,
+        1.542090606689453,
+        1.5413450876871744
+      ],
+      "speedup_retained": 0.28845275041983115
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 32,
+      "weight_tile": 32,
+      "mismatches": 46632,
+      "max_abs_error": 30.8125,
+      "ms": 0.5291573206583658,
+      "samples_ms": [
+        0.5305429458618164,
+        0.5291573206583658,
+        0.5292213439941407,
+        0.5290656089782715,
+        0.5290261268615722
+      ],
+      "speedup_retained": 0.840620094498028
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "retained-bf16",
+      "ms": 0.26472533543904625,
+      "samples_ms": [
+        0.26530772844950357,
+        0.2649610678354899,
+        0.2647007942199707,
+        0.26460800170898435,
+        0.26472533543904625
+      ]
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "exact-escapes",
+      "token_tile": 16,
+      "weight_tile": 32,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.9215189615885416,
+      "samples_ms": [
+        0.9213493347167969,
+        0.9192832310994467,
+        0.9215189615885416,
+        0.9221504211425782,
+        0.921832529703776
+      ],
+      "speedup_retained": 0.2872706330238771
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 16,
+      "weight_tile": 64,
+      "mismatches": 15432,
+      "max_abs_error": 34.125,
+      "ms": 0.4158207893371582,
+      "samples_ms": [
+        0.4168618520100911,
+        0.41602986653645835,
+        0.41571839650472003,
+        0.4158207893371582,
+        0.41578985850016276
+      ],
+      "speedup_retained": 0.6366332377489672
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "exact-escapes",
+      "token_tile": 64,
+      "weight_tile": 64,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.9223967870076497,
+      "samples_ms": [
+        0.9222911834716797,
+        0.9223061243693034,
+        0.922711435953776,
+        0.9226175944010416,
+        0.9223967870076497
+      ],
+      "speedup_retained": 0.2869972436676005
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 64,
+      "weight_tile": 32,
+      "mismatches": 15432,
+      "max_abs_error": 34.125,
+      "ms": 0.35035200119018556,
+      "samples_ms": [
+        0.35170987447102864,
+        0.35027945836385094,
+        0.35018558502197267,
+        0.3513845443725586,
+        0.35035200119018556
+      ],
+      "speedup_retained": 0.7555981827982835
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 32,
+      "weight_tile": 64,
+      "mismatches": 15432,
+      "max_abs_error": 34.125,
+      "ms": 0.3559125264485677,
+      "samples_ms": [
+        0.3564501444498698,
+        0.3559125264485677,
+        0.3559658686319987,
+        0.3548543930053711,
+        0.3553536097208659
+      ],
+      "speedup_retained": 0.743793251899779
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 64,
+      "weight_tile": 64,
+      "mismatches": 15432,
+      "max_abs_error": 34.125,
+      "ms": 0.39009599685668944,
+      "samples_ms": [
+        0.3904213269551595,
+        0.39009599685668944,
+        0.39004799524943035,
+        0.39004265467325844,
+        0.3901439984639486
+      ],
+      "speedup_retained": 0.6786158729444719
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "exact-escapes",
+      "token_tile": 32,
+      "weight_tile": 32,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.8911178588867188,
+      "samples_ms": [
+        0.8915253321329752,
+        0.8909514745076498,
+        0.8912799835205079,
+        0.8911178588867188,
+        0.891103998819987
+      ],
+      "speedup_retained": 0.297071069555008
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "exact-escapes",
+      "token_tile": 32,
+      "weight_tile": 64,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.8897557576497396,
+      "samples_ms": [
+        0.8913792292277019,
+        0.8897557576497396,
+        0.889568010965983,
+        0.8897471745808919,
+        0.8898858388264974
+      ],
+      "speedup_retained": 0.29752584702380513
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 16,
+      "weight_tile": 32,
+      "mismatches": 15432,
+      "max_abs_error": 34.125,
+      "ms": 0.42937920888264974,
+      "samples_ms": [
+        0.4302751859029134,
+        0.4294133186340332,
+        0.4293205261230469,
+        0.429095458984375,
+        0.42937920888264974
+      ],
+      "speedup_retained": 0.6165304000813795
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "exact-escapes",
+      "token_tile": 64,
+      "weight_tile": 32,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.9164639790852864,
+      "samples_ms": [
+        0.9166837056477865,
+        0.9164255777994792,
+        0.9164639790852864,
+        0.9165578842163086,
+        0.9164480209350586
+      ],
+      "speedup_retained": 0.28885514486152086
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "exact-escapes",
+      "token_tile": 16,
+      "weight_tile": 64,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.921841049194336,
+      "samples_ms": [
+        0.9244021097819011,
+        0.9215402603149414,
+        0.921841049194336,
+        0.9221077601114909,
+        0.9216970443725586
+      ],
+      "speedup_retained": 0.28717026180425465
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 32,
+      "weight_tile": 32,
+      "mismatches": 15432,
+      "max_abs_error": 34.125,
+      "ms": 0.35823361078898114,
+      "samples_ms": [
+        0.3592970530192057,
+        0.35812479654947915,
+        0.35823361078898114,
+        0.3584159851074219,
+        0.3582090695699056
+      ],
+      "speedup_retained": 0.7389740310966625
+    }
+  ],
+  "baseline_selection": {
+    "attn.Wqkv": {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "variant": "tma",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.2824053366978963,
+      "samples_ms": [
+        0.2842533389727275,
+        0.2824053366978963,
+        0.2823973298072815
+      ],
+      "speedup": 1.1323865060223333,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r15];",
+      "shared_bytes": 36888
+    },
+    "attn.Wo": {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        5
+      ],
+      "variant": "bf16",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.12824533383051553,
+      "samples_ms": [
+        0.129530668258667,
+        0.12824533383051553,
+        0.12781866391499838
+      ],
+      "speedup": 1.5529402232354563
+    },
+    "mlp.Wi": {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "bf16",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.44487198193868,
+      "samples_ms": [
+        0.4462960163752238,
+        0.4447973171869914,
+        0.44487198193868
+      ],
+      "speedup": 1.1813076064907817
+    },
+    "mlp.Wo": {
+      "field": "mlp.Wo",
+      "variant": "bf16-partial",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.26548266410827637,
+      "samples_ms": [
+        0.2674853404362996,
+        0.26548266410827637,
+        0.26505066951115924
+      ],
+      "speedup": 1.1396902301869904
+    }
+  },
+  "packing": {
+    "attn.Wqkv": {
+      "matrices": 28,
+      "all_decoded_exactly": true,
+      "escape_count": 19027,
+      "storage_bytes": 132578914,
+      "original_bytes": 176160768,
+      "base_exponents": [
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110
+      ]
+    },
+    "attn.Wo": {
+      "matrices": 28,
+      "all_decoded_exactly": true,
+      "escape_count": 5883,
+      "storage_bytes": 44190290,
+      "original_bytes": 58720256,
+      "base_exponents": [
+        109,
+        109,
+        110,
+        110,
+        110,
+        109,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110
+      ]
+    },
+    "mlp.Wi": {
+      "matrices": 28,
+      "all_decoded_exactly": true,
+      "escape_count": 29949,
+      "storage_bytes": 226473566,
+      "original_bytes": 300941312,
+      "base_exponents": [
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110
+      ]
+    },
+    "mlp.Wo": {
+      "matrices": 28,
+      "all_decoded_exactly": true,
+      "escape_count": 17024,
+      "storage_bytes": 113069936,
+      "original_bytes": 150470656,
+      "base_exponents": [
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110
+      ]
+    }
+  },
+  "upstream_escape_handling_audit": {
+    "v3_kernel_reads_patch_arrays": false,
+    "upstream_engine_applies_output_corrections_separately": true,
+    "local_adaptation": "Sparse escaped weights are reconstructed before MMA, preserving the retained BF16/FP32 accumulation and split-K rounding.",
+    "unsafe_controls": "Deliberately omit sparse escape replacement to bound this TMA pipeline. They are not the complete upstream engine and are not eligible for integration."
+  },
+  "python_source_sha256": {
+    "turbo_build.py": "18f85365a8eddf70aec0b52abbdba09bf06f12197b885e78e63f144b2f3537af",
+    "turbo_lossless.py": "a0ee53efe234ef4e488685b38f244bb544801cbccea20035e42182fafd3e7f68",
+    "turbo_probe.py": "a45ebe72b7cc5243f833fdd68192b028b296cd4e597fa00a725fe18034f15a81"
+  },
+  "conclusion": "All tested exact variants are slower than the retained kernels. No engine integration or full-request speed claim."
+}

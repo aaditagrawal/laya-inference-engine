@@ -1,0 +1,102 @@
+{
+  "verdict": "Keep mapped output stores as an optional experiment. Leave the retained constructor unchanged: the fixed request has no measurable improvement; changing inputs show a modest benefit.",
+  "scope": "Output-only mapping replaces two captured D2H copies with one bit-preserving Triton store kernel. Input staging remains one packed DMA copy; model arithmetic, host preparation and formatting are unchanged.",
+  "isolated_confirmed_short_us": {
+    "dma": 7.68,
+    "mapped_output": 7.1,
+    "median_paired_saving": 0.58,
+    "faster_rounds": "11/11",
+    "note": "Native replay plus synchronization around I/O and a tiny dependency-control kernel. This is not full-model latency. CUDA-event diagnostics are not an exposed-latency bound."
+  },
+  "full_request": {
+    "1-short": {
+      "p50_ms": {
+        "retained": 1.6082184738479555,
+        "mapped-output": 1.6083989758044481
+      },
+      "median_paired_saving_ms": 7.596099749207497e-05,
+      "faster_rounds": 6
+    },
+    "1-long": {
+      "p50_ms": {
+        "retained": 6.953007483389229,
+        "mapped-output": 6.949777482077479
+      },
+      "median_paired_saving_ms": -0.0001644948497414589,
+      "faster_rounds": 5
+    },
+    "16-short": {
+      "p50_ms": {
+        "retained": 10.571467049885541,
+        "mapped-output": 10.569907492026687
+      },
+      "median_paired_saving_ms": 0.010789604857563972,
+      "faster_rounds": 7
+    },
+    "changing": {
+      "p50_ms": {
+        "retained": 1.641779,
+        "mapped-output": 1.6371635
+      },
+      "median_paired_saving_ms": 0.003039500000000084,
+      "faster_rounds": 10
+    }
+  },
+  "validation": {
+    "requests": 197,
+    "decisions": 354,
+    "prepared_raw_and_public_exact": true,
+    "owned_outputs": true,
+    "poisoned_control_and_cpu_expected_bits": true,
+    "standalone_close_recreate_slots": 15,
+    "full_lifecycle": {
+      "evicted_owners_expired": 4,
+      "all_six_owners_expired_after_close": true,
+      "owned_arrays_unchanged": true,
+      "unique_live_capture_streams": true,
+      "idempotent_close": true,
+      "closed_request_rejected": true,
+      "recreated_adapter_exact": true,
+      "capture_handles": [
+        1291257744,
+        2408005968,
+        1291257744,
+        1447011296,
+        2166609040,
+        1455872944
+      ]
+    },
+    "concurrent": {
+      "workers": 4,
+      "calls": 44,
+      "all_exact": true
+    }
+  },
+  "rejected_variant": "Mapped input plus mapped output was slower than DMA for the isolated short workload, despite lower CUDA-event timing. It was not taken to full inference.",
+  "development_history": {
+    "report": "results/frontier/mapped-io-development.json",
+    "initial_abort": "A probe destroyed external streams before releasing all pinned views. Correcting destruction order fixed the abort. Original error excerpt is preserved; original source is explicitly reconstructed, not archived.",
+    "historical_successful_sources": ".research/mapped-io-history/before-poison-controls",
+    "strengthened_validation": "Earlier shared buffers allowed a previous DMA mode to hide a stale mapped operation. Fresh results poison host/device/output buffers before each mode and compare independent CPU bits. Historical reports remain unchanged."
+  },
+  "cuda_reference": {
+    "url": "https://docs.nvidia.com/cuda/archive/13.0.0/cuda-c-programming-guide/index.html#mapped-memory",
+    "application": "Use stream synchronization to order CPU/GPU accesses to mapped pinned memory; the existing native Session synchronizes before Python sees output."
+  },
+  "report_hashes": {
+    "results/frontier/mapped-io-poison.json": "512926b998dde8f4bef00b13289ff243dce25a89a3bda6b7c623f0e6d8b0f31d",
+    "results/frontier/mapped-io-lifetime-poison.json": "dd52c1229c4346ede3bf152f26d6c2ab053ebdf475d1fc35594f1d179294a1ac",
+    "results/frontier/mapped-io-full.json": "559d54b3af7dac31b3eec17546059771211d7007ae4e24f77b32e00d9434b18e",
+    "results/frontier/mapped-io-development.json": "034f430996b1eaa2e077e2d6806fc286926238cf46b208056edec3255080823d"
+  },
+  "source_hashes": {
+    "experiments/frontier/mapped_io.py": "fd504db9d3f392be0b185899448374778499b2ebd30ec50742e68e34e808c54a",
+    "experiments/frontier/mapped_io_adapter.py": "4b70b068c3bbb0b6eeb18b0479776b521438d8a241b3625665464c70d202e796",
+    "experiments/frontier/mapped_io_full.py": "dd0a3b47cfb29205a96aad556e78e7c4927edae591206b56fbd32c97379fb711",
+    "experiments/frontier/mapped_io_lifetime.py": "e70d9644638374ba2b89262dcae64a2cf1c9ad41be92d640cf0d260cef6ac297",
+    "experiments/frontier/mapped_io_probe.py": "f0c27a2b172d55852c9c806952255b891bd45daa7ca46ea397803d6220ea206e"
+  },
+  "native_libraries_verified": 7,
+  "retained_sources_modified": false,
+  "jobs_running": false
+}

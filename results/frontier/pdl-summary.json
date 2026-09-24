@@ -1,0 +1,185 @@
+{
+  "decision": "Do not integrate these PDL variants; all are slower in paired full-request medians.",
+  "scope": "128 changing single-short synthetic requests, exact logits/actions. Nine paired rounds each; fixed requests include tokenization, packing, copies, graph execution and formatting. No concurrent GPU or CPU benchmark activity under exclusive flock.",
+  "variants": {
+    "late": {
+      "source_result": "results/frontier/pdl.json",
+      "baseline_constructor": {
+        "policy": "bf16-splitk-exact-short-compiled",
+        "attention": "native",
+        "fuse_reduce_norm": true,
+        "token_tables": true,
+        "fuse_mlp_geglu": true,
+        "mlp_geglu_unpacked": true,
+        "head_kernels": true,
+        "host_prepare": "batch",
+        "attention_special": true
+      },
+      "parity_requests": 128,
+      "programmatic_edges": 290,
+      "compiled_specializations": 10,
+      "summary": {
+        "fixed": {
+          "median_ms": {
+            "retained": 1.72176503110677,
+            "pdl": 1.7495149513706565
+          },
+          "paired_savings_ms": [
+            -0.03512995317578316,
+            -0.026040070224553347,
+            -0.032030511647462845,
+            -0.029665010515600443,
+            -0.027395552024245262,
+            -0.027779547963291407,
+            -0.04924996756017208,
+            -0.013715587556362152,
+            -0.022640509996563196
+          ],
+          "faster_rounds": 0
+        },
+        "changing": {
+          "median_ms": {
+            "retained": 1.7496199579909444,
+            "pdl": 1.7656050622463226
+          },
+          "paired_savings_ms": [
+            -0.03490049857646227,
+            -0.025595538318157196,
+            0.018619990441948175,
+            -0.006545044016093016,
+            -0.07177551742643118,
+            -0.02018548548221588,
+            -0.006119429599493742,
+            -0.024810025934129953,
+            -0.00016507692635059357
+          ],
+          "faster_rounds": 1
+        }
+      }
+    },
+    "early": {
+      "source_result": "results/frontier/pdl.json",
+      "baseline_constructor": {
+        "policy": "bf16-splitk-exact-short-compiled",
+        "attention": "native",
+        "fuse_reduce_norm": true,
+        "token_tables": true,
+        "fuse_mlp_geglu": true,
+        "mlp_geglu_unpacked": true,
+        "head_kernels": true,
+        "host_prepare": "batch",
+        "attention_special": true
+      },
+      "parity_requests": 128,
+      "programmatic_edges": 290,
+      "compiled_specializations": 10,
+      "summary": {
+        "fixed": {
+          "median_ms": {
+            "retained": 1.7332699499092996,
+            "pdl": 1.7578300321474671
+          },
+          "paired_savings_ms": [
+            -0.03918056609109044,
+            -0.02298050094395876,
+            -0.01314998371526599,
+            -0.027514994144439697,
+            -0.03778556128963828,
+            -0.03262603422626853,
+            0.0017900019884109497,
+            -0.025979941710829735,
+            -0.020694918930530548
+          ],
+          "faster_rounds": 1
+        },
+        "changing": {
+          "median_ms": {
+            "retained": 1.7397650517523289,
+            "pdl": 1.7544900183565915
+          },
+          "paired_savings_ms": [
+            -0.004550034645944834,
+            -0.02015003701671958,
+            -0.01675501698628068,
+            -0.019770523067563772,
+            -0.05368090933188796,
+            -0.00992452260106802,
+            -0.013599928934127092,
+            -0.010809511877596378,
+            -0.01714500831440091
+          ],
+          "faster_rounds": 0
+        }
+      }
+    },
+    "preload": {
+      "source_result": "results/frontier/pdl-preload.json",
+      "baseline_constructor": {
+        "policy": "bf16-splitk-exact-short-compiled",
+        "attention": "native",
+        "fuse_reduce_norm": true,
+        "token_tables": true,
+        "fuse_mlp_geglu": true,
+        "mlp_geglu_unpacked": true,
+        "head_kernels": true,
+        "host_prepare": "batch",
+        "attention_special": true
+      },
+      "parity_requests": 128,
+      "programmatic_edges": 290,
+      "compiled_specializations": 10,
+      "summary": {
+        "fixed": {
+          "median_ms": {
+            "retained": 1.7256150022149086,
+            "pdl": 2.1920830477029085
+          },
+          "paired_savings_ms": [
+            -0.45864691492170095,
+            -0.4661179846152663,
+            -0.4798229783773422,
+            -0.46241754898801446,
+            -0.4665024462155998,
+            -0.46099250903353095,
+            -0.4769724328070879,
+            -0.4686475149355829,
+            -0.46392803778871894
+          ],
+          "faster_rounds": 0
+        },
+        "changing": {
+          "median_ms": {
+            "retained": 1.7346699023619294,
+            "pdl": 2.1964320330880582
+          },
+          "paired_savings_ms": [
+            -0.47247292241081595,
+            -0.46159198973327875,
+            -0.4319620202295482,
+            -0.46637747436761856,
+            -0.4604320274665952,
+            -0.4614279023371637,
+            -0.4518675268627703,
+            -0.4648730391636491,
+            -0.4646721063181758
+          ],
+          "faster_rounds": 0
+        }
+      }
+    }
+  },
+  "artifacts": {
+    "results/frontier/pdl.json": "d3b7e0b4b478e1198f7d347ad22101d09046dff4d7129f513de783e9bce4e498",
+    "results/frontier/pdl-preload.json": "687deb718d225dced347880eb5eb9c8d1d77de5f75956c130c9d3d42f320d5c3"
+  },
+  "current_source_sha256": {
+    "experiments/frontier/pdl_kernels.py": "f41a6dcc741b6ed059ec1953aa3ba37d2248497da81ab13c6a80678dde88fbbf",
+    "experiments/frontier/pdl_probe.py": "c80f9ac011313cd32b1c6f3a7b96faf229b2f883703fe9dcb5d582971ceb6794"
+  },
+  "notes": [
+    "Original late/early run completed both modes before preload was rejected by an overly strict label-location audit. The pre-launch audit was corrected to recognize indented scoped PTX labels, and preload was run separately. No generated kernel arithmetic changed.",
+    "The preload variant adds a first-weight-tile load and loop reuse before waiting. It increases registers and changes the compiler software pipeline; this negative result applies to these tested implementations, not every possible PDL design.",
+    "Every PDL destination uses griddepcontrol.wait before dependent loads. Pre-wait loads in preload are traced to the independent W pointer or W tensor descriptor in emitted PTX; compile hooks audit before initial launch. Graph edges are created by launch_pdl, not manually rewritten.",
+    "Retained baseline graph cache identities do not change during patched candidate contexts, and baseline graph audits contain zero PDL kernels or programmatic edges."
+  ]
+}

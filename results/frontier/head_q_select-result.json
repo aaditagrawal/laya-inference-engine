@@ -1,0 +1,352 @@
+{
+  "decision": "not retained: isolated gain, inconsistent full-request benefit and holdout regression",
+  "implementation": "Single Triton launch projects compact selected Q and full K/V. The unused packed Q region is zeroed by K CTAs. K/V tensor strides, FP32 K accumulation, BF16 bias/output rounding, and downstream attention dispatch are preserved.",
+  "selected_variant": {
+    "BM": 32,
+    "BN": 64,
+    "BK": 64,
+    "split": 1,
+    "warps": 4,
+    "stages": 3
+  },
+  "screen": {
+    "eligible_real_requests": 154,
+    "variants": [
+      {
+        "bm": 32,
+        "all_exact": true,
+        "unused_zero": true,
+        "timings": {
+          "full": {
+            "projection_reference": {
+              "ms": 0.012359999418258667,
+              "samples_ms": [
+                0.012438080310821532,
+                0.012359999418258667,
+                0.012341760396957398,
+                0.012364159822463989,
+                0.012361600399017333,
+                0.012352639436721801,
+                0.012331839799880982
+              ]
+            },
+            "projection_candidate": {
+              "ms": 0.010267839431762696,
+              "samples_ms": [
+                0.01032032012939453,
+                0.01026911973953247,
+                0.010262399911880493,
+                0.010265599489212036,
+                0.010268160104751588,
+                0.01026304006576538,
+                0.010267839431762696
+              ]
+            },
+            "chain_reference": {
+              "ms": 0.045083842277526855,
+              "samples_ms": [
+                0.04517504215240478,
+                0.045083842277526855,
+                0.04508063793182373,
+                0.04507999897003174,
+                0.045089921951293944,
+                0.04509024143218994,
+                0.04507872104644775
+              ]
+            },
+            "chain_candidate": {
+              "ms": 0.04102431774139404,
+              "samples_ms": [
+                0.041094398498535155,
+                0.04100895881652832,
+                0.041063361167907715,
+                0.04104832172393799,
+                0.04102431774139404,
+                0.04101888179779053,
+                0.04100128173828125
+              ]
+            }
+          },
+          "padded": {
+            "projection_reference": {
+              "ms": 0.012346880435943603,
+              "samples_ms": [
+                0.01238495945930481,
+                0.012351360321044922,
+                0.012343360185623169,
+                0.012344000339508056,
+                0.012346880435943603,
+                0.012349439859390259,
+                0.012333439588546753
+              ]
+            },
+            "projection_candidate": {
+              "ms": 0.010280959606170655,
+              "samples_ms": [
+                0.010316799879074096,
+                0.010280959606170655,
+                0.010270400047302246,
+                0.010271040201187133,
+                0.010282880067825318,
+                0.010288959741592408,
+                0.01026911973953247
+              ]
+            },
+            "chain_reference": {
+              "ms": 0.045089921951293944,
+              "samples_ms": [
+                0.045176639556884765,
+                0.04509503841400146,
+                0.04509471893310547,
+                0.04508895874023437,
+                0.04507904052734375,
+                0.045083198547363285,
+                0.045089921951293944
+              ]
+            },
+            "chain_candidate": {
+              "ms": 0.04100192070007324,
+              "samples_ms": [
+                0.04109055995941162,
+                0.04102431774139404,
+                0.041011838912963866,
+                0.040986242294311526,
+                0.04100192070007324,
+                0.04098176002502441,
+                0.040984001159667965
+              ]
+            }
+          }
+        }
+      },
+      {
+        "bm": 16,
+        "all_exact": true,
+        "unused_zero": true,
+        "timings": {
+          "full": {
+            "projection_reference": {
+              "ms": 0.0123471999168396,
+              "samples_ms": [
+                0.012418880462646484,
+                0.01235103964805603,
+                0.012331199645996094,
+                0.012357759475708007,
+                0.0123471999168396,
+                0.012341760396957398,
+                0.012338559627532959
+              ]
+            },
+            "projection_candidate": {
+              "ms": 0.010287679433822632,
+              "samples_ms": [
+                0.010313919782638549,
+                0.010301120281219482,
+                0.010271999835968017,
+                0.01029536008834839,
+                0.010287359952926636,
+                0.010287679433822632,
+                0.010287679433822632
+              ]
+            },
+            "chain_reference": {
+              "ms": 0.045090560913085935,
+              "samples_ms": [
+                0.04516640186309814,
+                0.04510719776153564,
+                0.04509823799133301,
+                0.045090560913085935,
+                0.045088000297546386,
+                0.04508255958557129,
+                0.04508224010467529
+              ]
+            },
+            "chain_candidate": {
+              "ms": 0.04275743961334229,
+              "samples_ms": [
+                0.04275743961334229,
+                0.042839040756225584,
+                0.04271679878234863,
+                0.042854080200195314,
+                0.042877120971679686,
+                0.04264927864074707,
+                0.042746238708496094
+              ]
+            }
+          },
+          "padded": {
+            "projection_reference": {
+              "ms": 0.012345600128173827,
+              "samples_ms": [
+                0.012374399900436402,
+                0.012352319955825806,
+                0.012345600128173827,
+                0.012330880165100097,
+                0.012331199645996094,
+                0.012348159551620483,
+                0.012331199645996094
+              ]
+            },
+            "projection_candidate": {
+              "ms": 0.010287359952926636,
+              "samples_ms": [
+                0.010326080322265625,
+                0.01029695987701416,
+                0.010293760299682618,
+                0.010283520221710205,
+                0.010287359952926636,
+                0.010279680490493775,
+                0.010279040336608886
+              ]
+            },
+            "chain_reference": {
+              "ms": 0.04509439945220947,
+              "samples_ms": [
+                0.04517248153686523,
+                0.04509439945220947,
+                0.045096640586853025,
+                0.045077118873596195,
+                0.04508768081665039,
+                0.04508416175842285,
+                0.04509568214416504
+              ]
+            },
+            "chain_candidate": {
+              "ms": 0.04303167819976807,
+              "samples_ms": [
+                0.04312352180480957,
+                0.04303328037261963,
+                0.043015360832214355,
+                0.04300896167755127,
+                0.04303167819976807,
+                0.04303679943084717,
+                0.043015360832214355
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  "full_parity": {
+    "requests": 205,
+    "decisions": 362,
+    "all_exact": true
+  },
+  "full_request_summary": {
+    "1-short": {
+      "pooled_p50_ms": {
+        "retained": 1.6238485695794225,
+        "selected-q": 1.620694005396217
+      },
+      "paired_savings_ms": [
+        -0.002919405233114958,
+        0.010045478120446205,
+        -0.0011954689398407936,
+        -0.010744493920356035,
+        0.006455054972320795,
+        0.021499523427337408,
+        0.005825015250593424,
+        -0.005039619281888008,
+        0.010035582818090916,
+        -0.005185080226510763,
+        0.020845967810600996,
+        -0.005369540303945541,
+        -0.01382501795887947,
+        0.003270513843744993,
+        0.002545479219406843
+      ],
+      "faster_rounds": 8,
+      "median_paired_savings_ms": 0.002545479219406843
+    },
+    "holdout": {
+      "pooled_p50_ms": {
+        "retained": 1.6433289274573326,
+        "selected-q": 1.6467489767819643
+      },
+      "paired_savings_ms": [
+        0.00609993003308773,
+        0.0014194520190358162,
+        -0.019410450477153063,
+        -0.00885955523699522,
+        -0.025269400794059038,
+        -0.00928493682295084,
+        -0.002065033186227083,
+        0.008430448360741138,
+        0.014630029909312725,
+        -0.01008552499115467,
+        -0.017255079001188278,
+        -0.0017055426724255085,
+        0.0057549914345145226,
+        0.006846035830676556,
+        -0.004120578523725271
+      ],
+      "faster_rounds": 6,
+      "median_paired_savings_ms": -0.002065033186227083
+    },
+    "full-attention": {
+      "pooled_p50_ms": {
+        "retained": 1.611778512597084,
+        "selected-q": 1.6054835286922753
+      },
+      "paired_savings_ms": [
+        0.01338450238108635,
+        0.0037940917536616325,
+        0.006514543201774359,
+        0.008260540198534727,
+        0.007879978511482477,
+        0.0064899795688688755,
+        0.008164497558027506,
+        0.009850540664047003,
+        -0.0006799818947911263,
+        0.013234908692538738,
+        0.008684932254254818,
+        0.005489913746714592,
+        0.005949055776000023,
+        -0.0011749216355383396,
+        0.008910545147955418
+      ],
+      "faster_rounds": 13,
+      "median_paired_savings_ms": 0.007879978511482477
+    }
+  },
+  "limitations": "Fully occupied changing requests improved in 13/15 rounds, but the fixed short benchmark improved in only 8/15 rounds and padded holdouts in only 6/15. No further tuning or integration was attempted after this mixed result.",
+  "constructor": {
+    "policy": "bf16-splitk-exact-short-compiled",
+    "attention": "native",
+    "fuse_reduce_norm": true,
+    "token_tables": true,
+    "fuse_mlp_geglu": true,
+    "mlp_geglu_unpacked": true,
+    "head_kernels": true,
+    "host_prepare": "batch",
+    "attention_special": true,
+    "global_attention": true,
+    "host_runtime": true,
+    "native_format": true
+  },
+  "source_sha256": {
+    "head_q_select_adapter.py": "74b6a30f81ba54d6004bc5a270bb87e155f101e8d638663be93094d2407f95aa",
+    "head_q_select_full.py": "c38e1e282bf6b0c4e60c06bf77368b257353a951c2012d214f468ae2531a51a0",
+    "head_q_select_kernel.py": "6a13f0695195f6e197b99a315faaa3de77722489a45d3cd0e2485d0b4c963e51",
+    "head_q_select_probe.py": "3cd2c1a61cb9e9193b0b8c2ffd98f4138a8dee5b60c42f8a2cf7f3f2890ae641"
+  },
+  "source_stable_during_run": true,
+  "binary_sha256": {
+    "(3, 32)": {
+      "ptx": "7e0cb547203134e37e97d184125a419260abe38a53a0e8cff9f0d75f005a491d",
+      "cubin": "bacb0304358f50fd84f503f3a4733b17bb6589faaac84bee7b164abdc783fac8"
+    },
+    "(5, 32)": {
+      "ptx": "edb5ee93d80f9e152b9bbaa2b98da8ef24482f026f76e7265b3cc0f2f43bdb4e",
+      "cubin": "b372f2dd292c783c1a831b317b75e6a89cbf507bb82331f9e486db7124bde963"
+    }
+  },
+  "binary_stable_during_timing": true,
+  "results": [
+    "results/frontier/head_q_select-screen.json",
+    "results/frontier/head_q_select-full.json",
+    "results/frontier/head_q_select-quick.json"
+  ],
+  "method": "All GPU capture and timings under exclusive flock /tmp/laya-gpu-experiments.lock. Isolated CUDA graph timings: 7 samples of 100 replays. Full request: randomized engine order, 15 rounds, 200 fixed-request repetitions per round, plus changing holdout and fully occupied inputs. No HTTP/default/GitHub changes."
+}

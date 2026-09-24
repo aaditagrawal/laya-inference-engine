@@ -1,0 +1,1327 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T10:06:13.085404+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "seed": 20260924,
+  "method": "28 distinct checkpoint matrices and independent random BF16 activations per field; graph replay; BF16 MMA register layout; split-4 BF16 partial rounding for MLPWo",
+  "compressed_storage_ratio": 0.8125,
+  "rows": [
+    {
+      "field": "attn.Wqkv",
+      "variant": "retained-bf16",
+      "ms": 0.2819615999857585,
+      "samples_ms": [
+        0.2832373301188151,
+        0.2818112055460612,
+        0.2821589469909668,
+        0.281713072458903,
+        0.2819615999857585
+      ]
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "compressed",
+      "tile": 0,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.18874880472819,
+      "samples_ms": [
+        1.189294942220052,
+        1.1887371063232421,
+        1.1884651184082031,
+        1.18874880472819,
+        1.1890794118245442
+      ],
+      "speedup_retained": 0.23719191040552054
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "compressed",
+      "tile": 3,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.1174058278401693,
+      "samples_ms": [
+        1.1174058278401693,
+        1.1166997273763022,
+        1.117302449544271,
+        1.1185813903808595,
+        1.1186912536621094
+      ],
+      "speedup_retained": 0.2523358953038229
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "compressed",
+      "tile": 2,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 3.074781799316406,
+      "samples_ms": [
+        3.074781799316406,
+        3.074571736653646,
+        3.0749247233072916,
+        3.074584452311198,
+        3.0756256103515627
+      ],
+      "speedup_retained": 0.09170133635123148
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "compressed",
+      "tile": 1,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.960852305094401,
+      "samples_ms": [
+        2.9612703959147137,
+        2.960852305094401,
+        2.9602144877115886,
+        2.960649617513021,
+        2.9612223307291665
+      ],
+      "speedup_retained": 0.09522987671509968
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "compressed",
+      "tile": 3,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.403979746500651,
+      "samples_ms": [
+        1.4042891184488933,
+        1.403439966837565,
+        1.4039615631103515,
+        1.4046975453694661,
+        1.403979746500651
+      ],
+      "speedup_retained": 0.20083024750786727
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "compressed",
+      "tile": 0,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.3915850321451824,
+      "samples_ms": [
+        1.3919029235839844,
+        1.3914997100830078,
+        1.3914058685302735,
+        1.3918975830078124,
+        1.3915850321451824
+      ],
+      "speedup_retained": 0.20261902325228645
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "compressed",
+      "tile": 1,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.2924607594807942,
+      "samples_ms": [
+        1.2924415588378906,
+        1.2923754374186198,
+        1.2926410675048827,
+        1.2924607594807942,
+        1.2926186879475912
+      ],
+      "speedup_retained": 0.21815873164228813
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "compressed",
+      "tile": 2,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.281176503499349,
+      "samples_ms": [
+        1.2816426595052084,
+        1.281163787841797,
+        1.281176503499349,
+        1.281069819132487,
+        1.2816767374674478
+      ],
+      "speedup_retained": 0.22008021472109504
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "raw-fragments",
+      "tile": 0,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7386645634969076,
+      "samples_ms": [
+        0.7387872060139974,
+        0.7384639739990234,
+        0.7385663986206055,
+        0.7386645634969076,
+        0.7390165328979492
+      ],
+      "speedup_retained": 0.38171805433704
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "raw-fragments",
+      "tile": 3,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.5980127970377604,
+      "samples_ms": [
+        0.5969013214111328,
+        0.5981845219930013,
+        0.5981440226236979,
+        0.5980127970377604,
+        0.597715187072754
+      ],
+      "speedup_retained": 0.4714976023631055
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "raw-fragments",
+      "tile": 2,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.8006250381469726,
+      "samples_ms": [
+        0.8006133397420248,
+        0.8006250381469726,
+        0.8001087824503581,
+        0.8007520039876302,
+        0.8006389617919922
+      ],
+      "speedup_retained": 0.35217684502891866
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "raw-fragments",
+      "tile": 1,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.283794148763021,
+      "samples_ms": [
+        1.2844064076741537,
+        1.2835732777913411,
+        1.2843573252360025,
+        1.283794148763021,
+        1.2833695729573569
+      ],
+      "speedup_retained": 0.21963147304997302
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "raw-fragments",
+      "tile": 3,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.0451552073160808,
+      "samples_ms": [
+        1.0459456125895181,
+        1.0451552073160808,
+        1.046338144938151,
+        1.0444010416666667,
+        1.045092264811198
+      ],
+      "speedup_retained": 0.2697796442212877
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "raw-fragments",
+      "tile": 0,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7499104181925456,
+      "samples_ms": [
+        0.7499317169189453,
+        0.7499104181925456,
+        0.7497397104899088,
+        0.7497407913208007,
+        0.749949836730957
+      ],
+      "speedup_retained": 0.375993709575805
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "raw-fragments",
+      "tile": 1,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.73000857035319,
+      "samples_ms": [
+        1.73000857035319,
+        1.7302186330159506,
+        1.7296063741048178,
+        1.7291029612223308,
+        1.730138651529948
+      ],
+      "speedup_retained": 0.1629827763964167
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "raw-fragments",
+      "tile": 2,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7561824162801106,
+      "samples_ms": [
+        0.756061871846517,
+        0.7562197367350261,
+        0.7559157053629557,
+        0.7561824162801106,
+        0.7566933314005534
+      ],
+      "speedup_retained": 0.3728751077984762
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "retained-bf16",
+      "ms": 0.12723306814829508,
+      "samples_ms": [
+        0.1279306650161743,
+        0.12723306814829508,
+        0.12719786961873372,
+        0.1271456003189087,
+        0.1272607962290446
+      ]
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "compressed",
+      "tile": 0,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.9218741099039713,
+      "samples_ms": [
+        0.9226581573486328,
+        0.9218741099039713,
+        0.9219669342041016,
+        0.9218101501464844,
+        0.9218442916870118
+      ],
+      "speedup_retained": 0.13801566480866734
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "compressed",
+      "tile": 3,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.8997791926066081,
+      "samples_ms": [
+        0.9029994964599609,
+        0.8997791926066081,
+        0.8992127736409505,
+        0.8987232208251953,
+        0.9023850758870443
+      ],
+      "speedup_retained": 0.14140476818507913
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "compressed",
+      "tile": 2,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.911368560791016,
+      "samples_ms": [
+        2.9106356302897134,
+        2.912638854980469,
+        2.911010233561198,
+        2.91156489054362,
+        2.911368560791016
+      ],
+      "speedup_retained": 0.043702150892817905
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "compressed",
+      "tile": 1,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.920063018798828,
+      "samples_ms": [
+        2.920063018798828,
+        2.919574483235677,
+        2.9204193115234376,
+        2.9193130493164063,
+        2.9205045064290363
+      ],
+      "speedup_retained": 0.04357202818199197
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "compressed",
+      "tile": 3,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.0763275146484375,
+      "samples_ms": [
+        1.0768479665120443,
+        1.0760939280192057,
+        1.0762699127197266,
+        1.0766581217447917,
+        1.0763275146484375
+      ],
+      "speedup_retained": 0.11821036479760848
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "compressed",
+      "tile": 0,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.0504565556844077,
+      "samples_ms": [
+        1.0509717305501303,
+        1.0507786432902018,
+        1.0500160217285157,
+        1.050117301940918,
+        1.0504565556844077
+      ],
+      "speedup_retained": 0.12112168509948369
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "compressed",
+      "tile": 1,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.2899893442789714,
+      "samples_ms": [
+        1.2900683085123699,
+        1.2901386260986327,
+        1.2899893442789714,
+        1.289467748006185,
+        1.2892106374104817
+      ],
+      "speedup_retained": 0.09863110010370739
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "compressed",
+      "tile": 2,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.2540096282958983,
+      "samples_ms": [
+        1.254306157430013,
+        1.254150390625,
+        1.2539360046386718,
+        1.2540096282958983,
+        1.2535541534423829
+      ],
+      "speedup_retained": 0.10146099780844181
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "raw-fragments",
+      "tile": 0,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7151541392008464,
+      "samples_ms": [
+        0.7158208211263021,
+        0.7151541392008464,
+        0.7154922485351562,
+        0.7148160298665365,
+        0.7148586908976237
+      ],
+      "speedup_retained": 0.1779099933483885
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "raw-fragments",
+      "tile": 3,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.5416565577189127,
+      "samples_ms": [
+        0.5423722585042318,
+        0.5416565577189127,
+        0.5416085561116536,
+        0.541975466410319,
+        0.5412917455037435
+      ],
+      "speedup_retained": 0.23489620191088206
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "raw-fragments",
+      "tile": 2,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7976287841796875,
+      "samples_ms": [
+        0.7976757049560547,
+        0.7976287841796875,
+        0.7975861231486002,
+        0.7976224263509114,
+        0.797764269510905
+      ],
+      "speedup_retained": 0.15951413824558314
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "raw-fragments",
+      "tile": 1,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.3101056416829426,
+      "samples_ms": [
+        1.3103925069173177,
+        1.3103744506835937,
+        1.3096608479817708,
+        1.3101024627685547,
+        1.3101056416829426
+      ],
+      "speedup_retained": 0.0971166477726585
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "raw-fragments",
+      "tile": 3,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.8455071767171224,
+      "samples_ms": [
+        0.8475893020629883,
+        0.8476106643676757,
+        0.8455071767171224,
+        0.843893305460612,
+        0.8429141362508138
+      ],
+      "speedup_retained": 0.15048135799663695
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "raw-fragments",
+      "tile": 0,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7241077423095703,
+      "samples_ms": [
+        0.7241077423095703,
+        0.7239722569783529,
+        0.7238997141520183,
+        0.7244447708129883,
+        0.7241365432739257
+      ],
+      "speedup_retained": 0.17571013360868118
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "raw-fragments",
+      "tile": 1,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.7698357899983723,
+      "samples_ms": [
+        1.7700789133707682,
+        1.7691455841064454,
+        1.769389851888021,
+        1.7698357899983723,
+        1.7698378245035806
+      ],
+      "speedup_retained": 0.07188975885068528
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "raw-fragments",
+      "tile": 2,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7442623774210612,
+      "samples_ms": [
+        0.7440885543823242,
+        0.7439754486083985,
+        0.7447861353556315,
+        0.7442623774210612,
+        0.7442965189615885
+      ],
+      "speedup_retained": 0.17095190084600215
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "retained-bf16",
+      "ms": 0.44455572764078777,
+      "samples_ms": [
+        0.4449514706929525,
+        0.4444981257120768,
+        0.4448575973510742,
+        0.44455572764078777,
+        0.44434452056884766
+      ]
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "compressed",
+      "tile": 0,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.2202911376953125,
+      "samples_ms": [
+        1.2200725555419922,
+        1.2200660705566406,
+        1.22054074605306,
+        1.2205983479817708,
+        1.2202911376953125
+      ],
+      "speedup_retained": 0.36430300434730056
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "compressed",
+      "tile": 3,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.1808512369791666,
+      "samples_ms": [
+        1.1818687438964843,
+        1.1808512369791666,
+        1.177803675333659,
+        1.1816064198811849,
+        1.1772810618082683
+      ],
+      "speedup_retained": 0.3764705609980497
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "compressed",
+      "tile": 2,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 3.035767364501953,
+      "samples_ms": [
+        3.0357035319010417,
+        3.035771687825521,
+        3.0361727396647136,
+        3.035767364501953,
+        3.0348126729329428
+      ],
+      "speedup_retained": 0.14643932629327855
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "compressed",
+      "tile": 1,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.9161961873372397,
+      "samples_ms": [
+        2.9165578206380207,
+        2.916187795003255,
+        2.916724141438802,
+        2.9161707560221353,
+        2.9161961873372397
+      ],
+      "speedup_retained": 0.15244369688539672
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "compressed",
+      "tile": 3,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.4183828989664713,
+      "samples_ms": [
+        1.4176128387451172,
+        1.4175455729166666,
+        1.4189567565917969,
+        1.4183828989664713,
+        1.4193504333496094
+      ],
+      "speedup_retained": 0.3134243425838826
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "compressed",
+      "tile": 0,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.4109418233235678,
+      "samples_ms": [
+        1.4112640380859376,
+        1.4108331044514975,
+        1.4109418233235678,
+        1.4105653127034505,
+        1.411337661743164
+      ],
+      "speedup_retained": 0.31507729113423477
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "compressed",
+      "tile": 1,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.3492693583170572,
+      "samples_ms": [
+        1.348853302001953,
+        1.3492693583170572,
+        1.3494091033935547,
+        1.3494752248128254,
+        1.3490634918212892
+      ],
+      "speedup_retained": 0.3294788582431619
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "compressed",
+      "tile": 2,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.3349163055419921,
+      "samples_ms": [
+        1.3352853139241536,
+        1.3343221028645833,
+        1.3344095865885417,
+        1.334970728556315,
+        1.3349163055419921
+      ],
+      "speedup_retained": 0.33302142298748294
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "raw-fragments",
+      "tile": 0,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7925546646118165,
+      "samples_ms": [
+        0.7926250457763672,
+        0.792630386352539,
+        0.792309315999349,
+        0.7925546646118165,
+        0.7924341201782227
+      ],
+      "speedup_retained": 0.5609149090788907
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "raw-fragments",
+      "tile": 3,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.6788341522216796,
+      "samples_ms": [
+        0.6788341522216796,
+        0.6782655715942383,
+        0.6788970947265625,
+        0.6781183878580729,
+        0.6788426717122396
+      ],
+      "speedup_retained": 0.6548812050570106
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "raw-fragments",
+      "tile": 2,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.8445632298787434,
+      "samples_ms": [
+        0.8444992065429687,
+        0.8449951807657877,
+        0.8442410786946615,
+        0.8449962615966797,
+        0.8445632298787434
+      ],
+      "speedup_retained": 0.5263735288411905
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "raw-fragments",
+      "tile": 1,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.2956885019938151,
+      "samples_ms": [
+        1.295900853474935,
+        1.2952746073404948,
+        1.2956053415934246,
+        1.2956885019938151,
+        1.2957227071126303
+      ],
+      "speedup_retained": 0.34310386096403733
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "raw-fragments",
+      "tile": 3,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.1504437764485678,
+      "samples_ms": [
+        1.1489312489827475,
+        1.1504437764485678,
+        1.1505760192871093,
+        1.1522059122721353,
+        1.1497919718424479
+      ],
+      "speedup_retained": 0.3864210809268194
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "raw-fragments",
+      "tile": 0,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.8067391713460287,
+      "samples_ms": [
+        0.8066954930623372,
+        0.8070165634155273,
+        0.8066442489624024,
+        0.8068255742390951,
+        0.8067391713460287
+      ],
+      "speedup_retained": 0.5510526120840955
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "raw-fragments",
+      "tile": 1,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.735211690266927,
+      "samples_ms": [
+        1.7353440602620442,
+        1.735022989908854,
+        1.7348874409993489,
+        1.735211690266927,
+        1.7354016621907553
+      ],
+      "speedup_retained": 0.25619682609007893
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "raw-fragments",
+      "tile": 2,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.8085034688313802,
+      "samples_ms": [
+        0.8077322642008463,
+        0.808024533589681,
+        0.808957862854004,
+        0.8085034688313802,
+        0.809119987487793
+      ],
+      "speedup_retained": 0.5498501178768639
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "retained-bf16",
+      "ms": 0.2649151961008708,
+      "samples_ms": [
+        0.2657962640126546,
+        0.264903465906779,
+        0.2650389353434245,
+        0.2649151961008708,
+        0.26479466756184894
+      ]
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "compressed",
+      "tile": 0,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.822106679280599,
+      "samples_ms": [
+        0.8224032084147136,
+        0.821988296508789,
+        0.8216437021891276,
+        0.822106679280599,
+        0.8225439707438151
+      ],
+      "speedup_retained": 0.3222394401815226
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "compressed",
+      "tile": 3,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.1444629669189452,
+      "samples_ms": [
+        1.1443604787190755,
+        1.145974349975586,
+        1.1456202189127604,
+        1.1428234100341796,
+        1.1444629669189452
+      ],
+      "speedup_retained": 0.23147555120464897
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "compressed",
+      "tile": 2,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.101106135050456,
+      "samples_ms": [
+        2.1018975575764975,
+        2.101817576090495,
+        2.101106135050456,
+        2.1004117329915366,
+        2.100199508666992
+      ],
+      "speedup_retained": 0.12608368120085905
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "compressed",
+      "tile": 1,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.0294090270996095,
+      "samples_ms": [
+        2.029464594523112,
+        2.029951985677083,
+        2.029149881998698,
+        2.0293429056803385,
+        2.0294090270996095
+      ],
+      "speedup_retained": 0.13053809880775105
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "compressed",
+      "tile": 3,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.9931104024251302,
+      "samples_ms": [
+        0.9922933578491211,
+        0.9922592163085937,
+        0.9938389460245768,
+        0.9931104024251302,
+        0.9932287851969401
+      ],
+      "speedup_retained": 0.26675301704015986
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "compressed",
+      "tile": 0,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.9542346954345703,
+      "samples_ms": [
+        0.9548725128173828,
+        0.9543434778849283,
+        0.9542346954345703,
+        0.9541247685750326,
+        0.9533002853393555
+      ],
+      "speedup_retained": 0.2776205868098572
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "compressed",
+      "tile": 1,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.9179797490437825,
+      "samples_ms": [
+        0.9184117635091146,
+        0.9181151707967122,
+        0.9179797490437825,
+        0.9174762725830078,
+        0.9170783996582031
+      ],
+      "speedup_retained": 0.2885850111364884
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "compressed",
+      "tile": 2,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.9104256312052409,
+      "samples_ms": [
+        0.9110165278116862,
+        0.9102261225382487,
+        0.9111306508382161,
+        0.9100629170735677,
+        0.9104256312052409
+      ],
+      "speedup_retained": 0.2909795012582965
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "raw-fragments",
+      "tile": 0,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.5399146397908529,
+      "samples_ms": [
+        0.5397375742594401,
+        0.5399669647216797,
+        0.5399146397908529,
+        0.5395253499348959,
+        0.5399466832478841
+      ],
+      "speedup_retained": 0.49066125749709466
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "raw-fragments",
+      "tile": 3,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.5533962885538737,
+      "samples_ms": [
+        0.5540981292724609,
+        0.5533898671468099,
+        0.553550910949707,
+        0.5529631932576498,
+        0.5533962885538737
+      ],
+      "speedup_retained": 0.4787079378380779
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "raw-fragments",
+      "tile": 2,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.585972277323405,
+      "samples_ms": [
+        0.5873482386271159,
+        0.5863487879435222,
+        0.585972277323405,
+        0.5857983907063802,
+        0.5858229319254558
+      ],
+      "speedup_retained": 0.4520951013432688
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "raw-fragments",
+      "tile": 1,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.9101290384928385,
+      "samples_ms": [
+        0.9109514872233073,
+        0.9101610819498698,
+        0.9099487940470378,
+        0.9095498402913411,
+        0.9101290384928385
+      ],
+      "speedup_retained": 0.2910743256138347
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "raw-fragments",
+      "tile": 3,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.2746485392252604,
+      "samples_ms": [
+        1.273365275065104,
+        1.274625015258789,
+        1.2746485392252604,
+        1.2753546396891275,
+        1.2766571044921875
+      ],
+      "speedup_retained": 0.20783391495657927
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "raw-fragments",
+      "tile": 0,
+      "unroll": 1,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.5464821497599284,
+      "samples_ms": [
+        0.5468618392944335,
+        0.5459477106730143,
+        0.5465077082316081,
+        0.5464821497599284,
+        0.546344502766927
+      ],
+      "speedup_retained": 0.48476459151913565
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "raw-fragments",
+      "tile": 1,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.208196258544922,
+      "samples_ms": [
+        1.209442138671875,
+        1.2077269236246744,
+        1.208633550008138,
+        1.208196258544922,
+        1.208029810587565
+      ],
+      "speedup_retained": 0.21926503598009692
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "raw-fragments",
+      "tile": 2,
+      "unroll": 4,
+      "decode_exact_all_28": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.5539583841959635,
+      "samples_ms": [
+        0.5544160207112631,
+        0.5538634618123373,
+        0.5539583841959635,
+        0.553984006245931,
+        0.5538069407145182
+      ],
+      "speedup_retained": 0.47822219801832017
+    }
+  ],
+  "baseline_selection": {
+    "attn.Wqkv": {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "variant": "tma",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.2824053366978963,
+      "samples_ms": [
+        0.2842533389727275,
+        0.2824053366978963,
+        0.2823973298072815
+      ],
+      "speedup": 1.1323865060223333,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r15];",
+      "shared_bytes": 36888
+    },
+    "attn.Wo": {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        5
+      ],
+      "variant": "bf16",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.12824533383051553,
+      "samples_ms": [
+        0.129530668258667,
+        0.12824533383051553,
+        0.12781866391499838
+      ],
+      "speedup": 1.5529402232354563
+    },
+    "mlp.Wi": {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "bf16",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.44487198193868,
+      "samples_ms": [
+        0.4462960163752238,
+        0.4447973171869914,
+        0.44487198193868
+      ],
+      "speedup": 1.1813076064907817
+    },
+    "mlp.Wo": {
+      "field": "mlp.Wo",
+      "variant": "bf16-partial",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.26548266410827637,
+      "samples_ms": [
+        0.2674853404362996,
+        0.26548266410827637,
+        0.26505066951115924
+      ],
+      "speedup": 1.1396902301869904
+    }
+  },
+  "source_sha256": {
+    "native_lossless_build.py": "039910189d838a8dd857271a64d52485fbbe2798130a802498136a6120a0219c",
+    "native_lossless_probe.py": "73330b8457fd1c46ef888c549a0062e3b55aa74ba958f477e7e5d30ca7d89709",
+    "native_lossless.py": "d3a2c6cfcc69790e3dd7e9bb44d943d88ccee92f1c3e058172dee546768f5ae8",
+    "native_lossless.cu": "dbd32f57fcb7a72c3d9840718fded1d451383de9db32792565b8ae56adcad383"
+  },
+  "native_build_at_measurement": {
+    "source_sha256": "65b4e246e278e92808d8d25f80c2af33e6887927433b33b523829b9dff54d683",
+    "library_sha256": "9f300cb5c70cc5bceb031476179046a438a70c5e462db280e69ab5ad98f2b436",
+    "architecture": "sm_120",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "note": "Initial direct-load build preceded addition of pipeline kernels, native decode op and additional argument guards. Current source retains the same direct-load kernels."
+  },
+  "decode_validation": "Independent Triton unpacking reproduced every weight bit; the later pipeline run separately verifies native register decoding for the same complete model weight set.",
+  "outcome": "Screened out. All 64 direct-load configurations have exact GEMM output bits, but global-to-register loading lacks a competitive asynchronous pipeline. See native-lossless-pipeline.json for the follow-up."
+}

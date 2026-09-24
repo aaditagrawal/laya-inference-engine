@@ -2,9 +2,92 @@
 
 The benchmark measures Laya's completed decisions. Laya is a non-autoregressive model, so generated-token throughput and streaming TTFT do not describe this workload.
 
-## What the comparison measures
+## Public balanced and fast modes
 
-The recorded [benchmark](../results/benchmark.json) compares this engine with the default, unmodified `laya.Agent` on the **same RTX 5070 Ti**, using the same checkpoint, input requests, and installed package versions. The `upstream` baseline calls `Agent(..., device="cuda:0")` and then `predict`. It does not enable the SDK's optional `fast=True` or `compile=True` modes. The [upstream fast-mode run](../results/upstream-fast.json) separately enables `fast=True` with TileLang 0.1.14. A speedup over the default baseline is not a claim to beat every upstream configuration.
+The [package validation](../results/fast-package.json) compares balanced mode,
+the public `FastEngine` and its retained research implementation with all three
+resident on the same RTX 5070 Ti. Each fixed workload has 900 measurements per
+mode from nine randomized paired rounds of 100 calls.
+
+| Workload | Balanced p50 | Fast p50 | Retained p50 | Fast reduction vs. balanced |
+| --- | ---: | ---: | ---: | ---: |
+| One short question | 2.803832 ms | 1.610069 ms | 1.611524 ms | 42.6% |
+| One long question | 8.615601 ms | 6.967680 ms | 6.972121 ms | 19.1% |
+| Sixteen short questions | 12.590964 ms | 10.553087 ms | 10.554782 ms | 16.2% |
+
+All modes use full serial `predict` calls, including tokenization, transfers,
+inference, synchronization and formatting. Loading, compilation, first graph
+capture and HTTP are excluded equally. The short fixture has 64 input tokens,
+one question and four options. Sub-millisecond full requests were not achieved.
+
+Packaging effectively ties the retained implementation. The small differences
+between them do not establish another optimization gain. A separate changing-input
+case cycles 128 short fixtures over nine rounds, giving 1,152 samples per mode.
+Its p50 is 2.783642 ms balanced, 1.635720 ms fast and 1.643380 ms retained.
+
+The extracted runtime matched prepared inputs, bitwise choice/action logits and
+public responses, excluding runtime metrics, on 199 requests with 354 decisions.
+Checks also passed for 52 concurrent calls, owned output buffers, graph eviction,
+resource release, repeated close and rejecting requests after close. Source and
+native-library hashes stayed unchanged during the experiment. This verifies
+the extraction against the retained implementation; it is not labeled task
+accuracy or a guarantee for every possible input.
+
+The public mode trades additional preparation and 491.9 MiB of token tables for
+lower warm latency. [Setup and operating details](performance-modes.md)
+
+## Retained implementation before packaging
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/latest-paired-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/latest-paired-light.png">
+  <img alt="Earlier paired RTX 5070 Ti result before packaging: optimized BF16 1.624 ms versus native baseline 2.197 ms, 26.1% lower full warm short-request latency over 250 requests per mode. This native baseline is not balanced mode." src="assets/latest-paired-light.png" width="1000" loading="lazy">
+</picture>
+
+The [pre-extraction paired comparison](../results/frontier/summary.json) measured the
+retained optimized BF16 implementation against an earlier native implementation
+on one RTX 5070 Ti. Each mode had 250 timed requests per workload, pooled from
+five randomized paired blocks with both models resident.
+
+| Workload | Native baseline p50 | Optimized BF16 p50 | Reduction |
+| --- | ---: | ---: | ---: |
+| One short question | 2.197088 ms | 1.623769 ms | 26.1% |
+| One long question | 7.350858 ms | 6.966581 ms | 5.2% |
+| Sixteen short questions | 10.738693 ms | 10.450236 ms | 2.7% |
+
+The short fixture has 64 input tokens, one question and four options. The timer
+includes tokenization, host packing, transfers, inference, synchronization and
+response formatting. It excludes loading, compilation, first graph capture and
+HTTP. No answers or prepared requests are cached. Sub-millisecond full requests
+were not achieved.
+
+The 2.197088 ms baseline is the earlier optimized native engine, not the default
+balanced package. The 1.623769 ms value is the retained implementation's recorded
+result before extraction into the public `FastEngine`; it is not a fresh timing
+claim for the package. See [public modes and setup](performance-modes.md).
+
+On 128 changing short requests, that implementation measured 1.646864 ms against
+its paired 2.190878 ms baseline. This [holdout run](../results/frontier/holdout-native-format.json)
+uses different inputs from the fixed short benchmark and should be reported
+separately. Device-only profiling also excludes host preparation and formatting;
+its timings are not substitutes for full-request latency.
+
+The retained path combines tuned BF16 projections, selected TMA loads,
+cuBLAS-compatible split-reduction rounding, exact reduction/normalization fusion,
+precomputed token-local projections, MLP/GEGLU fusion, native attention, batched
+tokenization, graph replay and native response formatting. Only the short
+64-row shape uses the selected Torch compilation path. Longer requests and
+batches use native execution. The 491.9 MiB token tables cache token-local work
+on frozen weights before positional mixing, not completed predictions.
+
+The [optimization archive](../experiments/frontier/README.md) records rejected
+approaches and per-change measurements. Each candidate had its own paired
+baseline. Their medians are not one simultaneous ranking, and independent
+speedups must not be multiplied.
+
+## Historical upstream comparison
+
+The original [benchmark](../results/benchmark.json) compares the balanced engine with the default, unmodified `laya.Agent` on the same RTX 5070 Ti, using the same checkpoint, input requests, and installed package versions. The `upstream` baseline calls `Agent(..., device="cuda:0")` and then `predict`. It does not enable the SDK's optional `fast=True` or `compile=True` modes. The [upstream fast-mode run](../results/upstream-fast.json) separately enables `fast=True` with TileLang 0.1.14. Upstream `fast=True` is the SDK's acceleration mode; it is separate from this repository's `FastEngine` and `--mode fast`.
 
 Both sides use serial, warm, in-process requests. The wall-clock timer includes tokenization, input transfers, inference, output transfers, and response formatting. Each `predict` returns CPU results, completing the GPU work before its sample ends.
 
@@ -24,7 +107,7 @@ Throughput divides completed decisions or actual input tokens by mean wall time.
 
 Cases and backends ran sequentially. These results do not establish concurrent HTTP capacity or a confidence interval for small timing differences. Re-run the benchmark for the request sizes, GPU load, and power settings used in deployment.
 
-## Matched HTTP comparison
+## Historical matched HTTP comparison
 
 The [HTTP benchmark](../results/benchmark-http.json) uses the same FastAPI app, thread-pool execution, uvicorn server, and localhost HTTP/1.1 keep-alive client for every backend. TCP_NODELAY is enabled equally. The client timer includes JSON serialization, the request, and response decoding. Each case uses five warmups and 100 timed requests. Model and server startup are excluded for all backends.
 
@@ -52,7 +135,18 @@ The [default BF16 profile](../results/profile-bf16.json) contains `cutlass_80_te
 
 The experimental `fp8` backend does select a native SM120 TMA GEMM path. Its [profile](../results/profile-fp8.json) contains `MainloopSm120TmaWarpSpecialized` and `SM120_16x8x32_TN`. It changes 2 of 80 selected decisions in the [regression](../results/validation-fp8.json), so its results do not justify replacing the validated BF16 backend. FP8 numbers are separate from the BF16 speedup claim.
 
-There is no NVFP4 implementation, FP8 attention, custom TMA kernel, or demonstrated benefit from Blackwell-exclusive instructions in the default path. The current result is a tuned BF16 engine tested on Blackwell.
+The balanced default does not use custom TMA or narrow-precision GEMMs. The
+retained fast path does use selected TMA loads, with
+`cp.async.bulk.tensor.2d` recorded in generated PTX. TMA and these BF16
+optimizations are not exclusive to Blackwell; their configurations are tuned
+for this SM120 device. No controlled cross-generation experiment isolates a
+Blackwell-only share of the latest improvement.
+
+The research archive contains native FP4 and MXFP8 candidates, but neither is
+part of fast mode. The FP4 full-request candidate measured 1.394 ms and failed
+decision parity, matching 206/208 original and 119/128 holdout decisions. Its
+timing is not an accepted replacement for the exact BF16 result.
+[Precision results](../results/frontier/summary.json)
 
 ## Graph replay ablation
 
@@ -70,13 +164,39 @@ Replay removes Python dispatch and changes intermediate allocation and launch sc
 
 NVIDIA lists the RTX 5070 Ti as compute capability 12.0. B200/GB200 use 10.0, B300/GB300 use 10.3, and DGX Spark GB10 uses 12.1. Sharing the Blackwell name does not imply identical kernel support. [NVIDIA GPU capability list](https://developer.nvidia.com/cuda/gpus)
 
-SM100 GEMMs use `tcgen05.mma`. SM120 narrow-precision GEMMs use extended `mma.sync.aligned` instructions. CUTLASS documents SM120 TN operand layouts, TMA schedules, and a 1×1×1 cluster restriction because GeForce lacks multicast. Its `79_blackwell_geforce_gemm` examples target RTX. [CUTLASS Blackwell documentation](https://docs.nvidia.com/cutlass/4.2.1/media/docs/cpp/blackwell_functionality.html#blackwell-sm120-gemms)
+SM100 GEMMs use `tcgen05.mma`. SM120 narrow-precision GEMMs use extended `mma.sync.aligned` instructions. CUTLASS documents SM120 TN operand layouts and TMA schedules. Its GeForce GEMM examples use a 1×1×1 cluster because that path lacks TMA multicast; this is not a blanket lack of CUDA block-cluster support. [CUTLASS Blackwell documentation](https://docs.nvidia.com/cutlass/4.2.1/media/docs/cpp/blackwell_functionality.html#blackwell-sm120-gemms)
+
+Local checks successfully launched clusters of 1, 2, 4 and 8 blocks with
+cross-block shared-memory reads. They did not establish hardware TMA multicast
+for this GPU. The dedicated Decompression Engine's driver capability queries
+also returned zero on this RTX 5070 Ti. These features were investigated rather
+than assumed from the Blackwell name.
+[Cluster checks](../results/frontier/cluster-gemm-capability.json),
+[decompression checks](../results/frontier/decompress-capability.json)
 
 Shared-memory and occupancy limits also differ between SM100 and SM120. Any new custom GEMM needs architecture-specific tuning and measurement. [NVIDIA Blackwell tuning guide](https://docs.nvidia.com/cuda/blackwell-tuning-guide/index.html)
 
 ## Precision and validation
 
-The default path keeps PyTorch's LayerNorm and GELU implementations. More aggressive fusion changed probabilities. The Transformers 5 RoPE path rotates Q/K in FP32 before rounding to BF16; tests preserve that rounding behavior. [Versioned ModernBERT source](https://github.com/huggingface/transformers/blob/v5.17.0/src/transformers/models/modernbert/modeling_modernbert.py)
+The balanced path keeps PyTorch's LayerNorm and GELU implementations. The
+retained fast path preserves their relevant intermediate rounding in the fused
+kernels. The Transformers 5 RoPE path rotates Q/K in FP32 before rounding to
+BF16; tests preserve that behavior.
+[Versioned ModernBERT source](https://github.com/huggingface/transformers/blob/v5.17.0/src/transformers/models/modernbert/modeling_modernbert.py)
+
+The retained implementation matched raw choice and action logits exactly on
+66 original requests with 208 decisions and on 128 additional single-question
+requests. All 128 additional requests exercise the optimized 64-row shape.
+Public response dictionaries matched on all 194 requests, excluding runtime
+metrics. The C++ formatter also passed 12,103 CPU cases covering rounding
+boundaries, error behavior and underflow warnings, plus five callback checks.
+Its fast path uses the installed NumPy FP32 loops and reductions with Python
+rounding and conservative fallback guards; NumPy 2.5.3 is therefore pinned.
+[Response checks](../results/frontier/native-format-full.json),
+[CPU checks](../results/frontier/native-format.json)
+
+These are synthetic implementation-parity tests. They do not establish labeled
+task accuracy, probability calibration, or exactness for every possible input.
 
 The [upstream fast-mode response check](../results/validation-upstream-fast.json) matched all 43 top options across the seven benchmark workloads, with maximum absolute probability difference 0.0056 from default SDK responses. A separate single-option request raised `RuntimeError: selected index k out of range` in fast mode. This limited check uses SDK-rounded probabilities and does not establish task accuracy or general numerical equivalence.
 
@@ -86,9 +206,56 @@ The graph cache holds eight configurations by default and evicts the least recen
 
 ## Dependencies and reproduction
 
-The lockfile pins PyTorch 2.14.0+cu132, Triton 3.8.0, Transformers 5.17.0, Laya 0.3.9, and Hugging Face Hub 1.32.0. The recorded device uses NVIDIA driver 595.84. The model revision is `5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b`.
+The lockfile pins PyTorch 2.14.0+cu132, Triton 3.8.0, Transformers 5.17.0,
+NumPy 2.5.3, Laya 0.3.9, and Hugging Face Hub 1.32.0. The recorded device uses
+NVIDIA driver 595.84 and the native kernels were built with CUDA toolkit 13.1.
+The model revision is `5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b`.
+Fast mode's [build instructions](performance-modes.md#setup-and-use) identify
+the native prerequisites and pinned-header workflow. The public runtime is in
+`src/laya_blackwell/fast`; it does not import the experiment archive.
 
 The dependency versions identify the validated environment. They do not imply a speedup from newer package versions alone. This engine replaces the Transformers execution loop, so performance depends on the kernels and execution path it actually uses.
+
+Build fast mode before running the paired extraction validation:
+
+```bash
+uv sync --extra dev --extra fast --locked
+uv run laya-blackwell build-fast
+uv run python -m scripts.validate_fast_package \
+  --rounds 9 --repeats 100 --output results/local-fast-package.json
+```
+
+The paired script requires the repository's retained experiment archive as its
+reference. The public runtime does not. For a simpler sequential comparison of
+the two public modes:
+
+```bash
+uv run python -m laya_blackwell.benchmark \
+  --backends fused fast --threads 4 --output results/local-modes.json
+```
+
+That benchmark runs modes sequentially; it does not reproduce the randomized
+paired design of `scripts.validate_fast_package`. For installed-wheel validation:
+
+```bash
+uv build --wheel
+uv run python -m scripts.validate_wheel \
+  dist/laya_blackwell-0.1.0-py3-none-any.whl \
+  --validation results/fast-package.json --output results/local-package-checks.json
+```
+
+The wheel check runs outside the source checkout, checks bundled runtime data
+and licenses, blocks imports from the experiment archive, and compares a fast
+request with a response recorded by the extraction validation. It requires the
+native build cache and model checkpoint. [Recorded package checks](../results/package-checks.json)
+
+The recorded wheel check passed outside the checkout with Hugging Face offline.
+Imports came from the installed wheel, no experiment imports were used, and
+packaged sources, configuration and native binaries matched the measured
+implementation. Inference, warm graph replay and HTTP responses matched the
+recorded output; engine ownership and close behavior also passed checks.
+
+The following commands reproduce the historical balanced-path comparison:
 
 ```bash
 uv sync --extra dev --locked
@@ -101,7 +268,8 @@ uv run python -m laya_blackwell.profile \
   --output results/profile-bf16
 ```
 
-Reproduce the additional comparisons with:
+The commands above reproduce the balanced path. Historical additional
+comparisons can be reproduced with:
 
 ```bash
 uv run python scripts/benchmark_ablation.py \
@@ -118,7 +286,7 @@ uv run --extra dev --with tilelang==0.1.14 python scripts/benchmark_http.py \
 uv run --with tilelang==0.1.14 python scripts/validate_upstream_fast.py
 ```
 
-The fast-mode loader calls `accelerate(strict=True)` so an unavailable fast backend fails instead of silently measuring default upstream. The HTTP script wraps every backend in the same FastAPI/uvicorn app and localhost client, includes JSON and HTTP time on both sides, and excludes startup equally. It measures the shared wrapper, not the upstream project's separately shipped server. The fast-mode validation script writes `results/validation-upstream-fast.json` and checks SDK response probabilities on benchmark workloads plus a single-option request.
+The upstream-fast benchmark loader calls `accelerate(strict=True)` so an unavailable SDK fast backend fails instead of silently measuring default upstream. The HTTP script wraps every backend in the same FastAPI/uvicorn app and localhost client, includes JSON and HTTP time on both sides, and excludes startup equally. It measures the shared wrapper, not the upstream project's separately shipped server. The upstream fast-mode validation script writes `results/validation-upstream-fast.json` and checks SDK response probabilities on benchmark workloads plus a single-option request. These scripts do not select this repository's public `--mode fast`.
 
 Use an otherwise idle GPU for timing. Profile separately, since instrumentation changes execution times. The benchmark currently selects `cuda:0`.
 

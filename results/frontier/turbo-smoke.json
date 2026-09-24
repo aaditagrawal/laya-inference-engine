@@ -1,0 +1,385 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T10:45:35.434502+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "seed": 20260925,
+  "upstream_revision": "50b72e5520f93cc855f0bd3a0114a7eb97338588",
+  "upstream_url": "https://github.com/cenconq25/Turbo-Lossless",
+  "source_sha256": {
+    "turbo_native.cu": "28f4e7f0d706134105b4a043bc07a3038fdfc0f89b9a9cc83482c0bcf0336c32",
+    "turbo_kernel.cuh": "df6e3a10400a22744443a993d6b87174c3b2995fc12e7825a441520b14c90ccd"
+  },
+  "native_build": {
+    "seconds": 4.124508097069338,
+    "upstream_revision": "50b72e5520f93cc855f0bd3a0114a7eb97338588",
+    "architecture": "sm_120",
+    "source_sha256": {
+      "turbo_native.cu": "28f4e7f0d706134105b4a043bc07a3038fdfc0f89b9a9cc83482c0bcf0336c32",
+      "turbo_kernel.cuh": "df6e3a10400a22744443a993d6b87174c3b2995fc12e7825a441520b14c90ccd"
+    },
+    "library_sha256": "c725c4ce2b99049a219e330c4e8a33308d58ab438e9fe6c05fcebb87fce2582d",
+    "command": [
+      "/usr/local/cuda-13.1/bin/nvcc",
+      "-O3",
+      "-std=c++20",
+      "-gencode=arch=compute_120,code=sm_120",
+      "--compiler-options",
+      "-fPIC",
+      "--ptxas-options=-v",
+      "-shared",
+      "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/turbo_native.cu",
+      "-L/usr/local/cuda-13.1/lib64",
+      "-lcudart",
+      "-lcuda",
+      "-o",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-turbo-lossless/turbo_lossless.so"
+    ]
+  },
+  "all_65536_bf16_patterns_decoded_exactly": true,
+  "exhaustive_patterns_escape_count": 61696,
+  "method": "28 distinct real matrices and independent random BF16 activations. Exact sparse escape replacement before MMA. CUDA graph replay. MLPWo preserves split-4 BF16 partial rounding. Unsafe skip-escape controls are measured separately and cannot be retained.",
+  "rows": [
+    {
+      "field": "attn.Wqkv",
+      "variant": "retained-bf16",
+      "ms": 0.01034879982471466,
+      "samples_ms": [
+        0.010670933127403259,
+        0.010384000341097514,
+        0.01034879982471466,
+        0.010314666231473287,
+        0.010338133573532105
+      ]
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "exact-escapes",
+      "token_tile": 16,
+      "weight_tile": 32,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.030878933270772298,
+      "samples_ms": [
+        0.031095467011133828,
+        0.030780800183614097,
+        0.030817067623138426,
+        0.030878933270772298,
+        0.03088853359222412
+      ],
+      "speedup_retained": 0.3351411052307971
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 16,
+      "weight_tile": 64,
+      "mismatches": 1652,
+      "max_abs_error": 4.142578125,
+      "ms": 0.01653866668542226,
+      "samples_ms": [
+        0.016707199811935424,
+        0.016590933005015056,
+        0.01653866668542226,
+        0.016531200210253397,
+        0.01652906636397044
+      ],
+      "speedup_retained": 0.6257336230033852
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "exact-escapes",
+      "token_tile": 64,
+      "weight_tile": 64,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.028858667612075804,
+      "samples_ms": [
+        0.02896639903386434,
+        0.028868265946706138,
+        0.028858667612075804,
+        0.02881706754366557,
+        0.028832000494003297
+      ],
+      "speedup_retained": 0.3586028282325911
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 64,
+      "weight_tile": 32,
+      "mismatches": 1652,
+      "max_abs_error": 4.142578125,
+      "ms": 0.014514133334159851,
+      "samples_ms": [
+        0.014636799693107605,
+        0.014514133334159851,
+        0.014521599809328715,
+        0.014479999740918478,
+        0.014469333489735921
+      ],
+      "speedup_retained": 0.7130153476238338
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 32,
+      "weight_tile": 64,
+      "mismatches": 1652,
+      "max_abs_error": 4.142578125,
+      "ms": 0.014520532886187236,
+      "samples_ms": [
+        0.014609066645304362,
+        0.014554666479428609,
+        0.014487466216087342,
+        0.014520532886187236,
+        0.01448319951693217
+      ],
+      "speedup_retained": 0.712701104417389
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 64,
+      "weight_tile": 64,
+      "mismatches": 1652,
+      "max_abs_error": 4.142578125,
+      "ms": 0.014512000481287639,
+      "samples_ms": [
+        0.014651733636856078,
+        0.014520532886187236,
+        0.014505599935849508,
+        0.014473600188891093,
+        0.014512000481287639
+      ],
+      "speedup_retained": 0.7131201406765953
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "exact-escapes",
+      "token_tile": 32,
+      "weight_tile": 32,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.02883840004603068,
+      "samples_ms": [
+        0.028981333971023558,
+        0.028907734155654907,
+        0.02883840004603068,
+        0.02876053253809611,
+        0.028823467095692952
+      ],
+      "speedup_retained": 0.35885485353543634
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "exact-escapes",
+      "token_tile": 32,
+      "weight_tile": 64,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.028830933570861816,
+      "samples_ms": [
+        0.028935466210047403,
+        0.028868265946706138,
+        0.028830933570861816,
+        0.028798933823903403,
+        0.02880000074704488
+      ],
+      "speedup_retained": 0.3589477877738148
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 16,
+      "weight_tile": 32,
+      "mismatches": 1652,
+      "max_abs_error": 4.142578125,
+      "ms": 0.01656426688035329,
+      "samples_ms": [
+        0.016703999042510985,
+        0.016556800405184428,
+        0.016590933005015056,
+        0.016545066237449647,
+        0.01656426688035329
+      ],
+      "speedup_retained": 0.6247665471382416
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "exact-escapes",
+      "token_tile": 64,
+      "weight_tile": 32,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.028842665751775107,
+      "samples_ms": [
+        0.02899199922879537,
+        0.028872533639272054,
+        0.028842665751775107,
+        0.02881706754366557,
+        0.028798933823903403
+      ],
+      "speedup_retained": 0.35880178045185535
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "exact-escapes",
+      "token_tile": 16,
+      "weight_tile": 64,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.03087786634763082,
+      "samples_ms": [
+        0.03096959988276164,
+        0.030891732374827067,
+        0.030871466795603434,
+        0.03087786634763082,
+        0.030872533718744915
+      ],
+      "speedup_retained": 0.3351526853638544
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "unsafe-no-escapes",
+      "token_tile": 32,
+      "weight_tile": 32,
+      "mismatches": 1652,
+      "max_abs_error": 4.142578125,
+      "ms": 0.014567466576894124,
+      "samples_ms": [
+        0.014661332964897156,
+        0.014677332838376363,
+        0.014546133081118266,
+        0.014567466576894124,
+        0.014520532886187236
+      ],
+      "speedup_retained": 0.7104049128988007
+    }
+  ],
+  "baseline_selection": {
+    "attn.Wqkv": {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "variant": "tma",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.2824053366978963,
+      "samples_ms": [
+        0.2842533389727275,
+        0.2824053366978963,
+        0.2823973298072815
+      ],
+      "speedup": 1.1323865060223333,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r15];",
+      "shared_bytes": 36888
+    },
+    "attn.Wo": {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        5
+      ],
+      "variant": "bf16",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.12824533383051553,
+      "samples_ms": [
+        0.129530668258667,
+        0.12824533383051553,
+        0.12781866391499838
+      ],
+      "speedup": 1.5529402232354563
+    },
+    "mlp.Wi": {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "bf16",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.44487198193868,
+      "samples_ms": [
+        0.4462960163752238,
+        0.4447973171869914,
+        0.44487198193868
+      ],
+      "speedup": 1.1813076064907817
+    },
+    "mlp.Wo": {
+      "field": "mlp.Wo",
+      "variant": "bf16-partial",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.26548266410827637,
+      "samples_ms": [
+        0.2674853404362996,
+        0.26548266410827637,
+        0.26505066951115924
+      ],
+      "speedup": 1.1396902301869904
+    }
+  },
+  "packing": {
+    "attn.Wqkv": {
+      "matrices": 1,
+      "all_decoded_exactly": true,
+      "escape_count": 1125,
+      "storage_bytes": 4737634,
+      "original_bytes": 6291456,
+      "base_exponents": [
+        110
+      ]
+    }
+  },
+  "upstream_escape_handling_audit": {
+    "v3_kernel_reads_patch_arrays": false,
+    "upstream_engine_applies_output_corrections_separately": true,
+    "local_adaptation": "Sparse escaped weights are reconstructed before MMA, preserving the retained BF16/FP32 accumulation and split-K rounding.",
+    "unsafe_controls": "Deliberately omit sparse escape replacement to bound this TMA pipeline. They are not the complete upstream engine and are not eligible for integration."
+  },
+  "python_source_sha256": {
+    "turbo_build.py": "18f85365a8eddf70aec0b52abbdba09bf06f12197b885e78e63f144b2f3537af",
+    "turbo_lossless.py": "a0ee53efe234ef4e488685b38f244bb544801cbccea20035e42182fafd3e7f68",
+    "turbo_probe.py": "a45ebe72b7cc5243f833fdd68192b028b296cd4e597fa00a725fe18034f15a81"
+  },
+  "conclusion": "All tested exact variants are slower than the retained kernels. No engine integration or full-request speed claim."
+}

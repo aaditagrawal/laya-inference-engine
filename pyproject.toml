@@ -7,8 +7,8 @@ name = "laya-blackwell"
 version = "0.1.0"
 description = "Blackwell-focused Laya decision inference with fused kernels and CUDA graphs"
 readme = "README.md"
-license = "MIT AND Apache-2.0"
-license-files = ["LICENSE", "NOTICE", "licenses/*.txt"]
+license = "MIT AND Apache-2.0 AND BSD-3-Clause"
+license-files = ["LICENSE", "NOTICE", "licenses/*.txt", "src/laya_blackwell/fast/native/*LICENSE*", "src/laya_blackwell/fast/native/*NOTICE*"]
 requires-python = ">=3.12,<3.14"
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -25,6 +25,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "httpx>=0.28"]
+fast = ["numpy==2.5.3", "cuda-bindings==13.4.3"]
 hub-kernels = ["kernels==0.16.2"]
 
 [tool.uv.sources]
@@ -42,6 +43,9 @@ laya-blackwell = "laya_blackwell.cli:main"
 where = ["src"]
 include = ["laya_blackwell*"]
 namespaces = false
+
+[tool.setuptools.package-data]
+"laya_blackwell.fast" = ["config.json", "native/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

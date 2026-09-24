@@ -1,0 +1,368 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T12:09:22.933326+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "source_before": {
+    "head_q_select_adapter.py": "74b6a30f81ba54d6004bc5a270bb87e155f101e8d638663be93094d2407f95aa",
+    "head_q_select_kernel.py": "6a13f0695195f6e197b99a315faaa3de77722489a45d3cd0e2485d0b4c963e51",
+    "head_q_select_probe.py": "3cd2c1a61cb9e9193b0b8c2ffd98f4138a8dee5b60c42f8a2cf7f3f2890ae641"
+  },
+  "sources": [
+    {
+      "suite": "benchmark",
+      "index": 0,
+      "selected_rows": 5,
+      "request": {
+        "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+        "questions": {
+          "q0": {
+            "type": "choice",
+            "instructions": "Which department should handle this request?",
+            "criteria": {
+              "billing": "invoices, payments, refunds",
+              "technical": "bugs, outages, system errors",
+              "sales": "pricing and new contracts",
+              "other": "everything else"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 0,
+      "selected_rows": 5,
+      "request": {
+        "state": "My parcel arrived broken.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 1,
+      "selected_rows": 5,
+      "request": {
+        "state": "the card was charged twice.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "rows": [
+    {
+      "bm": 32,
+      "projection_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "chain_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "unused_zero": true,
+      "all_exact": true,
+      "binary_before_timing": {
+        "(5, 32)": {
+          "ptx": "edb5ee93d80f9e152b9bbaa2b98da8ef24482f026f76e7265b3cc0f2f43bdb4e",
+          "cubin": "b372f2dd292c783c1a831b317b75e6a89cbf507bb82331f9e486db7124bde963"
+        }
+      },
+      "timings": {
+        "full": {
+          "projection_reference": {
+            "ms": 0.012357439994812012,
+            "samples_ms": [
+              0.012447359561920167,
+              0.012370879650115968,
+              0.012348480224609375,
+              0.012357439994812012,
+              0.01234112024307251,
+              0.01234015941619873,
+              0.012363200187683105
+            ]
+          },
+          "projection_candidate": {
+            "ms": 0.01027232050895691,
+            "samples_ms": [
+              0.0103056001663208,
+              0.010284800529479981,
+              0.010271680355072022,
+              0.010269440412521362,
+              0.010280640125274658,
+              0.010266879796981812,
+              0.01027232050895691
+            ]
+          },
+          "chain_reference": {
+            "ms": 0.04508480072021484,
+            "samples_ms": [
+              0.045177278518676756,
+              0.0451091194152832,
+              0.045083198547363285,
+              0.04507904052734375,
+              0.04507967948913574,
+              0.04508480072021484,
+              0.045107522010803223
+            ]
+          },
+          "chain_candidate": {
+            "ms": 0.04102015972137451,
+            "samples_ms": [
+              0.04107359886169434,
+              0.04101952075958252,
+              0.041016640663146975,
+              0.040998401641845705,
+              0.0410313606262207,
+              0.04102752208709717,
+              0.04102015972137451
+            ]
+          }
+        },
+        "padded": {
+          "projection_reference": {
+            "ms": 0.012351679801940917,
+            "samples_ms": [
+              0.012392959594726562,
+              0.012374399900436402,
+              0.012349120378494262,
+              0.01234495997428894,
+              0.012336000204086303,
+              0.012372159957885742,
+              0.012351679801940917
+            ]
+          },
+          "projection_candidate": {
+            "ms": 0.010278400182724,
+            "samples_ms": [
+              0.010319679975509644,
+              0.01028864026069641,
+              0.010287359952926636,
+              0.010274879932403565,
+              0.010268479585647583,
+              0.010278400182724,
+              0.010276160240173339
+            ]
+          },
+          "chain_reference": {
+            "ms": 0.04509759902954102,
+            "samples_ms": [
+              0.04516191959381104,
+              0.045106239318847656,
+              0.04508063793182373,
+              0.04510464191436767,
+              0.045088000297546386,
+              0.04509568214416504,
+              0.04509759902954102
+            ]
+          },
+          "chain_candidate": {
+            "ms": 0.04101696014404297,
+            "samples_ms": [
+              0.0411030387878418,
+              0.041038079261779783,
+              0.04101888179779053,
+              0.04101696014404297,
+              0.04100255966186524,
+              0.04101600170135498,
+              0.040991997718811034
+            ]
+          }
+        }
+      },
+      "binary_after_timing": {
+        "(5, 32)": {
+          "ptx": "edb5ee93d80f9e152b9bbaa2b98da8ef24482f026f76e7265b3cc0f2f43bdb4e",
+          "cubin": "b372f2dd292c783c1a831b317b75e6a89cbf507bb82331f9e486db7124bde963"
+        }
+      }
+    },
+    {
+      "bm": 16,
+      "projection_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "chain_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "unused_zero": true,
+      "all_exact": true,
+      "binary_before_timing": {
+        "(5, 16)": {
+          "ptx": "639029cac47ed8e9b014f48c66d05c73bdce330c1d36ab490fc93f9041a47da3",
+          "cubin": "94e8f9005e75134601fd7ae78084a3103554929f4d2af8ca778c05d4008c0000"
+        },
+        "(5, 32)": {
+          "ptx": "edb5ee93d80f9e152b9bbaa2b98da8ef24482f026f76e7265b3cc0f2f43bdb4e",
+          "cubin": "b372f2dd292c783c1a831b317b75e6a89cbf507bb82331f9e486db7124bde963"
+        }
+      },
+      "timings": {
+        "full": {
+          "projection_reference": {
+            "ms": 0.012350399494171143,
+            "samples_ms": [
+              0.012405120134353638,
+              0.012358720302581788,
+              0.012350399494171143,
+              0.012333760261535645,
+              0.012350399494171143,
+              0.012348159551620483,
+              0.012337599992752074
+            ]
+          },
+          "projection_candidate": {
+            "ms": 0.010299839973449708,
+            "samples_ms": [
+              0.010325119495391846,
+              0.010312000513076782,
+              0.010282880067825318,
+              0.010301120281219482,
+              0.010296640396118164,
+              0.010298240184783935,
+              0.010299839973449708
+            ]
+          },
+          "chain_reference": {
+            "ms": 0.04509632110595703,
+            "samples_ms": [
+              0.045157761573791505,
+              0.04509632110595703,
+              0.045083842277526855,
+              0.04508607864379883,
+              0.04508480072021484,
+              0.04510047912597656,
+              0.04513023853302002
+            ]
+          },
+          "chain_candidate": {
+            "ms": 0.04292479991912842,
+            "samples_ms": [
+              0.04301280021667481,
+              0.04292479991912842,
+              0.04298175811767578,
+              0.04292384147644043,
+              0.042971200942993164,
+              0.04287583827972412,
+              0.04289152145385742
+            ]
+          }
+        },
+        "padded": {
+          "projection_reference": {
+            "ms": 0.012360639572143554,
+            "samples_ms": [
+              0.012408640384674072,
+              0.012364799976348878,
+              0.012367680072784423,
+              0.012360639572143554,
+              0.012334400415420532,
+              0.01234495997428894,
+              0.0123471999168396
+            ]
+          },
+          "projection_candidate": {
+            "ms": 0.010295679569244385,
+            "samples_ms": [
+              0.01032480001449585,
+              0.01028704047203064,
+              0.010295679569244385,
+              0.010298559665679932,
+              0.010286400318145752,
+              0.010289599895477295,
+              0.010295679569244385
+            ]
+          },
+          "chain_reference": {
+            "ms": 0.045107522010803223,
+            "samples_ms": [
+              0.045163841247558595,
+              0.0451091194152832,
+              0.04510784149169922,
+              0.045107522010803223,
+              0.0450816011428833,
+              0.045094079971313476,
+              0.04508607864379883
+            ]
+          },
+          "chain_candidate": {
+            "ms": 0.04303808212280273,
+            "samples_ms": [
+              0.043110718727111814,
+              0.043049278259277346,
+              0.04303808212280273,
+              0.04303679943084717,
+              0.04304800033569336,
+              0.043003201484680176,
+              0.04302847862243652
+            ]
+          }
+        }
+      },
+      "binary_after_timing": {
+        "(5, 16)": {
+          "ptx": "639029cac47ed8e9b014f48c66d05c73bdce330c1d36ab490fc93f9041a47da3",
+          "cubin": "94e8f9005e75134601fd7ae78084a3103554929f4d2af8ca778c05d4008c0000"
+        },
+        "(5, 32)": {
+          "ptx": "edb5ee93d80f9e152b9bbaa2b98da8ef24482f026f76e7265b3cc0f2f43bdb4e",
+          "cubin": "b372f2dd292c783c1a831b317b75e6a89cbf507bb82331f9e486db7124bde963"
+        }
+      }
+    }
+  ],
+  "scope": "Final head Q-selected/KV-full projection and chained head; not full-request latency",
+  "reference_config": [
+    32,
+    64,
+    64,
+    1,
+    4,
+    3,
+    false
+  ],
+  "source_after": {
+    "head_q_select_adapter.py": "74b6a30f81ba54d6004bc5a270bb87e155f101e8d638663be93094d2407f95aa",
+    "head_q_select_kernel.py": "6a13f0695195f6e197b99a315faaa3de77722489a45d3cd0e2485d0b4c963e51",
+    "head_q_select_probe.py": "3cd2c1a61cb9e9193b0b8c2ffd98f4138a8dee5b60c42f8a2cf7f3f2890ae641"
+  }
+}

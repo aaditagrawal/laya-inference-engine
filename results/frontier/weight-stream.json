@@ -1,0 +1,3384 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T13:15:49.896227+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "scope": "Optimistic matrix-weight streaming diagnostic. Not inference, model-output parity, or a rigorous latency floor. No GEMM arithmetic, activation reads, repeated CTA weight reads or non-projection kernels are included.",
+  "retained_constructor": {
+    "policy": "bf16-splitk-exact-short-compiled",
+    "attention": "native",
+    "fuse_reduce_norm": true,
+    "token_tables": true,
+    "fuse_mlp_geglu": true,
+    "mlp_geglu_unpacked": true,
+    "head_kernels": true,
+    "host_prepare": "batch",
+    "attention_special": true,
+    "global_attention": true,
+    "host_runtime": true,
+    "native_format": true
+  },
+  "trace_constructor": {
+    "policy": "bf16-splitk-exact",
+    "attention": "native",
+    "fuse_reduce_norm": true,
+    "token_tables": true,
+    "fuse_mlp_geglu": true,
+    "mlp_geglu_unpacked": true,
+    "head_kernels": true,
+    "host_prepare": "batch",
+    "attention_special": true,
+    "global_attention": true,
+    "host_runtime": true,
+    "native_format": true
+  },
+  "summary_sha256_at_start": "189000aff47291fc99307153ecea7afe574cbde35a2192dab1744f633a6472b4",
+  "source_sha256_before": {
+    "experiments/frontier/weight_stream_kernel.py": "64ac543a0537d117bb1517593a081164e5775b8f26906d43dd177ae118b21ca7",
+    "experiments/frontier/weight_stream_probe.py": "9237afa9b28fff02ccd5867d205253f789dd9246c9c52c4a7439664339ebd340"
+  },
+  "checksum": "Each CTA sums 4096 consecutive uint32 weight words modulo 2^32 and writes one uint32. Every input word is read once per replay; CPU NumPy uint64 sums independently verify every block.",
+  "rounds": 9,
+  "replays_per_round": 60,
+  "random_seed": 92931,
+  "timing": "CUDA events around graph replays, three untimed whole-bank replays before each sample. Exclusive experiment flock covers capture, checks and all timing. Nine randomized interleaved rounds, with no simultaneous timing.",
+  "trace": {
+    "request": {
+      "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+      "questions": {
+        "q0": {
+          "type": "choice",
+          "instructions": "Which department should handle this request?",
+          "criteria": {
+            "billing": "invoices, payments, refunds",
+            "technical": "bugs, outages, system errors",
+            "sales": "pricing and new contracts",
+            "other": "everything else"
+          }
+        }
+      }
+    },
+    "shape_key": [
+      1,
+      64,
+      4,
+      true
+    ],
+    "input_tokens": 64,
+    "expected_projection_count": 123,
+    "capture_complete_against_architecture": true,
+    "bypasses_of_Linear_hooks": [
+      "28 MLPWi calls in frontier_mlp_geglu, read from each module.weight",
+      "Packed head QKV in head_qkv, read from self_attn.in_proj_weight"
+    ],
+    "excluded": [
+      "First encoder QKV, precomputed by the token-table adapter before tracing",
+      "Token/type embeddings and token-table gathers, not dense projections",
+      "Normalization parameters and dense biases; only matrix weights are streamed"
+    ]
+  },
+  "projections": [
+    {
+      "name": "net.encoder.layers.0.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364526104576,
+      "bank_byte_offset": 0,
+      "weight_sha256": "d1c34cad97d720386d8c18a533f60c1cd93a0efa595ce7552001da569317cce6",
+      "checksum_sha256": "30e69f8ef9356df0020842be9b0a22501139d023e1e3569167810d10c2305a75"
+    },
+    {
+      "name": "net.encoder.layers.0.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129367741038592,
+      "bank_byte_offset": 2097152,
+      "weight_sha256": "e0307303bcdbe550f0e1b4650609d3839d69f6370946cf9726cd4ebc2218cafe",
+      "checksum_sha256": "e43771d8bce37ff96dd5cc69a98b7512a90982ce80533c592bd82df934b4a971"
+    },
+    {
+      "name": "net.encoder.layers.0.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129367751786496,
+      "bank_byte_offset": 12845056,
+      "weight_sha256": "04dcff96b9b7ecd7ac233c887efa703315066b29c762034b1f719c1ae1ac9d3a",
+      "checksum_sha256": "b58518f263edb11009f86a732c1550c10ea3483a7d715c2cc9882c8cb8deb003"
+    },
+    {
+      "name": "net.encoder.layers.1.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364528201728,
+      "bank_byte_offset": 18219008,
+      "weight_sha256": "1dae8af68ee06bbdead3db210e1cbd014fb8dc486a5e259e9973e31f31838717",
+      "checksum_sha256": "d7ece149d2424ce9399bc1e0b5de0e42f42d55e09b107f56db26310c254bc835"
+    },
+    {
+      "name": "net.encoder.layers.1.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364534493184,
+      "bank_byte_offset": 24510464,
+      "weight_sha256": "cc9c863c8a651888ee9851f40ed3c011936e11e4e798facce682e548c3229ca1",
+      "checksum_sha256": "5186bfc02d9e2eb6e9bdc47576a8fb38ca1dff918744f5058fd641e7f29db6fd"
+    },
+    {
+      "name": "net.encoder.layers.1.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129367757815808,
+      "bank_byte_offset": 26607616,
+      "weight_sha256": "3d86d39cb04cd0de1c9f12a8d93e8802a6518c1b772d6c27e9775bb1aab0dc5e",
+      "checksum_sha256": "e8915c75d2ff462c9e224fece5423b95ef09613f5587aa7859c6c8e138452723"
+    },
+    {
+      "name": "net.encoder.layers.1.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129367787175936,
+      "bank_byte_offset": 37355520,
+      "weight_sha256": "54cc5456b1193aa4fa78cee5c8786395fcfb1aa39367cf199b9c799ba08906fd",
+      "checksum_sha256": "88746e8bcfba7f6ed6951342f8759f1d1023be619aa9e6de0775bf13bde1acb1"
+    },
+    {
+      "name": "net.encoder.layers.2.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129367792549888,
+      "bank_byte_offset": 42729472,
+      "weight_sha256": "0946fd9a536a8dbd70c1386e9386b84ed369e39d1d9806071cbf6248700661f4",
+      "checksum_sha256": "e58a56c57a167c3820cbd1467a8dc6bd4152f10b7e43fec03ba9f13acffaf491"
+    },
+    {
+      "name": "net.encoder.layers.2.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366449192960,
+      "bank_byte_offset": 49020928,
+      "weight_sha256": "d32bde9ba6829fe47fb169630c86a87ceddf0d2b959fccba5febf7e5ae659a67",
+      "checksum_sha256": "29601c9d153739ba60eebae3a8fb8c382a7c718c18cd50c4b01ba9bad494f517"
+    },
+    {
+      "name": "net.encoder.layers.2.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129366428221440,
+      "bank_byte_offset": 51118080,
+      "weight_sha256": "8ddca13d3302c76257161882eadd6ee15ee891ca07767cd453424bf4a28a12dd",
+      "checksum_sha256": "337174f734613ab987bf4ff00fba9dcb4c11e68c9dce5cc3888ce74c6cba919e"
+    },
+    {
+      "name": "net.encoder.layers.2.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366438969344,
+      "bank_byte_offset": 61865984,
+      "weight_sha256": "e8702b42f4b80832e54966c1b807645da7dc33ab12284a39bcc64987f8e9f792",
+      "checksum_sha256": "e4c6a27e1bc6609ec5c31c1d6a967d676ac34b4a25b37b1b4ffa2a81e7f5672e"
+    },
+    {
+      "name": "net.encoder.layers.3.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366451290112,
+      "bank_byte_offset": 67239936,
+      "weight_sha256": "8b4ca988d692778bbd0e91016a7c32cc9a9c4768bf2fe650e25d4b5c55b3380d",
+      "checksum_sha256": "4418b443f2b67dfde4d5290a6344e1ab579841533cd88a3c4d003e11af20745c"
+    },
+    {
+      "name": "net.encoder.layers.3.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366457581568,
+      "bank_byte_offset": 73531392,
+      "weight_sha256": "849eaf940aa5ce9d84811e8001333a4fa40dca15957bee3f59ecbbd13cde696b",
+      "checksum_sha256": "29fa571e576d7dd68c03e521fe54f69655969e4533353bf7fdc7f33123e4d60b"
+    },
+    {
+      "name": "net.encoder.layers.3.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129366327558144,
+      "bank_byte_offset": 75628544,
+      "weight_sha256": "df415c33ff421b3d4fd74e1f5c3567664d42ca854e8c8a98d7a753cd4ff578d6",
+      "checksum_sha256": "02c20df109d6d3976c053e6d6e6732488cc223ebee6791ef7602de3a28e8e88d"
+    },
+    {
+      "name": "net.encoder.layers.3.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366340141056,
+      "bank_byte_offset": 86376448,
+      "weight_sha256": "a19f1a2bddb04af705cfca9c674d0d24c7782a1810051f6cc87d354cb12c21a4",
+      "checksum_sha256": "d1a6d77fd5a2de643cbede3096f79e4216c357c6d29ff4edbf263c1301b5f2eb"
+    },
+    {
+      "name": "net.encoder.layers.4.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366345515008,
+      "bank_byte_offset": 91750400,
+      "weight_sha256": "400904ecf9476b310d42621cf99af84556b17fa290c8e6ba0c18ba5722c1d6a7",
+      "checksum_sha256": "172193521f4bcc1b1859a4ac8a09aedfb4aba03bf247990623ecf5791f76b9c1"
+    },
+    {
+      "name": "net.encoder.layers.4.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366459678720,
+      "bank_byte_offset": 98041856,
+      "weight_sha256": "a71295b5790cc1fe8360749d7765f8e119b13ebb9719064ccbff019db492e2cc",
+      "checksum_sha256": "6274af2c96308217543985379252b5a4b782503874507b327ae964a2258e71d7"
+    },
+    {
+      "name": "net.encoder.layers.4.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129366314975232,
+      "bank_byte_offset": 100139008,
+      "weight_sha256": "061a70aba979851db1b0329c32658f4656f0ca4df8f51a81cc572037699cf07c",
+      "checksum_sha256": "66bdcaa9a2944280f937d785b57734025f79b76fc4f8983035bea9fde63061db"
+    },
+    {
+      "name": "net.encoder.layers.4.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366294003712,
+      "bank_byte_offset": 110886912,
+      "weight_sha256": "c98a91aca483fcd7fdc3ab4e2e1e5f329c620b8e64504b702b2b3391faaea134",
+      "checksum_sha256": "aeca0648ce1bde130860ed1726c7dc04b5661618aaaca781bbcf8f0b03833bb5"
+    },
+    {
+      "name": "net.encoder.layers.5.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366193340416,
+      "bank_byte_offset": 116260864,
+      "weight_sha256": "4eeb71e6ecf1734f9ecc2413f50ad1a6c125d90eaa210574b3974960b3c65961",
+      "checksum_sha256": "c4afdc5e21b6ea940dac4056f7a9d0b29955e8735a307111f9887628bfb9295a"
+    },
+    {
+      "name": "net.encoder.layers.5.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366444343296,
+      "bank_byte_offset": 122552320,
+      "weight_sha256": "e419f06979a6ea70b0b373ce3a2f4664adbef766089e4aec70324678fc3f1d1c",
+      "checksum_sha256": "40164a9d14d99d877385c1617dfaaa50b960a434f8222a77efaf87889265a9a2"
+    },
+    {
+      "name": "net.encoder.layers.5.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129366205923328,
+      "bank_byte_offset": 124649472,
+      "weight_sha256": "85f2caff87b539d03a18c2c5bb1cf2d7fd964a115c79a4a427e90576d80e7426",
+      "checksum_sha256": "80c0d44f13614c49a4cf6dbd694e1b1a88939c6af9a4be9a87903c3b60fd9890"
+    },
+    {
+      "name": "net.encoder.layers.5.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366199631872,
+      "bank_byte_offset": 135397376,
+      "weight_sha256": "d70fe81a29c9618f174a5b8b8590bac2000a6d41fcea7f5a90f04a8c323af76a",
+      "checksum_sha256": "909a6483ef9e7188659804ceefdc295898c099f8df77e6da2c76c79f0b9fdfad"
+    },
+    {
+      "name": "net.encoder.layers.6.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366159785984,
+      "bank_byte_offset": 140771328,
+      "weight_sha256": "a838a84258538772af9f18c0ded77843c95910bde0bd64603ac0c4bf42592ef6",
+      "checksum_sha256": "4b1a45a8b766e7713fcb40344e4de6137d4cd4823be11a7f697f7e7bfb7fa3db"
+    },
+    {
+      "name": "net.encoder.layers.6.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366446440448,
+      "bank_byte_offset": 147062784,
+      "weight_sha256": "51e76323dc8336c2d1f35cc11c5b08258accb77f0831d893bf4f1e530f4e2f44",
+      "checksum_sha256": "f923810e47114ff3fac3d3117d3f0c3e773cf1bb6028007bd75c8af230233b39"
+    },
+    {
+      "name": "net.encoder.layers.6.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129366180757504,
+      "bank_byte_offset": 149159936,
+      "weight_sha256": "784090e4348fbf0be80b92d154e4f406b89dbd0b655e59a18dc0a09e0808c64c",
+      "checksum_sha256": "5bac6841691b3a3f669a676b728d598ec6861a70c4dad74eb0250cde8af924cd"
+    },
+    {
+      "name": "net.encoder.layers.6.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366166077440,
+      "bank_byte_offset": 159907840,
+      "weight_sha256": "181e5e649dcc37e9cdd3530a89f469e9b665ee7dd7fd336c8acfe49d76644f3b",
+      "checksum_sha256": "c58c4bbfa8373aeefa8aaea906963658eccf603593ec2ee226428f1a4504a2e8"
+    },
+    {
+      "name": "net.encoder.layers.7.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366171451392,
+      "bank_byte_offset": 165281792,
+      "weight_sha256": "f10a0abfa4ec144851f18535dd6ac4c8f826ebffbe6e2efca7729772e781dc9a",
+      "checksum_sha256": "773bd96315b2401a3d378d1895e8c2c2ee8295c4c7e417896371da91094c62c0"
+    },
+    {
+      "name": "net.encoder.layers.7.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366177742848,
+      "bank_byte_offset": 171573248,
+      "weight_sha256": "566b10c9bc9b23a06a8adda57441b3b0874330d31f2803a1bc366fa07b81a012",
+      "checksum_sha256": "f06fa3f0dfa33e76a6447c233f5b14533e8c1f088d188d9ae15f72d423acc255"
+    },
+    {
+      "name": "net.encoder.layers.7.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129366059122688,
+      "bank_byte_offset": 173670400,
+      "weight_sha256": "cc158481bf3d1520124fdb65000d15abd9ec9c711b06657389e9a57bf5f0d082",
+      "checksum_sha256": "16a3a4291136d3c3b06e7cc668ee72ef50b1a4e00ba38412607bb15bf24bd896"
+    },
+    {
+      "name": "net.encoder.layers.7.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366071705600,
+      "bank_byte_offset": 184418304,
+      "weight_sha256": "8a1de4174b686a7cb8b935828a4c5b2a21d96e233d9e0fe4382e188230a17eae",
+      "checksum_sha256": "553bd97240be144af665afb5eeec2a24f67fd903295848e31d56ff3beaba70d0"
+    },
+    {
+      "name": "net.encoder.layers.8.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366077079552,
+      "bank_byte_offset": 189792256,
+      "weight_sha256": "adc6371645f436009c3dff4d3827449935435300561847f3b22be18b87a24b5c",
+      "checksum_sha256": "5958abc807ec377038fb8915c2ba37c67b83c160dbfa35a8750899ab6ab1188b"
+    },
+    {
+      "name": "net.encoder.layers.8.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366046539776,
+      "bank_byte_offset": 196083712,
+      "weight_sha256": "c9af6d919023119887f080b19881f08022855437676195312816807cd34c72e5",
+      "checksum_sha256": "a1a7595d73ff25ed4fde326aa4971088bdf36e52d191dcc9f6b2780d1bffb848"
+    },
+    {
+      "name": "net.encoder.layers.8.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129366299377664,
+      "bank_byte_offset": 198180864,
+      "weight_sha256": "e43e54f7641ab5be73b62a31414dedea8bfe77ab268538ba2c6bc6c77bead197",
+      "checksum_sha256": "e9f8c64a1aca922cb8eba3e1eb6da01aa1e15c4d759a2b445084d0a995b30473"
+    },
+    {
+      "name": "net.encoder.layers.8.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366048636928,
+      "bank_byte_offset": 208928768,
+      "weight_sha256": "71f5f606f707087ee4f8c05b6902f97cc9f212171741f96b995570a15b46a289",
+      "checksum_sha256": "2c6c3fdb1fc772ac5f3728294f87dc66b2f422a53e2f5ec0fdf6bfc04490e9b9"
+    },
+    {
+      "name": "net.encoder.layers.9.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365924904960,
+      "bank_byte_offset": 214302720,
+      "weight_sha256": "2734282fc5236fc3dfd21d23ca2a0d113bf76aac15cf69533fbc0a2dcc677ba1",
+      "checksum_sha256": "6341de4ac9689a712e0fbb94a6f2218b7cedfb0d8af4059eb805d664c775a0d4"
+    },
+    {
+      "name": "net.encoder.layers.9.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366310125568,
+      "bank_byte_offset": 220594176,
+      "weight_sha256": "f9fcf06aace59ecdad1cc7517ec04f76ff4da83b8ae968ec5713ec7929cb05a3",
+      "checksum_sha256": "2944a13289684027810d3e39b7aa3b4eff780867ac912aecca3ff1d40ab24486"
+    },
+    {
+      "name": "net.encoder.layers.9.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129365937487872,
+      "bank_byte_offset": 222691328,
+      "weight_sha256": "6db21ff8fdf7d3427b361e3d4a7298c858e4dbc389f2926fcdfa1a898f534a80",
+      "checksum_sha256": "c7b77127e91e5fbbb117616d8f98532a780ae0439641197bc72b9b86ba24ba82"
+    },
+    {
+      "name": "net.encoder.layers.9.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365931196416,
+      "bank_byte_offset": 233439232,
+      "weight_sha256": "ac6435bd503619c92a211eabf0eaa27b2cfe317cf8445ae19b938c0c257e58fd",
+      "checksum_sha256": "7cb4656b815b3b9ea4a93b2ccf4b6187777470d550057d0bd566caec4593f7c5"
+    },
+    {
+      "name": "net.encoder.layers.10.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365891350528,
+      "bank_byte_offset": 238813184,
+      "weight_sha256": "4d29143262b8d5209b13d250aef6fb111c6c58a400741975de3c701f6c056364",
+      "checksum_sha256": "b978dbc9ebf07ef4411fa1a9833ac4dd2377a19de17c606ec70cec89559bbfd5"
+    },
+    {
+      "name": "net.encoder.layers.10.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366312222720,
+      "bank_byte_offset": 245104640,
+      "weight_sha256": "43b62a4b804b6090110a3de06a97d3ee68ba7eab50a4b38cdaebb2e7e77ca0cd",
+      "checksum_sha256": "54d733cf46c622cb59e9a018e57fd1ea7a0e9b78c5c89d580bb5fa2a96897d04"
+    },
+    {
+      "name": "net.encoder.layers.10.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129365912322048,
+      "bank_byte_offset": 247201792,
+      "weight_sha256": "dc015dc578494eea5ddf2a5a29c12c2d5d36a65de9e5264575e59641790598b1",
+      "checksum_sha256": "93607754cfdec5aac799f773d753ee420d0f49ef2897ed0d1ae2a28f3948c3ea"
+    },
+    {
+      "name": "net.encoder.layers.10.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365897641984,
+      "bank_byte_offset": 257949696,
+      "weight_sha256": "0a931dfd8c51cf32dc4fd52b7d0afa6658fa5e3a0c068d642378e0f93af51b0d",
+      "checksum_sha256": "2153dd947bc7f34558223608d7ff3fe9480d4afb19a3aa3138fc57c4ad7f6b40"
+    },
+    {
+      "name": "net.encoder.layers.11.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365903015936,
+      "bank_byte_offset": 263323648,
+      "weight_sha256": "fe84ca489558db45a61493bc47219d8f2356739e29d68afb49f71086e838294b",
+      "checksum_sha256": "7cf05177e3a1de0ff9c3f370b555ddacb22f606677532587f55d4bc642673262"
+    },
+    {
+      "name": "net.encoder.layers.11.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365909307392,
+      "bank_byte_offset": 269615104,
+      "weight_sha256": "6ab805c2056b4f92ec36ecb12a988b99ad6e20f5b9f9a512ef24e5f1d08a20e9",
+      "checksum_sha256": "16b493a25aa2cd908d1bf879e80cec55632c42a3c68806fbf68598c46ef24fbe"
+    },
+    {
+      "name": "net.encoder.layers.11.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129365790687232,
+      "bank_byte_offset": 271712256,
+      "weight_sha256": "c9eac76f509ac7a256a595686236c562e7e94c93871c0b7b1191faebddbddaca",
+      "checksum_sha256": "5f3aac865aee305caacee9e9c665a89674ad76179d35e2197ff9bb2295283ded"
+    },
+    {
+      "name": "net.encoder.layers.11.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365803270144,
+      "bank_byte_offset": 282460160,
+      "weight_sha256": "84a74a58f642d8a8174ef402c4a522f6009be32e9c8cad0a805e7c03cea96e9d",
+      "checksum_sha256": "5ab85f8d467b2f136981060a2c7dc89d1c9319925877bbde8642da15af2382a2"
+    },
+    {
+      "name": "net.encoder.layers.12.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365808644096,
+      "bank_byte_offset": 287834112,
+      "weight_sha256": "53f7ece82cbd9b8c709d500fc4a30816071eafed774784f03fd03a1b2fbcaca3",
+      "checksum_sha256": "080fa235b16d2d7b5e434f37f6ea8481cb5b22deed0661245da1dcda79ec242a"
+    },
+    {
+      "name": "net.encoder.layers.12.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366054010880,
+      "bank_byte_offset": 294125568,
+      "weight_sha256": "62d2104f052bee537d18e6405af8d2dfd9bf313cd3a8a3334c674404705d0695",
+      "checksum_sha256": "8a8fd5182ef978f2d6015a253a0b259518ab53e49b3017140d3aac510f2eb988"
+    },
+    {
+      "name": "net.encoder.layers.12.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129365778104320,
+      "bank_byte_offset": 296222720,
+      "weight_sha256": "bd5042da38a2c72f88762d6ad7eacd540b8b55767f47e03ac9d7747e03cd7784",
+      "checksum_sha256": "c6669ff3aea6c2af3eedb818497089a013c7d5270b943948b15958814c991259"
+    },
+    {
+      "name": "net.encoder.layers.12.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366025568256,
+      "bank_byte_offset": 306970624,
+      "weight_sha256": "6d9326d0e4a235b1f162638118192855fca89051545ee5483ad63ee6bee1da4c",
+      "checksum_sha256": "12c1915a341f44bb534391f6c55ab7a6f2137b0260c38c9a6e0c02b24f4414e9"
+    },
+    {
+      "name": "net.encoder.layers.13.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365656469504,
+      "bank_byte_offset": 312344576,
+      "weight_sha256": "18d261e80b980c8e488654917449ae1b765f8db23c7da9f83684d256a45f1d78",
+      "checksum_sha256": "2bd8c0c1c629197b239e5671684f38610f2bc87980bb821a0d038a0ab3130ef0"
+    },
+    {
+      "name": "net.encoder.layers.13.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366056108032,
+      "bank_byte_offset": 318636032,
+      "weight_sha256": "a1ca36bd86b305901822f21591e125218f46329a3c2509b685bd8b5fc155b3e6",
+      "checksum_sha256": "5f573ceb5af96f60f3a54059bedb09b1230c6856a9e0f10a2e81a709f0e1a200"
+    },
+    {
+      "name": "net.encoder.layers.13.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129365669052416,
+      "bank_byte_offset": 320733184,
+      "weight_sha256": "84d173de4ba75298df8b7693e376e03994443aa6373b330a8361b0b10550b4e5",
+      "checksum_sha256": "82452c9de1f41da41adc601ab1b001e990ca95c2c0aba6f33c0afa563f446bd7"
+    },
+    {
+      "name": "net.encoder.layers.13.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365662760960,
+      "bank_byte_offset": 331481088,
+      "weight_sha256": "c36cf3cf61d851cdb500c5c2762de469bf39dccaccaf6089bcb56f32012a3258",
+      "checksum_sha256": "5cf269966c44dd828893c3112bc2f96cbe34a69d47bb9c2fffb8b93ddc3d0c11"
+    },
+    {
+      "name": "net.encoder.layers.14.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365622915072,
+      "bank_byte_offset": 336855040,
+      "weight_sha256": "bd8424d80cebbb47e452cca575c023e0fa7962b67f7ec0ed599ea31212c4c4e9",
+      "checksum_sha256": "bcff343b7093527a8840f42a04285f9871f12362925517df05c6a7cc428a3544"
+    },
+    {
+      "name": "net.encoder.layers.14.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365629206528,
+      "bank_byte_offset": 343146496,
+      "weight_sha256": "175e149f9b28b1841c4d09898e09c374674b3e4ada99e85a23fb768c73d0c3ba",
+      "checksum_sha256": "c0a9e85f1d715258207e17af5a904a41bd518f74d0736f1159c11e16ab6f0cb5"
+    },
+    {
+      "name": "net.encoder.layers.14.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129365631303680,
+      "bank_byte_offset": 345243648,
+      "weight_sha256": "f1ad084dd43c7c97fcff6d4f8bb5125c617ae945ca650c83a80c6be2d056cb3a",
+      "checksum_sha256": "de7fbdc246e3449509ec61329f4ed5c0a26a6ba3f841f961bf5655f051354ada"
+    },
+    {
+      "name": "net.encoder.layers.14.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365643886592,
+      "bank_byte_offset": 355991552,
+      "weight_sha256": "f1346adf4fb60d4d9d35eabc935ba7718adc2505ae3aeaf5352c1c9d70449e6b",
+      "checksum_sha256": "c8d1607e2f03221cfee5c64d37fe0a37f7cb4205f70c0276799702656ded2cd4"
+    },
+    {
+      "name": "net.encoder.layers.15.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365649260544,
+      "bank_byte_offset": 361365504,
+      "weight_sha256": "dae913377db6527a73efc49e26e87892d65469c283eeac614ab229b24f7c296b",
+      "checksum_sha256": "b9a4612657a43d944c29215fa9ec9313523fdb5bfd37a6c97b2b3416e5e6c942"
+    },
+    {
+      "name": "net.encoder.layers.15.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365522251776,
+      "bank_byte_offset": 367656960,
+      "weight_sha256": "214a69b654b75bda5e3680c1048d8a84b4bddc19353d480e4d4778db262faf48",
+      "checksum_sha256": "aec7c19abb4eae28f5f81d8876c3e59c360bc2a332c66c5dc4762d4343f8594f"
+    },
+    {
+      "name": "net.encoder.layers.15.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129365534834688,
+      "bank_byte_offset": 369754112,
+      "weight_sha256": "c27df3365f4c8bc8529715fc2ac891780eacd3a539057f41913497f352359019",
+      "checksum_sha256": "0325a7bd6bda847052e9c8aa9ae3d6945d16901d8b07a60ade2576cb261be277"
+    },
+    {
+      "name": "net.encoder.layers.15.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365524348928,
+      "bank_byte_offset": 380502016,
+      "weight_sha256": "a2519343baaf217ef33f92f5152e469ba6b9908dd4ce4c5ac3fe0dd3a406bd6b",
+      "checksum_sha256": "680509ad2d4114d97a6ceaa08dfd9480e66f90c1f85f4e73e5d4feff725298ea"
+    },
+    {
+      "name": "net.encoder.layers.16.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365488697344,
+      "bank_byte_offset": 385875968,
+      "weight_sha256": "54398da2803b88c53305925ac42ee3cb701036170fcf03b5a95a2f2a9d11df9b",
+      "checksum_sha256": "744924194600299fc703cf81e14dd3cb41e7e3ddd4c5e438f27b814d0c870db8"
+    },
+    {
+      "name": "net.encoder.layers.16.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365529722880,
+      "bank_byte_offset": 392167424,
+      "weight_sha256": "840501bed57809b2d9d16da624cde011da9629c6323c309c1fd86351232d6073",
+      "checksum_sha256": "1fdd4c4122c79a8a9884136083fe7aab32d912ed1ac14e7ba96841a0a6058f32"
+    },
+    {
+      "name": "net.encoder.layers.16.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129365509668864,
+      "bank_byte_offset": 394264576,
+      "weight_sha256": "8742bd5208cb1e5c321e3e3fc7f81451ade7bbd9d4e0e5e4b303196a7d9fbd2f",
+      "checksum_sha256": "3a1f781d12f9d0d96393ae9a67b758e63dab7c9f4062918665db1ff7bef1d94c"
+    },
+    {
+      "name": "net.encoder.layers.16.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365494988800,
+      "bank_byte_offset": 405012480,
+      "weight_sha256": "35b0502cadf3467f43f521b6c3ac968672612fe6acd354c9c6ce2c9699b0e259",
+      "checksum_sha256": "06eb5959a27ffc2a9ed08548a259aecb16ca61a5b9f15ba44384ba99878ddaff"
+    },
+    {
+      "name": "net.encoder.layers.17.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365500362752,
+      "bank_byte_offset": 410386432,
+      "weight_sha256": "00065de2830e074f0887702ec25aecacbd27b79c46e52fd9d9f6a6a63a7f1deb",
+      "checksum_sha256": "abfac69496974c172768f788ddd805fd81be6bf1e6ba01d3f28a3bea2ce2ac4d"
+    },
+    {
+      "name": "net.encoder.layers.17.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365531820032,
+      "bank_byte_offset": 416677888,
+      "weight_sha256": "28bd567608425ce292273541d74156f1fef268522359a9b518a897f36248a7a0",
+      "checksum_sha256": "613195f783a5e8ef217e802de3872787dbde5764654a4da4f319ac304c85f26a"
+    },
+    {
+      "name": "net.encoder.layers.17.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129365388034048,
+      "bank_byte_offset": 418775040,
+      "weight_sha256": "5a322d25c394a020ba4d0218989bae6eb48751d978d952e08cd753f8c9cb0b21",
+      "checksum_sha256": "bab364dfe1ddb29badbfa52a510b778c65ef74b05122c0b05e3f934dd3c2abf2"
+    },
+    {
+      "name": "net.encoder.layers.17.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365400616960,
+      "bank_byte_offset": 429522944,
+      "weight_sha256": "9f8b08f9f03000e64cd55f1b2fb73269f697aa5f4c2efb9c3fc335b0807424cf",
+      "checksum_sha256": "b75065620f0ee5f41a32554f3c2e1b0e6bb2a1c95c14c5d82e3d987f93537eb5"
+    },
+    {
+      "name": "net.encoder.layers.18.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365405990912,
+      "bank_byte_offset": 434896896,
+      "weight_sha256": "7097ddb2b0735150e8ba4f360b088b2e2da2312592cfc5aeeb98c314ece08d85",
+      "checksum_sha256": "1c92cec3d5351afacd4e91865d9ea4ed89b3a180e4507699fb26b31229187600"
+    },
+    {
+      "name": "net.encoder.layers.18.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365506654208,
+      "bank_byte_offset": 441188352,
+      "weight_sha256": "a8f79663cb259cd7a8385fe4235c3e67ea2ad94a33164e54ab818dea3cd1ca53",
+      "checksum_sha256": "096e0931bbbaa86b2e58aa1f7a2ad1330785548c4a6bef3d359be6d92883da8d"
+    },
+    {
+      "name": "net.encoder.layers.18.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129365375451136,
+      "bank_byte_offset": 443285504,
+      "weight_sha256": "bff337df768637e9454d5ff0cf7d7b84aa92df210a6f4f945edbe3927bbdc9fe",
+      "checksum_sha256": "a32eea9fa63d220e631d7b694e7b5b0e8579952d575c4dd68a54a9da3f8718b1"
+    },
+    {
+      "name": "net.encoder.layers.18.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366030942208,
+      "bank_byte_offset": 454033408,
+      "weight_sha256": "0589c320d9581f78a9b3fe3ba4d7804a3b3897399c3b8ba5f967d71dca4c765d",
+      "checksum_sha256": "40d6c1d98a4cfbf92047c9bc4bbc9a22391d28aa4d265106a156c22500b67017"
+    },
+    {
+      "name": "net.encoder.layers.19.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366036316160,
+      "bank_byte_offset": 459407360,
+      "weight_sha256": "e19381a79fdd096965f8d5320481ab1973a77fdb35dcc39dc5ed15b42ae55ae5",
+      "checksum_sha256": "4cb5b04626edd6c5467f793262b51ade336fa746b5d27b7189e92c5c3c486c84"
+    },
+    {
+      "name": "net.encoder.layers.19.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129366042607616,
+      "bank_byte_offset": 465698816,
+      "weight_sha256": "a691810723292b224981a55300063f0fe268db5db20c51b358ba2342dcc59da5",
+      "checksum_sha256": "d9f6adb18f126be0fc228be168417fcb628ebd6ad1c9dc83052bb5cac63c461e"
+    },
+    {
+      "name": "net.encoder.layers.19.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129365253816320,
+      "bank_byte_offset": 467795968,
+      "weight_sha256": "5231339d9c85c93219b87af3d5d4ae53dfaa49fcd53318b2107ec6f4d8dfdc20",
+      "checksum_sha256": "5faf34ad3af13564c6aec7fa062c69190af41ac5772c99c876b028bf2c8532a1"
+    },
+    {
+      "name": "net.encoder.layers.19.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365266399232,
+      "bank_byte_offset": 478543872,
+      "weight_sha256": "0cd322125f2e1077434c4607fd99ed95d0c055c82fe1f47a83eb34efe4ba46b7",
+      "checksum_sha256": "ffeb763de7f065df549cf53e53494d9fc28de9d59078b386988e3caf99d4e5ca"
+    },
+    {
+      "name": "net.encoder.layers.20.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365271773184,
+      "bank_byte_offset": 483917824,
+      "weight_sha256": "8ba2072b149cdce8aea2dbebf46c3dfeab2ab6f9d13530c0c79fefe576c4c784",
+      "checksum_sha256": "eec76a3449bc82cad017764aa9588d0cad90b2411342515a7d81d3cdc9a7ed5d"
+    },
+    {
+      "name": "net.encoder.layers.20.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365241233408,
+      "bank_byte_offset": 490209280,
+      "weight_sha256": "952bfc5936a5d8543bc8cc89e84155b2b199e8a78d7f594b1e79f60f11006ad6",
+      "checksum_sha256": "9f60193d0c9ca374912dec308124a660ad3a54c7035c3fb648a4902e7d7270cc"
+    },
+    {
+      "name": "net.encoder.layers.20.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129365757132800,
+      "bank_byte_offset": 492306432,
+      "weight_sha256": "942129de68e68ab199979497ab6b9b3b17e6aafb51f81162eae59de9da8cefb6",
+      "checksum_sha256": "9e7abb0f6098c8ef8cc998399cbee55110508db789678fd783b092d1231dfed2"
+    },
+    {
+      "name": "net.encoder.layers.20.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365767880704,
+      "bank_byte_offset": 503054336,
+      "weight_sha256": "c7a9365913ee10f4d6a5687bffb65c87a8aa66be2b209386115d865622fd1c33",
+      "checksum_sha256": "ffccf30e1ca7c05765512e9ba02c504cad654f295c0da2836d9d085606e81efa"
+    },
+    {
+      "name": "net.encoder.layers.21.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365243330560,
+      "bank_byte_offset": 508428288,
+      "weight_sha256": "07578a446f2103d133b30cd883d5899ac06a0b6d796ccb8eb763e51761d184f1",
+      "checksum_sha256": "224303f9efe79797879270845d17f7b5f76286a495aa6e38339c1434dcb2069f"
+    },
+    {
+      "name": "net.encoder.layers.21.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365249622016,
+      "bank_byte_offset": 514719744,
+      "weight_sha256": "6c5f7360acf18fa7218c98d0197d996deb8de3ebd68b78127211a8480c732ff9",
+      "checksum_sha256": "666d242dc4c27adc50b175e10d911bdbffda9d355253eb2f9713540e63c56d48"
+    },
+    {
+      "name": "net.encoder.layers.21.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129365119598592,
+      "bank_byte_offset": 516816896,
+      "weight_sha256": "0380b089a4162c88cc6de690151ea2dc8b786a13428102cb645cfe7ff5764b50",
+      "checksum_sha256": "9e1cae627c3e5246736ecb099a70efae34698cab04c1d70a66e4bced75a5f51c"
+    },
+    {
+      "name": "net.encoder.layers.21.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365132181504,
+      "bank_byte_offset": 527564800,
+      "weight_sha256": "1edbe85d173d5a9088b86043d974c83dd556f9755c247a7fff9f935ffe91d49b",
+      "checksum_sha256": "fe13e890d9bd59d69f8b9df442116883d91b5ee2e6a07b67972f8c8907ee28ce"
+    },
+    {
+      "name": "net.encoder.layers.22.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365137555456,
+      "bank_byte_offset": 532938752,
+      "weight_sha256": "aed9d3e5ab0e218dbaf4633dd2f3d58a572c75e02c875d04a90abfd4b83999ca",
+      "checksum_sha256": "ab77f361bd02fdeb662b70404a66032691e0d4464162b1ee5c3148865dc21a8e"
+    },
+    {
+      "name": "net.encoder.layers.22.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365251719168,
+      "bank_byte_offset": 539230208,
+      "weight_sha256": "7fcdaeeba2ba46e4719ec29dab44f6cb3a46a0887c07374491cf15fb72d3f93a",
+      "checksum_sha256": "391582d0254c0eac0a4611564bde79f8d414b7ea01481987c2bb9aa22af44dd7"
+    },
+    {
+      "name": "net.encoder.layers.22.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129365107015680,
+      "bank_byte_offset": 541327360,
+      "weight_sha256": "6bb62fe0e0312865454ec6b671a9b6d50d19a509b3587725b2e47f42b2472192",
+      "checksum_sha256": "3e442f6150a669dc4688c5f7623dfcc2de0d0300428bf33efbb6412d81203072"
+    },
+    {
+      "name": "net.encoder.layers.22.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365354479616,
+      "bank_byte_offset": 552075264,
+      "weight_sha256": "60a1f7d67ef038c9a20b8e135402386a6b959205bc26a4803010128b829216c9",
+      "checksum_sha256": "750acdfe6161d6c0a97eeafd12974a6bfbf67c96bdcdc582a667e2a52daf1c3b"
+    },
+    {
+      "name": "net.encoder.layers.23.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364985380864,
+      "bank_byte_offset": 557449216,
+      "weight_sha256": "b8457828a05ded8fb2de17fe92b089076d04a18deba351cea89e95a83fed3e3b",
+      "checksum_sha256": "bc463d8e94d5b0ea1c8e506037b4c33a49617bf760a1427a30067105d786a452"
+    },
+    {
+      "name": "net.encoder.layers.23.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365773254656,
+      "bank_byte_offset": 563740672,
+      "weight_sha256": "c312712f37e1917836bb08561bb352e4be3c2c7c7c3d14be5cf2093da4a733c2",
+      "checksum_sha256": "c6ab30a4f99b49becf191f1d45e63e1c428ebb71c9902e3b9aeddccabba9701b"
+    },
+    {
+      "name": "net.encoder.layers.23.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129364997963776,
+      "bank_byte_offset": 565837824,
+      "weight_sha256": "68972d6a0a7ffda793e0b25fb39de933f299a1ea4c865688ab56e8748f31f4a8",
+      "checksum_sha256": "d806abbdfd633156e00e3e1bc96db623c7a6aa10c5b42b7dfb191243e01b1b81"
+    },
+    {
+      "name": "net.encoder.layers.23.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364991672320,
+      "bank_byte_offset": 576585728,
+      "weight_sha256": "990c3f0f0a598761105a2f9da82bffce0f28cee09727ed37f1d92fc1d98ba603",
+      "checksum_sha256": "0fb5eef1a3ae60643cdb86aeed61f23603edbb105b205ce0239f2d057ec06173"
+    },
+    {
+      "name": "net.encoder.layers.24.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364951826432,
+      "bank_byte_offset": 581959680,
+      "weight_sha256": "af28380135ec3253b604e57670ba4c600ac1a001d8f839e9063b64db15c677d1",
+      "checksum_sha256": "8a71619f58d5cc3861aea0bb8b83e3d79521c09e4639f64830ea913e3afe7f4e"
+    },
+    {
+      "name": "net.encoder.layers.24.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365775351808,
+      "bank_byte_offset": 588251136,
+      "weight_sha256": "61a621443b7b3bd045f99046ec52c3f3bf5f0a1542b6a40729feb6dc60ce39cd",
+      "checksum_sha256": "71ab3c8e1741fd6d1f0493830dcb855ae2e64e283850e8aeb67a75034a66263d"
+    },
+    {
+      "name": "net.encoder.layers.24.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129364972797952,
+      "bank_byte_offset": 590348288,
+      "weight_sha256": "f354a8d66fac8c640ae0a1f9d928c98478094e7441633f017e57d212bad573b3",
+      "checksum_sha256": "f9ee190b61a3bb276b8ffcfecb5c2f0dad0b4e09977297e35d7f6a8dc264fea9"
+    },
+    {
+      "name": "net.encoder.layers.24.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364958117888,
+      "bank_byte_offset": 601096192,
+      "weight_sha256": "15ec953f76d9d0d35b13f0461594324d851e33d5ed5244c82e570b30d031243e",
+      "checksum_sha256": "da98c4bd06d2446270e392bd3f39c8ebcb95d928e6ea6ff3344868ef120472b2"
+    },
+    {
+      "name": "net.encoder.layers.25.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364963491840,
+      "bank_byte_offset": 606470144,
+      "weight_sha256": "47a15178f89523dc7691175e009e60ce324c33b684c463a65048620781b96bd4",
+      "checksum_sha256": "98f04115a5a189308cecedd6778986b1dfa5351e549a0207f1076853d69f1ea7"
+    },
+    {
+      "name": "net.encoder.layers.25.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364969783296,
+      "bank_byte_offset": 612761600,
+      "weight_sha256": "47258f94090b761ad518264e17c8d00d8b3b5c89bd55c1bf0a95d2978e8cac68",
+      "checksum_sha256": "28fb2a5eaa30afe0e8863b43160549fb821a1e7590d195f9d6c3cd9c6766d62a"
+    },
+    {
+      "name": "net.encoder.layers.25.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129364851163136,
+      "bank_byte_offset": 614858752,
+      "weight_sha256": "c763b75854f2d356f3ad20e2748a95912e0c9a490c1b34b3540cc83917cb4c26",
+      "checksum_sha256": "7a0d9b0d220d73b6a934108ef0c7edf41b89a860cc4059c8b7ccb5149b1cd812"
+    },
+    {
+      "name": "net.encoder.layers.25.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364863746048,
+      "bank_byte_offset": 625606656,
+      "weight_sha256": "4f55b56913d00558b617c02add23ba1e68b5b4545e29fe078e6471d1e22ce505",
+      "checksum_sha256": "bd6cb636392e40e67af320e0ce5534a51586af9c804708eae99ce6b81fc86adf"
+    },
+    {
+      "name": "net.encoder.layers.26.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364869120000,
+      "bank_byte_offset": 630980608,
+      "weight_sha256": "5addaf8faede9c01c86e04c05956d4589ce8da3d0e8f8f7e1eb936f9554e3874",
+      "checksum_sha256": "36d03c61b403be723ca3b944cc7ddd76ee114f11d8336ebf9dbf80422dd77608"
+    },
+    {
+      "name": "net.encoder.layers.26.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364838580224,
+      "bank_byte_offset": 637272064,
+      "weight_sha256": "c57da553c0ef520887fe38e5c7159f10b4178d6ba3cc014a4b54bf3f9e908e07",
+      "checksum_sha256": "8b6c434e4a4e0a9201a4027ffcdcbc37dad841a0459f6351518fc8e4260cb8ae"
+    },
+    {
+      "name": "net.encoder.layers.26.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129365359853568,
+      "bank_byte_offset": 639369216,
+      "weight_sha256": "0d2cf1078642b45c519e877daa349a1a24605915a9dbd3b573d2f388b77a7775",
+      "checksum_sha256": "f6a26e3a9e9c4ebdb4f9b51d8e20220fe64ce0646d00d6529eedddebbc6f7881"
+    },
+    {
+      "name": "net.encoder.layers.26.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364840677376,
+      "bank_byte_offset": 650117120,
+      "weight_sha256": "68fe29790631bdfa1f5fde00a3bcf11260e076b3f79c46a19b51d7da29654e92",
+      "checksum_sha256": "0c7ebded493fa1780c7e0ad785a3e9bad96560e9f8bb68a7e369a34459b4f8f5"
+    },
+    {
+      "name": "net.encoder.layers.27.attn.Wqkv",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364716945408,
+      "bank_byte_offset": 655491072,
+      "weight_sha256": "28cc9c91e4d245d2c504a31ac1301f09dc2bb3afada3244b751185704e3f349b",
+      "checksum_sha256": "50e3a16470a806e0a15505bf5d87a0df6afb1a7b1c4c8b154e90682ca9de2a3b"
+    },
+    {
+      "name": "net.encoder.layers.27.attn.Wo",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365370601472,
+      "bank_byte_offset": 661782528,
+      "weight_sha256": "0f163e5da278f570a857836507ad7a1c990e62f645f65ff11e9bae1317a019c8",
+      "checksum_sha256": "5720c67382aadbdef0edac7f701a71b2baa1e28689df85deb5ecce83653e7ce9"
+    },
+    {
+      "name": "net.encoder.layers.27.mlp.Wi",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        5248,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 10747904,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "fused GEGLU helper",
+      "original_address": 129364729528320,
+      "bank_byte_offset": 663879680,
+      "weight_sha256": "6f4da299be978489442bdd342b9e436b4a376d76f8184ff31a6231b3a49a4497",
+      "checksum_sha256": "f6360098ce15ff3fa9e675a32a9c6165826b353cd074dd175683c7bc3aad1f75"
+    },
+    {
+      "name": "net.encoder.layers.27.mlp.Wo",
+      "input_shape": [
+        1,
+        64,
+        2624
+      ],
+      "weight_shape": [
+        1024,
+        2624
+      ],
+      "weight_stride": [
+        2624,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 5373952,
+      "bias_bytes_excluded": 0,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364723236864,
+      "bank_byte_offset": 674627584,
+      "weight_sha256": "44157a9d41f7f351d7de56e8d90617242468aa89c38b8454f5ea78d715e0ff26",
+      "checksum_sha256": "4ac4b9fd0a37b6b559189442649b2b7c622e8b738025b519f5e06d2e304fc73c"
+    },
+    {
+      "name": "net.head.layers.0.self_attn.in_proj",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 6144,
+      "capture_mechanism": "packed head QKV helper",
+      "original_address": 129364633059328,
+      "bank_byte_offset": 680001536,
+      "weight_sha256": "82e82ce68754ae645a9c4999d5d6d5b09a7e69258d62ae431f16bdeea3a55d70",
+      "checksum_sha256": "1263a2dbfa8ef4b2168f403296378c97402f917d354a3b62fc7b3768a5598618"
+    },
+    {
+      "name": "net.head.layers.0.self_attn.out_proj",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 2048,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365372698624,
+      "bank_byte_offset": 686292992,
+      "weight_sha256": "34556739b93a4a88a0d2faac1c7eca6a2bed6eaae583d367efe44d8328476e26",
+      "checksum_sha256": "896ec05d171f6923241fec7449b98d013a1ecb6ad963c71ed33957c44a71ff3d"
+    },
+    {
+      "name": "net.head.layers.0.linear1",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        4096,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 8388608,
+      "bias_bytes_excluded": 8192,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365220261888,
+      "bank_byte_offset": 688390144,
+      "weight_sha256": "215a73328db3e8d56c9b391011bb4158d3bfb9fdf4ff02099a7f2f9ac126ef21",
+      "checksum_sha256": "df4dacbf1aff3920fe37145ea04971e73d9202499accde1b1e2f896e66da7782"
+    },
+    {
+      "name": "net.head.layers.0.linear2",
+      "input_shape": [
+        1,
+        64,
+        4096
+      ],
+      "weight_shape": [
+        1024,
+        4096
+      ],
+      "weight_stride": [
+        4096,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 8388608,
+      "bias_bytes_excluded": 2048,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365228650496,
+      "bank_byte_offset": 696778752,
+      "weight_sha256": "e0be5abe0fd6c15e46c611061831a3ec454cde8a6c3fa859cb78d256b07c1248",
+      "checksum_sha256": "6d053a00ba4fc51315c408dd8d833b57e65bb83d9d89699ff367f69228004f97"
+    },
+    {
+      "name": "net.head.layers.1.self_attn.in_proj",
+      "input_shape": [
+        1,
+        64,
+        1024
+      ],
+      "weight_shape": [
+        3072,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 6291456,
+      "bias_bytes_excluded": 6144,
+      "capture_mechanism": "packed head QKV helper",
+      "original_address": 129364639350784,
+      "bank_byte_offset": 705167360,
+      "weight_sha256": "d07383c76047beb5594cd3e5762c952bf1a166800b89b4f9b06bd601a0a5d732",
+      "checksum_sha256": "f7af651e9bc8201a0e20cfd0c1aacc766f823bc3dc342711e45c7f0d82be1b91"
+    },
+    {
+      "name": "net.head.layers.1.self_attn.out_proj",
+      "input_shape": [
+        1,
+        5,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 2048,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365237039104,
+      "bank_byte_offset": 711458816,
+      "weight_sha256": "8222a0c48e03a979d147b3b11f6c9e0e3978ff1a8cbbfbe203a36e362935a86d",
+      "checksum_sha256": "fc6b519d3f4045e031a6d2fa083496104ba16d2401f8cfa4814305456b33d376"
+    },
+    {
+      "name": "net.head.layers.1.linear1",
+      "input_shape": [
+        1,
+        5,
+        1024
+      ],
+      "weight_shape": [
+        4096,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 8388608,
+      "bias_bytes_excluded": 8192,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364616282112,
+      "bank_byte_offset": 713555968,
+      "weight_sha256": "26b84af1f7d0247b0240112126df606a2ee7deefdbeb3e6e0f3f9845db6deff5",
+      "checksum_sha256": "ea7380aedd5fefde06d7cd3af29aaaee859138e0304ad7d70df3f9a80fa65aac"
+    },
+    {
+      "name": "net.head.layers.1.linear2",
+      "input_shape": [
+        1,
+        5,
+        4096
+      ],
+      "weight_shape": [
+        1024,
+        4096
+      ],
+      "weight_stride": [
+        4096,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 8388608,
+      "bias_bytes_excluded": 2048,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129364624670720,
+      "bank_byte_offset": 721944576,
+      "weight_sha256": "3a859bf8e7e700f2d15ec2be584f6a74801ce396e9ba3b8b5beb43e5143960ea",
+      "checksum_sha256": "2a20f11534df6ae05989acadebb9873b06a6114f806f942a7050442255d65f66"
+    },
+    {
+      "name": "net.scorer.1",
+      "input_shape": [
+        1,
+        4,
+        1024
+      ],
+      "weight_shape": [
+        1024,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2097152,
+      "bias_bytes_excluded": 2048,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129365239136256,
+      "bank_byte_offset": 730333184,
+      "weight_sha256": "ae67a30ad3fd9105c4b51132949472d6a1fd3e5e4dfb34dcc7857e3f754e72b1",
+      "checksum_sha256": "2ea4ce4e7b1f6b177c2eff7be5f6c75924b86a772df621524956ed7d05cf6bea"
+    },
+    {
+      "name": "net.scorer.3",
+      "input_shape": [
+        1,
+        4,
+        1024
+      ],
+      "weight_shape": [
+        1,
+        1024
+      ],
+      "weight_stride": [
+        1024,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 2048,
+      "bias_bytes_excluded": 2,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129367408329728,
+      "bank_byte_offset": 732430336,
+      "weight_sha256": "b07cd478614bf26fc7ecf32f404f51d435382a69ba41b9eaffadb609bcf49a82",
+      "checksum_sha256": "22f2499b238fcff0dfbecd91ae07b28374b348eb950940c30abc899f458e71db"
+    },
+    {
+      "name": "net.act_head.0",
+      "input_shape": [
+        1,
+        1028
+      ],
+      "weight_shape": [
+        256,
+        1028
+      ],
+      "weight_stride": [
+        1028,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 526336,
+      "bias_bytes_excluded": 512,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129367408352256,
+      "bank_byte_offset": 732432384,
+      "weight_sha256": "99a9251361af0252f7368bcd194273bccfa2475879831e2f33210157eb2826d4",
+      "checksum_sha256": "e9184fa742b486c92cf67e2c7dbf79a2af60afd43c469e6fd7ec4a30fa11b3ab"
+    },
+    {
+      "name": "net.act_head.2",
+      "input_shape": [
+        1,
+        256
+      ],
+      "weight_shape": [
+        2,
+        256
+      ],
+      "weight_stride": [
+        256,
+        1
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes": 1024,
+      "bias_bytes_excluded": 4,
+      "capture_mechanism": "Linear pre-hook",
+      "original_address": 129367408332800,
+      "bank_byte_offset": 732958720,
+      "weight_sha256": "d3ecf7b27886f6042dc206f234fed3756375a87ea6e58209ab5b25c44d9944ff",
+      "checksum_sha256": "3bf532e2fd6d94775dfe4275fedcfc972f74e4c54cc7073fb82e92179de5162c"
+    }
+  ],
+  "projection_launch_count": 123,
+  "total_logical_bytes": 732959744,
+  "dense_bias_bytes_excluded": 39430,
+  "l2_bytes": 50331648,
+  "logical_bytes_over_l2": 14.562601725260416,
+  "distinct_source_allocations": 123,
+  "combined_bank_sha256": "605c4cc2aab6955da08fb609b0022917338bcf34af4b037934ead19e6143fb72",
+  "cases": {
+    "per_projection_original_allocations": {
+      "graph": {
+        "kernel_nodes": 123,
+        "kernel_names": [
+          "_weight_stream"
+        ]
+      },
+      "checksum_output_bytes": 178956,
+      "samples_ms": [
+        0.9881941477457682,
+        0.9878527959187825,
+        0.9882965087890625,
+        0.9879552205403646,
+        0.9877503712972006,
+        0.9880917231241862,
+        0.9882282892862956,
+        0.9883306503295899,
+        0.9878522872924804
+      ],
+      "median_ms": 0.9880917231241862,
+      "logical_GB_per_second": 741.7932230850997
+    },
+    "per_projection_contiguous_slices": {
+      "graph": {
+        "kernel_nodes": 123,
+        "kernel_names": [
+          "_weight_stream"
+        ]
+      },
+      "checksum_output_bytes": 178956,
+      "samples_ms": [
+        0.9862826665242513,
+        0.9862826665242513,
+        0.9863168080647786,
+        0.9864533106486003,
+        0.9864533106486003,
+        0.986248524983724,
+        0.9864533106486003,
+        0.986077880859375,
+        0.9863850911458333
+      ],
+      "median_ms": 0.9863168080647786,
+      "logical_GB_per_second": 743.1281085416332
+    },
+    "combined_contiguous_one_kernel": {
+      "graph": {
+        "kernel_nodes": 1,
+        "kernel_names": [
+          "_weight_stream"
+        ]
+      },
+      "checksum_output_bytes": 178948,
+      "samples_ms": [
+        0.8627541224161784,
+        0.8629248301188152,
+        0.8629248301188152,
+        0.8629589080810547,
+        0.8629930496215821,
+        0.8629248301188152,
+        0.8629930496215821,
+        0.8629248301188152,
+        0.8629589080810547
+      ],
+      "median_ms": 0.8629248301188152,
+      "logical_GB_per_second": 849.3900261267017
+    }
+  },
+  "checks_before": {
+    "per_projection_original_allocations": {
+      "checked_output_words": 44739,
+      "mismatches": 0
+    },
+    "per_projection_contiguous_slices": {
+      "checked_output_words": 44739,
+      "mismatches": 0
+    },
+    "combined_contiguous_one_kernel": {
+      "checked_output_words": 44737,
+      "mismatches": 0
+    }
+  },
+  "binaries_before": [
+    {
+      "words": 256,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-256.ptx": "dbaccac715f18fa04f261a2d320dd6c3d3f472828c176670caa90dd02d927cd1",
+        ".research/frontier-weight-stream/weight_stream-256.cubin": "9f8b60fb5cfb6f0286dcc6ccdd817e256b3c07bbb9270a9348a4c4025a63e74c"
+      }
+    },
+    {
+      "words": 512,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-512.ptx": "b121e32e830edc62ad5824d11737d6abe5297b2f8e39ba9695dcd3a78af388c6",
+        ".research/frontier-weight-stream/weight_stream-512.cubin": "117a236767978b0f434b966f238fd5094e496be916d9bd1b5153ea305a230626"
+      }
+    },
+    {
+      "words": 131584,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-131584.ptx": "faaf34ff10415d5721d9b7096e0e5665e3bf1f57f893e6074e9ed7fa9ac874cc",
+        ".research/frontier-weight-stream/weight_stream-131584.cubin": "b923dc90acd7fd038bc5fff6a871a985fab913ba9e686236ab796523d6e08541"
+      }
+    },
+    {
+      "words": 524288,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-524288.ptx": "8c253467bf4b1452595a646f53d588c1933bfb4ad813f036e55b66951ca55352",
+        ".research/frontier-weight-stream/weight_stream-524288.cubin": "31eaaba7e0f2881aaeb5056ec39041d8c65ab16d8a1a554cdb834d9bb2ceffd4"
+      }
+    },
+    {
+      "words": 1343488,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-1343488.ptx": "edfa0c8b02ea241a8296eea883885fa14fe9db2b3503c45f390b55325303de7e",
+        ".research/frontier-weight-stream/weight_stream-1343488.cubin": "3d8b29d7bc0b35b7562dfb53f61d7414329bf5f366956ba3b6cde58e19c3b07e"
+      }
+    },
+    {
+      "words": 1572864,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-1572864.ptx": "d2fd154fb77e954ba773c50822211fd3d6ae199fbf3c0c75fdfb664feb785bfe",
+        ".research/frontier-weight-stream/weight_stream-1572864.cubin": "b473acee4adf9425f0eebe8380754eeffbf839a990e2642de2b7aa9d6e096180"
+      }
+    },
+    {
+      "words": 2097152,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-2097152.ptx": "53d23858d9d98fab465352360dec285a8d35dd3bbad4dd87e27e7693b37d02e9",
+        ".research/frontier-weight-stream/weight_stream-2097152.cubin": "2930cc24e30f4940bb8d1e42fb1531bbcafdad98ad6ce2ccee866f10b8d101fd"
+      }
+    },
+    {
+      "words": 2686976,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-2686976.ptx": "f764f32b5596984bf579146801d2c2d15d50a17527c36f6f02043e17e8c5ae37",
+        ".research/frontier-weight-stream/weight_stream-2686976.cubin": "0c18b42637ce0a9200b8a85f6bb8ddd071c5f54883dec5ba048f35d899fb5737"
+      }
+    },
+    {
+      "words": 183239936,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-183239936.ptx": "70df69305e279703c7748376364061e96c335f46d53e7ee176154d569a15cd5e",
+        ".research/frontier-weight-stream/weight_stream-183239936.cubin": "2292fecdbd72d493408db2e854aad3b846b155cd6e9c78a8fbcc09782b20013b"
+      }
+    }
+  ],
+  "round_order": [
+    [
+      "combined_contiguous_one_kernel",
+      "per_projection_original_allocations",
+      "per_projection_contiguous_slices"
+    ],
+    [
+      "per_projection_original_allocations",
+      "per_projection_contiguous_slices",
+      "combined_contiguous_one_kernel"
+    ],
+    [
+      "combined_contiguous_one_kernel",
+      "per_projection_original_allocations",
+      "per_projection_contiguous_slices"
+    ],
+    [
+      "combined_contiguous_one_kernel",
+      "per_projection_original_allocations",
+      "per_projection_contiguous_slices"
+    ],
+    [
+      "per_projection_contiguous_slices",
+      "per_projection_original_allocations",
+      "combined_contiguous_one_kernel"
+    ],
+    [
+      "per_projection_original_allocations",
+      "per_projection_contiguous_slices",
+      "combined_contiguous_one_kernel"
+    ],
+    [
+      "per_projection_contiguous_slices",
+      "combined_contiguous_one_kernel",
+      "per_projection_original_allocations"
+    ],
+    [
+      "per_projection_original_allocations",
+      "per_projection_contiguous_slices",
+      "combined_contiguous_one_kernel"
+    ],
+    [
+      "per_projection_contiguous_slices",
+      "per_projection_original_allocations",
+      "combined_contiguous_one_kernel"
+    ]
+  ],
+  "checks_after": {
+    "per_projection_original_allocations": {
+      "checked_output_words": 44739,
+      "mismatches": 0
+    },
+    "per_projection_contiguous_slices": {
+      "checked_output_words": 44739,
+      "mismatches": 0
+    },
+    "combined_contiguous_one_kernel": {
+      "checked_output_words": 44737,
+      "mismatches": 0
+    }
+  },
+  "binaries_after": [
+    {
+      "words": 256,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-256.ptx": "dbaccac715f18fa04f261a2d320dd6c3d3f472828c176670caa90dd02d927cd1",
+        ".research/frontier-weight-stream/weight_stream-256.cubin": "9f8b60fb5cfb6f0286dcc6ccdd817e256b3c07bbb9270a9348a4c4025a63e74c"
+      }
+    },
+    {
+      "words": 512,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-512.ptx": "b121e32e830edc62ad5824d11737d6abe5297b2f8e39ba9695dcd3a78af388c6",
+        ".research/frontier-weight-stream/weight_stream-512.cubin": "117a236767978b0f434b966f238fd5094e496be916d9bd1b5153ea305a230626"
+      }
+    },
+    {
+      "words": 131584,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-131584.ptx": "faaf34ff10415d5721d9b7096e0e5665e3bf1f57f893e6074e9ed7fa9ac874cc",
+        ".research/frontier-weight-stream/weight_stream-131584.cubin": "b923dc90acd7fd038bc5fff6a871a985fab913ba9e686236ab796523d6e08541"
+      }
+    },
+    {
+      "words": 524288,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-524288.ptx": "8c253467bf4b1452595a646f53d588c1933bfb4ad813f036e55b66951ca55352",
+        ".research/frontier-weight-stream/weight_stream-524288.cubin": "31eaaba7e0f2881aaeb5056ec39041d8c65ab16d8a1a554cdb834d9bb2ceffd4"
+      }
+    },
+    {
+      "words": 1343488,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-1343488.ptx": "edfa0c8b02ea241a8296eea883885fa14fe9db2b3503c45f390b55325303de7e",
+        ".research/frontier-weight-stream/weight_stream-1343488.cubin": "3d8b29d7bc0b35b7562dfb53f61d7414329bf5f366956ba3b6cde58e19c3b07e"
+      }
+    },
+    {
+      "words": 1572864,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-1572864.ptx": "d2fd154fb77e954ba773c50822211fd3d6ae199fbf3c0c75fdfb664feb785bfe",
+        ".research/frontier-weight-stream/weight_stream-1572864.cubin": "b473acee4adf9425f0eebe8380754eeffbf839a990e2642de2b7aa9d6e096180"
+      }
+    },
+    {
+      "words": 2097152,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-2097152.ptx": "53d23858d9d98fab465352360dec285a8d35dd3bbad4dd87e27e7693b37d02e9",
+        ".research/frontier-weight-stream/weight_stream-2097152.cubin": "2930cc24e30f4940bb8d1e42fb1531bbcafdad98ad6ce2ccee866f10b8d101fd"
+      }
+    },
+    {
+      "words": 2686976,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-2686976.ptx": "f764f32b5596984bf579146801d2c2d15d50a17527c36f6f02043e17e8c5ae37",
+        ".research/frontier-weight-stream/weight_stream-2686976.cubin": "0c18b42637ce0a9200b8a85f6bb8ddd071c5f54883dec5ba048f35d899fb5737"
+      }
+    },
+    {
+      "words": 183239936,
+      "registers": 40,
+      "spills": 0,
+      "shared_bytes": 16,
+      "hashes": {
+        ".research/frontier-weight-stream/weight_stream-183239936.ptx": "70df69305e279703c7748376364061e96c335f46d53e7ee176154d569a15cd5e",
+        ".research/frontier-weight-stream/weight_stream-183239936.cubin": "2292fecdbd72d493408db2e854aad3b846b155cd6e9c78a8fbcc09782b20013b"
+      }
+    }
+  ],
+  "contiguous_per_projection_minus_one_kernel_ms": 0.12339197794596346,
+  "interpretation_limit": "Launch granularity changes grid partitioning and GPU scheduling as well as graph-node count. The difference is not pure launch overhead and neither control is a latency floor for fused inference. Replays cycle a bank much larger than L2; no explicit L2 flush occurs between projections. Matrix bias reads are excluded and separately counted.",
+  "source_sha256_after": {
+    "experiments/frontier/weight_stream_kernel.py": "64ac543a0537d117bb1517593a081164e5775b8f26906d43dd177ae118b21ca7",
+    "experiments/frontier/weight_stream_probe.py": "9237afa9b28fff02ccd5867d205253f789dd9246c9c52c4a7439664339ebd340"
+  }
+}

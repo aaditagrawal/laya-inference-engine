@@ -1,0 +1,1823 @@
+{
+  "method": "CPU-only mutation/error/logging probe; no timings or CUDA",
+  "cases": 224,
+  "all_exact": true,
+  "all_fallbacks_as_expected": true,
+  "source_before": {
+    "experiments/frontier/header_prepare_probe.py": "56fa21d838fd112c65657cbc0e804f56a85232d0391c6fd890a00e00593a632b",
+    "experiments/frontier/header_prepare.py": "b0a4f78071d92dfe3cc1549acf80ee748907b5e389475ed7dcc05927c1687ad8",
+    "experiments/frontier/header_prepare_extra.py": "fbb782b7dae5dcf0300e24078a38f0a5e89431f83d2fb07d063f34f04582bc97",
+    "experiments/frontier/host_prepare.py": "5901d9df9bfecec822ac3bd9a476267edad5182b7ffb2b85a35457e9973b301b",
+    "experiments/native/host/adapter.py": "1d01f04717b7ef2c59a630f15716364874d090f1e216dcfeac17e104434a8cd2",
+    "src/laya_blackwell/protocol.py": "18e055f72f35fc777c584d7af84848b062e24f346f3a4c521e56d6639d7d43d5",
+    ".venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py": "e7eb23b77be31b251570936ca74b2a3f2c04f1a44a13aa079ac4957535916a4b",
+    ".venv/lib/python3.12/site-packages/transformers/tokenization_utils_tokenizers.py": "154c32bd9bbe224504c4b4a3c10c02adccb4698752d022bfa0f6957e4e97a97d"
+  },
+  "source_after": {
+    "experiments/frontier/header_prepare_probe.py": "56fa21d838fd112c65657cbc0e804f56a85232d0391c6fd890a00e00593a632b",
+    "experiments/frontier/header_prepare.py": "b0a4f78071d92dfe3cc1549acf80ee748907b5e389475ed7dcc05927c1687ad8",
+    "experiments/frontier/header_prepare_extra.py": "fbb782b7dae5dcf0300e24078a38f0a5e89431f83d2fb07d063f34f04582bc97",
+    "experiments/frontier/host_prepare.py": "5901d9df9bfecec822ac3bd9a476267edad5182b7ffb2b85a35457e9973b301b",
+    "experiments/native/host/adapter.py": "1d01f04717b7ef2c59a630f15716364874d090f1e216dcfeac17e104434a8cd2",
+    "src/laya_blackwell/protocol.py": "18e055f72f35fc777c584d7af84848b062e24f346f3a4c521e56d6639d7d43d5",
+    ".venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py": "e7eb23b77be31b251570936ca74b2a3f2c04f1a44a13aa079ac4957535916a4b",
+    ".venv/lib/python3.12/site-packages/transformers/tokenization_utils_tokenizers.py": "154c32bd9bbe224504c4b4a3c10c02adccb4698752d022bfa0f6957e4e97a97d"
+  },
+  "sources_unchanged": true,
+  "candidate_initial_sha256": "6c70038715801b965d0227d65c0f15f2b25cdd795bc6a3e22830a1ed49653a90",
+  "candidate_hardened_sha256": "b0a4f78071d92dfe3cc1549acf80ee748907b5e389475ed7dcc05927c1687ad8",
+  "rows": [
+    {
+      "mutation": "ordinary",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "ordinary",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "ordinary",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "ordinary",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unset",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unset",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unset",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unset",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unknown",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unknown",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unknown",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unknown",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-changed",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-changed",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-changed",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-changed",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-added-value",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-added-value",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-added-value",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-added-value",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-empty",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-empty",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-empty",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-empty",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-str-subclass",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-str-subclass",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-str-subclass",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-str-subclass",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-deleted-definition",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-deleted-definition",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-deleted-definition",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-deleted-definition",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unset-verbose-True",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unset-verbose-True",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unset-verbose-True",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unset-verbose-True",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unset-verbose-False",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unset-verbose-False",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unset-verbose-False",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-unset-verbose-False",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-invalid-definition",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-invalid-definition",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-invalid-definition",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "mask_token-invalid-definition",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unset",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unset",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unset",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unset",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unknown",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unknown",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unknown",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unknown",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-changed",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-changed",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-changed",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-changed",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-added-value",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-added-value",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-added-value",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-added-value",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-empty",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-empty",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-empty",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-empty",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-str-subclass",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-str-subclass",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-str-subclass",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-str-subclass",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-deleted-definition",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-deleted-definition",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-deleted-definition",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-deleted-definition",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unset-verbose-True",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unset-verbose-True",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unset-verbose-True",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unset-verbose-True",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unset-verbose-False",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unset-verbose-False",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unset-verbose-False",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-unset-verbose-False",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-invalid-definition",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-invalid-definition",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-invalid-definition",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "cls_token-invalid-definition",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unset",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unset",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unset",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unset",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unknown",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unknown",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unknown",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unknown",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-changed",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-changed",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-changed",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-changed",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-added-value",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-added-value",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-added-value",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-added-value",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-empty",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-empty",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-empty",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-empty",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-str-subclass",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-str-subclass",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-str-subclass",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-str-subclass",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-deleted-definition",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-deleted-definition",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-deleted-definition",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-deleted-definition",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unset-verbose-True",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unset-verbose-True",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unset-verbose-True",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unset-verbose-True",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unset-verbose-False",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unset-verbose-False",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unset-verbose-False",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-unset-verbose-False",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-invalid-definition",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-invalid-definition",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-invalid-definition",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "sep_token-invalid-definition",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "added-new-vocabulary-token",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "added-new-vocabulary-token",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "added-new-vocabulary-token",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "added-new-vocabulary-token",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": false,
+      "fallback_observed": false,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "custom-special-token-map",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "custom-special-token-map",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "custom-special-token-map",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "custom-special-token-map",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-getattribute-override",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-getattribute-override",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-getattribute-override",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-getattribute-override",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "PlainSubclass",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "PlainSubclass",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "PlainSubclass",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "PlainSubclass",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "ConverterSubclass",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "ConverterSubclass",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "ConverterSubclass",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "ConverterSubclass",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "NoDictSubclass",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "NoDictSubclass",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "NoDictSubclass",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "NoDictSubclass",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-convert_tokens_to_ids-changed",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-convert_tokens_to_ids-changed",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-convert_tokens_to_ids-changed",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-convert_tokens_to_ids-changed",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-convert_tokens_to_ids-changed",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-convert_tokens_to_ids-changed",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-convert_tokens_to_ids-changed",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-convert_tokens_to_ids-changed",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-convert_tokens_to_ids-raises",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-convert_tokens_to_ids-raises",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-convert_tokens_to_ids-raises",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-convert_tokens_to_ids-raises",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-convert_tokens_to_ids-raises",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-convert_tokens_to_ids-raises",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-convert_tokens_to_ids-raises",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-convert_tokens_to_ids-raises",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-_convert_token_to_id_with_added_voc-changed",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-_convert_token_to_id_with_added_voc-changed",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-_convert_token_to_id_with_added_voc-changed",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-_convert_token_to_id_with_added_voc-changed",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-_convert_token_to_id_with_added_voc-changed",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-_convert_token_to_id_with_added_voc-changed",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-_convert_token_to_id_with_added_voc-changed",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-_convert_token_to_id_with_added_voc-changed",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-_convert_token_to_id_with_added_voc-raises",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-_convert_token_to_id_with_added_voc-raises",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-_convert_token_to_id_with_added_voc-raises",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-_convert_token_to_id_with_added_voc-raises",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-_convert_token_to_id_with_added_voc-raises",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-_convert_token_to_id_with_added_voc-raises",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-_convert_token_to_id_with_added_voc-raises",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-_convert_token_to_id_with_added_voc-raises",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-mask_token",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-mask_token",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-mask_token",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-mask_token",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-mask_token",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-mask_token",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-mask_token",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-mask_token",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-mask_token_id",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-mask_token_id",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-mask_token_id",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-mask_token_id",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-mask_token_id",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-mask_token_id",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-mask_token_id",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-mask_token_id",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-cls_token_id",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-cls_token_id",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-cls_token_id",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-cls_token_id",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-cls_token_id",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-cls_token_id",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-cls_token_id",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-cls_token_id",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-sep_token_id",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-sep_token_id",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-sep_token_id",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-shadow-sep_token_id",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-sep_token_id",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-sep_token_id",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-sep_token_id",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-shadow-sep_token_id",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-special-attributes-removed",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-special-attributes-removed",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-special-attributes-removed",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "instance-special-attributes-removed",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-special-attributes-removed",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-special-attributes-removed",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-special-attributes-removed",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-special-attributes-removed",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-getattr-override",
+      "fixture": "ordinary",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-getattr-override",
+      "fixture": "special-token-content",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-getattr-override",
+      "fixture": "empty-questions",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    },
+    {
+      "mutation": "class-getattr-override",
+      "fixture": "invalid-question",
+      "exact": true,
+      "fallback_expected": true,
+      "fallback_observed": true,
+      "fallback_correct": true
+    }
+  ]
+}

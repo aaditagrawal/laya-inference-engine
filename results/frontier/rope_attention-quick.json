@@ -1,0 +1,361 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T11:45:13.191826+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "build": {
+    "seconds": 64.1028903350234,
+    "torch_revision": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cutlass_revision": "e05f953a5b3d38adc240df2ff928e0421c2abba3",
+    "flash_revision": "14c377950125c70b7a9dabf9c561fca53715ac7d",
+    "source_sha256": "655a96974e0f62cc9c784b2def47aad2622621bfe738a62484417c31c0b28c51",
+    "helper_sha256": "91e03a54ed36260770d1cb6cc5572eb72370290456eb923af6073a06d0d15b8a",
+    "generator_sha256": "f2d085fa112bbd9a0d68cdbbdcaed9f02b47617e8aaa60d9cd660401bc7bd379",
+    "headers_sha256": {
+      "/home/mav/Code/vibes/Laya Inference Engine/.venv/lib/python3.12/site-packages/torch/include/ATen/native/transformers/cuda/mem_eff_attention/kernel_forward.h": "fcbfa07f0bc48e239e4d8c45025d5d9e65ff017d00e9dd667918e03172637650",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-torch-flash/csrc/flash_attn/src/flash_fwd_kernel.h": "9b31cdff4009fcd0e1bc52f9b97907d226442db24e0a150d8dfed0711ee64dda",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-rope-attention/rope_attention_cutlass_kernel.h": "12e1e6f4eb3d8adc81cc0e491de9e717081ca72444f059733a2181da3c05c806",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-rope-attention/rope_attention_flash_kernel.h": "f129490e7ac5525749b1f1939a6efcbc16cbca9baf13d6b30baf113b065064e5"
+    },
+    "library_sha256": "eb1a1885fd1b7abcb73eeac4b6319a8b46eaea038c49ad1897937114dd5f1a86",
+    "architecture": "sm_120",
+    "fast_math": false,
+    "rope_math": "Separate FP32 multiply and add rounding, then BF16 RN"
+  },
+  "scope": "28 encoder layers: separate exact FP32 RoPE + retained attention versus shared-staging fusion",
+  "sources": [
+    {
+      "suite": "benchmark",
+      "index": 0,
+      "request": {
+        "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+        "questions": {
+          "q0": {
+            "type": "choice",
+            "instructions": "Which department should handle this request?",
+            "criteria": {
+              "billing": "invoices, payments, refunds",
+              "technical": "bugs, outages, system errors",
+              "sales": "pricing and new contracts",
+              "other": "everything else"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 0,
+      "request": {
+        "state": "My parcel arrived broken.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Classify this request.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    },
+    {
+      "suite": "holdout",
+      "index": 1,
+      "request": {
+        "state": "the card was charged twice.",
+        "questions": {
+          "route": {
+            "type": "choice",
+            "instructions": "Choose the best category.",
+            "criteria": {
+              "refund": "refund",
+              "delivery": "delivery",
+              "warranty": "warranty",
+              "other": "other"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "rows": [
+    {
+      "local_config": 0,
+      "global_config": 2,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "timings": {
+        "full": {
+          "baseline_ms": 0.12760532895723978,
+          "fused_ms": 0.29346134265263873,
+          "speedup": 0.4348284097789409,
+          "baseline_samples_ms": [
+            0.1284666657447815,
+            0.12760532895723978,
+            0.1274079978466034
+          ],
+          "fused_samples_ms": [
+            0.29414133230845135,
+            0.2934239904085795,
+            0.29346134265263873
+          ]
+        },
+        "padded": {
+          "baseline_ms": 0.22179466485977173,
+          "fused_ms": 0.41651201248168945,
+          "speedup": 0.5325048455103614,
+          "baseline_samples_ms": [
+            0.22350666920344034,
+            0.22179466485977173,
+            0.22172266244888306
+          ],
+          "fused_samples_ms": [
+            0.41893601417541504,
+            0.41650935014088947,
+            0.41651201248168945
+          ]
+        }
+      }
+    },
+    {
+      "local_config": 0,
+      "global_config": 3,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "timings": {
+        "full": {
+          "baseline_ms": 0.12711466352144876,
+          "fused_ms": 0.2872613271077474,
+          "speedup": 0.4425053131978673,
+          "baseline_samples_ms": [
+            0.12762666742006937,
+            0.12584267059961954,
+            0.12711466352144876
+          ],
+          "fused_samples_ms": [
+            0.2878986597061157,
+            0.28706934054692584,
+            0.2872613271077474
+          ]
+        },
+        "padded": {
+          "baseline_ms": 0.22185333569844565,
+          "fused_ms": 0.41658135255177814,
+          "speedup": 0.5325570487960591,
+          "baseline_samples_ms": [
+            0.22378132740656534,
+            0.2216879924138387,
+            0.22185333569844565
+          ],
+          "fused_samples_ms": [
+            0.418015996615092,
+            0.4163999954859416,
+            0.41658135255177814
+          ]
+        }
+      }
+    },
+    {
+      "local_config": 0,
+      "global_config": 4,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "timings": {
+        "full": {
+          "baseline_ms": 0.1264693339665731,
+          "fused_ms": 0.30768799781799316,
+          "speedup": 0.4110310927414971,
+          "baseline_samples_ms": [
+            0.12815200289090475,
+            0.1264693339665731,
+            0.1264639993508657
+          ],
+          "fused_samples_ms": [
+            0.30830132961273193,
+            0.30768799781799316,
+            0.3076373338699341
+          ]
+        },
+        "padded": {
+          "baseline_ms": 0.22163466612497965,
+          "fused_ms": 0.4161733388900757,
+          "speedup": 0.5325537352202185,
+          "baseline_samples_ms": [
+            0.22353599468866983,
+            0.22163466612497965,
+            0.2214639981587728
+          ],
+          "fused_samples_ms": [
+            0.4176613489786784,
+            0.4161733388900757,
+            0.4159466822942098
+          ]
+        }
+      }
+    },
+    {
+      "local_config": 1,
+      "global_config": 2,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "timings": {
+        "full": {
+          "baseline_ms": 0.12709333499272665,
+          "fused_ms": 0.2643306652704875,
+          "speedup": 0.48081192116954363,
+          "baseline_samples_ms": [
+            0.12824267148971558,
+            0.12681066989898682,
+            0.12709333499272665
+          ],
+          "fused_samples_ms": [
+            0.26548532644907635,
+            0.2643306652704875,
+            0.2642693320910136
+          ]
+        },
+        "padded": {
+          "baseline_ms": 0.22155733903249106,
+          "fused_ms": 0.37507466475168866,
+          "speedup": 0.5907019584465111,
+          "baseline_samples_ms": [
+            0.22299466530481973,
+            0.22155733903249106,
+            0.22143733501434326
+          ],
+          "fused_samples_ms": [
+            0.3768719832102458,
+            0.37490665912628174,
+            0.37507466475168866
+          ]
+        }
+      }
+    },
+    {
+      "local_config": 1,
+      "global_config": 3,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "timings": {
+        "full": {
+          "baseline_ms": 0.12693066398302713,
+          "fused_ms": 0.25675199429194134,
+          "speedup": 0.4943707032658912,
+          "baseline_samples_ms": [
+            0.1280133326848348,
+            0.12679732839266458,
+            0.12693066398302713
+          ],
+          "fused_samples_ms": [
+            0.25844534238179523,
+            0.25671199957529706,
+            0.25675199429194134
+          ]
+        },
+        "padded": {
+          "baseline_ms": 0.2214613358179728,
+          "fused_ms": 0.37514666716257733,
+          "speedup": 0.5903326757318574,
+          "baseline_samples_ms": [
+            0.22303466002146402,
+            0.2212053338686625,
+            0.2214613358179728
+          ],
+          "fused_samples_ms": [
+            0.37666134039560956,
+            0.3747119903564453,
+            0.37514666716257733
+          ]
+        }
+      }
+    },
+    {
+      "local_config": 1,
+      "global_config": 4,
+      "mismatches": 0,
+      "request_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "max_abs_error": 0.0,
+      "timings": {
+        "full": {
+          "baseline_ms": 0.12717333436012268,
+          "fused_ms": 0.2775013248125712,
+          "speedup": 0.4582800981077029,
+          "baseline_samples_ms": [
+            0.1280399958292643,
+            0.1270106633504232,
+            0.12717333436012268
+          ],
+          "fused_samples_ms": [
+            0.27829599380493164,
+            0.2775013248125712,
+            0.2774239977200826
+          ]
+        },
+        "padded": {
+          "baseline_ms": 0.22157333294550577,
+          "fused_ms": 0.3753226598103841,
+          "speedup": 0.5903542649341937,
+          "baseline_samples_ms": [
+            0.22333866357803345,
+            0.22157333294550577,
+            0.2214906613032023
+          ],
+          "fused_samples_ms": [
+            0.3767893314361572,
+            0.3753226598103841,
+            0.37515465418497723
+          ]
+        }
+      }
+    }
+  ],
+  "python_sha256": {
+    "rope_attention_probe.py": "69f58d5620f12020f055044553d23dbb7afe0d62d6cafb1f24932299c54ef1a8",
+    "rope_attention_adapter.py": "cec5168348dcd06fb8da534a33573a6851d2a7d88cf9133e35ed17cc07661d25"
+  }
+}

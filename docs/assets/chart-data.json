@@ -1,4 +1,118 @@
 {
+  "publicModes": [
+    {
+      "label": "Balanced",
+      "detail": "Default public mode",
+      "value": 2.803831943310797,
+      "color": "neutral"
+    },
+    {
+      "label": "Fast",
+      "detail": "Compiled SM120 configuration",
+      "value": 1.6100694774650037,
+      "color": "accent"
+    }
+  ],
+  "publicReduction": 42.576106199724116,
+  "publicWorkloads": [
+    {
+      "workload": "1-short",
+      "balanced": {
+        "variant": "balanced",
+        "p50_ms": 2.803831943310797,
+        "samples": 900,
+        "rounds": 9
+      },
+      "fast": {
+        "variant": "fast",
+        "p50_ms": 1.6100694774650037,
+        "samples": 900,
+        "rounds": 9
+      },
+      "retained": {
+        "variant": "retained",
+        "p50_ms": 1.6115244943648577,
+        "samples": 900,
+        "rounds": 9
+      },
+      "reduction_percent": 42.576106199724116
+    },
+    {
+      "workload": "1-long",
+      "balanced": {
+        "variant": "balanced",
+        "p50_ms": 8.615600992925465,
+        "samples": 900,
+        "rounds": 9
+      },
+      "fast": {
+        "variant": "fast",
+        "p50_ms": 6.9676804705522954,
+        "samples": 900,
+        "rounds": 9
+      },
+      "retained": {
+        "variant": "retained",
+        "p50_ms": 6.972121016588062,
+        "samples": 900,
+        "rounds": 9
+      },
+      "reduction_percent": 19.127168536777972
+    },
+    {
+      "workload": "16-short",
+      "balanced": {
+        "variant": "balanced",
+        "p50_ms": 12.590964033734053,
+        "samples": 900,
+        "rounds": 9
+      },
+      "fast": {
+        "variant": "fast",
+        "p50_ms": 10.553086525760591,
+        "samples": 900,
+        "rounds": 9
+      },
+      "retained": {
+        "variant": "retained",
+        "p50_ms": 10.55478205671534,
+        "samples": 900,
+        "rounds": 9
+      },
+      "reduction_percent": 16.185238100224296
+    },
+    {
+      "workload": "changing",
+      "balanced": {
+        "variant": "balanced",
+        "p50_ms": 2.783642,
+        "samples": 1152,
+        "rounds": 9
+      },
+      "fast": {
+        "variant": "fast",
+        "p50_ms": 1.63572,
+        "samples": 1152,
+        "rounds": 9
+      },
+      "retained": {
+        "variant": "retained",
+        "p50_ms": 1.6433795,
+        "samples": 1152,
+        "rounds": 9
+      },
+      "reduction_percent": 41.238133351918094
+    }
+  ],
+  "publicMeasurement": {
+    "date": "2026-09-24T14:06:02.980904+00:00",
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "samples_per_mode": 900,
+    "rounds": 9,
+    "parity_requests": 199,
+    "parity_decisions": 354,
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
   "warm": [
     {
       "label": "Upstream default",
@@ -13,25 +127,106 @@
       "color": "neutral"
     },
     {
-      "label": "This engine",
-      "detail": "Published default",
+      "label": "First fused engine",
+      "detail": "Original implementation",
       "value": 2.81198404263705,
       "color": "accent"
     },
     {
       "label": "Native + window",
-      "detail": "Opt-in experiment",
+      "detail": "Earlier native path",
       "value": 2.187664504162967,
       "color": "accent"
     },
     {
       "label": "Compiled native",
-      "detail": "Opt-in experiment",
+      "detail": "Earlier compiled path",
       "value": 2.1056540426798165,
       "color": "accent"
     }
   ],
   "originalSpeedup": 7.298917679120707,
+  "latest": [
+    {
+      "label": "Native baseline",
+      "detail": "Same paired experiment",
+      "value": 2.197088033426553,
+      "color": "neutral"
+    },
+    {
+      "label": "Optimized BF16",
+      "detail": "Retained before packaging",
+      "value": 1.623769465368241,
+      "color": "accent"
+    }
+  ],
+  "latestReduction": 26.094474110087017,
+  "latestWorkloads": [
+    {
+      "workload": "1-short",
+      "baseline": {
+        "variant": "native",
+        "p50_ms": 2.197088033426553,
+        "samples": 250,
+        "rounds": 5
+      },
+      "optimized": {
+        "variant": "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format",
+        "p50_ms": 1.623769465368241,
+        "samples": 250,
+        "rounds": 5
+      },
+      "reduction_percent": 26.094474110087017
+    },
+    {
+      "workload": "1-long",
+      "baseline": {
+        "variant": "native",
+        "p50_ms": 7.350858009885997,
+        "samples": 250,
+        "rounds": 5
+      },
+      "optimized": {
+        "variant": "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format",
+        "p50_ms": 6.966580520384014,
+        "samples": 250,
+        "rounds": 5
+      },
+      "reduction_percent": 5.227654907565582
+    },
+    {
+      "workload": "16-short",
+      "baseline": {
+        "variant": "native",
+        "p50_ms": 10.738693061284721,
+        "samples": 250,
+        "rounds": 5
+      },
+      "optimized": {
+        "variant": "bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format",
+        "p50_ms": 10.450236033648252,
+        "samples": 250,
+        "rounds": 5
+      },
+      "reduction_percent": 2.686146498370623
+    }
+  ],
+  "latestMeasurement": {
+    "date": "2026-09-24T12:03:44.321762+00:00",
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "samples_per_mode": 250,
+    "rounds": 5,
+    "validation": "Synthetic implementation parity, not labeled model quality.",
+    "original_decisions": 208,
+    "original_exact": true,
+    "holdout": {
+      "all_passed": true,
+      "all_exact": true,
+      "agreement": 128,
+      "max_probability_error": 0,
+      "optimized_shape_requests": 128
+    }
+  },
   "fusion": {
     "fusion": {
       "p50_ms": 81.23145549325272,
@@ -115,5 +310,41 @@
       "value": 3.7299833230208606,
       "color": "accent"
     }
-  ]
+  ],
+  "provenance": {
+    "chartSources": {
+      "public-modes": [
+        "results/fast-package.json"
+      ],
+      "warm-latency": [
+        "results/benchmark.json",
+        "results/upstream-fast.json",
+        "results/native-optimizations/summary.json"
+      ],
+      "latest-paired": [
+        "results/frontier/summary.json",
+        "results/frontier/full-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format.json",
+        "results/frontier/holdout-native-format.json"
+      ],
+      "experimental-gains": [
+        "results/latency-optimizations/summary.json",
+        "results/latency-optimizations/serving/confirmation-summary.json"
+      ],
+      "startup": [
+        "results/latency-optimizations/aot/final-offline/matrix-summary.json"
+      ]
+    },
+    "sha256": {
+      "results/fast-package.json": "b3f01615d226f7fe4a70d9782223f3f56f7ef6cadc0a7d40548bb211738dd9a3",
+      "results/benchmark.json": "a122d5a6ed25e0e29df42e2a8c07bd9a3c021b93492957976ea8c57881f1dc56",
+      "results/upstream-fast.json": "17c29bb7abd3a111eb155d3c22d76ec69f448a7fe51dc83c9c2b542a7d5dc563",
+      "results/native-optimizations/summary.json": "d2a5529e8950d5310293b0fc08166f65448c6ed41e1a9aba1fb8e66d568b8377",
+      "results/frontier/summary.json": "26fc2cb134db070ace0a84c68ba6021033ac36aa25c08ceeab2edd97865af85a",
+      "results/frontier/full-bf16-splitk-exact-short-compiled-attn-native-reduce-norm-token-tables-mlp-geglu-unpacked-head-kernels-host-batch-attention-special-global-attention-host-runtime-native-format.json": "e40a0c0309706c97d90fe8a08fd260340026eadf2bfe1782df680d14c9ed54f2",
+      "results/frontier/holdout-native-format.json": "ea9f10d376f8c88e02a43c399a6471e894c95eb4ea62ecfa11cd12e8ebc66ddd",
+      "results/latency-optimizations/summary.json": "967e6c22302177f6036a4663a5c487433ef67157ac837e13c38073027c292ab1",
+      "results/latency-optimizations/serving/confirmation-summary.json": "8fcaa643f4457d221ea8bcb22c22a7c0b02fd95dfe1d6332cb6e849bfcf8e06d",
+      "results/latency-optimizations/aot/final-offline/matrix-summary.json": "f7efab4a0c87c5d9e1bd62ab63d0297d9bf4d3c63c4ae2a3d65fead74078aefa"
+    }
+  }
 }

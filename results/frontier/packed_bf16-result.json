@@ -1,0 +1,151 @@
+{
+  "decision": "not retained: effectively tied, no meaningful latency improvement",
+  "scope": "Explicit packed BF16 final product in the retained fused MLP input/GEGLU kernel; GEMM and GELU arithmetic unchanged.",
+  "median_28_layer_bank_us": {
+    "retained": 445.4035186767578,
+    "packed": 445.17887115478516,
+    "saved": 0.22464752197265403
+  },
+  "speedup": 1.0005046230549755,
+  "paired_faster_rounds": 8,
+  "rounds": 9,
+  "gate_pattern_parity": {
+    "a_patterns": 65536,
+    "gate_patterns": [
+      0,
+      32768,
+      1,
+      32769,
+      127,
+      32895,
+      128,
+      32896,
+      129,
+      32897,
+      16128,
+      48896,
+      16255,
+      49023,
+      16256,
+      49024,
+      16257,
+      49025,
+      16384,
+      49152,
+      16457,
+      49225,
+      32639,
+      65407,
+      32640,
+      65408,
+      32641,
+      65409,
+      32704,
+      65472,
+      32767,
+      65535
+    ],
+    "pairs": 2097152,
+    "bitwise_mismatches": 0,
+    "per_gate_mismatches": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "examples": []
+  },
+  "real_layer_parity": {
+    "requests": 3,
+    "layer_outputs": 84,
+    "bitwise_mismatches": 0
+  },
+  "proof_limit": "Checks enumerate every BF16 left operand against 32 representative gate patterns, not every possible pair. The full 2^32-pair proof and full-request integration were deliberately skipped after the negligible timing result.",
+  "retained_sass": {
+    "sha256": "582b9a2e8aff6868c13c44eac9e12ba2cf126e6d1d3ccf04ce533bca2764c4fd",
+    "contains_hmul2_bf16": false,
+    "final_product": "FP32 FMUL followed by F2FP.BF16.F32.PACK_AB"
+  },
+  "candidate_sass": {
+    "domain": {
+      "hmul2_bf16": [
+        "/*01c0*/                   HMUL2.BF16_V2 R8, R15, R6.reuse.H0_H0 ;  /* 0x200000060f087232 */",
+        "/*0210*/                   HMUL2.BF16_V2 R9, R17, R6.H0_H0 ;        /* 0x2000000611097232 */"
+      ],
+      "sass_sha256": "414f248e437f7a24c0782da3a05e8f1187b027017071f9c44ab9204c2676e067"
+    },
+    "project": {
+      "hmul2_bf16": [
+        "/*2420*/                   HMUL2.BF16_V2 R24, R4, R29 ;                                      /* 0x0000001d04187232 */",
+        "/*2450*/                   HMUL2.BF16_V2 R25, R0, R25 ;                                      /* 0x0000001900197232 */",
+        "/*2470*/                   HMUL2.BF16_V2 R26, R6, R21 ;                                      /* 0x00000015061a7232 */",
+        "/*2490*/                   HMUL2.BF16_V2 R27, R10, R13 ;                                     /* 0x0000000d0a1b7232 */"
+      ],
+      "sass_sha256": "0859aaffe2fda378ff163bd41b7c6e81892878b51fd5cac0b6013c0f86df93fe"
+    }
+  },
+  "resources": {
+    "retained": {
+      "registers": 60,
+      "shared": 24576
+    },
+    "packed": {
+      "registers": 60,
+      "shared": 24576
+    }
+  },
+  "source_sha256": {
+    "packed_bf16_kernel.py": "be4a1936f2a664646fa94561b026f0f041bbaa6ee959019811e1d40db83ab0a4",
+    "packed_bf16_probe.py": "f0c18be78505a3d61734676ecb7128c3fa83599030f3181e65efb6055497b284",
+    "mlp_geglu.py": "8ac6eda13b6ebe2bc8acf203ab35b8ac905b73a48a59207c72dde05bb93e2c98"
+  },
+  "sources_stable": true,
+  "binary_sha256": {
+    "domain": {
+      "ptx": "a9162dced4b51ead2a2f74e1fabcb5f825d05ff20e0c1ee9ff87b1783aea37c8",
+      "cubin": "e609ab31bbd9e357bd2b1a614653bd1bc8372ef0595f7c57e21f5af7ee49f659"
+    },
+    "project": {
+      "ptx": "3f9b77afa2b16d769cf0cce6758bd6272c4b2c1e29d9c91749de8b4683a6eb02",
+      "cubin": "a9837cd15560fa6817f34b4f94c04d45f18564bc370404fc65a71776e80906a3"
+    }
+  },
+  "binaries_stable": true,
+  "retained_binary_sha256": {
+    "ptx": "d774a649d37f49daf7e95e61c88285d695cca110d5e9e9ffe1062678fc2f29cd",
+    "cubin": "bbe9df456649ea28379bad4a55cf8b0007bb5af0c5a5965fb2e093a02cdab6c7"
+  },
+  "documentation": "https://docs.nvidia.com/cuda/parallel-thread-execution/index.html#half-precision-floating-point-instructions-mul",
+  "results": [
+    "results/frontier/packed_bf16-domain.json",
+    "results/frontier/packed_bf16-screen.json"
+  ]
+}

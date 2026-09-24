@@ -1,0 +1,200 @@
+{
+  "decision": "rejected: exact but slower; no full-engine integration",
+  "scope": "Isolated CUDA-graph replay of all 28 encoder RoPE+attention calls. These are not full-request latencies.",
+  "strongest_variant": {
+    "direct_staging": true,
+    "local_query_tile": 64,
+    "global_query_tile": 64,
+    "global_key_tile": 64,
+    "global_warps": 4
+  },
+  "exactness": {
+    "eligible_requests": 154,
+    "suites": {
+      "benchmark": 1,
+      "original": 17,
+      "holdout": 128,
+      "extra-fully-occupied": 8
+    },
+    "layers": 4312,
+    "output_elements": 282591232,
+    "mismatches": 0,
+    "max_abs_error": 0.0,
+    "level": "Raw BF16 attention outputs on independently changing real activations; full logits gate not run because isolated performance lost"
+  },
+  "strongest_timing": {
+    "full": {
+      "baseline_ms": 0.1269916820526123,
+      "fused_ms": 0.24570432662963868,
+      "speedup": 0.5168475614352231,
+      "baseline_samples_ms": [
+        0.12716320037841797,
+        0.1270307159423828,
+        0.1269916820526123,
+        0.12696607589721678,
+        0.12698911666870116,
+        0.1269983959197998,
+        0.12698559761047362
+      ],
+      "fused_samples_ms": [
+        0.24581087112426758,
+        0.24575103759765626,
+        0.2457119941711426,
+        0.24570432662963868,
+        0.24568960189819336,
+        0.24570175170898437,
+        0.24569631576538087
+      ]
+    },
+    "padded": {
+      "baseline_ms": 0.22120895385742187,
+      "fused_ms": 0.3627494430541992,
+      "speedup": 0.609811973782605,
+      "baseline_samples_ms": [
+        0.22140640258789063,
+        0.22121248245239258,
+        0.22120895385742187,
+        0.22116735458374023,
+        0.22117151260375978,
+        0.22116256713867188,
+        0.22120992660522462
+      ],
+      "fused_samples_ms": [
+        0.36278465270996096,
+        0.3626303863525391,
+        0.36272960662841797,
+        0.36284671783447264,
+        0.3627494430541992,
+        0.36275070190429687,
+        0.36269535064697267
+      ]
+    }
+  },
+  "shared_staging_initial_best": {
+    "local_config": 1,
+    "global_config": 3,
+    "mismatches": 0,
+    "request_mismatches": [
+      0,
+      0,
+      0
+    ],
+    "max_abs_error": 0.0,
+    "timings": {
+      "full": {
+        "baseline_ms": 0.12693066398302713,
+        "fused_ms": 0.25675199429194134,
+        "speedup": 0.4943707032658912,
+        "baseline_samples_ms": [
+          0.1280133326848348,
+          0.12679732839266458,
+          0.12693066398302713
+        ],
+        "fused_samples_ms": [
+          0.25844534238179523,
+          0.25671199957529706,
+          0.25675199429194134
+        ]
+      },
+      "padded": {
+        "baseline_ms": 0.2214613358179728,
+        "fused_ms": 0.37514666716257733,
+        "speedup": 0.5903326757318574,
+        "baseline_samples_ms": [
+          0.22303466002146402,
+          0.2212053338686625,
+          0.2214613358179728
+        ],
+        "fused_samples_ms": [
+          0.37666134039560956,
+          0.3747119903564453,
+          0.37514666716257733
+        ]
+      }
+    }
+  },
+  "shared_unrolled_profile": {
+    "baseline": [
+      {
+        "name": "_rope",
+        "count": 28.0,
+        "cuda_us": 27.051619999999886
+      },
+      {
+        "name": "void global_attention_kernel<Flash_fwd_kernel_traits<64, 64, 64, 4, false, false, cutlass::bfloat16_t, Flash_kernel_traits<64, 64, 64, 4, cutlass::bfloat16_t> >, true, true>(laya_global_flash::Flash_fwd_params)",
+        "count": 10.0,
+        "cuda_us": 21.72754000000006
+      },
+      {
+        "name": "void special_attention<PyTorchMemEffAttention::AttentionKernel<cutlass::bfloat16_t, cutlass::arch::Sm80, true, 32, 64, 64, false, true>, false>(PyTorchMemEffAttention::AttentionKernel<cutlass::bfloat16_t, cutlass::arch::Sm80, true, 32, 64, 64, false, true>::Params)",
+        "count": 18.0,
+        "cuda_us": 77.37695999999988
+      }
+    ],
+    "cutlass64_flash32": [
+      {
+        "name": "void rope_flash_kernel<Flash_fwd_kernel_traits<64, 32, 64, 2, false, false, cutlass::bfloat16_t, Flash_kernel_traits<64, 32, 64, 2, cutlass::bfloat16_t> > >(RopeFlashParams)",
+        "count": 10.0,
+        "cuda_us": 76.2249199999999
+      },
+      {
+        "name": "void rope_cutlass_kernel<RopeMemEffAttention::AttentionKernel<cutlass::bfloat16_t, cutlass::arch::Sm80, true, 64, 64, 64, false, true>, false>(RopeMemEffAttention::AttentionKernel<cutlass::bfloat16_t, cutlass::arch::Sm80, true, 64, 64, 64, false, true>::Params)",
+        "count": 18.0,
+        "cuda_us": 192.1634200000002
+      }
+    ]
+  },
+  "explanation": "Likely cause from source inspection: the original rotary kernel distributes its work across 384 CTAs. Fusion uses 16 or 32 attention CTAs, adds serial rotary work, and repeats key rotations for each query tile. Direct global-to-shared rotary staging removes extra shared reads/barriers and reuses rotary factors across Q/K, but still loses. Exact FP32 product/add roundings and BF16 boundaries were retained. Hardware counters were unavailable, so the precise stall attribution is unmeasured.",
+  "timing_method": "Exclusive flock /tmp/laya-gpu-experiments.lock; native compilation shared lock. Direct timings use 7 CUDA-event samples, 100 graph replays/sample; initial quick shared timings used 3 samples, 12 replays/sample.",
+  "provenance_note": "Initial shared source was subsequently unrolled and direct staging was added. Each historical report records its measured build hashes. Final frozen sources and current library implement both modes; --direct reproduces the strongest broader-screened variant.",
+  "source_sha256": {
+    "experiments/frontier/rope_attention_adapter.py": "cec5168348dcd06fb8da534a33573a6851d2a7d88cf9133e35ed17cc07661d25",
+    "experiments/frontier/rope_attention_build.py": "9e58161da6112e7cedffde5460d8c6613fdbd412d647cbfd652e83a3caa154e0",
+    "experiments/frontier/rope_attention_helpers.h": "326f8b1a1dbe6369fe03d578a8ba12d63cdd32fba6d564ef7cd7d51b5d99d62f",
+    "experiments/frontier/rope_attention_kernel.cu": "655a96974e0f62cc9c784b2def47aad2622621bfe738a62484417c31c0b28c51",
+    "experiments/frontier/rope_attention_ncu.py": "052c311e90a7a1d099a845b18c6a5cf9b994f9ea989147b7056a88d6c808fade",
+    "experiments/frontier/rope_attention_probe.py": "36e4275d71e5567f573846ead10518bdb0813d501a7e958cd2beaa43052393d8",
+    "experiments/frontier/rope_attention_profile.py": "c4615b96e2a604b006e47263d01ed75babac00ecf08e60c3c1a2a84a2e04f785"
+  },
+  "final_build": {
+    "direct_staging": true,
+    "seconds": 63.748075515031815,
+    "torch_revision": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cutlass_revision": "e05f953a5b3d38adc240df2ff928e0421c2abba3",
+    "flash_revision": "14c377950125c70b7a9dabf9c561fca53715ac7d",
+    "source_sha256": "655a96974e0f62cc9c784b2def47aad2622621bfe738a62484417c31c0b28c51",
+    "helper_sha256": "326f8b1a1dbe6369fe03d578a8ba12d63cdd32fba6d564ef7cd7d51b5d99d62f",
+    "generator_sha256": "9e58161da6112e7cedffde5460d8c6613fdbd412d647cbfd652e83a3caa154e0",
+    "headers_sha256": {
+      "/home/mav/Code/vibes/Laya Inference Engine/.venv/lib/python3.12/site-packages/torch/include/ATen/native/transformers/cuda/mem_eff_attention/kernel_forward.h": "fcbfa07f0bc48e239e4d8c45025d5d9e65ff017d00e9dd667918e03172637650",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-torch-flash/csrc/flash_attn/src/flash_fwd_kernel.h": "9b31cdff4009fcd0e1bc52f9b97907d226442db24e0a150d8dfed0711ee64dda",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-rope-attention/rope_attention_cutlass_kernel.h": "abed2a70a5181bfd1eaf3fd1428e2f4fdd136bbf6b1d32c904160f99f67458d5",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-rope-attention/rope_attention_flash_kernel.h": "9a6a34f60ca48e57eb34db3a7b36af89065380071bef7180eda248fa2762a9dd"
+    },
+    "library_sha256": "37670cf214cee8a995b3211acd6401ef18cdff85c64c8d967ccb99c822cab326",
+    "architecture": "sm_120",
+    "fast_math": false,
+    "rope_math": "Separate FP32 multiply and add rounding, then BF16 RN"
+  },
+  "dependency_trees": {
+    ".research/frontier-torch-cutlass/include": {
+      "files": 785,
+      "sha256": "386a00046052be44787d1347d8cc9f06441cee70d1f9e7fca40fdd3c7b1017e6"
+    },
+    ".research/frontier-torch-flash/csrc/flash_attn/src": {
+      "files": 17,
+      "sha256": "303eeed0d80c6fdaa776da0f7997d7ff59426551d9a1d05507cb09cce149f313"
+    },
+    ".venv/lib/python3.12/site-packages/torch/include/ATen/native/transformers/cuda/mem_eff_attention": {
+      "files": 25,
+      "sha256": "5ce30c7b8f8852ddbda1335c00a1cf4c159b5a1116a9a0e5ceef0ece8b036f76"
+    }
+  },
+  "hardware_counter_diagnostic": "One request returned ERR_NVGPUCTRPERM; no retry or privilege/settings changes. Kernel durations above come from Torch CUPTI profiling, not unavailable hardware counters.",
+  "results": [
+    "results/frontier/rope_attention-direct-screen.json",
+    "results/frontier/rope_attention-direct-quick.json",
+    "results/frontier/rope_attention-profile.json",
+    "results/frontier/rope_attention-quick.json"
+  ]
+}

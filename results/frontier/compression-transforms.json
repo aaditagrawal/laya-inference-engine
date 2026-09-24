@@ -1,0 +1,1035 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T10:42:20.613451+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "scope": "Streaming checksums over banks larger than L2, not matrix/inference timings; compression ratios are not measured",
+  "source_sha256": "1e72e6a74c66f0c6a688b2b508d74e9ac67dcf2f687592c17782795d2a8b50e2",
+  "rows": [
+    {
+      "format": "uniform-low-0-bits",
+      "kind": "synthetic-control",
+      "logical_bytes": 134217728,
+      "storage_dtype": "torch.uint32",
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 134217728,
+          "allocated_bytes": 134217728,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 134217728,
+          "allocated_bytes": 134217728,
+          "dtype": "torch.uint32"
+        }
+      },
+      "samples_ms": {
+        "plain": [
+          0.1602517286936442,
+          0.16011946996053059,
+          0.16004692713419597,
+          0.16011306444803874,
+          0.15999253590901694,
+          0.16019412676493328,
+          0.16010986963907878
+        ],
+        "compressed": [
+          0.041230932871500654,
+          0.041187198956807454,
+          0.04124906857808431,
+          0.04122879902521769,
+          0.04122560024261475,
+          0.041186134020487465,
+          0.04120853344599406
+        ]
+      },
+      "order": [
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ]
+      ],
+      "median_ms": {
+        "plain": 0.16011306444803874,
+        "compressed": 0.04122560024261475
+      },
+      "compression_read_speedup": 3.8838261542770813
+    },
+    {
+      "format": "uniform-low-1-bits",
+      "kind": "synthetic-control",
+      "logical_bytes": 134217728,
+      "storage_dtype": "torch.uint32",
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 134217728,
+          "allocated_bytes": 134217728,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 134217728,
+          "allocated_bytes": 134217728,
+          "dtype": "torch.uint32"
+        }
+      },
+      "samples_ms": {
+        "plain": [
+          0.16019733746846518,
+          0.16013439496358237,
+          0.16004586219787598,
+          0.16026453971862792,
+          0.1599722703297933,
+          0.16008639335632324,
+          0.16014827092488607
+        ],
+        "compressed": [
+          0.04125333229700724,
+          0.041213866074879965,
+          0.04124693473180135,
+          0.041278934478759764,
+          0.04122453530629476,
+          0.04125866492589315,
+          0.04129279851913452
+        ]
+      },
+      "order": [
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ]
+      ],
+      "median_ms": {
+        "plain": 0.16013439496358237,
+        "compressed": 0.04125333229700724
+      },
+      "compression_read_speedup": 3.881732360689792
+    },
+    {
+      "format": "uniform-low-4-bits",
+      "kind": "synthetic-control",
+      "logical_bytes": 134217728,
+      "storage_dtype": "torch.uint32",
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 134217728,
+          "allocated_bytes": 134217728,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 134217728,
+          "allocated_bytes": 134217728,
+          "dtype": "torch.uint32"
+        }
+      },
+      "samples_ms": {
+        "plain": [
+          0.16027414004007975,
+          0.16015146573384603,
+          0.16006080309549967,
+          0.16018667221069335,
+          0.15998506546020508,
+          0.16005013783772787,
+          0.16005013783772787
+        ],
+        "compressed": [
+          0.04125119845072429,
+          0.04123520056406657,
+          0.04132053454717,
+          0.04161813259124756,
+          0.04126400152842204,
+          0.04129386742909749,
+          0.041247999668121337
+        ]
+      },
+      "order": [
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ]
+      ],
+      "median_ms": {
+        "plain": 0.16006080309549967,
+        "compressed": 0.04126400152842204
+      },
+      "compression_read_speedup": 3.8789452589868714
+    },
+    {
+      "format": "uniform-low-8-bits",
+      "kind": "synthetic-control",
+      "logical_bytes": 134217728,
+      "storage_dtype": "torch.uint32",
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 134217728,
+          "allocated_bytes": 134217728,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 134217728,
+          "allocated_bytes": 134217728,
+          "dtype": "torch.uint32"
+        }
+      },
+      "samples_ms": {
+        "plain": [
+          0.1601322650909424,
+          0.16012694040934244,
+          0.1601642608642578,
+          0.1601077397664388,
+          0.16013973553975422,
+          0.16002772649129232,
+          0.16010665893554688
+        ],
+        "compressed": [
+          0.07807466983795167,
+          0.07811520099639893,
+          0.07805973688761393,
+          0.078111998240153,
+          0.07839679718017578,
+          0.07824746767679851,
+          0.07819093068440755
+        ]
+      },
+      "order": [
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ]
+      ],
+      "median_ms": {
+        "plain": 0.16012694040934244,
+        "compressed": 0.07811520099639893
+      },
+      "compression_read_speedup": 2.049881948287174
+    },
+    {
+      "format": "uniform-low-12-bits",
+      "kind": "synthetic-control",
+      "logical_bytes": 134217728,
+      "storage_dtype": "torch.uint32",
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 134217728,
+          "allocated_bytes": 134217728,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 134217728,
+          "allocated_bytes": 134217728,
+          "dtype": "torch.uint32"
+        }
+      },
+      "samples_ms": {
+        "plain": [
+          0.16015040079752604,
+          0.16005120277404786,
+          0.16004692713419597,
+          0.16004053751627603,
+          0.16006080309549967,
+          0.1601952075958252,
+          0.16012053489685057
+        ],
+        "compressed": [
+          0.07821760177612305,
+          0.07808213233947754,
+          0.07808106740315755,
+          0.07825919787089029,
+          0.07816212972005208,
+          0.07808640003204345,
+          0.0781002680460612
+        ]
+      },
+      "order": [
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ]
+      ],
+      "median_ms": {
+        "plain": 0.16006080309549967,
+        "compressed": 0.0781002680460612
+      },
+      "compression_read_speedup": 2.0494270647201955
+    },
+    {
+      "format": "uniform-low-16-bits",
+      "kind": "synthetic-control",
+      "logical_bytes": 134217728,
+      "storage_dtype": "torch.uint32",
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 134217728,
+          "allocated_bytes": 134217728,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 134217728,
+          "allocated_bytes": 134217728,
+          "dtype": "torch.uint32"
+        }
+      },
+      "samples_ms": {
+        "plain": [
+          0.1603541374206543,
+          0.16007572809855145,
+          0.16013439496358237,
+          0.16007893880208332,
+          0.16013760566711427,
+          0.1601077397664388,
+          0.16006827354431152
+        ],
+        "compressed": [
+          0.1600661277770996,
+          0.16018346150716145,
+          0.16008426348368326,
+          0.16009920438130695,
+          0.160097074508667,
+          0.16014293034871419,
+          0.15999786059061685
+        ]
+      },
+      "order": [
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ]
+      ],
+      "median_ms": {
+        "plain": 0.1601077397664388,
+        "compressed": 0.160097074508667
+      },
+      "compression_read_speedup": 1.0000666174432264
+    },
+    {
+      "format": "uniform-low-32-bits",
+      "kind": "synthetic-control",
+      "logical_bytes": 134217728,
+      "storage_dtype": "torch.uint32",
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 134217728,
+          "allocated_bytes": 134217728,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 134217728,
+          "allocated_bytes": 134217728,
+          "dtype": "torch.uint32"
+        }
+      },
+      "samples_ms": {
+        "plain": [
+          0.1601589361826579,
+          0.1600554625193278,
+          0.15999466578165691,
+          0.1601322650909424,
+          0.1600949287414551,
+          0.16017707188924155,
+          0.16011199951171876
+        ],
+        "compressed": [
+          0.16011306444803874,
+          0.16024853388468424,
+          0.16042025883992514,
+          0.16008319854736328,
+          0.16007572809855145,
+          0.16012159983317056,
+          0.16005120277404786
+        ]
+      },
+      "order": [
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ]
+      ],
+      "median_ms": {
+        "plain": 0.16011199951171876,
+        "compressed": 0.16011306444803874
+      },
+      "compression_read_speedup": 0.9999933488480552
+    },
+    {
+      "format": "raw-bf16",
+      "kind": "all-28-mlp-input-weights",
+      "weight_mismatches": 0,
+      "original_weight_bytes": 300941312,
+      "logical_bytes": 300941312,
+      "storage_dtype": "torch.uint16",
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 300941312,
+          "allocated_bytes": 301989888,
+          "dtype": "torch.uint16"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 300941312,
+          "allocated_bytes": 301989888,
+          "dtype": "torch.uint16"
+        }
+      },
+      "samples_ms": {
+        "plain": [
+          0.35666666030883787,
+          0.35651626586914065,
+          0.35661226908365884,
+          0.3565034548441569,
+          0.35669228235880535,
+          0.356606928507487,
+          0.35661226908365884
+        ],
+        "compressed": [
+          0.35646079381306967,
+          0.35645440419514973,
+          0.35649067560831704,
+          0.3565951983133952,
+          0.3565034548441569,
+          0.3565631866455078,
+          0.35656426747639974
+        ]
+      },
+      "order": [
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ]
+      ],
+      "median_ms": {
+        "plain": 0.35661226908365884,
+        "compressed": 0.3565034548441569
+      },
+      "compression_read_speedup": 1.0003052263253647
+    },
+    {
+      "format": "zigzag-u16",
+      "kind": "all-28-mlp-input-weights",
+      "weight_mismatches": 0,
+      "original_weight_bytes": 300941312,
+      "logical_bytes": 300941312,
+      "storage_dtype": "torch.uint16",
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 300941312,
+          "allocated_bytes": 301989888,
+          "dtype": "torch.uint16"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 300941312,
+          "allocated_bytes": 301989888,
+          "dtype": "torch.uint16"
+        }
+      },
+      "samples_ms": {
+        "plain": [
+          0.35686826705932617,
+          0.35650132497151693,
+          0.3564703941345215,
+          0.356551456451416,
+          0.3564352035522461,
+          0.35658559799194334,
+          0.35654506683349607
+        ],
+        "compressed": [
+          0.35648746490478517,
+          0.35653759638468424,
+          0.35657278696695965,
+          0.3566335995992025,
+          0.35648107528686523,
+          0.35645974477132164,
+          0.3566314697265625
+        ]
+      },
+      "order": [
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ]
+      ],
+      "median_ms": {
+        "plain": 0.35654506683349607,
+        "compressed": 0.35653759638468424
+      },
+      "compression_read_speedup": 1.0000209527659567
+    },
+    {
+      "format": "zigzag-u32",
+      "kind": "all-28-mlp-input-weights",
+      "weight_mismatches": 0,
+      "original_weight_bytes": 300941312,
+      "logical_bytes": 601882624,
+      "storage_dtype": "torch.uint32",
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 601882624,
+          "allocated_bytes": 601882624,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 601882624,
+          "allocated_bytes": 601882624,
+          "dtype": "torch.uint32"
+        }
+      },
+      "samples_ms": {
+        "plain": [
+          0.7094826380411784,
+          0.7098197301228841,
+          0.7093909581502279,
+          0.7097173055013021,
+          0.7097482681274414,
+          0.7097951889038085,
+          0.7095359802246094
+        ],
+        "compressed": [
+          0.3586954752604167,
+          0.3586816151936849,
+          0.35874452590942385,
+          0.3586773236592611,
+          0.3585824012756348,
+          0.3586570739746094,
+          0.3587253252665202
+        ]
+      },
+      "order": [
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ]
+      ],
+      "median_ms": {
+        "plain": 0.7097173055013021,
+        "compressed": 0.3586816151936849
+      },
+      "compression_read_speedup": 1.9786832539996815
+    },
+    {
+      "format": "zigzag-bytes",
+      "kind": "all-28-mlp-input-weights",
+      "weight_mismatches": 0,
+      "original_weight_bytes": 300941312,
+      "logical_bytes": 300941312,
+      "storage_dtype": "torch.uint8",
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 300941312,
+          "allocated_bytes": 301989888,
+          "dtype": "torch.uint8"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 300941312,
+          "allocated_bytes": 301989888,
+          "dtype": "torch.uint8"
+        }
+      },
+      "samples_ms": {
+        "plain": [
+          0.3566197395324707,
+          0.35645440419514973,
+          0.3566410700480143,
+          0.3564448038736979,
+          0.3565194765726725,
+          0.3565247853597005,
+          0.35648746490478517
+        ],
+        "compressed": [
+          0.35652799606323243,
+          0.3564661343892415,
+          0.3565066655476888,
+          0.35652694702148435,
+          0.3566986719767253,
+          0.35644585291544595,
+          0.3565045356750488
+        ]
+      },
+      "order": [
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ]
+      ],
+      "median_ms": {
+        "plain": 0.3565194765726725,
+        "compressed": 0.3565066655476888
+      },
+      "compression_read_speedup": 1.0000359348820702
+    },
+    {
+      "format": "zigzag-nibbles",
+      "kind": "all-28-mlp-input-weights",
+      "weight_mismatches": 0,
+      "original_weight_bytes": 300941312,
+      "logical_bytes": 601882624,
+      "storage_dtype": "torch.uint8",
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 601882624,
+          "allocated_bytes": 601882624,
+          "dtype": "torch.uint8"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 601882624,
+          "allocated_bytes": 601882624,
+          "dtype": "torch.uint8"
+        }
+      },
+      "samples_ms": {
+        "plain": [
+          0.7096917470296223,
+          0.7096266428629557,
+          0.709601084391276,
+          0.7097941080729167,
+          0.7095093409220378,
+          0.7095978418986003,
+          0.709661865234375
+        ],
+        "compressed": [
+          0.5815978368123372,
+          0.5816490809122722,
+          0.5815935770670573,
+          0.5815722783406575,
+          0.5815562566121419,
+          0.5808970769246419,
+          0.5815914789835612
+        ]
+      },
+      "order": [
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ]
+      ],
+      "median_ms": {
+        "plain": 0.7096266428629557,
+        "compressed": 0.5815914789835612
+      },
+      "compression_read_speedup": 1.2201462168998067
+    },
+    {
+      "format": "zigzag-bitplanes",
+      "kind": "all-28-mlp-input-weights",
+      "weight_mismatches": 0,
+      "original_weight_bytes": 300941312,
+      "logical_bytes": 300941312,
+      "storage_dtype": "torch.uint32",
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 300941312,
+          "allocated_bytes": 301989888,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 300941312,
+          "allocated_bytes": 301989888,
+          "dtype": "torch.uint32"
+        }
+      },
+      "samples_ms": {
+        "plain": [
+          0.35672213236490885,
+          0.3564959843953451,
+          0.35657599767049153,
+          0.3565951983133952,
+          0.35646721522013347,
+          0.35641600290934244,
+          0.3565951983133952
+        ],
+        "compressed": [
+          0.28091519673665366,
+          0.2815978686014811,
+          0.2816896120707194,
+          0.28128747940063475,
+          0.28114986419677734,
+          0.28141120274861653,
+          0.2809397379557292
+        ]
+      },
+      "order": [
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "compressed",
+          "plain"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "plain",
+          "compressed"
+        ],
+        [
+          "compressed",
+          "plain"
+        ]
+      ],
+      "median_ms": {
+        "plain": 0.35657599767049153,
+        "compressed": 0.28128747940063475
+      },
+      "compression_read_speedup": 1.2676568414288505
+    }
+  ]
+}

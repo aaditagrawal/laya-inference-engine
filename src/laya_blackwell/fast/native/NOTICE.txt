@@ -1,0 +1,26 @@
+The FastEngine native sources are packaged from the measured Laya Blackwell
+implementation. The surrounding repository's MIT license and Apache-2.0 Laya
+notices also apply. Native module and operator names were changed to laya_fast.
+The exported C++ classes were renamed FastSession and FastFormatter, keeping
+their Python names Session and Formatter. These distinct identities let the
+packaged implementation coexist with the research reference.
+
+vector.cu and reduce_norm.cu adapt the Welford operation order from PyTorch's
+CUDA LayerNorm implementation at revision
+08187d9e0fba026dc8217405802ab5381dc88d90.
+reduce_norm.cu also sums four BF16 partial matrices in the measured order.
+The PyTorch BSD-3-Clause license is retained in pytorch-LICENSE.txt.
+
+attention.cu and attention_special.cu instantiate PyTorch's attention templates
+and CUTLASS at revision e05f953a5b3d38adc240df2ff928e0421c2abba3.
+The CUTLASS BSD-3-Clause license is retained in cutlass-LICENSE.txt.
+
+global_attention.cu instantiates FlashAttention templates at revision
+14c377950125c70b7a9dabf9c561fca53715ac7d, the revision pinned by that PyTorch
+build. Its BSD-3-Clause license and author list are retained in
+flash-attention-LICENSE.txt and flash-attention-AUTHORS.txt.
+The build keeps FlashAttention's UNFUSE_FMA setting for matching arithmetic.
+
+format.cpp adapts the Apache-2.0 Laya SDK formatting protocol. It calls the
+installed NumPy 2.5.3 FP32 loops without replacing exp, log or reduction math.
+See the repository NOTICE for the Laya attribution.

@@ -1,0 +1,9 @@
+This experiment adapts split12_gemm_v3.cuh from
+https://github.com/cenconq25/Turbo-Lossless
+Revision 50b72e5520f93cc855f0bd3a0114a7eb97338588
+Licensed under Apache License 2.0, reproduced in turbo_LICENSE.
+The upstream source acknowledges SM120 TMA patterns from
+gau-nernst/learn-cuda/02c_matmul_sm120 and ZipServ / ZipGEMM.
+Changes add exact escape replacement before MMA, configurable tile rows,
+BF16 output, split-K rounding, partial tiles and graph-safe descriptors.
+The upstream launch scripts and engine are not executed.

@@ -1,0 +1,4053 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T09:50:22.704593+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "method": "28 distinct BF16 layer matrices, exact blocked weights, baseline is retained tuned kernels",
+  "rows": [
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.2935920000076294,
+      "samples_ms": [
+        0.2942975997924805,
+        0.2935920000076294,
+        0.29298560619354247
+      ],
+      "baseline_ms": 0.2825360059738159,
+      "baseline_samples_ms": [
+        0.2828207969665527,
+        0.2824831962585449,
+        0.2825360059738159
+      ],
+      "speedup": 0.962342318477594,
+      "shared_bytes": 16400,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r12], [%rd2, {%r13, %r1}], [%r10];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.39219040870666505,
+      "samples_ms": [
+        0.3924272060394287,
+        0.39219040870666505,
+        0.39185760021209715
+      ],
+      "baseline_ms": 0.2829551935195923,
+      "baseline_samples_ms": [
+        0.28315200805664065,
+        0.28261919021606446,
+        0.2829551935195923
+      ],
+      "speedup": 0.7214740269980081,
+      "shared_bytes": 24608,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.3041311979293823,
+      "samples_ms": [
+        0.30429439544677733,
+        0.30402560234069825,
+        0.3041311979293823
+      ],
+      "baseline_ms": 0.28284320831298826,
+      "baseline_samples_ms": [
+        0.28292479515075686,
+        0.282590389251709,
+        0.28284320831298826
+      ],
+      "speedup": 0.9300039267219898,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r12], [%rd2, {%r13, %r1}], [%r10];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.35038878917694094,
+      "samples_ms": [
+        0.35180480480194093,
+        0.35032799243927004,
+        0.35038878917694094
+      ],
+      "baseline_ms": 0.28258399963378905,
+      "baseline_samples_ms": [
+        0.2826864004135132,
+        0.28239519596099855,
+        0.28258399963378905
+      ],
+      "speedup": 0.8064869892029807,
+      "shared_bytes": 40992,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.2931807994842529,
+      "samples_ms": [
+        0.2940304040908813,
+        0.2931807994842529,
+        0.293124794960022
+      ],
+      "baseline_ms": 0.28275198936462403,
+      "baseline_samples_ms": [
+        0.28275198936462403,
+        0.28228158950805665,
+        0.28286399841308596
+      ],
+      "speedup": 0.9644287411113734,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r13], [%rd2, {%r14, %r1}], [%r10];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.2933840036392212,
+      "samples_ms": [
+        0.2940272092819214,
+        0.29320640563964845,
+        0.2933840036392212
+      ],
+      "baseline_ms": 0.2824160099029541,
+      "baseline_samples_ms": [
+        0.28349440097808837,
+        0.2824160099029541,
+        0.2823456048965454
+      ],
+      "speedup": 0.9626155700371635,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.29739840030670167,
+      "samples_ms": [
+        0.2979952096939087,
+        0.29739840030670167,
+        0.2971872091293335
+      ],
+      "baseline_ms": 0.28236000537872313,
+      "baseline_samples_ms": [
+        0.28274879455566404,
+        0.28236000537872313,
+        0.282097601890564
+      ],
+      "speedup": 0.9494335043077915,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.39571199417114256,
+      "samples_ms": [
+        0.3987168073654175,
+        0.39571199417114256,
+        0.3953423976898193
+      ],
+      "baseline_ms": 0.2827104091644287,
+      "baseline_samples_ms": [
+        0.2828864097595215,
+        0.2827104091644287,
+        0.282092809677124
+      ],
+      "speedup": 0.7144347741002728,
+      "shared_bytes": 18456,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.3155776023864746,
+      "samples_ms": [
+        0.31673440933227537,
+        0.3155776023864746,
+        0.3154560089111328
+      ],
+      "baseline_ms": 0.2823983907699585,
+      "baseline_samples_ms": [
+        0.28365919589996336,
+        0.2823983907699585,
+        0.2823456048965454
+      ],
+      "speedup": 0.89486195672441,
+      "shared_bytes": 30744,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.2805583953857422,
+      "samples_ms": [
+        0.28193600177764894,
+        0.2805583953857422,
+        0.2802864074707031
+      ],
+      "baseline_ms": 0.28247039318084716,
+      "baseline_samples_ms": [
+        0.28309919834136965,
+        0.28247039318084716,
+        0.2822240114212036
+      ],
+      "speedup": 1.0068149726636273,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.2871311902999878,
+      "samples_ms": [
+        0.2881792068481445,
+        0.28697919845581055,
+        0.2871311902999878
+      ],
+      "baseline_ms": 0.28225600719451904,
+      "baseline_samples_ms": [
+        0.2835200071334839,
+        0.2821919918060303,
+        0.28225600719451904
+      ],
+      "speedup": 0.9830210605111368,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.2994352102279663,
+      "samples_ms": [
+        0.3002415895462036,
+        0.29928638935089114,
+        0.2994352102279663
+      ],
+      "baseline_ms": 0.28250720500946047,
+      "baseline_samples_ms": [
+        0.2837743997573853,
+        0.28236639499664307,
+        0.28250720500946047
+      ],
+      "speedup": 0.9434668848542621,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.31110401153564454,
+      "samples_ms": [
+        0.31240320205688477,
+        0.31110401153564454,
+        0.3100032091140747
+      ],
+      "baseline_ms": 0.2823296070098877,
+      "baseline_samples_ms": [
+        0.2828176021575928,
+        0.2823296070098877,
+        0.28198719024658203
+      ],
+      "speedup": 0.907508731939125,
+      "shared_bytes": 20496,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.28765439987182617,
+      "samples_ms": [
+        0.288921594619751,
+        0.28765439987182617,
+        0.2875920057296753
+      ],
+      "baseline_ms": 0.2822927951812744,
+      "baseline_samples_ms": [
+        0.2829135894775391,
+        0.2822927951812744,
+        0.2821007966995239
+      ],
+      "speedup": 0.9813609501786144,
+      "shared_bytes": 24600,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r13], [%rd2, {%r14, %r1}], [%r10];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.2975343942642212,
+      "samples_ms": [
+        0.2980096101760864,
+        0.2975343942642212,
+        0.29689760208129884
+      ],
+      "baseline_ms": 0.28273921012878417,
+      "baseline_samples_ms": [
+        0.28348960876464846,
+        0.28273921012878417,
+        0.2824064016342163
+      ],
+      "speedup": 0.950274037487248,
+      "shared_bytes": 32784,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.2760591983795166,
+      "samples_ms": [
+        0.27733759880065917,
+        0.2753567934036255,
+        0.2760591983795166
+      ],
+      "baseline_ms": 0.28249120712280273,
+      "baseline_samples_ms": [
+        0.28333919048309325,
+        0.2818959951400757,
+        0.28249120712280273
+      ],
+      "speedup": 1.023299382092835,
+      "shared_bytes": 49176,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r14];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.28270559310913085,
+      "samples_ms": [
+        0.28349120616912843,
+        0.28270559310913085,
+        0.2826927900314331
+      ],
+      "baseline_ms": 0.28246240615844725,
+      "baseline_samples_ms": [
+        0.2835360050201416,
+        0.28246240615844725,
+        0.282097601890564
+      ],
+      "speedup": 0.9991397872677046,
+      "shared_bytes": 65568,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.2852112054824829,
+      "samples_ms": [
+        0.28600320816040037,
+        0.2852112054824829,
+        0.28498880863189696
+      ],
+      "baseline_ms": 0.28242878913879393,
+      "baseline_samples_ms": [
+        0.2830751895904541,
+        0.28242878913879393,
+        0.28202080726623535
+      ],
+      "speedup": 0.9902443652626409,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.4148672103881836,
+      "samples_ms": [
+        0.4163951873779297,
+        0.4148672103881836,
+        0.41472640037536623
+      ],
+      "baseline_ms": 0.2827967882156372,
+      "baseline_samples_ms": [
+        0.28302879333496095,
+        0.2827967882156372,
+        0.2825295925140381
+      ],
+      "speedup": 0.6816561568002192,
+      "shared_bytes": 12304,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.3832832098007202,
+      "samples_ms": [
+        0.3851327896118164,
+        0.3832832098007202,
+        0.382804799079895
+      ],
+      "baseline_ms": 0.28281440734863283,
+      "baseline_samples_ms": [
+        0.2839792013168335,
+        0.28281440734863283,
+        0.2827120065689087
+      ],
+      "speedup": 0.7378731969388277,
+      "shared_bytes": 24608,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r14];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.3900000095367432,
+      "samples_ms": [
+        0.3912623882293701,
+        0.3900000095367432,
+        0.3899199962615967
+      ],
+      "baseline_ms": 0.28242878913879393,
+      "baseline_samples_ms": [
+        0.28235840797424316,
+        0.28242878913879393,
+        0.2824496030807495
+      ],
+      "speedup": 0.7241763646987434,
+      "shared_bytes": 18456,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r14];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.28937439918518065,
+      "samples_ms": [
+        0.2909872055053711,
+        0.28937439918518065,
+        0.28912959098815916
+      ],
+      "baseline_ms": 0.28254721164703367,
+      "baseline_samples_ms": [
+        0.28284320831298826,
+        0.28254721164703367,
+        0.28235199451446535
+      ],
+      "speedup": 0.9764070783131785,
+      "shared_bytes": 32800,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r10];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.3115567922592163,
+      "samples_ms": [
+        0.31232481002807616,
+        0.31154398918151854,
+        0.3115567922592163
+      ],
+      "baseline_ms": 0.28336799144744873,
+      "baseline_samples_ms": [
+        0.28336799144744873,
+        0.2828304052352905,
+        0.2834496021270752
+      ],
+      "speedup": 0.9095227531155399,
+      "shared_bytes": 20496,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.2954927921295166,
+      "samples_ms": [
+        0.29611198902130126,
+        0.2954927921295166,
+        0.29522879123687745
+      ],
+      "baseline_ms": 0.28247361183166503,
+      "baseline_samples_ms": [
+        0.28368799686431884,
+        0.2824464082717896,
+        0.28247361183166503
+      ],
+      "speedup": 0.9559407855466566,
+      "shared_bytes": 32784,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r14];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.3031487941741943,
+      "samples_ms": [
+        0.30416159629821776,
+        0.3031487941741943,
+        0.3027087926864624
+      ],
+      "baseline_ms": 0.2830735921859741,
+      "baseline_samples_ms": [
+        0.28365440368652345,
+        0.2830735921859741,
+        0.28255839347839357
+      ],
+      "speedup": 0.9337777277230908,
+      "shared_bytes": 24600,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.3570607900619507,
+      "samples_ms": [
+        0.3570607900619507,
+        0.35723199844360354,
+        0.35583999156951907
+      ],
+      "baseline_ms": 0.2824608087539673,
+      "baseline_samples_ms": [
+        0.2827712059020996,
+        0.2824608087539673,
+        0.28222880363464353
+      ],
+      "speedup": 0.7910720432365588,
+      "shared_bytes": 40992,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.30341598987579343,
+      "samples_ms": [
+        0.3044719934463501,
+        0.30341598987579343,
+        0.3027535915374756
+      ],
+      "baseline_ms": 0.28274400234222413,
+      "baseline_samples_ms": [
+        0.28274400234222413,
+        0.28261599540710447,
+        0.2827712059020996
+      ],
+      "speedup": 0.9318691558014738,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.2848959922790527,
+      "samples_ms": [
+        0.28580479621887206,
+        0.28367838859558103,
+        0.2848959922790527
+      ],
+      "baseline_ms": 0.28319520950317384,
+      "baseline_samples_ms": [
+        0.28319520950317384,
+        0.2834223985671997,
+        0.28250880241394044
+      ],
+      "speedup": 0.9940301625085236,
+      "shared_bytes": 65568,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r14];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.3151456117630005,
+      "samples_ms": [
+        0.316267204284668,
+        0.3151456117630005,
+        0.31486079692840574
+      ],
+      "baseline_ms": 0.2827919960021973,
+      "baseline_samples_ms": [
+        0.28299200534820557,
+        0.2827919960021973,
+        0.2826143980026245
+      ],
+      "speedup": 0.8973375653882366,
+      "shared_bytes": 30744,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.29465761184692385,
+      "samples_ms": [
+        0.29556798934936523,
+        0.29465761184692385,
+        0.2938352108001709
+      ],
+      "baseline_ms": 0.2825984001159668,
+      "baseline_samples_ms": [
+        0.28374879360198973,
+        0.2825984001159668,
+        0.2823328018188477
+      ],
+      "speedup": 0.9590738156894387,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r10];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.302508807182312,
+      "samples_ms": [
+        0.30423998832702637,
+        0.302508807182312,
+        0.3022480010986328
+      ],
+      "baseline_ms": 0.28275840282440184,
+      "baseline_samples_ms": [
+        0.2827647924423218,
+        0.2823375940322876,
+        0.28275840282440184
+      ],
+      "speedup": 0.9347113079388554,
+      "shared_bytes": 32800,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.3108191967010498,
+      "samples_ms": [
+        0.3116447925567627,
+        0.3107408046722412,
+        0.3108191967010498
+      ],
+      "baseline_ms": 0.28261280059814453,
+      "baseline_samples_ms": [
+        0.28268160820007326,
+        0.28231680393218994,
+        0.28261280059814453
+      ],
+      "speedup": 0.9092514349104551,
+      "shared_bytes": 16400,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.31497280597686766,
+      "samples_ms": [
+        0.31610560417175293,
+        0.3149616003036499,
+        0.31497280597686766
+      ],
+      "baseline_ms": 0.28269760608673095,
+      "baseline_samples_ms": [
+        0.2835184097290039,
+        0.28269760608673095,
+        0.28248960971832277
+      ],
+      "speedup": 0.897530201726345,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.4077951908111572,
+      "samples_ms": [
+        0.40905117988586426,
+        0.4077951908111572,
+        0.4073376178741455
+      ],
+      "baseline_ms": 0.28255519866943357,
+      "baseline_samples_ms": [
+        0.2826639890670776,
+        0.28255519866943357,
+        0.2823424100875854
+      ],
+      "speedup": 0.6928850683780622,
+      "shared_bytes": 12304,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r14];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.27832319736480715,
+      "samples_ms": [
+        0.2790208101272583,
+        0.2781503915786743,
+        0.27832319736480715
+      ],
+      "baseline_ms": 0.28243680000305177,
+      "baseline_samples_ms": [
+        0.28275198936462403,
+        0.28224639892578124,
+        0.28243680000305177
+      ],
+      "speedup": 1.0147799489126046,
+      "shared_bytes": 49176,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wqkv",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.3105583906173706,
+      "samples_ms": [
+        0.3117343902587891,
+        0.3105583906173706,
+        0.31042239665985105
+      ],
+      "baseline_ms": 0.2823568105697632,
+      "baseline_samples_ms": [
+        0.2838047981262207,
+        0.2823568105697632,
+        0.2821903944015503
+      ],
+      "speedup": 0.9091907322434778,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.17602880001068116,
+      "samples_ms": [
+        0.17768479585647584,
+        0.17602880001068116,
+        0.1758463978767395
+      ],
+      "baseline_ms": 0.12559839487075805,
+      "baseline_samples_ms": [
+        0.12571200132369995,
+        0.12559839487075805,
+        0.1254591941833496
+      ],
+      "speedup": 0.713510487278996,
+      "shared_bytes": 16400,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r12], [%rd2, {%r13, %r1}], [%r10];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.15788160562515258,
+      "samples_ms": [
+        0.1584272027015686,
+        0.15788160562515258,
+        0.15781760215759277
+      ],
+      "baseline_ms": 0.12600799798965454,
+      "baseline_samples_ms": [
+        0.1264896035194397,
+        0.12571840286254882,
+        0.12600799798965454
+      ],
+      "speedup": 0.7981170288375876,
+      "shared_bytes": 24608,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.20070080757141112,
+      "samples_ms": [
+        0.2016239881515503,
+        0.20040318965911866,
+        0.20070080757141112
+      ],
+      "baseline_ms": 0.1255903959274292,
+      "baseline_samples_ms": [
+        0.12655680179595946,
+        0.1253983974456787,
+        0.1255903959274292
+      ],
+      "speedup": 0.6257592953767415,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r12], [%rd2, {%r13, %r1}], [%r10];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.13716800212860109,
+      "samples_ms": [
+        0.13774399757385253,
+        0.13707679510116577,
+        0.13716800212860109
+      ],
+      "baseline_ms": 0.12597600221633912,
+      "baseline_samples_ms": [
+        0.126692795753479,
+        0.12597600221633912,
+        0.125929594039917
+      ],
+      "speedup": 0.9184066273578223,
+      "shared_bytes": 40992,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.16102720499038697,
+      "samples_ms": [
+        0.16207200288772583,
+        0.16102720499038697,
+        0.16091519594192505
+      ],
+      "baseline_ms": 0.12598400115966796,
+      "baseline_samples_ms": [
+        0.12613760232925414,
+        0.12598400115966796,
+        0.1258239984512329
+      ],
+      "speedup": 0.7823771217241768,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r13], [%rd2, {%r14, %r1}], [%r10];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.16823840141296387,
+      "samples_ms": [
+        0.16929279565811156,
+        0.16823840141296387,
+        0.16818079948425294
+      ],
+      "baseline_ms": 0.12554559707641602,
+      "baseline_samples_ms": [
+        0.12793760299682616,
+        0.12542400360107422,
+        0.12554559707641602
+      ],
+      "speedup": 0.7462362696150887,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.1977295994758606,
+      "samples_ms": [
+        0.19839680194854736,
+        0.19735679626464844,
+        0.1977295994758606
+      ],
+      "baseline_ms": 0.12565120458602905,
+      "baseline_samples_ms": [
+        0.12605600357055663,
+        0.12565120458602905,
+        0.12554080486297609
+      ],
+      "speedup": 0.6354698786580454,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.16019999980926514,
+      "samples_ms": [
+        0.16136159896850585,
+        0.16019999980926514,
+        0.1600927948951721
+      ],
+      "baseline_ms": 0.12570719718933104,
+      "baseline_samples_ms": [
+        0.1260319948196411,
+        0.12570719718933104,
+        0.12529280185699462
+      ],
+      "speedup": 0.7846891219662835,
+      "shared_bytes": 18456,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.14650880098342894,
+      "samples_ms": [
+        0.14734079837799072,
+        0.14650880098342894,
+        0.14630719423294067
+      ],
+      "baseline_ms": 0.1254464030265808,
+      "baseline_samples_ms": [
+        0.12594079971313477,
+        0.1254207968711853,
+        0.1254464030265808
+      ],
+      "speedup": 0.8562380019803013,
+      "shared_bytes": 30744,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.16153119802474974,
+      "samples_ms": [
+        0.16248960494995118,
+        0.16153119802474974,
+        0.1612831950187683
+      ],
+      "baseline_ms": 0.12574559450149536,
+      "baseline_samples_ms": [
+        0.12600480318069457,
+        0.12574559450149536,
+        0.12541279792785645
+      ],
+      "speedup": 0.7784601119730981,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.17040799856185912,
+      "samples_ms": [
+        0.1709663987159729,
+        0.17040799856185912,
+        0.17000479698181153
+      ],
+      "baseline_ms": 0.12573599815368652,
+      "baseline_samples_ms": [
+        0.12613919973373414,
+        0.12573599815368652,
+        0.12541600465774536
+      ],
+      "speedup": 0.7378526783649982,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.1682976007461548,
+      "samples_ms": [
+        0.16978240013122559,
+        0.1682976007461548,
+        0.16819039583206177
+      ],
+      "baseline_ms": 0.1258255958557129,
+      "baseline_samples_ms": [
+        0.12612160444259643,
+        0.1258255958557129,
+        0.12539680004119874
+      ],
+      "speedup": 0.7476374903614763,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.17751840353012086,
+      "samples_ms": [
+        0.17863520383834838,
+        0.17709439992904663,
+        0.17751840353012086
+      ],
+      "baseline_ms": 0.12586560249328613,
+      "baseline_samples_ms": [
+        0.12641919851303102,
+        0.12586560249328613,
+        0.1255087971687317
+      ],
+      "speedup": 0.7090284724869643,
+      "shared_bytes": 20496,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.14259040355682373,
+      "samples_ms": [
+        0.1430448055267334,
+        0.14236799478530884,
+        0.14259040355682373
+      ],
+      "baseline_ms": 0.12559679746627808,
+      "baseline_samples_ms": [
+        0.12645440101623534,
+        0.1255087971687317,
+        0.12559679746627808
+      ],
+      "speedup": 0.8808222316042922,
+      "shared_bytes": 24600,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r13], [%rd2, {%r14, %r1}], [%r10];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.24293920993804932,
+      "samples_ms": [
+        0.24370079040527343,
+        0.24293920993804932,
+        0.24230399131774902
+      ],
+      "baseline_ms": 0.12563199996948243,
+      "baseline_samples_ms": [
+        0.12640800476074218,
+        0.1252992033958435,
+        0.12563199996948243
+      ],
+      "speedup": 0.5171334837283746,
+      "shared_bytes": 32784,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.2461872100830078,
+      "samples_ms": [
+        0.2473952054977417,
+        0.2461872100830078,
+        0.24611198902130127
+      ],
+      "baseline_ms": 0.12551679611206054,
+      "baseline_samples_ms": [
+        0.1261855959892273,
+        0.12551679611206054,
+        0.12539039850234984
+      ],
+      "speedup": 0.5098428796107629,
+      "shared_bytes": 49176,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r14];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.23678081035614013,
+      "samples_ms": [
+        0.2383280038833618,
+        0.23648319244384766,
+        0.23678081035614013
+      ],
+      "baseline_ms": 0.12570079565048217,
+      "baseline_samples_ms": [
+        0.12588160037994384,
+        0.12541600465774536,
+        0.12570079565048217
+      ],
+      "speedup": 0.5308740833406922,
+      "shared_bytes": 65568,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.15741599798202516,
+      "samples_ms": [
+        0.15886880159378053,
+        0.1574112057685852,
+        0.15741599798202516
+      ],
+      "baseline_ms": 0.12576960325241088,
+      "baseline_samples_ms": [
+        0.12603360414505005,
+        0.12552640438079835,
+        0.12576960325241088
+      ],
+      "speedup": 0.7989632874974506,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.17702720165252686,
+      "samples_ms": [
+        0.17761919498443604,
+        0.17702720165252686,
+        0.17630879878997802
+      ],
+      "baseline_ms": 0.12573440074920655,
+      "baseline_samples_ms": [
+        0.12671200037002564,
+        0.12573440074920655,
+        0.12551840543746948
+      ],
+      "speedup": 0.7102546929256724,
+      "shared_bytes": 12304,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.15383679866790773,
+      "samples_ms": [
+        0.15482720136642455,
+        0.15383679866790773,
+        0.15360480546951294
+      ],
+      "baseline_ms": 0.12556159496307373,
+      "baseline_samples_ms": [
+        0.1261247992515564,
+        0.1254271984100342,
+        0.12556159496307373
+      ],
+      "speedup": 0.8161999992870851,
+      "shared_bytes": 24608,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r14];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.15582720041275025,
+      "samples_ms": [
+        0.1567631959915161,
+        0.15582720041275025,
+        0.15553120374679566
+      ],
+      "baseline_ms": 0.12557920217514038,
+      "baseline_samples_ms": [
+        0.12590880393981935,
+        0.12557920217514038,
+        0.125380802154541
+      ],
+      "speedup": 0.805887559055865,
+      "shared_bytes": 18456,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r14];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.131278395652771,
+      "samples_ms": [
+        0.13234399557113646,
+        0.131278395652771,
+        0.1312384009361267
+      ],
+      "baseline_ms": 0.12539039850234984,
+      "baseline_samples_ms": [
+        0.1260591983795166,
+        0.12539039850234984,
+        0.12539039850234984
+      ],
+      "speedup": 0.9551487727958315,
+      "shared_bytes": 32800,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r10];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.17910399436950683,
+      "samples_ms": [
+        0.1795680046081543,
+        0.17910399436950683,
+        0.1787376046180725
+      ],
+      "baseline_ms": 0.12579679489135742,
+      "baseline_samples_ms": [
+        0.12605279684066772,
+        0.12569600343704224,
+        0.12579679489135742
+      ],
+      "speedup": 0.7023673332032333,
+      "shared_bytes": 20496,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.2480623960494995,
+      "samples_ms": [
+        0.2493839979171753,
+        0.2480623960494995,
+        0.2476207971572876
+      ],
+      "baseline_ms": 0.12607840299606324,
+      "baseline_samples_ms": [
+        0.12627840042114258,
+        0.1257151961326599,
+        0.12607840299606324
+      ],
+      "speedup": 0.5082527823802241,
+      "shared_bytes": 32784,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r14];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.14466400146484376,
+      "samples_ms": [
+        0.14564640522003175,
+        0.144486403465271,
+        0.14466400146484376
+      ],
+      "baseline_ms": 0.12547520399093628,
+      "baseline_samples_ms": [
+        0.12637280225753783,
+        0.12547520399093628,
+        0.1253983974456787
+      ],
+      "speedup": 0.8673560991013322,
+      "shared_bytes": 24600,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.13720159530639647,
+      "samples_ms": [
+        0.138155198097229,
+        0.13720159530639647,
+        0.13711199760437012
+      ],
+      "baseline_ms": 0.12572000026702881,
+      "baseline_samples_ms": [
+        0.1260640025138855,
+        0.12572000026702881,
+        0.12540479898452758
+      ],
+      "speedup": 0.9163158780061766,
+      "shared_bytes": 40992,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.20081920623779298,
+      "samples_ms": [
+        0.2016752004623413,
+        0.20044639110565185,
+        0.20081920623779298
+      ],
+      "baseline_ms": 0.12568800449371337,
+      "baseline_samples_ms": [
+        0.12631200551986693,
+        0.12568800449371337,
+        0.1255344033241272
+      ],
+      "speedup": 0.6258764131598267,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.24808320999145508,
+      "samples_ms": [
+        0.2487328052520752,
+        0.24808320999145508,
+        0.24805281162261963
+      ],
+      "baseline_ms": 0.1258512020111084,
+      "baseline_samples_ms": [
+        0.1264256000518799,
+        0.1258512020111084,
+        0.12540960311889648
+      ],
+      "speedup": 0.5072943147399744,
+      "shared_bytes": 65568,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r14];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.14583519697189332,
+      "samples_ms": [
+        0.14669439792633057,
+        0.1457919955253601,
+        0.14583519697189332
+      ],
+      "baseline_ms": 0.12561440467834473,
+      "baseline_samples_ms": [
+        0.12626559734344484,
+        0.1255087971687317,
+        0.12561440467834473
+      ],
+      "speedup": 0.8613449104646135,
+      "shared_bytes": 30744,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.15833760499954225,
+      "samples_ms": [
+        0.15952639579772948,
+        0.15833760499954225,
+        0.15819519758224487
+      ],
+      "baseline_ms": 0.12548320293426513,
+      "baseline_samples_ms": [
+        0.1263856053352356,
+        0.12548320293426513,
+        0.1253167986869812
+      ],
+      "speedup": 0.7925041112919947,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r10];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.13504960536956787,
+      "samples_ms": [
+        0.13635040521621705,
+        0.13499679565429687,
+        0.13504960536956787
+      ],
+      "baseline_ms": 0.12540479898452758,
+      "baseline_samples_ms": [
+        0.12594879865646363,
+        0.1253119945526123,
+        0.12540479898452758
+      ],
+      "speedup": 0.9285832316307261,
+      "shared_bytes": 32800,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.1774672031402588,
+      "samples_ms": [
+        0.17823200225830077,
+        0.1774672031402588,
+        0.17699040174484254
+      ],
+      "baseline_ms": 0.12551360130310057,
+      "baseline_samples_ms": [
+        0.1261504054069519,
+        0.12546240091323851,
+        0.12551360130310057
+      ],
+      "speedup": 0.7072495598181181,
+      "shared_bytes": 16400,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.2022480010986328,
+      "samples_ms": [
+        0.20321440696716309,
+        0.2022480010986328,
+        0.20211679935455323
+      ],
+      "baseline_ms": 0.1256160020828247,
+      "baseline_samples_ms": [
+        0.12644959688186647,
+        0.1256160020828247,
+        0.1255087971687317
+      ],
+      "speedup": 0.6210988558624319,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r12];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.17153919935226442,
+      "samples_ms": [
+        0.17184480428695678,
+        0.17153919935226442,
+        0.17082719802856444
+      ],
+      "baseline_ms": 0.12586239576339722,
+      "baseline_samples_ms": [
+        0.12642240524291992,
+        0.12586239576339722,
+        0.12546080350875854
+      ],
+      "speedup": 0.7337238149569092,
+      "shared_bytes": 12304,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r14];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.23638079166412354,
+      "samples_ms": [
+        0.23736159801483153,
+        0.23638079166412354,
+        0.23625760078430175
+      ],
+      "baseline_ms": 0.12606559991836547,
+      "baseline_samples_ms": [
+        0.12693439722061156,
+        0.12571680545806885,
+        0.12606559991836547
+      ],
+      "speedup": 0.533315753073091,
+      "shared_bytes": 49176,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r13];"
+    },
+    {
+      "field": "attn.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.1662160038948059,
+      "samples_ms": [
+        0.16722240447998046,
+        0.1662160038948059,
+        0.1661471962928772
+      ],
+      "baseline_ms": 0.12572159767150878,
+      "baseline_samples_ms": [
+        0.12640479803085328,
+        0.12572159767150878,
+        0.12560800313949586
+      ],
+      "speedup": 0.7563748058284144,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.47608962059021,
+      "samples_ms": [
+        0.47753281593322755,
+        0.4758495807647705,
+        0.47608962059021
+      ],
+      "baseline_ms": 0.44426398277282714,
+      "baseline_samples_ms": [
+        0.4450096130371094,
+        0.44426398277282714,
+        0.44377121925354
+      ],
+      "speedup": 0.9331520023941533,
+      "shared_bytes": 16400,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r12], [%rd2, {%r13, %r1}], [%r10];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.6231823921203613,
+      "samples_ms": [
+        0.624894380569458,
+        0.6227295875549317,
+        0.6231823921203613
+      ],
+      "baseline_ms": 0.44464640617370604,
+      "baseline_samples_ms": [
+        0.44475679397583007,
+        0.44464640617370604,
+        0.4446432113647461
+      ],
+      "speedup": 0.7135092579570623,
+      "shared_bytes": 24608,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.47177438735961913,
+      "samples_ms": [
+        0.4725344181060791,
+        0.4708864212036133,
+        0.47177438735961913
+      ],
+      "baseline_ms": 0.44518399238586426,
+      "baseline_samples_ms": [
+        0.44558401107788087,
+        0.44518399238586426,
+        0.4442304134368896
+      ],
+      "speedup": 0.9436374765434524,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r12], [%rd2, {%r13, %r1}], [%r10];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.5435135841369629,
+      "samples_ms": [
+        0.5455904006958008,
+        0.5435135841369629,
+        0.543071985244751
+      ],
+      "baseline_ms": 0.4446591854095459,
+      "baseline_samples_ms": [
+        0.4448256015777588,
+        0.4446591854095459,
+        0.4441199779510498
+      ],
+      "speedup": 0.818119727615665,
+      "shared_bytes": 40992,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.5319215774536132,
+      "samples_ms": [
+        0.5319759845733643,
+        0.5308735847473145,
+        0.5319215774536132
+      ],
+      "baseline_ms": 0.444704008102417,
+      "baseline_samples_ms": [
+        0.4448847770690918,
+        0.444704008102417,
+        0.4442336082458496
+      ],
+      "speedup": 0.8360330299652073,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r13], [%rd2, {%r14, %r1}], [%r10];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.5047647953033447,
+      "samples_ms": [
+        0.5051199913024902,
+        0.5047039985656738,
+        0.5047647953033447
+      ],
+      "baseline_ms": 0.444214391708374,
+      "baseline_samples_ms": [
+        0.444598388671875,
+        0.444214391708374,
+        0.44399681091308596
+      ],
+      "speedup": 0.8800423401981071,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.445908784866333,
+      "samples_ms": [
+        0.44704480171203614,
+        0.445908784866333,
+        0.445798397064209
+      ],
+      "baseline_ms": 0.4444752216339111,
+      "baseline_samples_ms": [
+        0.44506077766418456,
+        0.44427199363708497,
+        0.4444752216339111
+      ],
+      "speedup": 0.9967850751519695,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.6135871887207032,
+      "samples_ms": [
+        0.6153855800628663,
+        0.6133679866790771,
+        0.6135871887207032
+      ],
+      "baseline_ms": 0.4443391799926758,
+      "baseline_samples_ms": [
+        0.4449007987976074,
+        0.44426560401916504,
+        0.4443391799926758
+      ],
+      "speedup": 0.7241663257655354,
+      "shared_bytes": 18456,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.5011839866638184,
+      "samples_ms": [
+        0.5025951862335205,
+        0.5006896018981933,
+        0.5011839866638184
+      ],
+      "baseline_ms": 0.44475841522216797,
+      "baseline_samples_ms": [
+        0.4452415943145752,
+        0.44475841522216797,
+        0.4441055774688721
+      ],
+      "speedup": 0.8874154543179783,
+      "shared_bytes": 30744,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.5088399887084961,
+      "samples_ms": [
+        0.5095104217529297,
+        0.5088399887084961,
+        0.5083216190338135
+      ],
+      "baseline_ms": 0.4446095943450928,
+      "baseline_samples_ms": [
+        0.444868803024292,
+        0.44439520835876467,
+        0.4446095943450928
+      ],
+      "speedup": 0.8737709382345742,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.5178127765655518,
+      "samples_ms": [
+        0.5193696022033691,
+        0.5178127765655518,
+        0.5156496047973633
+      ],
+      "baseline_ms": 0.4448544025421143,
+      "baseline_samples_ms": [
+        0.44506402015686036,
+        0.4443488121032715,
+        0.4448544025421143
+      ],
+      "speedup": 0.8591027928910103,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.5844128131866455,
+      "samples_ms": [
+        0.5854559898376465,
+        0.5844128131866455,
+        0.5835984230041504
+      ],
+      "baseline_ms": 0.44475040435791013,
+      "baseline_samples_ms": [
+        0.44508957862854004,
+        0.4441808223724365,
+        0.44475040435791013
+      ],
+      "speedup": 0.7610209672385623,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.5661136150360108,
+      "samples_ms": [
+        0.5675807952880859,
+        0.5661136150360108,
+        0.5655231952667237
+      ],
+      "baseline_ms": 0.44445600509643557,
+      "baseline_samples_ms": [
+        0.44483041763305664,
+        0.44445600509643557,
+        0.44432477951049804
+      ],
+      "speedup": 0.7851003637638418,
+      "shared_bytes": 20496,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.46089920997619627,
+      "samples_ms": [
+        0.46257758140563965,
+        0.46089920997619627,
+        0.46041278839111327
+      ],
+      "baseline_ms": 0.44476962089538574,
+      "baseline_samples_ms": [
+        0.44490880966186525,
+        0.44476962089538574,
+        0.44443521499633787
+      ],
+      "speedup": 0.9650040860741689,
+      "shared_bytes": 24600,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r13], [%rd2, {%r14, %r1}], [%r10];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.4961887836456299,
+      "samples_ms": [
+        0.497651195526123,
+        0.4961887836456299,
+        0.4957632064819336
+      ],
+      "baseline_ms": 0.4448592185974121,
+      "baseline_samples_ms": [
+        0.4452767848968506,
+        0.4448592185974121,
+        0.44440321922302245
+      ],
+      "speedup": 0.896552347130691,
+      "shared_bytes": 32784,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.5004208087921143,
+      "samples_ms": [
+        0.5017263889312744,
+        0.5004208087921143,
+        0.5001664161682129
+      ],
+      "baseline_ms": 0.44445438385009767,
+      "baseline_samples_ms": [
+        0.4447919845581055,
+        0.44445438385009767,
+        0.4443295955657959
+      ],
+      "speedup": 0.888161275553059,
+      "shared_bytes": 49176,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r14];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.6006864070892334,
+      "samples_ms": [
+        0.6010240077972412,
+        0.600596809387207,
+        0.6006864070892334
+      ],
+      "baseline_ms": 0.4446239948272705,
+      "baseline_samples_ms": [
+        0.44525599479675293,
+        0.44433441162109377,
+        0.4446239948272705
+      ],
+      "speedup": 0.7401932016104712,
+      "shared_bytes": 65568,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.4961184024810791,
+      "samples_ms": [
+        0.49633121490478516,
+        0.49579200744628904,
+        0.4961184024810791
+      ],
+      "baseline_ms": 0.4445615768432617,
+      "baseline_samples_ms": [
+        0.4448416233062744,
+        0.4445615768432617,
+        0.4443664073944092
+      ],
+      "speedup": 0.8960795943468683,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.6233215808868409,
+      "samples_ms": [
+        0.6246240139007568,
+        0.6225632190704345,
+        0.6233215808868409
+      ],
+      "baseline_ms": 0.44456958770751953,
+      "baseline_samples_ms": [
+        0.44475359916687013,
+        0.44456958770751953,
+        0.44455838203430176
+      ],
+      "speedup": 0.7132266896246412,
+      "shared_bytes": 12304,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.6137472152709961,
+      "samples_ms": [
+        0.6161759853363037,
+        0.6137472152709961,
+        0.6135312080383301
+      ],
+      "baseline_ms": 0.4448703765869141,
+      "baseline_samples_ms": [
+        0.4448847770690918,
+        0.4448703765869141,
+        0.44439520835876467
+      ],
+      "speedup": 0.7248430062374857,
+      "shared_bytes": 24608,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r14];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.607203197479248,
+      "samples_ms": [
+        0.609604787826538,
+        0.607203197479248,
+        0.6066703796386719
+      ],
+      "baseline_ms": 0.4447199821472168,
+      "baseline_samples_ms": [
+        0.44475359916687013,
+        0.4447199821472168,
+        0.44460477828979494
+      ],
+      "speedup": 0.7324071809790095,
+      "shared_bytes": 18456,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r14];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.44952640533447263,
+      "samples_ms": [
+        0.45034241676330566,
+        0.4492512226104736,
+        0.44952640533447263
+      ],
+      "baseline_ms": 0.44469919204711916,
+      "baseline_samples_ms": [
+        0.44488959312438964,
+        0.4444784164428711,
+        0.44469919204711916
+      ],
+      "speedup": 0.9892615578749778,
+      "shared_bytes": 32800,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r10];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.5636879920959472,
+      "samples_ms": [
+        0.5647759914398194,
+        0.5626527786254882,
+        0.5636879920959472
+      ],
+      "baseline_ms": 0.4444272041320801,
+      "baseline_samples_ms": [
+        0.4445487976074219,
+        0.4444272041320801,
+        0.44436001777648926
+      ],
+      "speedup": 0.7884276592083811,
+      "shared_bytes": 20496,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.4917136192321777,
+      "samples_ms": [
+        0.49210238456726074,
+        0.4915584087371826,
+        0.4917136192321777
+      ],
+      "baseline_ms": 0.444700813293457,
+      "baseline_samples_ms": [
+        0.4451776027679443,
+        0.444700813293457,
+        0.4445792198181152
+      ],
+      "speedup": 0.9043898641405697,
+      "shared_bytes": 32784,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r14];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.4774608135223389,
+      "samples_ms": [
+        0.4780911922454834,
+        0.4774608135223389,
+        0.4770688056945801
+      ],
+      "baseline_ms": 0.4445519924163818,
+      "baseline_samples_ms": [
+        0.44444961547851564,
+        0.44463520050048827,
+        0.4445519924163818
+      ],
+      "speedup": 0.9310753465542416,
+      "shared_bytes": 24600,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.5494976043701172,
+      "samples_ms": [
+        0.5514512062072754,
+        0.5494976043701172,
+        0.5490831851959228
+      ],
+      "baseline_ms": 0.44553279876708984,
+      "baseline_samples_ms": [
+        0.4446400165557861,
+        0.44553279876708984,
+        0.44567041397094725
+      ],
+      "speedup": 0.8108002568597165,
+      "shared_bytes": 40992,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.4451312065124512,
+      "samples_ms": [
+        0.44556798934936526,
+        0.44504799842834475,
+        0.4451312065124512
+      ],
+      "baseline_ms": 0.4446671962738037,
+      "baseline_samples_ms": [
+        0.4451024055480957,
+        0.4446671962738037,
+        0.4444719791412354
+      ],
+      "speedup": 0.9989575877137823,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.6085408210754395,
+      "samples_ms": [
+        0.6093376159667969,
+        0.607806396484375,
+        0.6085408210754395
+      ],
+      "baseline_ms": 0.4442607879638672,
+      "baseline_samples_ms": [
+        0.4453023910522461,
+        0.44423680305480956,
+        0.4442607879638672
+      ],
+      "speedup": 0.7300427063853341,
+      "shared_bytes": 65568,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r14];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        16,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.4999839782714844,
+      "samples_ms": [
+        0.5014319896697998,
+        0.4999839782714844,
+        0.49961280822753906
+      ],
+      "baseline_ms": 0.44456801414489744,
+      "baseline_samples_ms": [
+        0.4447455883026123,
+        0.44456801414489744,
+        0.44444642066955564
+      ],
+      "speedup": 0.8891645201948915,
+      "shared_bytes": 30744,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.5087007999420166,
+      "samples_ms": [
+        0.5102191925048828,
+        0.5087007999420166,
+        0.5085536003112793
+      ],
+      "baseline_ms": 0.4449007987976074,
+      "baseline_samples_ms": [
+        0.4449007987976074,
+        0.44557762145996094,
+        0.44440479278564454
+      ],
+      "speedup": 0.8745824634997993,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r10];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.4779664039611816,
+      "samples_ms": [
+        0.47939357757568357,
+        0.4779664039611816,
+        0.47794718742370607
+      ],
+      "baseline_ms": 0.4442319869995117,
+      "baseline_samples_ms": [
+        0.44475522041320803,
+        0.4442319869995117,
+        0.4442160129547119
+      ],
+      "speedup": 0.9294209453172996,
+      "shared_bytes": 32800,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.4948847770690918,
+      "samples_ms": [
+        0.49592161178588867,
+        0.4948847770690918,
+        0.4946127891540527
+      ],
+      "baseline_ms": 0.4449120044708252,
+      "baseline_samples_ms": [
+        0.4452239990234375,
+        0.44486079216003416,
+        0.4449120044708252
+      ],
+      "speedup": 0.8990213986895583,
+      "shared_bytes": 16400,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.4678095817565918,
+      "samples_ms": [
+        0.46877121925354004,
+        0.4675168037414551,
+        0.4678095817565918
+      ],
+      "baseline_ms": 0.4444287776947021,
+      "baseline_samples_ms": [
+        0.4450751781463623,
+        0.44437599182128906,
+        0.4444287776947021
+      ],
+      "speedup": 0.9500206815471876,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        16,
+        32,
+        64,
+        1,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.6168399810791015,
+      "samples_ms": [
+        0.6180831909179687,
+        0.6168399810791015,
+        0.6163519859313965
+      ],
+      "baseline_ms": 0.4445631980895996,
+      "baseline_samples_ms": [
+        0.4446591854095459,
+        0.44446239471435545,
+        0.4445631980895996
+      ],
+      "speedup": 0.7207107381591569,
+      "shared_bytes": 12304,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r14];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.5012864112854004,
+      "samples_ms": [
+        0.502510404586792,
+        0.5012464046478271,
+        0.5012864112854004
+      ],
+      "baseline_ms": 0.4445055961608887,
+      "baseline_samples_ms": [
+        0.44527997970581057,
+        0.44417757987976075,
+        0.4445055961608887
+      ],
+      "speedup": 0.8867297938938458,
+      "shared_bytes": 49176,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wi",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.5705503940582275,
+      "samples_ms": [
+        0.572495985031128,
+        0.5697824001312256,
+        0.5705503940582275
+      ],
+      "baseline_ms": 0.4445663928985596,
+      "baseline_samples_ms": [
+        0.4448751926422119,
+        0.4445663928985596,
+        0.444209623336792
+      ],
+      "speedup": 0.7791886527961794,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r12];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.2875040054321289,
+      "samples_ms": [
+        0.2887104034423828,
+        0.2875040054321289,
+        0.28740479946136477
+      ],
+      "baseline_ms": 0.26536800861358645,
+      "baseline_samples_ms": [
+        0.2659856081008911,
+        0.2647119998931885,
+        0.26536800861358645
+      ],
+      "speedup": 0.9230063011286703,
+      "shared_bytes": 16400,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r13], [%rd2, {%r14, %r1}], [%r11];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        16,
+        32,
+        64,
+        4,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.39416799545288084,
+      "samples_ms": [
+        0.3954511880874634,
+        0.3937472105026245,
+        0.39416799545288084
+      ],
+      "baseline_ms": 0.2650896072387695,
+      "baseline_samples_ms": [
+        0.26535520553588865,
+        0.26502079963684083,
+        0.2650896072387695
+      ],
+      "speedup": 0.6725295059386893,
+      "shared_bytes": 24608,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        4,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.28172318935394286,
+      "samples_ms": [
+        0.28286399841308596,
+        0.28172318935394286,
+        0.28166399002075193
+      ],
+      "baseline_ms": 0.26501920223236086,
+      "baseline_samples_ms": [
+        0.26557440757751466,
+        0.26501920223236086,
+        0.2648736000061035
+      ],
+      "speedup": 0.9407078020098801,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r13], [%rd2, {%r14, %r1}], [%r11];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        16,
+        64,
+        64,
+        4,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.33464319705963136,
+      "samples_ms": [
+        0.33622400760650634,
+        0.33456480503082275,
+        0.33464319705963136
+      ],
+      "baseline_ms": 0.2649807929992676,
+      "baseline_samples_ms": [
+        0.2653743982315063,
+        0.2649807929992676,
+        0.26489920616149903
+      ],
+      "speedup": 0.7918308076409204,
+      "shared_bytes": 40992,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r14];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        4,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.2802256107330322,
+      "samples_ms": [
+        0.28210880756378176,
+        0.2802256107330322,
+        0.28022079467773436
+      ],
+      "baseline_ms": 0.26501920223236086,
+      "baseline_samples_ms": [
+        0.26565279960632326,
+        0.26501920223236086,
+        0.2649872064590454
+      ],
+      "speedup": 0.9457351222791756,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r11];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        4,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.28383359909057615,
+      "samples_ms": [
+        0.284606409072876,
+        0.2837615966796875,
+        0.28383359909057615
+      ],
+      "baseline_ms": 0.2648767948150635,
+      "baseline_samples_ms": [
+        0.2652928113937378,
+        0.2647264003753662,
+        0.2648767948150635
+      ],
+      "speedup": 0.933211556573106,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        4,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.2789664030075073,
+      "samples_ms": [
+        0.2797247886657715,
+        0.2786751985549927,
+        0.2789664030075073
+      ],
+      "baseline_ms": 0.26506240367889405,
+      "baseline_samples_ms": [
+        0.2652479887008667,
+        0.2647599935531616,
+        0.26506240367889405
+      ],
+      "speedup": 0.9501588751236145,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r14];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        16,
+        32,
+        64,
+        4,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.38396639823913575,
+      "samples_ms": [
+        0.3853679895401001,
+        0.38372321128845216,
+        0.38396639823913575
+      ],
+      "baseline_ms": 0.2651952028274536,
+      "baseline_samples_ms": [
+        0.26525440216064455,
+        0.2651952028274536,
+        0.2650464057922363
+      ],
+      "speedup": 0.6906729444129354,
+      "shared_bytes": 18456,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        16,
+        64,
+        64,
+        4,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.3372623920440674,
+      "samples_ms": [
+        0.33814880847930906,
+        0.3372623920440674,
+        0.3367023944854736
+      ],
+      "baseline_ms": 0.26546878814697267,
+      "baseline_samples_ms": [
+        0.2655679941177368,
+        0.26546878814697267,
+        0.2649872064590454
+      ],
+      "speedup": 0.787128344011407,
+      "shared_bytes": 30744,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        4,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.2773648023605347,
+      "samples_ms": [
+        0.27884960174560547,
+        0.2773648023605347,
+        0.2768304109573364
+      ],
+      "baseline_ms": 0.2650480031967163,
+      "baseline_samples_ms": [
+        0.26569600105285646,
+        0.2648159980773926,
+        0.2650480031967163
+      ],
+      "speedup": 0.9555935033609336,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r14];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        4,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.2809423923492432,
+      "samples_ms": [
+        0.28267679214477537,
+        0.2809423923492432,
+        0.28069119453430175
+      ],
+      "baseline_ms": 0.26515519618988037,
+      "baseline_samples_ms": [
+        0.2658112049102783,
+        0.2649343967437744,
+        0.26515519618988037
+      ],
+      "speedup": 0.9438062870208013,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        4,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.2866640090942383,
+      "samples_ms": [
+        0.28838560581207273,
+        0.2866640090942383,
+        0.28627839088439944
+      ],
+      "baseline_ms": 0.2654560089111328,
+      "baseline_samples_ms": [
+        0.2661007881164551,
+        0.2649375915527344,
+        0.2654560089111328
+      ],
+      "speedup": 0.9260179181540242,
+      "shared_bytes": 36888,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        16,
+        64,
+        64,
+        4,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.31239519119262693,
+      "samples_ms": [
+        0.3136176109313965,
+        0.31239519119262693,
+        0.3115936040878296
+      ],
+      "baseline_ms": 0.2652384042739868,
+      "baseline_samples_ms": [
+        0.26624159812927245,
+        0.2651072025299072,
+        0.2652384042739868
+      ],
+      "speedup": 0.8490476542272937,
+      "shared_bytes": 20496,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r14];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.3111135959625244,
+      "samples_ms": [
+        0.3126176118850708,
+        0.3111135959625244,
+        0.3102560043334961
+      ],
+      "baseline_ms": 0.2653343915939331,
+      "baseline_samples_ms": [
+        0.26540799140930177,
+        0.2647504091262817,
+        0.2653343915939331
+      ],
+      "speedup": 0.8528537326472043,
+      "shared_bytes": 24600,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r14], [%rd2, {%r15, %r1}], [%r11];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        4,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.282585597038269,
+      "samples_ms": [
+        0.28362720012664794,
+        0.282585597038269,
+        0.2821968078613281
+      ],
+      "baseline_ms": 0.26501920223236086,
+      "baseline_samples_ms": [
+        0.26537280082702636,
+        0.2647968053817749,
+        0.26501920223236086
+      ],
+      "speedup": 0.9378369067991486,
+      "shared_bytes": 32784,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r14];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        4,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.28873279094696047,
+      "samples_ms": [
+        0.2907167911529541,
+        0.28868799209594725,
+        0.28873279094696047
+      ],
+      "baseline_ms": 0.26482720375061036,
+      "baseline_samples_ms": [
+        0.2656383991241455,
+        0.2647311925888062,
+        0.26482720375061036
+      ],
+      "speedup": 0.9172051531869773,
+      "shared_bytes": 49176,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r15];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        4,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.29319679737091064,
+      "samples_ms": [
+        0.294704008102417,
+        0.29319679737091064,
+        0.2930351972579956
+      ],
+      "baseline_ms": 0.26483678817749023,
+      "baseline_samples_ms": [
+        0.2655711889266968,
+        0.26471519470214844,
+        0.26483678817749023
+      ],
+      "speedup": 0.9032731276476278,
+      "shared_bytes": 65568,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r14];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        4,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.2807552099227905,
+      "samples_ms": [
+        0.28170080184936525,
+        0.2807552099227905,
+        0.28032479286193845
+      ],
+      "baseline_ms": 0.265283203125,
+      "baseline_samples_ms": [
+        0.2656703948974609,
+        0.265283203125,
+        0.2651360034942627
+      ],
+      "speedup": 0.9448914703949913,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r14];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        16,
+        32,
+        64,
+        4,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.3875648021697998,
+      "samples_ms": [
+        0.38946239948272704,
+        0.38736801147460936,
+        0.3875648021697998
+      ],
+      "baseline_ms": 0.2648144006729126,
+      "baseline_samples_ms": [
+        0.2657344102859497,
+        0.2648144006729126,
+        0.2647615909576416
+      ],
+      "speedup": 0.6832777362400732,
+      "shared_bytes": 12304,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        16,
+        32,
+        64,
+        4,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.3861664056777954,
+      "samples_ms": [
+        0.38818559646606443,
+        0.3861664056777954,
+        0.3860543966293335
+      ],
+      "baseline_ms": 0.26545760631561277,
+      "baseline_samples_ms": [
+        0.26583840847015383,
+        0.26545760631561277,
+        0.265233588218689
+      ],
+      "speedup": 0.6874176583270734,
+      "shared_bytes": 24608,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r19], [%rd2, {%r20, %r1}], [%r15];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        16,
+        32,
+        64,
+        4,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.37847199440002444,
+      "samples_ms": [
+        0.3796623945236206,
+        0.3784463882446289,
+        0.37847199440002444
+      ],
+      "baseline_ms": 0.26488161087036133,
+      "baseline_samples_ms": [
+        0.2656816005706787,
+        0.26488161087036133,
+        0.2648576021194458
+      ],
+      "speedup": 0.6998710995519415,
+      "shared_bytes": 18456,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r15];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.29948480129241944,
+      "samples_ms": [
+        0.300764799118042,
+        0.2990272045135498,
+        0.29948480129241944
+      ],
+      "baseline_ms": 0.265395188331604,
+      "baseline_samples_ms": [
+        0.26586079597473145,
+        0.265395188331604,
+        0.2648720026016235
+      ],
+      "speedup": 0.8861724774889994,
+      "shared_bytes": 32800,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r11];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        16,
+        64,
+        64,
+        4,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.31235198974609374,
+      "samples_ms": [
+        0.3148191928863525,
+        0.31235198974609374,
+        0.312064003944397
+      ],
+      "baseline_ms": 0.2651776075363159,
+      "baseline_samples_ms": [
+        0.2657232046127319,
+        0.2651776075363159,
+        0.2646384000778198
+      ],
+      "speedup": 0.84897044437551,
+      "shared_bytes": 20496,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        4,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.2827919960021973,
+      "samples_ms": [
+        0.28457438945770264,
+        0.2827919960021973,
+        0.2826031923294067
+      ],
+      "baseline_ms": 0.2655872106552124,
+      "baseline_samples_ms": [
+        0.2655872106552124,
+        0.26559839248657224,
+        0.2648144006729126
+      ],
+      "speedup": 0.9391609890300743,
+      "shared_bytes": 32784,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r15];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        4,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.3255295991897583,
+      "samples_ms": [
+        0.3266256093978882,
+        0.3255295991897583,
+        0.3252063989639282
+      ],
+      "baseline_ms": 0.26541600227355955,
+      "baseline_samples_ms": [
+        0.26565439701080323,
+        0.265233588218689,
+        0.26541600227355955
+      ],
+      "speedup": 0.8153360030368322,
+      "shared_bytes": 24600,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd2, {%r17, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        16,
+        64,
+        64,
+        4,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.33761599063873293,
+      "samples_ms": [
+        0.3391632080078125,
+        0.33761599063873293,
+        0.336897611618042
+      ],
+      "baseline_ms": 0.26500639915466306,
+      "baseline_samples_ms": [
+        0.26558880805969237,
+        0.26500639915466306,
+        0.26493918895721436
+      ],
+      "speedup": 0.7849343825607893,
+      "shared_bytes": 40992,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        64,
+        64,
+        4,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.28310561180114746,
+      "samples_ms": [
+        0.28455679416656493,
+        0.28310561180114746,
+        0.28308160305023194
+      ],
+      "baseline_ms": 0.26495840549468996,
+      "baseline_samples_ms": [
+        0.26534080505371094,
+        0.2647871971130371,
+        0.26495840549468996
+      ],
+      "speedup": 0.9358995175298608,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        4,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.29377601146697996,
+      "samples_ms": [
+        0.29464480876922605,
+        0.2933439970016479,
+        0.29377601146697996
+      ],
+      "baseline_ms": 0.2651072025299072,
+      "baseline_samples_ms": [
+        0.2654560089111328,
+        0.2651072025299072,
+        0.2649231910705566
+      ],
+      "speedup": 0.9024126960063413,
+      "shared_bytes": 65568,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r19], [%rd2, {%r20, %r1}], [%r15];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        16,
+        64,
+        64,
+        4,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.3359519958496094,
+      "samples_ms": [
+        0.3374288082122803,
+        0.3359519958496094,
+        0.33547039031982423
+      ],
+      "baseline_ms": 0.2651087999343872,
+      "baseline_samples_ms": [
+        0.2654671907424927,
+        0.26503040790557864,
+        0.2651087999343872
+      ],
+      "speedup": 0.7891270276991136,
+      "shared_bytes": 30744,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r14];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        4,
+        4,
+        5,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.28438079357147217,
+      "samples_ms": [
+        0.28530240058898926,
+        0.2842112064361572,
+        0.28438079357147217
+      ],
+      "baseline_ms": 0.26500959396362306,
+      "baseline_samples_ms": [
+        0.26540799140930177,
+        0.2646944046020508,
+        0.26500959396362306
+      ],
+      "speedup": 0.9318828836344019,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r11];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.3183631896972656,
+      "samples_ms": [
+        0.3189888000488281,
+        0.3183631896972656,
+        0.3179375886917114
+      ],
+      "baseline_ms": 0.26472320556640627,
+      "baseline_samples_ms": [
+        0.26569280624389646,
+        0.26472320556640627,
+        0.26469600200653076
+      ],
+      "speedup": 0.8315132343602095,
+      "shared_bytes": 32800,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.3016432046890259,
+      "samples_ms": [
+        0.3028736114501953,
+        0.3016432046890259,
+        0.3013871908187866
+      ],
+      "baseline_ms": 0.26543359756469725,
+      "baseline_samples_ms": [
+        0.2657088041305542,
+        0.2648015975952148,
+        0.26543359756469725
+      ],
+      "speedup": 0.8799588170346542,
+      "shared_bytes": 16400,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        4,
+        4,
+        3,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.28915040493011473,
+      "samples_ms": [
+        0.2901792049407959,
+        0.28915040493011473,
+        0.2884943962097168
+      ],
+      "baseline_ms": 0.26495039463043213,
+      "baseline_samples_ms": [
+        0.2654175996780396,
+        0.2647536039352417,
+        0.26495039463043213
+      ],
+      "speedup": 0.916306496940471,
+      "shared_bytes": 24592,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd2, {%r16, %r1}], [%r13];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        16,
+        32,
+        64,
+        4,
+        4,
+        3,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.38373119831085206,
+      "samples_ms": [
+        0.38543679714202883,
+        0.38373119831085206,
+        0.38336639404296874
+      ],
+      "baseline_ms": 0.2649183988571167,
+      "baseline_samples_ms": [
+        0.26528480052948,
+        0.2647520065307617,
+        0.2649183988571167
+      ],
+      "speedup": 0.6903749291776694,
+      "shared_bytes": 12304,
+      "tma_instruction": "@%p4 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r15];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        64,
+        64,
+        4,
+        4,
+        4,
+        false
+      ],
+      "mismatches": 0,
+      "ms": 0.28723199367523194,
+      "samples_ms": [
+        0.2883039951324463,
+        0.28723199367523194,
+        0.28695359230041506
+      ],
+      "baseline_ms": 0.2650736093521118,
+      "baseline_samples_ms": [
+        0.26544480323791503,
+        0.2650736093521118,
+        0.264684796333313
+      ],
+      "speedup": 0.9228554450373164,
+      "shared_bytes": 49176,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r14];"
+    },
+    {
+      "field": "mlp.Wo",
+      "config": [
+        64,
+        32,
+        64,
+        4,
+        4,
+        5,
+        true
+      ],
+      "mismatches": 0,
+      "ms": 0.2889967918395996,
+      "samples_ms": [
+        0.28981120586395265,
+        0.2889967918395996,
+        0.2888031959533691
+      ],
+      "baseline_ms": 0.26521279811859133,
+      "baseline_samples_ms": [
+        0.2654655933380127,
+        0.26521279811859133,
+        0.26466400623321534
+      ],
+      "speedup": 0.9177015302847757,
+      "shared_bytes": 49184,
+      "tma_instruction": "@%p6 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r17], [%rd2, {%r18, %r1}], [%r13];"
+    }
+  ]
+}

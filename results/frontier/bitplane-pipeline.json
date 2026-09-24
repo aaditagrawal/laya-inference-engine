@@ -1,0 +1,1365 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T11:02:57.577369+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "seed": 20260925,
+  "source_sha256": "73bdd7c26f33f5f428cf1b0d49200aaa4d908552d3e424d93cbedb4a5758ee9e",
+  "native_build": {
+    "seconds": 6.02766976703424,
+    "source_sha256": "73bdd7c26f33f5f428cf1b0d49200aaa4d908552d3e424d93cbedb4a5758ee9e",
+    "library_sha256": "965fbe1c3aaf4de554f2d5d5ef5d3f07b666c57c6075bf684f26e44ff67ae3de",
+    "architecture": "sm_120",
+    "command": [
+      "/usr/local/cuda-13.1/bin/nvcc",
+      "-O3",
+      "-std=c++20",
+      "-gencode=arch=compute_120,code=sm_120",
+      "--compiler-options",
+      "-fPIC",
+      "--ptxas-options=-v",
+      "-shared",
+      "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/bitplane_pipeline.cu",
+      "-o",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-bitplane-pipeline/bitplane_pipeline.so"
+    ]
+  },
+  "method": "28 distinct MLPWi weights with independent random BF16 activations; exact zigzag bitplanes packed in MMA fragment lane order; 2/3-stage cp.async pipeline; warp bit transpose decodes directly into MMA registers; normal and hardware-compressible VMM allocations; graph replay; no temporary decode kernel.",
+  "rows": [
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.6880340576171875,
+      "samples_ms": [
+        2.6847188313802084,
+        2.688154602050781,
+        2.6880340576171875,
+        2.6877822875976562,
+        2.688286844889323
+      ],
+      "speedup_retained": 0.16526020409128667
+    },
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.5198132832845053,
+      "samples_ms": [
+        1.5092618306477865,
+        1.5198132832845053,
+        1.5202303568522135,
+        1.519979731241862,
+        1.5194644927978516
+      ],
+      "speedup_retained": 0.29228923174438926
+    },
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.908929189046224,
+      "samples_ms": [
+        2.9130826314290363,
+        2.908258056640625,
+        2.909117889404297,
+        2.9080075581868488,
+        2.908929189046224
+      ],
+      "speedup_retained": 0.1527108527216497
+    },
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.991704559326172,
+      "samples_ms": [
+        1.9922218322753906,
+        1.9910325368245443,
+        1.9915562947591146,
+        1.992040506998698,
+        1.991704559326172
+      ],
+      "speedup_retained": 0.22303762618108122
+    },
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.909130605061849,
+      "samples_ms": [
+        2.9096160888671876,
+        2.9091039021809895,
+        2.909130605061849,
+        2.909130605061849,
+        2.908763631184896
+      ],
+      "speedup_retained": 0.1527002796619719
+    },
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.6898890177408856,
+      "samples_ms": [
+        2.6902699788411457,
+        2.6904897054036456,
+        2.6898890177408856,
+        2.6897898356119794,
+        2.6897801717122394
+      ],
+      "speedup_retained": 0.16514623987692625
+    },
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.9929492950439454,
+      "samples_ms": [
+        1.9935476938883463,
+        1.9929492950439454,
+        1.9928704579671224,
+        1.9930260976155598,
+        1.9928042093912761
+      ],
+      "speedup_retained": 0.2228983236406677
+    },
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.5214560190836588,
+      "samples_ms": [
+        1.5172415415445963,
+        1.5214560190836588,
+        1.5211690266927083,
+        1.5216821034749348,
+        1.5220010121663412
+      ],
+      "speedup_retained": 0.2919736432694869
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.5174934387207033,
+      "samples_ms": [
+        2.5183807373046876,
+        2.5173024495442706,
+        2.517572275797526,
+        2.5173248291015624,
+        2.5174934387207033
+      ],
+      "speedup_retained": 0.17645529880383104
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.8055136362711588,
+      "samples_ms": [
+        1.8055136362711588,
+        1.8050399780273438,
+        1.8054784138997395,
+        1.8056341807047527,
+        1.8055732727050782
+      ],
+      "speedup_retained": 0.24603805146749413
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.7673759460449219,
+      "samples_ms": [
+        1.7673759460449219,
+        1.774066162109375,
+        1.7783487955729167,
+        1.7654346466064452,
+        1.7658240000406902
+      ],
+      "speedup_retained": 0.2513472348428436
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.7092745463053385,
+      "samples_ms": [
+        2.7100118001302085,
+        2.7090047200520835,
+        2.709191385904948,
+        2.7092745463053385,
+        2.709576416015625
+      ],
+      "speedup_retained": 0.16396457773980103
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.23186772664388,
+      "samples_ms": [
+        2.2181727091471353,
+        2.232684834798177,
+        2.231836700439453,
+        2.2321929931640625,
+        2.23186772664388
+      ],
+      "speedup_retained": 0.19903735855983684
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.26093012491862,
+      "samples_ms": [
+        2.2610677083333335,
+        2.260492706298828,
+        2.2603113810221354,
+        2.2609652201334636,
+        2.26093012491862
+      ],
+      "speedup_retained": 0.19647889692395304
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.522527058919271,
+      "samples_ms": [
+        2.5249834696451825,
+        2.5225931803385415,
+        2.522352091471354,
+        2.522527058919271,
+        2.5224756876627605
+      ],
+      "speedup_retained": 0.1761031880294143
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.7808629353841146,
+      "samples_ms": [
+        1.7634410858154297,
+        1.7665791829427084,
+        1.7815296173095703,
+        1.7811946868896484,
+        1.7808629353841146
+      ],
+      "speedup_retained": 0.24944370964199492
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.5327242533365886,
+      "samples_ms": [
+        1.5327242533365886,
+        1.531438954671224,
+        1.5315530141194662,
+        1.5363136291503907,
+        1.5363946278889975
+      ],
+      "speedup_retained": 0.2898271205659544
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.8105546315511067,
+      "samples_ms": [
+        1.8179808298746745,
+        1.8102378845214844,
+        1.8109194437662761,
+        1.8091594696044921,
+        1.8105546315511067
+      ],
+      "speedup_retained": 0.2453530256557777
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.227661895751953,
+      "samples_ms": [
+        2.2098762512207033,
+        2.227284240722656,
+        2.2278836568196616,
+        2.227661895751953,
+        2.2278068542480467
+      ],
+      "speedup_retained": 0.19941314156033385
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.539806874593099,
+      "samples_ms": [
+        1.5367115020751954,
+        1.5380874633789063,
+        1.539806874593099,
+        1.5408341725667318,
+        1.5404703776041666
+      ],
+      "speedup_retained": 0.28849400810964315
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.5211029052734375,
+      "samples_ms": [
+        2.5253578186035157,
+        2.5212992350260417,
+        2.5210912068684896,
+        2.5209376017252603,
+        2.5211029052734375
+      ],
+      "speedup_retained": 0.1762026675059364
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.71386235555013,
+      "samples_ms": [
+        2.714429982503255,
+        2.713708750406901,
+        2.71386235555013,
+        2.7135401407877606,
+        2.714923858642578
+      ],
+      "speedup_retained": 0.1636873941147603
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.256342315673828,
+      "samples_ms": [
+        2.2454251607259113,
+        2.256147257486979,
+        2.256342315673828,
+        2.2566548665364583,
+        2.2570528666178387
+      ],
+      "speedup_retained": 0.196878396456206
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.5143946329752604,
+      "samples_ms": [
+        2.516643269856771,
+        2.5141888936360677,
+        2.5144256591796874,
+        2.5142911275227866,
+        2.5143946329752604
+      ],
+      "speedup_retained": 0.17667276693177567
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.6860949198404946,
+      "samples_ms": [
+        2.684099324544271,
+        2.6862635294596355,
+        2.686629231770833,
+        2.685990397135417,
+        2.6860949198404946
+      ],
+      "speedup_retained": 0.16537950825376072
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.524456532796224,
+      "samples_ms": [
+        2.524824523925781,
+        2.523759969075521,
+        2.5240928649902346,
+        2.524583435058594,
+        2.524456532796224
+      ],
+      "speedup_retained": 0.17596859014803407
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.5284395853678387,
+      "samples_ms": [
+        2.530381774902344,
+        2.5282442728678385,
+        2.528245290120443,
+        2.529004923502604,
+        2.5284395853678387
+      ],
+      "speedup_retained": 0.17569138671016327
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.9494154612223307,
+      "samples_ms": [
+        1.9497962951660157,
+        1.9495498657226562,
+        1.9494154612223307,
+        1.9487040201822916,
+        1.94900271097819
+      ],
+      "speedup_retained": 0.2278760304320178
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.53265380859375,
+      "samples_ms": [
+        2.5331403096516927,
+        2.533089192708333,
+        2.532312520345052,
+        2.53265380859375,
+        2.532587687174479
+      ],
+      "speedup_retained": 0.17539904406153353
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.6898452758789064,
+      "samples_ms": [
+        2.6906196594238283,
+        2.690360514322917,
+        2.6898452758789064,
+        2.6891466776529946,
+        2.6895456949869794
+      ],
+      "speedup_retained": 0.1651489254604042
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.9542752583821614,
+      "samples_ms": [
+        1.9542752583821614,
+        1.9535872141520183,
+        1.9536596934000652,
+        1.9545920054117838,
+        1.95480105082194
+      ],
+      "speedup_retained": 0.2273093593447505
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.528794606526693,
+      "samples_ms": [
+        2.5289812723795575,
+        2.5283658345540365,
+        2.5288683573404946,
+        2.528794606526693,
+        2.5286633809407553
+      ],
+      "speedup_retained": 0.17566672114042917
+    }
+  ],
+  "packing": [
+    {
+      "bn": 16,
+      "all_weights_bit_exact": true,
+      "allocations": [
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        }
+      ]
+    },
+    {
+      "bn": 32,
+      "all_weights_bit_exact": true,
+      "allocations": [
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        }
+      ]
+    },
+    {
+      "bn": 64,
+      "all_weights_bit_exact": true,
+      "allocations": [
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        },
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        }
+      ]
+    }
+  ],
+  "matrix_count": 28,
+  "baseline_selection": {
+    "attn.Wqkv": {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "variant": "tma",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.2824053366978963,
+      "samples_ms": [
+        0.2842533389727275,
+        0.2824053366978963,
+        0.2823973298072815
+      ],
+      "speedup": 1.1323865060223333,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r15];",
+      "shared_bytes": 36888
+    },
+    "attn.Wo": {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        5
+      ],
+      "variant": "bf16",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.12824533383051553,
+      "samples_ms": [
+        0.129530668258667,
+        0.12824533383051553,
+        0.12781866391499838
+      ],
+      "speedup": 1.5529402232354563
+    },
+    "mlp.Wi": {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "bf16",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.44487198193868,
+      "samples_ms": [
+        0.4462960163752238,
+        0.4447973171869914,
+        0.44487198193868
+      ],
+      "speedup": 1.1813076064907817
+    },
+    "mlp.Wo": {
+      "field": "mlp.Wo",
+      "variant": "bf16-partial",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.26548266410827637,
+      "samples_ms": [
+        0.2674853404362996,
+        0.26548266410827637,
+        0.26505066951115924
+      ],
+      "speedup": 1.1396902301869904
+    }
+  },
+  "baseline": {
+    "ms": 0.44422505696614584,
+    "samples_ms": [
+      0.4446410814921061,
+      0.444320011138916,
+      0.44422505696614584,
+      0.44406614303588865,
+      0.4441919962565104
+    ]
+  },
+  "source_sha256_at_validation": {
+    "bitplane_pipeline.cu": "73bdd7c26f33f5f428cf1b0d49200aaa4d908552d3e424d93cbedb4a5758ee9e",
+    "bitplane_pipeline.py": "173e84cf2f0ae08a666b26a8c05aa2abc6eeaa6b0183e372455b35c382a316a7",
+    "bitplane_pipeline_build.py": "2f381cffe20e9d4dcc683b275004441916bdee1b60c275a259468befef78ecbc",
+    "bitplane_pipeline_probe.py": "ebf825797a3ab1246a4c5d9a3fe032d626d6d812397bbd00ab7132c4d56921bd"
+  },
+  "conclusion": "All 32 configurations preserve tested BF16 GEMM outputs. Paired warp transposes improve the native decoder, but every variant is slower than retained kernels. No full-engine integration."
+}

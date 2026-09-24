@@ -1,0 +1,224 @@
+{
+  "scope": "Static review of mapped pinned I/O ownership, CUDA visibility, graph ordering, validation and fairness, plus independent read-only verification of completed control and full-model reports. No GPU jobs or source edits were performed.",
+  "reviewed_source_sha256": {
+    "experiments/frontier/mapped_io.py": "fd504db9d3f392be0b185899448374778499b2ebd30ec50742e68e34e808c54a",
+    "experiments/frontier/mapped_io_adapter.py": "4b70b068c3bbb0b6eeb18b0479776b521438d8a241b3625665464c70d202e796",
+    "experiments/frontier/mapped_io_probe.py": "0721664e6b78282bc9198994278191d66566782175c8ac469e7bc3842acf29f7",
+    "experiments/frontier/mapped_io_lifetime.py": "6bf0229a629ce3010e96503d89fd2ec81fc7ceae53a9dfadd7c53b1bef8a088d",
+    "experiments/frontier/mapped_io_full.py": "723f1a7df1242cf4a04f80b5de0941d040c5ff737720ee7479c4c32bd7afb832",
+    "experiments/frontier/host_runtime.py": "2937666b288f730d3161b8f3987c0f4a048fbecc5cc9eb9b531edf0c51a4121e",
+    "experiments/native/host/native_host.cpp": "ec79c1a1a4b4d150d5cfd042ef1836e591b9bddd27820274ca5111d359e3edbb",
+    "experiments/latency/serving/graph_adapter.py": "9e4214b868c583243262a175f4f4109e327050c8d88dcf993a45b397cf356bf5"
+  },
+  "implementation_assessment": "No demonstrated implementation blocker found in the normal adapter path at these revisions.",
+  "checked_dataflow": [
+    {
+      "reference": "experiments/frontier/mapped_io.py:17",
+      "observation": "CUDA array-interface owner retains the pinned host tensor without a tensor-owner cycle; alias address, dtype and shape are checked."
+    },
+    {
+      "reference": "experiments/frontier/mapped_io_adapter.py:58",
+      "observation": "Slot retains the mapped output owner and host output views throughout graph lifetime."
+    },
+    {
+      "reference": "experiments/frontier/mapped_io_adapter.py:64",
+      "observation": "One capture stream orders packed DMA H2D, model execution and bit-preserving output collection."
+    },
+    {
+      "reference": "experiments/native/host/native_host.cpp:64",
+      "observation": "Session.replay launches the captured graph and synchronizes its replay stream before returning to Python."
+    },
+    {
+      "reference": "experiments/frontier/host_runtime.py:20",
+      "observation": "Adapter lock covers packing, replay, synchronization and fresh CPU output copies."
+    },
+    {
+      "reference": "experiments/latency/serving/graph_adapter.py:58",
+      "observation": "OwnedSlot drops borrowed native pointers and resets graph before releasing buffers and destroying its capture stream; public adapter close synchronizes first."
+    }
+  ],
+  "cuda_visibility": {
+    "primary_documentation_url": "https://docs.nvidia.com/cuda/archive/12.9.1/cuda-c-programming-guide/index.html#mapped-memory",
+    "current_documentation_url": "https://docs.nvidia.com/cuda/cuda-programming-guide/02-basics/understanding-memory.html#mapped-memory",
+    "supporting_rule": "NVIDIA requires stream or event synchronization between host and device accesses to mapped page-locked memory to avoid read/write hazards.",
+    "application_to_code": "CPU output reads occur after cudaStreamSynchronize, and input updates precede graph launch under the adapter lock. This usage does not need a separate in-kernel system fence for host reads after synchronization."
+  },
+  "findings": [
+    {
+      "id": "probe_shared_buffer_validation",
+      "priority": "P2",
+      "status": "resolved_by_strengthened_reports",
+      "reference": "experiments/frontier/mapped_io_probe.py:183",
+      "title": "Prevent DMA from masking a stale mapped stage or collection",
+      "description": "Every parity iteration runs DMA first using the same input-device and output-host buffers as the mapped variants. A missing or stale captured mapped stage or collection could pass using values written by DMA. This is a validation gap, not a demonstrated implementation fault.",
+      "requested_change": "Poison device input, device outputs and host output before each mode and compare against independently derived CPU expected bits, or use independent per-mode buffers.",
+      "resolution_requirement": "Read fresh poisoned-check and lifecycle reports with matching source hashes; do not infer resolution from planned changes or historical all_exact fields.",
+      "implementer_response": "host_prepare acknowledged the gap and planned strengthened controls before full-model execution.",
+      "resolution": "Fresh isolated and lifecycle controls poison host output and device input/output before each replay and compare to independently computed CPU expected bits. All cases passed with unchanged sources matching disk."
+    },
+    {
+      "id": "full_harness_source_hash_overwrite",
+      "priority": "P2",
+      "status": "resolved_by_source_review",
+      "reference": "experiments/frontier/mapped_io_full.py:218",
+      "title": "Preserve hashes captured before correctness validation",
+      "description": "before.update(sources()) replaces initial source hashes after lifecycle/parity. A source edit during that phase could be hidden and the final sources_unchanged field still be true.",
+      "requested_change": "Assert repeated paths retain their original hashes and add only newly imported source paths.",
+      "resolution": "mapped_io_full.py:236-239 now rejects changed existing hashes and adds newly imported paths with setdefault. The prerequisite gate at lines131-150 requires poison-specific reports, explicit poison success, unchanged sources and matching current source hashes."
+    }
+  ],
+  "full_harness_assessment": {
+    "reference": "experiments/frontier/mapped_io_full.py:154",
+    "execution_status_at_review": "Completed full report independently verified without rerunning GPU work.",
+    "baseline_candidate_isolation": "Separate FrontierEngine instances and instance-local adapter installation; no shared patched module globals identified.",
+    "correctness_plan": "197 changing requests with copied raw-bit arrays and public responses, adapter eviction/recreation, and 44 concurrent calls.",
+    "fairness": "Same recommended constructor, preparation and formatting on both sides. Fixed requests use 11 randomized interleaved rounds. Changing-request rounds use the same shuffled inputs for both variants. Concurrent correctness calls are outside timings.",
+    "prerequisite_recommendation": "Require poisoned-check fields and matching source hashes before the full run so historical reports cannot satisfy the strengthened validation gate.",
+    "limits": "The earlier isolated I/O timing is a tiny dependent-kernel control, not proof of a full-model latency improvement."
+  },
+  "resolution_updates": [
+    {
+      "kind": "source_recheck",
+      "source_sha256": {
+        "experiments/frontier/mapped_io.py": "fd504db9d3f392be0b185899448374778499b2ebd30ec50742e68e34e808c54a",
+        "experiments/frontier/mapped_io_adapter.py": "4b70b068c3bbb0b6eeb18b0479776b521438d8a241b3625665464c70d202e796",
+        "experiments/frontier/mapped_io_full.py": "dd0a3b47cfb29205a96aad556e78e7c4927edae591206b56fbd32c97379fb711",
+        "experiments/frontier/mapped_io_lifetime.py": "e70d9644638374ba2b89262dcae64a2cf1c9ad41be92d640cf0d260cef6ac297",
+        "experiments/frontier/mapped_io_probe.py": "f0c27a2b172d55852c9c806952255b891bd45daa7ca46ea397803d6220ea206e"
+      },
+      "reviewed_changes": [
+        "mapped_io_probe.py:188-205 independently derives CPU expected output and poisons host output plus device inputs/outputs before each mode.",
+        "mapped_io_lifetime.py:97-109 does the same before each lifecycle replay.",
+        "mapped_io_full.py:131-150 requires strengthened poisoned reports and source matches; lines236-239 preserve original source hashes."
+      ],
+      "probe_gap_status": "Source fix reviewed; fresh matching poisoned reports still required before resolution.",
+      "full_harness_execution_status": "Not yet reviewed as executed."
+    },
+    {
+      "kind": "strengthened_report_review",
+      "evidence": [
+        {
+          "path": "results/frontier/mapped-io-poison.json",
+          "sha256": "512926b998dde8f4bef00b13289ff243dce25a89a3bda6b7c623f0e6d8b0f31d",
+          "sources_unchanged": true,
+          "all_source_hashes_verified_against_disk": true,
+          "checks": {
+            "cases": [
+              "1-short",
+              "1-long",
+              "16-short"
+            ],
+            "changing_replays": 144,
+            "independent_cpu_expected_and_poison": true
+          }
+        },
+        {
+          "path": "results/frontier/mapped-io-lifetime-poison.json",
+          "sha256": "dd52c1229c4346ede3bf152f26d6c2ab053ebdf475d1fc35594f1d179294a1ac",
+          "sources_unchanged": true,
+          "all_source_hashes_verified_against_disk": true,
+          "checks": {
+            "slots_closed_and_recreated": 15,
+            "changing_replays": 45,
+            "independent_cpu_expected_and_poison": true,
+            "pinned_owner_weakrefs_expired": true
+          }
+        }
+      ],
+      "full_harness_sha256": "dd0a3b47cfb29205a96aad556e78e7c4927edae591206b56fbd32c97379fb711",
+      "full_model_result_status": "Validation/comparison is running in another agent; no completed full-model result has been reviewed."
+    },
+    {
+      "kind": "completed_full_result_review",
+      "report": "results/frontier/mapped-io-full.json",
+      "report_sha256": "559d54b3af7dac31b3eec17546059771211d7007ae4e24f77b32e00d9434b18e",
+      "source_before_after_identical": true,
+      "source_hash_entries_verified_against_disk": 55,
+      "distinct_source_files_verified": 52,
+      "native_library_before_after_identical": true,
+      "native_libraries_verified_against_disk": 7,
+      "gate_report_hashes_verified": {
+        "results/frontier/mapped-io-poison.json": "512926b998dde8f4bef00b13289ff243dce25a89a3bda6b7c623f0e6d8b0f31d",
+        "results/frontier/mapped-io-lifetime-poison.json": "dd52c1229c4346ede3bf152f26d6c2ab053ebdf475d1fc35594f1d179294a1ac"
+      },
+      "parity": {
+        "all_exact": true,
+        "requests": 197,
+        "decisions": 354,
+        "returned_arrays_owned": true
+      },
+      "every_parity_row_checked": true,
+      "lifecycle": {
+        "evicted_owners_expired": 4,
+        "all_six_owners_expired_after_close": true,
+        "owned_arrays_unchanged": true,
+        "unique_live_capture_streams": true,
+        "idempotent_close": true,
+        "closed_request_rejected": true,
+        "recreated_adapter_exact": true,
+        "capture_handles": [
+          1291257744,
+          2408005968,
+          1291257744,
+          1447011296,
+          2166609040,
+          1455872944
+        ]
+      },
+      "concurrent": {
+        "workers": 4,
+        "calls": 44,
+        "all_exact": true
+      },
+      "timing_summary_recomputed_from_raw_samples": true,
+      "target_fixed": {
+        "p50_ms": {
+          "retained": 1.6082184738479555,
+          "mapped-output": 1.6083989758044481
+        },
+        "paired_savings_ms": [
+          -0.004075001925230026,
+          0.004035013262182474,
+          -0.014055054634809494,
+          -0.013990502338856459,
+          -0.0018550199456512928,
+          0.002020038664340973,
+          7.596099749207497e-05,
+          0.002809450961649418,
+          -0.0015855184756219387,
+          0.0037190038710832596,
+          0.004635541699826717
+        ],
+        "median_paired_saving_ms": 7.596099749207497e-05,
+        "faster_rounds": 6
+      },
+      "changing_requests": {
+        "p50_ms": {
+          "retained": 1.641779,
+          "mapped-output": 1.6371635
+        },
+        "paired_savings_ms": [
+          0.0064149999999998375,
+          0.0007300000000001194,
+          0.011950000000000127,
+          0.0017800000000001148,
+          0.0023800000000000487,
+          0.003039500000000084,
+          0.004435500000000037,
+          0.0021999999999999797,
+          0.003785499999999775,
+          0.00800500000000004,
+          -0.002610500000000071
+        ],
+        "median_paired_saving_ms": 0.003039500000000084,
+        "faster_rounds": 10
+      },
+      "interpretation": "Fixed single-question latency is tied, 1.6082184738479555 ms retained versus 1.6083989758044481 ms mapped output. Changing requests improve from 1.641779 to 1.6371635 ms, with 10 of 11 faster rounds. Pooled median difference and median paired saving are distinct statistics.",
+      "retained_integration": false,
+      "decision": "Keep experimental; no convincing fixed-target improvement.",
+      "verification_method": "Read existing JSON reports, compare every recorded source/library digest against disk, verify gate report digests, validate parity/lifecycle/concurrency fields, and recompute timing medians and paired summaries. No GPU work or rerun."
+    }
+  ],
+  "current_assessment": "Both findings are resolved. Completed full-model report passes 197 requests/354 decisions, output ownership, lifecycle and 44 concurrent calls; all recorded source/library and prerequisite report hashes were verified. Fixed-target latency is tied, so this remains experimental with no retained integration.",
+  "unresolved_findings": 0
+}

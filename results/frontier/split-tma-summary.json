@@ -1,0 +1,251 @@
+{
+  "created_utc": "2026-09-24T11:42:24.554912+00:00",
+  "decision": "Do not integrate: the small isolated gain does not improve the full-request median.",
+  "scope": "TMA BF16 partial projections preserving exact 704,704,704,512 partitions and BF16 partial rounding",
+  "screened_configurations": 96,
+  "exact_successful_configurations": 94,
+  "resource_limit_failures": 2,
+  "isolated_confirmation": {
+    "config": [
+      32,
+      64,
+      64,
+      4,
+      4,
+      true
+    ],
+    "rows": [
+      {
+        "round": 0,
+        "variant": "candidate",
+        "ms": 0.24958613713582356,
+        "samples_ms": [
+          0.24958613713582356
+        ]
+      },
+      {
+        "round": 0,
+        "variant": "retained",
+        "ms": 0.25211092631022136,
+        "samples_ms": [
+          0.25211092631022136
+        ]
+      },
+      {
+        "round": 1,
+        "variant": "retained",
+        "ms": 0.25210560162862145,
+        "samples_ms": [
+          0.25210560162862145
+        ]
+      },
+      {
+        "round": 1,
+        "variant": "candidate",
+        "ms": 0.2494474728902181,
+        "samples_ms": [
+          0.2494474728902181
+        ]
+      },
+      {
+        "round": 2,
+        "variant": "retained",
+        "ms": 0.2520672003428141,
+        "samples_ms": [
+          0.2520672003428141
+        ]
+      },
+      {
+        "round": 2,
+        "variant": "candidate",
+        "ms": 0.24940640131632488,
+        "samples_ms": [
+          0.24940640131632488
+        ]
+      },
+      {
+        "round": 3,
+        "variant": "candidate",
+        "ms": 0.24931519826253254,
+        "samples_ms": [
+          0.24931519826253254
+        ]
+      },
+      {
+        "round": 3,
+        "variant": "retained",
+        "ms": 0.25210453669230143,
+        "samples_ms": [
+          0.25210453669230143
+        ]
+      },
+      {
+        "round": 4,
+        "variant": "candidate",
+        "ms": 0.24930240313212076,
+        "samples_ms": [
+          0.24930240313212076
+        ]
+      },
+      {
+        "round": 4,
+        "variant": "retained",
+        "ms": 0.25190399487813314,
+        "samples_ms": [
+          0.25190399487813314
+        ]
+      },
+      {
+        "round": 5,
+        "variant": "retained",
+        "ms": 0.2521162668863932,
+        "samples_ms": [
+          0.2521162668863932
+        ]
+      },
+      {
+        "round": 5,
+        "variant": "candidate",
+        "ms": 0.24910666147867838,
+        "samples_ms": [
+          0.24910666147867838
+        ]
+      },
+      {
+        "round": 6,
+        "variant": "candidate",
+        "ms": 0.24951252937316895,
+        "samples_ms": [
+          0.24951252937316895
+        ]
+      },
+      {
+        "round": 6,
+        "variant": "retained",
+        "ms": 0.25210773150126137,
+        "samples_ms": [
+          0.25210773150126137
+        ]
+      },
+      {
+        "round": 7,
+        "variant": "candidate",
+        "ms": 0.2492256005605062,
+        "samples_ms": [
+          0.2492256005605062
+        ]
+      },
+      {
+        "round": 7,
+        "variant": "retained",
+        "ms": 0.2520287990570068,
+        "samples_ms": [
+          0.2520287990570068
+        ]
+      },
+      {
+        "round": 8,
+        "variant": "retained",
+        "ms": 0.2520479996999105,
+        "samples_ms": [
+          0.2520479996999105
+        ]
+      },
+      {
+        "round": 8,
+        "variant": "candidate",
+        "ms": 0.24952747027079264,
+        "samples_ms": [
+          0.24952747027079264
+        ]
+      }
+    ],
+    "median_ms": {
+      "candidate": 0.24940640131632488,
+      "retained": 0.25210453669230143
+    }
+  },
+  "full_exact_requests": 197,
+  "full_summary": {
+    "1-short": {
+      "median_ms": {
+        "retained": 1.6478890320286155,
+        "tma": 1.6596339410170913
+      },
+      "paired_savings_ms": [
+        -0.020340026821941137,
+        -0.009170558769255877,
+        -0.005375011824071407,
+        -0.009654962923377752,
+        -0.012270000297576189,
+        0.0020900042727589607,
+        -0.010300427675247192,
+        -0.010275456588715315,
+        -0.03424647729843855
+      ],
+      "faster_rounds": 1
+    },
+    "1-long": {
+      "median_ms": {
+        "retained": 7.103857991751283,
+        "tma": 7.091618434060365
+      },
+      "paired_savings_ms": [
+        0.23932603653520346,
+        -0.024175038561224937,
+        0.10721548460423946,
+        -0.0032050302252173424,
+        -0.012629490811377764,
+        0.018749618902802467,
+        -0.003869005013257265,
+        -1.329671940766275,
+        0.047565961722284555
+      ],
+      "faster_rounds": 4
+    },
+    "16-short": {
+      "median_ms": {
+        "retained": 10.821989504620433,
+        "tma": 10.800159419886768
+      },
+      "paired_savings_ms": [
+        0.13933057198300958,
+        0.0026199850253760815,
+        0.06959051825106144,
+        -0.08677004370838404,
+        0.2386610140092671,
+        -0.007160007953643799,
+        0.017300539184361696,
+        0.03881606971845031,
+        0.017350015696138144
+      ],
+      "faster_rounds": 7
+    },
+    "changing": {
+      "median_ms": {
+        "retained": 1.6822899924591184,
+        "tma": 1.6848595114424825
+      },
+      "paired_savings_ms": [
+        0.013359473086893559,
+        -0.02952007343992591,
+        0.021110463421791792,
+        0.009670504368841648,
+        0.005319481715559959,
+        -0.007074966561049223,
+        -0.01879950286820531,
+        -0.0035449047572910786,
+        -0.026485533453524113
+      ],
+      "faster_rounds": 4
+    }
+  },
+  "sources_unchanged_after_measurement": true,
+  "artifacts_sha256": {
+    "results/frontier/split-tma.json": "3235942d28322027f1df6aff2044ee12e6ff3e293a91abd37b1967762d1bcfe0",
+    "results/frontier/split-tma-full.json": "b7f4d943da6ccdc0ada0928379726e25b2bdc45a368b4beb653f47a3b547e231",
+    "experiments/frontier/split_tma.py": "91d138d5463945e0bb9b5e8679ed9b72627db0165fe7361bb5aeb871279aba91",
+    "experiments/frontier/split_tma_probe.py": "edd0c14620a3c9120fda4a925224548a26d64570777beb1886b42877bac81922",
+    "experiments/frontier/split_tma_full.py": "f346e68819dd98fdac2562a76474a5bfa2ee78b31560fcba5c2cf8706777b177"
+  }
+}

@@ -1,0 +1,441 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T09:46:36.954630+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "method": "28 distinct layer weights; exact decoding to two reusable buffers; serial and overlapped decode",
+  "rows": [
+    {
+      "field": "attn.Wqkv",
+      "variant": "bf16",
+      "mismatches": 0,
+      "samples_ms": [
+        0.27715840339660647,
+        0.2773119926452637,
+        0.277678394317627,
+        0.27752320766448973,
+        0.27739360332489016
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.27739360332489016,
+      "speedup": 1.0
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "decode-256-serial",
+      "mismatches": 0,
+      "samples_ms": [
+        0.5432720184326172,
+        0.5433216094970703,
+        0.5445168018341064,
+        0.5441823959350586,
+        0.5439184188842774
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.5439184188842774,
+      "speedup": 0.5099911929695244
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "decode-256-parallel",
+      "mismatches": 0,
+      "samples_ms": [
+        0.37357120513916015,
+        0.37326560020446775,
+        0.373417592048645,
+        0.3733887910842896,
+        0.3732304096221924
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.3733887910842896,
+      "speedup": 0.7429082231401819
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "decode-1024-serial",
+      "mismatches": 0,
+      "samples_ms": [
+        0.48636960983276367,
+        0.48723840713500977,
+        0.48746399879455565,
+        0.48723678588867186,
+        0.4879456043243408
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.48723840713500977,
+      "speedup": 0.5693180161144946
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "decode-1024-parallel",
+      "mismatches": 0,
+      "samples_ms": [
+        0.30655360221862793,
+        0.3072527885437012,
+        0.3073312044143677,
+        0.30759520530700685,
+        0.30734241008758545
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.3073312044143677,
+      "speedup": 0.9025884756918034
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "decode-4096-serial",
+      "mismatches": 0,
+      "samples_ms": [
+        0.46469759941101074,
+        0.464902400970459,
+        0.46500320434570314,
+        0.4650320053100586,
+        0.4650447845458984
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.46500320434570314,
+      "speedup": 0.5965412726890887
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "decode-4096-parallel",
+      "mismatches": 0,
+      "samples_ms": [
+        0.3901679992675781,
+        0.38969759941101073,
+        0.38972480297088624,
+        0.3900144100189209,
+        0.3900608062744141
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.3900144100189209,
+      "speedup": 0.7112393701336135
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "bf16",
+      "mismatches": 0,
+      "samples_ms": [
+        0.12539199590682984,
+        0.1251520037651062,
+        0.12527040243148804,
+        0.1254464030265808,
+        0.12543200254440307
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.12539199590682984,
+      "speedup": 1.0
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "decode-256-serial",
+      "mismatches": 0,
+      "samples_ms": [
+        0.2264319896697998,
+        0.2260159969329834,
+        0.2266592025756836,
+        0.22613921165466308,
+        0.22611839771270753
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.22613921165466308,
+      "speedup": 0.5544902849414537
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "decode-256-parallel",
+      "mismatches": 0,
+      "samples_ms": [
+        0.1445855975151062,
+        0.14477280378341675,
+        0.14496639966964722,
+        0.14467999935150147,
+        0.14480799436569214
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.14477280378341675,
+      "speedup": 0.8661294982890501
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "decode-1024-serial",
+      "mismatches": 0,
+      "samples_ms": [
+        0.2084671974182129,
+        0.20886719226837158,
+        0.20896320343017577,
+        0.20949440002441405,
+        0.20829439163208008
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.20886719226837158,
+      "speedup": 0.6003431871948314
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "decode-1024-parallel",
+      "mismatches": 0,
+      "samples_ms": [
+        0.1300976037979126,
+        0.12999999523162842,
+        0.1302783966064453,
+        0.13003519773483277,
+        0.12993760108947755
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.13003519773483277,
+      "speedup": 0.9642927306691891
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "decode-4096-serial",
+      "mismatches": 0,
+      "samples_ms": [
+        0.19965280294418336,
+        0.20015199184417726,
+        0.19979519844055177,
+        0.1999343991279602,
+        0.19982399940490722
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.19982399940490722,
+      "speedup": 0.6275121921303638
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "decode-4096-parallel",
+      "mismatches": 0,
+      "samples_ms": [
+        0.15089279413223267,
+        0.15123360157012938,
+        0.15098719596862792,
+        0.15094239711761476,
+        0.1504863977432251
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.15094239711761476,
+      "speedup": 0.8307274715474674
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "bf16",
+      "mismatches": 0,
+      "samples_ms": [
+        0.44010400772094727,
+        0.440123176574707,
+        0.4397024154663086,
+        0.43964481353759766,
+        0.43994879722595215
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.43994879722595215,
+      "speedup": 1.0
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "decode-256-serial",
+      "mismatches": 0,
+      "samples_ms": [
+        0.9420031547546387,
+        0.9424448013305664,
+        0.9423248291015625,
+        0.943175983428955,
+        0.9419679641723633
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.9423248291015625,
+      "speedup": 0.4668759472733102
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "decode-256-parallel",
+      "mismatches": 0,
+      "samples_ms": [
+        0.6952832221984864,
+        0.6952640056610108,
+        0.6954559803009033,
+        0.6953167915344238,
+        0.6956575870513916
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.6953167915344238,
+      "speedup": 0.6327314435411144
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "decode-1024-serial",
+      "mismatches": 0,
+      "samples_ms": [
+        0.7924880027770996,
+        0.791870403289795,
+        0.7917664051055908,
+        0.7887328147888184,
+        0.7923840045928955
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.791870403289795,
+      "speedup": 0.5555818166687401
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "decode-1024-parallel",
+      "mismatches": 0,
+      "samples_ms": [
+        0.5446415901184082,
+        0.5451344013214111,
+        0.5452464103698731,
+        0.5449295997619629,
+        0.5447824001312256
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.5449295997619629,
+      "speedup": 0.8073497887032222
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "decode-4096-serial",
+      "mismatches": 0,
+      "samples_ms": [
+        0.7286176204681396,
+        0.7306159973144531,
+        0.7278736114501954,
+        0.7312704086303711,
+        0.7305312156677246
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.7305312156677246,
+      "speedup": 0.6022313458896174
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "decode-4096-parallel",
+      "mismatches": 0,
+      "samples_ms": [
+        0.6205088138580322,
+        0.6197328090667724,
+        0.6199135780334473,
+        0.6202032089233398,
+        0.6206799983978272
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.6202032089233398,
+      "speedup": 0.709362336240882
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "bf16",
+      "mismatches": 0,
+      "samples_ms": [
+        0.2568943977355957,
+        0.2567312002182007,
+        0.2568975925445557,
+        0.2570575952529907,
+        0.2570064067840576
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.2568975925445557,
+      "speedup": 1.0
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "decode-256-serial",
+      "mismatches": 0,
+      "samples_ms": [
+        0.48944802284240724,
+        0.48958239555358884,
+        0.4896848201751709,
+        0.48966398239135744,
+        0.48953919410705565
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.48958239555358884,
+      "speedup": 0.5247280026359447
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "decode-256-parallel",
+      "mismatches": 0,
+      "samples_ms": [
+        0.37574241161346433,
+        0.37595200538635254,
+        0.3754607915878296,
+        0.3755232095718384,
+        0.37592320442199706
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.37574241161346433,
+      "speedup": 0.6837066687293014
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "decode-1024-serial",
+      "mismatches": 0,
+      "samples_ms": [
+        0.4951200008392334,
+        0.4948944091796875,
+        0.49508161544799806,
+        0.4946752071380615,
+        0.4951888084411621
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.49508161544799806,
+      "speedup": 0.5188994794567149
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "decode-1024-parallel",
+      "mismatches": 0,
+      "samples_ms": [
+        0.3096127986907959,
+        0.30942559242248535,
+        0.3094288110733032,
+        0.30930399894714355,
+        0.30983519554138184
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.3094288110733032,
+      "speedup": 0.8302316505482
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "decode-4096-serial",
+      "mismatches": 0,
+      "samples_ms": [
+        0.49734082221984866,
+        0.49852800369262695,
+        0.49831361770629884,
+        0.4982719898223877,
+        0.49902877807617185
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.49831361770629884,
+      "speedup": 0.5155339597722345
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "decode-4096-parallel",
+      "mismatches": 0,
+      "samples_ms": [
+        0.34657599925994875,
+        0.34684319496154786,
+        0.34697439670562746,
+        0.3468271970748901,
+        0.34684000015258787
+      ],
+      "graph_mismatches": 0,
+      "ms": 0.34684000015258787,
+      "speedup": 0.7406804071950664
+    }
+  ]
+}

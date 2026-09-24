@@ -1,22 +1,30 @@
 # Laya Inference Engine
 
-A GPU inference engine for [Laya](https://huggingface.co/convaiinnovations/laya), tested on the NVIDIA RTX 5070 Ti. It keeps weights on the GPU and uses BF16, CUDA Graphs, and a fused RoPE kernel to reduce request latency. CPU code handles tokenization and response formatting.
+A GPU inference engine for [Laya](https://huggingface.co/convaiinnovations/laya), tested on the NVIDIA RTX 5070 Ti. Choose the default **balanced** mode for simpler setup, or **fast** mode for compiled SM120 kernels and lower warm latency.
 
-Laya returns typed decisions in one forward pass. Useful metrics are completed-request latency, decisions per second, and input tokens per second. It does not generate or stream text.
+Fast mode measured **1.61 ms** for a complete warm short-question request,
+**42.6% lower latency** than balanced mode in the same paired comparison. This
+includes tokenization, transfers, inference and response formatting. It uses
+491.9 MiB of extra GPU token tables and needs compilation and first-use setup.
+Sub-millisecond full requests were not achieved.
+
+Laya returns typed decisions in one forward pass. It does not generate or stream text; completed-request latency and decisions per second describe its performance.
 
 Contributor model to this effort and testing: GPT-6 Astra.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/warm-latency-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="docs/assets/warm-latency-light.png">
-  <img alt="Warm short-request p50 on RTX 5070 Ti: upstream default 20.52 ms, upstream fast 3.99 ms, this engine 2.81 ms, experimental native 2.19 ms, experimental compiled native 2.11 ms. Historical runs; loading, warmup and HTTP excluded." src="docs/assets/warm-latency-light.png" width="1000">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/public-modes-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="docs/assets/public-modes-light.png">
+  <img alt="Paired public modes on RTX 5070 Ti: balanced 2.804 ms, fast 1.610 ms, 42.6% lower full warm short-request latency. 900 requests per mode across nine randomized paired rounds. Includes tokenization, transfers, inference and formatting; excludes loading, compilation, first capture and HTTP. Fast adds 491.9 MiB of GPU token tables." src="docs/assets/public-modes-light.png" width="1000">
 </picture>
 
-[Measurement details](#performance) · [All benchmark results](results/README.md) · [Balanced and fast configurations](docs/performance-modes.md)
+[Mode selection and build options](docs/performance-modes.md) · [All benchmark results](results/README.md) · [Measurement and hardware details](docs/performance.md)
 
 ## Quickstart
 
-Use Linux, Python 3.12, [uv](https://docs.astral.sh/uv/), and a Blackwell GPU with a CUDA 13.2-compatible driver. The tested device has 16 GB VRAM and driver 595.84. `uv.lock` pins PyTorch 2.14.0+cu132, Triton 3.8.0, Transformers 5.17.0, and Laya 0.3.9.
+Use Linux, Python 3.12, [uv](https://docs.astral.sh/uv/), and a Blackwell GPU with a CUDA 13.2-compatible driver. The tested RTX 5070 Ti has 16 GB VRAM and driver 595.84. The lockfile pins PyTorch 2.14.0+cu132, Triton 3.8.0, Transformers 5.17.0, NumPy 2.5.3 and Laya 0.3.9.
+
+Balanced mode needs no separate native-extension build:
 
 ```bash
 uv sync --locked
@@ -24,14 +32,22 @@ uv run laya-blackwell info
 uv run laya-blackwell predict --request examples/request.json
 ```
 
-The first call downloads the checkpoint and initializes the GPU kernels. Each CLI invocation starts a new process. Keep the Python engine or HTTP server running to reuse weights and captured graphs.
+Fast mode also needs a CUDA toolkit with `nvcc` and a C++ compiler. The validated toolkit is CUDA 13.1:
 
-The default checkpoint is the root English model at revision [`5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b`](https://huggingface.co/convaiinnovations/laya/tree/5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b). Its 512-token limit includes question formatting. Other checkpoint variants and other Blackwell GPUs have not been validated.
+```bash
+uv sync --extra fast --locked
+uv run laya-blackwell build-fast
+uv run laya-blackwell predict --mode fast --request examples/request.json
+```
+
+Fast mode targets SM120 and the pinned root English checkpoint. It adds **491.9 MiB of GPU token tables**, native extensions and compilation for the short request shape. First use includes table preparation, compilation and graph capture. Other Blackwell GPUs and checkpoint variants have not been validated. See [requirements and build options](docs/performance-modes.md).
+
+The checkpoint revision is [`5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b`](https://huggingface.co/convaiinnovations/laya/tree/5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b). Its 512-token limit includes question formatting. The first run downloads the weights. Keep an engine or server process running to reuse weights and captured graphs; every CLI invocation starts a new process.
 
 ## Python
 
 ```python
-from laya_blackwell import BlackwellEngine
+from laya_blackwell import create_engine
 
 state = "I was billed twice. Please refund the duplicate charge."
 questions = {
@@ -41,20 +57,19 @@ questions = {
     },
 }
 
-with BlackwellEngine(device="cuda:0") as engine:
+with create_engine(mode="fast", device="cuda:0") as engine:
     engine.warmup(state, questions)
-    result = engine.predict(state, questions)
-    print(result["answers"])
+    print(engine.predict(state, questions)["answers"])
 ```
 
-Questions support `choice`, `score`, and `noul`. Request formatting and temperature scaling follow the Laya SDK. `system_one` is an alias for `predict`. See [examples/request.json](examples/request.json) for a complete request.
+Use `mode="balanced"` for the default path. `BlackwellEngine` and `FastEngine` are also available as direct imports. Questions support `choice`, `score`, and `noul`; `system_one` is an alias for `predict`. See [examples/request.json](examples/request.json).
 
-The engine defaults to at most 64 questions per request and eight cached configurations of batch size, sequence length, option count, and attention mask mode. Padded and fully occupied sequences use separate graphs. An unseen or evicted configuration requires graph capture. Warm representative requests for steady-state latency; responses report graph misses and setup time in `result["engine"]`.
+Warm representative requests before measuring latency. The engines cache up to eight graph configurations by default and allow up to 64 questions per request. An unseen or evicted shape needs setup again. Responses expose timing and graph-cache information in `result["engine"]`.
 
 ## HTTP server
 
 ```bash
-uv run laya-blackwell serve --host 127.0.0.1 --port 8000
+uv run laya-blackwell serve --mode fast --host 127.0.0.1 --port 8000
 ```
 
 ```bash
@@ -63,76 +78,68 @@ curl http://127.0.0.1:8000/v1/systemone \
   --data-binary @examples/request.json
 ```
 
-The server warms representative requests at startup. It binds to localhost by default. Set `LAYA_API_KEY` or pass `--api-key` to require `Authorization: Bearer ...` for inference; `/health` stays public.
+Omit `--mode fast` to serve balanced mode. The server warms representative requests at startup and binds to localhost by default. Set `LAYA_API_KEY` or pass `--api-key` to require bearer authentication for inference; `/health` stays public.
 
-One engine serializes GPU access to protect reusable buffers. Separate HTTP requests are not dynamically batched. Each engine uses one GPU; use `--device cuda:1` or the Python `device` argument for another GPU. There is no cross-GPU scheduler.
+Each engine serializes GPU access and uses one GPU. Separate HTTP requests are not dynamically batched. Select another GPU with `--device cuda:1` or the Python `device` argument.
 
 ## Performance
 
-On the same RTX 5070 Ti, the recorded BF16 run measured **2.81 ms p50** for a warm single short-question request. Default upstream took **20.52 ms**, while its optional **`fast=True` mode took 3.99 ms**. This engine was about 7.3× faster than default upstream and 1.4× faster than upstream fast mode on that case. [Default comparison](results/benchmark.json), [upstream fast mode](results/upstream-fast.json)
+The public-mode comparison uses 900 full requests per mode across nine
+randomized paired rounds on the same RTX 5070 Ti:
 
-Compared with upstream fast mode, sixteen short questions were about 1.3× faster and sixteen long questions were about 1.1× faster. A single long question was roughly tied. These runs were sequential. A [response check](results/validation-upstream-fast.json) matched all 43 top decisions in the timed workloads; upstream fast mode failed a separate single-option request.
+| Workload | Balanced | Fast | Latency reduction |
+| --- | ---: | ---: | ---: |
+| One short question | 2.804 ms | 1.610 ms | 42.6% |
+| One long question | 8.616 ms | 6.968 ms | 19.1% |
+| Sixteen short questions | 12.591 ms | 10.553 ms | 16.2% |
 
-Upstream `compile=True` measured 8.24 ms for one short question, slower than its fast mode. [Compile-mode results](results/upstream-compile.json)
+These are warm serial p50 measurements. They include tokenization, host packing,
+transfers, inference, synchronization and formatting; they exclude model loading,
+compilation, first capture and HTTP. With 128 changing short inputs repeated over
+nine rounds, fast measured 1.636 ms versus 2.784 ms balanced.
+[Raw samples and validation](results/fast-package.json)
 
-All paths include tokenization, transfers, inference, and formatting. **All exclude startup and HTTP overhead.** These are serial in-process measurements, with five warmups and 100 timed requests per case for the default comparison and 50 for upstream fast mode.
+Packaging preserved the retained implementation's performance, which measured
+1.612 ms beside fast mode's 1.610 ms in this run. The small difference does not
+establish an extra optimization win. Fast matched the retained implementation's
+prepared inputs, raw choice/action logits and public responses, excluding runtime
+metrics, on **199 requests with 354 decisions**. Another 52 concurrent calls matched, and graph eviction,
+output ownership and close behavior passed checks. These are synthetic
+implementation-parity checks, not evidence of task accuracy or calibration.
 
-First-use setup is a separate tradeoff. In a matched test on **an RTX A6000**, this engine's first short request took **0.40 seconds after model loading**, versus **36.7 seconds** for the comparison project's optimized FP16 GPU implementation with `torch.compile` and CUDA Graphs. Warm requests favored that compiled implementation: 2.57 ms versus 3.57 ms here. These first-call figures include shape setup and graph capture, plus compilation where enabled; they exclude model loading and download and are not clean-machine cold starts. This engine ran on Ampere through a benchmark-only hardware-check override. These are A6000 results, not Blackwell startup measurements. [This engine's raw run](results/rtx-a6000/blackwell.json), [compiled GPU raw run](results/rtx-a6000/gpu-compiled.json)
+Before packaging, the retained implementation measured 1.624 ms against an
+earlier native baseline at 2.197 ms, a 26.1% reduction. That native baseline was
+not balanced mode. This earlier comparison remains in the
+[optimization archive](results/frontier/summary.json).
 
-The experiments also provide [balanced and fast configuration recipes](docs/performance-modes.md).
-They document extra GPU memory, setup costs and which workloads benefit. The
-[results index](results/README.md) separates warm latency, startup, concurrent
-serving and hardware comparisons.
+The original balanced implementation measured 2.81 ms against default upstream at 20.52 ms, about 7.3× faster. Upstream's optional `Agent(fast=True)` measured 3.99 ms in a separate run. **Upstream `fast=True` is the Laya SDK's mode; this repository's `--mode fast` is a different implementation.** Those older results are historical comparisons, and their ratios must not be multiplied with the latest paired reduction.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/experimental-gains-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="docs/assets/experimental-gains-light.png">
-  <img alt="Separate opt-in experiments on RTX 5070 Ti: projection fusion cuts 16-long-question p50 from 88.14 to 81.23 ms, 7.8% lower. At four concurrent callers, four CUDA streams raise short-request throughput from 433 to 818 requests per second, 1.89 times as much. Warm in-process measurements without HTTP." src="docs/assets/experimental-gains-light.png" width="1000" loading="lazy">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/warm-latency-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="docs/assets/warm-latency-light.png">
+  <img alt="Historical RTX 5070 Ti warm single-question results: upstream default 20.52 ms, upstream fast=True 3.99 ms, first fused engine 2.81 ms, earlier native path 2.19 ms, earlier compiled path 2.11 ms. Separate historical runs; the latest paired result appears separately." src="docs/assets/warm-latency-light.png" width="1000" loading="lazy">
 </picture>
 
-These gains use more GPU memory for packed weights or independent graph buffers.
-They are separate experiments; their speedups cannot be multiplied.
-[Fusion measurements](results/latency-optimizations/fusion/best.json),
-[concurrent serving measurements](results/latency-optimizations/serving/confirmation-summary.json)
+[Original comparison](results/benchmark.json), [upstream fast mode](results/upstream-fast.json), [matched HTTP comparison](results/benchmark-http.json). Both sides exclude startup equally in these warm comparisons. This measures software improvements on Blackwell; it does not assign a percentage of the gain to Blackwell hardware itself.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/startup-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="docs/assets/startup-light.png">
-  <img alt="Experimental RTX 5070 Ti startup, module entry to first response: fresh torch.compile 20.64 seconds, cached torch.compile 8.67 seconds, native 6.33 seconds, prebuilt AOT deployment 3.73 seconds. Median of three fresh processes with warm OS caches; artifact build and HTTP excluded." src="docs/assets/startup-light.png" width="1000" loading="lazy">
-</picture>
+First-use setup has a different scope. On an **RTX A6000**, the older engine's first short request took **0.40 seconds after model loading**, versus **36.7 seconds** for a separate optimized FP16 GPU implementation with `torch.compile` and CUDA Graphs. Warm requests favored that implementation, 2.57 ms versus 3.57 ms here. These figures include first-shape setup and exclude loading and download. They do not measure FastEngine startup or Blackwell startup. [Matched A6000 comparison](docs/rtx-a6000-comparison.md)
 
-The AOT path includes loader and tokenizer changes and supports two fixed
-batch-one shapes. Each prebuilt artifact is about 958 MB. These startup timings
-include imports and model loading, unlike the after-loading A6000 comparison
-above. [Startup matrix](results/latency-optimizations/aot/final-offline/matrix-summary.json),
-[AOT scope and reproduction](experiments/latency/aot/README.md)
-
-The charts use [Dither Kit](https://www.tripwire.sh/dither-kit) and read the
-committed benchmark files directly. [Regenerate the images](docs/charts/README.md).
-
-A separate [localhost HTTP comparison](results/benchmark-http.json) uses the same server wrapper and client for each backend. One short question took 3.99 ms here, 5.05 ms with upstream fast mode, and 22.52 ms with default upstream. All three exclude model and server startup equally.
-
-This comparison measures software improvements on Blackwell. It does not measure Blackwell's advantage over an older GPU. CUDA Graphs, resident BF16 weights, and most default kernels are not Blackwell-exclusive. The [performance documentation](docs/performance.md) explains the kernel evidence, measurement boundaries, and reproduction commands.
-
-A controlled [graph ablation](results/ablation.json) measured 20.30 ms for default upstream, 11.39 ms for this engine without graph replay, and 2.81 ms with replay on one short question. Graph replay accounted for about 49% of that measured latency reduction, conditional on the other optimizations. Its benefit was small for sixteen short questions and within noise for sixteen long questions.
-
-The BF16 regression matched all 80 selected decisions across 34 synthetic requests. Maximum probability error against equally padded upstream inputs was 0.002761. Preprocessing matches upstream, including long conversation lists. Padding itself can change probabilities, and these checks do not establish task accuracy or calibration. [Validation results](results/validation.json)
-
-`--backend fp8` is experimental. It uses native SM120 FP8 GEMMs but fails decision parity on the bundled regression. The default remains `fused`, the validated BF16 path. `eager` is available for diagnosis.
+Separate [fusion, concurrent serving and AOT deployment experiments](docs/performance-modes.md#separate-research-results) have different memory and setup tradeoffs. They are not combined into fast mode. The charts use [Dither Kit](https://www.tripwire.sh/dither-kit) and read recorded samples directly. [Regenerate the images](docs/charts/README.md).
 
 ## Development
 
 ```bash
-uv sync --extra dev --locked
+uv sync --extra dev --extra fast --locked
 uv run pytest -q -m 'not gpu'
-LAYA_RUN_MODEL_TESTS=1 uv run pytest -q
+LAYA_RUN_MODEL_TESTS=1 LAYA_RUN_FAST_TESTS=1 uv run pytest -q
 ```
 
-The full GPU suite checks numerical kernels, graph replay with changing inputs, cache eviction, and concurrent callers. The checkpoint tests require a Blackwell GPU and the downloaded model.
+[src/laya_blackwell](src/laya_blackwell) contains the public engines, kernels and server. The retained fast runtime lives in [src/laya_blackwell/fast](src/laya_blackwell/fast). [experiments](experiments) and [results](results) retain research and benchmark evidence; the public runtime does not import experimental implementations. GPU tests require the downloaded model and supported hardware.
 
-- [src/laya_blackwell](src/laya_blackwell) contains the engine, model, kernels, request protocol, and serving code.
-- [tests](tests) contains CPU and GPU regression tests.
-- [scripts](scripts) contains graph ablation, HTTP benchmarking, and optional upstream-mode probes.
-- [results](results) retains benchmark samples and validation evidence. Large profiler traces and local caches are not needed to run the package.
+The full test run passed 110 tests, including all eight GPU tests. Reproduce the
+paired package checks with `uv run python -m scripts.validate_fast_package`.
+The [performance guide](docs/performance.md#dependencies-and-reproduction)
+also covers sequential public-mode benchmarking and installed-wheel validation
+with `scripts.validate_wheel`. [Package checks](results/package-checks.json)
 
-Original code and modifications use the [MIT license](LICENSE). Upstream-derived portions retain their [Apache-2.0 terms](licenses/Apache-2.0.txt) and attribution in [NOTICE](NOTICE). Package metadata records `MIT AND Apache-2.0` to reflect both. Laya's model and SDK are developed by [Convai Innovations](https://huggingface.co/convaiinnovations/laya) and distributed under Apache-2.0. Model weights download separately and are not bundled here.
+Original code and modifications use the [MIT license](LICENSE). Upstream-derived portions retain their [Apache-2.0 terms](licenses/Apache-2.0.txt), and native kernels retain their [BSD-3-Clause licenses and attribution](src/laya_blackwell/fast/native/NOTICE.txt). Package metadata records `MIT AND Apache-2.0 AND BSD-3-Clause`; see [NOTICE](NOTICE). Laya's model and SDK are developed by [Convai Innovations](https://huggingface.co/convaiinnovations/laya) and distributed under Apache-2.0. Model weights download separately and are not bundled here.

@@ -1,0 +1,13 @@
+The native nvcompdx_ans.cu experiment adapts the block API structure of
+ans_gpu_compression_decompression.cu and ans_gpu_decompression_reduction.cu
+from NVIDIA MathDx 26.06.1's nvCOMPDx examples.
+
+Copyright (c) 2025-2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Those example portions are licensed under Apache-2.0; see nvcompdx_LICENSE.
+
+Modifications: contiguous checkpoint-bank addressing; compacted compressed
+streams; exact whole-bank reconstruction; a matched raw-to-shared checksum
+control; resource queries; and an isolated C API for local experiments.
+
+The nvCOMPDx SDK headers and device library are not included in this repository.
+They remain in the ignored .research SDK directory and retain NVIDIA's license.

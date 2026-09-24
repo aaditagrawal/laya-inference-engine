@@ -1,0 +1,1046 @@
+{
+  "outcome": "Rejected. Best irregular exact native tile is 7.02% slower than retained Triton and also slower than the two-stage direct power-of-two control in this bank. The 6.85% improvement is only versus the three-stage native reference, not the best native kernel from prior experiments.",
+  "scope": "One bounded legality smoke and one 28-distinct-real-weight bank, not full inference or full-request timing.",
+  "bank_file": "results/frontier/irregular_geglu-bank.json",
+  "bank_sha256": "26563f5e359e7815a9fe061ceebe80390a71d96e548a5320ecdaaed1ab6aaed7",
+  "smoke_file": "results/frontier/irregular_geglu-smoke.json",
+  "build_file": ".research/frontier-irregular-geglu/build.json",
+  "build_sha256": "5f7bb27802aa3b0bc2400e8a5be6aa7eaabfc44ae8a78e6091423a17bf992dc5",
+  "best_configuration": [
+    32,
+    96,
+    16,
+    48,
+    3,
+    1
+  ],
+  "best_bank_us": 477.0412826538086,
+  "retained_triton_bank_us": 445.7676696777344,
+  "default_visitor_clone_bank_us": 512.5939178466797,
+  "direct_power_of_two_control_bank_us": 574.832649230957,
+  "slower_than_retained_percent": 7.015675452345671,
+  "best_faster_rounds_vs_retained": 0,
+  "paired_rounds": 9,
+  "replays_per_measurement": 50,
+  "compiled_tested_configurations": 19,
+  "matrix_inputs_per_configuration": 84,
+  "raw_and_fused_output_comparisons_per_configuration": 168,
+  "raw_mismatches": 0,
+  "fused_mismatches": 0,
+  "best_resources": {
+    "registers": 92,
+    "shared_bytes": 49152,
+    "threads": 128,
+    "active_blocks_per_sm": 2,
+    "local_bytes": 0,
+    "ctas": 110
+  },
+  "default_legality_failures": [
+    {
+      "config": [
+        32,
+        80,
+        16,
+        40,
+        3,
+        0
+      ],
+      "errors": [
+        "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/irregular_geglu.cu(115): error: static assertion failed with \"B warp ldmatrix does not cover warp columns exactly\"",
+        "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/irregular_geglu.cu(97): error: static assertion failed with \"Default epilogue does not cover output exactly\"",
+        "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/irregular_geglu.cu(99): error: static assertion failed with \"Default epilogue lane map does not cover one warp exactly\""
+      ]
+    },
+    {
+      "config": [
+        32,
+        96,
+        16,
+        48,
+        3,
+        0
+      ],
+      "errors": [
+        "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/irregular_geglu.cu(97): error: static assertion failed with \"Default epilogue does not cover output exactly\"",
+        "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/irregular_geglu.cu(99): error: static assertion failed with \"Default epilogue lane map does not cover one warp exactly\""
+      ]
+    },
+    {
+      "config": [
+        32,
+        112,
+        16,
+        56,
+        3,
+        0
+      ],
+      "errors": [
+        "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/irregular_geglu.cu(115): error: static assertion failed with \"B warp ldmatrix does not cover warp columns exactly\"",
+        "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/irregular_geglu.cu(97): error: static assertion failed with \"Default epilogue does not cover output exactly\"",
+        "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/irregular_geglu.cu(99): error: static assertion failed with \"Default epilogue lane map does not cover one warp exactly\""
+      ]
+    },
+    {
+      "config": [
+        32,
+        160,
+        16,
+        80,
+        3,
+        0
+      ],
+      "errors": [
+        "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/irregular_geglu.cu(97): error: static assertion failed with \"Default epilogue does not cover output exactly\""
+      ]
+    },
+    {
+      "config": [
+        32,
+        192,
+        16,
+        96,
+        3,
+        0
+      ],
+      "errors": [
+        "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/irregular_geglu.cu(97): error: static assertion failed with \"Default epilogue does not cover output exactly\""
+      ]
+    },
+    {
+      "config": [
+        32,
+        80,
+        32,
+        16,
+        3,
+        0
+      ],
+      "errors": [
+        "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-torch-cutlass/include/cutlass/array.h(572): error: zero-sized variable \"result\" is not allowed in device code",
+        "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-torch-cutlass/include/cutlass/epilogue/threadblock/epilogue_with_visitor.h(289): error: zero-sized variable \"aligned_accum_fragment\" is not allowed in device code",
+        "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-torch-cutlass/include/cutlass/epilogue/threadblock/output_tile_thread_map.h(260): error: static assertion failed with \"Accessing too many elements per access\"",
+        "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-torch-cutlass/include/cutlass/epilogue/threadblock/output_tile_thread_map.h(261): error: static assertion failed with \"Iteration Count Column must be > 0\"",
+        "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-torch-cutlass/include/cutlass/epilogue/threadblock/predicated_tile_iterator.h(103): error: static assertion failed with \"ThreadMap::Iterations::kColumn must be > 0\"",
+        "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/irregular_geglu.cu(105): error: static assertion failed with \"A loader does not cover its tile exactly\"",
+        "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/irregular_geglu.cu(97): error: static assertion failed with \"Default epilogue does not cover output exactly\""
+      ]
+    }
+  ],
+  "constraints": "Failures are constraints of the pinned CUTLASS input, ldmatrix, and default output thread maps, not hardware impossibility. All surviving direct maps have exact coverage without aliasing; input shapes and allocation sizes are unchanged.",
+  "arithmetic": "Installed CUTLASS K64 FP32 accumulation order; FP32 to BF16 activation and gate; full exact BF16 GELU table; FP32 product rounded to BF16. Direct epilogue changes only accumulator-to-output mapping.",
+  "source_hashes_stable": true,
+  "binary_hashes_stable": true,
+  "pinned_header_hashes_stable": true,
+  "source_sha256": {
+    "experiments/frontier/irregular_geglu.py": "91a4219f8a3953f81c746297342cababcf2e7fa7ec7c9b0155ffe68ab524d61c",
+    "experiments/frontier/irregular_geglu_LICENSE": "ad1513ca983da737a6843364ad19e8424a56d860736c2da773b8c5be527e1475",
+    "experiments/frontier/irregular_geglu_probe.py": "bb87d0051308357daa93e2f4bc44c2117d93983670593ef736d8e4483a316630",
+    "experiments/frontier/irregular_geglu_NOTICE": "8b2d127ee2c5e008caaa3f1770c4ed6b9fcfd7d1fdb0f2610d94388c8dd299f6",
+    "experiments/frontier/irregular_geglu.cu": "9090ccd32cf66d49b0d8fc85c97e710e8857044eb62bde076ff5786561ba0ae5",
+    "experiments/frontier/irregular_geglu_build.py": "0c40e247d349632db0bd634be51d885d5a91b27381db6722e58b309041a249b9",
+    "experiments/frontier/mlp_geglu.py": "8ac6eda13b6ebe2bc8acf203ab35b8ac905b73a48a59207c72dde05bb93e2c98",
+    "experiments/frontier/packed_bf16_probe.py": "f0c18be78505a3d61734676ecb7128c3fa83599030f3181e65efb6055497b284",
+    "experiments/frontier/cutlass_geglu.py": "36ec452a1ae43fc86d7cdcbc31cbac5be7e8220348e409f7174a7f4772a4b2dc",
+    "experiments/frontier/cutlass_geglu.cu": "8dd9dccb768c7d536d06eef588ad4a5ad5b4184fe239ab5b7e8adf5cf6c70ac8"
+  },
+  "binary_sha256": {
+    "32-64-16-32-3-0": "4414ef582ad6d791878e1cb17a62bf75294e99a2f2f1e8edc46bd60bc9601269",
+    "32-64-16-32-3-1": "b90059eb9e4d201a732dcec58facc19487e24bb26fa9935c44c25d6e48161e05",
+    "32-80-16-80-3-1": "7cba937db2af0de01a255d19095bef6e62a4ace74061ad9632080c86783c28bc",
+    "32-96-16-48-3-1": "6b6ac7fbdb138e5d4b8292fef0b059c64c84d7a8eec7b90891efcd9e9a826f13",
+    "32-112-16-112-3-1": "d79846d819a8eb775eba6012b9dff66245b9f85624330cc27c9a63b7b1c74546",
+    "32-160-16-80-3-1": "819f675ecc8f9d68d85c482db2cb3cc7b2f365192d0bdad602c280c90a47d51a",
+    "32-192-16-96-3-1": "01b2277a0e6bf779664866d321971ad3e3f1f6123c97ef7b65aff1661fec1e22",
+    "64-96-32-48-3-1": "79d69c466e16e26e32d34dad07ecefba7561bcd0391bd3d75927a24fb1ee2a40",
+    "64-160-32-80-3-1": "feea0b7b554051a096f386048c392e872318754335a5ffc8d65c8f74984b9ab9",
+    "64-192-32-96-3-1": "a330046d295c1d91cb2b135d6858335afd73a6c42649979ace6f71b3f5ea9f15",
+    "32-64-16-32-2-1": "dba1a7cb2c120a43bde469d8c065a3e273fbc55b6a92657255d0fe58de557b6f",
+    "32-80-16-80-2-1": "fd1362cf4034b90c5a2c370006aa107f06152294d72380d0bbf78a691739dd55",
+    "32-96-16-48-2-1": "31f1a3fa8b95abddf7217a07f0547f776c26d7803e5bdc4124fb6b1ed5356e29",
+    "32-112-16-112-2-1": "7fe8cacec7cb022cce2826ce105dc80d7a7c6734ecc900c64833351a90f2dafb",
+    "32-160-16-80-2-1": "b1481462a008b841f64ab45a31cdf155da7f6eaf22dbc4907b5fbfeaa99ef15a",
+    "32-192-16-96-2-1": "bdd102a6fbc3b382bb08f9a49baf6b1d86a8aa6f438b194150d78bc1c623725e",
+    "64-96-32-48-2-1": "4d8a64153fa489aa8e4c3816becf85a86b823ce185e9e757bf99b26d14bdc49e",
+    "64-160-32-80-2-1": "913bc12e5b4515e0646613c0e1ed16bf9278421cb895d6399a9cafae5f483cab",
+    "64-192-32-96-2-1": "ee352d1959b3991a35e41bbb74cd89ac05eb96385aee97840d3ddcddd2775077",
+    "original_native": "f70cab23e69a2dfa1466de505fa7bb49a4a18ac2edb6a4d103408895a7ffb7d1"
+  },
+  "cutlass_revision": "e05f953a5b3d38adc240df2ff928e0421c2abba3",
+  "all_numerical_test_inputs": "Three changing real requests, including padded shapes, across all 28 encoder MLP layers. This does not claim exhaustive floating-point input-domain proof.",
+  "timings": [
+    {
+      "key": "32-64-16-32-3-0",
+      "config": [
+        32,
+        64,
+        16,
+        32,
+        3,
+        0
+      ],
+      "samples_ms": [
+        0.5125939178466797,
+        0.5125120162963868,
+        0.5128192138671875,
+        0.5127372741699219,
+        0.5125939178466797,
+        0.5131673431396484,
+        0.513331184387207,
+        0.5124505615234375,
+        0.512204818725586
+      ],
+      "resources": {
+        "registers": 72,
+        "shared_bytes": 36864,
+        "threads": 128,
+        "active_blocks_per_sm": 2,
+        "local_bytes": 0,
+        "ctas": 164
+      },
+      "median_ms": 0.5125939178466797
+    },
+    {
+      "key": "32-64-16-32-3-1",
+      "config": [
+        32,
+        64,
+        16,
+        32,
+        3,
+        1
+      ],
+      "samples_ms": [
+        0.5740544128417969,
+        0.5751193618774414,
+        0.574832649230957,
+        0.5751603317260742,
+        0.5741977691650391,
+        0.5744230270385742,
+        0.574832649230957,
+        0.575283203125,
+        0.5748531341552734
+      ],
+      "resources": {
+        "registers": 72,
+        "shared_bytes": 36864,
+        "threads": 128,
+        "active_blocks_per_sm": 2,
+        "local_bytes": 0,
+        "ctas": 164
+      },
+      "median_ms": 0.574832649230957
+    },
+    {
+      "key": "32-80-16-80-3-1",
+      "config": [
+        32,
+        80,
+        16,
+        80,
+        3,
+        1
+      ],
+      "samples_ms": [
+        0.5039104080200195,
+        0.5037670516967774,
+        0.5039308929443359,
+        0.5036857604980469,
+        0.5039718246459961,
+        0.5037875366210938,
+        0.5039104080200195,
+        0.5039923095703125,
+        0.5039718246459961
+      ],
+      "resources": {
+        "registers": 126,
+        "shared_bytes": 43008,
+        "threads": 64,
+        "active_blocks_per_sm": 2,
+        "local_bytes": 0,
+        "ctas": 132
+      },
+      "median_ms": 0.5039104080200195
+    },
+    {
+      "key": "32-96-16-48-3-1",
+      "config": [
+        32,
+        96,
+        16,
+        48,
+        3,
+        1
+      ],
+      "samples_ms": [
+        0.4770412826538086,
+        0.4771225738525391,
+        0.47693824768066406,
+        0.47679489135742187,
+        0.47710208892822265,
+        0.47706111907958987,
+        0.4773273468017578,
+        0.476835823059082,
+        0.4769792175292969
+      ],
+      "resources": {
+        "registers": 92,
+        "shared_bytes": 49152,
+        "threads": 128,
+        "active_blocks_per_sm": 2,
+        "local_bytes": 0,
+        "ctas": 110
+      },
+      "median_ms": 0.4770412826538086
+    },
+    {
+      "key": "32-112-16-112-3-1",
+      "config": [
+        32,
+        112,
+        16,
+        112,
+        3,
+        1
+      ],
+      "samples_ms": [
+        0.8155340576171874,
+        0.8171724700927734,
+        0.8183602905273437,
+        0.8162303924560547,
+        0.8179507446289063,
+        0.8180326080322265,
+        0.818769302368164,
+        0.8175820922851562,
+        0.8163526153564453
+      ],
+      "resources": {
+        "registers": 162,
+        "shared_bytes": 55296,
+        "threads": 64,
+        "active_blocks_per_sm": 1,
+        "local_bytes": 0,
+        "ctas": 94
+      },
+      "median_ms": 0.8175820922851562
+    },
+    {
+      "key": "32-160-16-80-3-1",
+      "config": [
+        32,
+        160,
+        16,
+        80,
+        3,
+        1
+      ],
+      "samples_ms": [
+        0.5005721664428711,
+        0.500654067993164,
+        0.5007974243164063,
+        0.5005721664428711,
+        0.5007769775390625,
+        0.5005311965942383,
+        0.5007974243164063,
+        0.5010636901855469,
+        0.5006950378417969
+      ],
+      "resources": {
+        "registers": 128,
+        "shared_bytes": 73728,
+        "threads": 128,
+        "active_blocks_per_sm": 1,
+        "local_bytes": 0,
+        "ctas": 66
+      },
+      "median_ms": 0.5006950378417969
+    },
+    {
+      "key": "32-192-16-96-3-1",
+      "config": [
+        32,
+        192,
+        16,
+        96,
+        3,
+        1
+      ],
+      "samples_ms": [
+        0.5146419143676758,
+        0.5146828842163086,
+        0.5148467254638672,
+        0.5146214294433594,
+        0.5149491119384766,
+        0.5149900817871094,
+        0.5148876953125,
+        0.5150105667114258,
+        0.5150310516357421
+      ],
+      "resources": {
+        "registers": 144,
+        "shared_bytes": 86016,
+        "threads": 128,
+        "active_blocks_per_sm": 1,
+        "local_bytes": 0,
+        "ctas": 56
+      },
+      "median_ms": 0.5148876953125
+    },
+    {
+      "key": "64-96-32-48-3-1",
+      "config": [
+        64,
+        96,
+        32,
+        48,
+        3,
+        1
+      ],
+      "samples_ms": [
+        0.5192704010009765,
+        0.5194137573242188,
+        0.5196185684204102,
+        0.5194137573242188,
+        0.5193932723999023,
+        0.5192089462280274,
+        0.5193932723999023,
+        0.5192704010009765,
+        0.5194137573242188
+      ],
+      "resources": {
+        "registers": 124,
+        "shared_bytes": 61440,
+        "threads": 128,
+        "active_blocks_per_sm": 1,
+        "local_bytes": 0,
+        "ctas": 55
+      },
+      "median_ms": 0.5193932723999023
+    },
+    {
+      "key": "64-160-32-80-3-1",
+      "config": [
+        64,
+        160,
+        32,
+        80,
+        3,
+        1
+      ],
+      "samples_ms": [
+        0.6300255966186523,
+        0.6301696014404297,
+        0.6300057601928711,
+        0.6316441726684571,
+        0.6321152114868164,
+        0.6323603057861328,
+        0.6316857528686524,
+        0.6322175979614257,
+        0.632360954284668
+      ],
+      "resources": {
+        "registers": 168,
+        "shared_bytes": 86016,
+        "threads": 128,
+        "active_blocks_per_sm": 1,
+        "local_bytes": 0,
+        "ctas": 33
+      },
+      "median_ms": 0.6316857528686524
+    },
+    {
+      "key": "64-192-32-96-3-1",
+      "config": [
+        64,
+        192,
+        32,
+        96,
+        3,
+        1
+      ],
+      "samples_ms": [
+        0.7316480255126954,
+        0.73312255859375,
+        0.7333273315429687,
+        0.7335731506347656,
+        0.7328358459472656,
+        0.7336959838867188,
+        0.733655014038086,
+        0.7338188934326172,
+        0.7341056060791016
+      ],
+      "resources": {
+        "registers": 202,
+        "shared_bytes": 98304,
+        "threads": 128,
+        "active_blocks_per_sm": 1,
+        "local_bytes": 0,
+        "ctas": 28
+      },
+      "median_ms": 0.7335731506347656
+    },
+    {
+      "key": "32-64-16-32-2-1",
+      "config": [
+        32,
+        64,
+        16,
+        32,
+        2,
+        1
+      ],
+      "samples_ms": [
+        0.4716953659057617,
+        0.4719820785522461,
+        0.4721664047241211,
+        0.4718182373046875,
+        0.4716134262084961,
+        0.4723097610473633,
+        0.4720640182495117,
+        0.4721868896484375,
+        0.47224830627441405
+      ],
+      "resources": {
+        "registers": 94,
+        "shared_bytes": 24576,
+        "threads": 128,
+        "active_blocks_per_sm": 4,
+        "local_bytes": 0,
+        "ctas": 164
+      },
+      "median_ms": 0.4720640182495117
+    },
+    {
+      "key": "32-80-16-80-2-1",
+      "config": [
+        32,
+        80,
+        16,
+        80,
+        2,
+        1
+      ],
+      "samples_ms": [
+        0.525209617614746,
+        0.5254348754882813,
+        0.5255372619628906,
+        0.5255782318115234,
+        0.5260492706298828,
+        0.5262956619262695,
+        0.5259468841552735,
+        0.5260083389282226,
+        0.5255987167358398
+      ],
+      "resources": {
+        "registers": 168,
+        "shared_bytes": 28672,
+        "threads": 64,
+        "active_blocks_per_sm": 3,
+        "local_bytes": 0,
+        "ctas": 132
+      },
+      "median_ms": 0.5255987167358398
+    },
+    {
+      "key": "32-96-16-48-2-1",
+      "config": [
+        32,
+        96,
+        16,
+        48,
+        2,
+        1
+      ],
+      "samples_ms": [
+        0.49037311553955076,
+        0.4905574417114258,
+        0.4904755020141602,
+        0.4904345703125,
+        0.491069450378418,
+        0.49068031311035154,
+        0.4907212829589844,
+        0.49059841156005857,
+        0.4908441543579102
+      ],
+      "resources": {
+        "registers": 122,
+        "shared_bytes": 32768,
+        "threads": 128,
+        "active_blocks_per_sm": 3,
+        "local_bytes": 0,
+        "ctas": 110
+      },
+      "median_ms": 0.49059841156005857
+    },
+    {
+      "key": "32-112-16-112-2-1",
+      "config": [
+        32,
+        112,
+        16,
+        112,
+        2,
+        1
+      ],
+      "samples_ms": [
+        0.5915033721923828,
+        0.5918924713134766,
+        0.5927936172485352,
+        0.5920358276367188,
+        0.5920563125610352,
+        0.5930803298950196,
+        0.5932851028442383,
+        0.5923430252075196,
+        0.5919744110107422
+      ],
+      "resources": {
+        "registers": 224,
+        "shared_bytes": 36864,
+        "threads": 64,
+        "active_blocks_per_sm": 2,
+        "local_bytes": 0,
+        "ctas": 94
+      },
+      "median_ms": 0.5920563125610352
+    },
+    {
+      "key": "32-160-16-80-2-1",
+      "config": [
+        32,
+        160,
+        16,
+        80,
+        2,
+        1
+      ],
+      "samples_ms": [
+        0.5314559936523438,
+        0.5316608047485352,
+        0.5317427062988281,
+        0.5320703887939453,
+        0.532152328491211,
+        0.532152328491211,
+        0.5317427062988281,
+        0.5317836761474609,
+        0.5317222213745117
+      ],
+      "resources": {
+        "registers": 166,
+        "shared_bytes": 49152,
+        "threads": 128,
+        "active_blocks_per_sm": 2,
+        "local_bytes": 0,
+        "ctas": 66
+      },
+      "median_ms": 0.5317427062988281
+    },
+    {
+      "key": "32-192-16-96-2-1",
+      "config": [
+        32,
+        192,
+        16,
+        96,
+        2,
+        1
+      ],
+      "samples_ms": [
+        0.5475328063964844,
+        0.5475532913208008,
+        0.5478604888916015,
+        0.547594223022461,
+        0.5480857467651368,
+        0.5482905578613281,
+        0.5479628753662109,
+        0.5476761627197265,
+        0.5480038452148438
+      ],
+      "resources": {
+        "registers": 192,
+        "shared_bytes": 57344,
+        "threads": 128,
+        "active_blocks_per_sm": 1,
+        "local_bytes": 0,
+        "ctas": 56
+      },
+      "median_ms": 0.5478604888916015
+    },
+    {
+      "key": "64-96-32-48-2-1",
+      "config": [
+        64,
+        96,
+        32,
+        48,
+        2,
+        1
+      ],
+      "samples_ms": [
+        0.5489254379272461,
+        0.5492121505737305,
+        0.5482086563110351,
+        0.5483929443359375,
+        0.5488639831542969,
+        0.5498880004882812,
+        0.5496627044677734,
+        0.5493964767456054,
+        0.5486592102050781
+      ],
+      "resources": {
+        "registers": 164,
+        "shared_bytes": 40960,
+        "threads": 128,
+        "active_blocks_per_sm": 2,
+        "local_bytes": 0,
+        "ctas": 55
+      },
+      "median_ms": 0.5489254379272461
+    },
+    {
+      "key": "64-160-32-80-2-1",
+      "config": [
+        64,
+        160,
+        32,
+        80,
+        2,
+        1
+      ],
+      "samples_ms": [
+        0.6252544021606445,
+        0.6254796981811523,
+        0.6268518447875977,
+        0.6265446472167969,
+        0.6266470336914063,
+        0.6266470336914063,
+        0.6271795272827149,
+        0.6267084884643555,
+        0.6259507369995118
+      ],
+      "resources": {
+        "registers": 226,
+        "shared_bytes": 57344,
+        "threads": 128,
+        "active_blocks_per_sm": 1,
+        "local_bytes": 0,
+        "ctas": 33
+      },
+      "median_ms": 0.6266470336914063
+    },
+    {
+      "key": "64-192-32-96-2-1",
+      "config": [
+        64,
+        192,
+        32,
+        96,
+        2,
+        1
+      ],
+      "samples_ms": [
+        0.7915929412841797,
+        0.7883570861816406,
+        0.7900774383544922,
+        0.7903641510009766,
+        0.7883570861816406,
+        0.7898726654052735,
+        0.7878246307373047,
+        0.7887264251708984,
+        0.7878246307373047
+      ],
+      "resources": {
+        "registers": 254,
+        "shared_bytes": 65536,
+        "threads": 128,
+        "active_blocks_per_sm": 1,
+        "local_bytes": 0,
+        "ctas": 28
+      },
+      "median_ms": 0.7887264251708984
+    },
+    {
+      "key": "retained_triton",
+      "samples_ms": [
+        0.445665283203125,
+        0.4455833435058594,
+        0.4457881546020508,
+        0.44574718475341796,
+        0.4456447982788086,
+        0.4457676696777344,
+        0.44597248077392576,
+        0.4457881546020508,
+        0.4459104156494141
+      ],
+      "median_ms": 0.4457676696777344
+    },
+    {
+      "key": "native_32_64_3",
+      "samples_ms": [
+        0.512061424255371,
+        0.5126144027709961,
+        0.5122252655029297,
+        0.5112422561645508,
+        0.5126963043212891,
+        0.5121433639526367,
+        0.5125324630737305,
+        0.5119385528564453,
+        0.512020492553711
+      ],
+      "median_ms": 0.5121433639526367
+    }
+  ],
+  "ptxas_spills": {
+    "32-64-16-32-3-0": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "32-64-16-32-3-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "32-80-16-80-3-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "32-96-16-48-3-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "32-112-16-112-3-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "32-160-16-80-3-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "32-192-16-96-3-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "64-96-32-48-3-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "64-160-32-80-3-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "64-192-32-96-3-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "32-64-16-32-2-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "32-80-16-80-2-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "32-96-16-48-2-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "32-112-16-112-2-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "32-160-16-80-2-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "32-192-16-96-2-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "64-96-32-48-2-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "64-160-32-80-2-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ],
+    "64-192-32-96-2-1": [
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      },
+      {
+        "stack_bytes": 0,
+        "spill_store_bytes": 0,
+        "spill_load_bytes": 0
+      }
+    ]
+  },
+  "stopped_before_full_engine": true,
+  "defaults_changed": false,
+  "native_reference_definition": "Original native BM32 BN64, four warps, three stages, standard CUTLASS shared-memory visitor. This is not the best prior native configuration.",
+  "original_native_three_stage_bank_us": 512.1433639526367,
+  "best_faster_rounds_vs_three_stage_native": 9,
+  "time_reduction_vs_three_stage_native_percent": 6.853956093058821,
+  "direct_power_of_two_two_stage_control_bank_us": 472.0640182495117,
+  "best_irregular_slower_than_two_stage_direct_control_percent": 1.0543621652743917,
+  "prior_native_context": {
+    "file": "results/frontier/cutlass-geglu.json",
+    "sha256": "8444c3c3ad76d1811a7ff3f60a1ac2fd38fa70b5342e134ee257a4429f007f22",
+    "config": [
+      32,
+      64,
+      2
+    ],
+    "bank_us": 455.37281036376953,
+    "note": "Separate earlier screen, not paired with this experiment. Prevents mistaking the present three-stage reference for the best prior native kernel."
+  },
+  "post_measurement_cleanup_provenance": {
+    "file": "results/frontier/irregular_geglu-provenance.json",
+    "sha256": "7fdebdae05560d270e8ab40aca72baa7e09738ab71ed199ac6b84c97658b4096",
+    "historical_source_hashes_unchanged": true,
+    "all_normalized_asts_equal": true
+  }
+}

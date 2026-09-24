@@ -1,0 +1,298 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T10:46:49.041126+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "scope": "18 local attention kernels per graph; bias constructed before capture; 9 real requests including padding",
+  "build": {
+    "seconds": 37.09486639499664,
+    "torch_revision": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cutlass_revision": "e05f953a5b3d38adc240df2ff928e0421c2abba3",
+    "torch_header_sha256": "fcbfa07f0bc48e239e4d8c45025d5d9e65ff017d00e9dd667918e03172637650",
+    "source_sha256": "d4ddc9d9affd63d8d94dc7e9b97222940bb155af659ad80fc14f5d3047e4865c",
+    "library_sha256": "c16ae4957d10b5d27248f9e41bef940060c16300ceb7d62bd8e84bf005c1fee6",
+    "architecture": "sm_120",
+    "fast_math": false
+  },
+  "rows": [
+    {
+      "configuration": [
+        32,
+        true,
+        false
+      ],
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mismatches": 0,
+      "ms": 0.11620575904846192,
+      "samples_ms": [
+        0.11637984275817871,
+        0.11620575904846192,
+        0.1161952018737793,
+        0.11614368438720703,
+        0.116080322265625,
+        0.11624735832214356,
+        0.11633888244628907
+      ],
+      "speedup": 0.9982018139102673
+    },
+    {
+      "configuration": [
+        32,
+        true,
+        true
+      ],
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mismatches": 0,
+      "ms": 0.0935859203338623,
+      "samples_ms": [
+        0.0935859203338623,
+        0.09355680465698242,
+        0.09350144386291503,
+        0.09365983963012696,
+        0.0934563159942627,
+        0.09360256195068359,
+        0.09366080284118652
+      ],
+      "speedup": 1.2394684911489073
+    },
+    {
+      "configuration": [
+        64,
+        true,
+        false
+      ],
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mismatches": 0,
+      "ms": 0.1283084774017334,
+      "samples_ms": [
+        0.1283084774017334,
+        0.12803936004638672,
+        0.12852704048156738,
+        0.12810848236083985,
+        0.12814656257629395,
+        0.12845824241638185,
+        0.12837663650512696
+      ],
+      "speedup": 0.9040462627095837
+    },
+    {
+      "configuration": [
+        64,
+        true,
+        true
+      ],
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mismatches": 0,
+      "ms": 0.10856512069702148,
+      "samples_ms": [
+        0.10863264083862305,
+        0.10858655929565429,
+        0.10855648040771484,
+        0.10856512069702148,
+        0.1085200023651123,
+        0.10854592323303222,
+        0.10856672286987305
+      ],
+      "speedup": 1.0684536499776263
+    }
+  ],
+  "requests": [
+    {
+      "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+      "questions": {
+        "q0": {
+          "type": "choice",
+          "instructions": "Which department should handle this request?",
+          "criteria": {
+            "billing": "invoices, payments, refunds",
+            "technical": "bugs, outages, system errors",
+            "sales": "pricing and new contracts",
+            "other": "everything else"
+          }
+        }
+      }
+    },
+    {
+      "state": "My parcel arrived broken.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The password reset failed.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "My suitcase is missing.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The annual price seems wrong.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Production has stopped.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "The soup arrived cold.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The export button crashes.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The update is wonderful.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    }
+  ],
+  "baseline_ms": 0.11599679946899415,
+  "baseline_samples_ms": [
+    0.11581055641174316,
+    0.1160153579711914,
+    0.11610527992248536,
+    0.11597536087036132,
+    0.11609024047851563,
+    0.11598272323608398,
+    0.11599679946899415
+  ]
+}

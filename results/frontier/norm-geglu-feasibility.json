@@ -1,0 +1,122 @@
+{
+  "decision": "Do not build the full duplicated-normalization GEGLU kernel this round. Exact statistics alone are expensive under all three tested mappings.",
+  "scope": "Feasibility evidence against these mappings, not a rigorous lower bound on fused execution; overlap and scheduling can differ.",
+  "retained_normalization_bank_ms": 0.03500693241755168,
+  "retained_normalization_plus_geglu_bank_ms": 0.4922389348347982,
+  "retained_chain_after_ms": 0.49239358901977537,
+  "rows": [
+    {
+      "bm": 32,
+      "bn": 64,
+      "n_tiles": 82,
+      "grid": [
+        82,
+        2
+      ],
+      "threads": 128,
+      "resources": {
+        "registers": 40,
+        "shared_bytes": 0,
+        "local_bytes": 0,
+        "active_blocks_per_sm": 12
+      },
+      "statistics_mismatches": 0,
+      "ms": 0.3197248140970866,
+      "samples_ms": [
+        0.31998720169067385,
+        0.31958185831705727,
+        0.3197248140970866,
+        0.3197717348734538,
+        0.31969385147094725
+      ],
+      "ratio_to_entire_retained_chain": 0.6495317445873932,
+      "logical_input_bytes": 902823936,
+      "ratio_to_retained_normalization": 9.13318568686652
+    },
+    {
+      "bm": 32,
+      "bn": 128,
+      "n_tiles": 41,
+      "grid": [
+        41,
+        2
+      ],
+      "threads": 128,
+      "resources": {
+        "registers": 40,
+        "shared_bytes": 0,
+        "local_bytes": 0,
+        "active_blocks_per_sm": 12
+      },
+      "statistics_mismatches": 0,
+      "ms": 0.22554027239481608,
+      "samples_ms": [
+        0.2257717291514079,
+        0.22571412722269693,
+        0.22554027239481608,
+        0.2254634698232015,
+        0.22542826334635416
+      ],
+      "ratio_to_entire_retained_chain": 0.4581926711476213,
+      "logical_input_bytes": 451411968,
+      "ratio_to_retained_normalization": 6.442731676818827
+    },
+    {
+      "bm": 16,
+      "bn": 128,
+      "n_tiles": 41,
+      "grid": [
+        41,
+        4
+      ],
+      "threads": 128,
+      "resources": {
+        "registers": 40,
+        "shared_bytes": 0,
+        "local_bytes": 0,
+        "active_blocks_per_sm": 12
+      },
+      "statistics_mismatches": 0,
+      "ms": 0.19076372782389323,
+      "samples_ms": [
+        0.1916970729827881,
+        0.19076053301493326,
+        0.19110719362894693,
+        0.19076372782389323,
+        0.19071040153503419
+      ],
+      "ratio_to_entire_retained_chain": 0.38754294779204335,
+      "logical_input_bytes": 451411968,
+      "ratio_to_retained_normalization": 5.449312883189063
+    }
+  ],
+  "real_requests": 3,
+  "bit_exact_residual_normalization_statistics_geglu_layer_checks": 252,
+  "stats_only_layer_checks": 84,
+  "resource_estimates": {
+    "bm32_normalized_bf16_bytes_per_cta": 65536,
+    "bn64_double_buffered_b_bytes_per_cta": 16384,
+    "combined_without_other_storage_bytes_per_cta": 81920,
+    "full_fp32_rows_registers_per_thread_at_128_threads": 256,
+    "baseline_n_tile_recomputations_per_row": 82,
+    "notes": "Keeping all normalized rows plus double-buffered B uses at least80KiB/CTA before other storage. Keeping all FP32 rows requires256 registers/thread before statistics and MMA. Streaming normalized K tiles avoids this storage but needs a second input pass."
+  },
+  "omitted_from_timed_prologue": [
+    "BF16 normalization application",
+    "residual output",
+    "GEMM weight reads and MMA",
+    "GEGLU"
+  ],
+  "included_timed_output": "Mean/rstd for every CTA written to a small global statistics buffer; a fused kernel could keep these locally.",
+  "source_sha256": {
+    "experiments/frontier/norm_geglu_LICENSE": "bd018feef8825e88181c84eb7e3aa4eafb8f08a20d9fd6ef948569610c4a3e43",
+    "experiments/frontier/norm_geglu_NOTICE": "a0017d637bcc0a34c93d0d0c460dabf487363499783215a3c1297501838f99f3",
+    "experiments/frontier/norm_geglu_build.py": "075a249a13924b4f4d24bd8811bc8ede3aa186afd36399fe242e442e4fa1aa20",
+    "experiments/frontier/norm_geglu_probe.py": "8f2ba80a41f55497bce773e4395ae6d83ac921ac6fcd8b71e43372ad78234f52",
+    "experiments/frontier/norm_geglu_prologue.cu": "610c22227ea6580a5d66a64413090e52de639fb83d212b4d43ea6a98e5c5526c"
+  },
+  "input_report_sha256": "8a8e824042d9358b706ac8d2a2d6be57c0e4043604b54b18df311df7d3516a03",
+  "all_recorded_hashes_verified": true,
+  "validation": "Native compilation and Python AST/Ruff/format checks passed. Four native specializations compile without local storage or spills.",
+  "engine_integration": false
+}

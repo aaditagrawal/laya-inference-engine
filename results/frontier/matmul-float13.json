@@ -1,0 +1,1213 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T09:19:10.402341+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "storage_ratio": 0.8125,
+  "rows": [
+    {
+      "field": "attn.Wqkv",
+      "variant": "cublas",
+      "ms": 0.31935999790827435,
+      "samples_ms": [
+        0.31986933946609497,
+        0.31935999790827435,
+        0.3189919988314311
+      ]
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 118784, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        4
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.1921280225118,
+      "samples_ms": [
+        1.1947173277537029,
+        1.190994660059611,
+        1.1921280225118
+      ],
+      "speedup": 0.26789068948768313
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        128,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        128,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 3.6674159367879233,
+      "samples_ms": [
+        3.6678053538004556,
+        3.6668825149536133,
+        3.6674159367879233
+      ],
+      "speedup": 0.08708038668446842
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.408189296722412,
+      "samples_ms": [
+        1.409272034962972,
+        1.408189296722412,
+        1.4079786936442058
+      ],
+      "speedup": 0.22678769015755973
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.1359679698944092,
+      "samples_ms": [
+        1.1374639670054119,
+        1.1359679698944092,
+        1.1350026925404866
+      ],
+      "speedup": 0.2811346854594497
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        128,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 4.542138735453288,
+      "samples_ms": [
+        4.543341318766276,
+        4.542090733846028,
+        4.542138735453288
+      ],
+      "speedup": 0.07031048950916807
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 4.371306737263997,
+      "samples_ms": [
+        4.370018641153972,
+        4.371306737263997,
+        4.3714799880981445
+      ],
+      "speedup": 0.07305824484606219
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 5.7739308675130205,
+      "samples_ms": [
+        5.773146947224935,
+        5.774413426717122,
+        5.7739308675130205
+      ],
+      "speedup": 0.05531067226751034
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        128,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 262144, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        128,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 6.7452850341796875,
+      "samples_ms": [
+        6.745362599690755,
+        6.7452850341796875,
+        6.7446028391520185
+      ],
+      "speedup": 0.047345663865947005
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        128,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 155648, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        4
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 4.844008127848308,
+      "samples_ms": [
+        4.843925476074219,
+        4.844607988993327,
+        4.844008127848308
+      ],
+      "speedup": 0.06592887325524224
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        128,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 237568, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wqkv",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        128,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 3.3897574742635093,
+      "samples_ms": [
+        3.3897574742635093,
+        3.3903013865152993,
+        3.3889732360839844
+      ],
+      "speedup": 0.09421322921565695
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "cublas",
+      "ms": 0.20069332917531332,
+      "samples_ms": [
+        0.20243199666341147,
+        0.20069332917531332,
+        0.20046399037043253
+      ]
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 118784, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        4
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.627344012260437,
+      "samples_ms": [
+        0.629034678141276,
+        0.6273173491160074,
+        0.627344012260437
+      ],
+      "speedup": 0.3199095316972549
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        128,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        128,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 3.6046374638875327,
+      "samples_ms": [
+        3.6051813761393228,
+        3.6027866999308267,
+        3.6046374638875327
+      ],
+      "speedup": 0.055676425489643945
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.379733403523763,
+      "samples_ms": [
+        1.3811200459798176,
+        1.379733403523763,
+        1.3796826998392742
+      ],
+      "speedup": 0.1454580491149621
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7057973543802897,
+      "samples_ms": [
+        0.7071546713511149,
+        0.7057680288950602,
+        0.7057973543802897
+      ],
+      "speedup": 0.28434978953913453
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        128,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.5903253555297852,
+      "samples_ms": [
+        1.5913413365681965,
+        1.5903253555297852,
+        1.5897119839986165
+      ],
+      "speedup": 0.1261963965282163
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.6260587374369304,
+      "samples_ms": [
+        1.6268879572550456,
+        1.6260587374369304,
+        1.625874678293864
+      ],
+      "speedup": 0.1234231731946261
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 3.045215924580892,
+      "samples_ms": [
+        3.045999844868978,
+        3.045215924580892,
+        3.044864018758138
+      ],
+      "speedup": 0.06590446593797265
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        128,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 262144, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        128,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 3.354837417602539,
+      "samples_ms": [
+        3.356506665547689,
+        3.354837417602539,
+        3.354485193888346
+      ],
+      "speedup": 0.059822073082377386
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        128,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 155648, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        4
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.6367279688517253,
+      "samples_ms": [
+        1.6371092796325684,
+        1.635240077972412,
+        1.6367279688517253
+      ],
+      "speedup": 0.12261862263899186
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        128,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 237568, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "attn.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        128,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.688469409942627,
+      "samples_ms": [
+        1.6897279421488445,
+        1.6883039474487305,
+        1.688469409942627
+      ],
+      "speedup": 0.11886109869300668
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "cublas",
+      "ms": 0.5281920035680135,
+      "samples_ms": [
+        0.5287626584370931,
+        0.5268346468607584,
+        0.5281920035680135
+      ]
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 118784, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        4
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.7727920214335124,
+      "samples_ms": [
+        1.7739787101745605,
+        1.7720640500386555,
+        1.7727920214335124
+      ],
+      "speedup": 0.29794358118833797
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        128,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        128,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 7.217293421427409,
+      "samples_ms": [
+        7.219629287719727,
+        7.217293421427409,
+        7.215997060139974
+      ],
+      "speedup": 0.07318422194113174
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 2.4254639943440757,
+      "samples_ms": [
+        2.427821318308512,
+        2.425007979075114,
+        2.4254639943440757
+      ],
+      "speedup": 0.21776946794497926
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        64,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 1.6485013961791992,
+      "samples_ms": [
+        1.651151974995931,
+        1.6485013961791992,
+        1.6482720375061035
+      ],
+      "speedup": 0.3204073741109509
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        128,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 7.48849360148112,
+      "samples_ms": [
+        7.47984504699707,
+        7.48849360148112,
+        7.499586741129558
+      ],
+      "speedup": 0.07053381249648721
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 7.254413604736328,
+      "samples_ms": [
+        7.245330810546875,
+        7.254413604736328,
+        7.263205210367839
+      ],
+      "speedup": 0.07280974484597387
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        64,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 8.733250935872396,
+      "samples_ms": [
+        8.733250935872396,
+        8.732293446858725,
+        8.733933130900065
+      ],
+      "speedup": 0.06048057103208045
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        128,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 262144, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        128,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 10.062599817911783,
+      "samples_ms": [
+        10.062599817911783,
+        10.06222407023112,
+        10.074719746907553
+      ],
+      "speedup": 0.052490610093408774
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        128,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 155648, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        4
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 8.062762578328451,
+      "samples_ms": [
+        8.041631698608398,
+        8.062762578328451,
+        8.06449063618978
+      ],
+      "speedup": 0.06551005296717007
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        128,
+        1,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 237568, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wi",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        128,
+        1,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 5.050933202107747,
+      "samples_ms": [
+        5.052501360575358,
+        5.0506852467854815,
+        5.050933202107747
+      ],
+      "speedup": 0.10457315162029857
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "cublas",
+      "ms": 0.3036293387413025,
+      "samples_ms": [
+        0.3052000006039937,
+        0.3036293387413025,
+        0.30298399925231934
+      ]
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        64,
+        4,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 118784, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        64,
+        4,
+        4,
+        4
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.791973352432251,
+      "samples_ms": [
+        0.7955520153045654,
+        0.791973352432251,
+        0.7918612957000732
+      ],
+      "speedup": 0.38338327648123277
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        128,
+        4,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        4,
+        2
+      ],
+      "mismatches": 868943,
+      "max_abs_error": 0.25,
+      "ms": 2.927311897277832,
+      "samples_ms": [
+        2.927311897277832,
+        2.925813357035319,
+        2.9317518870035806
+      ],
+      "speedup": 0.10372292034328617
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        64,
+        4,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.8356160322825114,
+      "samples_ms": [
+        0.8374079863230387,
+        0.8356160322825114,
+        0.8345359961191813
+      ],
+      "speedup": 0.3633598770381768
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        64,
+        4,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.7320640087127686,
+      "samples_ms": [
+        0.7355120182037354,
+        0.7320640087127686,
+        0.7311786810557047
+      ],
+      "speedup": 0.41475791068487566
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        128,
+        4,
+        4,
+        2
+      ],
+      "mismatches": 868943,
+      "max_abs_error": 0.25,
+      "ms": 4.555487950642903,
+      "samples_ms": [
+        4.5463441212972,
+        4.555487950642903,
+        4.556850751241048
+      ],
+      "speedup": 0.06665133176314343
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 4.121090571085612,
+      "samples_ms": [
+        4.112544059753418,
+        4.121090571085612,
+        4.122791926066081
+      ],
+      "speedup": 0.07367693902959233
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        64,
+        4,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        64,
+        4,
+        4,
+        2
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 4.054343859354655,
+      "samples_ms": [
+        4.04698117574056,
+        4.054343859354655,
+        4.055069287618001
+      ],
+      "speedup": 0.0748898833631818
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 262144, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        128,
+        4,
+        4,
+        2
+      ],
+      "mismatches": 868943,
+      "max_abs_error": 0.25,
+      "ms": 5.356325149536133,
+      "samples_ms": [
+        5.350674947102864,
+        5.356325149536133,
+        5.357485453287761
+      ],
+      "speedup": 0.056686129065110495
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        128,
+        4,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 155648, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        4
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 4.507631937662761,
+      "samples_ms": [
+        4.503618558247884,
+        4.507631937662761,
+        4.507927894592285
+      ],
+      "speedup": 0.0673589465467175
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        32,
+        64,
+        128,
+        4,
+        4,
+        4
+      ],
+      "error": "out of resource: shared memory, Required: 237568, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+    },
+    {
+      "field": "mlp.Wo",
+      "variant": "float13",
+      "config": [
+        64,
+        32,
+        128,
+        4,
+        4,
+        2
+      ],
+      "mismatches": 868943,
+      "max_abs_error": 0.25,
+      "ms": 2.5739359855651855,
+      "samples_ms": [
+        2.5711679458618164,
+        2.5739359855651855,
+        2.5754480361938477
+      ],
+      "speedup": 0.11796304975884296
+    }
+  ]
+}

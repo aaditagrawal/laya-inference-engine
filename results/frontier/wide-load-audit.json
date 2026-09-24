@@ -1,0 +1,430 @@
+{
+  "scope": "Compile/disassembly only; no device execution or performance claim",
+  "ptxas": {
+    "command": [
+      "/usr/local/cuda/bin/ptxas",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "ptxas: NVIDIA (R) Ptx optimizing assembler\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Fri_Nov__7_07:21:27_PM_PST_2025\nCuda compilation tools, release 13.1, V13.1.80\nBuild cuda_13.1.r13.1/compiler.36836380_0\n",
+    "stderr": ""
+  },
+  "source_sha256": {
+    "experiments/frontier/wide_load_audit.py": "0640e91a11d2a0b4765ed84c5160240b4c932742c6d643c08b474de257888dd2"
+  },
+  "tool_sha256": {
+    "ptxas": "cdcbf106e11a09f4cc5ff6f064a060570103d7ab123e31b1b0b75a8dbbc43119",
+    "cuobjdump": "8f240516056740fee62c40eec6e1ba5d3d5ab5a309fbba4b0fe26fd54c79767d"
+  },
+  "retained_source_sha256": {
+    "experiments/frontier/mlp_geglu.py": "8ac6eda13b6ebe2bc8acf203ab35b8ac905b73a48a59207c72dde05bb93e2c98",
+    "experiments/native/kernels/candidates.py": "ed28f542d6e676635708279a8ebf5fb2f73ffb1e9ddc6651ed822f809bfdbbca",
+    "results/frontier/mlp-geglu-unpacked.json": "a6226faf64c008ee14c71933aee80dab133fdcdcd2c9199924cd4d73f7df1ad4"
+  },
+  "cases": {
+    "global_v8_b32": {
+      "expected_accepted": true,
+      "build": {
+        "command": [
+          "/usr/local/cuda/bin/ptxas",
+          "-arch=sm_120",
+          "-v",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/global_v8_b32.ptx",
+          "-o",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/global_v8_b32.cubin"
+        ],
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'probe' for 'sm_120'\nptxas info    : Function properties for probe\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 18 registers, used 0 barriers, 32 bytes smem\nptxas info    : Compile time = 1.614 ms\n"
+      },
+      "ptx_sha256": "f8bd218d9c2f0f7ff984286c642c55f8b4d71779fe0f194b78356e12208a6733",
+      "cubin_sha256": "bdfd82cd4c51d223b88adda69edf46bbc4a58ae01407fffbc5a97f327d4562df",
+      "sass_sha256": "6a1f8fbc83249e304826cacdd250186554d8508ff2ee21aef98cdb8973dae2c7",
+      "instruction_counts": {
+        "LDC": 1,
+        "LDCU.64": 1,
+        "LDC.64": 2,
+        "LDG.E.ENL2.256": 1,
+        "STG.E.ENL2.256": 1,
+        "EXIT": 1,
+        "BRA": 1,
+        "NOP": 8
+      }
+    },
+    "global_v4_b64": {
+      "expected_accepted": true,
+      "build": {
+        "command": [
+          "/usr/local/cuda/bin/ptxas",
+          "-arch=sm_120",
+          "-v",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/global_v4_b64.ptx",
+          "-o",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/global_v4_b64.cubin"
+        ],
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'probe' for 'sm_120'\nptxas info    : Function properties for probe\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 16 registers, used 0 barriers, 32 bytes smem\nptxas info    : Compile time = 1.579 ms\n"
+      },
+      "ptx_sha256": "d7e554410163b78e2107ecc7e0cc4eb866d9a9f99918f3dfcba8dc832d7d3df1",
+      "cubin_sha256": "f65ac66236765b45938e62d5f50d6e6a3e19f13dcd7412cbb39e4b162e50cc62",
+      "sass_sha256": "3d6f8e1155d5ac05300e5fa8946e80b92c5ef44c06c6d0e656a03ec2d798d9d9",
+      "instruction_counts": {
+        "LDC": 1,
+        "LDCU.64": 1,
+        "LDC.64": 2,
+        "LDG.E.ENL2.256": 1,
+        "STG.E.ENL2.256": 1,
+        "EXIT": 1,
+        "BRA": 1,
+        "NOP": 8
+      }
+    },
+    "global_v8_to_shared": {
+      "expected_accepted": true,
+      "build": {
+        "command": [
+          "/usr/local/cuda/bin/ptxas",
+          "-arch=sm_120",
+          "-v",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/global_v8_to_shared.ptx",
+          "-o",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/global_v8_to_shared.cubin"
+        ],
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'probe' for 'sm_120'\nptxas info    : Function properties for probe\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 22 registers, used 1 barriers, 32 bytes smem\nptxas info    : Compile time = 2.257 ms\n"
+      },
+      "ptx_sha256": "7bc54c49c0b0b10a4b190b91967d814dc2fc699cc9a22e6f4b38f08b4de5ad40",
+      "cubin_sha256": "05cac54d85fe5fde351ba5b3f7ad574349d829ba9886410891a6c9a47354ae3f",
+      "sass_sha256": "8b8425d4ae9e7247e321ce94d937ec71c88f496897caac16d005e3d1cc790c1b",
+      "instruction_counts": {
+        "LDC": 1,
+        "LDCU.64": 1,
+        "LDC.64": 2,
+        "LDG.E.ENL2.256": 1,
+        "S2UR": 1,
+        "UMOV": 3,
+        "ULEA": 1,
+        "STS.128": 2,
+        "BAR.SYNC.DEFER_BLOCKING": 1,
+        "LDS.128": 2,
+        "STG.E.ENL2.256": 1,
+        "EXIT": 1,
+        "BRA": 1,
+        "NOP": 14
+      }
+    },
+    "shared_v4_b32": {
+      "expected_accepted": true,
+      "build": {
+        "command": [
+          "/usr/local/cuda/bin/ptxas",
+          "-arch=sm_120",
+          "-v",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/shared_v4_b32.ptx",
+          "-o",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/shared_v4_b32.cubin"
+        ],
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'probe' for 'sm_120'\nptxas info    : Function properties for probe\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 10 registers, used 0 barriers, 32 bytes smem\nptxas info    : Compile time = 1.713 ms\n"
+      },
+      "ptx_sha256": "3e842db49598db9574b38f129e02a1eab5c7d2df5b402ba78d679f63a5bf3c05",
+      "cubin_sha256": "f10f9b22b618cdefbdddeab39a19e2db73c7d2c71677b375dc13459c16fcd7aa",
+      "sass_sha256": "2db01b9ff907b0f24a5aa74fa69fdc71cb30585bdd6412db65c63ce44d348110",
+      "instruction_counts": {
+        "LDC": 1,
+        "S2UR": 1,
+        "UMOV": 3,
+        "LDC.64": 1,
+        "ULEA": 1,
+        "LDS.128": 1,
+        "LDCU.64": 1,
+        "STG.E.128": 1,
+        "EXIT": 1,
+        "BRA": 1,
+        "NOP": 12
+      }
+    },
+    "shared_v8_b32": {
+      "expected_accepted": false,
+      "build": {
+        "command": [
+          "/usr/local/cuda/bin/ptxas",
+          "-arch=sm_120",
+          "-v",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/shared_v8_b32.ptx",
+          "-o",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/shared_v8_b32.cubin"
+        ],
+        "returncode": 255,
+        "stdout": "",
+        "stderr": "ptxas /home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/shared_v8_b32.ptx, line 14; error   : global state space expected for feature '256 bit wide load/store'\nptxas fatal   : Ptx assembly aborted due to errors\n"
+      },
+      "ptx_sha256": "9b8f2ea7adba532c1d0c37fdae45199165d108426dad119cac5b433d6227ca38"
+    },
+    "store_shared_v8_b32": {
+      "expected_accepted": false,
+      "build": {
+        "command": [
+          "/usr/local/cuda/bin/ptxas",
+          "-arch=sm_120",
+          "-v",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/store_shared_v8_b32.ptx",
+          "-o",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/store_shared_v8_b32.cubin"
+        ],
+        "returncode": 255,
+        "stdout": "",
+        "stderr": "ptxas /home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/store_shared_v8_b32.ptx, line 15; error   : global state space expected for feature '256 bit wide load/store'\nptxas fatal   : Ptx assembly aborted due to errors\n"
+      },
+      "ptx_sha256": "8ae800d9a9a9a623f812e788afdbdd3de7188294d40c52d08c53d7d21bb3a6bb"
+    },
+    "cp_async_16": {
+      "expected_accepted": true,
+      "build": {
+        "command": [
+          "/usr/local/cuda/bin/ptxas",
+          "-arch=sm_120",
+          "-v",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/cp_async_16.ptx",
+          "-o",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/cp_async_16.cubin"
+        ],
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'probe' for 'sm_120'\nptxas info    : Function properties for probe\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 14 registers, used 0 barriers, 32 bytes smem\nptxas info    : Compile time = 1.910 ms\n"
+      },
+      "ptx_sha256": "9921b7b773e393c4385a34d9f3039db8409cab99c1ce57695c459c95ba6e32b5",
+      "cubin_sha256": "aaf0f6c51224b3388b0307c3bb0e5039637126a2f08c0a6735b289eac6565a17",
+      "sass_sha256": "0fdb7a5498ab2324ced56351cf8639f0e0c89fd1279137ccf50879653c9d1625",
+      "instruction_counts": {
+        "LDC": 1,
+        "S2UR": 1,
+        "UMOV": 1,
+        "LDCU.64": 1,
+        "HFMA2": 1,
+        "LDC.64": 2,
+        "ULEA": 1,
+        "MOV": 2,
+        "LDGSTS.E.BYPASS.128": 1,
+        "LDGDEPBAR": 1,
+        "DEPBAR.LE": 1,
+        "LDS.128": 1,
+        "STG.E.128": 1,
+        "EXIT": 1,
+        "BRA": 1,
+        "NOP": 12
+      }
+    },
+    "cp_async_32": {
+      "expected_accepted": false,
+      "build": {
+        "command": [
+          "/usr/local/cuda/bin/ptxas",
+          "-arch=sm_120",
+          "-v",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/cp_async_32.ptx",
+          "-o",
+          "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/cp_async_32.cubin"
+        ],
+        "returncode": 255,
+        "stdout": "",
+        "stderr": "ptxas /home/mav/Code/vibes/Laya Inference Engine/.research/frontier-wide-load/cp_async_32.ptx, line 14; error   : Argument 2 of instruction 'cp.async': unexpected value '32', expected to be 16\nptxas fatal   : Ptx assembly aborted due to errors\n"
+      },
+      "ptx_sha256": "d9d6438c48505de5323a8a2b3ebd07b68f999d20267586b5db3955fce1a3f6e4"
+    }
+  },
+  "retained_candidates": [
+    {
+      "cache_directory": "/home/mav/.triton/cache/OBRAPJOAJMCNXVUZPP5XFG7MAJRVZU3CAUYENOR3YUELYEXVCMRQ",
+      "specialization": [
+        32,
+        64,
+        64,
+        4,
+        3,
+        2,
+        false
+      ],
+      "sha256": {
+        "ptx": "d774a649d37f49daf7e95e61c88285d695cca110d5e9e9ffe1062678fc2f29cd",
+        "cubin": "bbe9df456649ea28379bad4a55cf8b0007bb5af0c5a5965fb2e093a02cdab6c7",
+        "ttir": "fb360958b6c2b6c2a8eb6fe23e767c6b7557f2d53e9813f81e8c10a7acbc194f",
+        "ttgir": "b626844016b350517e32ca671bdd91712242425d211feeba7f0ec6f916967e65",
+        "json": "8195ba084110bd626d42ed4369bbbc94120be4e3e92be6e39f409be7b52b9996"
+      },
+      "sass_sha256": "582b9a2e8aff6868c13c44eac9e12ba2cf126e6d1d3ccf04ce533bca2764c4fd",
+      "ptx_cp_async_16_static_count": 18,
+      "ptx_mainloop_counts": {
+        "cp_async_16": 6,
+        "ldmatrix_x4": 12,
+        "mma_m16n8k16": 16
+      },
+      "instruction_counts": {
+        "LDC": 1,
+        "S2R": 1,
+        "S2UR": 3,
+        "LDCU.64": 2,
+        "CS2R": 8,
+        "UMOV": 3,
+        "LDC.64": 2,
+        "USHF.L.U32": 3,
+        "UISETP.GE.U32.AND": 1,
+        "MOV": 118,
+        "SHF.R.U32.HI": 3,
+        "IMAD.SHL.U32": 20,
+        "LOP3.LUT": 40,
+        "SGXT.U32": 2,
+        "IMAD": 6,
+        "SEL": 2,
+        "ULEA": 4,
+        "LEA.HI": 4,
+        "IADD": 4,
+        "ISETP.GE.AND": 1,
+        "IMAD.HI": 7,
+        "UMOV.64": 1,
+        "IADD.64": 20,
+        "PLOP3.LUT": 1,
+        "IMAD.WIDE": 3,
+        "IMAD.WIDE.U32": 12,
+        "LDGSTS.E.BYPASS.128": 18,
+        "LDGDEPBAR": 6,
+        "BAR.SYNC.DEFER_BLOCKING": 5,
+        "UIADD3": 2,
+        "DEPBAR.LE": 2,
+        "UISETP.GT.AND": 2,
+        "UIADD3.64": 1,
+        "USEL": 4,
+        "UISETP.GE.U64.AND": 2,
+        "LDSM.16.M88.4": 12,
+        "HMMA.16816.F32.BF16": 16,
+        "ISETP.NE.U32.AND": 34,
+        "BRA.U": 1,
+        "F2F.BF16.F32": 24,
+        "IMAD.U32": 24,
+        "FMUL": 40,
+        "FADD.FTZ": 8,
+        "FSETP.GE.AND": 8,
+        "FFMA.FTZ": 56,
+        "FSEL": 40,
+        "MUFU.EX2": 8,
+        "FADD": 16,
+        "R2UR": 1,
+        "SHF.R.S32.HI": 3,
+        "SGXT": 3,
+        "F2FP.BF16.F32.PACK_AB": 4,
+        "ISETP.LT.AND": 1,
+        "IMAD.HI.U32": 1,
+        "STSM.16.MT88.4": 1,
+        "LDSM.16.MT88.4": 1,
+        "EXIT": 2,
+        "STG.E.128": 1,
+        "BRA": 1,
+        "NOP": 8
+      },
+      "resource_usage": "\nResource usage:\n Common:\n  GLOBAL:11 CONSTANT[4]:8\n Function _project:\n  REG:60 STACK:0 SHARED:1024 LOCAL:0 CONSTANT[0]:944 TEXTURE:0 SURFACE:0 SAMPLER:0\n"
+    },
+    {
+      "cache_directory": "/home/mav/.triton/cache/DY3UXPUPEHINQUM2MJAI5CJAGFZMRJ753SNMXFQDVJBAXWRQ6RRQ",
+      "specialization": [
+        32,
+        64,
+        64,
+        4,
+        3,
+        2,
+        false
+      ],
+      "sha256": {
+        "ptx": "d774a649d37f49daf7e95e61c88285d695cca110d5e9e9ffe1062678fc2f29cd",
+        "cubin": "0cf0444323cc079129d301335024129c20c1ba02171437d58268bf5f98c20545",
+        "ttir": "fb360958b6c2b6c2a8eb6fe23e767c6b7557f2d53e9813f81e8c10a7acbc194f",
+        "ttgir": "b626844016b350517e32ca671bdd91712242425d211feeba7f0ec6f916967e65",
+        "json": "e1d8d34d477d7253cc0a63a02de357bce1e408f139f1fcab4c9bf3e40554f89d"
+      },
+      "sass_sha256": "582b9a2e8aff6868c13c44eac9e12ba2cf126e6d1d3ccf04ce533bca2764c4fd",
+      "ptx_cp_async_16_static_count": 18,
+      "ptx_mainloop_counts": {
+        "cp_async_16": 6,
+        "ldmatrix_x4": 12,
+        "mma_m16n8k16": 16
+      },
+      "instruction_counts": {
+        "LDC": 1,
+        "S2R": 1,
+        "S2UR": 3,
+        "LDCU.64": 2,
+        "CS2R": 8,
+        "UMOV": 3,
+        "LDC.64": 2,
+        "USHF.L.U32": 3,
+        "UISETP.GE.U32.AND": 1,
+        "MOV": 118,
+        "SHF.R.U32.HI": 3,
+        "IMAD.SHL.U32": 20,
+        "LOP3.LUT": 40,
+        "SGXT.U32": 2,
+        "IMAD": 6,
+        "SEL": 2,
+        "ULEA": 4,
+        "LEA.HI": 4,
+        "IADD": 4,
+        "ISETP.GE.AND": 1,
+        "IMAD.HI": 7,
+        "UMOV.64": 1,
+        "IADD.64": 20,
+        "PLOP3.LUT": 1,
+        "IMAD.WIDE": 3,
+        "IMAD.WIDE.U32": 12,
+        "LDGSTS.E.BYPASS.128": 18,
+        "LDGDEPBAR": 6,
+        "BAR.SYNC.DEFER_BLOCKING": 5,
+        "UIADD3": 2,
+        "DEPBAR.LE": 2,
+        "UISETP.GT.AND": 2,
+        "UIADD3.64": 1,
+        "USEL": 4,
+        "UISETP.GE.U64.AND": 2,
+        "LDSM.16.M88.4": 12,
+        "HMMA.16816.F32.BF16": 16,
+        "ISETP.NE.U32.AND": 34,
+        "BRA.U": 1,
+        "F2F.BF16.F32": 24,
+        "IMAD.U32": 24,
+        "FMUL": 40,
+        "FADD.FTZ": 8,
+        "FSETP.GE.AND": 8,
+        "FFMA.FTZ": 56,
+        "FSEL": 40,
+        "MUFU.EX2": 8,
+        "FADD": 16,
+        "R2UR": 1,
+        "SHF.R.S32.HI": 3,
+        "SGXT": 3,
+        "F2FP.BF16.F32.PACK_AB": 4,
+        "ISETP.LT.AND": 1,
+        "IMAD.HI.U32": 1,
+        "STSM.16.MT88.4": 1,
+        "LDSM.16.MT88.4": 1,
+        "EXIT": 2,
+        "STG.E.128": 1,
+        "BRA": 1,
+        "NOP": 8
+      },
+      "resource_usage": "\nResource usage:\n Common:\n  GLOBAL:11 CONSTANT[4]:8\n Function _project:\n  REG:60 STACK:0 SHARED:1024 LOCAL:0 CONSTANT[0]:944 TEXTURE:0 SURFACE:0 SAMPLER:0\n"
+    }
+  ],
+  "sources": [
+    "https://docs.nvidia.com/cuda/parallel-thread-execution/index.html#data-movement-and-conversion-instructions-ld",
+    "https://docs.nvidia.com/cuda/parallel-thread-execution/index.html#data-movement-and-conversion-instructions-cp-async"
+  ],
+  "decision": "Native 256-bit global instructions exist. Current GEMM uses direct-to-shared 128-bit asynchronous copies. No 256-bit shared vector or 32-byte cp.async exists in this ISA. A register-load replacement adds shared-store work and changes completion scheduling; static width alone does not justify a new GEMM.",
+  "limitations": [
+    "Static instruction counts do not establish an instruction-issue bottleneck.",
+    "The probes are compiled, never launched; no bank benchmark or output-parity claim.",
+    "Retained cache entries are matched by specialized IR and metadata, not by a new model run.",
+    "The prior native_lossless and ws_lossless controls already use 16-byte cp.async copies."
+  ]
+}

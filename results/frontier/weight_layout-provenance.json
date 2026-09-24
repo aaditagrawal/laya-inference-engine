@@ -1,0 +1,185 @@
+{
+  "changes_after_measurement": [
+    "Dedicated worker dispatch added; parent launcher does not acquire the lock while waiting.",
+    "Process-lifetime retention now supports torch-owned banks as well as VMM banks.",
+    "GPU allocation, parameter replacement, parity checks, and timing functions are unchanged."
+  ],
+  "historical_hashes_preserved": true,
+  "benchmarks_repeated_after_orchestration_cleanup": false,
+  "function_checks": [
+    {
+      "measured_source": ".research/weight_layout-initial-source/weight_layout.py",
+      "function": "granularity",
+      "ast_equal": true,
+      "ast_sha256": "ed2f556651ca59a4fec0b25d14f788a8f333978e224fcfe15a93edcf61b29f97"
+    },
+    {
+      "measured_source": ".research/weight_layout-initial-source/weight_layout.py",
+      "function": "original_model",
+      "ast_equal": true,
+      "ast_sha256": "61a96de26f68c6050cc17ff87bdd167bf4df732f099c8be6714503902782b806"
+    },
+    {
+      "measured_source": ".research/weight_layout-initial-source/weight_layout.py",
+      "function": "execution_order",
+      "ast_equal": true,
+      "ast_sha256": "210da81f61fa094566bc542d52360a048cb6852220bb71c2188059441f0cfcf5"
+    },
+    {
+      "measured_source": ".research/weight_layout-initial-source/weight_layout.py",
+      "function": "untouched",
+      "ast_equal": true,
+      "ast_sha256": "eb85a25874d10377194395de8b792db10918e75a772064ced01f0408b1c4c6dd"
+    },
+    {
+      "measured_source": ".research/weight_layout-initial-source/weight_layout.py",
+      "function": "WeightLayout.__init__",
+      "ast_equal": true,
+      "ast_sha256": "ae2623e4dc8e2a64e87941245663881c0dbdba537d8d605dee5922795f42d1f4"
+    },
+    {
+      "measured_source": ".research/weight_layout-initial-source/weight_layout.py",
+      "function": "WeightLayout.install",
+      "ast_equal": true,
+      "ast_sha256": "69fc28d314426b20533cdd7764394c740f40dc60f5e20ef597999a7bb614e6ae"
+    },
+    {
+      "measured_source": ".research/weight_layout-initial-source/weight_layout_probe.py",
+      "function": "strip_metrics",
+      "ast_equal": true,
+      "ast_sha256": "df22751746e710318d3cd379e4f9e4fb98aa5e1920520a836c8864badd7260f2"
+    },
+    {
+      "measured_source": ".research/weight_layout-initial-source/weight_layout_probe.py",
+      "function": "same_bits",
+      "ast_equal": true,
+      "ast_sha256": "12de5700462f5b4f8dfbaf429bed34da88f41aead8f580cbf0a9be074e42fc13"
+    },
+    {
+      "measured_source": ".research/weight_layout-initial-source/weight_layout_probe.py",
+      "function": "validate",
+      "ast_equal": true,
+      "ast_sha256": "2040ccad07558bf30110534325f872a2de0877b4e6a81f242e7b4069f4b262d4"
+    },
+    {
+      "measured_source": ".research/weight_layout-initial-source/weight_layout_probe.py",
+      "function": "summarize",
+      "ast_equal": true,
+      "ast_sha256": "7fc2cb31f7cc50666ddf2ac7dc490f1e66de52fe2c2214651c9357c7592da02b"
+    },
+    {
+      "measured_source": ".research/weight_layout-initial-source/weight_layout_probe.py",
+      "function": "measure",
+      "ast_equal": true,
+      "ast_sha256": "af073e7c1cc48b0e1ea33510caa7536bf378017b2432136022bbbbe7de8f5a2d"
+    },
+    {
+      "measured_source": ".research/weight_layout-initial-source/weight_layout_probe.py",
+      "function": "evaluate",
+      "ast_equal": true,
+      "ast_sha256": "8098af8bdd9a0bfbe08e1aa8a0e983737d31aeab7b4d07a0976d71e2d6e3dd60"
+    },
+    {
+      "measured_source": ".research/weight_layout-vmm-source/weight_layout.py",
+      "function": "granularity",
+      "ast_equal": true,
+      "ast_sha256": "ed2f556651ca59a4fec0b25d14f788a8f333978e224fcfe15a93edcf61b29f97"
+    },
+    {
+      "measured_source": ".research/weight_layout-vmm-source/weight_layout.py",
+      "function": "original_model",
+      "ast_equal": true,
+      "ast_sha256": "61a96de26f68c6050cc17ff87bdd167bf4df732f099c8be6714503902782b806"
+    },
+    {
+      "measured_source": ".research/weight_layout-vmm-source/weight_layout.py",
+      "function": "execution_order",
+      "ast_equal": true,
+      "ast_sha256": "210da81f61fa094566bc542d52360a048cb6852220bb71c2188059441f0cfcf5"
+    },
+    {
+      "measured_source": ".research/weight_layout-vmm-source/weight_layout.py",
+      "function": "untouched",
+      "ast_equal": true,
+      "ast_sha256": "eb85a25874d10377194395de8b792db10918e75a772064ced01f0408b1c4c6dd"
+    },
+    {
+      "measured_source": ".research/weight_layout-vmm-source/weight_layout.py",
+      "function": "WeightLayout.__init__",
+      "ast_equal": true,
+      "ast_sha256": "ae2623e4dc8e2a64e87941245663881c0dbdba537d8d605dee5922795f42d1f4"
+    },
+    {
+      "measured_source": ".research/weight_layout-vmm-source/weight_layout.py",
+      "function": "WeightLayout.install",
+      "ast_equal": true,
+      "ast_sha256": "69fc28d314426b20533cdd7764394c740f40dc60f5e20ef597999a7bb614e6ae"
+    },
+    {
+      "measured_source": ".research/weight_layout-vmm-source/weight_layout_probe.py",
+      "function": "strip_metrics",
+      "ast_equal": true,
+      "ast_sha256": "df22751746e710318d3cd379e4f9e4fb98aa5e1920520a836c8864badd7260f2"
+    },
+    {
+      "measured_source": ".research/weight_layout-vmm-source/weight_layout_probe.py",
+      "function": "same_bits",
+      "ast_equal": true,
+      "ast_sha256": "12de5700462f5b4f8dfbaf429bed34da88f41aead8f580cbf0a9be074e42fc13"
+    },
+    {
+      "measured_source": ".research/weight_layout-vmm-source/weight_layout_probe.py",
+      "function": "validate",
+      "ast_equal": true,
+      "ast_sha256": "2040ccad07558bf30110534325f872a2de0877b4e6a81f242e7b4069f4b262d4"
+    },
+    {
+      "measured_source": ".research/weight_layout-vmm-source/weight_layout_probe.py",
+      "function": "summarize",
+      "ast_equal": true,
+      "ast_sha256": "7fc2cb31f7cc50666ddf2ac7dc490f1e66de52fe2c2214651c9357c7592da02b"
+    },
+    {
+      "measured_source": ".research/weight_layout-vmm-source/weight_layout_probe.py",
+      "function": "measure",
+      "ast_equal": true,
+      "ast_sha256": "af073e7c1cc48b0e1ea33510caa7536bf378017b2432136022bbbbe7de8f5a2d"
+    },
+    {
+      "measured_source": ".research/weight_layout-vmm-source/weight_layout_probe.py",
+      "function": "evaluate",
+      "ast_equal": true,
+      "ast_sha256": "8098af8bdd9a0bfbe08e1aa8a0e983737d31aeab7b4d07a0976d71e2d6e3dd60"
+    }
+  ],
+  "snapshots": [
+    {
+      "measurement": "results/frontier/weight_layout-torch-bank.json",
+      "snapshot": ".research/weight_layout-initial-source/weight_layout.py",
+      "measured_sha256": "d7eb9fd05d5d7368eabb15c7eac1f7c5aa544c5d92a5281420902310ca874702",
+      "current_file": "experiments/frontier/weight_layout.py",
+      "current_sha256": "e10326140a9b5679a162ac251705e73bc80143f570f2722ac43b64eba1435436"
+    },
+    {
+      "measurement": "results/frontier/weight_layout-torch-bank.json",
+      "snapshot": ".research/weight_layout-initial-source/weight_layout_probe.py",
+      "measured_sha256": "39bbd84aa43b33b91860782ce1dba2880673a62031e64275e66f5c010278ae5e",
+      "current_file": "experiments/frontier/weight_layout_probe.py",
+      "current_sha256": "10d2b106dfb61d7f87a31b36b9c399801a15d5de476c67e9ce5a5cb34127b450"
+    },
+    {
+      "measurement": "results/frontier/weight_layout-vmm-bank.json",
+      "snapshot": ".research/weight_layout-vmm-source/weight_layout.py",
+      "measured_sha256": "49b59960d6ec07c87049cfded7953980f8fc64bc7fa02f57cc05e2c45a5f4c8c",
+      "current_file": "experiments/frontier/weight_layout.py",
+      "current_sha256": "e10326140a9b5679a162ac251705e73bc80143f570f2722ac43b64eba1435436"
+    },
+    {
+      "measurement": "results/frontier/weight_layout-vmm-bank.json",
+      "snapshot": ".research/weight_layout-vmm-source/weight_layout_probe.py",
+      "measured_sha256": "4b65cf78146fed93bb3e912950ac5bf37fe85bddd77748b86967eabbf0fa8488",
+      "current_file": "experiments/frontier/weight_layout_probe.py",
+      "current_sha256": "10d2b106dfb61d7f87a31b36b9c399801a15d5de476c67e9ce5a5cb34127b450"
+    }
+  ]
+}

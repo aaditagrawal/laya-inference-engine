@@ -1,0 +1,366 @@
+{
+  "created_utc": "2026-09-24T12:53:06.975012+00:00",
+  "scope": "Instrumented CPU preparation, no model load, inference or HTTP",
+  "model_revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+  "requests": 2580,
+  "total_seconds": 0.28187723000000003,
+  "source_sha256": {
+    "experiments/frontier/prepare_cpu_profile.py": "da4a25e422803f291d253ca8bc0b160e6e53fe7087165ccebee8c9072807deb3",
+    "experiments/frontier/host_prepare.py": "5901d9df9bfecec822ac3bd9a476267edad5182b7ffb2b85a35457e9973b301b",
+    "experiments/native/host/adapter.py": "1d01f04717b7ef2c59a630f15716364874d090f1e216dcfeac17e104434a8cd2",
+    "src/laya_blackwell/protocol.py": "18e055f72f35fc777c584d7af84848b062e24f346f3a4c521e56d6639d7d43d5"
+  },
+  "rows": [
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'encode_batch_fast' of 'tokenizers.Tokenizer' objects>",
+      "calls": 2580,
+      "primitive_calls": 2580,
+      "own_seconds": 0.127544962,
+      "cumulative_seconds": 0.127544962
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/host_prepare.py",
+      "line": 98,
+      "function": "_build_sequence",
+      "calls": 2580,
+      "primitive_calls": 2580,
+      "own_seconds": 0.022559987,
+      "cumulative_seconds": 0.19576285000000002
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/src/laya_blackwell/protocol.py",
+      "line": 37,
+      "function": "prepare_request",
+      "calls": 2580,
+      "primitive_calls": 2580,
+      "own_seconds": 0.015908221,
+      "cumulative_seconds": 0.23475610500000002
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py",
+      "line": 1281,
+      "function": "__getattr__",
+      "calls": 10320,
+      "primitive_calls": 10320,
+      "own_seconds": 0.014891622,
+      "cumulative_seconds": 0.030013141000000004
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/.venv/lib/python3.12/site-packages/laya/common.py",
+      "line": 49,
+      "function": "render_options",
+      "calls": 5160,
+      "primitive_calls": 5160,
+      "own_seconds": 0.008690991,
+      "cumulative_seconds": 0.014488118000000001
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/host_prepare.py",
+      "line": 36,
+      "function": "encode_many",
+      "calls": 2580,
+      "primitive_calls": 2580,
+      "own_seconds": 0.006844810000000001,
+      "cumulative_seconds": 0.14792581000000002
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'get' of 'dict' objects>",
+      "calls": 38700,
+      "primitive_calls": 38700,
+      "own_seconds": 0.0053866420000000005,
+      "cumulative_seconds": 0.0053866420000000005
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.isinstance>",
+      "calls": 69660,
+      "primitive_calls": 69660,
+      "own_seconds": 0.005299761,
+      "cumulative_seconds": 0.005299761
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/host_prepare.py",
+      "line": 48,
+      "function": "<genexpr>",
+      "calls": 18060,
+      "primitive_calls": 18060,
+      "own_seconds": 0.005054195,
+      "cumulative_seconds": 0.005054195
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/host_prepare.py",
+      "line": 161,
+      "function": "prepare",
+      "calls": 2580,
+      "primitive_calls": 2580,
+      "own_seconds": 0.004503696000000001,
+      "cumulative_seconds": 0.27791707400000004
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/prepare_cpu_profile.py",
+      "line": 34,
+      "function": "run",
+      "calls": 20,
+      "primitive_calls": 20,
+      "own_seconds": 0.003939575,
+      "cumulative_seconds": 0.281856649
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'update' of 'dict' objects>",
+      "calls": 2580,
+      "primitive_calls": 2580,
+      "own_seconds": 0.003837098,
+      "cumulative_seconds": 0.008891293
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'extend' of 'list' objects>",
+      "calls": 12900,
+      "primitive_calls": 12900,
+      "own_seconds": 0.0035599430000000003,
+      "cumulative_seconds": 0.007675228
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.getattr>",
+      "calls": 10320,
+      "primitive_calls": 10320,
+      "own_seconds": 0.0032589560000000004,
+      "cumulative_seconds": 0.033272097
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.len>",
+      "calls": 38700,
+      "primitive_calls": 38700,
+      "own_seconds": 0.0032584270000000004,
+      "cumulative_seconds": 0.0032584270000000004
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py",
+      "line": 1456,
+      "function": "convert_tokens_to_ids",
+      "calls": 7740,
+      "primitive_calls": 7740,
+      "own_seconds": 0.0031814810000000003,
+      "cumulative_seconds": 0.007801337
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/experiments/native/host/adapter.py",
+      "line": 222,
+      "function": "__init__",
+      "calls": 2580,
+      "primitive_calls": 2580,
+      "own_seconds": 0.0031754780000000002,
+      "cumulative_seconds": 0.037634270000000004
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/.venv/lib/python3.12/site-packages/laya/common.py",
+      "line": 23,
+      "function": "render_criterion",
+      "calls": 20640,
+      "primitive_calls": 20640,
+      "own_seconds": 0.002989588,
+      "cumulative_seconds": 0.004304988
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/host_prepare.py",
+      "line": 113,
+      "function": "<genexpr>",
+      "calls": 12900,
+      "primitive_calls": 12900,
+      "own_seconds": 0.0028904670000000003,
+      "cumulative_seconds": 0.004115285000000001
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'append' of 'list' objects>",
+      "calls": 20640,
+      "primitive_calls": 20640,
+      "own_seconds": 0.0027950590000000003,
+      "cumulative_seconds": 0.0027950590000000003
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.sum>",
+      "calls": 5160,
+      "primitive_calls": 5160,
+      "own_seconds": 0.0027611600000000004,
+      "cumulative_seconds": 0.006231081
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/src/laya_blackwell/protocol.py",
+      "line": 32,
+      "function": "_positive_limit",
+      "calls": 10320,
+      "primitive_calls": 10320,
+      "own_seconds": 0.0026266600000000003,
+      "cumulative_seconds": 0.0041151090000000005
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method fromkeys>",
+      "calls": 2580,
+      "primitive_calls": 2580,
+      "own_seconds": 0.002611932,
+      "cumulative_seconds": 0.0046447450000000005
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'endswith' of 'str' objects>",
+      "calls": 10320,
+      "primitive_calls": 10320,
+      "own_seconds": 0.0023351590000000003,
+      "cumulative_seconds": 0.0023351590000000003
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_tokenizers.py",
+      "line": 832,
+      "function": "_convert_token_to_id_with_added_voc",
+      "calls": 7740,
+      "primitive_calls": 7740,
+      "own_seconds": 0.002279769,
+      "cumulative_seconds": 0.004031662
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/.venv/lib/python3.12/site-packages/laya/agent.py",
+      "line": 370,
+      "function": "_check_question",
+      "calls": 2580,
+      "primitive_calls": 2580,
+      "own_seconds": 0.002278242,
+      "cumulative_seconds": 0.003429524
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'replace' of 'str' objects>",
+      "calls": 15480,
+      "primitive_calls": 15480,
+      "own_seconds": 0.0021984820000000003,
+      "cumulative_seconds": 0.0021984820000000003
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'removesuffix' of 'str' objects>",
+      "calls": 15480,
+      "primitive_calls": 15480,
+      "own_seconds": 0.002131472,
+      "cumulative_seconds": 0.002131472
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/host_prepare.py",
+      "line": 37,
+      "function": "<genexpr>",
+      "calls": 18060,
+      "primitive_calls": 18060,
+      "own_seconds": 0.002032813,
+      "cumulative_seconds": 0.002032813
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/.venv/lib/python3.12/site-packages/laya/agent.py",
+      "line": 412,
+      "function": "_to_internal",
+      "calls": 2580,
+      "primitive_calls": 2580,
+      "own_seconds": 0.001925664,
+      "cumulative_seconds": 0.002784518
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/host_prepare.py",
+      "line": 126,
+      "function": "<genexpr>",
+      "calls": 12900,
+      "primitive_calls": 12900,
+      "own_seconds": 0.0018293810000000001,
+      "cumulative_seconds": 0.002562936
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'token_to_id' of 'tokenizers.Tokenizer' objects>",
+      "calls": 7740,
+      "primitive_calls": 7740,
+      "own_seconds": 0.001751893,
+      "cumulative_seconds": 0.001751893
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.max>",
+      "calls": 5160,
+      "primitive_calls": 5160,
+      "own_seconds": 0.0015092880000000001,
+      "cumulative_seconds": 0.0015092880000000001
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.setattr>",
+      "calls": 10320,
+      "primitive_calls": 10320,
+      "own_seconds": 0.001186695,
+      "cumulative_seconds": 0.001186695
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/.venv/lib/python3.12/site-packages/laya/common.py",
+      "line": 17,
+      "function": "serialize_state",
+      "calls": 5160,
+      "primitive_calls": 5160,
+      "own_seconds": 0.000896422,
+      "cumulative_seconds": 0.0012582140000000001
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'items' of 'dict' objects>",
+      "calls": 5160,
+      "primitive_calls": 5160,
+      "own_seconds": 0.0008290620000000001,
+      "cumulative_seconds": 0.0008290620000000001
+    },
+    {
+      "file": "/home/mav/Code/vibes/Laya Inference Engine/src/laya_blackwell/protocol.py",
+      "line": 100,
+      "function": "<genexpr>",
+      "calls": 5160,
+      "primitive_calls": 5160,
+      "own_seconds": 0.000717914,
+      "cumulative_seconds": 0.000906985
+    },
+    {
+      "file": "<string>",
+      "line": 2,
+      "function": "__init__",
+      "calls": 2580,
+      "primitive_calls": 2580,
+      "own_seconds": 0.00038368200000000004,
+      "cumulative_seconds": 0.00038368200000000004
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+      "calls": 1,
+      "primitive_calls": 1,
+      "own_seconds": 2.0581e-05,
+      "cumulative_seconds": 2.0581e-05
+    }
+  ]
+}

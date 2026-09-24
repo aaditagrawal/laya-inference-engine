@@ -1,0 +1,49 @@
+{
+  "reason": "Post-measurement formatting and explicit default argument cleanup requested by parent lint.",
+  "changes": [
+    "Ruff format on three Python files.",
+    "Added explicit check=False to the existing subprocess.run call in the builder. Its omitted default was already False."
+  ],
+  "historical_result": "results/frontier/irregular_geglu-bank.json",
+  "historical_hashes_preserved": true,
+  "native_source_changed": false,
+  "native_binaries_changed": false,
+  "gpu_timing_rerun": false,
+  "verification": "Parse measured and current files with ast.parse. Compare ast.dump(include_attributes=False). For the builder only, normalize omission of subprocess.run(check=...) to an explicit ast.Constant(False), the Python default. No other AST rewriting.",
+  "lint": "uv tool run ruff check experiments/frontier/irregular_geglu.py experiments/frontier/irregular_geglu_build.py experiments/frontier/irregular_geglu_probe.py: all checks passed.",
+  "files": [
+    {
+      "file": "experiments/frontier/irregular_geglu.py",
+      "measured_source_copy": ".research/frontier-irregular-geglu/measured-source/irregular_geglu.py",
+      "measured_sha256": "91a4219f8a3953f81c746297342cababcf2e7fa7ec7c9b0155ffe68ab524d61c",
+      "current_sha256": "de413bd89fe9a76f4caa30ee018702e5cc258d6037b0eb3cbdc713b52dfba977",
+      "plain_ast_equal": true,
+      "default_argument_normalized": false,
+      "normalized_ast_equal": true,
+      "measured_normalized_ast_sha256": "ef233546f4e43d665ac0f187356d729c4f42b3c87f7a7dd512fb74d686a67506",
+      "current_normalized_ast_sha256": "ef233546f4e43d665ac0f187356d729c4f42b3c87f7a7dd512fb74d686a67506"
+    },
+    {
+      "file": "experiments/frontier/irregular_geglu_build.py",
+      "measured_source_copy": ".research/frontier-irregular-geglu/measured-source/irregular_geglu_build.py",
+      "measured_sha256": "0c40e247d349632db0bd634be51d885d5a91b27381db6722e58b309041a249b9",
+      "current_sha256": "a6045bfd2f9698e18a8510756057bf7256a9211e18f9d4daedfcde7f3e609704",
+      "plain_ast_equal": false,
+      "default_argument_normalized": true,
+      "normalized_ast_equal": true,
+      "measured_normalized_ast_sha256": "b2139467f868118c0802232b0e9590bafc94b49183d6f0270d18bb17b24a6bd1",
+      "current_normalized_ast_sha256": "b2139467f868118c0802232b0e9590bafc94b49183d6f0270d18bb17b24a6bd1"
+    },
+    {
+      "file": "experiments/frontier/irregular_geglu_probe.py",
+      "measured_source_copy": ".research/frontier-irregular-geglu/measured-source/irregular_geglu_probe.py",
+      "measured_sha256": "bb87d0051308357daa93e2f4bc44c2117d93983670593ef736d8e4483a316630",
+      "current_sha256": "64b5e81e4a27bef07b56c8b814a55714d928a6b7e0c9441f468027cf225f7eb7",
+      "plain_ast_equal": true,
+      "default_argument_normalized": false,
+      "normalized_ast_equal": true,
+      "measured_normalized_ast_sha256": "045f9bcb7ce51328e1b5d0c33c3cb509935f524ab928c8a6b016e4cdb971ab75",
+      "current_normalized_ast_sha256": "045f9bcb7ce51328e1b5d0c33c3cb509935f524ab928c8a6b016e4cdb971ab75"
+    }
+  ]
+}

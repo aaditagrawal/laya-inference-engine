@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T07:45:08.587481+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "rows": [
+    {
+      "field": "attn.Wqkv",
+      "baseline_ms": 0.31942933797836304,
+      "candidate_ms": 0.3105306625366211,
+      "samples_ms": [
+        0.3114959994951884,
+        0.3102453351020813,
+        0.3105306625366211
+      ],
+      "speedup": 1.0286563502909878
+    },
+    {
+      "field": "attn.Wo",
+      "baseline_ms": 0.20177066326141357,
+      "candidate_ms": 0.27557865778605145,
+      "samples_ms": [
+        0.27722134192784625,
+        0.27533332506815594,
+        0.27557865778605145
+      ],
+      "speedup": 0.7321708614244739
+    },
+    {
+      "field": "mlp.Wi",
+      "baseline_ms": 0.5283786853154501,
+      "candidate_ms": 0.3425920009613037,
+      "samples_ms": [
+        0.3437519868214925,
+        0.3425920009613037,
+        0.3423653443654378
+      ],
+      "speedup": 1.5422972043504637
+    },
+    {
+      "field": "mlp.Wo",
+      "baseline_ms": 0.3020586570103963,
+      "candidate_ms": 0.5793226559956869,
+      "samples_ms": [
+        0.5804106791814169,
+        0.5793226559956869,
+        0.5792533159255981
+      ],
+      "speedup": 0.5213996964977063
+    }
+  ],
+  "scope": "Vendor block-scaled FP8 matrix probe, not accepted model accuracy"
+}

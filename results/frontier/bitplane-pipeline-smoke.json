@@ -1,0 +1,798 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T11:02:37.680550+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "seed": 20260925,
+  "source_sha256": "73bdd7c26f33f5f428cf1b0d49200aaa4d908552d3e424d93cbedb4a5758ee9e",
+  "native_build": {
+    "seconds": 6.02766976703424,
+    "source_sha256": "73bdd7c26f33f5f428cf1b0d49200aaa4d908552d3e424d93cbedb4a5758ee9e",
+    "library_sha256": "965fbe1c3aaf4de554f2d5d5ef5d3f07b666c57c6075bf684f26e44ff67ae3de",
+    "architecture": "sm_120",
+    "command": [
+      "/usr/local/cuda-13.1/bin/nvcc",
+      "-O3",
+      "-std=c++20",
+      "-gencode=arch=compute_120,code=sm_120",
+      "--compiler-options",
+      "-fPIC",
+      "--ptxas-options=-v",
+      "-shared",
+      "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/bitplane_pipeline.cu",
+      "-o",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-bitplane-pipeline/bitplane_pipeline.so"
+    ]
+  },
+  "method": "28 distinct MLPWi weights with independent random BF16 activations; exact zigzag bitplanes packed in MMA fragment lane order; 2/3-stage cp.async pipeline; warp bit transpose decodes directly into MMA registers; normal and hardware-compressible VMM allocations; graph replay; no temporary decode kernel.",
+  "rows": [
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.0965130647023519,
+      "samples_ms": [
+        0.09839253425598145,
+        0.0985589345296224,
+        0.0965130647023519,
+        0.0965013345082601,
+        0.0964949369430542
+      ],
+      "speedup_retained": 0.15069462640213555
+    },
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.055521066983540854,
+      "samples_ms": [
+        0.05554346640904744,
+        0.05551573435465495,
+        0.05547413428624471,
+        0.055521066983540854,
+        0.05553386608759562
+      ],
+      "speedup_retained": 0.2619546240449162
+    },
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.10480319658915202,
+      "samples_ms": [
+        0.10484906832377115,
+        0.10480319658915202,
+        0.1047210693359375,
+        0.10483520030975342,
+        0.10471359888712566
+      ],
+      "speedup_retained": 0.13877439526259142
+    },
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.07191999753316243,
+      "samples_ms": [
+        0.07201279799143473,
+        0.07201706568400065,
+        0.07189226945241292,
+        0.07191999753316243,
+        0.07186559836069743
+      ],
+      "speedup_retained": 0.20222470421442645
+    },
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.1046773354212443,
+      "samples_ms": [
+        0.10472959677378336,
+        0.1046773354212443,
+        0.10461866855621338,
+        0.10469226837158203,
+        0.1046229362487793
+      ],
+      "speedup_retained": 0.13894125380358455
+    },
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.09647253354390463,
+      "samples_ms": [
+        0.09661546548207602,
+        0.09655253092447917,
+        0.0964191993077596,
+        0.09647253354390463,
+        0.0964682658513387
+      ],
+      "speedup_retained": 0.15075793797440887
+    },
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.07186346848805746,
+      "samples_ms": [
+        0.07197439670562744,
+        0.07186346848805746,
+        0.07185599803924561,
+        0.07185386816660563,
+        0.07186666329701742
+      ],
+      "speedup_retained": 0.2023837776583666
+    },
+    {
+      "tile": 3,
+      "bm": 64,
+      "bn": 16,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.0554912010828654,
+      "samples_ms": [
+        0.05555946826934814,
+        0.0554912010828654,
+        0.05547200043996175,
+        0.05549866755803426,
+        0.05544960101445516
+      ],
+      "speedup_retained": 0.2620956105550391
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.0903808037439982,
+      "samples_ms": [
+        0.09077226320902507,
+        0.0903808037439982,
+        0.09040640195210775,
+        0.09033919970194498,
+        0.09033493200937907
+      ],
+      "speedup_retained": 0.16091912912659684
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.06571199893951415,
+      "samples_ms": [
+        0.06579306523005167,
+        0.0657525340716044,
+        0.06570880015691122,
+        0.06567039887110392,
+        0.06571199893951415
+      ],
+      "speedup_retained": 0.22132944459098486
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.06368639866511026,
+      "samples_ms": [
+        0.06381440162658691,
+        0.06374826828638712,
+        0.06368639866511026,
+        0.06364266475041708,
+        0.0636789321899414
+      ],
+      "speedup_retained": 0.2283690165104875
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.09731840292612712,
+      "samples_ms": [
+        0.09731840292612712,
+        0.09836906592051188,
+        0.09844906330108642,
+        0.09675947030385336,
+        0.09656319618225098
+      ],
+      "speedup_retained": 0.1494475843308503
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.0800821304321289,
+      "samples_ms": [
+        0.08054292996724446,
+        0.08011733690897624,
+        0.0800821304321289,
+        0.08006933530171713,
+        0.08003093401590983
+      ],
+      "speedup_retained": 0.18161355285836664
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.08024106820424398,
+      "samples_ms": [
+        0.08125440279642741,
+        0.08069760004679362,
+        0.08024106820424398,
+        0.08008639812469483,
+        0.0801578680674235
+      ],
+      "speedup_retained": 0.18125382118824804
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.09035946528116862,
+      "samples_ms": [
+        0.0903808037439982,
+        0.09048106670379638,
+        0.09035946528116862,
+        0.09030933380126953,
+        0.09030400117238363
+      ],
+      "speedup_retained": 0.1609571303126901
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.06365760167439778,
+      "samples_ms": [
+        0.06376320123672485,
+        0.06371200084686279,
+        0.06364906628926595,
+        0.0636351982752482,
+        0.06365760167439778
+      ],
+      "speedup_retained": 0.2284723245251549
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.05549973249435425,
+      "samples_ms": [
+        0.05558506647745768,
+        0.05549973249435425,
+        0.05554133256276449,
+        0.05546026627222697,
+        0.05544319947560628
+      ],
+      "speedup_retained": 0.2620553212526845
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.06574506759643554,
+      "samples_ms": [
+        0.06578453381856282,
+        0.06576533317565918,
+        0.06574506759643554,
+        0.06569386720657348,
+        0.06569706598917643
+      ],
+      "speedup_retained": 0.2212181196241492
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.08007360299428304,
+      "samples_ms": [
+        0.08020799954732259,
+        0.08007360299428304,
+        0.08002346356709798,
+        0.08003093401590983,
+        0.0800981362660726
+      ],
+      "speedup_retained": 0.18163289379253286
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.055502935250600176,
+      "samples_ms": [
+        0.055624532699584964,
+        0.055502935250600176,
+        0.05551999807357788,
+        0.05548479954401652,
+        0.05547306537628174
+      ],
+      "speedup_retained": 0.26204019954221763
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.09027840296427408,
+      "samples_ms": [
+        0.09045653343200684,
+        0.09037120342254638,
+        0.0902677297592163,
+        0.09027626514434814,
+        0.09027840296427408
+      ],
+      "speedup_retained": 0.1611016561070709
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.09846080144246419,
+      "samples_ms": [
+        0.09848533471425375,
+        0.09846080144246419,
+        0.09838293393452963,
+        0.0984394629796346,
+        0.09846826394399007
+      ],
+      "speedup_retained": 0.1477136080061757
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.08158400058746337,
+      "samples_ms": [
+        0.08158400058746337,
+        0.0821173350016276,
+        0.0819264014561971,
+        0.08127360343933106,
+        0.08088106314341227
+      ],
+      "speedup_retained": 0.17827025058245258
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.09029653072357177,
+      "samples_ms": [
+        0.09039146900177002,
+        0.09031786918640136,
+        0.0902890682220459,
+        0.09025493462880453,
+        0.09029653072357177
+      ],
+      "speedup_retained": 0.16106931364583826
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.09647680123647054,
+      "samples_ms": [
+        0.09664533138275147,
+        0.09654613335927327,
+        0.09645866552988688,
+        0.09647680123647054,
+        0.0964682658513387
+      ],
+      "speedup_retained": 0.15075126913254328
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 3,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.09035200277964274,
+      "samples_ms": [
+        0.09042452971140544,
+        0.09032639662424723,
+        0.09040853182474771,
+        0.09035200277964274,
+        0.09028480052947999
+      ],
+      "speedup_retained": 0.16097042434927597
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.0911199967066447,
+      "samples_ms": [
+        0.09123199780782064,
+        0.09125226338704427,
+        0.0905407985051473,
+        0.0911199967066447,
+        0.09059092998504639
+      ],
+      "speedup_retained": 0.15961370449858092
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 2,
+      "compressed": true,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.06984533468882242,
+      "samples_ms": [
+        0.06991893450419108,
+        0.06984533468882242,
+        0.06985812981923421,
+        0.06978879769643148,
+        0.06981759866078695
+      ],
+      "speedup_retained": 0.2082315203018646
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.09039359887441,
+      "samples_ms": [
+        0.09039359887441,
+        0.09103893438975016,
+        0.0904533306757609,
+        0.09032106399536133,
+        0.09034240245819092
+      ],
+      "speedup_retained": 0.1608963511725319
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": false,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.09644906520843506,
+      "samples_ms": [
+        0.09655253092447917,
+        0.09644906520843506,
+        0.0964245319366455,
+        0.09639573097229004,
+        0.09651947021484375
+      ],
+      "speedup_retained": 0.15079462094127266
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 2,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.06991039911905925,
+      "samples_ms": [
+        0.0699893315633138,
+        0.06991039911905925,
+        0.06992213726043701,
+        0.06989440123240152,
+        0.06981759866078695
+      ],
+      "speedup_retained": 0.20803772273531496
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "stages": 3,
+      "compressed": false,
+      "paired_decode": true,
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.09036266803741455,
+      "samples_ms": [
+        0.09045546849568685,
+        0.09036266803741455,
+        0.09029440085093181,
+        0.09044053554534912,
+        0.09027946790059407
+      ],
+      "speedup_retained": 0.1609514254517599
+    }
+  ],
+  "packing": [
+    {
+      "bn": 16,
+      "all_weights_bit_exact": true,
+      "allocations": [
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        }
+      ]
+    },
+    {
+      "bn": 32,
+      "all_weights_bit_exact": true,
+      "allocations": [
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        }
+      ]
+    },
+    {
+      "bn": 64,
+      "all_weights_bit_exact": true,
+      "allocations": [
+        {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 10747904,
+          "allocated_bytes": 12582912,
+          "dtype": "torch.uint32"
+        }
+      ]
+    }
+  ],
+  "matrix_count": 1,
+  "baseline_selection": {
+    "attn.Wqkv": {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "variant": "tma",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.2824053366978963,
+      "samples_ms": [
+        0.2842533389727275,
+        0.2824053366978963,
+        0.2823973298072815
+      ],
+      "speedup": 1.1323865060223333,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r15];",
+      "shared_bytes": 36888
+    },
+    "attn.Wo": {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        5
+      ],
+      "variant": "bf16",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.12824533383051553,
+      "samples_ms": [
+        0.129530668258667,
+        0.12824533383051553,
+        0.12781866391499838
+      ],
+      "speedup": 1.5529402232354563
+    },
+    "mlp.Wi": {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "bf16",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.44487198193868,
+      "samples_ms": [
+        0.4462960163752238,
+        0.4447973171869914,
+        0.44487198193868
+      ],
+      "speedup": 1.1813076064907817
+    },
+    "mlp.Wo": {
+      "field": "mlp.Wo",
+      "variant": "bf16-partial",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.26548266410827637,
+      "samples_ms": [
+        0.2674853404362996,
+        0.26548266410827637,
+        0.26505066951115924
+      ],
+      "speedup": 1.1396902301869904
+    }
+  },
+  "baseline": {
+    "ms": 0.014544000228246054,
+    "samples_ms": [
+      0.014787200093269347,
+      0.014472533265749614,
+      0.014566399653752645,
+      0.014492799838383993,
+      0.014544000228246054
+    ]
+  },
+  "source_sha256_at_validation": {
+    "bitplane_pipeline.cu": "73bdd7c26f33f5f428cf1b0d49200aaa4d908552d3e424d93cbedb4a5758ee9e",
+    "bitplane_pipeline.py": "173e84cf2f0ae08a666b26a8c05aa2abc6eeaa6b0183e372455b35c382a316a7",
+    "bitplane_pipeline_build.py": "2f381cffe20e9d4dcc683b275004441916bdee1b60c275a259468befef78ecbc",
+    "bitplane_pipeline_probe.py": "ebf825797a3ab1246a4c5d9a3fe032d626d6d812397bbd00ab7132c4d56921bd"
+  },
+  "conclusion": "All 32 configurations preserve tested BF16 GEMM outputs. Paired warp transposes improve the native decoder, but every variant is slower than retained kernels. No full-engine integration."
+}

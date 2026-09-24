@@ -1,0 +1,920 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T11:53:18.325410+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "scope": "Per-function shared-memory carveout hints, isolated 28-matrix graph replay. Hints are verified through cuFuncGetAttribute, not measured physical cache partition sizes. Each graph is captured after setting the hint. All preferences restored in finally blocks.",
+  "documentation": "https://docs.nvidia.com/cuda/cuda-programming-guide/03-advanced/advanced-kernel-programming.html#configuring-l1-shared-memory-balance",
+  "source_sha256": "b047ad38f787a974266c7451b582e88b916d27d6bd4f6afc4c4392810f592f0a",
+  "stages": {
+    "attn.Wqkv": {
+      "configuration": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "original_hint": -1,
+      "kernel_name": "_tma",
+      "cubin_sha256": "6eeb1df198ae72cfef0e97ca49619c99714e2803c737a0141b727c2b086127bb",
+      "shared_bytes": 36888,
+      "registers": 46,
+      "rows": [
+        {
+          "round": 0,
+          "requested_hint": -1,
+          "mismatches": 0,
+          "ms": 0.2830303907394409,
+          "samples_ms": [
+            0.2830303907394409
+          ],
+          "hint_after_replay": -1
+        },
+        {
+          "round": 0,
+          "requested_hint": 0,
+          "mismatches": 0,
+          "ms": 0.3470711946487427,
+          "samples_ms": [
+            0.3470711946487427
+          ],
+          "hint_after_replay": 0
+        },
+        {
+          "round": 0,
+          "requested_hint": 75,
+          "mismatches": 0,
+          "ms": 0.28278160095214844,
+          "samples_ms": [
+            0.28278160095214844
+          ],
+          "hint_after_replay": 75
+        },
+        {
+          "round": 0,
+          "requested_hint": 25,
+          "mismatches": 0,
+          "ms": 0.3471735954284668,
+          "samples_ms": [
+            0.3471735954284668
+          ],
+          "hint_after_replay": 25
+        },
+        {
+          "round": 0,
+          "requested_hint": 50,
+          "mismatches": 0,
+          "ms": 0.3473464012145996,
+          "samples_ms": [
+            0.3473464012145996
+          ],
+          "hint_after_replay": 50
+        },
+        {
+          "round": 0,
+          "requested_hint": 100,
+          "mismatches": 0,
+          "ms": 0.28268959522247317,
+          "samples_ms": [
+            0.28268959522247317
+          ],
+          "hint_after_replay": 100
+        },
+        {
+          "round": 1,
+          "requested_hint": 0,
+          "mismatches": 0,
+          "ms": 0.3472424030303955,
+          "samples_ms": [
+            0.3472424030303955
+          ],
+          "hint_after_replay": 0
+        },
+        {
+          "round": 1,
+          "requested_hint": -1,
+          "mismatches": 0,
+          "ms": 0.2827455997467041,
+          "samples_ms": [
+            0.2827455997467041
+          ],
+          "hint_after_replay": -1
+        },
+        {
+          "round": 1,
+          "requested_hint": 25,
+          "mismatches": 0,
+          "ms": 0.34722959995269775,
+          "samples_ms": [
+            0.34722959995269775
+          ],
+          "hint_after_replay": 25
+        },
+        {
+          "round": 1,
+          "requested_hint": 75,
+          "mismatches": 0,
+          "ms": 0.2828991889953613,
+          "samples_ms": [
+            0.2828991889953613
+          ],
+          "hint_after_replay": 75
+        },
+        {
+          "round": 1,
+          "requested_hint": 100,
+          "mismatches": 0,
+          "ms": 0.28277039527893066,
+          "samples_ms": [
+            0.28277039527893066
+          ],
+          "hint_after_replay": 100
+        },
+        {
+          "round": 1,
+          "requested_hint": 50,
+          "mismatches": 0,
+          "ms": 0.34690959453582765,
+          "samples_ms": [
+            0.34690959453582765
+          ],
+          "hint_after_replay": 50
+        },
+        {
+          "round": 2,
+          "requested_hint": 75,
+          "mismatches": 0,
+          "ms": 0.2827744007110596,
+          "samples_ms": [
+            0.2827744007110596
+          ],
+          "hint_after_replay": 75
+        },
+        {
+          "round": 2,
+          "requested_hint": 50,
+          "mismatches": 0,
+          "ms": 0.3467144012451172,
+          "samples_ms": [
+            0.3467144012451172
+          ],
+          "hint_after_replay": 50
+        },
+        {
+          "round": 2,
+          "requested_hint": 0,
+          "mismatches": 0,
+          "ms": 0.34704720973968506,
+          "samples_ms": [
+            0.34704720973968506
+          ],
+          "hint_after_replay": 0
+        },
+        {
+          "round": 2,
+          "requested_hint": 100,
+          "mismatches": 0,
+          "ms": 0.28303680419921873,
+          "samples_ms": [
+            0.28303680419921873
+          ],
+          "hint_after_replay": 100
+        },
+        {
+          "round": 2,
+          "requested_hint": 25,
+          "mismatches": 0,
+          "ms": 0.3469367980957031,
+          "samples_ms": [
+            0.3469367980957031
+          ],
+          "hint_after_replay": 25
+        },
+        {
+          "round": 2,
+          "requested_hint": -1,
+          "mismatches": 0,
+          "ms": 0.28280398845672605,
+          "samples_ms": [
+            0.28280398845672605
+          ],
+          "hint_after_replay": -1
+        },
+        {
+          "round": 3,
+          "requested_hint": 50,
+          "mismatches": 0,
+          "ms": 0.3473583936691284,
+          "samples_ms": [
+            0.3473583936691284
+          ],
+          "hint_after_replay": 50
+        },
+        {
+          "round": 3,
+          "requested_hint": 0,
+          "mismatches": 0,
+          "ms": 0.3469480037689209,
+          "samples_ms": [
+            0.3469480037689209
+          ],
+          "hint_after_replay": 0
+        },
+        {
+          "round": 3,
+          "requested_hint": 100,
+          "mismatches": 0,
+          "ms": 0.2829511880874634,
+          "samples_ms": [
+            0.2829511880874634
+          ],
+          "hint_after_replay": 100
+        },
+        {
+          "round": 3,
+          "requested_hint": 75,
+          "mismatches": 0,
+          "ms": 0.2829024076461792,
+          "samples_ms": [
+            0.2829024076461792
+          ],
+          "hint_after_replay": 75
+        },
+        {
+          "round": 3,
+          "requested_hint": 25,
+          "mismatches": 0,
+          "ms": 0.3469000101089478,
+          "samples_ms": [
+            0.3469000101089478
+          ],
+          "hint_after_replay": 25
+        },
+        {
+          "round": 3,
+          "requested_hint": -1,
+          "mismatches": 0,
+          "ms": 0.28275279998779296,
+          "samples_ms": [
+            0.28275279998779296
+          ],
+          "hint_after_replay": -1
+        },
+        {
+          "round": 4,
+          "requested_hint": -1,
+          "mismatches": 0,
+          "ms": 0.2828792095184326,
+          "samples_ms": [
+            0.2828792095184326
+          ],
+          "hint_after_replay": -1
+        },
+        {
+          "round": 4,
+          "requested_hint": 50,
+          "mismatches": 0,
+          "ms": 0.3470736026763916,
+          "samples_ms": [
+            0.3470736026763916
+          ],
+          "hint_after_replay": 50
+        },
+        {
+          "round": 4,
+          "requested_hint": 0,
+          "mismatches": 0,
+          "ms": 0.3472383975982666,
+          "samples_ms": [
+            0.3472383975982666
+          ],
+          "hint_after_replay": 0
+        },
+        {
+          "round": 4,
+          "requested_hint": 25,
+          "mismatches": 0,
+          "ms": 0.34688079357147217,
+          "samples_ms": [
+            0.34688079357147217
+          ],
+          "hint_after_replay": 25
+        },
+        {
+          "round": 4,
+          "requested_hint": 75,
+          "mismatches": 0,
+          "ms": 0.28264238834381106,
+          "samples_ms": [
+            0.28264238834381106
+          ],
+          "hint_after_replay": 75
+        },
+        {
+          "round": 4,
+          "requested_hint": 100,
+          "mismatches": 0,
+          "ms": 0.2827863931655884,
+          "samples_ms": [
+            0.2827863931655884
+          ],
+          "hint_after_replay": 100
+        },
+        {
+          "round": 5,
+          "requested_hint": 25,
+          "mismatches": 0,
+          "ms": 0.3469343900680542,
+          "samples_ms": [
+            0.3469343900680542
+          ],
+          "hint_after_replay": 25
+        },
+        {
+          "round": 5,
+          "requested_hint": 50,
+          "mismatches": 0,
+          "ms": 0.34731359481811525,
+          "samples_ms": [
+            0.34731359481811525
+          ],
+          "hint_after_replay": 50
+        },
+        {
+          "round": 5,
+          "requested_hint": 75,
+          "mismatches": 0,
+          "ms": 0.28287520408630373,
+          "samples_ms": [
+            0.28287520408630373
+          ],
+          "hint_after_replay": 75
+        },
+        {
+          "round": 5,
+          "requested_hint": 0,
+          "mismatches": 0,
+          "ms": 0.3467864036560059,
+          "samples_ms": [
+            0.3467864036560059
+          ],
+          "hint_after_replay": 0
+        },
+        {
+          "round": 5,
+          "requested_hint": -1,
+          "mismatches": 0,
+          "ms": 0.2827944040298462,
+          "samples_ms": [
+            0.2827944040298462
+          ],
+          "hint_after_replay": -1
+        },
+        {
+          "round": 5,
+          "requested_hint": 100,
+          "mismatches": 0,
+          "ms": 0.2830215930938721,
+          "samples_ms": [
+            0.2830215930938721
+          ],
+          "hint_after_replay": 100
+        },
+        {
+          "round": 6,
+          "requested_hint": 50,
+          "mismatches": 0,
+          "ms": 0.3472752094268799,
+          "samples_ms": [
+            0.3472752094268799
+          ],
+          "hint_after_replay": 50
+        },
+        {
+          "round": 6,
+          "requested_hint": 0,
+          "mismatches": 0,
+          "ms": 0.34697918891906737,
+          "samples_ms": [
+            0.34697918891906737
+          ],
+          "hint_after_replay": 0
+        },
+        {
+          "round": 6,
+          "requested_hint": 75,
+          "mismatches": 0,
+          "ms": 0.282696795463562,
+          "samples_ms": [
+            0.282696795463562
+          ],
+          "hint_after_replay": 75
+        },
+        {
+          "round": 6,
+          "requested_hint": 100,
+          "mismatches": 0,
+          "ms": 0.2827311992645264,
+          "samples_ms": [
+            0.2827311992645264
+          ],
+          "hint_after_replay": 100
+        },
+        {
+          "round": 6,
+          "requested_hint": 25,
+          "mismatches": 0,
+          "ms": 0.346945595741272,
+          "samples_ms": [
+            0.346945595741272
+          ],
+          "hint_after_replay": 25
+        },
+        {
+          "round": 6,
+          "requested_hint": -1,
+          "mismatches": 0,
+          "ms": 0.283298397064209,
+          "samples_ms": [
+            0.283298397064209
+          ],
+          "hint_after_replay": -1
+        }
+      ],
+      "restored_hint": -1,
+      "median_ms": {
+        "-1": 0.28280398845672605,
+        "0": 0.34704720973968506,
+        "25": 0.3469367980957031,
+        "50": 0.3472752094268799,
+        "75": 0.28278160095214844,
+        "100": 0.2827863931655884
+      }
+    },
+    "mlp.Wi": {
+      "configuration": [
+        32,
+        64,
+        64,
+        4,
+        3,
+        2,
+        false
+      ],
+      "original_hint": -1,
+      "kernel_name": "_project",
+      "cubin_sha256": "bbe9df456649ea28379bad4a55cf8b0007bb5af0c5a5965fb2e093a02cdab6c7",
+      "shared_bytes": 24576,
+      "registers": 60,
+      "rows": [
+        {
+          "round": 0,
+          "requested_hint": -1,
+          "mismatches": 0,
+          "ms": 0.44654240608215334,
+          "samples_ms": [
+            0.44654240608215334
+          ],
+          "hint_after_replay": -1
+        },
+        {
+          "round": 0,
+          "requested_hint": 100,
+          "mismatches": 0,
+          "ms": 0.44648079872131347,
+          "samples_ms": [
+            0.44648079872131347
+          ],
+          "hint_after_replay": 100
+        },
+        {
+          "round": 0,
+          "requested_hint": 75,
+          "mismatches": 0,
+          "ms": 0.4471136093139648,
+          "samples_ms": [
+            0.4471136093139648
+          ],
+          "hint_after_replay": 75
+        },
+        {
+          "round": 0,
+          "requested_hint": 25,
+          "mismatches": 0,
+          "ms": 0.5863743782043457,
+          "samples_ms": [
+            0.5863743782043457
+          ],
+          "hint_after_replay": 25
+        },
+        {
+          "round": 0,
+          "requested_hint": 0,
+          "mismatches": 0,
+          "ms": 0.586356782913208,
+          "samples_ms": [
+            0.586356782913208
+          ],
+          "hint_after_replay": 0
+        },
+        {
+          "round": 0,
+          "requested_hint": 50,
+          "mismatches": 0,
+          "ms": 0.5200592041015625,
+          "samples_ms": [
+            0.5200592041015625
+          ],
+          "hint_after_replay": 50
+        },
+        {
+          "round": 1,
+          "requested_hint": 25,
+          "mismatches": 0,
+          "ms": 0.5867792129516601,
+          "samples_ms": [
+            0.5867792129516601
+          ],
+          "hint_after_replay": 25
+        },
+        {
+          "round": 1,
+          "requested_hint": 0,
+          "mismatches": 0,
+          "ms": 0.5863992214202881,
+          "samples_ms": [
+            0.5863992214202881
+          ],
+          "hint_after_replay": 0
+        },
+        {
+          "round": 1,
+          "requested_hint": -1,
+          "mismatches": 0,
+          "ms": 0.44661998748779297,
+          "samples_ms": [
+            0.44661998748779297
+          ],
+          "hint_after_replay": -1
+        },
+        {
+          "round": 1,
+          "requested_hint": 100,
+          "mismatches": 0,
+          "ms": 0.4467160224914551,
+          "samples_ms": [
+            0.4467160224914551
+          ],
+          "hint_after_replay": 100
+        },
+        {
+          "round": 1,
+          "requested_hint": 50,
+          "mismatches": 0,
+          "ms": 0.5200160026550293,
+          "samples_ms": [
+            0.5200160026550293
+          ],
+          "hint_after_replay": 50
+        },
+        {
+          "round": 1,
+          "requested_hint": 75,
+          "mismatches": 0,
+          "ms": 0.44681200981140134,
+          "samples_ms": [
+            0.44681200981140134
+          ],
+          "hint_after_replay": 75
+        },
+        {
+          "round": 2,
+          "requested_hint": 25,
+          "mismatches": 0,
+          "ms": 0.5861807823181152,
+          "samples_ms": [
+            0.5861807823181152
+          ],
+          "hint_after_replay": 25
+        },
+        {
+          "round": 2,
+          "requested_hint": 50,
+          "mismatches": 0,
+          "ms": 0.5194992065429688,
+          "samples_ms": [
+            0.5194992065429688
+          ],
+          "hint_after_replay": 50
+        },
+        {
+          "round": 2,
+          "requested_hint": 75,
+          "mismatches": 0,
+          "ms": 0.4469344139099121,
+          "samples_ms": [
+            0.4469344139099121
+          ],
+          "hint_after_replay": 75
+        },
+        {
+          "round": 2,
+          "requested_hint": 100,
+          "mismatches": 0,
+          "ms": 0.4467487812042236,
+          "samples_ms": [
+            0.4467487812042236
+          ],
+          "hint_after_replay": 100
+        },
+        {
+          "round": 2,
+          "requested_hint": -1,
+          "mismatches": 0,
+          "ms": 0.4468440055847168,
+          "samples_ms": [
+            0.4468440055847168
+          ],
+          "hint_after_replay": -1
+        },
+        {
+          "round": 2,
+          "requested_hint": 0,
+          "mismatches": 0,
+          "ms": 0.5869472026824951,
+          "samples_ms": [
+            0.5869472026824951
+          ],
+          "hint_after_replay": 0
+        },
+        {
+          "round": 3,
+          "requested_hint": 75,
+          "mismatches": 0,
+          "ms": 0.44691038131713867,
+          "samples_ms": [
+            0.44691038131713867
+          ],
+          "hint_after_replay": 75
+        },
+        {
+          "round": 3,
+          "requested_hint": 50,
+          "mismatches": 0,
+          "ms": 0.5195903778076172,
+          "samples_ms": [
+            0.5195903778076172
+          ],
+          "hint_after_replay": 50
+        },
+        {
+          "round": 3,
+          "requested_hint": 25,
+          "mismatches": 0,
+          "ms": 0.5865344047546387,
+          "samples_ms": [
+            0.5865344047546387
+          ],
+          "hint_after_replay": 25
+        },
+        {
+          "round": 3,
+          "requested_hint": -1,
+          "mismatches": 0,
+          "ms": 0.44666399955749514,
+          "samples_ms": [
+            0.44666399955749514
+          ],
+          "hint_after_replay": -1
+        },
+        {
+          "round": 3,
+          "requested_hint": 0,
+          "mismatches": 0,
+          "ms": 0.5870488166809082,
+          "samples_ms": [
+            0.5870488166809082
+          ],
+          "hint_after_replay": 0
+        },
+        {
+          "round": 3,
+          "requested_hint": 100,
+          "mismatches": 0,
+          "ms": 0.44689121246337893,
+          "samples_ms": [
+            0.44689121246337893
+          ],
+          "hint_after_replay": 100
+        },
+        {
+          "round": 4,
+          "requested_hint": 100,
+          "mismatches": 0,
+          "ms": 0.44679760932922363,
+          "samples_ms": [
+            0.44679760932922363
+          ],
+          "hint_after_replay": 100
+        },
+        {
+          "round": 4,
+          "requested_hint": 0,
+          "mismatches": 0,
+          "ms": 0.586630392074585,
+          "samples_ms": [
+            0.586630392074585
+          ],
+          "hint_after_replay": 0
+        },
+        {
+          "round": 4,
+          "requested_hint": -1,
+          "mismatches": 0,
+          "ms": 0.44674081802368165,
+          "samples_ms": [
+            0.44674081802368165
+          ],
+          "hint_after_replay": -1
+        },
+        {
+          "round": 4,
+          "requested_hint": 75,
+          "mismatches": 0,
+          "ms": 0.44715118408203125,
+          "samples_ms": [
+            0.44715118408203125
+          ],
+          "hint_after_replay": 75
+        },
+        {
+          "round": 4,
+          "requested_hint": 50,
+          "mismatches": 0,
+          "ms": 0.5199687957763672,
+          "samples_ms": [
+            0.5199687957763672
+          ],
+          "hint_after_replay": 50
+        },
+        {
+          "round": 4,
+          "requested_hint": 25,
+          "mismatches": 0,
+          "ms": 0.5861847877502442,
+          "samples_ms": [
+            0.5861847877502442
+          ],
+          "hint_after_replay": 25
+        },
+        {
+          "round": 5,
+          "requested_hint": 0,
+          "mismatches": 0,
+          "ms": 0.5858335971832276,
+          "samples_ms": [
+            0.5858335971832276
+          ],
+          "hint_after_replay": 0
+        },
+        {
+          "round": 5,
+          "requested_hint": 75,
+          "mismatches": 0,
+          "ms": 0.44690561294555664,
+          "samples_ms": [
+            0.44690561294555664
+          ],
+          "hint_after_replay": 75
+        },
+        {
+          "round": 5,
+          "requested_hint": 50,
+          "mismatches": 0,
+          "ms": 0.5198544025421142,
+          "samples_ms": [
+            0.5198544025421142
+          ],
+          "hint_after_replay": 50
+        },
+        {
+          "round": 5,
+          "requested_hint": 25,
+          "mismatches": 0,
+          "ms": 0.586240005493164,
+          "samples_ms": [
+            0.586240005493164
+          ],
+          "hint_after_replay": 25
+        },
+        {
+          "round": 5,
+          "requested_hint": -1,
+          "mismatches": 0,
+          "ms": 0.44680161476135255,
+          "samples_ms": [
+            0.44680161476135255
+          ],
+          "hint_after_replay": -1
+        },
+        {
+          "round": 5,
+          "requested_hint": 100,
+          "mismatches": 0,
+          "ms": 0.44696640968322754,
+          "samples_ms": [
+            0.44696640968322754
+          ],
+          "hint_after_replay": 100
+        },
+        {
+          "round": 6,
+          "requested_hint": 75,
+          "mismatches": 0,
+          "ms": 0.4468088150024414,
+          "samples_ms": [
+            0.4468088150024414
+          ],
+          "hint_after_replay": 75
+        },
+        {
+          "round": 6,
+          "requested_hint": 50,
+          "mismatches": 0,
+          "ms": 0.5199327945709229,
+          "samples_ms": [
+            0.5199327945709229
+          ],
+          "hint_after_replay": 50
+        },
+        {
+          "round": 6,
+          "requested_hint": 0,
+          "mismatches": 0,
+          "ms": 0.5868103981018067,
+          "samples_ms": [
+            0.5868103981018067
+          ],
+          "hint_after_replay": 0
+        },
+        {
+          "round": 6,
+          "requested_hint": 25,
+          "mismatches": 0,
+          "ms": 0.5866695880889893,
+          "samples_ms": [
+            0.5866695880889893
+          ],
+          "hint_after_replay": 25
+        },
+        {
+          "round": 6,
+          "requested_hint": 100,
+          "mismatches": 0,
+          "ms": 0.4464456081390381,
+          "samples_ms": [
+            0.4464456081390381
+          ],
+          "hint_after_replay": 100
+        },
+        {
+          "round": 6,
+          "requested_hint": -1,
+          "mismatches": 0,
+          "ms": 0.44664478302001953,
+          "samples_ms": [
+            0.44664478302001953
+          ],
+          "hint_after_replay": -1
+        }
+      ],
+      "restored_hint": -1,
+      "median_ms": {
+        "-1": 0.44666399955749514,
+        "0": 0.586630392074585,
+        "25": 0.5863743782043457,
+        "50": 0.5199327945709229,
+        "75": 0.44691038131713867,
+        "100": 0.4467487812042236
+      }
+    }
+  },
+  "source_sha256_after_lint_comment": "560f8857f8ac1f3be95ab2a530ac18a44284cdb34e378e9ae0b7f8f93f815c16",
+  "post_measurement_source_change": "Only a lint explanation/comment was added; the full module AST is unchanged.",
+  "conclusion": "No retained improvement. Hints75/100 tie the default; preferring more L1 slows both retained projection kernels. Original function preferences restored."
+}

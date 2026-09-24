@@ -1,0 +1,2756 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T11:21:59.603213+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "baseline_constructor": {
+    "policy": "bf16-splitk-exact-short-compiled",
+    "attention": "native",
+    "fuse_reduce_norm": true,
+    "token_tables": true,
+    "fuse_mlp_geglu": true,
+    "mlp_geglu_unpacked": true,
+    "head_kernels": true,
+    "host_prepare": "batch",
+    "attention_special": true
+  },
+  "fixtures": [
+    {
+      "state": "My parcel arrived broken.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "the card was charged twice.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Choose the best category.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "My parcel arrived broken, but that is already fixed.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "What is the main issue?",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Yesterday: My parcel arrived broken. Today: the card was charged twice.",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    }
+  ],
+  "fixture_sha256": "b1139e283f9d6960402293d7deef900cc12a607979d0d5df884d85f6ba459a6b",
+  "method": "Unmodified retained constructor versus same-arithmetic PDL kernel clones. Full warm requests include tokenization through formatting. Programmatic graph edges are created by Triton launch_pdl, never rewritten. Every PDL consumer has a wait before dependent activation loads.",
+  "variants": {
+    "late": {
+      "parity": [
+        {
+          "index": 0,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 1,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 2,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        },
+        {
+          "index": 3,
+          "shape": [
+            1,
+            64,
+            4
+          ],
+          "exact_logits_and_actions": true,
+          "max_probability_error": 0.0,
+          "agreement": 1,
+          "decisions": 1,
+          "max_action_probability_error": 0.0,
+          "action_argmax_agreement": 1,
+          "max_action_logit_error": 0.0,
+          "passed": true
+        }
+      ],
+      "instructions": {
+        "generated_source_sha256": {
+          "matmul_matmul": "eb87f924bdf3505f329bf66f4e6e2e6a53b3d62791383b509bf4f44040819b89",
+          "matmul_reduce": "013014f31d814208ea144e74d13026446f460656fed172032116bb31990cc292",
+          "helper_matmul": "e666d7322f2d04fa71af817c0a05a1e3677d7583f81e1876afdd575365b2610c",
+          "tma_tma": "ba3133d934dd570dd08a7c400ffc61426fc41c7e00fc4b1481daea420da56ec7",
+          "tma_reduce": "3464a4ca282628f66edeb79b9044e861b3a368cb094161329507bb97f4cf4282",
+          "helper_tma": "87fe0ee5a6fc45b7389a3601e3f75f66fccc84d0f2d9966ce5452f8f54a2c8ac",
+          "mlp_project": "515556ac4cfe4894bfef5de72221f1947ff377aef1cc43b6fe32bdb334c4c5cb",
+          "helper_mlp": "4ca66fb15fc0e3a5122baf2dc8116da84188f6a5104cf8c63a17124c3ed3c870",
+          "head_gemm": "38a2ae432b5c5f424dfd54bff06116ed58a2949d83ae40db3843b88c8eec70ce",
+          "head_reduce": "47ca140b3bae459f6a57abff7dc388dbe1d95a92aa7c530de997ab3b77221249",
+          "helper_head": "09c5388b7c5578430cebad5cb2202f6b9e173e670b4858f3551d774b6d55bf65",
+          "rope_rope": "1e7a4f7f3f721e61364df3eef13d20ecba00810bd52bed5ff89c0ffa584841e1",
+          "helper_rope": "7f0864710df6789bc89a14b9cd4da1cb395e9ae3c94a8b8b1735f38273a96eff"
+        },
+        "compiled": [
+          {
+            "name": "matmul_matmul",
+            "hash": "3e1a52766b934f387f3ca4e7433b4f6155a5d313f26ce79e18fdbbe48a0fe5cf",
+            "launch_pdl": true,
+            "wait_count": 1,
+            "trigger_count": 1,
+            "wait_before_first_global_load": true,
+            "ptx_sha256": "3ce85c5bb0fb0f866ecf40f9bc8d97ce5c263309482ea1e97efba85b486a0a2d"
+          },
+          {
+            "name": "matmul_matmul",
+            "hash": "369055ff53e349dfc3291970472470f0bbbd10f6b7a4aecd96ccfa5b744abdc5",
+            "launch_pdl": true,
+            "wait_count": 1,
+            "trigger_count": 1,
+            "wait_before_first_global_load": true,
+            "ptx_sha256": "f05307685dbaed59b1f8112d96ee4ce223a64a8e5309f2f7a4dfd0bc6585ca3e"
+          },
+          {
+            "name": "matmul_reduce",
+            "hash": "8a206aa8881784303492fe379f516968a55f4d101fa969c3bd790d2efbe9f21c",
+            "launch_pdl": true,
+            "wait_count": 1,
+            "trigger_count": 1,
+            "wait_before_first_global_load": true,
+            "ptx_sha256": "72ba3a8d946211c34536eb4639c70bd155064cfbed36a6ee42870bfbe6df3f1c"
+          },
+          {
+            "name": "tma_tma",
+            "hash": "1ec427d493913e93e51e088ef9725d35b2532c92af815443061f13420b458fb1",
+            "launch_pdl": true,
+            "wait_count": 1,
+            "trigger_count": 1,
+            "wait_before_first_global_load": true,
+            "ptx_sha256": "5a068d734b4fe51c64b4cbca4726dcc3107f45def22dd77af569af560e35eb25"
+          },
+          {
+            "name": "mlp_project",
+            "hash": "5b6b7a7c79b5b4f3f695a86dcabcca73563d61be2a36744c0eb9b68150afe172",
+            "launch_pdl": true,
+            "wait_count": 1,
+            "trigger_count": 1,
+            "wait_before_first_global_load": true,
+            "ptx_sha256": "24d5210bbe2356f38293e974a6f89b39737031c2ffa93371bb34bbfe25fd04ad"
+          },
+          {
+            "name": "head_gemm",
+            "hash": "3b82010a6528645485a4b27006fb27362e4b3ea2688d9cb6169907f09eef39cc",
+            "launch_pdl": true,
+            "wait_count": 1,
+            "trigger_count": 1,
+            "wait_before_first_global_load": true,
+            "ptx_sha256": "1b5911641228bf7af3c8a8862d4e499ded10bd0fe7c947260fd6320dc6219a51"
+          },
+          {
+            "name": "head_gemm",
+            "hash": "c7370ee65de3a07653ec93372aa5b8e671c20e2cc25fc7bd7eae249cf0446506",
+            "launch_pdl": true,
+            "wait_count": 1,
+            "trigger_count": 1,
+            "wait_before_first_global_load": true,
+            "ptx_sha256": "c0673641efcb6216246cc9844427eb3cebc004b650599b9b0237bb2b4f821383"
+          },
+          {
+            "name": "head_gemm",
+            "hash": "0cb9027898dc2dc88c6ed99f543f68d73ea355313b9b79b6b57d003b1d1b9e9c",
+            "launch_pdl": true,
+            "wait_count": 1,
+            "trigger_count": 1,
+            "wait_before_first_global_load": true,
+            "ptx_sha256": "715a45913dd5c49e5f8e4be2c8de85b96f42bc71a21fa53062d7b0db68487e61"
+          },
+          {
+            "name": "head_gemm",
+            "hash": "9893547f7742aa1d0812a80d9110c4c8fe534da99da1b51a852c30f46b2e8144",
+            "launch_pdl": true,
+            "wait_count": 1,
+            "trigger_count": 1,
+            "wait_before_first_global_load": true,
+            "ptx_sha256": "154cd28c4c7f9f5ff166c837322e6ee2e604933d1437d2d4da4e2487493e6ff9"
+          },
+          {
+            "name": "rope_rope",
+            "hash": "284bddb1cf52554c3f240c7f617a885c4b9314b3c7ec7645861acca07e3de03f",
+            "launch_pdl": true,
+            "wait_count": 1,
+            "trigger_count": 1,
+            "wait_before_first_global_load": true,
+            "ptx_sha256": "a4c74c0ac4f0843ae90061a61f15098e6a594270abfe4b7b390f7779f6e16f08"
+          }
+        ]
+      },
+      "graphs": [
+        {
+          "key": [
+            1,
+            64,
+            4,
+            false
+          ],
+          "edges": 302,
+          "programmatic_edges": [
+            {
+              "source": "triton_poi_fused_embedding_rope_view_0",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z40fmha_cutlassF_bf16_aligned_64x64_rf_sm80N22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS1_4arch4Sm80ELb1ELi64ELi64ELi64ELb1ELb1EE6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z40fmha_cutlassF_bf16_aligned_64x64_rf_sm80N22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS1_4arch4Sm80ELb1ELi64ELi64ELi64ELb1ELb1EE6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z40fmha_cutlassF_bf16_aligned_64x64_rf_sm80N22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS1_4arch4Sm80ELb1ELi64ELi64ELi64ELb1ELb1EE6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z40fmha_cutlassF_bf16_aligned_64x64_rf_sm80N22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS1_4arch4Sm80ELb1ELi64ELi64ELi64ELb1ELb1EE6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z40fmha_cutlassF_bf16_aligned_64x64_rf_sm80N22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS1_4arch4Sm80ELb1ELi64ELi64ELi64ELb1ELb1EE6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z40fmha_cutlassF_bf16_aligned_64x64_rf_sm80N22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS1_4arch4Sm80ELb1ELi64ELi64ELi64ELb1ELb1EE6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z40fmha_cutlassF_bf16_aligned_64x64_rf_sm80N22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS1_4arch4Sm80ELb1ELi64ELi64ELi64ELb1ELb1EE6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z40fmha_cutlassF_bf16_aligned_64x64_rf_sm80N22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS1_4arch4Sm80ELb1ELi64ELi64ELi64ELb1ELb1EE6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z40fmha_cutlassF_bf16_aligned_64x64_rf_sm80N22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS1_4arch4Sm80ELb1ELi64ELi64ELi64ELb1ELb1EE6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb1EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z40fmha_cutlassF_bf16_aligned_64x64_rf_sm80N22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS1_4arch4Sm80ELb1ELi64ELi64ELi64ELb1ELb1EE6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_matmul_matmul",
+              "target": "pdl_late_matmul_reduce",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb0ELb0ELb1ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_head_gemm",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb0ELb0ELb1ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_head_gemm",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z40fmha_cutlassF_bf16_aligned_64x64_rf_sm80N22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS1_4arch4Sm80ELb1ELi64ELi64ELi64ELb1ELb1EE6ParamsE",
+              "target": "pdl_late_head_gemm",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb1ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_head_gemm",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "triton_poi_fused__to_copy_linear_12",
+              "target": "pdl_late_head_gemm",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            }
+          ]
+        },
+        {
+          "key": [
+            1,
+            64,
+            4,
+            true
+          ],
+          "edges": 274,
+          "programmatic_edges": [
+            {
+              "source": "triton_poi_fused_embedding_rope_view_0",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_ZN13pytorch_flash16flash_fwd_kernelI23Flash_fwd_kernel_traitsILi64ELi128ELi128ELi4ELb0ELb0EN7cutlass10bfloat16_tE19Flash_kernel_traitsILi64ELi128ELi128ELi4ES3_EELb0ELb0ELb0ELb0ELb0ELb1ELb0ELb0EEEvNS_16Flash_fwd_paramsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_ZN13pytorch_flash16flash_fwd_kernelI23Flash_fwd_kernel_traitsILi64ELi128ELi128ELi4ELb0ELb0EN7cutlass10bfloat16_tE19Flash_kernel_traitsILi64ELi128ELi128ELi4ES3_EELb0ELb0ELb0ELb0ELb0ELb1ELb0ELb0EEEvNS_16Flash_fwd_paramsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_ZN13pytorch_flash16flash_fwd_kernelI23Flash_fwd_kernel_traitsILi64ELi128ELi128ELi4ELb0ELb0EN7cutlass10bfloat16_tE19Flash_kernel_traitsILi64ELi128ELi128ELi4ES3_EELb0ELb0ELb0ELb0ELb0ELb1ELb0ELb0EEEvNS_16Flash_fwd_paramsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_ZN13pytorch_flash16flash_fwd_kernelI23Flash_fwd_kernel_traitsILi64ELi128ELi128ELi4ELb0ELb0EN7cutlass10bfloat16_tE19Flash_kernel_traitsILi64ELi128ELi128ELi4ES3_EELb0ELb0ELb0ELb0ELb0ELb1ELb0ELb0EEEvNS_16Flash_fwd_paramsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_ZN13pytorch_flash16flash_fwd_kernelI23Flash_fwd_kernel_traitsILi64ELi128ELi128ELi4ELb0ELb0EN7cutlass10bfloat16_tE19Flash_kernel_traitsILi64ELi128ELi128ELi4ES3_EELb0ELb0ELb0ELb0ELb0ELb1ELb0ELb0EEEvNS_16Flash_fwd_paramsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_ZN13pytorch_flash16flash_fwd_kernelI23Flash_fwd_kernel_traitsILi64ELi128ELi128ELi4ELb0ELb0EN7cutlass10bfloat16_tE19Flash_kernel_traitsILi64ELi128ELi128ELi4ES3_EELb0ELb0ELb0ELb0ELb0ELb1ELb0ELb0EEEvNS_16Flash_fwd_paramsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_ZN13pytorch_flash16flash_fwd_kernelI23Flash_fwd_kernel_traitsILi64ELi128ELi128ELi4ELb0ELb0EN7cutlass10bfloat16_tE19Flash_kernel_traitsILi64ELi128ELi128ELi4ES3_EELb0ELb0ELb0ELb0ELb0ELb1ELb0ELb0EEEvNS_16Flash_fwd_paramsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_ZN13pytorch_flash16flash_fwd_kernelI23Flash_fwd_kernel_traitsILi64ELi128ELi128ELi4ELb0ELb0EN7cutlass10bfloat16_tE19Flash_kernel_traitsILi64ELi128ELi128ELi4ES3_EELb0ELb0ELb0ELb0ELb0ELb1ELb0ELb0EEEvNS_16Flash_fwd_paramsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_ZN13pytorch_flash16flash_fwd_kernelI23Flash_fwd_kernel_traitsILi64ELi128ELi128ELi4ELb0ELb0EN7cutlass10bfloat16_tE19Flash_kernel_traitsILi64ELi128ELi128ELi4ES3_EELb0ELb0ELb0ELb0ELb0ELb1ELb0ELb0EEEvNS_16Flash_fwd_paramsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z17special_attentionIN22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS2_4arch4Sm80ELb1ELi32ELi64ELi64ELb0ELb1EEELb0EEvNT_6ParamsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_tma_tma",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_tma_tma",
+              "target": "pdl_late_rope_rope",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_ZN13pytorch_flash16flash_fwd_kernelI23Flash_fwd_kernel_traitsILi64ELi128ELi128ELi4ELb0ELb0EN7cutlass10bfloat16_tE19Flash_kernel_traitsILi64ELi128ELi128ELi4ES3_EELb0ELb0ELb0ELb0ELb0ELb1ELb0ELb0EEEvNS_16Flash_fwd_paramsE",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb0ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_mlp_project",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_mlp_project",
+              "target": "pdl_late_matmul_matmul",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "pdl_late_matmul_matmul",
+              "target": "pdl_late_matmul_reduce",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb0ELb0ELb1ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_head_gemm",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb0ELb0ELb1ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_head_gemm",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z40fmha_cutlassF_bf16_aligned_64x64_rf_sm80N22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS1_4arch4Sm80ELb1ELi64ELi64ELi64ELb1ELb1EE6ParamsE",
+              "target": "pdl_late_head_gemm",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "_Z18norm_kernel_vectorILb1ELb0ELb1ELb0EEvPKfPKvS1_S1_PfP13__nv_bfloat16if",
+              "target": "pdl_late_head_gemm",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            },
+            {
+              "source": "triton_poi_fused__to_copy_linear_10",
+              "target": "pdl_late_head_gemm",
+              "type": 1,
+              "from_port": 1,
+              "to_port": 0
+            }
+          ]
+        }
+      ],
+      "fixed": {
+        "rows": [
+          {
+            "variant": "pdl",
+            "case": "1-short",
+            "round": 0,
+            "questions": 1,
+            "input_tokens": 64,
+            "mean_ms": 1.7565398515822988,
+            "p50_ms": 1.756004465278238,
+            "p95_ms": 1.7646725638769567,
+            "samples_ms": [
+              1.7632090020924807,
+              1.7658700235188007,
+              1.758958911523223,
+              1.7539600376039743,
+              1.7595300450921059,
+              1.7575090751051903,
+              1.7509699100628495,
+              1.7570689087733626,
+              1.7491698963567615,
+              1.75492896232754,
+              1.7515800427645445,
+              1.7573890509083867,
+              1.7531500197947025,
+              1.7544389702379704,
+              1.752499956637621,
+              1.7587990732863545,
+              1.7529699252918363,
+              1.7579089617356658,
+              1.7598399426788092,
+              1.765890046954155,
+              1.759418984875083,
+              1.7566499300301075,
+              1.7553590005263686,
+              1.762900035828352,
+              1.7546189483255148,
+              1.7512199701741338,
+              1.751499017700553,
+              1.760419923812151,
+              1.754969940520823,
+              1.7534990329295397
+            ]
+          },
+          {
+            "variant": "retained",
+            "case": "1-short",
+            "round": 0,
+            "questions": 1,
+            "input_tokens": 64,
+            "mean_ms": 1.7339860593589644,
+            "p50_ms": 1.7347439425066113,
+            "p95_ms": 1.7489819612819701,
+            "samples_ms": [
+              1.743649016134441,
+              1.7401390941813588,
+              1.7432499444112182,
+              1.7323190113529563,
+              1.7402899684384465,
+              1.7427789280191064,
+              1.7489599995315075,
+              1.7425890546292067,
+              1.7390199936926365,
+              1.7442890675738454,
+              1.7540199914947152,
+              1.738569000735879,
+              1.733589917421341,
+              1.7355589661747217,
+              1.7489999299868941,
+              1.735519035719335,
+              1.7346689710393548,
+              1.7254300182685256,
+              1.7229790100827813,
+              1.7231699312105775,
+              1.7231589881703258,
+              1.734818913973868,
+              1.7242800677195191,
+              1.72144896350801,
+              1.7250189557671547,
+              1.7333700088784099,
+              1.7194891115650535,
+              1.7264699563384056,
+              1.7216589767485857,
+              1.7200789880007505
+            ]
+          },
+          {
+            "variant": "retained",
+            "case": "1-short",
+            "round": 1,
+            "questions": 1,
+            "input_tokens": 64,
+            "mean_ms": 1.7416541387016575,
+            "p50_ms": 1.7399649950675666,
+            "p95_ms": 1.7599264101590961,
+            "samples_ms": [
+              1.7380589852109551,
+              1.7307689413428307,
+              1.7359600169584155,
+              1.72959896735847,
+              1.7290100222453475,
+              1.7332889838144183,
+              1.740099978633225,
+              1.747319009155035,
+              1.7572100041434169,
+              1.7546290764585137,
+              1.745249959640205,
+              1.7621489241719246,
+              1.7633100505918264,
+              1.750309020280838,
+              1.7532799392938614,
+              1.7499600071460009,
+              1.7526890151202679,
+              1.7460189992561936,
+              1.7527199815958738,
+              1.7431190935894847,
+              1.7430700827389956,
+              1.7385589890182018,
+              1.737260026857257,
+              1.738739083521068,
+              1.7398300115019083,
+              1.7285990761592984,
+              1.723709050565958,
+              1.7303199274465442,
+              1.724818954244256,
+              1.7299699829891324
+            ]
+          },
+          {
+            "variant": "pdl",
+            "case": "1-short",
+            "round": 1,
+            "questions": 1,
+            "input_tokens": 64,
+            "mean_ms": 1.7514678222748141,
+            "p50_ms": 1.7485900316387415,
+            "p95_ms": 1.7620825325138867,
+            "samples_ms": [
+              1.7470989841967821,
+              1.747280010022223,
+              1.7612300580367446,
+              1.7835790058597922,
+              1.7570999916642904,
+              1.7516589723527431,
+              1.7627800116315484,
+              1.7519089160487056,
+              1.7521500121802092,
+              1.7477989895269275,
+              1.7540400149300694,
+              1.747458940371871,
+              1.7482800176367164,
+              1.7472789622843266,
+              1.7529899487271905,
+              1.7463599797338247,
+              1.7478789668530226,
+              1.7505090218037367,
+              1.7556300153955817,
+              1.7469089943915606,
+              1.744139939546585,
+              1.7489000456407666,
+              1.7592789372429252,
+              1.7458390211686492,
+              1.7449399456381798,
+              1.745759043842554,
+              1.7540999688208103,
+              1.751460018567741,
+              1.7444390105083585,
+              1.7452589236199856
+            ]
+          },
+          {
+            "variant": "pdl",
+            "case": "1-short",
+            "round": 2,
+            "questions": 1,
+            "input_tokens": 64,
+            "mean_ms": 1.7869030435880024,
+            "p50_ms": 1.780549471732229,
+            "p95_ms": 1.8251385248731822,
+            "samples_ms": [
+              1.766968984156847,
+              1.7754599684849381,
+              1.7657300923019648,
+              1.7596890684217215,
+              1.7603300511837006,
+              1.7673599068075418,
+              1.796858967281878,
+              1.7891000024974346,
+              1.7838900675997138,
+              1.7796989995986223,
+              1.778890029527247,
+              1.7876899801194668,
+              1.7806190298870206,
+              1.7796100582927465,
+              1.8002900760620832,
+              1.8131399992853403,
+              1.8016899703070521,
+              1.7794690793380141,
+              1.792259979993105,
+              1.8422399880364537,
+              1.8287700368091464,
+              1.8207000102847815,
+              1.7886999994516373,
+              1.7797090113162994,
+              1.7804799135774374,
+              1.7790499841794372,
+              1.7844090471044183,
+              1.7762400675565004,
+              1.7784199444577098,
+              1.7896289937198162
+            ]
+          },
+          {
+            "variant": "retained",
+            "case": "1-short",
+            "round": 2,
+            "questions": 1,
+            "input_tokens": 64,
+            "mean_ms": 1.7495774974425633,
+            "p50_ms": 1.7460249946452677,
+            "p95_ms": 1.7690505483187735,
+            "samples_ms": [
+              1.7604889580979943,
+              1.7731100087985396,
+              1.7818899359554052,
+              1.7640889855101705,
+              1.746080000884831,
+              1.7492090119048953,
+              1.7431799788028002,
+              1.7468190053477883,
+              1.7450300510972738,
+              1.7498190281912684,
+              1.7445399425923824,
+              1.738948980346322,
+              1.7365100793540478,
+              1.7530589830130339,
+              1.7352590803056955,
+              1.7441699746996164,
+              1.7459699884057045,
+              1.7459290102124214,
+              1.7427589045837522,
+              1.7640399746596813,
+              1.7458789516240358,
+              1.7515800427645445,
+              1.7454701010137796,
+              1.7496090149506927,
+              1.7492990009486675,
+              1.7452200409024954,
+              1.7429100116714835,
+              1.7537289531901479,
+              1.7446399433538318,
+              1.7480889800935984
+            ]
+          }
+        ],
+        "order": [
+          {
+            "case": "1-short",
+            "round": 0,
+            "names": [
+              "pdl",
+              "retained"
+            ]
+          },
+          {
+            "case": "1-short",
+            "round": 1,
+            "names": [
+              "retained",
+              "pdl"
+            ]
+          },
+          {
+            "case": "1-short",
+            "round": 2,
+            "names": [
+              "pdl",
+              "retained"
+            ]
+          }
+        ],
+        "rounds": 3,
+        "repeats_per_round": 30
+      },
+      "changing_inputs": {
+        "rows": [
+          {
+            "variant": "retained",
+            "round": 0,
+            "mean_ms": 1.7625170585233718,
+            "p50_ms": 1.749029557686299,
+            "p95_ms": 1.8075695668812841,
+            "samples_ms": [
+              1.8163700588047504,
+              1.7577001126483083,
+              1.74035900272429,
+              1.7356390599161386
+            ]
+          },
+          {
+            "variant": "pdl",
+            "round": 0,
+            "mean_ms": 1.7738172318786383,
+            "p50_ms": 1.7631049850024283,
+            "p95_ms": 1.806333544664085,
+            "samples_ms": [
+              1.81298004463315,
+              1.7686700448393822,
+              1.7560789128765464,
+              1.7575399251654744
+            ]
+          },
+          {
+            "variant": "pdl",
+            "round": 1,
+            "mean_ms": 1.765277236700058,
+            "p50_ms": 1.7660544835962355,
+            "p95_ms": 1.7736284993588924,
+            "samples_ms": [
+              1.7547999741509557,
+              1.7617190023884177,
+              1.7703899648040533,
+              1.7742000054568052
+            ]
+          },
+          {
+            "variant": "retained",
+            "round": 1,
+            "mean_ms": 1.7502245027571917,
+            "p50_ms": 1.752794487401843,
+            "p95_ms": 1.7557100334670395,
+            "samples_ms": [
+              1.7558600520715117,
+              1.7394489841535687,
+              1.7548599280416965,
+              1.7507290467619896
+            ]
+          },
+          {
+            "variant": "pdl",
+            "round": 2,
+            "mean_ms": 1.7716045258566737,
+            "p50_ms": 1.770814007613808,
+            "p95_ms": 1.7771049169823527,
+            "samples_ms": [
+              1.7729389946907759,
+              1.7778400797396898,
+              1.7669500084593892,
+              1.76868902053684
+            ]
+          },
+          {
+            "variant": "retained",
+            "round": 2,
+            "mean_ms": 1.7391570145264268,
+            "p50_ms": 1.7398744821548462,
+            "p95_ms": 1.7460595758166164,
+            "samples_ms": [
+              1.7386788967996836,
+              1.7469400772824883,
+              1.7299390165135264,
+              1.7410700675100088
+            ]
+          }
+        ],
+        "order": [
+          {
+            "indices": [
+              3,
+              2,
+              0,
+              1
+            ],
+            "variants": [
+              "retained",
+              "pdl"
+            ]
+          },
+          {
+            "indices": [
+              1,
+              0,
+              2,
+              3
+            ],
+            "variants": [
+              "pdl",
+              "retained"
+            ]
+          },
+          {
+            "indices": [
+              0,
+              2,
+              1,
+              3
+            ],
+            "variants": [
+              "pdl",
+              "retained"
+            ]
+          }
+        ]
+      },
+      "summary": {
+        "fixed": {
+          "median_ms": {
+            "retained": 1.7429900472052395,
+            "pdl": 1.757709018420428
+          },
+          "paired_savings_ms": [
+            -0.02126052277162671,
+            -0.00862503657117486,
+            -0.03452447708696127
+          ],
+          "faster_rounds": 0
+        },
+        "changing": {
+          "median_ms": {
+            "retained": 1.7440050723962486,
+            "pdl": 1.768679532688111
+          },
+          "paired_savings_ms": [
+            -0.014075427316129208,
+            -0.013259996194392443,
+            -0.030939525458961725
+          ],
+          "faster_rounds": 0
+        }
+      }
+    }
+  }
+}

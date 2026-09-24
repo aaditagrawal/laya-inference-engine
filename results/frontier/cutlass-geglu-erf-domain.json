@@ -1,0 +1,49 @@
+{
+  "scope": "All 65,536 BF16 bit patterns, compared bitwise with installed PyTorch GELU table",
+  "domain_size": 65536,
+  "correction_input_bits": [
+    49225,
+    49281,
+    49289,
+    49298,
+    49312,
+    49320,
+    49323
+  ],
+  "correction_output_bits": [
+    47917,
+    47339,
+    47143,
+    46914,
+    46536,
+    46332,
+    46251
+  ],
+  "uncorrected_output_bits": [
+    47918,
+    47338,
+    47142,
+    46912,
+    46516,
+    46248,
+    46123
+  ],
+  "command": [
+    "/usr/local/cuda-13.1/bin/nvcc",
+    "-O3",
+    "-std=c++20",
+    "-arch=sm_120",
+    "--compiler-options",
+    "-fPIC",
+    "-shared",
+    "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/cutlass_geglu_erf_domain.cu",
+    "-o",
+    "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-cutlass-geglu-erf/domain.so"
+  ],
+  "library_sha256": "5a07dd43d3315282ecaf958e9c78603af71acec27ea283803e1db5cd0f1eacdb",
+  "source_sha256": {
+    "experiments/frontier/cutlass_geglu_erf_domain.cu": "c3fdbb2f23e9088d141ec14a0e6edef75df996815c6d6b3e5917fcc2a52994bb",
+    "experiments/frontier/cutlass_geglu_erf_math.cuh": "c188b316f0506a5881b5b0f83d3971fd4c21ddbad763643bb08eaaa0bdf0b119",
+    "experiments/frontier/cutlass_geglu_erf_domain.py": "a7f0567608a27bb718737f49a9ae2a4bbfab184818253878a548bad9ded95b36"
+  }
+}

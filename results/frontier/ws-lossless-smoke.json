@@ -1,0 +1,1017 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T11:41:28.234812+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "seed": 20260926,
+  "native_build": {
+    "source_sha256": "b13911dbd58ef521c5c4712be5b275cf6015ad14967cb2a4f557259854e27d14",
+    "library_sha256": "781afff0325fd9a63fd77b5719f738303e72446898640a30742bf2ca5c40b4a1",
+    "sass_sha256": "9624f9eb44b8b5b33dc49ec5203268960cc297b2dfabf7c9012090fa036977ff",
+    "architecture": "sm_120",
+    "command": [
+      "/usr/local/cuda-13.1/bin/nvcc",
+      "-O3",
+      "-std=c++20",
+      "-gencode=arch=compute_120,code=sm_120",
+      "--compiler-options",
+      "-fPIC",
+      "--ptxas-options=-v",
+      "-lineinfo",
+      "-shared",
+      "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/ws_lossless.cu",
+      "-o",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-ws-lossless/ws_lossless.so"
+    ]
+  },
+  "source_sha256": {
+    "experiments/frontier/ws_lossless.cu": "b13911dbd58ef521c5c4712be5b275cf6015ad14967cb2a4f557259854e27d14",
+    "experiments/frontier/ws_lossless_probe.py": "187f2e2b3b19fd5dda96c12d32d41dbb1c21d4a551c532a6886812985e84b3d2",
+    "experiments/frontier/ws_lossless.py": "2c693d9b6ddc1866ead5b971670dfa67b19ab4d59b1214f1f5ca36e6313091e1",
+    "experiments/frontier/ws_lossless_build.py": "d8659e6928c6030f0008d42235b2118a8672e9123df843ce633fe2a05c57ab7e",
+    "experiments/frontier/native_lossless.py": "d3a2c6cfcc69790e3dd7e9bb44d943d88ccee92f1c3e058172dee546768f5ae8"
+  },
+  "method": "One/two dedicated producer warps reconstruct fixed 13-bit BF16 weights into 2/3 buffered shared tiles; four consumer warps perform sequential BF16 MMA without decoding. Per-slot release/acquire full/empty mbarriers. Matched unpacked native controls use identical scheduling and consumer code. Timing is 28 distinct real matrices, graph replay, not full requests.",
+  "storage_ratio": 0.8125,
+  "rows": [
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "producers": 2,
+      "consumers": 4,
+      "stages": 2,
+      "packed": true,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.027036800980567932,
+      "samples_ms": [
+        0.027305600047111512,
+        0.026931199431419372,
+        0.027036800980567932
+      ],
+      "with_geglu_ms": 0.02717440128326416,
+      "with_geglu_samples_ms": [
+        0.029942399263381957,
+        0.02717440128326416,
+        0.027062401175498962
+      ],
+      "speedup_raw": 0.5440880198455805,
+      "speedup_fused_geglu": 0.545807809334633
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "producers": 1,
+      "consumers": 4,
+      "stages": 3,
+      "packed": false,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.023027199506759643,
+      "samples_ms": [
+        0.022672000527381896,
+        0.023027199506759643,
+        0.023097600042819976
+      ],
+      "with_geglu_ms": 0.023951999843120575,
+      "with_geglu_samples_ms": [
+        0.024307200312614442,
+        0.023951999843120575,
+        0.02353599965572357
+      ],
+      "speedup_raw": 0.6388271185194715,
+      "speedup_fused_geglu": 0.6192384991459765
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "producers": 1,
+      "consumers": 4,
+      "stages": 2,
+      "packed": false,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.01706240028142929,
+      "samples_ms": [
+        0.017110399901866913,
+        0.01687999963760376,
+        0.01706240028142929
+      ],
+      "with_geglu_ms": 0.018831999599933626,
+      "with_geglu_samples_ms": [
+        0.018831999599933626,
+        0.018329599499702455,
+        0.018966400623321535
+      ],
+      "speedup_raw": 0.8621529952316878,
+      "speedup_fused_geglu": 0.7875956217868084
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "producers": 2,
+      "consumers": 4,
+      "stages": 2,
+      "packed": false,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.016064000129699708,
+      "samples_ms": [
+        0.016064000129699708,
+        0.016297599673271178,
+        0.015913599729537965
+      ],
+      "with_geglu_ms": 0.017132799327373504,
+      "with_geglu_samples_ms": [
+        0.017315199971199034,
+        0.016953599452972413,
+        0.017132799327373504
+      ],
+      "speedup_raw": 0.9157370138013841,
+      "speedup_fused_geglu": 0.8657079412995394
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "producers": 2,
+      "consumers": 4,
+      "stages": 2,
+      "packed": false,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.019116799533367156,
+      "samples_ms": [
+        0.019116799533367156,
+        0.01916159987449646,
+        0.018915200233459474
+      ],
+      "with_geglu_ms": 0.02104640007019043,
+      "with_geglu_samples_ms": [
+        0.02122559994459152,
+        0.02104640007019043,
+        0.020790399610996248
+      ],
+      "speedup_raw": 0.7695011648158046,
+      "speedup_fused_geglu": 0.7047286179552534
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "producers": 1,
+      "consumers": 4,
+      "stages": 2,
+      "packed": true,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.0377344012260437,
+      "samples_ms": [
+        0.037775999307632445,
+        0.037360000610351565,
+        0.0377344012260437
+      ],
+      "with_geglu_ms": 0.039129599928855896,
+      "with_geglu_samples_ms": [
+        0.03815680146217346,
+        0.039129599928855896,
+        0.03915840089321136
+      ],
+      "speedup_raw": 0.38984054418553665,
+      "speedup_fused_geglu": 0.37904809814988366
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "producers": 2,
+      "consumers": 4,
+      "stages": 3,
+      "packed": false,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.021164800226688384,
+      "samples_ms": [
+        0.021264000236988066,
+        0.020716799795627593,
+        0.021164800226688384
+      ],
+      "with_geglu_ms": 0.02269120067358017,
+      "with_geglu_samples_ms": [
+        0.023372800648212434,
+        0.02269120067358017,
+        0.02239679992198944
+      ],
+      "speedup_raw": 0.6950407918297636,
+      "speedup_fused_geglu": 0.6536454658244618
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "producers": 2,
+      "consumers": 4,
+      "stages": 2,
+      "packed": true,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.03952319920063019,
+      "samples_ms": [
+        0.03961920142173767,
+        0.03952319920063019,
+        0.03936960101127625
+      ],
+      "with_geglu_ms": 0.03993920087814331,
+      "with_geglu_samples_ms": [
+        0.04008640050888061,
+        0.03993920087814331,
+        0.03975679874420166
+      ],
+      "speedup_raw": 0.3721965783640739,
+      "speedup_fused_geglu": 0.3713644767117874
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "producers": 2,
+      "consumers": 4,
+      "stages": 3,
+      "packed": false,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.023024000227451324,
+      "samples_ms": [
+        0.023193599283695222,
+        0.023024000227451324,
+        0.022867199778556824
+      ],
+      "with_geglu_ms": 0.0233024001121521,
+      "with_geglu_samples_ms": [
+        0.023523199558258056,
+        0.023107199370861052,
+        0.0233024001121521
+      ],
+      "speedup_raw": 0.6389158861689538,
+      "speedup_fused_geglu": 0.6365009768527589
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "producers": 2,
+      "consumers": 4,
+      "stages": 3,
+      "packed": true,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.06203839778900146,
+      "samples_ms": [
+        0.06302080154418946,
+        0.06178560256958008,
+        0.06203839778900146
+      ],
+      "with_geglu_ms": 0.06240000128746033,
+      "with_geglu_samples_ms": [
+        0.06240000128746033,
+        0.06250560283660889,
+        0.061919999122619626
+      ],
+      "speedup_raw": 0.23711765668913204,
+      "speedup_fused_geglu": 0.23769230974966715
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "producers": 1,
+      "consumers": 4,
+      "stages": 3,
+      "packed": true,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.06439679861068726,
+      "samples_ms": [
+        0.06439679861068726,
+        0.06414080262184144,
+        0.0646016001701355
+      ],
+      "with_geglu_ms": 0.0662015974521637,
+      "with_geglu_samples_ms": [
+        0.06635839939117431,
+        0.0662015974521637,
+        0.06590080261230469
+      ],
+      "speedup_raw": 0.22843370828740123,
+      "speedup_fused_geglu": 0.22404293861815097
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "producers": 2,
+      "consumers": 4,
+      "stages": 3,
+      "packed": true,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.03752639889717102,
+      "samples_ms": [
+        0.03772799968719483,
+        0.03752639889717102,
+        0.037334400415420535
+      ],
+      "with_geglu_ms": 0.03909119963645935,
+      "with_geglu_samples_ms": [
+        0.03951039910316467,
+        0.03909119963645935,
+        0.038601601123809816
+      ],
+      "speedup_raw": 0.3920013627949049,
+      "speedup_fused_geglu": 0.37942044686101745
+    },
+    {
+      "tile": 1,
+      "bm": 64,
+      "bn": 32,
+      "producers": 2,
+      "consumers": 4,
+      "stages": 2,
+      "packed": false,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.016828800737857818,
+      "samples_ms": [
+        0.017212800681591034,
+        0.016710400581359863,
+        0.016828800737857818
+      ],
+      "with_geglu_ms": 0.017628799378871917,
+      "with_geglu_samples_ms": [
+        0.017628799378871917,
+        0.016832000017166136,
+        0.017632000148296356
+      ],
+      "speedup_raw": 0.8741204877055774,
+      "speedup_fused_geglu": 0.8413505716205935
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "producers": 1,
+      "consumers": 4,
+      "stages": 3,
+      "packed": true,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.11129920482635498,
+      "samples_ms": [
+        0.11129920482635498,
+        0.1112064003944397,
+        0.11137919425964356
+      ],
+      "with_geglu_ms": 0.11281280517578125,
+      "with_geglu_samples_ms": [
+        0.11328959465026855,
+        0.11281280517578125,
+        0.11217279434204101
+      ],
+      "speedup_raw": 0.13216985270853365,
+      "speedup_fused_geglu": 0.13147444043508988
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "producers": 1,
+      "consumers": 4,
+      "stages": 2,
+      "packed": true,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.062326401472091675,
+      "samples_ms": [
+        0.062326401472091675,
+        0.06229119896888733,
+        0.06251199841499329
+      ],
+      "with_geglu_ms": 0.06423360109329224,
+      "with_geglu_samples_ms": [
+        0.06455039978027344,
+        0.0640447974205017,
+        0.06423360109329224
+      ],
+      "speedup_raw": 0.2360219611758467,
+      "speedup_fused_geglu": 0.23090719159364587
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "producers": 1,
+      "consumers": 4,
+      "stages": 3,
+      "packed": true,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.06410560011863708,
+      "samples_ms": [
+        0.06427199840545654,
+        0.06409599781036376,
+        0.06410560011863708
+      ],
+      "with_geglu_ms": 0.06424959897994995,
+      "with_geglu_samples_ms": [
+        0.06448320150375367,
+        0.06399999856948853,
+        0.06424959897994995
+      ],
+      "speedup_raw": 0.22947136414373226,
+      "speedup_fused_geglu": 0.2308496966498919
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "producers": 2,
+      "consumers": 4,
+      "stages": 3,
+      "packed": false,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.020131200551986694,
+      "samples_ms": [
+        0.020787200331687926,
+        0.01996160000562668,
+        0.020131200551986694
+      ],
+      "with_geglu_ms": 0.021279999613761903,
+      "with_geglu_samples_ms": [
+        0.021279999613761903,
+        0.021270400285720824,
+        0.02182080000638962
+      ],
+      "speedup_raw": 0.7307263901369522,
+      "speedup_fused_geglu": 0.6969925142670917
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "producers": 2,
+      "consumers": 4,
+      "stages": 2,
+      "packed": true,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.029654398560523987,
+      "samples_ms": [
+        0.029827201366424562,
+        0.029212799668312073,
+        0.029654398560523987
+      ],
+      "with_geglu_ms": 0.03144319951534271,
+      "with_geglu_samples_ms": [
+        0.03149439990520477,
+        0.03144319951534271,
+        0.031231999397277832
+      ],
+      "speedup_raw": 0.49606130026385964,
+      "speedup_fused_geglu": 0.47170773531368443
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "producers": 1,
+      "consumers": 4,
+      "stages": 2,
+      "packed": false,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.015459200739860535,
+      "samples_ms": [
+        0.015548799932003022,
+        0.015459200739860535,
+        0.015331199765205384
+      ],
+      "with_geglu_ms": 0.016847999393939973,
+      "with_geglu_samples_ms": [
+        0.01722559928894043,
+        0.016847999393939973,
+        0.016659200191497803
+      ],
+      "speedup_raw": 0.9515627460963396,
+      "speedup_fused_geglu": 0.8803419377931332
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "producers": 2,
+      "consumers": 4,
+      "stages": 3,
+      "packed": true,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.03992320001125336,
+      "samples_ms": [
+        0.039952000975608824,
+        0.03951680064201355,
+        0.03992320001125336
+      ],
+      "with_geglu_ms": 0.041043201088905336,
+      "with_geglu_samples_ms": [
+        0.04112319946289063,
+        0.04079680144786835,
+        0.041043201088905336
+      ],
+      "speedup_raw": 0.36846744510284146,
+      "speedup_fused_geglu": 0.36137533235457087
+    },
+    {
+      "tile": 2,
+      "bm": 32,
+      "bn": 64,
+      "producers": 1,
+      "consumers": 4,
+      "stages": 3,
+      "packed": false,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.021081599593162536,
+      "samples_ms": [
+        0.02126079946756363,
+        0.021081599593162536,
+        0.02094080001115799
+      ],
+      "with_geglu_ms": 0.022998400032520294,
+      "with_geglu_samples_ms": [
+        0.023193599283695222,
+        0.022918400168418885,
+        0.022998400032520294
+      ],
+      "speedup_raw": 0.6977838395738873,
+      "speedup_fused_geglu": 0.6449144468061188
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "producers": 1,
+      "consumers": 4,
+      "stages": 2,
+      "packed": false,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.019049599766731262,
+      "samples_ms": [
+        0.01920959949493408,
+        0.018915200233459474,
+        0.019049599766731262
+      ],
+      "with_geglu_ms": 0.01945919990539551,
+      "with_geglu_samples_ms": [
+        0.01945919990539551,
+        0.019417600333690645,
+        0.0194815993309021
+      ],
+      "speedup_raw": 0.7722156732220116,
+      "speedup_fused_geglu": 0.7622101888313578
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "producers": 1,
+      "consumers": 4,
+      "stages": 2,
+      "packed": true,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.04097599983215332,
+      "samples_ms": [
+        0.04097599983215332,
+        0.041315200924873355,
+        0.04070079922676086
+      ],
+      "with_geglu_ms": 0.04169600009918213,
+      "with_geglu_samples_ms": [
+        0.04177919924259186,
+        0.04169600009918213,
+        0.04148800075054169
+      ],
+      "speedup_raw": 0.3590003799476103,
+      "speedup_fused_geglu": 0.35571758439941054
+    },
+    {
+      "tile": 0,
+      "bm": 32,
+      "bn": 32,
+      "producers": 1,
+      "consumers": 4,
+      "stages": 3,
+      "packed": false,
+      "mismatches": 0,
+      "per_matrix_mismatches": [
+        0
+      ],
+      "max_abs_error": 0.0,
+      "geglu_parity": {
+        "mismatches": 0,
+        "per_matrix_mismatches": [
+          0
+        ],
+        "max_abs_error": 0.0
+      },
+      "ms": 0.021001599729061127,
+      "samples_ms": [
+        0.021216000616550445,
+        0.021001599729061127,
+        0.02096959948539734
+      ],
+      "with_geglu_ms": 0.022886399924755097,
+      "with_geglu_samples_ms": [
+        0.02361920028924942,
+        0.022886399924755097,
+        0.022767999768257143
+      ],
+      "speedup_raw": 0.7004418567277343,
+      "speedup_fused_geglu": 0.6480704909100012
+    }
+  ],
+  "accepted_domain_native_decode_exact": true,
+  "accepted_unique_patterns": 7938,
+  "fused_config": [
+    32,
+    64,
+    64,
+    4,
+    3,
+    2,
+    false
+  ],
+  "matrix_count": 1,
+  "retained_selection": {
+    "attn.Wqkv": {
+      "field": "attn.Wqkv",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        4,
+        false
+      ],
+      "variant": "tma",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.2824053366978963,
+      "samples_ms": [
+        0.2842533389727275,
+        0.2824053366978963,
+        0.2823973298072815
+      ],
+      "speedup": 1.1323865060223333,
+      "tma_instruction": "@%p5 cp.async.bulk.tensor.2d.shared::cta.global.mbarrier::complete_tx::bytes [%r18], [%rd2, {%r19, %r1}], [%r15];",
+      "shared_bytes": 36888
+    },
+    "attn.Wo": {
+      "field": "attn.Wo",
+      "config": [
+        32,
+        32,
+        64,
+        1,
+        4,
+        5
+      ],
+      "variant": "bf16",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.12824533383051553,
+      "samples_ms": [
+        0.129530668258667,
+        0.12824533383051553,
+        0.12781866391499838
+      ],
+      "speedup": 1.5529402232354563
+    },
+    "mlp.Wi": {
+      "field": "mlp.Wi",
+      "config": [
+        32,
+        64,
+        64,
+        1,
+        4,
+        3
+      ],
+      "variant": "bf16",
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.44487198193868,
+      "samples_ms": [
+        0.4462960163752238,
+        0.4447973171869914,
+        0.44487198193868
+      ],
+      "speedup": 1.1813076064907817
+    },
+    "mlp.Wo": {
+      "field": "mlp.Wo",
+      "variant": "bf16-partial",
+      "config": [
+        32,
+        32,
+        64,
+        4,
+        4,
+        3
+      ],
+      "mismatches": 0,
+      "max_abs_error": 0.0,
+      "ms": 0.26548266410827637,
+      "samples_ms": [
+        0.2674853404362996,
+        0.26548266410827637,
+        0.26505066951115924
+      ],
+      "speedup": 1.1396902301869904
+    }
+  },
+  "fused_reference_parity": {
+    "mismatches": 0,
+    "per_matrix_mismatches": [
+      0
+    ],
+    "max_abs_error": 0.0
+  },
+  "baseline_raw": {
+    "ms": 0.014710399508476257,
+    "samples_ms": [
+      0.016297599673271178,
+      0.014710399508476257,
+      0.014560000598430633
+    ]
+  },
+  "baseline_fused_geglu": {
+    "ms": 0.01483200043439865,
+    "samples_ms": [
+      0.015225599706172942,
+      0.01483200043439865,
+      0.014815999567508698
+    ]
+  },
+  "all_weights_native_decode_exact": true,
+  "baseline_raw_after_ms": 0.014854399859905243,
+  "baseline_fused_after_ms": 0.014828799664974213
+}

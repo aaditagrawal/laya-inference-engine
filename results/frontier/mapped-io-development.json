@@ -1,0 +1,14 @@
+{
+  "initial_probe_session": 43643,
+  "exit_code": 134,
+  "initial_source_reconstruction": "Reconstructed by reversing the known teardown-only edit. The source was not archived before the failed run and no original pre-run source hash was persisted.",
+  "mapped_io_source_sha256": "fd504db9d3f392be0b185899448374778499b2ebd30ec50742e68e34e808c54a",
+  "error_excerpt": ".research/mapped-io-initial-failure.txt",
+  "excerpt_sha256": "d1aba6d1d1a09fb82ddb30511aef128f8205849e72e2894e0eb277755950355c",
+  "fix": "Release native Session, graph, mapped aliases, pinned tensor views and device tensor owners before destroying external capture streams; synchronize after release.",
+  "fresh_process_session": 66606,
+  "fresh_process_exit_code": 0,
+  "initial_probe_reconstructed_source_sha256": "ebe990a44d0409192763ce50ffd42e95c79b3abf0e86c47e0a6b9e21cf0d9f28",
+  "initial_probe_original_source_sha256": null,
+  "additional_harness_fix": "The first standalone lifetime invocation stopped before validation because an in-place CPU update touched an inference tensor outside inference mode. Decorating its main with inference_mode resolved this probe-only error; subsequent fresh-process lifecycle runs passed."
+}

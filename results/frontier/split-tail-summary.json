@@ -1,0 +1,27 @@
+{
+  "decision": "No integration. Skipping three padded iterations or reordering CTAs did not improve the 28-matrix bank.",
+  "matrix_count": 28,
+  "configurations": 9,
+  "all_matrix_outputs_bit_exact": true,
+  "edge_cases": 36,
+  "all_edge_outputs_bit_exact": true,
+  "summary_ms": {
+    "retained": 0.25224199891090393,
+    "mode-0-order-0": 0.2530680000782013,
+    "mode-0-order-1": 0.2549799978733063,
+    "mode-0-order-2": 0.2552509903907776,
+    "mode-1-order-0": 0.2533259987831116,
+    "mode-1-order-1": 0.2597610056400299,
+    "mode-1-order-2": 0.2583410143852234,
+    "mode-2-order-0": 0.2903830111026764,
+    "mode-2-order-1": 0.2920660078525543,
+    "mode-2-order-2": 0.28851398825645447
+  },
+  "scope": "Isolated MLP output projections returning four BF16 partials, no following normalization. No full-request candidate was run.",
+  "source_sha256": {
+    "split_tail_probe.py": "3b610213bf2ee9aa3689ecb184c4557ed010f4bbff041781a6dd69f62b43aa4a",
+    "split_tail.py": "4d839d7c10dff5aa922d0e1fb6bc4a75b856176ea85fb785bb01a7f33b1a7083"
+  },
+  "result_sha256": "387e91b261e0b082c9fc8f4da5d9a44c2e0fe6e1378cc232a7a7be1e6b59f754",
+  "source_stable": true
+}

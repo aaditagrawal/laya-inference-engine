@@ -1,0 +1,420 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T10:42:45.243811+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "scope": "18 local attention calls per graph; 9 actual requests for elementwise parity",
+  "build": {
+    "seconds": 34.57933618302923,
+    "torch_revision": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cutlass_revision": "e05f953a5b3d38adc240df2ff928e0421c2abba3",
+    "torch_header_sha256": "fcbfa07f0bc48e239e4d8c45025d5d9e65ff017d00e9dd667918e03172637650",
+    "source_sha256": "2639e2f82a2e678091094a905629d40a413747c80a135de4e00cd58c32a6e805",
+    "library_sha256": "2375a83af23c6a7615524380573ab77130a2db702d9be96650fc2ef37f793c75",
+    "architecture": "sm_120",
+    "fast_math": false
+  },
+  "rows": [
+    {
+      "configuration": [
+        64,
+        false,
+        false
+      ],
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mismatches": 0,
+      "ms": 0.10658304214477539,
+      "samples_ms": [
+        0.10662848472595216,
+        0.10661343574523925,
+        0.10654975891113282,
+        0.10657567977905273,
+        0.10654335975646972,
+        0.10660479545593261,
+        0.10658304214477539
+      ],
+      "speedup": 1.4278894084327887
+    },
+    {
+      "configuration": [
+        64,
+        true,
+        true
+      ],
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mismatches": 0,
+      "ms": 0.09424127578735352,
+      "samples_ms": [
+        0.09430591583251953,
+        0.09426048278808594,
+        0.09424863815307617,
+        0.09421759605407715,
+        0.09424127578735352,
+        0.09423935890197754,
+        0.09422464370727539
+      ],
+      "speedup": 1.6148847277966596
+    },
+    {
+      "configuration": [
+        64,
+        true,
+        false
+      ],
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mismatches": 0,
+      "ms": 0.1126425552368164,
+      "samples_ms": [
+        0.11272640228271484,
+        0.11266464233398438,
+        0.11263551712036132,
+        0.11263232231140137,
+        0.1126585578918457,
+        0.1126255989074707,
+        0.1126425552368164
+      ],
+      "speedup": 1.3510772787168495
+    },
+    {
+      "configuration": [
+        32,
+        true,
+        true
+      ],
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mismatches": 0,
+      "ms": 0.0817199993133545,
+      "samples_ms": [
+        0.08176671981811523,
+        0.08158528327941894,
+        0.08160032272338867,
+        0.08169504165649415,
+        0.08175071716308593,
+        0.0817199993133545,
+        0.08172191619873047
+      ],
+      "speedup": 1.8623200963757223
+    },
+    {
+      "configuration": [
+        32,
+        true,
+        false
+      ],
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mismatches": 0,
+      "ms": 0.10249695777893067,
+      "samples_ms": [
+        0.1025654411315918,
+        0.10249024391174316,
+        0.10248479843139649,
+        0.10249728202819824,
+        0.10252575874328614,
+        0.10249695777893067,
+        0.10249407768249512
+      ],
+      "speedup": 1.4848128207406592
+    },
+    {
+      "configuration": [
+        64,
+        false,
+        true
+      ],
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mismatches": 0,
+      "ms": 0.0925990390777588,
+      "samples_ms": [
+        0.0925772762298584,
+        0.0925990390777588,
+        0.09261919975280762,
+        0.09255423545837402,
+        0.09259103775024415,
+        0.09266912460327148,
+        0.09263551712036133
+      ],
+      "speedup": 1.6435245820345048
+    },
+    {
+      "configuration": [
+        32,
+        false,
+        false
+      ],
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mismatches": 0,
+      "ms": 0.09427712440490722,
+      "samples_ms": [
+        0.09432928085327148,
+        0.09424832344055176,
+        0.09427807807922363,
+        0.09428288459777832,
+        0.09427712440490722,
+        0.09423295974731445,
+        0.09422783851623535
+      ],
+      "speedup": 1.61427067231538
+    },
+    {
+      "configuration": [
+        32,
+        false,
+        true
+      ],
+      "request_mismatches": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mismatches": 0,
+      "ms": 0.0819651222229004,
+      "samples_ms": [
+        0.0820400047302246,
+        0.08195712089538575,
+        0.08195167541503906,
+        0.0819651222229004,
+        0.08193280220031739,
+        0.08196991920471192,
+        0.08196800231933593
+      ],
+      "speedup": 1.8567506869958645
+    }
+  ],
+  "requests": [
+    {
+      "state": "We were billed twice for March. Refund the duplicate payment today or we will cancel.",
+      "questions": {
+        "q0": {
+          "type": "choice",
+          "instructions": "Which department should handle this request?",
+          "criteria": {
+            "billing": "invoices, payments, refunds",
+            "technical": "bugs, outages, system errors",
+            "sales": "pricing and new contracts",
+            "other": "everything else"
+          }
+        }
+      }
+    },
+    {
+      "state": "My parcel arrived broken. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "refund": "refund",
+            "delivery": "delivery",
+            "warranty": "warranty",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The password reset failed. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "login": "login",
+            "network": "network",
+            "storage": "storage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "My suitcase is missing. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "booking": "booking",
+            "cancellation": "cancellation",
+            "baggage": "baggage",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The annual price seems wrong. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "invoice": "invoice",
+            "contract": "contract",
+            "support": "support",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "Production has stopped. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "urgent": "urgent",
+            "normal": "normal",
+            "resolved": "resolved",
+            "unknown": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "state": "The soup arrived cold. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "food": "food",
+            "drinks": "drinks",
+            "service": "service",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The export button crashes. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "bug": "bug",
+            "feature": "feature",
+            "question": "question",
+            "other": "other"
+          }
+        }
+      }
+    },
+    {
+      "state": "The update is wonderful. a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "Classify this request.",
+          "criteria": {
+            "positive": "positive",
+            "negative": "negative",
+            "neutral": "neutral",
+            "mixed": "mixed"
+          }
+        }
+      }
+    }
+  ],
+  "baseline_ms": 0.1521887969970703,
+  "baseline_samples_ms": [
+    0.15233247756958007,
+    0.15227807998657228,
+    0.15219903945922852,
+    0.15216768264770508,
+    0.1521887969970703,
+    0.15218239784240722,
+    0.15206175804138183
+  ],
+  "source_archive": ".research/frontier-attention-special/initial_kernel.cu",
+  "source_archive_sha256": "2639e2f82a2e678091094a905629d40a413747c80a135de4e00cd58c32a6e805"
+}

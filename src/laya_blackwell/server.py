@@ -1,9 +1,9 @@
 """HTTP serving with one engine instance and CPU request validation."""
 
-from contextlib import asynccontextmanager
 import hmac
 import logging
 import os
+from contextlib import asynccontextmanager
 from typing import Annotated, Any
 
 from fastapi import Depends, FastAPI, HTTPException
@@ -23,9 +23,9 @@ class SystemOneRequest(BaseModel):
 
 def _load_engine(**kwargs):
     # Keep importing this module and testing HTTP behavior independent of CUDA.
-    from .engine import BlackwellEngine
+    from .modes import create_engine
 
-    return BlackwellEngine(**kwargs)
+    return create_engine(**kwargs)
 
 
 def _warmup_requests():
@@ -53,6 +53,7 @@ def create_app(
     *,
     model: str | None = None,
     revision: str | None = None,
+    mode: str = "balanced",
     backend: str = "fused",
     device: str = "cuda:0",
     api_key: str | None = None,
@@ -66,7 +67,11 @@ def create_app(
     """
     key = api_key if api_key is not None else os.environ.get("LAYA_API_KEY")
     owned = engine is None
+    if mode not in {"balanced", "fast"}:
+        raise ValueError("mode must be balanced or fast")
     options = {"backend": backend, "device": device}
+    if mode != "balanced":
+        options["mode"] = mode
     if model is not None:
         options["model"] = model
     if revision is not None:
@@ -88,7 +93,7 @@ def create_app(
                 getattr(active, "device", device),
                 getattr(active, "backend", backend),
             )
-            if getattr(active, "backend", backend) in {"fused", "fp8"}:
+            if getattr(active, "backend", backend) in {"fused", "fp8", "fast"}:
                 logger.info(
                     "Warmup covers representative requests only; unseen batch, sequence, "
                     "or option shapes can incur cold kernel compilation and CUDA graph "
@@ -130,7 +135,9 @@ def create_app(
         if active is None or getattr(active, "closed", False):
             raise HTTPException(status_code=503, detail="Engine is unavailable")
         try:
-            return await run_in_threadpool(active.predict, request.state, request.questions)
+            return await run_in_threadpool(
+                active.predict, request.state, request.questions
+            )
         except ValueError as exc:
             raise HTTPException(status_code=422, detail=str(exc)) from exc
 

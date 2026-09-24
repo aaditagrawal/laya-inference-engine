@@ -1,0 +1,212 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T08:23:12.366612+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "rows": [
+    {
+      "tile": [
+        64,
+        64
+      ],
+      "mismatches": 201,
+      "layer_mismatches": [
+        1,
+        57,
+        2,
+        0,
+        2,
+        8,
+        2,
+        2,
+        2,
+        26,
+        3,
+        6,
+        0,
+        8,
+        3,
+        0,
+        6,
+        1,
+        0,
+        4,
+        4,
+        7,
+        6,
+        7,
+        0,
+        15,
+        7,
+        22
+      ],
+      "max_error": 0.015625,
+      "ms": 0.10017866889635722,
+      "samples_ms": [
+        0.10227466622988383,
+        0.10017866889635722,
+        0.10013866424560547
+      ],
+      "speedup": 2.5611839772954332
+    },
+    {
+      "tile": [
+        64,
+        128
+      ],
+      "mismatches": 201,
+      "layer_mismatches": [
+        1,
+        57,
+        2,
+        0,
+        2,
+        8,
+        2,
+        2,
+        2,
+        26,
+        3,
+        6,
+        0,
+        8,
+        3,
+        0,
+        6,
+        1,
+        0,
+        4,
+        4,
+        7,
+        6,
+        7,
+        0,
+        15,
+        7,
+        22
+      ],
+      "max_error": 0.015625,
+      "ms": 0.12337066729863484,
+      "samples_ms": [
+        0.12538933753967285,
+        0.12337066729863484,
+        0.12333866953849792
+      ],
+      "speedup": 2.0797164128411394
+    },
+    {
+      "tile": [
+        128,
+        64
+      ],
+      "mismatches": 201,
+      "layer_mismatches": [
+        1,
+        57,
+        2,
+        0,
+        2,
+        8,
+        2,
+        2,
+        2,
+        26,
+        3,
+        6,
+        0,
+        8,
+        3,
+        0,
+        6,
+        1,
+        0,
+        4,
+        4,
+        7,
+        6,
+        7,
+        0,
+        15,
+        7,
+        22
+      ],
+      "max_error": 0.015625,
+      "ms": 0.12350133061408997,
+      "samples_ms": [
+        0.12500266234079996,
+        0.12350133061408997,
+        0.12343200047810872
+      ],
+      "speedup": 2.0775160912708612
+    },
+    {
+      "tile": [
+        128,
+        128
+      ],
+      "mismatches": 201,
+      "layer_mismatches": [
+        1,
+        57,
+        2,
+        0,
+        2,
+        8,
+        2,
+        2,
+        2,
+        26,
+        3,
+        6,
+        0,
+        8,
+        3,
+        0,
+        6,
+        1,
+        0,
+        4,
+        4,
+        7,
+        6,
+        7,
+        0,
+        15,
+        7,
+        22
+      ],
+      "max_error": 0.015625,
+      "ms": 0.17061867316563925,
+      "samples_ms": [
+        0.17286932468414307,
+        0.17061867316563925,
+        0.17059733470280966
+      ],
+      "speedup": 1.503797895527218
+    }
+  ],
+  "upstream_revision": "eed1971f5132630dc296fe37601e834d4b57a248",
+  "packages": {
+    "nvidia-cutlass-dsl": "4.8.0",
+    "flash-attn-4": "0.0.1.dev1+geed1971f5",
+    "quack-kernels": "0.6.5"
+  },
+  "baseline_ms": 0.2565760016441345,
+  "baseline_samples_ms": [
+    0.25863200426101685,
+    0.2565760016441345,
+    0.25649867455164593
+  ]
+}

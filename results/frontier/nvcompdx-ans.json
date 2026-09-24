@@ -1,0 +1,2900 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T11:55:40.802978+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "native_build": {
+    "source_sha256": "1f6bb3e17aa667c301801d1282a62ef991d5170ebd2f531c25451e08f79eb792",
+    "library_sha256": "2b624a4f7e5e1d3d2d36478e155c83adbdad8dbda954fbbb5c919b369738cb87",
+    "sdk_archive_sha256": "59a9233db34b75568acbcc5284e6cefe6fad5577ee644f85044971d62eeea353",
+    "sdk_files_sha256": {
+      "include/commondx/commondx_version.hpp": "0a6effcb5dc61362c115462a45c49c34137143ceb2f26622f74876db682b7cb8",
+      "include/commondx/complex_types.hpp": "7dd8262571ad5224590a6f19924238ba11354e48c1c6b251259636c83174d971",
+      "include/commondx/complex_types_cutlass.hpp": "b451487432986bf22a0e405dd7912559819932c4f408feca94a4a6470c2e39ba",
+      "include/commondx/detail/config.hpp": "9b7beb74656534b0623450b260183541d6ea7313c6b847f589291c54a1e37578",
+      "include/commondx/detail/cute/tensor.hpp": "c7d010c288fd9b628f8438f45444d1ae13ba2b8d693489a2f8210cc347c74bf7",
+      "include/commondx/detail/expressions.hpp": "3642f129a221a01b6dd101ccc64c525202410d3c72b4a2ae91130b68455de86b",
+      "include/commondx/detail/macros.hpp": "4a118ab43a036a632572e372c6b224726adb2c6e372f537fb510563830af48d3",
+      "include/commondx/detail/namespace_wrapper_close.hpp": "1fd4125cce59d0896301250e204abcbbac0b0fdb5aa326614e5f821b1aad8bec",
+      "include/commondx/detail/namespace_wrapper_open.hpp": "d323029bc7ab23d0a44896c3dd45240decbf555fa0e8bf966a8273a9d5d5239a",
+      "include/commondx/detail/stl/cstddef.hpp": "4c0c2a55ab1ce5fdd5e7f43d957be62e89f99aebd46808c857f3680e5719622c",
+      "include/commondx/detail/stl/cstdint.hpp": "6c6f6514381a7b6c77561cfd3f04a8974f7c87507f524cf8c731ae44ff484514",
+      "include/commondx/detail/stl/tuple.hpp": "e3d2e94da808bb33cb50925fb880d56f4a5ec59f4c7b0fa620c899d9e1fd2c1f",
+      "include/commondx/detail/stl/type_traits.hpp": "e089f62449b526217725b892a2ddeac7b17a58b79f669241a1e383177770bb70",
+      "include/commondx/detail/stl/utility.hpp": "7d44c7358d3e38e4d94597262efa3d681417061abb457886f12c2adac427feef",
+      "include/commondx/device_info.hpp": "0b2931d23f09ca98b72dec9f52683dbf39451250671a44be41759c34ab226660",
+      "include/commondx/device_info_shared_memory.hpp": "2c72f98065c852948addbea067debd46203522e57f5092b076445d72e9fea5fc",
+      "include/commondx/operators/block_dim.hpp": "66f5a2f92e24f1d8441d2455a937d8ef729b66448cf7570e73ec53578d999b4b",
+      "include/commondx/operators/execution_operators.hpp": "e8f4f6f568f1a7e5b8f016d60fc4e55d12e475577ab2ddf88fff63531652e061",
+      "include/commondx/operators/precision.hpp": "88b237caf279e8063bf3d1cb8b60c8cd409e3591eef845b0a4095c2bf3bc7161",
+      "include/commondx/operators/size3d.hpp": "ea064ec653de1e372441e786df613e33b0efebd5cf0c39e7a934783f406fb483",
+      "include/commondx/operators/sm.hpp": "a864ed84f76166d443816afc0094cdac4ccca5c4722de01e8f47cb9b7bca4338",
+      "include/commondx/operators/type.hpp": "ba7af680a123c2f9c5f8536a02bac2b186050ad774274e5c339023f1fa4588f7",
+      "include/commondx/shared_memory.hpp": "2e8f336a57c7788061eef3fb0bcba8880438305138dcc9f96eaa57e83fe2f41c",
+      "include/commondx/tensor.hpp": "ceb5bc27355a59c4b96d39b1704e7ea6023b970a97a1f77bbb6375245d6fcaa3",
+      "include/commondx/traits/detail/description_traits.hpp": "a4c7a0095291947e8611fc9b2d6cf6850fb574a942cc11f5b48b72e8f5b1ade3",
+      "include/commondx/traits/detail/get.hpp": "8080266dbb4c5723fc2d4bdd45af606a7aab4fd327cc43853d9fa7a6cd6cec3f",
+      "include/commondx/traits/detail/get_operator_fd.hpp": "bc0752a006661b13bb99c197a62c47b1abf2fe77e5ffd0378372869c4e48e266",
+      "include/commondx/traits/detail/is_operator_fd.hpp": "05ae8cb122c8fdeed8d22e9fabc237cfd0cf7c5e900db994b066039aa63e802f",
+      "include/commondx/traits/detail/make_cudavalue_type.hpp": "efdb23844e8299889af676b6019bfb14f13b833219be4f9e374d5d5b960007de",
+      "include/commondx/traits/dx_traits.hpp": "31cf636dbe497f91b8f6107dfc95f2b42f30f27db71a696fa6e2ac0492f91b00",
+      "include/commondx/traits/numeric_traits.hpp": "99a1b878cbc168a1cf3a411360eb948a329df5c29edd82ea41a1e1958a32dc85",
+      "include/commondx/type_list.hpp": "1365bfa0777701afdf215e4aa4ce242b3469cb3fceebd8bb56927374076f2c56",
+      "include/commondx/types.hpp": "bdcd1b6897316ca0b847e59b0249bec1df9f29ae8c4a15753010212f7fa41f83",
+      "include/nvcompdx/config.hpp": "083cdb2d1b6029774e61937924fed63314cd52375f45559122e9ee15e25f8c94",
+      "include/nvcompdx/detail/comp_checks.hpp": "2dec4ec1e054c0b52984b4a1500a2e02988362ba18c68d073dcf9c3b5c637efc",
+      "include/nvcompdx/detail/comp_description.hpp": "0ae0d499fed723aa4bd2ee4c6d30bd1aa4157e3f70052462da80ca963c64ee11",
+      "include/nvcompdx/detail/comp_description_arithmetic.hpp": "9c327752a5b78b40f02c011012d38b43f0a5f2a74b9d6596d938f3cd34478471",
+      "include/nvcompdx/detail/comp_description_fd.hpp": "95e2cc22dabc00c4ef1236c2b18061af565f1f64ec1764945cd7f9d6408f1f2e",
+      "include/nvcompdx/detail/comp_execution.hpp": "0788f7346521fe64b62d71bd3748c8b47f0b7e97564383ea4416671b482ac2a7",
+      "include/nvcompdx/detail/comp_runtime_dispatch.hpp": "78a88b79e367c6aa34704efc78a4467062be7b8ca21fa7c6f00c64ed4d80bdc6",
+      "include/nvcompdx/detail/core.hpp": "70c570f970f9e417f448beb54912660641eeeeb83a49102eafc09f1f505d1222",
+      "include/nvcompdx/detail/lto/ans/compress_device.hpp": "d0a820d190ddf8726ba81b14c2a78a4d49fb66e6842795c03281b2c43059c588",
+      "include/nvcompdx/detail/lto/ans/decompress_device.hpp": "7b440e54b4a0b2f433679ae59d7a25cf2671dd00e90e00cb9436a87446716418",
+      "include/nvcompdx/detail/lto/common_fallback.hpp": "9f56bc78759d0013cf38c4fc96961a8de22c8e1e4d51bb6ff1183d25ca85ef77",
+      "include/nvcompdx/detail/lto/common_fd.hpp": "0991105e115ea9970c94761f4cc7c2dfd49c45c9372eccc8dea811b618a08bfa",
+      "include/nvcompdx/detail/lto/execute_impl.hpp": "ff458584169aec7347641407f1610ba29908f50323fb174865668fc786b8f48c",
+      "include/nvcompdx/detail/lto/lz4/compress_device.hpp": "ec1ef44ed062a91d59efeeb21e8c710f5ca6f2fba8b458d816c1816aae1c9010",
+      "include/nvcompdx/detail/lto/lz4/decompress_device.hpp": "d2b4a223a336c8e6bf5fd8181d52a16c8056f47b764d602e36baff12034c4252",
+      "include/nvcompdx/detail/lto/types.hpp": "b337c5afeb0ac9aaed049dc2a1412e8476a21b59bf393718d87746775090db82",
+      "include/nvcompdx/detail/runtime.hpp": "982faba6d527e2273e836343b7fb8240994a3b91eba3f48d128d7fd22501cee8",
+      "include/nvcompdx/detail/system_checks.hpp": "b5fe884971ef6386ba4506263090247f8eb63d80ae5937a401b5b0098b6261ef",
+      "include/nvcompdx/detail/utils.hpp": "cc110b364b4534ff2be577b343636ca4aa177dbd8e64fc3c741e4a6f55ec9d4d",
+      "include/nvcompdx/nvcompdx_version.hpp": "f547a91742b137ce836b400bb206d870a1c0f405fd27b762a6505bd31e672b2d",
+      "include/nvcompdx/operators/algorithm.hpp": "fa948c997fcdc962f9aea8af8b63204071773fce66712669e0ab8a5707f418aa",
+      "include/nvcompdx/operators/block_dim.hpp": "d764ab5a18cb84f46c60325101f47612d55df90de61b38ab016780c24a12fd44",
+      "include/nvcompdx/operators/block_warp.hpp": "c6ce11580d654f73f68463c7713302c95cec12bcc102e2a16fa9b56b2a5904c7",
+      "include/nvcompdx/operators/datatype.hpp": "5d64d5d6b54a82fd15547979f03c31f7fd02c35717f7f275cf1e075b47e9494d",
+      "include/nvcompdx/operators/direction.hpp": "323e95a9ce5b972f9d393d8bfa4927b4036c3828365ee48fa5a39355fa6f57bd",
+      "include/nvcompdx/operators/execution.hpp": "03d68762a1668b4d32e03e3b8e256ae81a7db27429312d72c0d166c0b912e297",
+      "include/nvcompdx/operators/max_uncomp_chunk_size.hpp": "0630b428cdd422344e84430b6b481478e35beadeb94927a67863dbfe8ee5db5c",
+      "include/nvcompdx/operators/operator_type.hpp": "c28c4f0b49f192a300e24d8ab93c2358686ff3aae8fce025aabbd115d1b307e1",
+      "include/nvcompdx/operators/sm.hpp": "ff3fd48ae34846d81be33fa1f4d39273ae30802acb95d2ed6e4a0cfb3728f21c",
+      "include/nvcompdx/operators.hpp": "a0411e4456fef1a86389a61bd74e3b92b95793fdc733f335018caa261e6a5a21",
+      "include/nvcompdx/traits/comp_traits.hpp": "a7cf1bd3d30c742d7dbe6a8cc740b6ebc28cfe7c1ae9dc1cac8bb094397c36cb",
+      "include/nvcompdx/traits/detail/description_traits.hpp": "baea1b0cf4098573b02acc265b6f0423b01546356b17766a7cc50f26c374cbd1",
+      "include/nvcompdx/traits/detail/is_complete.hpp": "7bba8648e103a908526ca598a815ed6579f5537d8cc226eae1907666b976d7f4",
+      "include/nvcompdx/traits/detail/is_supported.hpp": "750462123c39ed747a256e7014b3535587f7b532edb1f33771e2259c0a019622",
+      "include/nvcompdx/traits/detail/num_warps.hpp": "849b90a9961bfacdda334eb85e65ecddd893d6e04b51bb5067d47079dd69616a",
+      "include/nvcompdx/traits.hpp": "e9723e5963929b6df753c117de81f13f121a235f8bc9a0ad582f954e7899b9a2",
+      "include/nvcompdx/types.hpp": "07b3169d09a64689dee5077911ffe078110ba0de1886245a87d16fc929ba8b44",
+      "include/nvcompdx.hpp": "04b3c1cfe0c2b709334eb035664936a4bfd09ca2218f6fcef46a4aff0fac7324",
+      "lib/libnvcompdx.a": "3c1a4c7eae124cc3d250140bac4b6b3db831d8559c3407ea8595ccd1257a6dcf"
+    },
+    "sass_sha256": "e05143608544366933f83aae91b34e9becfbf57a054dca3eb2788b9888d3f407",
+    "sdk_url": "https://developer.download.nvidia.com/compute/nvcompdx/redist/nvcompdx/cuda13/nvidia-mathdx-26.06.1-cuda13.tar.gz",
+    "architecture": "sm_120",
+    "device_lto": true,
+    "command": [
+      "/usr/local/cuda-13.1/bin/nvcc",
+      "-O3",
+      "-std=c++20",
+      "-arch=sm_120",
+      "-rdc=true",
+      "-dlto",
+      "--expt-relaxed-constexpr",
+      "--compiler-options",
+      "-fPIC",
+      "--ptxas-options=-v",
+      "-lineinfo",
+      "-I",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-nvcompdx/nvidia-mathdx-26.06.1-cuda13/nvidia/mathdx/26.06/include",
+      "-shared",
+      "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/nvcompdx_ans.cu",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-nvcompdx/nvidia-mathdx-26.06.1-cuda13/nvidia/mathdx/26.06/lib/libnvcompdx.a",
+      "-o",
+      "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-nvcompdx/nvcompdx_ans.so"
+    ]
+  },
+  "source_sha256": {
+    "experiments/frontier/nvcompdx_ans.cu": "1f6bb3e17aa667c301801d1282a62ef991d5170ebd2f531c25451e08f79eb792",
+    "experiments/frontier/nvcompdx_probe.py": "1e7c1294f8a324377cfb76977e896b4520ced6ad5e30d364142831af600dcd2a",
+    "experiments/frontier/nvcompdx_ans.py": "a9cf28d2456404a5b9b2c3e7f39d295efcd6a2ab1557a9cd02eb2f6fdca8041c",
+    "experiments/frontier/nvcompdx_build.py": "cb4d376c0ec2c7e3f8b2d1f7eab0316822adc5e81a48d90123c88cf03833ec24"
+  },
+  "method": "Whole checkpoint MLPWi bank, nvCOMPDx ANS SM decoder with device LTO. Exact entire-bank reconstruction gate before timing. Decompression writes directly into shared memory, followed by uint32-to-uint64 checksum reduction. Matched raw cp.async-to-shared/checksum uses the same chunk/block and shared scratch allocation. Compression, compaction, transforms and global restoration are excluded from steady-state timing. Transform reversal inside GEMM would be additional work, so transformed checksum throughput is optimistic.",
+  "rows": [
+    {
+      "format": "raw_bytes",
+      "transform": 0,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 16384,
+      "block_threads": 128,
+      "transform_setup_ms": 0.7717750268056989,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 128,
+        "decode_registers": 46,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 5
+      },
+      "setup": {
+        "wall_ms": 66.49626500438899,
+        "compression_device_ms": 1.5749759674072266,
+        "compression_temporary_output_bytes": 420259840,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 250077728,
+        "aligned_stream_bytes": 250132192,
+        "allocated_stream_bytes": 250132208,
+        "metadata_bytes": 293888,
+        "ratio_original_to_compressed": 1.2033910992665449,
+        "chunk_sizes_min": 13506,
+        "chunk_sizes_max": 13814,
+        "per_matrix_compressed_bytes": [
+          8925254,
+          8927736,
+          8926470,
+          8921502,
+          8937338,
+          8935046,
+          8931460,
+          8926344,
+          8931486,
+          8945376,
+          8940832,
+          8932628,
+          8939588,
+          8944374,
+          8942904,
+          8941568,
+          8932564,
+          8932172,
+          8934166,
+          8936222,
+          8937366,
+          8930740,
+          8928280,
+          8922394,
+          8920610,
+          8912934,
+          8918016,
+          8922358
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.356878399848938,
+            "samples_ms": [
+              0.3571199893951416,
+              0.356878399848938,
+              0.3567312002182007
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.5043888092041016,
+            "samples_ms": [
+              3.5029727935791017,
+              3.5043888092041016,
+              3.505206298828125
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 3.504121780395508,
+            "samples_ms": [
+              3.504121780395508,
+              3.5048351287841797,
+              3.5036128997802733
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3567888021469116,
+            "samples_ms": [
+              0.3570607900619507,
+              0.3567888021469116,
+              0.35674400329589845
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.35681440830230715,
+            "samples_ms": [
+              0.35674879550933836,
+              0.35688319206237795,
+              0.35681440830230715
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.503851318359375,
+            "samples_ms": [
+              3.503753662109375,
+              3.5039951324462892,
+              3.503851318359375
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 3.5040878295898437,
+            "samples_ms": [
+              3.5040496826171874,
+              3.5047489166259767,
+              3.5040878295898437
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3570688009262085,
+            "samples_ms": [
+              0.35711040496826174,
+              0.3570688009262085,
+              0.35692639350891114
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3567823886871338,
+            "samples_ms": [
+              0.3570768117904663,
+              0.3567823886871338,
+              0.3566080093383789
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.504132843017578,
+            "samples_ms": [
+              3.5037216186523437,
+              3.5042606353759767,
+              3.504132843017578
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.35681440830230715,
+      "raw_shared_checksum_uncompressed_gbs": 843.4113225187665,
+      "ans_shared_checksum_ms": 3.504121780395508,
+      "ans_shared_checksum_uncompressed_gbs": 85.88209282099578,
+      "speedup_matched_raw": 0.10182705700999746,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "raw_bytes",
+      "transform": 0,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 4096,
+      "block_threads": 256,
+      "transform_setup_ms": 0.7717750268056989,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 256,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 6
+      },
+      "setup": {
+        "wall_ms": 10.601480957120657,
+        "compression_device_ms": 7.064000129699707,
+        "compression_temporary_output_bytes": 507250688,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 279016850,
+        "aligned_stream_bytes": 279237024,
+        "allocated_stream_bytes": 279237040,
+        "metadata_bytes": 1175552,
+        "ratio_original_to_compressed": 1.0785775554415442,
+        "chunk_sizes_min": 3752,
+        "chunk_sizes_max": 3898,
+        "per_matrix_compressed_bytes": [
+          9961034,
+          9963828,
+          9963586,
+          9958968,
+          9973116,
+          9969424,
+          9965846,
+          9960754,
+          9964906,
+          9975470,
+          9971568,
+          9965338,
+          9969968,
+          9972812,
+          9972906,
+          9971778,
+          9964742,
+          9964220,
+          9965940,
+          9967106,
+          9967734,
+          9963194,
+          9961286,
+          9957500,
+          9957208,
+          9951338,
+          9955610,
+          9959670
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3612303972244263,
+            "samples_ms": [
+              0.36174559593200684,
+              0.3612303972244263,
+              0.36121439933776855
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 11.566742706298829,
+            "samples_ms": [
+              11.566134643554687,
+              11.566742706298829,
+              11.566795349121094
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 11.567327880859375,
+            "samples_ms": [
+              11.567327880859375,
+              11.567784118652344,
+              11.566993713378906
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3615792036056519,
+            "samples_ms": [
+              0.36158080101013185,
+              0.3615792036056519,
+              0.3614687919616699
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3612512111663818,
+            "samples_ms": [
+              0.3612512111663818,
+              0.36065919399261476,
+              0.361407995223999
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 11.566095733642578,
+            "samples_ms": [
+              11.566095733642578,
+              11.566923522949219,
+              11.565433502197266
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 11.566729736328124,
+            "samples_ms": [
+              11.565022277832032,
+              11.566729736328124,
+              11.567078399658204
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3614016056060791,
+            "samples_ms": [
+              0.36055679321289064,
+              0.3614288091659546,
+              0.3614016056060791
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.36124320030212403,
+            "samples_ms": [
+              0.3611135959625244,
+              0.3617664098739624,
+              0.36124320030212403
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 11.567139434814454,
+            "samples_ms": [
+              11.565885162353515,
+              11.567139434814454,
+              11.567259216308594
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.3612512111663818,
+      "raw_shared_checksum_uncompressed_gbs": 833.0527419640821,
+      "ans_shared_checksum_ms": 11.566742706298829,
+      "ans_shared_checksum_uncompressed_gbs": 26.0178098226494,
+      "speedup_matched_raw": 0.031231887864995693,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "raw_bytes",
+      "transform": 0,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 4096,
+      "block_threads": 128,
+      "transform_setup_ms": 0.7717750268056989,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 128,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 12
+      },
+      "setup": {
+        "wall_ms": 7.391202030703425,
+        "compression_device_ms": 3.8565759658813477,
+        "compression_temporary_output_bytes": 507250688,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 279016850,
+        "aligned_stream_bytes": 279237024,
+        "allocated_stream_bytes": 279237040,
+        "metadata_bytes": 1175552,
+        "ratio_original_to_compressed": 1.0785775554415442,
+        "chunk_sizes_min": 3752,
+        "chunk_sizes_max": 3898,
+        "per_matrix_compressed_bytes": [
+          9961034,
+          9963828,
+          9963586,
+          9958968,
+          9973116,
+          9969424,
+          9965846,
+          9960754,
+          9964906,
+          9975470,
+          9971568,
+          9965338,
+          9969968,
+          9972812,
+          9972906,
+          9971778,
+          9964742,
+          9964220,
+          9965940,
+          9967106,
+          9967734,
+          9963194,
+          9961286,
+          9957500,
+          9957208,
+          9951338,
+          9955610,
+          9959670
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3588576078414917,
+            "samples_ms": [
+              0.3588576078414917,
+              0.3588543891906738,
+              0.3589951992034912
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 5.968377685546875,
+            "samples_ms": [
+              5.967134475708008,
+              5.968377685546875,
+              5.969412612915039
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 5.968558502197266,
+            "samples_ms": [
+              5.968384170532227,
+              5.968558502197266,
+              5.968739318847656
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3586335897445679,
+            "samples_ms": [
+              0.3589200019836426,
+              0.358622407913208,
+              0.3586335897445679
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.35868799686431885,
+            "samples_ms": [
+              0.3587007999420166,
+              0.35868799686431885,
+              0.3585455894470215
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 5.967720031738281,
+            "samples_ms": [
+              5.967144012451172,
+              5.968025588989258,
+              5.967720031738281
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 5.967939376831055,
+            "samples_ms": [
+              5.967091369628906,
+              5.968070220947266,
+              5.967939376831055
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3586352109909058,
+            "samples_ms": [
+              0.35895040035247805,
+              0.35855998992919924,
+              0.3586352109909058
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.35872321128845214,
+            "samples_ms": [
+              0.35872321128845214,
+              0.35856640338897705,
+              0.35885279178619384
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 5.967150497436523,
+            "samples_ms": [
+              5.966439819335937,
+              5.967150497436523,
+              5.967563247680664
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.35868799686431885,
+      "raw_shared_checksum_uncompressed_gbs": 839.0058062462493,
+      "ans_shared_checksum_ms": 5.967939376831055,
+      "ans_shared_checksum_uncompressed_gbs": 50.4263352889148,
+      "speedup_matched_raw": 0.06010248667351248,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "raw_bytes",
+      "transform": 0,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 16384,
+      "block_threads": 256,
+      "transform_setup_ms": 0.7717750268056989,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 256,
+        "decode_registers": 48,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 4
+      },
+      "setup": {
+        "wall_ms": 6.044373963959515,
+        "compression_device_ms": 2.666271924972534,
+        "compression_temporary_output_bytes": 420259840,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 250077728,
+        "aligned_stream_bytes": 250132192,
+        "allocated_stream_bytes": 250132208,
+        "metadata_bytes": 293888,
+        "ratio_original_to_compressed": 1.2033910992665449,
+        "chunk_sizes_min": 13506,
+        "chunk_sizes_max": 13814,
+        "per_matrix_compressed_bytes": [
+          8925254,
+          8927736,
+          8926470,
+          8921502,
+          8937338,
+          8935046,
+          8931460,
+          8926344,
+          8931486,
+          8945376,
+          8940832,
+          8932628,
+          8939588,
+          8944374,
+          8942904,
+          8941568,
+          8932564,
+          8932172,
+          8934166,
+          8936222,
+          8937366,
+          8930740,
+          8928280,
+          8922394,
+          8920610,
+          8912934,
+          8918016,
+          8922358
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.35688960552215576,
+            "samples_ms": [
+              0.3569823980331421,
+              0.35688960552215576,
+              0.35678720474243164
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 4.36431999206543,
+            "samples_ms": [
+              4.363750457763672,
+              4.364611053466797,
+              4.36431999206543
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 4.364783859252929,
+            "samples_ms": [
+              4.364548873901367,
+              4.365190505981445,
+              4.364783859252929
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3571968078613281,
+            "samples_ms": [
+              0.35727360248565676,
+              0.3571968078613281,
+              0.3570512056350708
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3568416118621826,
+            "samples_ms": [
+              0.3568416118621826,
+              0.35683839321136473,
+              0.3569855928421021
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 4.364491271972656,
+            "samples_ms": [
+              4.363896179199219,
+              4.364491271972656,
+              4.364939117431641
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 4.364899063110352,
+            "samples_ms": [
+              4.364380645751953,
+              4.365675354003907,
+              4.364899063110352
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3569952011108398,
+            "samples_ms": [
+              0.3571264028549194,
+              0.3569952011108398,
+              0.35696799755096437
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.35693280696868895,
+            "samples_ms": [
+              0.35693280696868895,
+              0.35693600177764895,
+              0.35670878887176516
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 4.364316940307617,
+            "samples_ms": [
+              4.363865661621094,
+              4.364316940307617,
+              4.365068817138672
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.35693280696868895,
+      "raw_shared_checksum_uncompressed_gbs": 843.1315534029892,
+      "ans_shared_checksum_ms": 4.364491271972656,
+      "ans_shared_checksum_uncompressed_gbs": 68.95220845841696,
+      "speedup_matched_raw": 0.08178107933467421,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "byte_planes",
+      "transform": 1,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 16384,
+      "block_threads": 128,
+      "transform_setup_ms": 48.60021104104817,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 128,
+        "decode_registers": 46,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 5
+      },
+      "setup": {
+        "wall_ms": 3.101098001934588,
+        "compression_device_ms": 1.4348160028457642,
+        "compression_temporary_output_bytes": 420259840,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 215754408,
+        "aligned_stream_bytes": 215809336,
+        "allocated_stream_bytes": 215809352,
+        "metadata_bytes": 293888,
+        "ratio_original_to_compressed": 1.3948327396397853,
+        "chunk_sizes_min": 6136,
+        "chunk_sizes_max": 17224,
+        "per_matrix_compressed_bytes": [
+          7698434,
+          7701452,
+          7699948,
+          7694020,
+          7711672,
+          7709132,
+          7705260,
+          7699666,
+          7705478,
+          7721426,
+          7716156,
+          7707792,
+          7714376,
+          7719812,
+          7718874,
+          7717368,
+          7707672,
+          7707888,
+          7709474,
+          7711600,
+          7713008,
+          7705124,
+          7702140,
+          7694948,
+          7692676,
+          7684730,
+          7689888,
+          7694394
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3568272113800049,
+            "samples_ms": [
+              0.3569535970687866,
+              0.3568272113800049,
+              0.35677759647369384
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 2.904243278503418,
+            "samples_ms": [
+              2.9035551071166994,
+              2.904243278503418,
+              2.9045072555541993
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 2.9040607452392577,
+            "samples_ms": [
+              2.904038429260254,
+              2.904180717468262,
+              2.9040607452392577
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.35695040225982666,
+            "samples_ms": [
+              0.3569664001464844,
+              0.35695040225982666,
+              0.3566175937652588
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3569247961044312,
+            "samples_ms": [
+              0.3569551944732666,
+              0.3567392110824585,
+              0.3569247961044312
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 2.9037952423095703,
+            "samples_ms": [
+              2.903027153015137,
+              2.9039743423461912,
+              2.9037952423095703
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 2.903848075866699,
+            "samples_ms": [
+              2.9038112640380858,
+              2.903848075866699,
+              2.9044672012329102
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3568671941757202,
+            "samples_ms": [
+              0.3570512056350708,
+              0.3568671941757202,
+              0.35680480003356935
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.35681920051574706,
+            "samples_ms": [
+              0.35681920051574706,
+              0.3565968036651611,
+              0.35681920051574706
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 2.903356742858887,
+            "samples_ms": [
+              2.903356742858887,
+              2.9036272048950194,
+              2.9032495498657225
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.3568671941757202,
+      "raw_shared_checksum_uncompressed_gbs": 843.2865696582284,
+      "ans_shared_checksum_ms": 2.903848075866699,
+      "ans_shared_checksum_uncompressed_gbs": 103.63535010700562,
+      "speedup_matched_raw": 0.1228945815525172,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "byte_planes",
+      "transform": 1,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 4096,
+      "block_threads": 256,
+      "transform_setup_ms": 48.60021104104817,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 256,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 6
+      },
+      "setup": {
+        "wall_ms": 9.738335967995226,
+        "compression_device_ms": 6.253024101257324,
+        "compression_temporary_output_bytes": 507250688,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 241632978,
+        "aligned_stream_bytes": 241853560,
+        "allocated_stream_bytes": 241853576,
+        "metadata_bytes": 1175552,
+        "ratio_original_to_compressed": 1.2454480116534425,
+        "chunk_sizes_min": 1820,
+        "chunk_sizes_max": 4708,
+        "per_matrix_compressed_bytes": [
+          8624116,
+          8627228,
+          8626274,
+          8620462,
+          8637178,
+          8634216,
+          8630248,
+          8624722,
+          8629704,
+          8643952,
+          8639178,
+          8631326,
+          8636736,
+          8641066,
+          8640876,
+          8639270,
+          8630716,
+          8630700,
+          8632154,
+          8633822,
+          8635184,
+          8628706,
+          8626514,
+          8620322,
+          8618676,
+          8611806,
+          8616668,
+          8621158
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.36102240085601806,
+            "samples_ms": [
+              0.3618495941162109,
+              0.360696005821228,
+              0.36102240085601806
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 9.534259033203124,
+            "samples_ms": [
+              9.533379364013673,
+              9.535059356689453,
+              9.534259033203124
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 9.533955383300782,
+            "samples_ms": [
+              9.533955383300782,
+              9.53427963256836,
+              9.533742523193359
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3615920066833496,
+            "samples_ms": [
+              0.3619632005691528,
+              0.3615920066833496,
+              0.36092960834503174
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3611423969268799,
+            "samples_ms": [
+              0.36161758899688723,
+              0.3611423969268799,
+              0.3608527898788452
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 9.534265899658203,
+            "samples_ms": [
+              9.533278656005859,
+              9.534265899658203,
+              9.535305786132813
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 9.534305572509766,
+            "samples_ms": [
+              9.534305572509766,
+              9.534390258789063,
+              9.533875274658204
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3614016056060791,
+            "samples_ms": [
+              0.3615920066833496,
+              0.3614016056060791,
+              0.3610991954803467
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.36108319759368895,
+            "samples_ms": [
+              0.36128480434417726,
+              0.36108319759368895,
+              0.36084320545196535
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 9.53363037109375,
+            "samples_ms": [
+              9.532904052734375,
+              9.53363037109375,
+              9.534040069580078
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.3611423969268799,
+      "raw_shared_checksum_uncompressed_gbs": 833.3037454501119,
+      "ans_shared_checksum_ms": 9.534259033203124,
+      "ans_shared_checksum_uncompressed_gbs": 31.564205561435845,
+      "speedup_matched_raw": 0.03787839156343445,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "byte_planes",
+      "transform": 1,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 4096,
+      "block_threads": 128,
+      "transform_setup_ms": 48.60021104104817,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 128,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 12
+      },
+      "setup": {
+        "wall_ms": 6.843989947810769,
+        "compression_device_ms": 3.4057281017303467,
+        "compression_temporary_output_bytes": 507250688,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 241632978,
+        "aligned_stream_bytes": 241853560,
+        "allocated_stream_bytes": 241853576,
+        "metadata_bytes": 1175552,
+        "ratio_original_to_compressed": 1.2454480116534425,
+        "chunk_sizes_min": 1820,
+        "chunk_sizes_max": 4708,
+        "per_matrix_compressed_bytes": [
+          8624116,
+          8627228,
+          8626274,
+          8620462,
+          8637178,
+          8634216,
+          8630248,
+          8624722,
+          8629704,
+          8643952,
+          8639178,
+          8631326,
+          8636736,
+          8641066,
+          8640876,
+          8639270,
+          8630716,
+          8630700,
+          8632154,
+          8633822,
+          8635184,
+          8628706,
+          8626514,
+          8620322,
+          8618676,
+          8611806,
+          8616668,
+          8621158
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.35884320735931396,
+            "samples_ms": [
+              0.3594480037689209,
+              0.35878400802612304,
+              0.35884320735931396
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 4.952913665771485,
+            "samples_ms": [
+              4.949553680419922,
+              4.952913665771485,
+              4.95296630859375
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 4.952888107299804,
+            "samples_ms": [
+              4.952443313598633,
+              4.953033447265625,
+              4.952888107299804
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3588736057281494,
+            "samples_ms": [
+              0.358951997756958,
+              0.3588736057281494,
+              0.3588383913040161
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.35878078937530516,
+            "samples_ms": [
+              0.3588047981262207,
+              0.35853118896484376,
+              0.35878078937530516
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 4.952191925048828,
+            "samples_ms": [
+              4.9493457794189455,
+              4.953084945678711,
+              4.952191925048828
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 4.952888107299804,
+            "samples_ms": [
+              4.951752090454102,
+              4.952961730957031,
+              4.952888107299804
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3587791919708252,
+            "samples_ms": [
+              0.3587791919708252,
+              0.3588576078414917,
+              0.35872640609741213
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.35867838859558104,
+            "samples_ms": [
+              0.35881121158599855,
+              0.35867838859558104,
+              0.358569598197937
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 4.952415847778321,
+            "samples_ms": [
+              4.949676895141602,
+              4.952732849121094,
+              4.952415847778321
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.35878078937530516,
+      "raw_shared_checksum_uncompressed_gbs": 838.7888117532352,
+      "ans_shared_checksum_ms": 4.952888107299804,
+      "ans_shared_checksum_uncompressed_gbs": 60.76077340743035,
+      "speedup_matched_raw": 0.0724387027533525,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "byte_planes",
+      "transform": 1,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 16384,
+      "block_threads": 256,
+      "transform_setup_ms": 48.60021104104817,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 256,
+        "decode_registers": 48,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 4
+      },
+      "setup": {
+        "wall_ms": 5.428951000794768,
+        "compression_device_ms": 2.2588798999786377,
+        "compression_temporary_output_bytes": 420259840,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 215754408,
+        "aligned_stream_bytes": 215809336,
+        "allocated_stream_bytes": 215809352,
+        "metadata_bytes": 293888,
+        "ratio_original_to_compressed": 1.3948327396397853,
+        "chunk_sizes_min": 6136,
+        "chunk_sizes_max": 17224,
+        "per_matrix_compressed_bytes": [
+          7698434,
+          7701452,
+          7699948,
+          7694020,
+          7711672,
+          7709132,
+          7705260,
+          7699666,
+          7705478,
+          7721426,
+          7716156,
+          7707792,
+          7714376,
+          7719812,
+          7718874,
+          7717368,
+          7707672,
+          7707888,
+          7709474,
+          7711600,
+          7713008,
+          7705124,
+          7702140,
+          7694948,
+          7692676,
+          7684730,
+          7689888,
+          7694394
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.356710410118103,
+            "samples_ms": [
+              0.35727519989013673,
+              0.356710410118103,
+              0.35655200481414795
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.610319900512695,
+            "samples_ms": [
+              3.6090576171875,
+              3.610319900512695,
+              3.610726547241211
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 3.6109951019287108,
+            "samples_ms": [
+              3.6106895446777343,
+              3.6109951019287108,
+              3.6113201141357423
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.35693600177764895,
+            "samples_ms": [
+              0.35720798969268797,
+              0.3568079948425293,
+              0.35693600177764895
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.35676159858703616,
+            "samples_ms": [
+              0.35676159858703616,
+              0.35678079128265383,
+              0.35652799606323243
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.6106990814208983,
+            "samples_ms": [
+              3.6080127716064454,
+              3.6106990814208983,
+              3.611038589477539
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 3.6109039306640627,
+            "samples_ms": [
+              3.610980987548828,
+              3.6108943939208986,
+              3.6109039306640627
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.35687201023101806,
+            "samples_ms": [
+              0.3571552038192749,
+              0.35687201023101806,
+              0.35655999183654785
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3569535970687866,
+            "samples_ms": [
+              0.3569535970687866,
+              0.3565727949142456,
+              0.35703039169311523
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.6105247497558595,
+            "samples_ms": [
+              3.607020950317383,
+              3.6105247497558595,
+              3.610950469970703
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.35687201023101806,
+      "raw_shared_checksum_uncompressed_gbs": 843.2751893464219,
+      "ans_shared_checksum_ms": 3.6106990814208983,
+      "ans_shared_checksum_uncompressed_gbs": 83.3471040410192,
+      "speedup_matched_raw": 0.09883737253744784,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "sign_mantissa_exponent_planes",
+      "transform": 2,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 16384,
+      "block_threads": 128,
+      "transform_setup_ms": 43.562162085436285,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 128,
+        "decode_registers": 46,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 5
+      },
+      "setup": {
+        "wall_ms": 3.0511870281770825,
+        "compression_device_ms": 1.3783040046691895,
+        "compression_temporary_output_bytes": 420259840,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 212850968,
+        "aligned_stream_bytes": 212906440,
+        "allocated_stream_bytes": 212906456,
+        "metadata_bytes": 293888,
+        "ratio_original_to_compressed": 1.4138592594984112,
+        "chunk_sizes_min": 5870,
+        "chunk_sizes_max": 17228,
+        "per_matrix_compressed_bytes": [
+          7602884,
+          7597294,
+          7595784,
+          7595344,
+          7601106,
+          7600234,
+          7598648,
+          7598154,
+          7601616,
+          7613452,
+          7609404,
+          7604182,
+          7609360,
+          7614678,
+          7614970,
+          7613176,
+          7606324,
+          7606502,
+          7608354,
+          7610212,
+          7610848,
+          7603774,
+          7599156,
+          7592792,
+          7588256,
+          7584322,
+          7584492,
+          7585650
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3570703983306885,
+            "samples_ms": [
+              0.3571023941040039,
+              0.3570703983306885,
+              0.3568032026290894
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 2.7947856903076174,
+            "samples_ms": [
+              2.7936128616333007,
+              2.7947856903076174,
+              2.8004688262939452
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 2.800556755065918,
+            "samples_ms": [
+              2.800718307495117,
+              2.800556755065918,
+              2.8003040313720704
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3566816091537476,
+            "samples_ms": [
+              0.3567823886871338,
+              0.3566816091537476,
+              0.3566143989562988
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3568448066711426,
+            "samples_ms": [
+              0.3568448066711426,
+              0.3568847894668579,
+              0.3568416118621826
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 2.800611114501953,
+            "samples_ms": [
+              2.7974191665649415,
+              2.800611114501953,
+              2.8013919830322265
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 2.8005439758300783,
+            "samples_ms": [
+              2.8005680084228515,
+              2.8005439758300783,
+              2.800391960144043
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3567823886871338,
+            "samples_ms": [
+              0.3572351932525635,
+              0.35676639080047606,
+              0.3567823886871338
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3568272113800049,
+            "samples_ms": [
+              0.3568272113800049,
+              0.3568608045578003,
+              0.35676159858703616
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 2.8003440856933595,
+            "samples_ms": [
+              2.7968160629272463,
+              2.8003440856933595,
+              2.8004016876220703
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.3568272113800049,
+      "raw_shared_checksum_uncompressed_gbs": 843.3810606431332,
+      "ans_shared_checksum_ms": 2.8005439758300783,
+      "ans_shared_checksum_uncompressed_gbs": 107.45816334157057,
+      "speedup_matched_raw": 0.12741353624852175,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "sign_mantissa_exponent_planes",
+      "transform": 2,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 4096,
+      "block_threads": 256,
+      "transform_setup_ms": 43.562162085436285,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 256,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 6
+      },
+      "setup": {
+        "wall_ms": 9.425494936294854,
+        "compression_device_ms": 6.039135932922363,
+        "compression_temporary_output_bytes": 507250688,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 235174822,
+        "aligned_stream_bytes": 235395360,
+        "allocated_stream_bytes": 235395376,
+        "metadata_bytes": 1175552,
+        "ratio_original_to_compressed": 1.27964936654656,
+        "chunk_sizes_min": 1660,
+        "chunk_sizes_max": 4710,
+        "per_matrix_compressed_bytes": [
+          8401468,
+          8396070,
+          8395462,
+          8395028,
+          8400224,
+          8398414,
+          8397062,
+          8395880,
+          8398808,
+          8408380,
+          8404690,
+          8400980,
+          8404788,
+          8408984,
+          8409582,
+          8408222,
+          8402424,
+          8402528,
+          8403508,
+          8405240,
+          8405756,
+          8400880,
+          8396150,
+          8391398,
+          8387434,
+          8384872,
+          8384880,
+          8385710
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.36105918884277344,
+            "samples_ms": [
+              0.36155200004577637,
+              0.36105918884277344,
+              0.36080479621887207
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 9.187630462646485,
+            "samples_ms": [
+              9.18691177368164,
+              9.188579559326172,
+              9.187630462646485
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 9.188118743896485,
+            "samples_ms": [
+              9.187289428710937,
+              9.188118743896485,
+              9.188314819335938
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3612879991531372,
+            "samples_ms": [
+              0.36156160831451417,
+              0.3611855983734131,
+              0.3612879991531372
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3611664056777954,
+            "samples_ms": [
+              0.36106560230255125,
+              0.36135358810424806,
+              0.3611664056777954
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 9.187457275390624,
+            "samples_ms": [
+              9.18732147216797,
+              9.187457275390624,
+              9.188638305664062
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 9.188740539550782,
+            "samples_ms": [
+              9.187926483154296,
+              9.188740539550782,
+              9.188825225830078
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3618848085403442,
+            "samples_ms": [
+              0.3618848085403442,
+              0.36197121143341066,
+              0.36123199462890626
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.36128480434417726,
+            "samples_ms": [
+              0.36116800308227537,
+              0.36128480434417726,
+              0.3620671987533569
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 9.187782287597656,
+            "samples_ms": [
+              9.187459564208984,
+              9.188361358642577,
+              9.187782287597656
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.36128480434417726,
+      "raw_shared_checksum_uncompressed_gbs": 832.9752826064305,
+      "ans_shared_checksum_ms": 9.187782287597656,
+      "ans_shared_checksum_uncompressed_gbs": 32.75451056412522,
+      "speedup_matched_raw": 0.03932230793407741,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "sign_mantissa_exponent_planes",
+      "transform": 2,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 4096,
+      "block_threads": 128,
+      "transform_setup_ms": 43.562162085436285,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 128,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 12
+      },
+      "setup": {
+        "wall_ms": 6.66391896083951,
+        "compression_device_ms": 3.2868800163269043,
+        "compression_temporary_output_bytes": 507250688,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 235174822,
+        "aligned_stream_bytes": 235395360,
+        "allocated_stream_bytes": 235395376,
+        "metadata_bytes": 1175552,
+        "ratio_original_to_compressed": 1.27964936654656,
+        "chunk_sizes_min": 1660,
+        "chunk_sizes_max": 4710,
+        "per_matrix_compressed_bytes": [
+          8401468,
+          8396070,
+          8395462,
+          8395028,
+          8400224,
+          8398414,
+          8397062,
+          8395880,
+          8398808,
+          8408380,
+          8404690,
+          8400980,
+          8404788,
+          8408984,
+          8409582,
+          8408222,
+          8402424,
+          8402528,
+          8403508,
+          8405240,
+          8405756,
+          8400880,
+          8396150,
+          8391398,
+          8387434,
+          8384872,
+          8384880,
+          8385710
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.35873119831085204,
+            "samples_ms": [
+              0.35887200832366944,
+              0.3586895942687988,
+              0.35873119831085204
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 4.742792129516602,
+            "samples_ms": [
+              4.740044784545899,
+              4.743518447875976,
+              4.742792129516602
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 4.743584060668946,
+            "samples_ms": [
+              4.743584060668946,
+              4.743798446655274,
+              4.743552017211914
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3586992025375366,
+            "samples_ms": [
+              0.35903201103210447,
+              0.3586064100265503,
+              0.3586992025375366
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3586479902267456,
+            "samples_ms": [
+              0.35872640609741213,
+              0.3586479902267456,
+              0.35858879089355467
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 4.743446350097656,
+            "samples_ms": [
+              4.742388916015625,
+              4.744059371948242,
+              4.743446350097656
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 4.743187332153321,
+            "samples_ms": [
+              4.743467330932617,
+              4.743187332153321,
+              4.742379379272461
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.35853440761566163,
+            "samples_ms": [
+              0.35878078937530516,
+              0.3585295915603638,
+              0.35853440761566163
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.358572793006897,
+            "samples_ms": [
+              0.3586719989776611,
+              0.358572793006897,
+              0.35850560665130615
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 4.742984008789063,
+            "samples_ms": [
+              4.742654418945312,
+              4.742984008789063,
+              4.743558502197265
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.3586479902267456,
+      "raw_shared_checksum_uncompressed_gbs": 839.0993960672633,
+      "ans_shared_checksum_ms": 4.743187332153321,
+      "ans_shared_checksum_uncompressed_gbs": 63.44706437377377,
+      "speedup_matched_raw": 0.07561328809333068,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "sign_mantissa_exponent_planes",
+      "transform": 2,
+      "ans_datatype": "uint8",
+      "chunk_bytes": 16384,
+      "block_threads": 256,
+      "transform_setup_ms": 43.562162085436285,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 0,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 256,
+        "decode_registers": 48,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 4
+      },
+      "setup": {
+        "wall_ms": 5.373140913434327,
+        "compression_device_ms": 2.194240093231201,
+        "compression_temporary_output_bytes": 420259840,
+        "compression_global_scratch_bytes": 0,
+        "compressed_bytes": 212850968,
+        "aligned_stream_bytes": 212906440,
+        "allocated_stream_bytes": 212906456,
+        "metadata_bytes": 293888,
+        "ratio_original_to_compressed": 1.4138592594984112,
+        "chunk_sizes_min": 5870,
+        "chunk_sizes_max": 17228,
+        "per_matrix_compressed_bytes": [
+          7602884,
+          7597294,
+          7595784,
+          7595344,
+          7601106,
+          7600234,
+          7598648,
+          7598154,
+          7601616,
+          7613452,
+          7609404,
+          7604182,
+          7609360,
+          7614678,
+          7614970,
+          7613176,
+          7606324,
+          7606502,
+          7608354,
+          7610212,
+          7610848,
+          7603774,
+          7599156,
+          7592792,
+          7588256,
+          7584322,
+          7584492,
+          7585650
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3569200038909912,
+            "samples_ms": [
+              0.3570800065994263,
+              0.3568815946578979,
+              0.3569200038909912
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.4817489624023437,
+            "samples_ms": [
+              3.481800079345703,
+              3.4817264556884764,
+              3.4817489624023437
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 3.482244873046875,
+            "samples_ms": [
+              3.482244873046875,
+              3.482457733154297,
+              3.4818878173828125
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.35698399543762205,
+            "samples_ms": [
+              0.35714240074157716,
+              0.3566528081893921,
+              0.35698399543762205
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3567552089691162,
+            "samples_ms": [
+              0.3567552089691162,
+              0.3567984104156494,
+              0.35671999454498293
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.4818382263183594,
+            "samples_ms": [
+              3.4813873291015627,
+              3.4822528839111326,
+              3.4818382263183594
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 3.4820526123046873,
+            "samples_ms": [
+              3.4820526123046873,
+              3.481911849975586,
+              3.4821582794189454
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3568448066711426,
+            "samples_ms": [
+              0.3570096015930176,
+              0.3568448066711426,
+              0.3567375898361206
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.35666399002075194,
+            "samples_ms": [
+              0.35666399002075194,
+              0.35665440559387207,
+              0.35687520503997805
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.482497787475586,
+            "samples_ms": [
+              3.4814990997314452,
+              3.482686233520508,
+              3.482497787475586
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.3568448066711426,
+      "raw_shared_checksum_uncompressed_gbs": 843.3394752395498,
+      "ans_shared_checksum_ms": 3.4820526123046873,
+      "ans_shared_checksum_uncompressed_gbs": 86.42641151846759,
+      "speedup_matched_raw": 0.1024811645321337,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "fp16_bits",
+      "transform": 0,
+      "ans_datatype": "float16_bit_reinterpretation",
+      "chunk_bytes": 16384,
+      "block_threads": 128,
+      "transform_setup_ms": 0.05175103433430195,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 9216,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 128,
+        "decode_registers": 51,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 5
+      },
+      "setup": {
+        "wall_ms": 4.160644020885229,
+        "compression_device_ms": 1.2017600536346436,
+        "compression_temporary_output_bytes": 420259840,
+        "compression_global_scratch_bytes": 169279488,
+        "compressed_bytes": 212236088,
+        "aligned_stream_bytes": 212290872,
+        "allocated_stream_bytes": 212290888,
+        "metadata_bytes": 293888,
+        "ratio_original_to_compressed": 1.4179554233019975,
+        "chunk_sizes_min": 11450,
+        "chunk_sizes_max": 11782,
+        "per_matrix_compressed_bytes": [
+          7572750,
+          7576182,
+          7575136,
+          7569252,
+          7586640,
+          7583830,
+          7580184,
+          7574468,
+          7579716,
+          7594514,
+          7590208,
+          7581806,
+          7588026,
+          7592896,
+          7592232,
+          7590634,
+          7581334,
+          7581320,
+          7582658,
+          7585064,
+          7586592,
+          7578978,
+          7576620,
+          7570232,
+          7567902,
+          7560572,
+          7565980,
+          7570362
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3570480108261108,
+            "samples_ms": [
+              0.35709280967712403,
+              0.3570480108261108,
+              0.3566528081893921
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.003816032409668,
+            "samples_ms": [
+              3.003816032409668,
+              3.003497505187988,
+              3.0040815353393553
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 3.003892707824707,
+            "samples_ms": [
+              3.003763198852539,
+              3.003892707824707,
+              3.004316711425781
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3568495988845825,
+            "samples_ms": [
+              0.3569488048553467,
+              0.35670080184936526,
+              0.3568495988845825
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3569135904312134,
+            "samples_ms": [
+              0.3569135904312134,
+              0.35692639350891114,
+              0.3569119930267334
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.00393123626709,
+            "samples_ms": [
+              3.0036319732666015,
+              3.0044767379760744,
+              3.00393123626709
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 3.003910446166992,
+            "samples_ms": [
+              3.004542350769043,
+              3.003860855102539,
+              3.003910446166992
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3568527936935425,
+            "samples_ms": [
+              0.3570080041885376,
+              0.3568527936935425,
+              0.35677280426025393
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3567888021469116,
+            "samples_ms": [
+              0.3567183971405029,
+              0.3570048093795776,
+              0.3567888021469116
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.0040304183959963,
+            "samples_ms": [
+              3.0040304183959963,
+              3.00391845703125,
+              3.004159927368164
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.3568527936935425,
+      "raw_shared_checksum_uncompressed_gbs": 843.3205997497162,
+      "ans_shared_checksum_ms": 3.003910446166992,
+      "ans_shared_checksum_uncompressed_gbs": 100.18318368445468,
+      "speedup_matched_raw": 0.11879608266913844,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "fp16_bits",
+      "transform": 0,
+      "ans_datatype": "float16_bit_reinterpretation",
+      "chunk_bytes": 4096,
+      "block_threads": 256,
+      "transform_setup_ms": 0.05175103433430195,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 3072,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 256,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 6
+      },
+      "setup": {
+        "wall_ms": 7.48864293564111,
+        "compression_device_ms": 4.026336193084717,
+        "compression_temporary_output_bytes": 507250688,
+        "compression_global_scratch_bytes": 225705984,
+        "compressed_bytes": 239038926,
+        "aligned_stream_bytes": 239259520,
+        "allocated_stream_bytes": 239259536,
+        "metadata_bytes": 1175552,
+        "ratio_original_to_compressed": 1.2589636216822695,
+        "chunk_sizes_min": 3210,
+        "chunk_sizes_max": 3366,
+        "per_matrix_compressed_bytes": [
+          8532418,
+          8536366,
+          8536404,
+          8530958,
+          8546028,
+          8542324,
+          8539104,
+          8532788,
+          8536816,
+          8548018,
+          8544160,
+          8537918,
+          8541790,
+          8545016,
+          8545050,
+          8544316,
+          8537100,
+          8536638,
+          8537772,
+          8539694,
+          8539928,
+          8534734,
+          8532896,
+          8529458,
+          8528536,
+          8522796,
+          8527746,
+          8532154
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.36117599010467527,
+            "samples_ms": [
+              0.3612911939620972,
+              0.36117599010467527,
+              0.3611088037490845
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 6.140423965454102,
+            "samples_ms": [
+              6.139851379394531,
+              6.140423965454102,
+              6.141164779663086
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 6.140614318847656,
+            "samples_ms": [
+              6.140564727783203,
+              6.140614318847656,
+              6.1410785675048825
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3616015911102295,
+            "samples_ms": [
+              0.3616015911102295,
+              0.36072959899902346,
+              0.3617824077606201
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3613231897354126,
+            "samples_ms": [
+              0.3613231897354126,
+              0.3610559940338135,
+              0.36136479377746583
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 6.140486526489258,
+            "samples_ms": [
+              6.140251159667969,
+              6.140486526489258,
+              6.141022491455078
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 6.140755081176758,
+            "samples_ms": [
+              6.140755081176758,
+              6.141430282592774,
+              6.140412902832031
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3615087985992432,
+            "samples_ms": [
+              0.36072959899902346,
+              0.3617840051651001,
+              0.3615087985992432
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3612591981887817,
+            "samples_ms": [
+              0.3612591981887817,
+              0.3611664056777954,
+              0.36211841106414794
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 6.140715026855469,
+            "samples_ms": [
+              6.139487838745117,
+              6.1415153503417965,
+              6.140715026855469
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.3613231897354126,
+      "raw_shared_checksum_uncompressed_gbs": 832.8867909650952,
+      "ans_shared_checksum_ms": 6.140614318847656,
+      "ans_shared_checksum_uncompressed_gbs": 49.00833961779812,
+      "speedup_matched_raw": 0.05884153782894124,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "fp16_bits",
+      "transform": 0,
+      "ans_datatype": "float16_bit_reinterpretation",
+      "chunk_bytes": 4096,
+      "block_threads": 128,
+      "transform_setup_ms": 0.05175103433430195,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 6900,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 3072,
+        "decode_shared_scratch_bytes": 2562,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 4096,
+        "block_threads": 128,
+        "decode_registers": 40,
+        "decode_static_shared_bytes": 4112,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 12
+      },
+      "setup": {
+        "wall_ms": 5.774154094979167,
+        "compression_device_ms": 2.3544321060180664,
+        "compression_temporary_output_bytes": 507250688,
+        "compression_global_scratch_bytes": 225705984,
+        "compressed_bytes": 239038926,
+        "aligned_stream_bytes": 239259520,
+        "allocated_stream_bytes": 239259536,
+        "metadata_bytes": 1175552,
+        "ratio_original_to_compressed": 1.2589636216822695,
+        "chunk_sizes_min": 3210,
+        "chunk_sizes_max": 3366,
+        "per_matrix_compressed_bytes": [
+          8532418,
+          8536366,
+          8536404,
+          8530958,
+          8546028,
+          8542324,
+          8539104,
+          8532788,
+          8536816,
+          8548018,
+          8544160,
+          8537918,
+          8541790,
+          8545016,
+          8545050,
+          8544316,
+          8537100,
+          8536638,
+          8537772,
+          8539694,
+          8539928,
+          8534734,
+          8532896,
+          8529458,
+          8528536,
+          8522796,
+          8527746,
+          8532154
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3587503910064697,
+            "samples_ms": [
+              0.3587503910064697,
+              0.3585968017578125,
+              0.3587984085083008
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.165188789367676,
+            "samples_ms": [
+              3.164169692993164,
+              3.165188789367676,
+              3.1655839920043944
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 3.1655696868896483,
+            "samples_ms": [
+              3.1652448654174803,
+              3.1655696868896483,
+              3.1662319183349608
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3586287975311279,
+            "samples_ms": [
+              0.35891520977020264,
+              0.3586287975311279,
+              0.3585007905960083
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3585792064666748,
+            "samples_ms": [
+              0.35870239734649656,
+              0.35853760242462157,
+              0.3585792064666748
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.1644287109375,
+            "samples_ms": [
+              3.164321517944336,
+              3.1644287109375,
+              3.1648160934448244
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 3.1653152465820313,
+            "samples_ms": [
+              3.1653152465820313,
+              3.165540885925293,
+              3.1649919509887696
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3587039947509766,
+            "samples_ms": [
+              0.35887999534606935,
+              0.3587039947509766,
+              0.35853118896484376
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3588128089904785,
+            "samples_ms": [
+              0.3588912010192871,
+              0.35859839916229247,
+              0.3588128089904785
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.1648496627807616,
+            "samples_ms": [
+              3.1637807846069337,
+              3.165176010131836,
+              3.1648496627807616
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.3587039947509766,
+      "raw_shared_checksum_uncompressed_gbs": 838.9683873159059,
+      "ans_shared_checksum_ms": 3.165188789367676,
+      "ans_shared_checksum_uncompressed_gbs": 95.07847146777,
+      "speedup_matched_raw": 0.11332783559575178,
+      "paired_faster_rounds": 0
+    },
+    {
+      "format": "fp16_bits",
+      "transform": 0,
+      "ans_datatype": "float16_bit_reinterpretation",
+      "chunk_bytes": 16384,
+      "block_threads": 256,
+      "transform_setup_ms": 0.05175103433430195,
+      "resource_info": {
+        "max_compressed_chunk_bytes": 22875,
+        "compression_shared_scratch_bytes": 5324,
+        "compression_global_scratch_per_chunk_bytes": 9216,
+        "decode_shared_scratch_bytes": 3586,
+        "decode_global_scratch_per_chunk_bytes": 0,
+        "compression_input_alignment": 16,
+        "compression_output_alignment": 8,
+        "decode_input_alignment": 8,
+        "decode_output_alignment": 1,
+        "decode_shared_alignment": 2,
+        "chunk_bytes": 16384,
+        "block_threads": 256,
+        "decode_registers": 48,
+        "decode_static_shared_bytes": 16400,
+        "decode_local_bytes": 0,
+        "active_blocks_per_sm": 4
+      },
+      "setup": {
+        "wall_ms": 4.755918052978814,
+        "compression_device_ms": 1.6493120193481445,
+        "compression_temporary_output_bytes": 420259840,
+        "compression_global_scratch_bytes": 169279488,
+        "compressed_bytes": 212236088,
+        "aligned_stream_bytes": 212290872,
+        "allocated_stream_bytes": 212290888,
+        "metadata_bytes": 293888,
+        "ratio_original_to_compressed": 1.4179554233019975,
+        "chunk_sizes_min": 11450,
+        "chunk_sizes_max": 11782,
+        "per_matrix_compressed_bytes": [
+          7572750,
+          7576182,
+          7575136,
+          7569252,
+          7586640,
+          7583830,
+          7580184,
+          7574468,
+          7579716,
+          7594514,
+          7590208,
+          7581806,
+          7588026,
+          7592896,
+          7592232,
+          7590634,
+          7581334,
+          7581320,
+          7582658,
+          7585064,
+          7586592,
+          7578978,
+          7576620,
+          7570232,
+          7567902,
+          7560572,
+          7565980,
+          7570362
+        ]
+      },
+      "correctness": {
+        "entire_bank_transformed_bytes_exact": true,
+        "entire_bank_original_bf16_bytes_exact": true,
+        "all_decoded_sizes_exact": true,
+        "all_chunk_checksums_exact": true
+      },
+      "timing_pairs": [
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3568320035934448,
+            "samples_ms": [
+              0.3569375991821289,
+              0.35677280426025393,
+              0.3568320035934448
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.7497310638427734,
+            "samples_ms": [
+              3.7496257781982423,
+              3.7497310638427734,
+              3.7503425598144533
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 3.7504993438720704,
+            "samples_ms": [
+              3.750307083129883,
+              3.7504993438720704,
+              3.7511215209960938
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.35690081119537354,
+            "samples_ms": [
+              0.35690081119537354,
+              0.35705440044403075,
+              0.35676639080047606
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.35702080726623536,
+            "samples_ms": [
+              0.35702080726623536,
+              0.35709919929504397,
+              0.356823992729187
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.750030517578125,
+            "samples_ms": [
+              3.7496143341064454,
+              3.750030517578125,
+              3.750164794921875
+            ]
+          }
+        },
+        {
+          "ans_shared_checksum": {
+            "ms": 3.750937652587891,
+            "samples_ms": [
+              3.750600051879883,
+              3.7513999938964844,
+              3.750937652587891
+            ]
+          },
+          "raw_shared_checksum": {
+            "ms": 0.3570159912109375,
+            "samples_ms": [
+              0.35703680515289304,
+              0.3569648027420044,
+              0.3570159912109375
+            ]
+          }
+        },
+        {
+          "raw_shared_checksum": {
+            "ms": 0.3569535970687866,
+            "samples_ms": [
+              0.3570672035217285,
+              0.3569535970687866,
+              0.3566895961761475
+            ]
+          },
+          "ans_shared_checksum": {
+            "ms": 3.7501152038574217,
+            "samples_ms": [
+              3.7501152038574217,
+              3.7499889373779296,
+              3.7502079010009766
+            ]
+          }
+        }
+      ],
+      "raw_shared_checksum_ms": 0.3569535970687866,
+      "raw_shared_checksum_uncompressed_gbs": 843.0824467697049,
+      "ans_shared_checksum_ms": 3.7501152038574217,
+      "ans_shared_checksum_uncompressed_gbs": 80.24855121529266,
+      "speedup_matched_raw": 0.09518470171306179,
+      "paired_faster_rounds": 0
+    }
+  ],
+  "matrix_count": 28,
+  "original_bytes": 300941312
+}

@@ -1,0 +1,301 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T09:10:28.223763+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "logical_bytes": 268435456,
+  "rows": [
+    {
+      "pattern": "zero",
+      "samples_ms": {
+        "plain": [
+          0.31825439929962157,
+          0.3179375886917114,
+          0.31797759532928466,
+          0.31799681186676027,
+          0.31813440322875974
+        ],
+        "compressed": [
+          0.08434079885482788,
+          0.08437600135803222,
+          0.08432959914207458,
+          0.08444960117340088,
+          0.084334397315979
+        ]
+      },
+      "p50_ms": {
+        "plain": 0.31799681186676027,
+        "compressed": 0.08434079885482788
+      },
+      "speedup": 3.770379415235493,
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 268435456,
+          "allocated_bytes": 268435456,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 268435456,
+          "allocated_bytes": 268435456,
+          "dtype": "torch.uint32"
+        }
+      }
+    },
+    {
+      "pattern": "constant",
+      "samples_ms": {
+        "plain": [
+          0.31812961101531984,
+          0.3180799961090088,
+          0.31775999069213867,
+          0.31798880100250243,
+          0.3179327964782715
+        ],
+        "compressed": [
+          0.08431839942932129,
+          0.08431040048599243,
+          0.08434240221977234,
+          0.08463039994239807,
+          0.0842736005783081
+        ]
+      },
+      "p50_ms": {
+        "plain": 0.31798880100250243,
+        "compressed": 0.08431839942932129
+      },
+      "speedup": 3.771286020070294,
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 268435456,
+          "allocated_bytes": 268435456,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 268435456,
+          "allocated_bytes": 268435456,
+          "dtype": "torch.uint32"
+        }
+      }
+    },
+    {
+      "pattern": "random32",
+      "samples_ms": {
+        "plain": [
+          0.3181328058242798,
+          0.3180367946624756,
+          0.31818881034851076,
+          0.3179712057113647,
+          0.31809120178222655
+        ],
+        "compressed": [
+          0.31791200637817385,
+          0.31807360649108884,
+          0.3178960084915161,
+          0.3180639982223511,
+          0.31799681186676027
+        ]
+      },
+      "p50_ms": {
+        "plain": 0.31809120178222655,
+        "compressed": 0.31799681186676027
+      },
+      "speedup": 1.0002968266093997,
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 268435456,
+          "allocated_bytes": 268435456,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 268435456,
+          "allocated_bytes": 268435456,
+          "dtype": "torch.uint32"
+        }
+      }
+    },
+    {
+      "pattern": "random-low16",
+      "samples_ms": {
+        "plain": [
+          0.31831839084625246,
+          0.3180720090866089,
+          0.31788320541381837,
+          0.31788480281829834,
+          0.3179856061935425
+        ],
+        "compressed": [
+          0.3180176019668579,
+          0.3179791927337646,
+          0.31795198917388917,
+          0.3181456089019775,
+          0.31784958839416505
+        ]
+      },
+      "p50_ms": {
+        "plain": 0.3179856061935425,
+        "compressed": 0.3179791927337646
+      },
+      "speedup": 1.0000201694322284,
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 268435456,
+          "allocated_bytes": 268435456,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 268435456,
+          "allocated_bytes": 268435456,
+          "dtype": "torch.uint32"
+        }
+      }
+    },
+    {
+      "pattern": "random-high16",
+      "samples_ms": {
+        "plain": [
+          0.3181456089019775,
+          0.3178864002227783,
+          0.3180543899536133,
+          0.3178607940673828,
+          0.31799519062042236
+        ],
+        "compressed": [
+          0.31768319606781004,
+          0.3181456089019775,
+          0.3181855916976929,
+          0.3180000066757202,
+          0.3181328058242798
+        ]
+      },
+      "p50_ms": {
+        "plain": 0.31799519062042236,
+        "compressed": 0.3181328058242798
+      },
+      "speedup": 0.9995674284407706,
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 268435456,
+          "allocated_bytes": 268435456,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 268435456,
+          "allocated_bytes": 268435456,
+          "dtype": "torch.uint32"
+        }
+      }
+    },
+    {
+      "pattern": "75-percent-zero",
+      "samples_ms": {
+        "plain": [
+          0.3180367946624756,
+          0.31812000274658203,
+          0.31814720630645754,
+          0.31797759532928466,
+          0.31799519062042236
+        ],
+        "compressed": [
+          0.1601871967315674,
+          0.16015199422836304,
+          0.16008800268173218,
+          0.16010080575942992,
+          0.16025919914245607
+        ]
+      },
+      "p50_ms": {
+        "plain": 0.3180367946624756,
+        "compressed": 0.16015199422836304
+      },
+      "speedup": 1.9858434869626558,
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 268435456,
+          "allocated_bytes": 268435456,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 268435456,
+          "allocated_bytes": 268435456,
+          "dtype": "torch.uint32"
+        }
+      }
+    },
+    {
+      "pattern": "50-percent-zero",
+      "samples_ms": {
+        "plain": [
+          0.3180464029312134,
+          0.3179487943649292,
+          0.3179680109024048,
+          0.3179647922515869,
+          0.3179375886917114
+        ],
+        "compressed": [
+          0.318068790435791,
+          0.3177167892456055,
+          0.3180464029312134,
+          0.3178544044494629,
+          0.31803040504455565
+        ]
+      },
+      "p50_ms": {
+        "plain": 0.3179647922515869,
+        "compressed": 0.31803040504455565
+      },
+      "speedup": 0.9997936901883342,
+      "allocations": {
+        "plain": {
+          "supported": 1,
+          "compression_granted": 0,
+          "logical_bytes": 268435456,
+          "allocated_bytes": 268435456,
+          "dtype": "torch.uint32"
+        },
+        "compressed": {
+          "supported": 1,
+          "compression_granted": 1,
+          "logical_bytes": 268435456,
+          "allocated_bytes": 268435456,
+          "dtype": "torch.uint32"
+        }
+      }
+    }
+  ]
+}

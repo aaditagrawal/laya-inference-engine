@@ -1,0 +1,311 @@
+{
+  "metadata": {
+    "created_utc": "2026-09-24T08:14:01.512799+00:00",
+    "hardware": {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "compute_capability": "12.0",
+      "sm_count": 70,
+      "vram_bytes": 16608788480,
+      "torch": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_architecture": "sm_120"
+    },
+    "revision": "5e7b2b1b8ca2ecdd3f2322d94069c9b6ce7e844b",
+    "torch_threads": 4,
+    "method": "Serial predict including tokenization, copies, inference and formatting. No HTTP. First use and model load excluded. Exclusive GPU/build lock.",
+    "validation_scope": "Synthetic implementation parity, not labeled model quality."
+  },
+  "scope": "CUDA Graph of 28 encoder attention calls, captured from actual model activations",
+  "rows": [
+    {
+      "configuration": "cudnn",
+      "mismatches": 137,
+      "max_error": 0.015625,
+      "ms": 0.14587199687957764,
+      "samples_ms": [
+        0.14777066310246786,
+        0.14578400055567423,
+        0.14587199687957764
+      ],
+      "speedup": 1.7595883561623311
+    },
+    {
+      "configuration": [
+        16,
+        false,
+        0,
+        4
+      ],
+      "mismatches": 325,
+      "max_error": 0.015625,
+      "ms": 0.049698665738105774,
+      "samples_ms": [
+        0.05082133412361145,
+        0.049685334165891014,
+        0.049698665738105774
+      ],
+      "speedup": 5.164618876330334
+    },
+    {
+      "configuration": [
+        16,
+        false,
+        1,
+        4
+      ],
+      "mismatches": 317,
+      "max_error": 0.015625,
+      "ms": 0.04968800147374471,
+      "samples_ms": [
+        0.0506933331489563,
+        0.049653331438700356,
+        0.04968800147374471
+      ],
+      "speedup": 5.165727330270676
+    },
+    {
+      "configuration": [
+        16,
+        true,
+        0,
+        4
+      ],
+      "mismatches": 619302,
+      "max_error": 0.03125,
+      "ms": 0.04966133336226145,
+      "samples_ms": [
+        0.050813332200050354,
+        0.04966133336226145,
+        0.04957066476345062
+      ],
+      "speedup": 5.168501323295207
+    },
+    {
+      "configuration": [
+        16,
+        true,
+        1,
+        4
+      ],
+      "mismatches": 619295,
+      "max_error": 0.03125,
+      "ms": 0.0516480008761088,
+      "samples_ms": [
+        0.05266400178273519,
+        0.051511997977892555,
+        0.0516480008761088
+      ],
+      "speedup": 4.969692201933504
+    },
+    {
+      "configuration": [
+        32,
+        false,
+        0,
+        4
+      ],
+      "mismatches": 325,
+      "max_error": 0.015625,
+      "ms": 0.055770665407180786,
+      "samples_ms": [
+        0.056978667775789894,
+        0.05570399761199951,
+        0.055770665407180786
+      ],
+      "speedup": 4.602323915726571
+    },
+    {
+      "configuration": [
+        32,
+        false,
+        1,
+        4
+      ],
+      "mismatches": 317,
+      "max_error": 0.015625,
+      "ms": 0.056189333399136863,
+      "samples_ms": [
+        0.05811200042565664,
+        0.05611200133959452,
+        0.056189333399136863
+      ],
+      "speedup": 4.568031896306418
+    },
+    {
+      "configuration": [
+        32,
+        true,
+        0,
+        4
+      ],
+      "mismatches": 619302,
+      "max_error": 0.03125,
+      "ms": 0.05389333268006643,
+      "samples_ms": [
+        0.05485600233078003,
+        0.05389333268006643,
+        0.05365600188573202
+      ],
+      "speedup": 4.762642323924962
+    },
+    {
+      "configuration": [
+        32,
+        true,
+        1,
+        4
+      ],
+      "mismatches": 619295,
+      "max_error": 0.03125,
+      "ms": 0.055760001142819725,
+      "samples_ms": [
+        0.05676800012588501,
+        0.05574666460355123,
+        0.055760001142819725
+      ],
+      "speedup": 4.6032041237234615
+    },
+    {
+      "configuration": [
+        64,
+        false,
+        0,
+        4
+      ],
+      "mismatches": 331,
+      "max_error": 0.0078125,
+      "ms": 0.06400266786416371,
+      "samples_ms": [
+        0.06516533096631368,
+        0.06400266786416371,
+        0.06383733451366425
+      ],
+      "speedup": 4.010374501016225
+    },
+    {
+      "configuration": [
+        64,
+        false,
+        1,
+        4
+      ],
+      "mismatches": 327,
+      "max_error": 0.0078125,
+      "ms": 0.0659093310435613,
+      "samples_ms": [
+        0.06718933085600536,
+        0.0659093310435613,
+        0.06579199930032094
+      ],
+      "speedup": 3.8943600721695892
+    },
+    {
+      "configuration": [
+        64,
+        true,
+        0,
+        4
+      ],
+      "mismatches": 619300,
+      "max_error": 0.03125,
+      "ms": 0.06832000116507213,
+      "samples_ms": [
+        0.06965599954128265,
+        0.06832000116507213,
+        0.06811466813087463
+      ],
+      "speedup": 3.7569476408421796
+    },
+    {
+      "configuration": [
+        64,
+        true,
+        1,
+        4
+      ],
+      "mismatches": 619300,
+      "max_error": 0.03125,
+      "ms": 0.06817866861820221,
+      "samples_ms": [
+        0.0693280001481374,
+        0.06817866861820221,
+        0.06806666652361552
+      ],
+      "speedup": 3.764735692285522
+    },
+    {
+      "configuration": [
+        64,
+        false,
+        0,
+        8
+      ],
+      "mismatches": 331,
+      "max_error": 0.0078125,
+      "ms": 0.09061599771181743,
+      "samples_ms": [
+        0.09160000085830688,
+        0.09061599771181743,
+        0.09046399593353271
+      ],
+      "speedup": 2.832553563177059
+    },
+    {
+      "configuration": [
+        64,
+        false,
+        1,
+        8
+      ],
+      "mismatches": 327,
+      "max_error": 0.0078125,
+      "ms": 0.09471199909845988,
+      "samples_ms": [
+        0.09654666980107625,
+        0.09471199909845988,
+        0.0946666697661082
+      ],
+      "speedup": 2.710054371596793
+    },
+    {
+      "configuration": [
+        64,
+        true,
+        0,
+        8
+      ],
+      "mismatches": 619300,
+      "max_error": 0.03125,
+      "ms": 0.090421328941981,
+      "samples_ms": [
+        0.09166666865348816,
+        0.090421328941981,
+        0.09035467108090718
+      ],
+      "speedup": 2.838651789381999
+    },
+    {
+      "configuration": [
+        64,
+        true,
+        1,
+        8
+      ],
+      "mismatches": 619300,
+      "max_error": 0.03125,
+      "ms": 0.09259466330210368,
+      "samples_ms": [
+        0.09384000301361084,
+        0.09259466330210368,
+        0.09256266554196675
+      ],
+      "speedup": 2.7720244131350626
+    }
+  ],
+  "baseline_ms": 0.2566746671994527,
+  "baseline_samples_ms": [
+    0.2587786714235942,
+    0.2566746671994527,
+    0.2565600077311198
+  ]
+}

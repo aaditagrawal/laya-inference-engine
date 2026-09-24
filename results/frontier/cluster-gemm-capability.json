@@ -1,0 +1,123 @@
+{
+  "source_sha256": {
+    "cluster_gemm_capability.cu": "8aa8804c0ac2a18bd924c328c79cb81e78a0142f82e08b4720d6bdb406f9fe54",
+    "cluster_gemm_multicast_ptx.cu": "473c6a934e1d1b0a8dc9f2311a2120d86c00209ecebfa281460f4a6fe9b9d723"
+  },
+  "builds": {
+    "capability": {
+      "command": [
+        "/usr/local/cuda-13.1/bin/nvcc",
+        "-O3",
+        "-std=c++20",
+        "-arch=sm_120",
+        "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/cluster_gemm_capability.cu",
+        "-o",
+        "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-cluster-gemm/capability"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "multicast_compile": {
+      "command": [
+        "/usr/local/cuda-13.1/bin/nvcc",
+        "-O3",
+        "-std=c++20",
+        "-arch=sm_120",
+        "-cubin",
+        "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/cluster_gemm_multicast_ptx.cu",
+        "-o",
+        "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-cluster-gemm/multicast.cubin"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "ptxas /tmp/tmpxft_00177a7f_00000000-6_cluster_gemm_multicast_ptx.ptx, line 31; warning : Advisory: '.multicast::cluster' modifier on instruction 'cp.async.bulk{.tensor}' should be used on .target 'sm_90a/sm_100a/sm_100f/sm_103a/sm_103f/sm_110a/sm_110f' instead of .target 'sm_120' as this feature is expected to have substantially reduced performance on some future architectures\n"
+    },
+    "multicast_ptx": {
+      "command": [
+        "/usr/local/cuda-13.1/bin/nvcc",
+        "-O3",
+        "-std=c++20",
+        "-arch=compute_120",
+        "-ptx",
+        "/home/mav/Code/vibes/Laya Inference Engine/experiments/frontier/cluster_gemm_multicast_ptx.cu",
+        "-o",
+        "/home/mav/Code/vibes/Laya Inference Engine/.research/frontier-cluster-gemm/multicast.ptx"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "ptxas /home/mav/Code/vibes/Laya Inference Engine/.research/frontier-cluster-gemm/multicast.ptx, line 31; warning : Advisory: '.multicast::cluster' modifier on instruction 'cp.async.bulk{.tensor}' should be used on .target 'sm_90a/sm_100a/sm_100f/sm_103a/sm_103f/sm_110a/sm_110f' instead of .target 'sm_120' as this feature is expected to have substantially reduced performance on some future architectures\n"
+    }
+  },
+  "executable_sha256": "d91f41e593f5ab70efce249fe004f48143ea3a86c4f8e8e2dfd4416f601633df",
+  "cubin_sha256": "8efb5529b5020b129a944cfcd522cb09d74da0989e893d2cce1141771429a145",
+  "code_generation": {
+    "multicast_syscall_relocation_present": true,
+    "sass_sha256": "a84e770a1f062f12313a68bb18d6eafda77addd078ca5c91a584bfdbf9da7057",
+    "functions": {
+      "ordinary_instruction_probe": {
+        "native_tma_instruction_count": 1,
+        "indirect_call_present": false
+      },
+      "multicast_instruction_probe": {
+        "native_tma_instruction_count": 0,
+        "indirect_call_present": true
+      }
+    }
+  },
+  "device_probe": {
+    "device": "NVIDIA GeForce RTX 5070 Ti",
+    "compute_capability": [
+      12,
+      0
+    ],
+    "runtime": 13010,
+    "driver": 13020,
+    "cluster_launch_attribute": 1,
+    "max_potential_cluster_size": 8,
+    "potential_query_status": 0,
+    "launches": [
+      {
+        "size": 1,
+        "active_clusters": 140,
+        "occupancy_status": 0,
+        "launch_status": 0,
+        "sync_status": 0,
+        "cross_block_shared_read_exact": true
+      },
+      {
+        "size": 2,
+        "active_clusters": 70,
+        "occupancy_status": 0,
+        "launch_status": 0,
+        "sync_status": 0,
+        "cross_block_shared_read_exact": true
+      },
+      {
+        "size": 4,
+        "active_clusters": 35,
+        "occupancy_status": 0,
+        "launch_status": 0,
+        "sync_status": 0,
+        "cross_block_shared_read_exact": true
+      },
+      {
+        "size": 8,
+        "active_clusters": 17,
+        "occupancy_status": 0,
+        "launch_status": 0,
+        "sync_status": 0,
+        "cross_block_shared_read_exact": true
+      }
+    ]
+  },
+  "sources": [
+    "https://docs.nvidia.com/cutlass/4.5.1/media/docs/cpp/blackwell_functionality.html#cluster-size",
+    "https://github.com/NVIDIA/cutlass/blob/main/examples/79_blackwell_geforce_gemm/79a_blackwell_geforce_nvfp4_bf16_gemm.cu",
+    "https://docs.nvidia.com/cuda/parallel-thread-execution/index.html#data-movement-and-conversion-instructions-cp-async-bulk-tensor"
+  ],
+  "interpretation": "The runtime probe establishes generic thread-block cluster support and distributed shared-memory reads only. Compilation acceptance does not establish hardware TMA multicast acceleration. NVIDIA CUTLASS documentation states GeForce SM120 has no TMA multicast feature and uses cluster shape 1x1x1 for GEMM. No multicast GEMM was implemented or benchmarked.",
+  "probe_source_sha256": "3898e07c709d3e9f6c12474611ab1fdcbeb4083cc9a67a615b2a348741b13790",
+  "native_multicast_gemm_benchmark_performed": false,
+  "decision": "Do not implement the proposed hardware multicast GEMM on this GeForce SM120: NVIDIA documents no such hardware feature and the installed compiler lowers multicast to a CUDA syscall. Ordinary TMA and generic clusters remain distinct supported mechanisms."
+}
