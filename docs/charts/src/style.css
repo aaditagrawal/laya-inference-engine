@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f4f3ec;
+  --ink: #202f27;
+  --muted: #58675d;
+  --line: #cbd2c8;
+  --accent: #087647;
+}
+:root[data-theme="dark"] {
+  --paper: #111e18;
+  --ink: #eef3e9;
+  --muted: #aabbb0;
+  --line: #34463c;
+  --accent: #6ae69c;
+}
+* {box-sizing: border-box;}
+body {margin: 0; background: var(--paper); color: var(--ink); font-family: "IBM Plex Sans", sans-serif;}
+main {width: 1000px;}
+.sheet {width: 1000px; padding: 32px 40px 24px; background: var(--paper);}
+.masthead {display: flex; align-items: center; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .08em; color: var(--muted);}
+.brand {display: flex; align-items: center; gap: 10px; color: var(--ink);}
+.brand i {display: block; width: 12px; height: 12px; background: var(--accent); box-shadow: 5px -5px 0 -2px var(--paper), 5px -5px 0 -1px var(--accent);}
+header {display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 28px 0 32px;}
+h1 {font-size: 34px; font-weight: 500; letter-spacing: -.04em; line-height: 1.2; margin: 0 0 12px;}
+p {font-size: 15px; line-height: 1.4; color: var(--muted); margin: 0;}
+.headline-stat {text-align: right; flex-shrink: 0;}
+.headline-stat strong {font-size: 52px; line-height: 1; color: var(--accent); font-weight: 500; letter-spacing: -.06em;}
+.headline-stat strong small {font-size: 30px; margin-left: 4px;}
+.headline-stat span {display: block; font-size: 13px; line-height: 1.4; margin-top: 8px; color: var(--muted);}
+.horizontal-chart {padding: 12px 0 20px;}
+.axis-row, .chart-row {display: grid; grid-template-columns: 232px 1fr 88px; gap: 20px;}
+.axis-row {height: 28px; font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--muted);}
+.axis {position: relative;}
+.axis span {position: absolute; transform: translateX(-50%);}
+.axis-unit {text-align: right;}
+.chart-row {height: 72px; align-items: center;}
+.row-label {display: flex; flex-direction: column; gap: 4px;}
+.row-label strong {font-size: 17px; font-weight: 500; line-height: 1.2;}
+.row-label span {font-size: 13px; color: var(--muted);}
+.track {position: relative; height: 72px; display: flex; align-items: center;}
+.gridline {position: absolute; top: 0; bottom: 0; border-left: 1px solid var(--line); opacity: .65;}
+.dither {position: relative; width: 100%; height: 36px; image-rendering: pixelated;}
+.row-value {font-family: "IBM Plex Mono", monospace; font-size: 22px; text-align: right; font-variant-numeric: tabular-nums;}
+.row-value small {display: block; font-size: 11px; color: var(--muted);}
+.accent {color: var(--accent);}
+.neutral {color: var(--ink);}
+footer {display: flex; justify-content: space-between; gap: 24px; border-top: 1px solid var(--line); padding-top: 20px; margin-top: 16px; font-size: 13px; color: var(--muted); line-height: 1.6;}
+.hardware {flex-shrink: 0; font-family: "IBM Plex Mono", monospace; font-size: 11px; line-height: 1.8; text-align: right; letter-spacing: .025em;}
+.panels {display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding: 0 0 8px;}
+.panels article + article {border-left: 1px solid var(--line); padding-left: 32px; margin-left: -16px;}
+.panel-kicker {font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .06em; color: var(--muted);}
+h2 {font-size: 42px; font-weight: 500; color: var(--accent); letter-spacing: -.045em; line-height: 1.2; margin: 12px 0 8px;}
+h2 span {font-size: 20px; color: var(--ink); letter-spacing: -.025em;}
+.panels p {font-size: 13px; white-space: nowrap;}
+.pair-chart {padding: 36px 0 0 36px;}
+.pair-plot {height: 208px; position: relative; display: flex; justify-content: space-around;}
+.pair-grid {position: absolute; left: 0; right: 0; border-bottom: 1px solid var(--line);}
+.pair-grid span {position: absolute; right: calc(100% + 8px); transform: translateY(-50%); font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--muted);}
+.pair-bar {width: 104px; height: 100%; position: relative;}
+.vertical {width: 100%; height: 100%;}
+.pair-value {position: absolute; left: -16px; right: -16px; text-align: center; font-family: "IBM Plex Mono", monospace; font-size: 21px; white-space: nowrap;}
+.pair-value small {font-size: 11px; margin-left: 6px; color: var(--muted);}
+.pair-labels {display: flex; justify-content: space-around; margin-top: 12px; font-size: 13px;}
+.pair-labels span {width: 50%; text-align: center;}
+.panel-note {margin-top: 20px; font-size: 13px; line-height: 1.6; color: var(--muted);}
+.startup-scope {font-size: 13px; line-height: 1.6; color: var(--muted); padding: 0 0 4px;}

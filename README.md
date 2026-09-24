@@ -6,6 +6,14 @@ Laya returns typed decisions in one forward pass. Useful metrics are completed-r
 
 Contributor model to this effort and testing: GPT-6 Astra.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/warm-latency-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="docs/assets/warm-latency-light.png">
+  <img alt="Warm short-request p50 on RTX 5070 Ti: upstream default 20.52 ms, upstream fast 3.99 ms, this engine 2.81 ms, experimental native 2.19 ms, experimental compiled native 2.11 ms. Historical runs; loading, warmup and HTTP excluded." src="docs/assets/warm-latency-light.png" width="1000">
+</picture>
+
+[Measurement details](#performance) · [All benchmark results](results/README.md) · [Balanced and fast configurations](docs/performance-modes.md)
+
 ## Quickstart
 
 Use Linux, Python 3.12, [uv](https://docs.astral.sh/uv/), and a Blackwell GPU with a CUDA 13.2-compatible driver. The tested device has 16 GB VRAM and driver 595.84. `uv.lock` pins PyTorch 2.14.0+cu132, Triton 3.8.0, Transformers 5.17.0, and Laya 0.3.9.
@@ -75,6 +83,32 @@ The experiments also provide [balanced and fast configuration recipes](docs/perf
 They document extra GPU memory, setup costs and which workloads benefit. The
 [results index](results/README.md) separates warm latency, startup, concurrent
 serving and hardware comparisons.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/experimental-gains-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="docs/assets/experimental-gains-light.png">
+  <img alt="Separate opt-in experiments on RTX 5070 Ti: projection fusion cuts 16-long-question p50 from 88.14 to 81.23 ms, 7.8% lower. At four concurrent callers, four CUDA streams raise short-request throughput from 433 to 818 requests per second, 1.89 times as much. Warm in-process measurements without HTTP." src="docs/assets/experimental-gains-light.png" width="1000" loading="lazy">
+</picture>
+
+These gains use more GPU memory for packed weights or independent graph buffers.
+They are separate experiments; their speedups cannot be multiplied.
+[Fusion measurements](results/latency-optimizations/fusion/best.json),
+[concurrent serving measurements](results/latency-optimizations/serving/confirmation-summary.json)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/startup-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="docs/assets/startup-light.png">
+  <img alt="Experimental RTX 5070 Ti startup, module entry to first response: fresh torch.compile 20.64 seconds, cached torch.compile 8.67 seconds, native 6.33 seconds, prebuilt AOT deployment 3.73 seconds. Median of three fresh processes with warm OS caches; artifact build and HTTP excluded." src="docs/assets/startup-light.png" width="1000" loading="lazy">
+</picture>
+
+The AOT path includes loader and tokenizer changes and supports two fixed
+batch-one shapes. Each prebuilt artifact is about 958 MB. These startup timings
+include imports and model loading, unlike the after-loading A6000 comparison
+above. [Startup matrix](results/latency-optimizations/aot/final-offline/matrix-summary.json),
+[AOT scope and reproduction](experiments/latency/aot/README.md)
+
+The charts use [Dither Kit](https://www.tripwire.sh/dither-kit) and read the
+committed benchmark files directly. [Regenerate the images](docs/charts/README.md).
 
 A separate [localhost HTTP comparison](results/benchmark-http.json) uses the same server wrapper and client for each backend. One short question took 3.99 ms here, 5.05 ms with upstream fast mode, and 22.52 ms with default upstream. All three exclude model and server startup equally.
 

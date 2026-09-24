@@ -1,0 +1,33 @@
+{
+  "name": "laya-benchmark-charts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "bunx --bun shadcn@4.21.0 add Boring-Software-Inc/dither-kit/bar-chart#1e7faee9aa252e499651e6736ed65f7a07d9a6bd -y",
+    "render": "bun render.ts",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "5.3.0",
+    "@fontsource/ibm-plex-sans": "5.3.0",
+    "clsx": "2.1.1",
+    "d3": "7.9.0",
+    "d3-scale": "^4.0.2",
+    "d3-shape": "^3.2.0",
+    "motion": "13.4.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "tailwind-merge": "3.7.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@types/bun": "1.4.2",
+    "@types/d3": "7.4.3",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "playwright": "1.63.0",
+    "tailwindcss": "4.3.3",
+    "typescript": "7.0.2",
+    "vite": "8.3.0"
+  }
+}

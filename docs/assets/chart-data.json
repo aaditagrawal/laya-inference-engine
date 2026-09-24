@@ -1,0 +1,119 @@
+{
+  "warm": [
+    {
+      "label": "Upstream default",
+      "detail": "Original comparison",
+      "value": 20.52444004220888,
+      "color": "neutral"
+    },
+    {
+      "label": "Upstream fast=True",
+      "detail": "Separate upstream run",
+      "value": 3.990803495980799,
+      "color": "neutral"
+    },
+    {
+      "label": "This engine",
+      "detail": "Published default",
+      "value": 2.81198404263705,
+      "color": "accent"
+    },
+    {
+      "label": "Native + window",
+      "detail": "Opt-in experiment",
+      "value": 2.187664504162967,
+      "color": "accent"
+    },
+    {
+      "label": "Compiled native",
+      "detail": "Opt-in experiment",
+      "value": 2.1056540426798165,
+      "color": "accent"
+    }
+  ],
+  "originalSpeedup": 7.298917679120707,
+  "fusion": {
+    "fusion": {
+      "p50_ms": 81.23145549325272,
+      "p95_ms": 81.69160191901028,
+      "mean_ms": 81.22438637074083,
+      "samples": 90,
+      "rounds": 3
+    },
+    "native-window": {
+      "p50_ms": 88.14349595922977,
+      "p95_ms": 88.9702079584822,
+      "mean_ms": 88.243161718775,
+      "samples": 90,
+      "rounds": 3
+    }
+  },
+  "fusionReduction": 7.841804310977373,
+  "concurrent": [
+    {
+      "variant": "serial-current",
+      "profile": "1-short",
+      "concurrency": 4,
+      "rounds": 3,
+      "requests": 192,
+      "elapsed_s": 0.44318538112565875,
+      "requests_per_second": 433.2272863160195,
+      "decisions_per_second": 433.2272863160195,
+      "p50_ms": 9.196366532705724,
+      "p95_ms": 9.432566061150283,
+      "graph_misses": 0,
+      "exact_answers_all": true,
+      "decision_disagreements": 0,
+      "max_probability_error": 0,
+      "max_action_probability_error": 0,
+      "throughput_ratio_vs_serial": 1,
+      "p95_ratio_vs_serial": 1
+    },
+    {
+      "variant": "streams-4",
+      "profile": "1-short",
+      "concurrency": 4,
+      "rounds": 3,
+      "requests": 192,
+      "elapsed_s": 0.23475513304583728,
+      "requests_per_second": 817.8734901720377,
+      "decisions_per_second": 817.8734901720377,
+      "p50_ms": 4.828861972782761,
+      "p95_ms": 4.958377010188997,
+      "graph_misses": 0,
+      "exact_answers_all": true,
+      "decision_disagreements": 0,
+      "max_probability_error": 0,
+      "max_action_probability_error": 0,
+      "throughput_ratio_vs_serial": 1.8878623669503503,
+      "p95_ratio_vs_serial": 0.5256657603078936
+    }
+  ],
+  "throughputGain": 1.8878623669503503,
+  "cold": [
+    {
+      "label": "torch.compile",
+      "detail": "Fresh compiler caches",
+      "value": 20.63839774101507,
+      "color": "neutral"
+    },
+    {
+      "label": "torch.compile",
+      "detail": "Reused compiler caches",
+      "value": 8.667918296996504,
+      "color": "neutral"
+    },
+    {
+      "label": "Native + window",
+      "detail": "No full-model compilation",
+      "value": 6.325848790933378,
+      "color": "neutral"
+    },
+    {
+      "label": "AOT deployment",
+      "detail": "Prebuilt, fixed shapes",
+      "value": 3.7299833230208606,
+      "color": "accent"
+    }
+  ]
+}
