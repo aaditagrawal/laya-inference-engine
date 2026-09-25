@@ -20,6 +20,8 @@ Contributor model to this effort and testing: GPT-6 Astra.
 
 [Mode selection and build options](docs/performance-modes.md) · [All benchmark results](results/README.md) · [Measurement and hardware details](docs/performance.md)
 
+[How the optimizations work](#how-the-optimizations-work) · [Further optimization scope](#further-optimization-scope)
+
 ## Quickstart
 
 Use Linux, Python 3.12, [uv](https://docs.astral.sh/uv/), and a Blackwell GPU with a CUDA 13.2-compatible driver. The tested RTX 5070 Ti has 16 GB VRAM and driver 595.84. The lockfile pins PyTorch 2.14.0+cu132, Triton 3.8.0, Transformers 5.17.0, NumPy 2.5.3 and Laya 0.3.9.
@@ -125,6 +127,49 @@ The original balanced implementation measured 2.81 ms against default upstream a
 First-use setup has a different scope. On an **RTX A6000**, the older engine's first short request took **0.40 seconds after model loading**, versus **36.7 seconds** for a separate optimized FP16 GPU implementation with `torch.compile` and CUDA Graphs. Warm requests favored that implementation, 2.57 ms versus 3.57 ms here. These figures include first-shape setup and exclude loading and download. They do not measure FastEngine startup or Blackwell startup. [Matched A6000 comparison](docs/rtx-a6000-comparison.md)
 
 Separate [fusion, concurrent serving and AOT deployment experiments](docs/performance-modes.md#separate-research-results) have different memory and setup tradeoffs. They are not combined into fast mode. The charts use [Dither Kit](https://www.tripwire.sh/dither-kit) and read recorded samples directly. [Regenerate the images](docs/charts/README.md).
+
+## How the optimizations work
+
+Each request turns text into tokens, runs the model on the GPU, then formats
+the decisions on the CPU. We optimized all three stages. The initial release
+established the balanced path; fast mode keeps that foundation and specializes
+more of the work for short requests.
+
+| Optimization | What it does |
+| --- | --- |
+| Resident weights and CUDA Graphs | Keep matrix weights in 16-bit BF16 form and reuse GPU buffers. Record the GPU operations once per shape, then replay them. This avoids repeated conversion, allocation and Python dispatch. Both modes use this. |
+| Less work in the decision head | Compute the final head's queries and feed-forward outputs only at the decision and option-token positions. Keys and values still cover the full input, so those outputs retain access to the context. Both modes use this. |
+| Fused GPU kernels | Fast mode combines operations such as a feed-forward projection with its activation, or a reduction with residual addition and normalization. Fewer kernels mean fewer launches and less temporary data written to GPU memory. |
+| Kernels tuned for short requests | Fast mode selects matrix tile sizes, attention blocks and load schedules for the 64-token, single-question shape. Selected projections use the Tensor Memory Accelerator, or TMA, for bulk tensor loads. This shape also uses `torch.compile`; larger shapes keep native execution. |
+| Precomputed token tables | Fast mode stores normalized embeddings and the first query/key/value projection for every token. These depend only on the token and frozen weights, before positional encoding and attention. The tables cost 491.9 MiB; each request still computes its context-dependent predictions. |
+| Native CPU work | Fast mode batches tokenization through the Rust tokenizer and uses C++ for input packing, graph replay and response formatting. This reduces Python work around the GPU call. |
+
+Fast mode keeps BF16 matrix arithmetic and preserves the reference's tested
+intermediate rounding, attention masks and output formatting. Its exact-output
+checks cover the fixtures described above, not every possible input. The
+configuration is tuned for SM120; CUDA Graphs, fusion and BF16 are useful on
+other architectures too. [Implementation](src/laya_blackwell/fast),
+[experiment details](experiments/frontier/README.md)
+
+## Further optimization scope
+
+The remaining work has several different goals:
+
+| Goal | What could improve next |
+| --- | --- |
+| Lower single-request latency | Reduce GPU memory traffic and scheduling overhead while preserving rounding. Existing profiles put most time on the GPU, so rewriting more Python in C++ or Rust alone has limited headroom. |
+| Faster long inputs and batches | Extend shape-specific kernel tuning beyond the short request. The current fast mode improves these workloads too, but many of its specializations apply only to the 64-token shape. |
+| More concurrent requests | Integrate and validate multiple CUDA streams with `FastEngine`. A separate four-stream prototype improved concurrent throughput; the public engine currently serializes GPU access. Request batching is another candidate, with a queueing-latency tradeoff. |
+| Less first-use setup | Adapt the separate ahead-of-time compilation prototype and investigate saving token tables during an offline build. This would target startup and cold shapes; warm request latency is a separate measurement. |
+| Lower precision | FP8 and FP4 reduce data size and can accelerate matrix work, but our tested variants changed decisions. An approximate mode would need broader task-quality evaluation and potentially calibration or quantization-aware training before adoption. |
+
+Follow-up tests of weight repacking, bulk prefetch and mapped-memory I/O did
+not deliver a consistent full-request win on the short target. Additional
+fusion and lossless compression also showed that fewer kernels or fewer stored
+bytes can still be slower. Future changes need to improve the complete
+request, including CPU work, and pass the relevant numerical checks.
+[Recorded experiments](experiments/frontier/README.md),
+[throughput and startup prototypes](docs/performance-modes.md#separate-research-results)
 
 ## Development
 
